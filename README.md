@@ -1,6 +1,10 @@
 
-To test: `pnpm dev --open`
+To test: `pnpm dev --open`\
 To deploy: `pnpm upload`
+
+Not sure if vvv below vvv is relevant
+
+---
 
 # Nuxt 3 Minimal Starter
 
