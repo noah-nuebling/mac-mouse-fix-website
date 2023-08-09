@@ -2,6 +2,8 @@
 To test: `pnpm dev --open`\
 To deploy: `pnpm upload`
 
+See [Notes.md](Notes.md)
+
 Not sure if vvv below vvv is relevant
 
 ---
