@@ -4,6 +4,7 @@
 
 body {
   @apply bg-gray-50;
+  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif; /* Copied from https://www.apple.com/by/apple-watch-series-7/ */
 
 }
 
@@ -12,6 +13,6 @@ body {
     @apply bg-[#12b489] text-white px-3 py-2 rounded-md text-sm;
   }
   .card {
-    @apply p-3 rounded-md bg-white shadow-md h-full;
+    @apply p-3 rounded-2xl bg-white shadow-md h-full;
   }
 }

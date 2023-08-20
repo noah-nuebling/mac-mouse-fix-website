@@ -1,4 +1,5 @@
 
+To install dependencies: `pnpm install`\
 To test: `pnpm dev --open`\
 To deploy: `pnpm upload`
 

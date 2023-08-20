@@ -7,11 +7,12 @@ Project is based on [this Nuxt tutorial series](https://www.youtube.com/watch?v=
 
 ---
 
-Also watch this [Tailwind CSS tutorial series](https://www.youtube.com/watch?v=bxmDnn7lrnk&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=1)
+- [ ] Also watch this [Tailwind CSS tutorial series](https://www.youtube.com/watch?v=bxmDnn7lrnk&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=1)
+- [ ] Read: https://tailwindcss.com/docs/reusing-styles
 
 ---
 
-# Notes
+# Notes (From nuxt tutorial project which was the basis of this)
 
 ## Package Manager
 We're using **pnpm** as package manager. Apparently it's better than npm and yarn (src: https://refine.dev/blog/pnpm-vs-npm-and-yarn/#conclusion) and you can still easily migrate package managers later. 

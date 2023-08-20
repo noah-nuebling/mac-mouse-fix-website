@@ -11,6 +11,7 @@
           <li><NuxtLink to="/">Home</NuxtLink></li> <!-- NuxtLink dynamically generates the page instead of requesting prerendered page from the server -->
           <li><NuxtLink to="/about">About</NuxtLink></li>
           <li><NuxtLink to="/products" class="btn">Products</NuxtLink></li>
+          <li><NuxtLink to="/test" class="btn">Test</NuxtLink></li>
           <!-- <li><NuxtLink to="/products/abc" class="btn">abc prod</NuxtLink></li> -->
         </ul>
       </nav>
