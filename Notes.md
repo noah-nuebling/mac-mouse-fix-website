@@ -12,8 +12,8 @@ Project is based on [this Nuxt tutorial series](https://www.youtube.com/watch?v=
 - [ ] nuxt i18n tutorial: https://phrase.com/blog/posts/nuxt-js-tutorial-i18n/
 
 **Animations**
-- https://github.com/topics/nuxt-animations (anime and gsap)
-- 
+- https://github.com/topics/nuxt-animations ([anime.js](https://animejs.com/) and [gsap](https://greensock.com/gsap/))
+- https://vuejs.org/guide/built-ins/transition.html
 ---
 
 # Notes (From nuxt tutorial project which was the basis of this)
