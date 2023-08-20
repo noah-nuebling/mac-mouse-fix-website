@@ -11,6 +11,9 @@ Project is based on [this Nuxt tutorial series](https://www.youtube.com/watch?v=
 - [ ] Read: https://tailwindcss.com/docs/reusing-styles
 - [ ] nuxt i18n tutorial: https://phrase.com/blog/posts/nuxt-js-tutorial-i18n/
 
+**Animations**
+- https://github.com/topics/nuxt-animations (anime and gsap)
+- 
 ---
 
 # Notes (From nuxt tutorial project which was the basis of this)
