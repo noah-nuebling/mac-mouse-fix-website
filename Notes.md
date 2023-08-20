@@ -13,6 +13,7 @@ Project is based on [this Nuxt tutorial series](https://www.youtube.com/watch?v=
 
 **Animations**
 - https://github.com/topics/nuxt-animations ([anime.js](https://animejs.com/) and [gsap](https://greensock.com/gsap/))
+  - gsap seems to be more widely used and you can find more examples on Google. Heres an example for expanding card: https://greensock.com/forums/topic/21050-expanding-card-on-click/
 - https://vuejs.org/guide/built-ins/transition.html
 ---
 
