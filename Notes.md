@@ -9,6 +9,7 @@ Project is based on [this Nuxt tutorial series](https://www.youtube.com/watch?v=
 
 - [ ] Also watch this [Tailwind CSS tutorial series](https://www.youtube.com/watch?v=bxmDnn7lrnk&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=1)
 - [ ] Read: https://tailwindcss.com/docs/reusing-styles
+- [ ] nuxt i18n tutorial: https://phrase.com/blog/posts/nuxt-js-tutorial-i18n/
 
 ---
 
