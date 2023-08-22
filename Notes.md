@@ -22,6 +22,12 @@ Project is based on [this Nuxt tutorial series](https://www.youtube.com/watch?v=
   - -> Will use gsap
 - gsap + nuxt examples: https://stackblitz.com/@GreenSockLearning/collections/gsap-nuxtjs-starters
 
+**Inspiratio**
+
+- https://www.apple.com/by/apple-watch-series-7/
+- https://pasteapp.io/
+- See [noteplan](<noteplan://x-callback-url/openNote?noteTitle=MMF - Inspiration>)
+
 ---
 
 # Notes (From nuxt tutorial project which was the basis of this)
