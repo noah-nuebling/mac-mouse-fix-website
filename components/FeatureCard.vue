@@ -4,7 +4,7 @@
   -->
 
 <template>
-  <div :class="`h-full shadow-lg rounded-xl
+  <div :class="`h-full p-6 shadow-lg rounded-xl
   border-2 border-gray-400/10 bg-origin-border
   ${extraClass}`"> 
     <slot name="default"/> <!-- Default card content -->
