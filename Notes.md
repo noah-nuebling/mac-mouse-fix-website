@@ -7,8 +7,11 @@ Project is based on [this Nuxt tutorial series](https://www.youtube.com/watch?v=
 
 ---
 
-- [ ] Also watch this [Tailwind CSS tutorial series](https://www.youtube.com/watch?v=bxmDnn7lrnk&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=1)
+**Best practices**
+- [ ] [Tailwind CSS tutorial series](https://www.youtube.com/watch?v=bxmDnn7lrnk&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=1)
 - [ ] Read: https://tailwindcss.com/docs/reusing-styles
+
+**i18n**
 - [ ] nuxt i18n tutorial: https://phrase.com/blog/posts/nuxt-js-tutorial-i18n/
 
 **Animations**
@@ -16,6 +19,7 @@ Project is based on [this Nuxt tutorial series](https://www.youtube.com/watch?v=
   - gsap seems to be more widely used and you can find more examples on Google. Heres an example for expanding card: https://greensock.com/forums/topic/21050-expanding-card-on-click/
 - https://vuejs.org/guide/built-ins/transition.html
 - gsap seems to have much better support for scroll-linked animation than animejs. see https://greensock.com/docs/v3/Plugins/ScrollTrigger vs https://codepen.io/equinusocio/pen/GeBxJz
+  - -> Will use gsap
 - gsap + nuxt examples: https://stackblitz.com/@GreenSockLearning/collections/gsap-nuxtjs-starters
 
 ---
