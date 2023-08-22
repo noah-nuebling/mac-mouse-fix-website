@@ -8,7 +8,7 @@
     <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
 
-      <FeatureCard extra-class="feature-card col-span-auto bg-gradient-pink">
+      <FeatureCard class="feature-card col-span-auto bg-gradient-pink">
         <template v-slot:default>
           <div class="flex flex-row items-center h-full">
             <div>
@@ -27,44 +27,44 @@
           </video>
         </template>
       </FeatureCard>
-      <FeatureCard extra-class="feature-card col-span-auto bg-gradient-orange flex flex-col">
+      <FeatureCard class="feature-card col-span-auto bg-gradient-orange flex flex-col">
         <h3 class="dark-bg">Mission Control</h3>
         <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
         <a href="" class="mt-2 text-gray-100 underline">See it in action ❯</a>
       </FeatureCard>
-      <FeatureCard extra-class="feature-card col-span-auto bg-gradient-blue">
+      <FeatureCard class="feature-card col-span-auto bg-gradient-blue">
         <h3 class="dark-bg">App Exposé</h3>
         <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
       </FeatureCard>
-      <FeatureCard extra-class="feature-card col-span-auto">
+      <FeatureCard class="feature-card col-span-auto">
         <h3>Show Desktop</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
       </FeatureCard>
-      <FeatureCard extra-class="feature-card col-span-auto">
+      <FeatureCard class="feature-card col-span-auto">
         <h3>Launchpad</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
       </FeatureCard>
-      <FeatureCard extra-class="feature-card col-span-auto">
+      <FeatureCard class="feature-card col-span-auto">
         <h3>Look Up & Data Detectors</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
       </FeatureCard>
-      <FeatureCard extra-class="feature-card col-span-auto">
+      <FeatureCard class="feature-card col-span-auto">
         <h3>Move between Pages</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
       </FeatureCard>
-      <FeatureCard extra-class="feature-card col-span-auto">
+      <FeatureCard class="feature-card col-span-auto">
         <h3>Mark Mails as Unread</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
       </FeatureCard>
-      <FeatureCard extra-class="feature-card col-span-auto">
+      <FeatureCard class="feature-card col-span-auto">
         <h3>Scroll Freely</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
       </FeatureCard>
-      <FeatureCard extra-class="feature-card col-span-auto">
+      <FeatureCard class="feature-card col-span-auto">
         <h3>Pinch to Zoom</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
       </FeatureCard>
-      <FeatureCard extra-class="feature-card col-span-auto">
+      <FeatureCard class="feature-card col-span-auto">
         <h3>Smart Zoom</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
       </FeatureCard>
