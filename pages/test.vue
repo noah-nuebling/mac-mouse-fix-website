@@ -22,7 +22,9 @@
           </div>
         </template>
         <template v-slot:expanded>
-          
+          <video id="vid1" controls preload="auto" playsinline alt="Remap Demo" class="w-full">
+            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+          </video>
         </template>
       </FeatureCard>
       <FeatureCard extra-class="feature-card col-span-auto bg-gradient-orange flex flex-col">

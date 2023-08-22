@@ -4,16 +4,21 @@
   -->
 
 <template>
-  <div :class="`h-full p-6 shadow-lg rounded-xl
+  <div @click="isExpanded = !isExpanded" :class="`h-full p-6 shadow-lg rounded-xl
   border-2 border-gray-400/10 bg-origin-border
   ${extraClass}`"> 
-    <slot name="default"/> <!-- Default card content -->
-    <slot name="expanded"/> <!-- When card is clicked, the card should expand and show this content -->
+    <div v-show="!isExpanded">
+      <slot name="default"/> <!-- Default card content -->
+    </div>
+    <div v-show="isExpanded">
+      <slot name="expanded"/> <!-- When card is clicked, the card should expand and show this content -->
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
   const { extraClass } = defineProps(['extraClass'])
+  const isExpanded = ref(false)
 </script>
 
 <style lang="postcss" scoped>
