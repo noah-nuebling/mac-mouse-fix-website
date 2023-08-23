@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 
-  const { $store, $gsap } = useNuxtApp()
+  const { $ScrollTrigger, $store, $gsap } = useNuxtApp()
   const slots = useSlots()
 
   const root: Ref<HTMLElement | null> = ref(null) /* Will be bound to the root element by magic */
@@ -45,11 +45,21 @@
         $store.backdrop = b
       }
 
-      // Close this card on backdrop click
+      // Close card when backdrop is clicked
+      //  We need to do this every time so *this* specific card is closed and not another card that the backdrop was previously used with
       $store.backdrop.onclick = (_) => isExpanded.value = false
 
       // Insert backdrop into document
       document.body.appendChild($store.backdrop)
+
+      // Close card when it is scrolled away
+      $ScrollTrigger.create({
+        trigger: root.value,
+        start: "bottom bottom",
+        end: "top top",
+        onLeaveBack: () => isExpanded.value = false,
+        onLeave: () => isExpanded.value = false,
+      })
 
       // Bring card to front
       root.value.style.zIndex = 100
