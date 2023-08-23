@@ -53,20 +53,36 @@
       document.body.appendChild($store.backdrop)
 
       // Close card when it is scrolled away
+      // When the card is already above the trigger zone when this is called, then the card unexpands immediately. But when it's below the trigger zone, this doesn't happen. Not sure why. I think ideally, we would scroll the card into view, but I can't get that to work right now, either. 
       $ScrollTrigger.create({
         trigger: root.value,
         start: "bottom bottom",
         end: "top top",
-        onLeaveBack: () => isExpanded.value = false,
         onLeave: () => isExpanded.value = false,
+        onLeaveBack: () => isExpanded.value = false,
       })
 
       // Bring card to front
       root.value.style.zIndex = 100
 
-      // Animate card
+      // Animate
       animationContext = $gsap.context((self) => { /* Not sure this leaks memory since we create so many contexts */
 
+        // Scroll card into view
+        // Note: Just can't get this to work for some reason. Not even this codepen works? https://codepen.io/matthiasott/pen/KKVxqyY
+        // if (root.value) {
+        //   const r = root.value!
+          
+        //   console.log(`Type of r is: ${root.value!}`)
+
+        //   $gsap.to(window, {
+        //     duration: 1.0,
+        //     scrollTo: '#defaultSlotWrapper',
+        //     ease: "power1.easeInOut",
+        //   })
+        // }
+
+        // Animate card
         const dur = 0.5
           const onCompleted = () => {
         }
