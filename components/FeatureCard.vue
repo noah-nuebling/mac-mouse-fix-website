@@ -8,7 +8,7 @@
   <div
     ref="root"
     @click="isExpanded = !isExpanded" 
-    :class="['h-full shadow-2xl rounded-xl overflow-clip', $attrs.class, isExpanded ? 'z-[100] border-2 border-gray-400/10 bg-origin-border' : 'z-auto border-0' ]">
+    :class="['h-full rounded-xl overflow-clip', $attrs.class, isExpanded ? 'border-2 border-gray-400/10 bg-origin-border drop-shadow-2xl shadow-2xl' : 'border-0 shadow-2xl' ]">
     <div v-show="!isExpanded" id="defaultSlotWrapper" class="m-6">
       <slot name="default"/> <!-- Default card content -->
     </div>
@@ -29,20 +29,28 @@
 
   watch(isExpanded, (newIsExpanded) => {
     if (newIsExpanded) {
+
+      root.value.style.zIndex = 100
+
       gsapCtx = $gsap.context((self) => { /* Not sure this leaks memory since we create so many contexts */
 
         // Move card
-        $gsap.to(root.value, {
+/*         $gsap.to(root.value, {
           x: 200,
           duration: 0.4,
           ease: "elastic.out(0.001, 1.0)",
+        }) */
+        $gsap.to(root.value, {
+          x: 200,
+          duration: 0.5,
+          ease: criticalSpring(6.0),
         })
 
         // Zoom card
         $gsap.to(root.value, {
           scale: 2.0,
           duration: 0.5,
-          ease: criticalSpring(),
+          ease: criticalSpring(4.0),
         })
 
         // Fade out default content
@@ -69,28 +77,31 @@
         // Fade out expanded content
         tl.to("#expandedSlotWrapper", {
           opacity: 0.0,
-          duration: 0.3,
+          duration: 0.4,
         }, 0)
 
         // Fade in default content
         tl.to("#defaultSlotWrapper", {
           opacity: 1.0,
-          duration: 0.3,
+          duration: 0.4,
         }, 0)
 
         // Un-Zoom card
         tl.to(root.value, {
           scale: 1.0,
           duration: 0.5,
-          ease: criticalSpring(),
+          ease: criticalSpring(6.0),
+          onComplete: () => {
+            root.value.style.zIndex = 0
+          }
         }, 0)
 
         // Move card
         tl.to(root.value, {
           x: 0,
-          duration: 0.5 - 0.005,
-          ease: criticalSpring(),
-        }, 0.005)
+          duration: 0.5 /* - 0.005 */,
+          ease: criticalSpring(4.0),
+        }, 0/* .005 */)
 
         // Play timeline
         tl.play()
