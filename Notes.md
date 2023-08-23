@@ -5,6 +5,8 @@ Project is based on [this Nuxt tutorial series](https://www.youtube.com/watch?v=
 
 - Type vbase and choose auto completion for **snippets** from Vue VSCode Snippets plugin
 
+See example of apple website with card with play button [here](assets/notes/apple-card-play-button.png)
+
 ---
 
 **Best practices**
