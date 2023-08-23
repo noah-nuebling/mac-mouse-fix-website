@@ -20,13 +20,12 @@
 
 <script setup lang="ts">
 
-  const { $gsap } = useNuxtApp()
+  const { $store, $gsap } = useNuxtApp()
   const slots = useSlots()
 
-  const root = ref(null) /* Will be bound to the root element by magic */
+  const root: Ref<HTMLElement | null> = ref(null) /* Will be bound to the root element by magic */
   const isExpanded = ref(false)
-  let animationContext: any
-  let 
+  var animationContext: any = null
 
   watch(isExpanded, (shouldExpand) => {
 
@@ -38,8 +37,19 @@
 
     if (shouldExpand) {
 
-      // Insert backdrop
+      // Create backdrop
+      if ($store.backdrop == null) {
+        var b = document.createElement('div') as HTMLElement
+        b.classList.add('h-screen', 'w-screen', 'z-[50]', 'fixed', 'top-0', 'left-0')
+        // b.classList.add('bg-stone-900/10') // Not displaying the backdrop. But using it to close card when user click outside the card
+        $store.backdrop = b
+      }
 
+      // Close this card on backdrop click
+      $store.backdrop.onclick = (_) => isExpanded.value = false
+
+      // Insert backdrop into document
+      document.body.appendChild($store.backdrop)
 
       // Bring card to front
       root.value.style.zIndex = 100
@@ -84,6 +94,8 @@
       })
     } else { // Unexpand
 
+      // Remove backdrop from layout
+      $store.backdrop?.remove()
 
       // Bring card to normal level after animation
       const onCompleted = () => {
