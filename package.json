@@ -15,5 +15,8 @@
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18.17.3",
     "nuxt": "^3.6.5"
+  },
+  "dependencies": {
+    "gsap": "^3.12.2"
   }
 }

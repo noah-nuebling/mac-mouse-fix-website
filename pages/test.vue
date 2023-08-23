@@ -22,7 +22,7 @@
           </div>
         </template>
         <template v-slot:expanded>
-          <video id="vid1" controls preload="auto" playsinline alt="Remap Demo" class="w-full">
+          <video id="vid1" preload="auto" playsinline alt="Remap Demo" class="w-full">
             <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
           </video>
         </template>

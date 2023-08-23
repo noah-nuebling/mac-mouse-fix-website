@@ -21,6 +21,9 @@ Project is based on [this Nuxt tutorial series](https://www.youtube.com/watch?v=
 - gsap seems to have much better support for scroll-linked animation than animejs. see https://greensock.com/docs/v3/Plugins/ScrollTrigger vs https://codepen.io/equinusocio/pen/GeBxJz
   - -> Will use gsap
 - gsap + nuxt examples: https://stackblitz.com/@GreenSockLearning/collections/gsap-nuxtjs-starters
+- Integrating gsap with nuxt: 
+  - https://greensock.com/forums/topic/35443-nuxt-3-setup-with-plugins/
+  - https://github.com/hypernym-studio/nuxt-gsap
 
 **Inspiratio**
 
