@@ -7,7 +7,7 @@
 <template>
   <div
     ref="root"
-    @click="isExpanded = !isExpanded" 
+    @click="isExpanded = true"
     :class="['h-full rounded-xl overflow-clip', $attrs.class, isExpanded ? 'border-2 border-gray-400/10 bg-origin-border drop-shadow-2xl shadow-2xl' : 'border-0 shadow-2xl' ]">
     <div v-show="!isExpanded" id="defaultSlotWrapper" class="m-6">
       <slot name="default"/> <!-- Default card content -->
@@ -19,31 +19,36 @@
 </template>
 
 <script setup lang="ts">
-import { on } from 'events';
-
 
   const { $gsap } = useNuxtApp()
   const slots = useSlots()
 
   const root = ref(null) /* Will be bound to the root element by magic */
   const isExpanded = ref(false)
-  let gsapCtx: any
+  let animationContext: any
+  let 
 
-  watch(isExpanded, (newIsExpanded) => {
+  watch(isExpanded, (shouldExpand) => {
 
-    if (gsapCtx) {
-      gsapCtx.kill() /* Not sure if this is appropriate here. I think it prevents the onComplete method from being called when the card is unexpanded during the expand animation, which would lead to the zIndex getting messed up. */
+    // Kill current animations
+    // Not totally sure if this is appropriate here. I think it prevents the onComplete method from being called when the card is unexpanded during the expand animation, which would lead to the zIndex getting messed up.
+    if (animationContext) {
+      animationContext.kill()
     }
 
+    if (shouldExpand) {
 
-    if (newIsExpanded) {
+      // Insert backdrop
 
+
+      // Bring card to front
       root.value.style.zIndex = 100
 
-      gsapCtx = $gsap.context((self) => { /* Not sure this leaks memory since we create so many contexts */
+      // Animate card
+      animationContext = $gsap.context((self) => { /* Not sure this leaks memory since we create so many contexts */
 
         const dur = 0.5
-        const onCompleted = () => {
+          const onCompleted = () => {
         }
 
         // Fade out default content
@@ -77,14 +82,18 @@ import { on } from 'events';
         })
 
       })
-    } else {
+    } else { // Unexpand
 
-      gsapCtx = $gsap.context((self) => {
+
+      // Bring card to normal level after animation
+      const onCompleted = () => {
+        root.value.style.zIndex = 0
+      }
+
+      // Animate card
+      animationContext = $gsap.context((self) => {
 
         const dur = 0.5
-        const onCompleted = () => {
-          root.value.style.zIndex = 0
-        }
 
         var tl = $gsap.timeline()
 
@@ -122,7 +131,7 @@ import { on } from 'events';
   })
 
   onUnmounted(() => {
-    gsapCtx.revert() /* Clean up animation memory stuff or sth */
+    animationContext.revert() /* Clean up animation memory stuff or sth */
   });
 
 </script>

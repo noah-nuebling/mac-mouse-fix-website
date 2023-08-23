@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   // target: 'static', // Only on nuxt 2 I think. On nuxt 3 you use the generate script
   ssr: true,
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt'],
   app: {
     // baseURL: process.env.NODE_ENV === 'development' ? '/' : 'mac-mouse-fix-website-nuxt', // Usnig gh-pages dev dependency instead
     baseURL: '/mac-mouse-fix-website-nuxt',
