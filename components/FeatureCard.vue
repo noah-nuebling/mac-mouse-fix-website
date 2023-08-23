@@ -19,6 +19,8 @@
 </template>
 
 <script setup lang="ts">
+import { on } from 'events';
+
 
   const { $gsap } = useNuxtApp()
   const slots = useSlots()
@@ -28,35 +30,26 @@
   let gsapCtx: any
 
   watch(isExpanded, (newIsExpanded) => {
+
+    if (gsapCtx) {
+      gsapCtx.kill() /* Not sure if this is appropriate here. I think it prevents the onComplete method from being called when the card is unexpanded during the expand animation, which would lead to the zIndex getting messed up. */
+    }
+
+
     if (newIsExpanded) {
 
       root.value.style.zIndex = 100
 
       gsapCtx = $gsap.context((self) => { /* Not sure this leaks memory since we create so many contexts */
 
-        // Move card
-/*         $gsap.to(root.value, {
-          x: 200,
-          duration: 0.4,
-          ease: "elastic.out(0.001, 1.0)",
-        }) */
-        $gsap.to(root.value, {
-          x: 200,
-          duration: 0.5,
-          ease: criticalSpring(6.0),
-        })
-
-        // Zoom card
-        $gsap.to(root.value, {
-          scale: 2.0,
-          duration: 0.5,
-          ease: criticalSpring(4.0),
-        })
+        const dur = 0.5
+        const onCompleted = () => {
+        }
 
         // Fade out default content
         $gsap.to("#defaultSlotWrapper", {
           opacity: 0.0,
-          duration: 0.3,
+          duration: 0.6 * dur,
         })
 
         // Fade in expanded content
@@ -65,43 +58,62 @@
         })
         $gsap.to("#expandedSlotWrapper", {
           opacity: 1.0,
-          duration: 0.5,
+          duration: dur,
+        })
+
+        // Move card
+        $gsap.to(root.value, {
+          x: 200,
+          duration: dur,
+          ease: criticalSpring(6.0),
+        })
+
+        // Zoom card
+        $gsap.to(root.value, {
+          scale: 2.0,
+          duration: dur,
+          ease: criticalSpring(4.0),
+          onComplete: onCompleted,
         })
 
       })
     } else {
+
       gsapCtx = $gsap.context((self) => {
+
+        const dur = 0.5
+        const onCompleted = () => {
+          root.value.style.zIndex = 0
+        }
 
         var tl = $gsap.timeline()
 
         // Fade out expanded content
         tl.to("#expandedSlotWrapper", {
           opacity: 0.0,
-          duration: 0.4,
+          duration: dur,
         }, 0)
 
         // Fade in default content
         tl.to("#defaultSlotWrapper", {
           opacity: 1.0,
-          duration: 0.4,
-        }, 0)
-
-        // Un-Zoom card
-        tl.to(root.value, {
-          scale: 1.0,
-          duration: 0.5,
-          ease: criticalSpring(6.0),
-          onComplete: () => {
-            root.value.style.zIndex = 0
-          }
+          duration: dur,
         }, 0)
 
         // Move card
         tl.to(root.value, {
           x: 0,
-          duration: 0.5 /* - 0.005 */,
+          duration: dur /* - 0.005 */,
           ease: criticalSpring(4.0),
-        }, 0/* .005 */)
+        }, 0/* .005 */) 
+
+        // Un-Zoom card
+        tl.to(root.value, {
+          scale: 1.0,
+          duration: dur,
+          ease: criticalSpring(6.0),
+          onComplete: onCompleted,
+        }, 0)
 
         // Play timeline
         tl.play()
