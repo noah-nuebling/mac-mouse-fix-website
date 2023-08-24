@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">Do the Things <br>You Do on a <span class="text-gradient-blue">Trackpad</span>.<br>Without a Trackpad.</h2>
+    <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">Do the Things <br>You Do on a <span class="text-gradient-blue">Trackpad</span>.<br><span class="text-gradient-yellow">Without</span> a <span class= text-gradient-light-yellow>Trackpad</span>.</h2>
     <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam voluptates odit doloremque reiciendis aliquid, possimus nobis consequuntur. Necessitatibus, dignissimos mollitia, quod repellendus debitis architecto nemo, voluptates exercitationem voluptate itaque ipsum?</p>
     <!-- <p class="text-xl font-normal text-gray-500/90 mb-20 w-[60rem]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam voluptates odit doloremque reiciendis aliquid, possimus nobis consequuntur. Necessitatibus, dignissimos mollitia, quod repellendus debitis architecto nemo, voluptates exercitationem voluptate itaque ipsum?</p> -->
 
@@ -22,8 +22,8 @@
           </div>
         </template>
         <template v-slot:expanded>
-          <h3 class="dark-bg">Move Between Spaces</h3>
-          <video id="vid1" preload="auto" playsinline alt="Remap Demo" class="w-full">
+          <!-- <h3 class="dark-bg">Move Between Spaces</h3> -->
+          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
             <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
           </video>
         </template>

@@ -8,7 +8,7 @@
   <div
     ref="root"
     @click="isExpanded = true"
-    :class="['h-full rounded-xl overflow-clip', $attrs.class, isExpanded ? 'border-2 border-gray-400/10 bg-origin-border drop-shadow-2xl shadow-2xl' : 'border-0 shadow-2xl' ]">
+    :class="['h-full rounded-xl overflow-clip border-2 border-gray-50/25 bg-origin-border shadow-lg', $attrs.class, isExpanded ? '' : '' ]">
     <div v-show="!isExpanded" id="defaultSlotWrapper" class="m-6">
       <slot name="default"/> <!-- Default card content -->
     </div>
@@ -84,7 +84,7 @@
 
         // Animate card
         const dur = 0.5
-          const onCompleted = () => {
+        const onCompleted = () => {
         }
 
         // Fade out default content
@@ -122,6 +122,9 @@
 
       // Remove backdrop from layout
       $store.backdrop?.remove()
+
+      // Bring card to front but behind expanding cards
+      root.value.style.zIndex = 99
 
       // Bring card to normal level after animation
       const onCompleted = () => {
