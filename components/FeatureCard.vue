@@ -6,13 +6,13 @@
 
 <template>
   <div
-    ref="root"
+    ref="card"
     @click="isExpanded = true"
     :class="['h-full rounded-xl overflow-clip border-2 border-gray-50/25 bg-origin-border shadow-lg', $attrs.class, isExpanded ? '' : '' ]">
-    <div v-show="!isExpanded" id="defaultSlotWrapper" class="m-6">
+    <div ref="defaultCardContent" v-show="!isExpanded" class="m-6">
       <slot name="default"/> <!-- Default card content -->
     </div>
-    <div v-show="isExpanded" id="expandedSlotWrapper">
+    <div ref="expandedCardContent" v-show="isExpanded">
       <slot name="expanded"/> <!-- When card is clicked, the card should expand and show this content -->
     </div>
   </div>
@@ -20,12 +20,19 @@
 
 <script setup lang="ts">
 
+  // Import (is that the right term?) vue/nuxt stuff
   const { $ScrollTrigger, $store, $gsap } = useNuxtApp()
   const slots = useSlots()
 
-  const root: Ref<HTMLElement | null> = ref(null) /* Will be bound to the root element by magic */
+  // Define vars
   const isExpanded = ref(false)
   var animationContext: any = null
+
+  // Get references to relevant dom elements
+  // The stuff initialized to ref(null) will be automatically bound to the html element with the ref attribute set to the same value by vue
+  const card: Ref<HTMLElement | null> = ref(null)
+  const defaultCardContent: Ref<HTMLElement | null> = ref(null)
+  const expandedCardContent: Ref<HTMLElement | null> = ref(null)
 
   watch(isExpanded, (shouldExpand) => {
 
@@ -55,7 +62,7 @@
       // Close card when it is scrolled away
       // When the card is already above the trigger zone when this is called, then the card unexpands immediately. But when it's below the trigger zone, this doesn't happen. Not sure why. I think ideally, we would scroll the card into view, but I can't get that to work right now, either. 
       $ScrollTrigger.create({
-        trigger: root.value,
+        trigger: card.value,
         start: "bottom bottom",
         end: "top top",
         onLeave: () => isExpanded.value = false,
@@ -63,7 +70,7 @@
       })
 
       // Bring card to front
-      root.value.style.zIndex = 100
+      card.value.style.zIndex = 100
 
       // Animate
       animationContext = $gsap.context((self) => { /* Not sure this leaks memory since we create so many contexts */
@@ -88,29 +95,29 @@
         }
 
         // Fade out default content
-        $gsap.to("#defaultSlotWrapper", {
+        $gsap.to(defaultCardContent.value, {
           opacity: 0.0,
           duration: 0.6 * dur,
         })
 
         // Fade in expanded content
-        $gsap.from("#expandedSlotWrapper", {
+        $gsap.from(expandedCardContent.value, {
           opacity: 0.0
         })
-        $gsap.to("#expandedSlotWrapper", {
+        $gsap.to(expandedCardContent.value, {
           opacity: 1.0,
           duration: dur,
         })
 
         // Move card
-        $gsap.to(root.value, {
+        $gsap.to(card.value, {
           x: 200,
           duration: dur,
           ease: criticalSpring(6.0),
         })
 
         // Zoom card
-        $gsap.to(root.value, {
+        $gsap.to(card.value, {
           scale: 2.0,
           duration: dur,
           ease: criticalSpring(4.0),
@@ -124,11 +131,11 @@
       $store.backdrop?.remove()
 
       // Bring card to front but behind expanding cards
-      root.value.style.zIndex = 99
+      card.value.style.zIndex = 99
 
       // Bring card to normal level after animation
       const onCompleted = () => {
-        root.value.style.zIndex = 0
+        card.value.style.zIndex = 0
       }
 
       // Animate card
@@ -139,26 +146,26 @@
         var tl = $gsap.timeline()
 
         // Fade out expanded content
-        tl.to("#expandedSlotWrapper", {
+        tl.to(expandedCardContent.value, {
           opacity: 0.0,
           duration: dur,
         }, 0)
 
         // Fade in default content
-        tl.to("#defaultSlotWrapper", {
+        tl.to(defaultCardContent.value, {
           opacity: 1.0,
           duration: dur,
         }, 0)
 
         // Move card
-        tl.to(root.value, {
+        tl.to(card.value, {
           x: 0,
           duration: dur /* - 0.005 */,
           ease: criticalSpring(4.0),
         }, 0/* .005 */) 
 
         // Un-Zoom card
-        tl.to(root.value, {
+        tl.to(card.value, {
           scale: 1.0,
           duration: dur,
           ease: criticalSpring(6.0),
