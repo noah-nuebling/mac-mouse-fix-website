@@ -9,10 +9,10 @@
     ref="card"
     @click="isExpanded = true"
     :class="['h-full rounded-xl overflow-clip border-2 border-gray-50/25 bg-origin-border shadow-lg', $attrs.class, isExpanded ? '' : '' ]">
-    <div ref="defaultCardContent" v-show="!isExpanded" class="m-6">
+    <div ref="defaultCardContent" class="">
       <slot name="default"/> <!-- Default card content -->
     </div>
-    <div ref="expandedCardContent" v-show="isExpanded">
+    <div ref="expandedCardContent" class="absolute top-0 left-0 hidden">
       <slot name="expanded"/> <!-- When card is clicked, the card should expand and show this content -->
     </div>
   </div>
@@ -33,6 +33,9 @@
   const card: Ref<HTMLElement | null> = ref(null)
   const defaultCardContent: Ref<HTMLElement | null> = ref(null)
   const expandedCardContent: Ref<HTMLElement | null> = ref(null)
+
+  // Dynamically created dom elements
+  var cardPlaceholder: HTMLDivElement | null = null
 
   watch(isExpanded, (shouldExpand) => {
 
@@ -72,6 +75,41 @@
       // Bring card to front
       card.value.style.zIndex = 100
 
+      // Create placeholder
+      if (cardPlaceholder == null) {
+        cardPlaceholder = document.createElement('div')
+      }
+
+      // Get current card size in layout
+      // See https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements
+      const w = card.value?.offsetWidth
+      const h = card.value?.offsetHeight
+
+      // Debug
+      console.log(`Offset height: ${h}`)
+
+      // Set placeholder size to current card size (and replace all previous styling of the placeholder)
+      // Note: Don't use tailwind here. See https://tailwindcss.com/docs/content-configuration#dynamic-class-names
+      cardPlaceholder.style.height = `${h}px`
+      cardPlaceholder.style.width = `${w}px`
+
+      // Get the cards position in its container
+      const top = card.value?.offsetTop
+      const left = card.value?.offsetLeft
+
+      // Replace the card with the placeholder
+      card.value?.replaceWith(cardPlaceholder)
+
+      // Place the card back into the document at its old coordinates, but with absolute position, so it overlaps the placeholder
+      if (card.value) {
+        card.value.style.position = 'absolute'
+        card.value.style.top = `${top}px`
+        card.value.style.left = `${left}px`
+        card.value.style.width = `${w}px`
+        card.value.style.height = `${h}px`
+        cardPlaceholder.offsetParent?.appendChild(card.value!)
+      }
+
       // Animate
       animationContext = $gsap.context((self) => { /* Not sure this leaks memory since we create so many contexts */
 
@@ -89,15 +127,20 @@
         //   })
         // }
 
+        // Show the expanded content
+        expandedCardContent.value?.classList.remove('hidden')
+
         // Animate card
         const dur = 0.5
-        const onCompleted = () => {
+        const onEnd = () => {
+          /// Hide default content
+          defaultCardContent.value?.classList.add('hidden')
         }
 
         // Fade out default content
         $gsap.to(defaultCardContent.value, {
           opacity: 0.0,
-          duration: 0.6 * dur,
+          duration: 0.2 * dur,
         })
 
         // Fade in expanded content
@@ -121,7 +164,8 @@
           scale: 2.0,
           duration: dur,
           ease: criticalSpring(4.0),
-          onComplete: onCompleted,
+          onComplete: onEnd,
+          onInterrupt: onEnd,
         })
 
       })
@@ -133,9 +177,23 @@
       // Bring card to front but behind expanding cards
       card.value.style.zIndex = 99
 
-      // Bring card to normal level after animation
-      const onCompleted = () => {
+      // Show default content
+      defaultCardContent.value?.classList.remove('hidden')
+
+      // After animation completes or is interrupted ...
+      const onEnd = () => {
+        
+        // Hide expanded content
+        expandedCardContent.value?.classList.add('hidden')
+
+        // Bring card to normal level
         card.value.style.zIndex = 0
+        
+        // Remove absolute positioning from card and replace placeholder with it
+        if (card.value) {
+          card.value!.style.position = ''
+        }
+        cardPlaceholder?.replaceWith(card.value)
       }
 
       // Animate card
@@ -148,7 +206,7 @@
         // Fade out expanded content
         tl.to(expandedCardContent.value, {
           opacity: 0.0,
-          duration: dur,
+          duration: 0.2 * dur,
         }, 0)
 
         // Fade in default content
@@ -169,7 +227,8 @@
           scale: 1.0,
           duration: dur,
           ease: criticalSpring(6.0),
-          onComplete: onCompleted,
+          onComplete: onEnd,
+          onInterrupt: onEnd,
         }, 0)
 
         // Play timeline

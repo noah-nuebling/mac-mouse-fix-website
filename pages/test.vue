@@ -10,7 +10,7 @@
 
       <FeatureCard class="feature-card col-span-auto bg-gradient-pink">
         <template v-slot:default>
-          <div class="flex flex-row items-center h-full">
+          <div class="flex flex-row items-center h-full m-6">
             <div>
               <h3 class="dark-bg">Move Between Spaces</h3>
               <p class="dark-bg">Hold a button on your mouse, then drag the mouse left or right to move to another Space.</p>
@@ -29,45 +29,65 @@
         </template>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto bg-gradient-orange flex flex-col">
-        <h3 class="dark-bg">Mission Control</h3>
-        <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-        <a href="" class="mt-2 text-gray-100 underline">See it in action ❯</a>
+        <div class="m-6">
+          <h3 class="dark-bg">Mission Control</h3>
+          <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+          <a href="" class="mt-2 text-gray-100 underline">See it in action ❯</a>
+        </div>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto bg-gradient-blue">
-        <h3 class="dark-bg">App Exposé</h3>
-        <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        <div class="m-6">
+          <h3 class="dark-bg">App Exposé</h3>
+          <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        </div>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <h3>Show Desktop</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        <div class="m-6">
+          <h3>Show Desktop</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        </div>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <h3>Launchpad</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        <div class="m-6">
+          <h3>Launchpad</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        </div>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <h3>Look Up & Data Detectors</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        <div class="m-6">
+          <h3>Look Up & Data Detectors</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        </div>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <h3>Move between Pages</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        <div class="m-6">
+          <h3>Move between Pages</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        </div>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <h3>Mark Mails as Unread</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        <div class="m-6">
+          <h3>Mark Mails as Unread</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        </div>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <h3>Scroll Freely</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        <div class="m-6">
+          <h3>Scroll Freely</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        </div>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <h3>Pinch to Zoom</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        <div class="m-6">
+          <h3>Pinch to Zoom</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        </div>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <h3>Smart Zoom</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        <div class="m-6">
+          <h3>Smart Zoom</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+        </div>
       </FeatureCard>
     </div>
 

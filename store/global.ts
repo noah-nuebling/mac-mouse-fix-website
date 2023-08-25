@@ -5,23 +5,16 @@
 
 import { defineStore } from 'pinia'
 
-// export type GlobalStore = { // This is really really bad practise I read somewhere
-//   counter: number,
-//   backdrop: any,
-//   increment: () => ()
-// }
-
 export const useGlobalStore = defineStore('global', () => {
 
   // Variables
-  const counter = ref(0)
   const backdrop: Ref<HTMLElement | null> = ref(null)
 
   // Functions
-  function increment() {
-    counter.value++
-  }
+  // function increment() {
+  //   counter.value++
+  // }
 
   // Return 
-  return { counter, backdrop, increment }
+  return { backdrop }
 })
