@@ -189,9 +189,11 @@
         // Bring card to normal level
         card.value.style.zIndex = 0
         
-        // Remove absolute positioning from card and replace placeholder with it
+        // Remove absolute positioning + size from card and replace placeholder with it
         if (card.value) {
           card.value!.style.position = ''
+          card.value!.style.width = ''
+          card.value!.style.height = ''
         }
         cardPlaceholder?.replaceWith(card.value)
       }
