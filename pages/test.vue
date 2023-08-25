@@ -22,72 +22,141 @@
           </div>
         </template>
         <template v-slot:expanded>
-          <!-- <h3 class="dark-bg">Move Between Spaces</h3> -->
           <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
             <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
           </video>
         </template>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto bg-gradient-orange flex flex-col">
-        <div class="m-6">
-          <h3 class="dark-bg">Mission Control</h3>
-          <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-          <a href="" class="mt-2 text-gray-100 underline">See it in action ❯</a>
-        </div>
+        <template v-slot:default>
+          <div class="m-6">
+            <h3 class="dark-bg">Mission Control</h3>
+            <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+            <a href="" class="mt-2 text-gray-100 underline">See it in action ❯</a>
+          </div>
+        </template>
+        <template v-slot:expanded>
+          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+          </video>
+        </template>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto bg-gradient-blue">
-        <div class="m-6">
-          <h3 class="dark-bg">App Exposé</h3>
-          <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-        </div>
+        <template v-slot:default>
+          <div class="m-6">
+            <h3 class="dark-bg">App Exposé</h3>
+            <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+          </div>
+        </template>
+        <template v-slot:expanded>
+          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+          </video>
+        </template>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <div class="m-6">
-          <h3>Show Desktop</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-        </div>
+        <template v-slot:default>
+          <div class="m-6">
+            <h3>Show Desktop</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+          </div>
+        </template>
+        <template v-slot:expanded>
+          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+          </video>
+        </template>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <div class="m-6">
-          <h3>Launchpad</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-        </div>
+        <template v-slot:default>
+          <div class="m-6">
+            <h3>Launchpad</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+          </div>
+        </template>
+        <template v-slot:expanded>
+          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+          </video>
+        </template>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <div class="m-6">
-          <h3>Look Up & Data Detectors</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-        </div>
+        <template v-slot:default>
+          <div class="m-6">
+            <h3>Look Up & Data Detectors</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+          </div>
+        </template>
+        <template v-slot:expanded>
+          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+          </video>
+        </template>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <div class="m-6">
-          <h3>Move between Pages</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-        </div>
+        <template v-slot:default>
+          <div class="m-6">
+            <h3>Move between Pages</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+          </div>
+        </template>
+        <template v-slot:expanded>
+          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+          </video>
+        </template>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <div class="m-6">
-          <h3>Mark Mails as Unread</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-        </div>
+        <template v-slot:default>
+          <div class="m-6">
+            <h3>Mark Mails as Unread</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+          </div>
+        </template>
+        <template v-slot:expanded>
+          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+          </video>
+        </template>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <div class="m-6">
-          <h3>Scroll Freely</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-        </div>
+        <template v-slot:default>
+          <div class="m-6">
+            <h3>Scroll Freely</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+          </div>
+        </template>
+        <template v-slot:expanded>
+          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+          </video>
+        </template>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <div class="m-6">
-          <h3>Pinch to Zoom</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-        </div>
+        <template v-slot:default>
+          <div class="m-6">
+            <h3>Pinch to Zoom</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+          </div>
+        </template>
+        <template v-slot:expanded>
+          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+          </video>
+        </template>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto">
-        <div class="m-6">
-          <h3>Smart Zoom</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-        </div>
+        <template v-slot:default>
+          <div class="m-6">
+            <h3>Smart Zoom</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+          </div>
+        </template>
+        <template v-slot:expanded>
+          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+          </video>
+        </template>
       </FeatureCard>
     </div>
 

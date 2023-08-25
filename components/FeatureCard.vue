@@ -9,10 +9,10 @@
     ref="card"
     @click="isExpanded = true"
     :class="['h-full rounded-xl overflow-clip border-2 border-gray-50/25 bg-origin-border shadow-lg', $attrs.class, isExpanded ? '' : '' ]">
-    <div ref="defaultCardContent" class="">
+    <div ref="defaultCardContent" class="static">
       <slot name="default"/> <!-- Default card content -->
     </div>
-    <div ref="expandedCardContent" class="absolute top-0 left-0 hidden">
+    <div ref="expandedCardContent" class="static hidden">
       <slot name="expanded"/> <!-- When card is clicked, the card should expand and show this content -->
     </div>
   </div>
@@ -34,7 +34,7 @@
   const defaultCardContent: Ref<HTMLElement | null> = ref(null)
   const expandedCardContent: Ref<HTMLElement | null> = ref(null)
 
-  // Dynamically created dom elements
+  // Dynamically created elements
   var cardPlaceholder: HTMLDivElement | null = null
 
   watch(isExpanded, (shouldExpand) => {
@@ -75,9 +75,10 @@
       // Bring card to front
       card.value.style.zIndex = 100
 
-      // Create placeholder
+      // Create card placeholder
       if (cardPlaceholder == null) {
-        cardPlaceholder = document.createElement('div')
+        cardPlaceholder = card.value.cloneNode(true) as HTMLDivElement
+        cardPlaceholder.classList.add('invisible')
       }
 
       // Get current card size in layout
@@ -93,22 +94,77 @@
       cardPlaceholder.style.height = `${h}px`
       cardPlaceholder.style.width = `${w}px`
 
-      // Get the cards position in its container
+      // Get the cards position relative to nearest positioned ancestor
       const top = card.value?.offsetTop
       const left = card.value?.offsetLeft
 
       // Replace the card with the placeholder
       card.value?.replaceWith(cardPlaceholder)
 
-      // Place the card back into the document at its old coordinates, but with absolute position, so it overlaps the placeholder
+      // Place the expanded content in the card, hide the default content
+      defaultCardContent.value!.style.display = 'none'
+      expandedCardContent.value!.style.display = 'block'
+
+      // Place the card at it's target expanded position and size in the document
+      //  See how to center absolutely positioned element: https://stackoverflow.com/questions/1776915/how-can-i-center-an-absolutely-positioned-element-in-a-div
+      
+      const targetMaxW = `${Math.min(cardPlaceholder.offsetParent!.clientWidth * 0.75, 1000)}px`
+      const targetMaxH = '80vh'
+
       if (card.value) {
+        card.value.style.position = 'absolute'
+
+        card.value.style.top = `${top}px`
+
+        card.value.style.left = '0'
+        card.value.style.right = '0'
+        card.value.style.marginLeft = 'auto'
+        card.value.style.marginRight = 'auto'
+        card.value.style.maxWidth = targetMaxW
+        card.value.style.maxHeight = targetMaxH
+        card.value.style.width = 'fit-content'
+        card.value.style.height = 'fit-content'
+
+      }
+
+      /// Place card back in document
+      cardPlaceholder.offsetParent?.appendChild(card.value)
+
+      // Measure the expanded cards' position and size
+      const targetH = card.value?.offsetHeight
+      const targetW = card.value?.offsetWidth
+      const targetTop = card.value?.offsetTop
+      const targetLeft = card.value?.offsetLeft
+
+      // Position card so it overlaps the placeholder (This is the starting state for the animation)
+
+      if (card.value) {
+        
+        // Remove previously style that position the card in its expanded position
+        card.value.style.left = ''
+        card.value.style.right = ''
+        card.value.style.marginLeft = ''
+        card.value.style.marginRight = ''
+        card.value.style.maxWidth = ''
+        card.value.style.maxHeight = ''
+        card.value.style.width = ''
+        card.value.style.height = ''
+
+        // Add new style to make the card overlap its placeholder
         card.value.style.position = 'absolute'
         card.value.style.top = `${top}px`
         card.value.style.left = `${left}px`
         card.value.style.width = `${w}px`
         card.value.style.height = `${h}px`
-        cardPlaceholder.offsetParent?.appendChild(card.value!)
+        cardPlaceholder.offsetParent?.appendChild(card.value)
       }
+
+      // Show both the expanded content and the default content
+      expandedCardContent.value!.style.display = 'block'
+      defaultCardContent.value!.style.display = 'block'
+
+      // Make the default content and expanded content overlap
+      defaultCardContent.value!.style.position = 'absolute'
 
       // Animate
       animationContext = $gsap.context((self) => { /* Not sure this leaks memory since we create so many contexts */
@@ -127,15 +183,36 @@
         //   })
         // }
 
-        // Show the expanded content
-        expandedCardContent.value?.classList.remove('hidden')
-
         // Animate card
         const dur = 0.5
         const onEnd = () => {
           /// Hide default content
           defaultCardContent.value?.classList.add('hidden')
         }
+
+        // Move card
+        $gsap.to(card.value, {
+          left: targetLeft,
+          top: targetTop,
+          duration: dur,
+          ease: criticalSpring(6.0),
+        })
+
+        // Zoom card
+        const scale = 2.0
+        const targetBorderRadius = 12 * scale
+        const targetBorderWidth = 2 * scale
+        $gsap.to(card.value, {
+          // scale: 2.0,
+          height: targetH,
+          width: targetW,
+          borderRadius: `${targetBorderRadius}px`,
+          borderWidth: `${targetBorderWidth}px`,
+          duration: dur,
+          ease: criticalSpring(4.0),
+          onComplete: onEnd,
+          onInterrupt: onEnd,
+        })
 
         // Fade out default content
         $gsap.to(defaultCardContent.value, {
@@ -151,23 +228,6 @@
           opacity: 1.0,
           duration: dur,
         })
-
-        // Move card
-        $gsap.to(card.value, {
-          x: 200,
-          duration: dur,
-          ease: criticalSpring(6.0),
-        })
-
-        // Zoom card
-        $gsap.to(card.value, {
-          scale: 2.0,
-          duration: dur,
-          ease: criticalSpring(4.0),
-          onComplete: onEnd,
-          onInterrupt: onEnd,
-        })
-
       })
     } else { // Unexpand
 
@@ -198,6 +258,12 @@
         cardPlaceholder?.replaceWith(card.value)
       }
 
+      // Get size and position of placeholder
+      const placeholderH = cardPlaceholder.offsetHeight
+      const placeholderW = cardPlaceholder.offsetWidth
+      const placeholderTop = cardPlaceholder.offsetLeft
+      const placeholderLeft = cardPlaceholder.offsetTop
+
       // Animate card
       animationContext = $gsap.context((self) => {
 
@@ -217,16 +283,19 @@
           duration: dur,
         }, 0)
 
-        // Move card
+        // Move card back to placeholder position
         tl.to(card.value, {
-          x: 0,
+          top: placeholderTop,
+          left: placeholderLeft,
           duration: dur /* - 0.005 */,
           ease: criticalSpring(4.0),
         }, 0/* .005 */) 
 
-        // Un-Zoom card
+        // Scale card to placeholder size
         tl.to(card.value, {
           scale: 1.0,
+          width: placeholderW,
+          height: placeholderH,
           duration: dur,
           ease: criticalSpring(6.0),
           onComplete: onEnd,
