@@ -82,26 +82,24 @@
         cardPlaceholder.classList.add('invisible')
       }
 
-      // Get current card size in layout
+      // Get current card size and position relative to nearest positioned ancestor
       // See https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements
-      const w = card.value?.offsetWidth
-      const h = card.value?.offsetHeight
+      const originWidth = card.value!.offsetWidth
+      const originHeight = card.value!.offsetHeight
+      
+      const originTop = card.value!.offsetTop
+      const originLeft = card.value!.offsetLeft
+      const originCenterX = originLeft + originWidth/2.0
+      const originCenterY = originTop + originHeight/2.0
+
 
       // Debug
-      console.log(`Offset height: ${h}`)
+      console.log(`Offset height: ${originHeight}`)
 
       // Set placeholder size to current card size (and replace all previous styling of the placeholder)
       // Note: Don't use tailwind here. See https://tailwindcss.com/docs/content-configuration#dynamic-class-names
-      cardPlaceholder.style.height = `${h}px`
-      cardPlaceholder.style.width = `${w}px`
-
-      // Get the cards position relative to nearest positioned ancestor
-      const originTop = card.value!.offsetTop
-      const originLeft = card.value!.offsetLeft
-
-      // Get the cards size
-      const originW = card.value!.offsetWidth
-      const originH = card.value!.offsetHeight
+      cardPlaceholder.style.height = `${originHeight}px`
+      cardPlaceholder.style.width = `${originWidth}px`
 
       // Replace the card with the placeholder
       card.value?.replaceWith(cardPlaceholder)
@@ -130,10 +128,12 @@
       const targetRight = '0'
       var targetTop = ''
 
-      var calcTop = ''
-      var calcLeft = ''
-      var calcWidth = ''
-      var calcHeight = ''
+      var calcWidth = 0
+      var calcHeight = 0
+      var calcTop = 0
+      var calcLeft = 0
+      var calcCenterX = 0
+      var calcCenterY = 0
 
       // Placing the card at it's target (expanded) size and position in the document
       //  We use this to determine the remaining target styling (only 'targetTop' at the time of writing) and to record the calculated size and position. 
@@ -156,7 +156,7 @@
         // Calculate target style
         //  We calculated targetTop such that the x center of the card stays in the same position after expanding
         const computedH = card.value.offsetHeight
-        const heightIncrease = computedH - originH
+        const heightIncrease = computedH - originHeight
         targetTop = `${originTop - heightIncrease/2.0}px`
 
         // Set position and stuff
@@ -170,10 +170,12 @@
         // return
 
         // Measure computed size and position
-        calcTop = `${card.value.offsetTop}px`
-        calcLeft = `${card.value.offsetLeft}px`
-        calcWidth = `${card.value.offsetWidth}px`
-        calcHeight = `${card.value.offsetHeight}px`
+        calcWidth = card.value.offsetWidth
+        calcHeight = card.value.offsetHeight
+        calcTop = card.value.offsetTop
+        calcLeft = card.value.offsetLeft
+        calcCenterX = calcLeft + calcWidth/2.0
+        calcCenterY = calcTop + calcHeight/2.0
 
         // Remove target style
         card.value.style.position = ''
@@ -188,16 +190,6 @@
         card.value.style.left = ''
         card.value.style.right = ''
         card.value.style.top = ''
-      }
-
-      // Position card so it overlaps the placeholder (This is the starting state for the animation)
-
-      if (card.value) {
-        card.value.style.position = 'absolute'
-        card.value.style.top = `${originTop}px`
-        card.value.style.left = `${originLeft}px`
-        card.value.style.width = `${w}px`
-        card.value.style.height = `${h}px`
       }
 
       // Show both the expanded content and the default content
@@ -243,21 +235,53 @@
           defaultCardContent.value!.style.display = 'none'
         }
 
+        // Calculate animation curves + animation start and end values
+
+        const curveForSize = criticalSpring(4.0)
+        const curveForCenter = criticalSpring(6.0)
+
+        const startValueForWidth = originWidth
+        const endValueForWidth = calcWidth
+        const startValueForHeight = originHeight
+        const endValueForHeight = calcHeight
+
+        const startValueForCenterX = originCenterX
+        const endValueForCenterX = calcCenterX
+        const { curveForStart: curveForLeft, startValueForStart: startValueForLeft, endValueForStart: endValueForLeft } = animationCurveForStart(curveForCenter, startValueForCenterX, endValueForCenterX, curveForSize, startValueForWidth, endValueForWidth)
+
+        const startValueForCenterY = originCenterY
+        const endValueForCenterY = calcCenterY
+        const { curveForStart: curveForTop, startValueForStart: startValueForTop, endValueForStart: endValueForTop } = animationCurveForStart(curveForCenter, startValueForCenterY, endValueForCenterY, curveForSize, startValueForHeight, endValueForHeight)
+
+        // Position card so it overlaps the placeholder (This is the starting state for the animation)
+        if (card.value) {
+          card.value.style.position = 'absolute'
+          card.value.style.top = `${startValueForTop}px`
+          card.value.style.left = `${startValueForLeft}px`
+          card.value.style.width = `${startValueForWidth}px`
+          card.value.style.height = `${startValueForHeight}px`
+        }
+
         // Animate card
         const dur = 0.5
 
-        // Set position-related styling
+        // Animate position-related styling
 
         $gsap.to(card.value, {
           
-          top: calcTop,
-          left: calcLeft,
-
+          top: endValueForTop,
           duration: dur,
-          ease: criticalSpring(6.0),
+          ease: curveForTop,
         })
 
-        // Set size-related styling
+        $gsap.to(card.value, {
+          
+          left: endValueForLeft,
+          duration: dur,
+          ease: curveForLeft,
+        })
+
+        // Animate size-related styling
         
         const scale = 2.0
         const targetBorderRadius = 12 * scale
@@ -265,14 +289,14 @@
 
         $gsap.to(card.value, {
 
-          width: calcWidth,
-          height: calcHeight,
+          width: endValueForWidth,
+          height: endValueForHeight,
 
           borderRadius: `${targetBorderRadius}px`,
           borderWidth: `${targetBorderWidth}px`,
 
           duration: dur,
-          ease: criticalSpring(4.0),
+          ease: curveForSize,
 
           onComplete: onEnd,
           onInterrupt: onEnd,

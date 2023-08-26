@@ -27,7 +27,7 @@
           </video>
         </template>
       </FeatureCard>
-      <FeatureCard class="feature-card col-span-auto bg-gradient-orange flex flex-col">
+      <FeatureCard class="feature-card col-span-auto bg-gradient-orange">
         <template v-slot:default>
           <div class="m-6">
             <h3 class="dark-bg">Mission Control</h3>
