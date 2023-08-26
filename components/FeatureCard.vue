@@ -2,13 +2,14 @@
     Notes:
     - bg-origin-border is needed to make the border work properly with background gradient. See https://stackoverflow.com/questions/11717873/why-are-border-colors-inverted-when-a-background-gradient-is-applied
     - $attrs.class contains the classes set by the parent like this <FeatureCard class="baz boo" />
+    - We're making the card a flexbox just to center the video vertically during the expand animation. Not sure this is the best solution. Also no idea why/if the video is centered horizontally, if the card has a taller aspect ratio than the card.
   -->
 
 <template>
   <div
     ref="card"
     @click="isExpanded = true"
-    :class="['h-full rounded-xl overflow-clip border-2 border-gray-50/25 bg-origin-border shadow-lg', $attrs.class, isExpanded ? '' : '' ]">
+    :class="['flex flex-row items-center h-full rounded-xl overflow-clip border-2 border-gray-50/25 bg-origin-border shadow-lg', $attrs.class, isExpanded ? '' : '' ]">
     <div ref="defaultCardContent" class="static">
       <slot name="default"/> <!-- Default card content -->
     </div>
