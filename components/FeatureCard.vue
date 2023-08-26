@@ -95,8 +95,12 @@
       cardPlaceholder.style.width = `${w}px`
 
       // Get the cards position relative to nearest positioned ancestor
-      const top = card.value?.offsetTop
-      const left = card.value?.offsetLeft
+      const originTop = card.value!.offsetTop
+      const originLeft = card.value!.offsetLeft
+
+      // Get the cards size
+      const originW = card.value!.offsetWidth
+      const originH = card.value!.offsetHeight
 
       // Replace the card with the placeholder
       card.value?.replaceWith(cardPlaceholder)
@@ -105,58 +109,89 @@
       defaultCardContent.value!.style.display = 'none'
       expandedCardContent.value!.style.display = 'block'
 
-      // Place the card at it's target expanded position and size in the document
-      //  See how to center absolutely positioned element: https://stackoverflow.com/questions/1776915/how-can-i-center-an-absolutely-positioned-element-in-a-div
+      // Determine target styling of card
+      // Notes:
+      // - How to center absolutely positioned element: https://stackoverflow.com/questions/1776915/how-can-i-center-an-absolutely-positioned-element-in-a-div
+      // - Ideally we wanna set the width relative to the grid width, because we don't want the expanded card to spill out of the grid so you still can see context which should make the interaction feel lighter. Currently, the percent-based sizes aren't relative to the grid, and there are some sizes where the expanded card spills out from the grid. Maybe we can fix this by inserting the expanded card into the container element which determines the grid width (and the width of the document as a whole.). But we'd have to position that element so it's the nearest positioned ancestor aka the '.offsetParent' and idk if that could lead to other problems?
       
-      const targetMaxW = `${Math.min(cardPlaceholder.offsetParent!.clientWidth * 0.75, 1000)}px`
-      const targetMaxH = '80vh'
+      const targetPosition = 'absolute'
+
+      const targetWidth = `max(66%, ${700}px)`
+      const targetMaxWidth = '95%'
+      const targetHeight = 'fit-content'
+      const targetMaxHeight = '80vh'
+
+      const targetMarginLeft = 'auto'
+      const targetMarginRight = 'auto'
+      const targetLeft = '0'
+      const targetRight = '0'
+      var targetTop = ''
+
+      var calcTop = ''
+      var calcLeft = ''
+      var calcWidth = ''
+      var calcHeight = ''
+
+      // Placing the card at it's target (expanded) size and position in the document
+      //  We use this to determine the remaining target styling (only 'targetTop' at the time of writing) and to record the calculated size and position. 
+      //  We need the calculated size and position for animating. When we tried to animated to the targetStyle directly using gsap it didn't work. It seems the problem was somewhere with centering the absolutely positioned card by setting left and right to 0 and setting the leftMargin and rightMarging to auto. Animating this dinn't work proplerly it seems. There were also problems animating the maxHeight and maxWidth, but they could be resolved by setting those to a very high number right before the animation.
 
       if (card.value) {
-        card.value.style.position = 'absolute'
 
-        card.value.style.top = `${top}px`
+        // Set layout method
+        card.value.style.position = targetPosition
 
-        card.value.style.left = '0'
-        card.value.style.right = '0'
-        card.value.style.marginLeft = 'auto'
-        card.value.style.marginRight = 'auto'
-        card.value.style.maxWidth = targetMaxW
-        card.value.style.maxHeight = targetMaxH
-        card.value.style.width = 'fit-content'
-        card.value.style.height = 'fit-content'
+        // Set size and stuff
+        card.value.style.width = targetWidth
+        card.value.style.maxWidth = targetMaxWidth
+        card.value.style.height = targetHeight
+        card.value.style.maxHeight = targetMaxHeight
 
+        // Place in document
+        cardPlaceholder.offsetParent?.appendChild(card.value)
+
+        // Calculate target style
+        //  We calculated targetTop such that the x center of the card stays in the same position after expanding
+        const computedH = card.value.offsetHeight
+        const heightIncrease = computedH - originH
+        targetTop = `${originTop - heightIncrease/2.0}px`
+
+        // Set position and stuff
+        card.value.style.marginLeft = targetMarginLeft
+        card.value.style.marginRight = targetMarginRight
+        card.value.style.left = targetLeft
+        card.value.style.right = targetRight
+        card.value.style.top = targetTop
+
+        // Measure computed size and position
+        calcTop = `${card.value.offsetTop}px`
+        calcLeft = `${card.value.offsetLeft}px`
+        calcWidth = `${card.value.offsetWidth}px`
+        calcHeight = `${card.value.offsetHeight}px`
+
+        // Remove target style
+        card.value.style.position = ''
+
+        card.value.style.width = ''
+        card.value.style.maxWidth = ''
+        card.value.style.height = ''
+        card.value.style.maxHeight = ''
+
+        card.value.style.marginLeft = ''
+        card.value.style.marginRight = ''
+        card.value.style.left = ''
+        card.value.style.right = ''
+        card.value.style.top = ''
       }
-
-      /// Place card back in document
-      cardPlaceholder.offsetParent?.appendChild(card.value)
-
-      // Measure the expanded cards' position and size
-      const targetH = card.value?.offsetHeight
-      const targetW = card.value?.offsetWidth
-      const targetTop = card.value?.offsetTop
-      const targetLeft = card.value?.offsetLeft
 
       // Position card so it overlaps the placeholder (This is the starting state for the animation)
 
       if (card.value) {
-        
-        // Remove previously style that position the card in its expanded position
-        card.value.style.left = ''
-        card.value.style.right = ''
-        card.value.style.marginLeft = ''
-        card.value.style.marginRight = ''
-        card.value.style.maxWidth = ''
-        card.value.style.maxHeight = ''
-        card.value.style.width = ''
-        card.value.style.height = ''
-
-        // Add new style to make the card overlap its placeholder
         card.value.style.position = 'absolute'
-        card.value.style.top = `${top}px`
-        card.value.style.left = `${left}px`
+        card.value.style.top = `${originTop}px`
+        card.value.style.left = `${originLeft}px`
         card.value.style.width = `${w}px`
         card.value.style.height = `${h}px`
-        cardPlaceholder.offsetParent?.appendChild(card.value)
       }
 
       // Show both the expanded content and the default content
@@ -167,7 +202,7 @@
       defaultCardContent.value!.style.position = 'absolute'
 
       // Animate
-      animationContext = $gsap.context((self) => { /* Not sure this leaks memory since we create so many contexts */
+      animationContext = $gsap.context((self) => {
 
         // Scroll card into view
         // Note: Just can't get this to work for some reason. Not even this codepen works? https://codepen.io/matthiasott/pen/KKVxqyY
@@ -183,33 +218,56 @@
         //   })
         // }
 
-        // Animate card
-        const dur = 0.5
+        // Define post-animation actions
         const onEnd = () => {
-          /// Hide default content
-          defaultCardContent.value?.classList.add('hidden')
+
+          // Set proper card styling
+          card.value!.style.position = targetPosition
+          card.value!.style.width = targetWidth
+          card.value!.style.maxWidth = targetMaxWidth
+          card.value!.style.height = targetHeight
+          card.value!.style.maxHeight = targetMaxHeight
+          card.value!.style.marginLeft = targetMarginLeft
+          card.value!.style.marginRight = targetMarginRight
+          card.value!.style.left = targetLeft
+          card.value!.style.right = targetRight
+          card.value!.style.top = targetTop
+
+          // Hide default content
+          defaultCardContent.value!.style.display = 'none'
         }
 
-        // Move card
+        // Animate card
+        const dur = 0.5
+
+        // Set position-related styling
+
         $gsap.to(card.value, {
-          left: targetLeft,
-          top: targetTop,
+          
+          top: calcTop,
+          left: calcLeft,
+
           duration: dur,
           ease: criticalSpring(6.0),
         })
 
-        // Zoom card
+        // Set size-related styling
+        
         const scale = 2.0
         const targetBorderRadius = 12 * scale
         const targetBorderWidth = 2 * scale
+
         $gsap.to(card.value, {
-          // scale: 2.0,
-          height: targetH,
-          width: targetW,
+
+          width: calcWidth,
+          height: calcHeight,
+
           borderRadius: `${targetBorderRadius}px`,
           borderWidth: `${targetBorderWidth}px`,
+
           duration: dur,
           ease: criticalSpring(4.0),
+
           onComplete: onEnd,
           onInterrupt: onEnd,
         })
