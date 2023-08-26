@@ -113,11 +113,13 @@
       // Notes:
       // - How to center absolutely positioned element: https://stackoverflow.com/questions/1776915/how-can-i-center-an-absolutely-positioned-element-in-a-div
       // - Ideally we wanna set the width relative to the grid width, because we don't want the expanded card to spill out of the grid so you still can see context which should make the interaction feel lighter. Currently, the percent-based sizes aren't relative to the grid, and there are some sizes where the expanded card spills out from the grid. Maybe we can fix this by inserting the expanded card into the container element which determines the grid width (and the width of the document as a whole.). But we'd have to position that element so it's the nearest positioned ancestor aka the '.offsetParent' and idk if that could lead to other problems?
-      
+      // - Our width style with the min() and max() functions is *very* confusing to read. Maybe it would be better to use tailwind with media queries? But mixing tailwind classes with setting style directly through js seems like a bad idea. Idk how you could assign media queried' css through js. So this is the best solution I can come up with for now.
+      // - TODO: Add border radius, border width and shadow changes here.
+
       const targetPosition = 'absolute'
 
-      const targetWidth = `max(66%, ${700}px)`
-      const targetMaxWidth = '95%'
+      const targetWidth = `min(max(66%, ${700}px), 95%, 800px)`
+      const targetMaxWidth = '100%'
       const targetHeight = 'fit-content'
       const targetMaxHeight = '80vh'
 
@@ -162,6 +164,9 @@
         card.value.style.left = targetLeft
         card.value.style.right = targetRight
         card.value.style.top = targetTop
+
+        // TESTING
+        // return
 
         // Measure computed size and position
         calcTop = `${card.value.offsetTop}px`
@@ -221,7 +226,7 @@
         // Define post-animation actions
         const onEnd = () => {
 
-          // Set proper card styling
+          // Set target style
           card.value!.style.position = targetPosition
           card.value!.style.width = targetWidth
           card.value!.style.maxWidth = targetMaxWidth
