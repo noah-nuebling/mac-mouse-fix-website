@@ -3,18 +3,36 @@
     - bg-origin-border is needed to make the border work properly with background gradient. See https://stackoverflow.com/questions/11717873/why-are-border-colors-inverted-when-a-background-gradient-is-applied
     - $attrs.class contains the classes set by the parent like this <FeatureCard class="baz boo" />
     - We're making the card a flexbox just to center the video vertically during the expand animation. Not sure this is the best solution. Also no idea why/if the video is centered horizontally, if the card has a taller aspect ratio than the card.
+    - If we set margins on the slot content, that currently doesn't work properly for the default slot for some reason. The div around the default slot has the exact size of the slot content, but without the slot content's margins. This makes it so part of the slot content is cut off. I don't know what's going on. We'll just use padding instead of margins for now. Edit: This doesn't happen anymore now. I dont' know what changed. Might have to do with `space-x-0` and `space-y-0` which we removed.
   -->
 
 <template>
   <div
     ref="card"
     @click="isExpanded = true"
-    :class="['flex flex-row items-center h-full rounded-xl overflow-clip border-2 border-gray-50/25 bg-origin-border shadow-lg', $attrs.class, isExpanded ? '' : '' ]">
-    <div ref="defaultCardContent" class="static">
-      <slot name="default"/> <!-- Default card content -->
+    :class="['flex flex-col h-full rounded-xl overflow-clip border-2 border-gray-50/25 bg-origin-border shadow-lg', $attrs.class, isExpanded ? '' : '' ]">
+    
+    <!-- Top -->
+    <div ref="topCardContent">
+      <slot name="top"/>
+    </div> 
+
+    <div>
+
+      <!-- Default -->
+      <div ref="defaultCardContent" class="">
+        <slot name="default"/>
+      </div>
+
+      <!-- Expanded -->
+      <div ref="expandedCardContent" class="static hidden">
+        <slot name="expanded"/>
+      </div>
     </div>
-    <div ref="expandedCardContent" class="static hidden">
-      <slot name="expanded"/> <!-- When card is clicked, the card should expand and show this content -->
+
+    <!-- Bottom -->
+    <div ref="bottomCardContent">
+      <slot name="bottom"/>
     </div>
   </div>
 </template>
@@ -32,8 +50,11 @@
   // Get references to relevant dom elements
   // The stuff initialized to ref(null) will be automatically bound to the html element with the ref attribute set to the same value by vue
   const card: Ref<HTMLElement | null> = ref(null)
+  
+  const topCardContent: Ref<HTMLElement | null> = ref(null)  
   const defaultCardContent: Ref<HTMLElement | null> = ref(null)
   const expandedCardContent: Ref<HTMLElement | null> = ref(null)
+  const bottomCardContent: Ref<HTMLElement | null> = ref(null) 
 
   // Dynamically created elements
   var cardPlaceholder: HTMLDivElement | null = null
@@ -263,7 +284,7 @@
         }
 
         // Animate card
-        const dur = 0.5
+        const dur = 3.5
 
         // Animate position-related styling
 

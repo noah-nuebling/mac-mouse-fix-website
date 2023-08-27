@@ -9,10 +9,12 @@
 
 
       <FeatureCard class="feature-card col-span-auto bg-gradient-pink">
+        <template v-slot:top> 
+          <h3 class="dark-bg m-6">Move Between Spaces</h3>
+        </template>
         <template v-slot:default>
-          <div class="flex flex-row items-center h-full m-6">
+          <div class="flex flex-row items-center h-full m-6 mt-0">
             <div>
-              <h3 class="dark-bg">Move Between Spaces</h3>
               <p class="dark-bg">Hold a button on your mouse, then drag the mouse left or right to move to another Space.</p>
               <p class="dark-bg">It works just like swiping with 4 fingers on an Apple Trackpad.</p>
             </div>
@@ -22,9 +24,11 @@
           </div>
         </template>
         <template v-slot:expanded>
-          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-          </video>
+          <div class="rounded-[24px] overflow-clip border-4 border-gray-50/25 -m-[4px]">
+            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+            </video>
+          </div>
         </template>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto bg-gradient-orange">
@@ -172,10 +176,14 @@
   /* Card Content */
 
   .feature-card h3 { /* Not sure this abstraction is good / tailwindy. See https://tailwindcss.com/docs/reusing-styles */
-    @apply text-lg font-bold mb-4;
+    @apply text-lg font-bold;
   }
   .feature-card p {
-    @apply text-gray-500/80 mb-2;
+    @apply text-gray-500/80;
+
+    &:not(:last-child)  { /* Paragraph spacing */
+      @apply mb-3
+    }
   }
 
   .feature-card h3.dark-bg { /* Not sure this abstraction is good / tailwindy. See https://tailwindcss.com/docs/reusing-styles */
