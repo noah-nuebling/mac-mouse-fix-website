@@ -118,6 +118,9 @@
       const originCenterX = originLeft + originWidth/2.0
       const originCenterY = originTop + originHeight/2.0
 
+      const originBorderWidth = parseInt(getComputedStyle(card.value!).borderWidth.slice(0, -2)) /* Slice off the `px` suffix from the string */
+      const originBorderRadius = parseInt(getComputedStyle(card.value!).borderRadius.slice(0, -2))
+
 
       // Debug
       console.log(`Offset height: ${originHeight}`)
@@ -141,12 +144,16 @@
       // - Our width style with the min() and max() functions is *very* confusing to read. Maybe it would be better to use tailwind with media queries? But mixing tailwind classes with setting style directly through js seems like a bad idea. Idk how you could assign media queried' css through js. So this is the best solution I can come up with for now.
       // - TODO: Add border radius, border width and shadow changes here.
 
-      const targetPosition = 'absolute'
+      const targetLayout = 'absolute'
+
 
       const targetWidth = `min(max(66%, ${700}px), 95%, 800px)`
       const targetMaxWidth = '100%'
       const targetHeight = 'fit-content'
       const targetMaxHeight = '80vh'
+
+      var targetBorderRadius = ''
+      var targetBorderWidth = ''
 
       const targetMarginLeft = 'auto'
       const targetMarginRight = 'auto'
@@ -154,6 +161,7 @@
       const targetRight = '0'
       var targetTop = ''
 
+      var calcScale = 0
       var calcWidth = 0
       var calcHeight = 0
       var calcTop = 0
@@ -168,7 +176,7 @@
       if (card.value) {
 
         // Set layout method
-        card.value.style.position = targetPosition
+        card.value.style.position = targetLayout
 
         // Set size and stuff
         card.value.style.width = targetWidth
@@ -195,13 +203,19 @@
         // TESTING
         // return
 
-        // Measure computed size and position
+        // Measure computed size, position and scale
         calcWidth = card.value.offsetWidth
         calcHeight = card.value.offsetHeight
         calcTop = card.value.offsetTop
         calcLeft = card.value.offsetLeft
         calcCenterX = calcLeft + calcWidth/2.0
         calcCenterY = calcTop + calcHeight/2.0
+        calcScale = ((calcWidth / originWidth) + (calcHeight / originHeight)) / 2.0
+
+        // Calculate target style based on scale
+        //  Note: Keep this in sync with video wrapper styling to make it look nice
+        targetBorderWidth = '4px' // `${originBorderWidth * calcScale}px`
+        targetBorderRadius = '24px' // `${originBorderRadius * calcScale}px`
 
         // Remove target style
         card.value.style.position = ''
@@ -246,7 +260,7 @@
         const onEnd = () => {
 
           // Set target style
-          card.value!.style.position = targetPosition
+          card.value!.style.position = targetLayout
           card.value!.style.width = targetWidth
           card.value!.style.maxWidth = targetMaxWidth
           card.value!.style.height = targetHeight
@@ -308,18 +322,14 @@
         })
 
         // Animate size-related styling
-        
-        const scale = 2.0
-        const targetBorderRadius = 12 * scale
-        const targetBorderWidth = 2 * scale
 
         $gsap.to(card.value, {
 
           width: endValueForWidth,
           height: endValueForHeight,
 
-          borderRadius: `${targetBorderRadius}px`,
-          borderWidth: `${targetBorderWidth}px`,
+          borderRadius: targetBorderRadius,
+          borderWidth: targetBorderWidth,
 
           duration: dur,
           ease: curveForSize,
@@ -327,6 +337,9 @@
           onComplete: onEnd,
           onInterrupt: onEnd,
         })
+
+        // Debug
+        // console.log(`target border width: ${targetBorderRadius}, radius: ${targetBorderWidth}`)
 
         // Fade out default content
         $gsap.to(defaultCardContent.value, {

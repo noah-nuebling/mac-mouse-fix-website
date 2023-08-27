@@ -7,7 +7,6 @@
 
     <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
-
       <FeatureCard class="feature-card col-span-auto bg-gradient-pink">
         <template v-slot:top> 
           <h3 class="dark-bg m-6">Move Between Spaces</h3>
@@ -24,8 +23,7 @@
           </div>
         </template>
         <template v-slot:expanded>
-          <div class="rounded-[24px] overflow-clip border-4 border-gray-50/25 -m-[4px]
-                      flex items-center justify-center">
+          <div class="video-wrapper">
             <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="object-cover">
               <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
             </video>
@@ -193,6 +191,15 @@
 
   .feature-card p.dark-bg {
     @apply text-gray-100/75;
+  }
+
+  .video-wrapper { 
+
+    /* Note: Keep the border color, width and radius in sync with the FeatureCard to make it look nice */
+
+    @apply rounded-[24px] border-[4px] m-[-4px] border-gray-50/25 
+            overflow-clip
+            flex items-center justify-center;
   }
 
 </style>
