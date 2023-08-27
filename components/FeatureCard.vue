@@ -4,6 +4,9 @@
     - $attrs.class contains the classes set by the parent like this <FeatureCard class="baz boo" />
     - We're making the card a flexbox just to center the video vertically during the expand animation. Not sure this is the best solution. Also no idea why/if the video is centered horizontally, if the card has a taller aspect ratio than the card.
     - If we set margins on the slot content, that currently doesn't work properly for the default slot for some reason. The div around the default slot has the exact size of the slot content, but without the slot content's margins. This makes it so part of the slot content is cut off. I don't know what's going on. We'll just use padding instead of margins for now. Edit: This doesn't happen anymore now. I dont' know what changed. Might have to do with `space-x-0` and `space-y-0` which we removed.
+    - I struggled controlling which part of the card content gets clipped / resized during the animation. It was because we couldn't get elements to shrink below their content size. Solution was setting min-h-0 and min-w-0 (for flex items) or setting overflow-clip (for block or flex items). Source: https://stackoverflow.com/a/38383437/10601702
+      - However I couldn't get it to work properly with block items, so we made everything flex. But the expandedCardContent div and the other children of the `swappableContentContainer` *don't* seem to need the min-[axis]-0 to shrink properly. I have no clue why.
+      - We made everything flex because it works and block confuses me. The expandedCardContent div starts out with display: none (twcc `hidden`) and gets display: flex through js
   -->
 
 <template>
@@ -13,25 +16,27 @@
     :class="['flex flex-col h-full rounded-xl overflow-clip border-2 border-gray-50/25 bg-origin-border shadow-lg', $attrs.class, isExpanded ? '' : '' ]">
     
     <!-- Top -->
-    <div ref="topCardContent">
+    <div ref="topCardContent" class="flex">
       <slot name="top"/>
     </div> 
 
-    <div>
+    <!-- Swap -->
+    <div ref="swappableContentContainer" class="min-h-0 min-w-0 
+                                                flex">
 
       <!-- Default -->
-      <div ref="defaultCardContent" class="">
+      <div ref="defaultCardContent" class="flex">
         <slot name="default"/>
       </div>
 
       <!-- Expanded -->
-      <div ref="expandedCardContent" class="static hidden">
+      <div ref="expandedCardContent" class="hidden">
         <slot name="expanded"/>
       </div>
     </div>
 
     <!-- Bottom -->
-    <div ref="bottomCardContent">
+    <div ref="bottomCardContent" class="flex">
       <slot name="bottom"/>
     </div>
   </div>
@@ -127,7 +132,7 @@
 
       // Place the expanded content in the card, hide the default content
       defaultCardContent.value!.style.display = 'none'
-      expandedCardContent.value!.style.display = 'block'
+      expandedCardContent.value!.style.display = 'flex'
 
       // Determine target styling of card
       // Notes:
@@ -214,8 +219,8 @@
       }
 
       // Show both the expanded content and the default content
-      expandedCardContent.value!.style.display = 'block'
-      defaultCardContent.value!.style.display = 'block'
+      expandedCardContent.value!.style.display = 'flex'
+      defaultCardContent.value!.style.display = 'flex'
 
       // Make the default content and expanded content overlap
       defaultCardContent.value!.style.position = 'absolute'
