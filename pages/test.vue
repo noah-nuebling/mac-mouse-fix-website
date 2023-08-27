@@ -24,8 +24,10 @@
           </div>
         </template>
         <template v-slot:expanded>
-          <div class="rounded-[24px] overflow-clip border-4 border-gray-50/25 -m-[4px]">
-            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+          <div class="shrink grow min-h-0 min-w-0
+                      rounded-[24px] overflow-clip border-4 border-gray-50/25 -m-[4px]
+                      flex items-center justify-center">
+            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="object-cover">
               <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
             </video>
           </div>
