@@ -7,6 +7,7 @@
     - I struggled controlling which part of the card content gets clipped / resized during the animation. It was because we couldn't get elements to shrink below their content size. Solution was setting min-h-0 and min-w-0 (for flex items) or setting overflow-clip (for block or flex items). Source: https://stackoverflow.com/a/38383437/10601702
       - However I couldn't get it to work properly with block items, so we made everything flex. But the expandedCardContent div and the other children of the `swappableContentContainer` *don't* seem to need the min-[axis]-0 to shrink properly. I have no clue why.
       - We made everything flex because it works and block confuses me. The expandedCardContent div starts out with display: none (twcc `hidden`) and gets display: flex through js
+    - On the defaultCardContent div we had to set flex-col (default is row), otherwise things would behave super weird when trying to set margins on its child. No clue why. We're setting everything to flex col, even if we only expect the flexbox to contain one item because of this.
   -->
 
 <template>
@@ -16,27 +17,27 @@
     :class="['flex flex-col h-full rounded-xl overflow-clip border-2 border-gray-50/25 bg-origin-border shadow-lg', $attrs.class, isExpanded ? '' : '' ]">
     
     <!-- Top -->
-    <div ref="topCardContent" class="flex">
+    <div ref="topCardContent" class="flex flex-col">
       <slot name="top"/>
     </div> 
 
     <!-- Swap -->
     <div ref="swappableContentContainer" class="min-h-0 min-w-0 
-                                                flex">
+                                                flex flex-col">
 
       <!-- Default -->
-      <div ref="defaultCardContent" class="flex">
+      <div ref="defaultCardContent" class="flex flex-col  ">
         <slot name="default"/>
       </div>
 
       <!-- Expanded -->
-      <div ref="expandedCardContent" class="hidden">
+      <div ref="expandedCardContent" class="hidden flex-col">
         <slot name="expanded"/>
       </div>
     </div>
 
     <!-- Bottom -->
-    <div ref="bottomCardContent" class="flex">
+    <div ref="bottomCardContent" class="flex flex-col">
       <slot name="bottom"/>
     </div>
   </div>
@@ -233,8 +234,8 @@
       }
 
       // Show both the expanded content and the default content
-      expandedCardContent.value!.style.display = 'flex'
       defaultCardContent.value!.style.display = 'flex'
+      expandedCardContent.value!.style.display = 'flex'
 
       // Make the default content and expanded content overlap
       defaultCardContent.value!.style.position = 'absolute'

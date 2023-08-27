@@ -17,9 +17,9 @@
               <p class="dark-bg">Hold a button on your mouse, then drag the mouse left or right to move to another Space.</p>
               <p class="dark-bg">It works just like swiping with 4 fingers on an Apple Trackpad.</p>
             </div>
-            <div class="ml-4">
+            <!-- <div class="ml-4">
               <img src="~/assets/img/play-dark.png" alt="trackpad" class="w-20">
-            </div>
+            </div> -->
           </div>
         </template>
         <template v-slot:expanded>
