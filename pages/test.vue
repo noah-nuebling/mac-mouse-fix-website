@@ -1,3 +1,11 @@
+<!-- 
+
+  Notes:
+  - On the wrapper for the "see it in action" button we had to set `min-h-[52px]` instead of h-[52px], for it to actually work. No idea why.
+
+
+ -->
+
 <template>
   <div>
 
@@ -22,8 +30,9 @@
             </div> -->
             
           </div>
-          <a class="rounded-[12px] border-[2px] m-[-2px] border-gray-50/25 py-3 
-          dark-bg text-gray-50/90 mt-5 text-center underline"><span class="">See It in Action</span>&ensp;<img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="inline h-4 align-text-bottom contrast-200"></a>
+          <div class="rounded-[0px] border-[4px] m-[-4px] border-gray-50/20 min-h-[52px] flex items-center justify-center mt-5">
+            <a class="dark-bg text-gray-50/90 text-center underline"><span class="">See It in Action</span>&ensp;<img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="inline h-4 align-text-bottom contrast-200"></a>
+          </div>
         </template>
         <template v-slot:expanded>
           <div class="video-wrapper">
