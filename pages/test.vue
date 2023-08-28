@@ -36,7 +36,7 @@
         </template>
         <template v-slot:expanded>
           <div class="video-wrapper">
-            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="object-cover">
+            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="object-cover w-full h-full">
               <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
             </video>
           </div>
@@ -211,7 +211,8 @@
 
     /* Note: Keep the border color, width and radius in sync with the FeatureCard to make it look nice */
 
-    @apply rounded-[24px] border-[4px] m-[-4px] border-gray-50/25 
+    @apply  grow
+            rounded-[24px] border-[4px] m-[-4px] border-gray-50/25 
             overflow-clip
             flex items-center justify-center;
   }
