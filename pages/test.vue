@@ -30,8 +30,8 @@
             </div> -->
             
           </div>
-          <div class="rounded-[0px] border-[4px] m-[-4px] border-gray-50/20 min-h-[52px] flex items-center justify-center mt-5">
-            <a class="text-base dark-bg text-gray-50/90 text-center underline"><span class="">See It in Action</span><span class="inline-space-[8]"/><img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-3.6px] contrast-200"></a>
+          <div class="rounded-[0px] border-[4px] m-[-4px] border-gray-50/20 min-h-[52px] flex items-center justify-center mt-5 cursor-pointer hover:underline">
+            <a class="text-base dark-bg text-gray-50/90 text-center"><span class="">See It in Action</span><span class="inline-space-[8]"/><img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-3.6px] contrast-200"></a>
           </div>
         </template>
         <template v-slot:expanded>
