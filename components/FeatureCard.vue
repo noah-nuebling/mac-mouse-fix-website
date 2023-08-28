@@ -14,7 +14,7 @@
   <div
     ref="card"
     @click="isExpanded = true"
-    :class="['flex flex-col h-full rounded-xl overflow-clip border-2 border-gray-50/25 bg-origin-border shadow-lg', $attrs.class, isExpanded ? '' : '' ]">
+    :class="['flex flex-col h-full rounded-xl overflow-clip border-2 border-gray-50/50 bg-origin-border shadow-lg', $attrs.class, isExpanded ? '' : '' ]">
     
     <!-- Top -->
     <div ref="topCardContent" class="flex flex-col">

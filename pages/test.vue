@@ -12,15 +12,18 @@
           <h3 class="dark-bg m-6">Move Between Spaces</h3>
         </template>
         <template v-slot:default>
-          <div class="flex flex-row items-center h-full m-6 mt-0">
+          <div class="flex flex-row items-center h-full m-6 mt-0 mb-3">
             <div>
-              <p class="dark-bg">Hold a button on your mouse, then drag the mouse left or right to move to another Space.</p>
-              <p class="dark-bg">It works just like swiping with 4 fingers on an Apple Trackpad.</p>
+              <p class="dark-bg">Hold a button on your mouse, then drag the mouse left or right to move to another Space with a smooth and intuitive animation which follows the movements of your hand precisely.</p>
+              <p class="dark-bg">It works just like swiping left of right with 4 fingers on an Apple Trackpad.</p>
             </div>
             <!-- <div class="ml-4">
               <img src="~/assets/img/play-dark.png" alt="trackpad" class="w-20">
             </div> -->
+            
           </div>
+          <a class="rounded-[12px] border-[2px] m-[-2px] border-gray-50/25 py-3 
+          dark-bg text-gray-50/90 mt-5 text-center underline"><span class="">See It in Action</span>&ensp;<img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="inline h-4 align-text-bottom contrast-200"></a>
         </template>
         <template v-slot:expanded>
           <div class="video-wrapper">
@@ -29,9 +32,8 @@
             </video>
           </div>
         </template>
-        <template v-slot:bottom>
-          <a class="dark-bg text-gray-50/90 m-6 mt-0 mb-4 text-center underline"><span class="">See It in Action</span>&ensp;<img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="inline h-4 align-text-bottom contrast-200"></a>
-        </template>
+        <!-- <template v-slot:bottom>
+        </template> -->
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto bg-gradient-orange">
         <template v-slot:default>
@@ -200,7 +202,7 @@
 
     /* Note: Keep the border color, width and radius in sync with the FeatureCard to make it look nice */
 
-    @apply rounded-[24px] border-[4px] m-[-4px] mb-[12px] border-gray-50/25 
+    @apply rounded-[24px] border-[4px] m-[-4px] border-gray-50/25 
             overflow-clip
             flex items-center justify-center;
   }
