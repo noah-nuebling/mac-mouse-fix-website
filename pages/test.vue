@@ -5,7 +5,7 @@
     <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam voluptates odit doloremque reiciendis aliquid, possimus nobis consequuntur. Necessitatibus, dignissimos mollitia, quod repellendus debitis architecto nemo, voluptates exercitationem voluptate itaque ipsum?</p>
     <!-- <p class="text-xl font-normal text-gray-500/90 mb-20 w-[60rem]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam voluptates odit doloremque reiciendis aliquid, possimus nobis consequuntur. Necessitatibus, dignissimos mollitia, quod repellendus debitis architecto nemo, voluptates exercitationem voluptate itaque ipsum?</p> -->
 
-    <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
+    <div class="grid xl:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
       <FeatureCard class="feature-card col-span-auto bg-gradient-pink">
         <template v-slot:top> 
@@ -28,6 +28,9 @@
               <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
             </video>
           </div>
+        </template>
+        <template v-slot:bottom>
+          <a class="dark-bg text-gray-50/90 m-6 mt-0 mb-4 text-center underline"><span class="">See It in Action</span>&ensp;<img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="inline h-4 align-text-bottom contrast-200"></a>
         </template>
       </FeatureCard>
       <FeatureCard class="feature-card col-span-auto bg-gradient-orange">
@@ -197,7 +200,7 @@
 
     /* Note: Keep the border color, width and radius in sync with the FeatureCard to make it look nice */
 
-    @apply rounded-[24px] border-[4px] m-[-4px] border-gray-50/25 
+    @apply rounded-[24px] border-[4px] m-[-4px] mb-[12px] border-gray-50/25 
             overflow-clip
             flex items-center justify-center;
   }

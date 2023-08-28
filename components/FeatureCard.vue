@@ -306,7 +306,7 @@
         }
 
         // Animate card
-        const dur = 3.5
+        const dur =   .5
 
         // Animate position-related styling
 
