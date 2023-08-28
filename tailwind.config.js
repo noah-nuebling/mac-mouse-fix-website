@@ -13,6 +13,7 @@ module.exports = {
     }
   },
   plugins: [
+
     // plugin(function({ matchUtilities, theme }) {
     //   matchUtilities(
     //     {
@@ -24,51 +25,37 @@ module.exports = {
     //   )
     // }),
 
-    plugin(function({ addUtilities }) {
+    plugin(function({ matchUtilities }) {
       
       /*    
-      - `inline-space-x` plugin
+      - `inline-space-[n]` plugin
       - Example usage:
-        `<p>Here<span class="inline-space-8"/>There</p>`
+        `<p>Here<span class="inline-space-[8]"/>There</p>`
       - Also see https://tailwindcss.com/docs/plugins
-      - matchUtilities() implementation doesn't work. See https://github.com/tailwindlabs/tailwindcss/discussions/11916. This feels really weird and hacky and I don't understand it. Code comes from ChatGPT. Maybe we should use a vue directive instead.
+      - matchUtilities() implementation didn't work at first. See https://github.com/tailwindlabs/tailwindcss/discussions/11916.
       */
 
       const thinSpace = '\u2009'; /* 2009 is thinSpace. See https://jkorpela.fi/chars/spaces.html */
 
-      // vvv addUtilities() implementation
-
-      const cssRules = {};
-      const maxValue = 100
-      for (let i = 1; i <= maxValue; i++) {
-        cssRules[`.inline-space-${i}::before`] = {
-          content: "'" + thinSpace.repeat(i) + "'",
-        };
+      const newUtilities = {
+        'inline-space': (n) => {
+          const cssRules = {
+            '&::before': {
+              'content': `'${thinSpace.repeat(n)}'`
+            }
+          }
+          return cssRules
+        },
       }
-    
-      addUtilities(cssRules);
+      const options = {
+        values: {
+          /* Could define default values here. But with can also use arbitrary values with [bracket syntax] */
+          1: '1',
+          2: '2',
+        },
+      }
 
-      return
-
-      // vvv matchUtilities() implementation
-
-      // const newUtilities = {
-      //   "spacing": (n, extra) => {
-      //     const rules = {}
-      //     const subRules = { content: "'" + thinSpace.repeat(n) + "'" }
-      //     rules[`.spacing-[${n}]::before`] = subRules
-      //     return subRules // Returning the rules doesn't work.
-      //   },
-      // }
-      // const options = {
-      //   values: {
-      //     /* Could define default values here. But with can also use arbitrary values with [bracket syntax] */
-      //     1: '1',
-      //     2: '2',
-      //   },
-      // }
-
-      // matchUtilities(newUtilities, options)
+      matchUtilities(newUtilities, options)
     }),
   ]
 }
