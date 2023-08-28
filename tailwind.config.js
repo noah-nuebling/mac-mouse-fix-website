@@ -33,9 +33,10 @@ module.exports = {
         `<p>Here<span class="inline-space-[8]"/>There</p>`
       - Also see https://tailwindcss.com/docs/plugins
       - matchUtilities() implementation didn't work at first. See https://github.com/tailwindlabs/tailwindcss/discussions/11916.
+      - This might break on other systems where the Apple font isn't available and the space width is therefore different.
       */
 
-      const thinSpace = '\u2009'; /* 2009 is thinSpace. See https://jkorpela.fi/chars/spaces.html */
+      const thinSpace = '\u200A'; /* 2009 is thinSpace, 200A is hair space. See https://jkorpela.fi/chars/spaces.html */
 
       const newUtilities = {
         'inline-space': (n) => {

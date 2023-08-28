@@ -1,10 +1,15 @@
+/* 
+Notes: 
+- BlinkMacSystemFont makes Chrome(ium?) use the system font under macOS
+ */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   @apply bg-gray-50;
-  font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif; /* Copied from https://www.apple.com/by/apple-watch-series-7/ */
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif; /* Copied from https://www.apple.com/by/apple-watch-series-7/ */
 
 }
 
