@@ -12,10 +12,9 @@
     <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">Do the Things <br>You Do on a <span class="text-gradient-blue">Trackpad</span>.<br><span class="text-gradient-yellow">Without</span> a <span class= text-gradient-light-yellow>Trackpad</span>.</h2>
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-blue">Trackpad</span>-like Gestures.</h2> -->
     <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">
-      It's no secret that Macs are best when used together with an official Apple Trackpad. 
-      <br> When using a 3rd-party mouse, many essential functionalities of macOS aren't easily accessible, making it feel like you're a 2nd class citizen on the platform.
-      <br><br>Mac Mouse Fix lets you do everything you can do on an Apple Trackpad from your 3rd-party mouse. And all the interactions will feel just as effortless, responsive, polished, and intuitive as they do on an Apple Trackpad. Your mouse will feel like a 1st-class citizen on macOS.
-      <br><br>This is made possible through Mac Mouse Fix's sophiticated Remapping Engine which lets you combine many functionalities on a single button using clicks, double clicks, clicks and drags, clicks and scrolls and stuff, and also Mac Mouse Fix's best-in-class first-of-a-kind Trackpad simulation, which will make macOS behave just as if you were using a Trackpad. 
+      Macs are best used together with an official Apple Trackpad. Many essential features of macOS aren't easily accessible when using a 3rd-party mouse or even an Apple Magic Mouse.
+      <br><br>Mac Mouse Fix lets you do everything you can do on an Apple Trackpad from your 3rd-party mouse. And all the interactions will feel just as effortless, responsive, polished, and intuitive as they do on an Apple Trackpad. Mac Mouse Fix turns your 3rd-party mouse into a 1st-class citizen under macOS.
+      <br><br>This is made possible through Mac Mouse Fix's best-in-class and first-of-a-kind Trackpad simulation. 
     </p>
     <!-- <p class="text-xl font-normal text-gray-500/90 mb-20 w-[60rem]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam voluptates odit doloremque reiciendis aliquid, possimus nobis consequuntur. Necessitatibus, dignissimos mollitia, quod repellendus debitis architecto nemo, voluptates exercitationem voluptate itaque ipsum?</p> -->
 
