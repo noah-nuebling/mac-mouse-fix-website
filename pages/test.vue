@@ -14,7 +14,6 @@
     <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">
       Macs are best used together with an official Apple Trackpad. Many essential features of macOS aren't easily accessible when using a 3rd-party mouse or even an Apple Magic Mouse.
       <br><br>Mac Mouse Fix lets you do everything you can do on an Apple Trackpad from your 3rd-party mouse. And all the interactions will feel just as effortless, responsive, polished, and intuitive as they do on an Apple Trackpad. Mac Mouse Fix turns your 3rd-party mouse into a 1st-class citizen under macOS.
-      <br><br>This is made possible through Mac Mouse Fix's best-in-class and first-of-a-kind Trackpad simulation. 
     </p>
     <!-- <p class="text-xl font-normal text-gray-500/90 mb-20 w-[60rem]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam voluptates odit doloremque reiciendis aliquid, possimus nobis consequuntur. Necessitatibus, dignissimos mollitia, quod repellendus debitis architecto nemo, voluptates exercitationem voluptate itaque ipsum?</p> -->
 
