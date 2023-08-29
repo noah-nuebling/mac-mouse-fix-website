@@ -9,190 +9,194 @@
 <template>
   <div>
 
-    <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">Do the Things <br>You Do on a <span class="text-gradient-blue">Trackpad</span>.<br><span class="text-gradient-yellow">Without</span> a <span class= text-gradient-light-yellow>Trackpad</span>.</h2>
+    <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-0 mt-20 text-gray-800">Macs Are Best<br>With a <span class="text-gradient-blue">Trackpad</span>.<br>Or Are They?</h2>
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-blue">Trackpad</span>-like Gestures.</h2> -->
-    <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">
-      Many essential features of macOS are only easily accessible using an official Apple Trackpad, making it feel like 3rd-party mice are 2nd-class citizens on the platform.
-      <br><br>Mac Mouse Fix brings all the functions of an Apple Trackpad to your 3rd-party mouse.* And the interactions feel just as effortless, responsive, polished, and intuitive as they do on an Apple Trackpad. Mac Mouse Fix turns your 3rd-party mouse into a 1st-class citizen of macOS.
+    <p class="text-[1.5rem] leading-[1.5] font-medium text-gray-500/80 mb-[3rem] mt-[5rem] w-max-[60rem]">
+      Mac Mouse Fix brings all the functions of an official Apple Trackpad to your third-party mouse.* And the interactions feel just as effortless, responsive, smooth, and polished as they do on the Trackpad.
     </p>
     <!-- <p class="text-xl font-normal text-gray-500/90 mb-20 w-[60rem]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam voluptates odit doloremque reiciendis aliquid, possimus nobis consequuntur. Necessitatibus, dignissimos mollitia, quod repellendus debitis architecto nemo, voluptates exercitationem voluptate itaque ipsum?</p> -->
 
-    <hr class="border-gray-700/10 border-[2px] mt-[-1rem] mb-5">
+    <!-- <hr class="border-gray-700/10 border-[2px] mt-[-1rem] mb-5"> -->
 
-    <p class="text-xl text-center font-normal text-gray-500/70 mb-7 w-max-[60rem]">Explore the range of Trackpad functionalities Mac Mouse Fix brings to your mouse below.*<br>Click any card for a video demo.</p>
+    <div class="bg-gray-200/50 rounded-[32px] px-3 pt-2 pb-0">
 
-    <div class="grid xl:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-10 py-4">
+      <p class="text-normal text-center font-normal text-gray-500/70 mb-3 mt-0 w-max-[60rem]">Explore the range of Trackpad functionalities Mac Mouse Fix brings to your mouse below.*<br>Click any card for a video demo.</p>
+      <!-- <hr class="border-gray-400/20 border-[1px] mb-1 mt-0 -mx-3"> -->
 
-      <FeatureCard ref="moveSpacesCard" class="feature-card col-span-auto bg-gradient-pink cursor-pointer group" @click="$refs.moveSpacesCard.expand()">
-        <template v-slot:top> 
-          <h3 class="dark-bg m-6">Move Between Spaces</h3>
-        </template>
-        <template v-slot:default>
-          <div class="flex flex-row items-center h-full m-6 mt-0 mb-3">
-            <div>
-              <p class="dark-bg">Hold a button on your mouse, then drag the mouse left or right to move to another Space with a smooth and intuitive animation which follows the movements of your hand precisely.</p>
-              <p class="dark-bg">It works just like swiping left of right with 4 fingers on an Apple Trackpad.</p>
+      <div class="grid xl:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-10 py-4">
+
+        <FeatureCard ref="moveSpacesCard" class="feature-card col-span-auto bg-gradient-pink cursor-pointer group" @click="$refs.moveSpacesCard.expand()">
+          <template v-slot:top> 
+            <h3 class="dark-bg m-6">Move Between Spaces</h3>
+          </template>
+          <template v-slot:default>
+            <div class="flex flex-row items-center h-full m-6 mt-0 mb-3">
+              <div>
+                <p class="dark-bg">Hold a button on your mouse, then drag the mouse left or right to move to another Space with a smooth and intuitive animation which follows the movements of your hand precisely.</p>
+                <p class="dark-bg">It works just like swiping left of right with 4 fingers on an Apple Trackpad.</p>
+              </div>
+              <!-- <div class="ml-4">
+                <img src="~/assets/img/play-dark.png" alt="trackpad" class="w-20">
+              </div> -->
+              
             </div>
-            <!-- <div class="ml-4">
-              <img src="~/assets/img/play-dark.png" alt="trackpad" class="w-20">
-            </div> -->
-            
-          </div>
-          <div class="rounded-[0px] border-[4px] m-[-4px] border-gray-50/20 min-h-[52px] flex items-center justify-center mt-5 cursor-pointer group-hover:underline">
-            <a class="text-base dark-bg text-gray-50/90 text-center"><span class="">See It in Action</span><span class="inline-space-[8]"/><img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-3.6px] contrast-200"></a>
-          </div>
-        </template>
-        <template v-slot:expanded>
-          <div class="video-wrapper">
-            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="object-cover w-full h-full">
+            <div class="rounded-[0px] border-[4px] m-[-4px] border-gray-50/20 min-h-[52px] flex items-center justify-center mt-5 cursor-pointer group-hover:underline">
+              <a class="text-base dark-bg text-gray-50/90 text-center"><span class="">See It in Action</span><span class="inline-space-[8]"/><img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-3.6px] contrast-200"></a>
+            </div>
+          </template>
+          <template v-slot:expanded>
+            <div class="video-wrapper">
+              <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="object-cover w-full h-full">
+                <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+              </video>
+            </div>
+          </template>
+          <!-- <template v-slot:bottom>
+          </template> -->
+        </FeatureCard>
+        <FeatureCard class="feature-card col-span-auto bg-gradient-orange">
+          <template v-slot:default>
+            <div class="m-6">
+              <h3 class="dark-bg">Mission Control</h3>
+              <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+              <a href="" class="mt-2 text-gray-100 underline">See it in action ❯</a>
+            </div>
+          </template>
+          <template v-slot:expanded>
+            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
               <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
             </video>
-          </div>
-        </template>
-        <!-- <template v-slot:bottom>
-        </template> -->
-      </FeatureCard>
-      <FeatureCard class="feature-card col-span-auto bg-gradient-orange">
-        <template v-slot:default>
-          <div class="m-6">
-            <h3 class="dark-bg">Mission Control</h3>
-            <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-            <a href="" class="mt-2 text-gray-100 underline">See it in action ❯</a>
-          </div>
-        </template>
-        <template v-slot:expanded>
-          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-          </video>
-        </template>
-      </FeatureCard>
-      <FeatureCard class="feature-card col-span-auto bg-gradient-blue">
-        <template v-slot:default>
-          <div class="m-6">
-            <h3 class="dark-bg">App Exposé</h3>
-            <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-          </div>
-        </template>
-        <template v-slot:expanded>
-          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-          </video>
-        </template>
-      </FeatureCard>
-      <FeatureCard class="feature-card col-span-auto">
-        <template v-slot:default>
-          <div class="m-6">
-            <h3>Show Desktop</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-          </div>
-        </template>
-        <template v-slot:expanded>
-          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-          </video>
-        </template>
-      </FeatureCard>
-      <FeatureCard class="feature-card col-span-auto">
-        <template v-slot:default>
-          <div class="m-6">
-            <h3>Launchpad</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-          </div>
-        </template>
-        <template v-slot:expanded>
-          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-          </video>
-        </template>
-      </FeatureCard>
-      <FeatureCard class="feature-card col-span-auto">
-        <template v-slot:default>
-          <div class="m-6">
-            <h3>Look Up & Data Detectors</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-          </div>
-        </template>
-        <template v-slot:expanded>
-          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-          </video>
-        </template>
-      </FeatureCard>
-      <FeatureCard class="feature-card col-span-auto">
-        <template v-slot:default>
-          <div class="m-6">
-            <h3>Move between Pages</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-          </div>
-        </template>
-        <template v-slot:expanded>
-          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-          </video>
-        </template>
-      </FeatureCard>
-      <FeatureCard class="feature-card col-span-auto">
-        <template v-slot:default>
-          <div class="m-6">
-            <h3>Mark Mails as Unread</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-          </div>
-        </template>
-        <template v-slot:expanded>
-          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-          </video>
-        </template>
-      </FeatureCard>
-      <FeatureCard class="feature-card col-span-auto">
-        <template v-slot:default>
-          <div class="m-6">
-            <h3>Scroll Freely</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-          </div>
-        </template>
-        <template v-slot:expanded>
-          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-          </video>
-        </template>
-      </FeatureCard>
-      <FeatureCard class="feature-card col-span-auto">
-        <template v-slot:default>
-          <div class="m-6">
-            <h3>Pinch to Zoom</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-          </div>
-        </template>
-        <template v-slot:expanded>
-          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-          </video>
-        </template>
-      </FeatureCard>
-      <FeatureCard class="feature-card col-span-auto">
-        <template v-slot:default>
-          <div class="m-6">
-            <h3>Smart Zoom</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-          </div>
-        </template>
-        <template v-slot:expanded>
-          <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-            <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-          </video>
-        </template>
-      </FeatureCard>
+          </template>
+        </FeatureCard>
+        <FeatureCard class="feature-card col-span-auto bg-gradient-blue">
+          <template v-slot:default>
+            <div class="m-6">
+              <h3 class="dark-bg">App Exposé</h3>
+              <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+            </div>
+          </template>
+          <template v-slot:expanded>
+            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+            </video>
+          </template>
+        </FeatureCard>
+        <FeatureCard class="feature-card col-span-auto bg-white">
+          <template v-slot:default>
+            <div class="m-6">
+              <h3>Show Desktop</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+            </div>
+          </template>
+          <template v-slot:expanded>
+            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+            </video>
+          </template>
+        </FeatureCard>
+        <FeatureCard class="feature-card col-span-auto bg-white">
+          <template v-slot:default>
+            <div class="m-6">
+              <h3>Launchpad</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+            </div>
+          </template>
+          <template v-slot:expanded>
+            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+            </video>
+          </template>
+        </FeatureCard>
+        <FeatureCard class="feature-card col-span-auto bg-white">
+          <template v-slot:default>
+            <div class="m-6">
+              <h3>Look Up & Data Detectors</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+            </div>
+          </template>
+          <template v-slot:expanded>
+            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+            </video>
+          </template>
+        </FeatureCard>
+        <FeatureCard class="feature-card col-span-auto bg-white">
+          <template v-slot:default>
+            <div class="m-6">
+              <h3>Move between Pages</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+            </div>
+          </template>
+          <template v-slot:expanded>
+            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+            </video>
+          </template>
+        </FeatureCard>
+        <FeatureCard class="feature-card col-span-auto bg-white">
+          <template v-slot:default>
+            <div class="m-6">
+              <h3>Mark Mails as Unread</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+            </div>
+          </template>
+          <template v-slot:expanded>
+            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+            </video>
+          </template>
+        </FeatureCard>
+        <FeatureCard class="feature-card col-span-auto bg-white">
+          <template v-slot:default>
+            <div class="m-6">
+              <h3>Scroll Freely</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+            </div>
+          </template>
+          <template v-slot:expanded>
+            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+            </video>
+          </template>
+        </FeatureCard>
+        <FeatureCard class="feature-card col-span-auto bg-white">
+          <template v-slot:default>
+            <div class="m-6">
+              <h3>Pinch to Zoom</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+            </div>
+          </template>
+          <template v-slot:expanded>
+            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+            </video>
+          </template>
+        </FeatureCard>
+        <FeatureCard class="feature-card col-span-auto bg-white">
+          <template v-slot:default>
+            <div class="m-6">
+              <h3>Smart Zoom</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
+            </div>
+          </template>
+          <template v-slot:expanded>
+            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
+              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
+            </video>
+          </template>
+        </FeatureCard>
+      </div>
     </div>
-    <p class="text-xl text-center text-xs text-gray-500/70 mb-7 mt-10 w-max-[60rem]">* Mac Mouse Fix can only bring all of the Trackpad-features to your 3rd-party mouse in the way described, if your mouse has at least 5 buttons which are recognized by Mac Mouse Fix. If Mac Mouse Fix recognizes less than 5 buttons on your mouse, Mac Mouse Fix will still work great with it and and you can even still use all of these Trackpad features listed here from your mouse, but you will have to set them up in a different - arguably less intuitive - way.</p>
+    <p class="text-xl text-center text-xs text-gray-500/70 mb-7 mt-10 w-max-[60rem]">* Mac Mouse Fix can only bring all of the Trackpad-features to your third-party mouse in the way described, if your mouse has at least 5 buttons which are recognized by Mac Mouse Fix. If Mac Mouse Fix recognizes less than 5 buttons on your mouse, Mac Mouse Fix will still work great with it and and you can even still use all of these Trackpad features listed here from your mouse, but you will have to set them up in a different - arguably less intuitive - way.</p>
 
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">Make Your Mouse Do<br>Anything You Can <span class="text-gradient-orange">Think </span>of.<br>As Fast as You Can Think of It.</h2> -->
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-orange">Think </span>It.<br>Then Make Your Mouse Do It.</h2> -->
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-blue">Think </span>It. <span class="text-gradient-green-yellow">Click</span> It.<span class="text-gradient-orange"> Do</span> It.</h2> -->
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-blue">Think </span>It.<br> <span class="text-gradient-green-yellow">Click</span> It.<br><span class="text-gradient-orange">Do</span> It.</h2> -->
-    <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">As <span class="text-gradient-green-yellow">Flexible</span> as Your Mind.<br>As <span class="text-gradient-orange">Fast</span> As You Can Think.</h2>
+    <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">As <span class="text-gradient-green-yellow">Flexible</span> as Your Mind.<br>As <span class="text-gradient-orange">Fast</span> As You Can Think.</h2> -->
+    <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-green-yellow">Think</span> it?<br><span class="text-gradient-orange">Do</span> it.</h2>
     
-    <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam voluptates odit doloremque reiciendis aliquid, possimus nobis consequuntur. Necessitatibus, dignissimos mollitia, quod repellendus debitis architecto nemo, voluptates exercitationem voluptate itaque ipsum?</p>
+    <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">Mac Mouse Fix's incredibly intuitive, yet formidably flexible UI lets you set up your mouse exactly how you want it in seconds.</p>
 
   </div>
 </template>
