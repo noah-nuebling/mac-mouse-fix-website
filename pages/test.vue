@@ -20,8 +20,8 @@
 
     <div class="bg-gray-200/50 rounded-[32px] px-3 pt-2 pb-0">
 
-      <p class="text-normal text-center font-normal text-gray-500/70 mb-3 mt-0 w-max-[60rem]">Explore the range of Trackpad functionalities Mac Mouse Fix brings to your mouse below.*<br>Click any card for a video demo.</p>
-      <!-- <hr class="border-gray-400/20 border-[1px] mb-1 mt-0 -mx-3"> -->
+      <p class="text-normal text-center font-normal text-gray-500/70 mb-2 mt-0 w-max-[60rem]">Explore the range of Trackpad functionalities Mac Mouse Fix brings to your mouse below.*<br>Click any card for a video demo.</p>
+      <hr class="border-gray-400/20 border-[1px] mb-0 mt-0 -mx-3">
 
       <div class="grid xl:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
