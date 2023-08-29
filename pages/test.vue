@@ -10,8 +10,18 @@
   <div>
 
     <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">Do the Things <br>You Do on a <span class="text-gradient-blue">Trackpad</span>.<br><span class="text-gradient-yellow">Without</span> a <span class= text-gradient-light-yellow>Trackpad</span>.</h2>
-    <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam voluptates odit doloremque reiciendis aliquid, possimus nobis consequuntur. Necessitatibus, dignissimos mollitia, quod repellendus debitis architecto nemo, voluptates exercitationem voluptate itaque ipsum?</p>
+    <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-blue">Trackpad</span>-like Gestures.</h2> -->
+    <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">
+      It's no secret that Macs are best when used together with an official Apple Trackpad. 
+      <br> When using a 3rd-party mouse, many essential functionalities of macOS aren't easily accessible, making it feel like you're a 2nd class citizen on the platform.
+      <br><br>Mac Mouse Fix lets you do everything you can do on an Apple Trackpad from your 3rd-party mouse. And all the interactions will feel just as effortless, responsive, polished, and intuitive as they do on an Apple Trackpad. Your mouse will feel like a 1st-class citizen on macOS.
+      <br><br>This is made possible through Mac Mouse Fix's sophiticated Remapping Engine which lets you combine many functionalities on a single button using clicks, double clicks, clicks and drags, clicks and scrolls and stuff, and also Mac Mouse Fix's best-in-class first-of-a-kind Trackpad simulation, which will make macOS behave just as if you were using a Trackpad. 
+    </p>
     <!-- <p class="text-xl font-normal text-gray-500/90 mb-20 w-[60rem]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam voluptates odit doloremque reiciendis aliquid, possimus nobis consequuntur. Necessitatibus, dignissimos mollitia, quod repellendus debitis architecto nemo, voluptates exercitationem voluptate itaque ipsum?</p> -->
+
+    <hr class="border-gray-700/10 border-[2px] mt-[-3rem] mb-5">
+
+    <p class="text-xl text-center font-normal text-gray-500/70 mb-7 w-max-[60rem]">Explore the range of Trackpad functionalities Mac Mouse Fix brings to your mouse below. <br>Click any card for a video demo.</p>
 
     <div class="grid xl:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
@@ -176,6 +186,14 @@
         </template>
       </FeatureCard>
     </div>
+
+    <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">Make Your Mouse Do<br>Anything You Can <span class="text-gradient-orange">Think </span>of.<br>As Fast as You Can Think of It.</h2> -->
+    <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-orange">Think </span>It.<br>Then Make Your Mouse Do It.</h2> -->
+    <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-blue">Think </span>It. <span class="text-gradient-green-yellow">Click</span> It.<span class="text-gradient-orange"> Do</span> It.</h2> -->
+    <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-blue">Think </span>It.<br> <span class="text-gradient-green-yellow">Click</span> It.<br><span class="text-gradient-orange">Do</span> It.</h2> -->
+    <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">As <span class="text-gradient-green-yellow">Flexible</span> as Your Mind.<br>As <span class="text-gradient-orange">Fast</span> As You Can Think.</h2>
+    
+    <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam voluptates odit doloremque reiciendis aliquid, possimus nobis consequuntur. Necessitatibus, dignissimos mollitia, quod repellendus debitis architecto nemo, voluptates exercitationem voluptate itaque ipsum?</p>
 
   </div>
 </template>
