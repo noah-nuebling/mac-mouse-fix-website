@@ -15,7 +15,7 @@
 
     <div class="grid xl:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
-      <FeatureCard ref="moveSpacesCard" class="feature-card col-span-auto bg-gradient-pink">
+      <FeatureCard ref="moveSpacesCard" class="feature-card col-span-auto bg-gradient-pink cursor-pointer group" @click="$refs.moveSpacesCard.expand()">
         <template v-slot:top> 
           <h3 class="dark-bg m-6">Move Between Spaces</h3>
         </template>
@@ -30,7 +30,7 @@
             </div> -->
             
           </div>
-          <div class="rounded-[0px] border-[4px] m-[-4px] border-gray-50/20 min-h-[52px] flex items-center justify-center mt-5 cursor-pointer hover:underline" @click="$refs.moveSpacesCard.expand()">
+          <div class="rounded-[0px] border-[4px] m-[-4px] border-gray-50/20 min-h-[52px] flex items-center justify-center mt-5 cursor-pointer group-hover:underline">
             <a class="text-base dark-bg text-gray-50/90 text-center"><span class="">See It in Action</span><span class="inline-space-[8]"/><img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-3.6px] contrast-200"></a>
           </div>
         </template>
