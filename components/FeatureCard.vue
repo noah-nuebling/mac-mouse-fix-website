@@ -14,7 +14,6 @@
 <template>
   <div
     ref="card"
-    @click="isExpanded = true"
     :class="['flex flex-col h-full rounded-[24px] overflow-clip border-4 border-gray-50/25 bg-origin-border shadow-lg', $attrs.class, isExpanded ? '' : '' ]">
     
     <!-- Top -->
@@ -71,6 +70,15 @@
   // Dynamically created elements
   var cardPlaceholder: HTMLDivElement | null = null
 
+  // Methods for parent
+  function expand() {
+    isExpanded.value = true
+  }
+  defineExpose({
+    expand,
+  })
+
+  // React to isExpanded change
   watch(isExpanded, (shouldExpand) => {
 
     // Kill current animations
