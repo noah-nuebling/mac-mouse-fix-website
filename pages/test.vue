@@ -12,14 +12,14 @@
     <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">Do the Things <br>You Do on a <span class="text-gradient-blue">Trackpad</span>.<br><span class="text-gradient-yellow">Without</span> a <span class= text-gradient-light-yellow>Trackpad</span>.</h2>
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-blue">Trackpad</span>-like Gestures.</h2> -->
     <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">
-      Macs are best used together with an official Apple Trackpad. Many essential features of macOS aren't easily accessible when using a 3rd-party mouse or even an Apple Magic Mouse.
-      <br><br>Mac Mouse Fix lets you do everything you can do on an Apple Trackpad from your 3rd-party mouse. And all the interactions will feel just as effortless, responsive, polished, and intuitive as they do on an Apple Trackpad. Mac Mouse Fix turns your 3rd-party mouse into a 1st-class citizen under macOS.
+      Many essential features of macOS are only easily accessible using an official Apple Trackpad, making it feel like 3rd-party mice are 2nd-class citizens on the platform.
+      <br><br>Mac Mouse Fix brings all the functions of an Apple Trackpad to your 3rd-party mouse.* And the interactions feel just as effortless, responsive, polished, and intuitive as they do on an Apple Trackpad. Mac Mouse Fix turns your 3rd-party mouse into a 1st-class citizen of macOS.
     </p>
     <!-- <p class="text-xl font-normal text-gray-500/90 mb-20 w-[60rem]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam voluptates odit doloremque reiciendis aliquid, possimus nobis consequuntur. Necessitatibus, dignissimos mollitia, quod repellendus debitis architecto nemo, voluptates exercitationem voluptate itaque ipsum?</p> -->
 
-    <hr class="border-gray-700/10 border-[2px] mt-[-3rem] mb-5">
+    <hr class="border-gray-700/10 border-[2px] mt-[-1rem] mb-5">
 
-    <p class="text-xl text-center font-normal text-gray-500/70 mb-7 w-max-[60rem]">Explore the range of Trackpad functionalities Mac Mouse Fix brings to your mouse below. <br>Click any card for a video demo.</p>
+    <p class="text-xl text-center font-normal text-gray-500/70 mb-7 w-max-[60rem]">Explore the range of Trackpad functionalities Mac Mouse Fix brings to your mouse below.*<br>Click any card for a video demo.</p>
 
     <div class="grid xl:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
@@ -184,6 +184,7 @@
         </template>
       </FeatureCard>
     </div>
+    <p class="text-xl text-center text-xs text-gray-500/70 mb-7 mt-10 w-max-[60rem]">* Mac Mouse Fix can only bring all of the Trackpad-features to your 3rd-party mouse in the way described, if your mouse has at least 5 buttons which are recognized by Mac Mouse Fix. If Mac Mouse Fix recognizes less than 5 buttons on your mouse, Mac Mouse Fix will still work great with it and and you can even still use all of these Trackpad features listed here from your mouse, but you will have to set them up in a different - arguably less intuitive - way.</p>
 
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">Make Your Mouse Do<br>Anything You Can <span class="text-gradient-orange">Think </span>of.<br>As Fast as You Can Think of It.</h2> -->
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-orange">Think </span>It.<br>Then Make Your Mouse Do It.</h2> -->
