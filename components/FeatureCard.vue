@@ -14,7 +14,7 @@
 <template>
   <div
     ref="card"
-    :class="['flex flex-col h-full rounded-[24px] overflow-clip border-4 border-gray-50/25 bg-origin-border shadow-lg', $attrs.class, isExpanded ? '' : '' ]">
+    :class="['ass-low-shadow flex flex-col h-full rounded-[24px] overflow-clip border-4 border-gray-50/25 bg-origin-border', $attrs.class, isExpanded ? '' : '' ]">
     
     <!-- Top -->
     <div ref="topCardContent" class="flex flex-col">
@@ -457,5 +457,12 @@
 </script>
 
 <style lang="postcss" scoped>
+
+.ass-deep-shadow {
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0, 0.2), 0px 4px 16px 0px rgba(0,0,0, 0.2),0px 8px 32px 0px rgba(0,0,0, 0.2),  inset 0 1px 0 0 rgba(255, 255, 255, 0.30)
+  }
+  .ass-deep-low-shadow {
+    box-shadow: 0px 0.5px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 8px 0 rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.30), inset 0 1px 0 0 rgba(255, 255, 255, 0.30)
+  }
 
 </style>

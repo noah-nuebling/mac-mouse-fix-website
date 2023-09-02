@@ -9,23 +9,24 @@
 <template>
   <div>
 
-    <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-0 mt-20 text-gray-800">Macs Are Best<br>With a <span class="text-gradient-blue">Trackpad</span>.<br>Or Are They?</h2>
+    <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-0 mt-20 text-gray-800">Macs Are Best<br>With a <span class="text-gradient-blue">Trackpad</span>.<br>…Right?</h2>
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-blue">Trackpad</span>-like Gestures.</h2> -->
-    <p class="text-[1.5rem] leading-[1.5] font-medium text-gray-500/80 mb-[3rem] mt-[5rem] w-max-[60rem]">
-      Mac Mouse Fix brings all the functions of an official Apple Trackpad to your third-party mouse.* And the interactions feel just as effortless, responsive, smooth, and polished as they do on the Trackpad.
+    <p class="text-[1.5rem] leading-[1.5] font-medium text-gray-500/80 mb-[5rem] mt-[5rem] w-max-[60rem]">
+      Mac Mouse Fix brings all the functions of an official Apple Trackpad to your third-party mouse.*<br>And all the interactions feel just as effortless, responsive, smooth, and polished as they do on the Trackpad.
     </p>
     <!-- <p class="text-xl font-normal text-gray-500/90 mb-20 w-[60rem]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam voluptates odit doloremque reiciendis aliquid, possimus nobis consequuntur. Necessitatibus, dignissimos mollitia, quod repellendus debitis architecto nemo, voluptates exercitationem voluptate itaque ipsum?</p> -->
 
     <!-- <hr class="border-gray-700/10 border-[2px] mt-[-1rem] mb-5"> -->
 
-    <div class="bg-gray-200/50 rounded-[32px] px-3 pt-2 pb-0">
+    <div class="bg-gray-200/50 rounded-[16px] px-3 pt-3 pb-3 mb-6 ass-low-shadow">
+      <p class="text-normal text-center font-normal text-gray-500/70 mb-1 mt-0 w-max-[60rem]">Explore the range of Trackpad functionalities which Mac Mouse Fix brings to your mouse in the cards below.*</p>
+      <p class="text-normal text-center font-normal text-gray-500/70 mb-0 mt-0 w-max-[60rem]">Click any card for a video demo.</p>
+      <!-- <hr class="border-gray-400/20 border-[1px] mb-0 mt-0 -mx-3"> -->
+    </div>
+    <div class="">
+      <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
-      <p class="text-normal text-center font-normal text-gray-500/70 mb-2 mt-0 w-max-[60rem]">Explore the range of Trackpad functionalities Mac Mouse Fix brings to your mouse below.*<br>Click any card for a video demo.</p>
-      <hr class="border-gray-400/20 border-[1px] mb-0 mt-0 -mx-3">
-
-      <div class="grid xl:grid-cols-3  md:grid-cols-2 grid-cols-1 gap-10 py-4">
-
-        <FeatureCard ref="moveSpacesCard" class="feature-card col-span-auto bg-gradient-pink cursor-pointer group" @click="$refs.moveSpacesCard.expand()">
+        <FeatureCard ref="moveSpacesCard" class="shadow feature-card col-span-auto bg-gradient-pink cursor-pointer group" @click="$refs.moveSpacesCard.expand()">
           <template v-slot:top> 
             <h3 class="dark-bg m-6">Move Between Spaces</h3>
           </template>
@@ -54,7 +55,7 @@
           <!-- <template v-slot:bottom>
           </template> -->
         </FeatureCard>
-        <FeatureCard class="feature-card col-span-auto bg-gradient-orange">
+        <FeatureCard class="feature-card col-span-auto bg-gradient-orange orange-shadow">
           <template v-slot:default>
             <div class="m-6">
               <h3 class="dark-bg">Mission Control</h3>
@@ -196,7 +197,7 @@
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">As <span class="text-gradient-green-yellow">Flexible</span> as Your Mind.<br>As <span class="text-gradient-orange">Fast</span> As You Can Think.</h2> -->
     <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-green-yellow">Think</span> it?<br><span class="text-gradient-orange">Do</span> it.</h2>
     
-    <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">Mac Mouse Fix's incredibly intuitive, yet formidably flexible UI lets you set up your mouse exactly how you want it in seconds.</p>
+    <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">Mac Mouse Fix's incredibly intuitive, yet remarkably flexible UI lets you set up your mouse exactly how you want it in seconds.</p>
 
   </div>
 </template>
@@ -205,7 +206,7 @@
 
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss">
 
   /* Card Content */
 
@@ -236,6 +237,19 @@
             rounded-[24px] border-[4px] m-[-4px] border-gray-50/25 
             overflow-clip
             flex items-center justify-center;
+  }
+
+  .ass-shadow {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 8px 32px 0 rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.30)
+  }
+
+
+  .ass-low-shadow {
+    box-shadow: 0px 0.5px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 8px 0 rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.30)
+  }
+
+  .orange-shadow {
+    box-shadow: 0px 2px 4px 0px rgba(71, 30, 0, 0.3),0px 4px 16px 0px rgba(145, 60, 1, 0.3),0px 8px 32px 0px rgba(145, 60, 1, 0.3);
   }
 
 </style>
