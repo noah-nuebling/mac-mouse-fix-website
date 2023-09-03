@@ -6,6 +6,10 @@ export default defineNuxtConfig({
   ssr: true,
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt'],
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+    configPath: '~~/tailwind.config.js'
+  },
   app: {
     // baseURL: process.env.NODE_ENV === 'development' ? '/' : 'mac-mouse-fix-website-nuxt', // Usnig gh-pages dev dependency instead
     baseURL: '/mac-mouse-fix-website-nuxt',

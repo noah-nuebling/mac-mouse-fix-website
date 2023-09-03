@@ -3,7 +3,40 @@
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
+  content: [
+    
+    /// Additions
+    `./css/**/*.css`,
+    
+    /// Default. Src: https://tailwindcss.nuxtjs.org/tailwind/config
+    `./components/**/*.{vue,js,ts}`,
+    `./layouts/**/*.vue`,
+    `./pages/**/*.vue`,
+    `./composables/**/*.{js,ts}`,
+    `./plugins/**/*.{js,ts}`,
+    `./utils/**/*.{js,ts}`,
+    `./App.{js,ts,vue}`,
+    `./app.{js,ts,vue}`,
+    `./Error.{js,ts,vue}`,
+    `./error.{js,ts,vue}`,
+    `./app.config.{js,ts}`
+  ],
+  safelist: [
+    'shadow-mdd',
+  ],
   theme: {
+
+    boxShadow: {
+      
+      /* vvv From Feedback Assistant */
+      'sm-inset': '0px 0.5px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 8px 0 rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.30)', 
+      'md-inset': '0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 8px 32px 0 rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.30)',
+      
+      /* vvv Like Feedback Assistant shadows but without inset – otherwise tailwind shadow coloring colors the inset */
+      'sm': '0px 0.5px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 8px 0 rgba(0, 0, 0, 0.08)',
+      'md': '0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 8px 32px 0 rgba(0, 0, 0, 0.08)',
+    },
+
     extend: {
       backgroundImage: (theme) => ({ 
         'gradient-blue': `linear-gradient(to bottom, ${theme('colors.cyan.400')}, ${theme('colors.blue.500')})`,        /* bg-gradient-to-b from-cyan-400 to-blue-500 */

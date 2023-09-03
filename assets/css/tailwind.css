@@ -7,13 +7,25 @@ Notes:
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-gray-50;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif; /* Copied from https://www.apple.com/by/apple-watch-series-7/ */
-
+@layer base {
+  body {
+    @apply bg-gray-50;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif; /* Copied from https://www.apple.com/by/apple-watch-series-7/ */
+    zoom: 122%; /* Like Feedback Assistant */
+  }
 }
 
+
 @layer components {
+  .btn { /* This is from the tutorial - TODO: Remove */
+    @apply bg-[#12b489] text-white px-3 py-2 rounded-md text-sm;
+  }
+  .card { /* This is from the tutorial - TODO: Remove */
+    @apply p-3 rounded-2xl bg-white shadow-md h-full;
+  }
+}
+
+@layer utilities {
 
   .text-gradient-violet {
     @apply text-transparent bg-clip-text bg-gradient-to-l from-violet-500 to-indigo-500;
@@ -37,16 +49,7 @@ body {
   .text-gradient-yellow {
     @apply text-transparent bg-clip-text bg-gradient-to-l from-lime-300 to-amber-300
   } */
-  .text-gradient-orange {
+  .text-gradient-orange { 
     @apply text-transparent bg-clip-text bg-gradient-to-l from-orange-500 to-yellow-300
-  }
-
-
-
-  .btn { /* This is from the tutorial - TODO: Remove */
-    @apply bg-[#12b489] text-white px-3 py-2 rounded-md text-sm;
-  }
-  .card { /* This is from the tutorial - TODO: Remove */
-    @apply p-3 rounded-2xl bg-white shadow-md h-full;
   }
 }
