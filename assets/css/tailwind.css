@@ -11,7 +11,8 @@ Notes:
   body {
     @apply bg-gray-50;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif; /* Copied from https://www.apple.com/by/apple-watch-series-7/ */
-    zoom: 122%; /* Like Feedback Assistant */
+    
+    /* zoom: 122%; Like Feedback Assistant */
   }
 }
 
