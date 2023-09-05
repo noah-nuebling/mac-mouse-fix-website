@@ -10,6 +10,11 @@
   <div>
 
     <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-0 mt-20 text-gray-800">Macs Are Best<br>With a <span class="text-gradient-blue">Trackpad</span>.<br>…Right?</h2>
+    <i18n path="trackpad-features.title" tag="h2">
+      <template v-slot:0>
+        {{ $t('trackpad-features.title.0') }}
+      </template>
+    </i18n>
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-blue">Trackpad</span>-like Gestures.</h2> -->
     <p class="text-[1.5rem] leading-[1.5] font-medium text-gray-500/80 mb-[5rem] mt-[5rem] w-max-[60rem]">
       Mac Mouse Fix brings all the functions of an official Apple Trackpad to your third-party mouse.*<br>And all the interactions feel just as effortless, responsive, smooth, and polished as they do on the Trackpad.
