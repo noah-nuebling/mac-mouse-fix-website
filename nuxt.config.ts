@@ -11,8 +11,8 @@ export default defineNuxtConfig({
     configPath: '~~/tailwind.config.js'
   },
   i18n: {
-    locales: ['en', 'de'],
-    defaultLocale: 'en',
+    locales: ['en-US', 'de-DE'],
+    defaultLocale: 'en-US',
     vueI18n: './i18n.config.ts',
   },
   app: {

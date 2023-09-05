@@ -18,6 +18,8 @@ Expanding card code example: https://greensock.com/forums/topic/21050-expanding-
 **i18n**
 - [ ] nuxt i18n tutorial: https://phrase.com/blog/posts/nuxt-js-tutorial-i18n/
 - [ ] nuxt i18n docs: https://i18n.nuxtjs.org/setup/ 
+- Launguage tags: https://www.techonthenet.com/js/language_tags.php
+- Also see: https://github.com/noah-nuebling/github-actions-test/blob/main/Readme-Meta.md (Or the equivalent in the MMF repo once we move the acknowledgements there)
 
 Plan: Use standard i18n framework and put markdown parser around i18n calls. Put markdown files directly in the de.js en.js, etc files. (You can use multiline strings with `` in js) Using markdown files like in Feedback Assistant would be too cumbersome to integrate with internationalization. (In Feedback Assistant the internationalization was totally custom js implementation).
 
