@@ -9,10 +9,6 @@
 <template>
   <div>
 
-    <h2 >{{ $t('trackpad-features.title') }}<br>With a <span class="text-gradient-blue">Trackpad</span>.<br>…Right?</h2>
-   
-   
-   <hr>
    
 
 
@@ -26,7 +22,6 @@
       </template>
     </i18n-t>
 
-    <hr>
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-blue">Trackpad</span>-like Gestures.</h2> -->
     <p class="text-[1.5rem] leading-[1.5] font-medium text-gray-500/80 mb-[5rem] mt-[5rem] w-max-[60rem]">
       Mac Mouse Fix brings all the functions of an official Apple Trackpad to your third-party mouse.*<br>And all the interactions feel just as effortless, responsive, smooth, and polished as they do on the Trackpad.
@@ -216,6 +211,15 @@
     
     <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">Mac Mouse Fix's incredibly intuitive, yet remarkably flexible UI lets you set up your mouse exactly how you want it in seconds.</p>
 
+
+    <!-- 
+      Language Picker
+      Notes: 
+      - I can't seem to give this a blue accent under the arrow like the native system buttons. This should be default look for <select> buttons. See https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select. But the current look is good enough for Chrome and Safari.
+      -->
+    <select id="locale-select" v-model="$i18n.locale" class="rounded-[50vh outline outline-1 outline-slate-500/20 "> 
+      <option v-for="$loc in $i18n.locales" :value="$loc.code"> {{ $loc.name }}</option> 
+    </select> 
   </div>
 </template>
 

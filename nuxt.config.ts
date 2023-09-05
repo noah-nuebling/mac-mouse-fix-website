@@ -19,11 +19,16 @@ export default defineNuxtConfig({
   i18n: {
     langDir: './locales/',
     locales: [
-      { code: 'en-US', iso: 'en-US', file: 'en-US.js', dir: 'ltr' },
-      { code: 'de-DE', iso: 'de-DE', file: 'de-DE.js', dir: 'ltr' },
+      { code: 'en-US', iso: 'en-US', name: '🇬🇧 English', file: 'en-US.js', dir: 'ltr' },
+      { code: 'de-DE', iso: 'de-DE', name: '🇩🇪 Deutsch', file: 'de-DE.js', dir: 'ltr' },
     ],
     defaultLocale: 'en-US',
     vueI18n: './i18n.config.ts',
+    detectBrowserLanguage: { /* Not sure what we're doing here */
+      useCookie: true,
+      cookieKey: 'mac_mouse_fix_website_language_cookie',
+      alwaysRedirect: true, 
+    }
   },
   app: {
     // baseURL: process.env.NODE_ENV === 'development' ? '/' : 'mac-mouse-fix-website-nuxt', // Usnig gh-pages dev dependency instead
