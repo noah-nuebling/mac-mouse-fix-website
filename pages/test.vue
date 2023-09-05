@@ -11,29 +11,18 @@
 
    
 
-
-    <i18n-t 
-      tag="h2" 
-      keypath="trackpad-features.title" 
-      class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-0 mt-20 text-gray-800"
-    >
-      <template #track>
-        <span class="text-gradient-blue">{{ $t('trackpad-features.title.track')}}</span>
+    <i18n-t tag="h2" keypath="trackpad-features.title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-0 mt-20 text-gray-800">
+      <template #track> 
+        <span class="text-gradient-blue">{{ $t('trackpad-features.title.track')}}</span> 
       </template>
     </i18n-t>
 
-    <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-blue">Trackpad</span>-like Gestures.</h2> -->
-    <p class="text-[1.5rem] leading-[1.5] font-medium text-gray-500/80 mb-[5rem] mt-[5rem] w-max-[60rem]">
-      Mac Mouse Fix brings all the functions of an official Apple Trackpad to your third-party mouse.*<br>And all the interactions feel just as effortless, responsive, smooth, and polished as they do on the Trackpad.
-    </p>
-    <!-- <p class="text-xl font-normal text-gray-500/90 mb-20 w-[60rem]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam voluptates odit doloremque reiciendis aliquid, possimus nobis consequuntur. Necessitatibus, dignissimos mollitia, quod repellendus debitis architecto nemo, voluptates exercitationem voluptate itaque ipsum?</p> -->
 
-    <!-- <hr class="border-gray-700/10 border-[2px] mt-[-1rem] mb-5"> -->
+    <i18n-t tag="p" keypath="trackpad-features.body" class="whitespace-pre-wrap text-[1.5rem] leading-[1.5] font-medium text-gray-500/80 mb-[5rem] mt-[5rem] w-max-[60rem]"></i18n-t>
 
     <div class="bg-gray-200/50 rounded-[16px] px-3 pt-3 pb-3 mb-6 shadow-sm-inset">
-      <p class="text-normal text-center font-normal text-gray-500/70 mb-1 mt-0 w-max-[60rem]">Explore the range of Trackpad functionalities which Mac Mouse Fix brings to your mouse in the cards below.*</p>
-      <p class="text-normal text-center font-normal text-gray-500/70 mb-0 mt-0 w-max-[60rem]">Click any card for a video demo.</p>
-      <!-- <hr class="border-gray-400/20 border-[1px] mb-0 mt-0 -mx-3"> -->
+      <i18n-t tag="p" keypath="trackpad-features.cards.hint.0" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-1 mt-0 w-max-[60rem]"></i18n-t>
+      <i18n-t tag="p" keypath="trackpad-features.cards.hint.1" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-0 mt-0 w-max-[60rem]"></i18n-t>
     </div>
     <div class="">
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
