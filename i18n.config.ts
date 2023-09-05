@@ -1,21 +1,9 @@
 /* 
-Notes: 
-- Use `whitespace-pre-wrap` tailwind class to make \n in the translation strings work 
-- Not sure if `fallbackLocale` element is necessary since we already specify `defaultLocale` in nuxt.config.js
-*/
+Note: Since there are so few options here it would be better to put this into nuxt.config.js directly, instead of having it link to this file. I read somewhere that that 
+should be possible. But when I try it doesn't compile for some reason.
+ */
 
 export default defineI18nConfig(() => ({
-
   legacy: false,
   fallbackLocale: 'en-US', 
-  messages: {
-    'en-US': {
-      'trackpad-features.title': "Macs Are Best\nWith a {track}\n…Right?",
-      'trackpad-features.title.track':  "Trackpad",
-    },
-    'de-DE': {
-      'trackpad-features.title':  "Macs sind am besten\nMit einem {track}.\n…Sicher?",
-      'trackpad-features.title.track':  "Trackpad",
-    }
-  }
 }))

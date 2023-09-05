@@ -1,4 +1,10 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+/* 
+See: https://nuxt.com/docs/api/configuration/nuxt-config
+Notes: 
+- Use `whitespace-pre-wrap` tailwind class to make \n in the translation strings work 
+- Not sure if `fallbackLocale` element is necessary since we already specify `defaultLocale` in nuxt.config.js
+*/
+
 export default defineNuxtConfig({
   
   // Make the site static. See https://stackoverflow.com/questions/74070241/what-is-the-difference-between-ssrfalse-vs-targetstatic-in-nuxtjs
@@ -11,7 +17,11 @@ export default defineNuxtConfig({
     configPath: '~~/tailwind.config.js'
   },
   i18n: {
-    locales: ['en-US', 'de-DE'],
+    langDir: './locales/',
+    locales: [
+      { code: 'en-US', iso: 'en-US', file: 'en-US.js', dir: 'ltr' },
+      { code: 'de-DE', iso: 'de-DE', file: 'de-DE.js', dir: 'ltr' },
+    ],
     defaultLocale: 'en-US',
     vueI18n: './i18n.config.ts',
   },

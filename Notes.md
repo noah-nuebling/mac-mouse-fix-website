@@ -17,7 +17,7 @@ Expanding card code example: https://greensock.com/forums/topic/21050-expanding-
 
 **i18n**
 - [ ] nuxt i18n tutorial: https://phrase.com/blog/posts/nuxt-js-tutorial-i18n/
-- [ ] nuxt i18n docs: https://i18n.nuxtjs.org/setup/ 
+- [ ] nuxt i18n docs: https://i18n.nuxtjs.org/setup/ (I think these are the up-to-date docs: https://vue-i18n.intlify.dev/guide/)
 - Launguage tags: https://www.techonthenet.com/js/language_tags.php
 - Also see: https://github.com/noah-nuebling/github-actions-test/blob/main/Readme-Meta.md (Or the equivalent in the MMF repo once we move the acknowledgements there)
 
