@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'en-US',
     vueI18n: './i18n.config.ts',
+    strategy: 'prefix_except_default', //'prefix',
     detectBrowserLanguage: { /* Not sure what we're doing here */
       useCookie: true,
       cookieKey: 'mac_mouse_fix_website_language_cookie',

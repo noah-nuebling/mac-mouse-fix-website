@@ -217,13 +217,27 @@
       Notes: 
       - I can't seem to give this a blue accent under the arrow like the native system buttons. This should be default look for <select> buttons. See https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select. But the current look is good enough for Chrome and Safari.
       -->
-    <select id="locale-select" v-model="$i18n.locale" class="rounded-[50vh outline outline-1 outline-slate-500/20 "> 
+    <select id="locale-select" v-model="$i18n.locale" class="rounded-[50vh] outline outline-1 outline-slate-500/20"> 
       <option v-for="$loc in $i18n.locales" :value="$loc.code"> {{ $loc.name }}</option> 
     </select> 
   </div>
 </template>
 
 <script setup lang="ts">
+
+/* Import i18n stuff
+    Note: Why can't we use $i18n in ts like we do in html? */
+
+const { setLocale, locale, defaultLocale } = useI18n() 
+
+/* Call setLocale on locale update
+    Notes: 
+    - Otherwise the url doesn't update. No idea what we are doing 
+    - The <select> language picker updates the locale */
+
+watch(locale, () => {
+  setLocale(locale.value);
+})
 
 </script>
 

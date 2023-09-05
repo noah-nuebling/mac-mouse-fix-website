@@ -451,7 +451,9 @@
   })
 
   onUnmounted(() => {
-    animationContext.revert() /* Clean up animation memory stuff or sth */
+    if (animationContext != null) {
+      animationContext.revert() /* Clean up animation memory stuff or sth */
+    }
   });
 
 </script>
