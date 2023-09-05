@@ -13,19 +13,7 @@ export default defineNuxtConfig({
   i18n: {
     locales: ['en', 'de'],
     defaultLocale: 'en',
-    vueI18n: {
-      fallbackLocale: 'en',
-      messages: {
-        en: {
-          'trackpad-features.title':  "Macs Are Best\nWith a {0}.\n…Right?",
-          'trackpad-features.title.0':  "Trackpad",
-        },
-        de: {
-          'trackpad-features.title':  "Macs sind am besten\nMit einem {0}.\n…Sicher?",
-          'trackpad-features.title.0':  "Trackpad",
-        }
-      }
-    }
+    vueI18n: './i18n.config.ts',
   },
   app: {
     // baseURL: process.env.NODE_ENV === 'development' ? '/' : 'mac-mouse-fix-website-nuxt', // Usnig gh-pages dev dependency instead
