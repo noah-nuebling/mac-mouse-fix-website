@@ -27,9 +27,9 @@
     <div class="">
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
-        <NormalFeatureCard titleKey="feature.spaces.title" bodyKey="feature.spaces.body" :videoPath="remapDemoVideoPath" class="bg-gradient-pink shadow-red-900/30"/>
+        <NormalFeatureCard titleKey="feature.spaces.title" bodyKey="feature.spaces.body" :videoPath="remapDemoVideoPathhh" class="bg-gradient-pink shadow-red-900/30"/>
 
-        <NormalFeatureCard titleKey="feature.mission-control.title" bodyKey="feature.mission-control.body" :videoPath="remapDemoVideoPath" class="bg-gradient-orange shadow-orange-900/30"/>
+        <NormalFeatureCard titleKey="feature.mission-control.title" bodyKey="feature.mission-control.body" :videoPath="remapDemoVideoPathhh" class="bg-gradient-orange shadow-orange-900/30"/>
 
 
         <!-- <FeatureCard class="feature-card col-span-auto bg-gradient-orange shadow-md shadow-orange-900/30">
@@ -217,12 +217,7 @@ watch(locale, () => {
     I feel like this is way too cumbersome. We know in advance which videos to import anyways, so we shouldn't have to use the dynamic import api.
     See: https://stackoverflow.com/questions/75218697/nuxt-dynamic-image-require-is-not-defined
 */
-async function resolveVideo(name: string): Promise<string> {
-  const module = await import(`../assets/video/${name}.mp4`);
-  return module.default;
-}
-
-const remapDemoVideoPath = await resolveVideo('remap_demo_old')
+import remapDemoVideoPathhh from '../assets/video/remap_demo_old.mp4'
 
 </script>
 
