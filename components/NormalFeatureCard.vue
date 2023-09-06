@@ -4,7 +4,7 @@
       <h3 class="dark-bg m-6">{{ $t(titleKey) }}</h3>
     </template>
     <template v-slot:default>
-      <div class="flex flex-row items-center h-full m-6 mt-0 mb-3">
+      <div class="flex flex-row items-stretch h-full m-6 mt-0 mb-3">
         <div>
           <p class="dark-bg whitespace-pre-wrap">{{ $t(bodyKey) }}</p>
         </div>        
@@ -16,7 +16,7 @@
     <template v-slot:expanded>
       <div class="video-wrapper">
         <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="object-cover w-full h-full">
-          <source :src="$t(videoPathKey)" type="video/mp4">
+          <source :src="require(`../../assets/video/remap_demo_old.mp4`)" type="video/mp4">
         </video>
       </div>
     </template>
@@ -27,10 +27,12 @@
 
 <script setup lang="ts">
 
-defineProps({
+import remapDemoVideo from '@/assets/video/remap_demo_old.mp4';
+
+var props = defineProps({
   titleKey: String,
   bodyKey: String,
-  videoPathKey: String,
+  videoName: String,
 })
 
 </script>

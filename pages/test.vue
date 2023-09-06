@@ -27,9 +27,9 @@
     <div class="">
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
-        <NormalFeatureCard titleKey="feature.spaces.title" bodyKey="feature.spaces.body" videoPathKey="feature.spaces.video" class="bg-gradient-pink shadow-red-900/30"/>
+        <NormalFeatureCard titleKey="feature.spaces.title" bodyKey="feature.spaces.body" videoName="remap_demo_old" class="bg-gradient-pink shadow-red-900/30"/>
 
-        <NormalFeatureCard titleKey="feature.mission-control.title" bodyKey="feature.mission-control.body" videoPathKey="feature.mission-control.video" class="bg-gradient-orange shadow-orange-900/30"/>
+        <NormalFeatureCard titleKey="feature.mission-control.title" bodyKey="feature.mission-control.body" videoName="remap_demo_old" class="bg-gradient-orange shadow-orange-900/30"/>
 
 
         <!-- <FeatureCard class="feature-card col-span-auto bg-gradient-orange shadow-md shadow-orange-900/30">
