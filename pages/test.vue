@@ -29,6 +29,7 @@
 
         <NormalFeatureCard titleKey="feature.spaces.title" bodyKey="feature.spaces.body" :videoPath="remapDemoVideoPath" class="bg-gradient-pink shadow-red-900/30"/>
         <NormalFeatureCard titleKey="feature.mission-control.title" bodyKey="feature.mission-control.body" :videoPath="remapDemoVideoPath" class="bg-gradient-orange shadow-orange-900/30"/>
+        <NormalFeatureCard titleKey="feature.app-expose.title" bodyKey="feature.app-expose.body" :videoPath="remapDemoVideoPath" class="bg-gradient-blue shadow-blue-900/40"/>
 
 
         <!-- <FeatureCard class="feature-card col-span-auto bg-gradient-orange shadow-md shadow-orange-900/30">
@@ -45,7 +46,7 @@
             </video>
           </template>
         </FeatureCard> -->
-        <FeatureCard class="feature-card col-span-auto bg-gradient-blue shadow-md shadow-blue-900/40">
+        <!-- <FeatureCard class="feature-card col-span-auto bg-gradient-blue shadow-md shadow-blue-900/40">
           <template v-slot:default>
             <div class="m-6">
               <h3 class="dark-bg">App Exposé</h3>
@@ -57,7 +58,7 @@
               <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
             </video>
           </template>
-        </FeatureCard>
+        </FeatureCard> -->
         <FeatureCard class="feature-card col-span-auto bg-white">
           <template v-slot:default>
             <div class="m-6">

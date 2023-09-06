@@ -11,6 +11,8 @@ export default {
   'feature.spaces.body': 'Halte eine Taste auf deiner Maus gedrückt und ziehe dann die Maus nach links oder rechts, um zu einem anderen Space mit einer sanften und intuitiven Animation zu wechseln, die den Bewegungen deiner Hand präzise folgt.\n\nEs funktioniert genauso wie das Wischen nach links oder rechts mit 4 Fingern auf einem Apple Trackpad.',
   'feature.mission-control.title': 'Mission Control',
   'feature.mission-control.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
+  'feature.app-expose.title': 'App Exposé',
+  'feature.app-expose.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
 
   'remap-engine.title': 'Erstaunlich {first}.\n{second} Flexibel.',
   'remap-engine.title.first': 'Intuitiv',
