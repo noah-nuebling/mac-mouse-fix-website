@@ -27,142 +27,18 @@
     <div class="">
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
-        <NormalFeatureCard titleKey="feature.spaces.title" bodyKey="feature.spaces.body" :videoPath="remapDemoVideoPath" class="bg-gradient-pink shadow-red-900/30"/>
-        <NormalFeatureCard titleKey="feature.mission-control.title" bodyKey="feature.mission-control.body" :videoPath="remapDemoVideoPath" class="bg-gradient-orange shadow-orange-900/30"/>
-        <NormalFeatureCard titleKey="feature.app-expose.title" bodyKey="feature.app-expose.body" :videoPath="remapDemoVideoPath" class="bg-gradient-blue shadow-blue-900/40"/>
+        <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="bg-gradient-pink shadow-red-900/30"/>
+        <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="bg-gradient-orange shadow-orange-900/30"/>
+        <NormalFeatureCard titleKey="feature.app-expose.title"          bodyKey="feature.app-expose.body"       :videoPath="remapDemoVideoPath"       class="bg-gradient-blue shadow-blue-900/40"/>
+        <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="remapDemoVideoPath"       class="bg-gradient-pink shadow-red-900/40"/>
+        <NormalFeatureCard titleKey="feature.launchpad.title"           bodyKey="feature.launchpad.body"        :videoPath="remapDemoVideoPath"       class="bg-gradient-orange shadow-orange-900/40"/>
+        <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="remapDemoVideoPath"       class="bg-gradient-blue shadow-blue-900/40"/>
+        <NormalFeatureCard titleKey="feature.pages.title"               bodyKey="feature.pages.body"            :videoPath="remapDemoVideoPath"       class="bg-gradient-pink shadow-red-900/40"/>
+        <NormalFeatureCard titleKey="feature.mail-actions.title"        bodyKey="feature.mail-actions.body"     :videoPath="remapDemoVideoPath"       class="bg-gradient-orange shadow-orange-900/40"/>
+        <NormalFeatureCard titleKey="feature.free-scroll.title"         bodyKey="feature.free-scroll.body"      :videoPath="remapDemoVideoPath"       class="bg-gradient-blue shadow-blue-900/40"/>
+        <NormalFeatureCard titleKey="feature.zoom.title"                bodyKey="feature.zoom.body"             :videoPath="remapDemoVideoPath"       class="bg-gradient-pink shadow-red-900/40"/>
+        <NormalFeatureCard titleKey="feature.smart-zoom.title"          bodyKey="feature.smart-zoom.body"       :videoPath="remapDemoVideoPath"       class="bg-gradient-orange shadow-orange-900/40"/>
 
-
-        <!-- <FeatureCard class="feature-card col-span-auto bg-gradient-orange shadow-md shadow-orange-900/30">
-          <template v-slot:default>
-            <div class="m-6">
-              <h3 class="dark-bg">Mission Control</h3>
-              <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-              <a href="" class="mt-2 text-gray-100 underline">See it in action ❯</a>
-            </div>
-          </template>
-          <template v-slot:expanded>
-            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-            </video>
-          </template>
-        </FeatureCard> -->
-        <!-- <FeatureCard class="feature-card col-span-auto bg-gradient-blue shadow-md shadow-blue-900/40">
-          <template v-slot:default>
-            <div class="m-6">
-              <h3 class="dark-bg">App Exposé</h3>
-              <p class="dark-bg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-            </div>
-          </template>
-          <template v-slot:expanded>
-            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-            </video>
-          </template>
-        </FeatureCard> -->
-        <FeatureCard class="feature-card col-span-auto bg-white">
-          <template v-slot:default>
-            <div class="m-6">
-              <h3>Show Desktop</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-            </div>
-          </template>
-          <template v-slot:expanded>
-            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-            </video>
-          </template>
-        </FeatureCard>
-        <FeatureCard class="feature-card col-span-auto bg-white">
-          <template v-slot:default>
-            <div class="m-6">
-              <h3>Launchpad</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-            </div>
-          </template>
-          <template v-slot:expanded>
-            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-            </video>
-          </template>
-        </FeatureCard>
-        <FeatureCard class="feature-card col-span-auto bg-white">
-          <template v-slot:default>
-            <div class="m-6">
-              <h3>Look Up & Data Detectors</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-            </div>
-          </template>
-          <template v-slot:expanded>
-            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-            </video>
-          </template>
-        </FeatureCard>
-        <FeatureCard class="feature-card col-span-auto bg-white">
-          <template v-slot:default>
-            <div class="m-6">
-              <h3>Move between Pages</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-            </div>
-          </template>
-          <template v-slot:expanded>
-            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-            </video>
-          </template>
-        </FeatureCard>
-        <FeatureCard class="feature-card col-span-auto bg-white">
-          <template v-slot:default>
-            <div class="m-6">
-              <h3>Mark Mails as Unread</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-            </div>
-          </template>
-          <template v-slot:expanded>
-            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-            </video>
-          </template>
-        </FeatureCard>
-        <FeatureCard class="feature-card col-span-auto bg-white">
-          <template v-slot:default>
-            <div class="m-6">
-              <h3>Scroll Freely</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-            </div>
-          </template>
-          <template v-slot:expanded>
-            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-            </video>
-          </template>
-        </FeatureCard>
-        <FeatureCard class="feature-card col-span-auto bg-white">
-          <template v-slot:default>
-            <div class="m-6">
-              <h3>Pinch to Zoom</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-            </div>
-          </template>
-          <template v-slot:expanded>
-            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-            </video>
-          </template>
-        </FeatureCard>
-        <FeatureCard class="feature-card col-span-auto bg-white">
-          <template v-slot:default>
-            <div class="m-6">
-              <h3>Smart Zoom</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.</p>
-            </div>
-          </template>
-          <template v-slot:expanded>
-            <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="w-full">
-              <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-            </video>
-          </template>
-        </FeatureCard>
       </div>
     </div>
     <p class="text-xl text-center text-xs text-gray-500/70 mb-7 mt-10 w-max-[60rem]">* Mac Mouse Fix can only bring all of the Trackpad-features to your third-party mouse in the way described, if your mouse has at least 5 buttons which are recognized by Mac Mouse Fix. If Mac Mouse Fix recognizes less than 5 buttons on your mouse, Mac Mouse Fix will still work great with it, but you will have to set it up in a different way to use all of the Trackpad features listed here.\nMac Mouse Fix does not currently support the Apple Magic Mouse.</p>
@@ -220,49 +96,8 @@ import remapDemoVideoPath from '../assets/video/remap_demo_old.mp4'
 
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 
-  /* Card Content */
 
-  .feature-card h3 { /* Not sure this abstraction is good / tailwindy. See https://tailwindcss.com/docs/reusing-styles */
-    @apply text-lg font-bold;
-  }
-  .feature-card p {
-    @apply text-gray-500/80;
-
-    &:not(:last-child)  { /* Paragraph spacing */
-      @apply mb-3
-    }
-  }
-
-  .feature-card h3.dark-bg { /* Not sure this abstraction is good / tailwindy. See https://tailwindcss.com/docs/reusing-styles */
-    @apply text-lg font-bold text-gray-100;
-  }
-
-  .feature-card p.dark-bg {
-    @apply text-gray-100/75;
-  }
-
-  .video-wrapper { 
-
-    /* Note: Keep the border color, width and radius in sync with the FeatureCard to make it look nice */
-
-    @apply  grow
-            rounded-[24px] border-[4px] m-[-4px] border-gray-50/25 
-            overflow-clip
-            flex items-center justify-center;
-  }
-/* 
-  .ass-shadow {
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 8px 32px 0 rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.30)
-  }
-
-  .ass-low-shadow {
-    box-shadow: 0px 0.5px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 8px 0 rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.30)
-  } */
-
-  .orange-shadow { /* Unused now. Remove */
-    box-shadow: 0px 2px 4px 0px rgba(71, 30, 0, 0.3),0px 4px 16px 0px rgba(145, 60, 1, 0.3),0px 8px 32px 0px rgba(145, 60, 1, 0.3);
-  }
 
 </style>
