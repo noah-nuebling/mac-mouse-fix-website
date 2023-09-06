@@ -16,7 +16,7 @@
     <template v-slot:expanded>
       <div class="video-wrapper">
         <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="object-cover w-full h-full">
-          <source :src="require(`../../assets/video/remap_demo_old.mp4`)" type="video/mp4">
+          <source :src="videoPath" type="video/mp4">
         </video>
       </div>
     </template>
@@ -32,7 +32,7 @@ import remapDemoVideo from '@/assets/video/remap_demo_old.mp4';
 var props = defineProps({
   titleKey: String,
   bodyKey: String,
-  videoName: String,
+  videoPath: String,
 })
 
 </script>
