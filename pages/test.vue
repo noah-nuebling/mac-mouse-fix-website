@@ -27,36 +27,12 @@
     <div class="">
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
-        <FeatureCard ref="moveSpacesCard" class="feature-card col-span-auto bg-gradient-pink shadow-md shadow-red-900/30 cursor-pointer group" @click="$refs.moveSpacesCard.expand()">
-          <template v-slot:top> 
-            <h3 class="dark-bg m-6">Move Between Spaces</h3>
-          </template>
-          <template v-slot:default>
-            <div class="flex flex-row items-center h-full m-6 mt-0 mb-3">
-              <div>
-                <p class="dark-bg">Hold a button on your mouse, then drag the mouse left or right to move to another Space with a smooth and intuitive animation which follows the movements of your hand precisely.</p>
-                <p class="dark-bg">It works just like swiping left of right with 4 fingers on an Apple Trackpad.</p>
-              </div>
-              <!-- <div class="ml-4">
-                <img src="~/assets/img/play-dark.png" alt="trackpad" class="w-20">
-              </div> -->
-              
-            </div>
-            <div class="rounded-[0px] border-[4px] m-[-4px] border-gray-50/20 min-h-[52px] flex items-center justify-center mt-5 cursor-pointer group-hover:underline">
-              <a class="text-base dark-bg text-gray-50/90 text-center"><span class="">See It in Action</span><span class="inline-space-[8]"/><img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-3.6px] contrast-200"></a>
-            </div>
-          </template>
-          <template v-slot:expanded>
-            <div class="video-wrapper">
-              <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="object-cover w-full h-full">
-                <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
-              </video>
-            </div>
-          </template>
-          <!-- <template v-slot:bottom>
-          </template> -->
-        </FeatureCard>
-        <FeatureCard class="feature-card col-span-auto bg-gradient-orange shadow-md shadow-orange-900/30">
+        <NormalFeatureCard titleKey="feature.spaces.title" bodyKey="feature.spaces.body" videoPathKey="feature.spaces.video" class="bg-gradient-pink shadow-red-900/30"/>
+
+        <NormalFeatureCard titleKey="feature.mission-control.title" bodyKey="feature.mission-control.body" videoPathKey="feature.mission-control.video" class="bg-gradient-orange shadow-orange-900/30"/>
+
+
+        <!-- <FeatureCard class="feature-card col-span-auto bg-gradient-orange shadow-md shadow-orange-900/30">
           <template v-slot:default>
             <div class="m-6">
               <h3 class="dark-bg">Mission Control</h3>
@@ -69,7 +45,7 @@
               <source src="~assets/video/remap_demo_old.mp4#t=0.1" type="video/mp4">
             </video>
           </template>
-        </FeatureCard>
+        </FeatureCard> -->
         <FeatureCard class="feature-card col-span-auto bg-gradient-blue shadow-md shadow-blue-900/40">
           <template v-slot:default>
             <div class="m-6">
@@ -189,16 +165,24 @@
         </FeatureCard>
       </div>
     </div>
-    <p class="text-xl text-center text-xs text-gray-500/70 mb-7 mt-10 w-max-[60rem]">* Mac Mouse Fix can only bring all of the Trackpad-features to your third-party mouse in the way described, if your mouse has at least 5 buttons which are recognized by Mac Mouse Fix. If Mac Mouse Fix recognizes less than 5 buttons on your mouse, Mac Mouse Fix will still work great with it and and you can even still use all of these Trackpad features listed here from your mouse, but you will have to set them up in a different - arguably less intuitive - way.</p>
+    <p class="text-xl text-center text-xs text-gray-500/70 mb-7 mt-10 w-max-[60rem]">* Mac Mouse Fix can only bring all of the Trackpad-features to your third-party mouse in the way described, if your mouse has at least 5 buttons which are recognized by Mac Mouse Fix. If Mac Mouse Fix recognizes less than 5 buttons on your mouse, Mac Mouse Fix will still work great with it, but you will have to set it up in a different way to use all of the Trackpad features listed here.\nMac Mouse Fix does not currently support the Apple Magic Mouse.</p>
 
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">Make Your Mouse Do<br>Anything You Can <span class="text-gradient-orange">Think </span>of.<br>As Fast as You Can Think of It.</h2> -->
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-orange">Think </span>It.<br>Then Make Your Mouse Do It.</h2> -->
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-blue">Think </span>It. <span class="text-gradient-green-yellow">Click</span> It.<span class="text-gradient-orange"> Do</span> It.</h2> -->
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-blue">Think </span>It.<br> <span class="text-gradient-green-yellow">Click</span> It.<br><span class="text-gradient-orange">Do</span> It.</h2> -->
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">As <span class="text-gradient-green-yellow">Flexible</span> as Your Mind.<br>As <span class="text-gradient-orange">Fast</span> As You Can Think.</h2> -->
-    <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-green-yellow">Think</span> it?<br><span class="text-gradient-orange">Do</span> it.</h2>
     
-    <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">Mac Mouse Fix's incredibly intuitive, yet remarkably flexible UI lets you set up your mouse exactly how you want it in seconds.</p>
+    <i18n-t tag="h2" keypath="remap-engine.title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">
+      <template #first>
+        <span class="text-gradient-green-yellow"> {{ $t('remap-engine.title.first') }}</span>
+      </template>
+      <template #second>
+        <span class="text-gradient-orange"> {{ $t('remap-engine.title.second') }}</span>
+      </template>
+    </i18n-t>
+    
+    <i18n-t tag="p" keypath="remap-engine.body" class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]"></i18n-t>
 
 
     <!-- 
