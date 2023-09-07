@@ -58,6 +58,27 @@ module.exports = {
     //   )
     // }),
 
+    plugin(function ({ matchUtilities }) {
+
+      /* `text-shadow-x` plugin */
+
+      const newUtilities = {
+        'text-shadow': (value) => {
+          return {
+            'textShadow': value
+          }
+        }
+      }
+      const options = {
+        values: {
+          sm: '0 1px 2px var(--tw-shadow-color)',
+          DEFAULT: '0 1px 2px var(--tw-shadow-color), 0 1px 8px var(--tw-shadow-color)',
+          lg: '0 8px 16px var(--tw-shadow-color)',
+        }
+      }
+      matchUtilities(newUtilities, options);
+    }),
+
     plugin(function({ matchUtilities }) {
       
       /*    
