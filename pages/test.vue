@@ -27,17 +27,17 @@
     <div class="">
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
-        <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-1.png')] shadow-slate-700/40"/>
-        <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-2.png')] shadow-slate-700/40"/>
-        <NormalFeatureCard titleKey="feature.app-expose.title"          bodyKey="feature.app-expose.body"       :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-3.png')] shadow-slate-700/40"/>
-        <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-4.png')] shadow-slate-700/40"/>
-        <NormalFeatureCard titleKey="feature.launchpad.title"           bodyKey="feature.launchpad.body"        :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-5.png')] shadow-slate-700/40"/>
-        <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-6.png')] shadow-slate-700/40"/>
+        <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-4.png')] bg-black/0 bg-blend-darken shadow-slate-950/50"/>
+        <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-red"/>
+        <NormalFeatureCard titleKey="feature.app-expose.title"          bodyKey="feature.app-expose.body"       :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-blue"/>
+        <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-2.png')] bg-black/0 bg-blend-darken shadow-slate-950/50"/>
+        <NormalFeatureCard titleKey="feature.launchpad.title"           bodyKey="feature.launchpad.body"        :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-3.png')] bg-black/0 bg-blend-darken shadow-slate-950/50"/>
+        <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-orange"/>
         <NormalFeatureCard titleKey="feature.pages.title"               bodyKey="feature.pages.body"            :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-green"/>
-        <NormalFeatureCard titleKey="feature.mail-actions.title"        bodyKey="feature.mail-actions.body"     :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-purple"/>
-        <NormalFeatureCard titleKey="feature.free-scroll.title"         bodyKey="feature.free-scroll.body"      :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-orange"/>
-        <NormalFeatureCard titleKey="feature.zoom.title"                bodyKey="feature.zoom.body"             :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-blue"/>
-        <NormalFeatureCard titleKey="feature.smart-zoom.title"          bodyKey="feature.smart-zoom.body"       :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-red"/>
+        <NormalFeatureCard titleKey="feature.mail-actions.title"        bodyKey="feature.mail-actions.body"     :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-5.png')] bg-black/0 bg-blend-darken shadow-slate-950/50"/>
+        <NormalFeatureCard titleKey="feature.free-scroll.title"         bodyKey="feature.free-scroll.body"      :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-6.png')] bg-black/0 bg-blend-darken shadow-slate-950/50"/>
+        <NormalFeatureCard titleKey="feature.zoom.title"                bodyKey="feature.zoom.body"             :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-yellow"/>
+        <NormalFeatureCard titleKey="feature.smart-zoom.title"          bodyKey="feature.smart-zoom.body"       :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-purple"/>
 
       </div>
     </div>

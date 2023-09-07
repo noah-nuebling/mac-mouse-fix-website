@@ -33,6 +33,9 @@ Notes:
  .normal-feature-card-style-orange {
   @apply bg-gradient-to-b from-amber-400 to-orange-500 shadow-orange-900/30;
  }
+ .normal-feature-card-style-yellow {
+  @apply bg-gradient-to-b from-yellow-400 to-amber-500 shadow-yellow-800/30;
+ }
  .normal-feature-card-style-blue {
   @apply bg-gradient-to-b from-cyan-400 to-blue-500 shadow-blue-900/40;
  }
@@ -41,9 +44,6 @@ Notes:
  }
  .normal-feature-card-style-purple {
   @apply bg-gradient-to-b from-fuchsia-400 to-violet-500 shadow-purple-900/40;
- }
- .normal-feature-card-style-gray {
-  @apply bg-gradient-to-b from-slate-400 to-stone-500 shadow-gray-700/40;
  }
  .normal-feature-card-style-yellow-purple {
   @apply bg-gradient-to-b from-amber-400 to-fuchsia-500 shadow-pink-900/30;
@@ -56,6 +56,9 @@ Notes:
  }
  .normal-feature-card-style-yellow-green {
   @apply bg-gradient-to-b from-amber-300 to-green-500 shadow-lime-900/30;
+ }
+ .normal-feature-card-style-gray {
+  @apply bg-gradient-to-b from-slate-400 to-stone-500 shadow-gray-700/40;
  }
  
 
