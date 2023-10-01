@@ -43,7 +43,7 @@ Notes:
   @apply bg-gradient-to-b from-lime-400 to-emerald-500 shadow-green-900/30;
  }
  .normal-feature-card-style-purple {
-  @apply bg-gradient-to-b from-fuchsia-400 to-violet-500 shadow-purple-900/40;
+  @apply bg-gradient-to-b from-fuchsia-400 to-violet-500 shadow-violet-900/40;
  }
  .normal-feature-card-style-yellow-purple {
   @apply bg-gradient-to-b from-amber-400 to-fuchsia-500 shadow-pink-900/30;
