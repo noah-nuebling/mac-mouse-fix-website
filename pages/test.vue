@@ -27,10 +27,10 @@
     <div class="">
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
-        <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/ios-wallpaper-16.png')] bg-[length:666px] bg-top bg-black/0 bg-blend-darken shadow-stone-950/30 text-shadow-lg"/>
+        <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-sonoma.jpg')] bg-[length:1100px] bg-[center_top_-30rem] bg-black/0 bg-blend-darken shadow-green-950/30 text-shadow-xl"/>
         <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-red text-shadow-sm"/>
         <NormalFeatureCard titleKey="feature.app-expose.title"          bodyKey="feature.app-expose.body"       :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-blue text-shadow-sm"/>
-        <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-hello-orange-dark.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken shadow-red-950/40 text-shadow-lg"/>
+        <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-hello-orange-dark.jpg')] bg-cover bg-[center_top_-7rem] bg-black/0 bg-blend-darken shadow-red-950/40 text-shadow-lg"/>
         <NormalFeatureCard titleKey="feature.launchpad.title"           bodyKey="feature.launchpad.body"        :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken shadow-violet-950/50 text-shadow-lg"/>
         <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-orange text-shadow-sm"/>
         <NormalFeatureCard titleKey="feature.pages.title"               bodyKey="feature.pages.body"            :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-green text-shadow-sm"/>
