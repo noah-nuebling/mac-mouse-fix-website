@@ -27,7 +27,7 @@
     <div class="">
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
-        <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-black/0 bg-blend-darken shadow-slate-950/50 text-shadow-xl"/>
+        <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-black/0 bg-blend-darken shadow-slate-950/50 text-shadow-lg"/>
         <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-red text-shadow-sm"/>
         <NormalFeatureCard titleKey="feature.app-expose.title"          bodyKey="feature.app-expose.body"       :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-blue text-shadow-sm"/>
         <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-catalina.png')] bg-black/0 bg-blend-darken shadow-slate-950/50 text-shadow-xl"/>
