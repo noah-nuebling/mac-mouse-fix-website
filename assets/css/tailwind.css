@@ -28,7 +28,7 @@ Notes:
 
 @layer utilities {
  .normal-feature-card-style-red {
-  @apply bg-gradient-to-b from-rose-400 to-pink-500 shadow-red-900/30;
+  @apply bg-gradient-to-b from-rose-400 to-pink-500 shadow-red-900/40;
  }
  .normal-feature-card-style-orange {
   @apply bg-gradient-to-b from-amber-400 to-orange-500 shadow-orange-900/30;
