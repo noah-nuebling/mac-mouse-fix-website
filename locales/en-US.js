@@ -16,7 +16,7 @@ export default {
   'feature.show-desktop.title': 'Show Desktop',
   'feature.show-desktop.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
   'feature.launchpad.title': 'Launchpad',
-  'feature.launchpad.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
+  'feature.launchpad.body': 'Hold a button on your mouse, then drag the mouse left or right to move to another Space with a smooth and intuitive animation which follows the movements of your hand precisely.\n\nIt works just like swiping left of right with 4 fingers on an Apple Trackpad.',
   'feature.lookup.title': 'Look Up & Data Detectors',
   'feature.lookup.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
   'feature.pages.title': 'Move between Pages',

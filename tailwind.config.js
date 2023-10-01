@@ -1,5 +1,8 @@
 // This file needs to exist for Tailwind CSS IntelliSense plugin to activate
 
+// Reference:
+// - Tailwind size naming conventions: xs, sm, md(/base/DEFAULT), lg, xl, 2xl, 3xl, ...
+
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
@@ -71,9 +74,9 @@ module.exports = {
       }
       const options = {
         values: {
-          sm: '0 1px 2px var(--tw-shadow-color)',
-          DEFAULT: '0 1px 2px var(--tw-shadow-color), 0 1px 8px var(--tw-shadow-color)',
-          lg: '0 8px 16px var(--tw-shadow-color)',
+          md: '0 0.02em 2px var(--tw-shadow-color), 0 0.01em 8px var(--tw-shadow-color)',
+          lg: '0 0.02em 1px var(--tw-shadow-color), 0 0.02em 4px var(--tw-shadow-color), 0 0.01em 20px var(--tw-shadow-color), 0 0.01em 24px var(--tw-shadow-color), 0 0.01em 28px var(--tw-shadow-color), 0 0.01em 32px var(--tw-shadow-color)',
+          lg2: '0 0.02em 1px var(--tw-shadow-color), 0 0.02em 4px var(--tw-shadow-color), 0 0.01em 28px var(--tw-shadow-color)',
         }
       }
       matchUtilities(newUtilities, options);
