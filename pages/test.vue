@@ -27,15 +27,15 @@
     <div class="">
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
 
-        <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-4.png')] bg-black/0 bg-blend-darken shadow-slate-950/50 text-shadow-lg"/>
+        <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-black/0 bg-blend-darken shadow-slate-950/50 text-shadow-lg"/>
         <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-red text-shadow-md"/>
         <NormalFeatureCard titleKey="feature.app-expose.title"          bodyKey="feature.app-expose.body"       :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-blue text-shadow-md"/>
-        <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-2.png')] bg-black/0 bg-blend-darken shadow-slate-950/50 text-shadow-lg"/>
-        <NormalFeatureCard titleKey="feature.launchpad.title"           bodyKey="feature.launchpad.body"        :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-3.png')] bg-black/0 bg-blend-darken shadow-slate-950/50 text-shadow-lg"/>
+        <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-catalina.png')] bg-black/0 bg-blend-darken shadow-slate-950/50 text-shadow-lg"/>
+        <NormalFeatureCard titleKey="feature.launchpad.title"           bodyKey="feature.launchpad.body"        :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-el-capitan.jpg')] bg-black/0 bg-blend-darken shadow-slate-950/50 text-shadow-lg"/>
         <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-orange text-shadow-md"/>
         <NormalFeatureCard titleKey="feature.pages.title"               bodyKey="feature.pages.body"            :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-green text-shadow-md"/>
-        <NormalFeatureCard titleKey="feature.mail-actions.title"        bodyKey="feature.mail-actions.body"     :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-5.png')] bg-black/0 bg-blend-darken shadow-slate-950/50 text-shadow-lg"/>
-        <NormalFeatureCard titleKey="feature.free-scroll.title"         bodyKey="feature.free-scroll.body"      :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-6.png')] bg-black/0 bg-blend-darken shadow-slate-950/50 text-shadow-lg"/>
+        <NormalFeatureCard titleKey="feature.mail-actions.title"        bodyKey="feature.mail-actions.body"     :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-mavericks.jpg')] bg-black/0 bg-blend-darken shadow-slate-950/50 text-shadow-lg"/>
+        <NormalFeatureCard titleKey="feature.free-scroll.title"         bodyKey="feature.free-scroll.body"      :videoPath="remapDemoVideoPath"       class="bg-[url('/assets/img/mac-wallpaper-mojave.png')] bg-black/0 bg-blend-darken shadow-slate-950/50 text-shadow-lg"/>
         <NormalFeatureCard titleKey="feature.zoom.title"                bodyKey="feature.zoom.body"             :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-yellow text-shadow-md"/>
         <NormalFeatureCard titleKey="feature.smart-zoom.title"          bodyKey="feature.smart-zoom.body"       :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-purple text-shadow-md"/>
 
