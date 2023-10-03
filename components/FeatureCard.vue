@@ -93,7 +93,7 @@
       if ($store.backdrop == null) {
         var b = document.createElement('div') as HTMLElement
         b.classList.add('h-screen', 'w-screen', 'z-[50]', 'fixed', 'top-0', 'left-0')
-        // b.classList.add('bg-stone-900/10') // Not displaying the backdrop. But using it to close card when user click outside the card
+        b.classList.add('bg-stone-900/50') // Not displaying the backdrop. But using it to close card when user click outside the card
         $store.backdrop = b
       }
 
@@ -117,12 +117,6 @@
       // Bring card to front
       card.value.style.zIndex = 100
 
-      // Create card placeholder
-      if (cardPlaceholder == null) {
-        cardPlaceholder = card.value.cloneNode(true) as HTMLDivElement
-        cardPlaceholder.classList.add('invisible')
-      }
-
       // Get current card size and position relative to nearest positioned ancestor
       // See https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements
       const originWidth = card.value!.offsetWidth
@@ -136,14 +130,20 @@
       const originBorderWidth = parseInt(getComputedStyle(card.value!).borderWidth.slice(0, -2)) /* Slice off the `px` suffix from the string */
       const originBorderRadius = parseInt(getComputedStyle(card.value!).borderRadius.slice(0, -2))
 
-
       // Debug
       console.log(`Offset height: ${originHeight}`)
 
+      // Create card placeholder
+      if (cardPlaceholder == null) {
+        cardPlaceholder = card.value.cloneNode(true) as HTMLDivElement
+        cardPlaceholder.style.visibility = 'hidden'
+      }
+
       // Set placeholder size to current card size (and replace all previous styling of the placeholder)
       // Note: Don't use tailwind here. See https://tailwindcss.com/docs/content-configuration#dynamic-class-names
-      cardPlaceholder.style.height = `${originHeight}px`
-      cardPlaceholder.style.width = `${originWidth}px`
+      // Edit: Why would we manually set the size of the placeholder? It should naturally be the same size as the original card since it's an exact copy. Edit2: Things seem to still work after commenting this out.
+      // cardPlaceholder.style.height = `${originHeight}px`
+      // cardPlaceholder.style.width = `${originWidth}px`
 
       // Replace the card with the placeholder
       card.value?.replaceWith(cardPlaceholder)
@@ -160,7 +160,6 @@
       // - TODO: Add border radius, border width and shadow changes here.
 
       const targetLayout = 'absolute'
-
 
       const targetWidth = `min(max(66%, ${700}px), 95%, 800px)`
       const targetMaxWidth = '100%'
@@ -233,6 +232,8 @@
         targetBorderRadius = '24px' // `${originBorderRadius * calcScale}px`
 
         // Remove target style
+        //  We're going to first remove the target style, then animate the card, and then apply the target style again after the animation ends.
+
         card.value.style.position = ''
 
         card.value.style.width = ''
@@ -253,6 +254,7 @@
 
       // Make the default content and expanded content overlap
       defaultCardContent.value!.style.position = 'absolute'
+      expandedCardContent.value!.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
 
       // Animate
       animationContext = $gsap.context((self) => {
@@ -276,10 +278,12 @@
 
           // Set target style
           card.value!.style.position = targetLayout
+
           card.value!.style.width = targetWidth
           card.value!.style.maxWidth = targetMaxWidth
           card.value!.style.height = targetHeight
           card.value!.style.maxHeight = targetMaxHeight
+
           card.value!.style.marginLeft = targetMarginLeft
           card.value!.style.marginRight = targetMarginRight
           card.value!.style.left = targetLeft
@@ -376,65 +380,137 @@
       // Remove backdrop from layout
       $store.backdrop?.remove()
 
-      // Bring card to front but behind expanding cards
+      // Get current card size, position,
+      //  Border radius, and shadow
+
+      const originLayout = 'absolute'
+
+      const originWidth = card.value!.offsetWidth
+      const originHeight = card.value!.offsetHeight
+
+      const originBorderRadius = ''
+      const originBorderWidth = ''
+
+      const originLeft = card.value!.offsetLeft
+      const originTop = card.value!.offsetTop
+
+      // Bring card to front but behind expanding and expanded cards (which have zIndex 100)
       card.value.style.zIndex = 99
 
-      // Show default content
-      defaultCardContent.value?.classList.remove('hidden')
+      // Show both the expanded content and the default content
+      defaultCardContent.value!.style.display = 'flex'
+      expandedCardContent.value!.style.display = 'flex'
+
+      // Make the default content and expanded content overlap
+      defaultCardContent.value!.style.position = ''
+      expandedCardContent.value!.style.position = 'absolute'
 
       // After animation completes or is interrupted ...
       const onEnd = () => {
         
         // Hide expanded content
-        expandedCardContent.value?.classList.add('hidden')
+        expandedCardContent.value!.style.display = 'none'
 
         // Bring card to normal level
         card.value.style.zIndex = 0
         
         // Remove absolute positioning + size from card and replace placeholder with it
-        if (card.value) {
-          card.value!.style.position = ''
-          card.value!.style.width = ''
-          card.value!.style.height = ''
-        }
-        cardPlaceholder?.replaceWith(card.value)
+        // Note: Setting position = '' resets the positioning to the default (static positioning)
+        // Note: For some reason we can't set the .style directly, but instead have to set .style.cssText
+
+        card.value!.style.cssText = cardPlaceholder!.style.cssText
+        card.value!.style.visibility = 'visible'
+
+        card.value!.style.position = cardPlaceholder!.style.position
+
+        card.value!.style.width = cardPlaceholder!.style.width
+        card.value!.style.maxWidth = cardPlaceholder!.style.maxWidth
+        card.value!.style.height = cardPlaceholder!.style.height
+        card.value!.style.maxHeight = cardPlaceholder!.style.maxHeight
+
+        card.value!.style.marginLeft = cardPlaceholder!.style.marginLeft
+        card.value!.style.marginRight = cardPlaceholder!.style.marginRight
+        card.value!.style.left = cardPlaceholder!.style.left
+        card.value!.style.right = cardPlaceholder!.style.right
+        card.value!.style.top = cardPlaceholder!.style.top
+
+        cardPlaceholder!.replaceWith(card.value!)
+
+        // Debug
+        
+        console.log(`Unexpand result - top: ${card.value!.offsetTop}, left: ${card.value!.offsetLeft}, width: ${card.value!.offsetWidth}, height: ${card.value!.offsetHeight}, parent: ${card.value!.offsetParent?.tagName}`)
       }
 
       // Get size and position of placeholder
-      const placeholderH = cardPlaceholder.offsetHeight
-      const placeholderW = cardPlaceholder.offsetWidth
-      const placeholderTop = cardPlaceholder.offsetLeft
-      const placeholderLeft = cardPlaceholder.offsetTop
+      const placeholderH = cardPlaceholder!.offsetHeight
+      const placeholderW = cardPlaceholder!.offsetWidth
+      const placeholderTop = cardPlaceholder!.offsetTop
+      const placeholderLeft = cardPlaceholder!.offsetLeft
+
+      // Debug 
+
+      console.log(`Unexpand placeholder - top: ${placeholderTop}, left: ${placeholderLeft}, width: ${placeholderW}, height: ${placeholderH}, parent: ${cardPlaceholder!.offsetParent?.tagName}`)
+
+      // Set origin size and position and positioning
+      // Desparate attempt to debug weird issues
+      // TODO: Comment this properly
+      
+      card.value!.style.position = 'absolute'
+
+      card.value!.style.width = originWidth + 'px'
+      card.value!.style.maxWidth = ''
+      card.value!.style.height = originHeight + 'px'
+      card.value!.style.maxHeight = ''
+
+      card.value!.style.marginLeft = ''
+      card.value!.style.marginRight = ''
+      card.value!.style.left = originLeft + 'px'
+      card.value!.style.right = ''
+      card.value!.style.top = originTop + 'px'
 
       // Animate card
       animationContext = $gsap.context((self) => {
 
         const dur = 0.5
 
-        var tl = $gsap.timeline()
+        // var tl = $gsap.timeline()
 
         // Fade out expanded content
-        tl.to(expandedCardContent.value, {
+        $gsap.to(expandedCardContent.value, {
           opacity: 0.0,
           duration: 0.2 * dur,
-        }, 0)
+        })
 
         // Fade in default content
-        tl.to(defaultCardContent.value, {
+        $gsap.to(defaultCardContent.value, {
           opacity: 1.0,
           duration: dur,
-        }, 0)
+        })
 
         // Move card back to placeholder position
-        tl.to(card.value, {
+        // $gsap.from(card.value, {
+        //   top: originTop,
+        //   left: originLeft,
+        // })
+        $gsap.to(card.value, {
           top: placeholderTop,
-          left: placeholderLeft,
-          duration: dur /* - 0.005 */,
+          duration: dur,
           ease: criticalSpring(4.0),
-        }, 0/* .005 */) 
+        })
+
+        $gsap.to(card.value, {
+          left: placeholderLeft,
+          duration: dur,
+          ease: criticalSpring(4.0),
+        })
 
         // Scale card to placeholder size
-        tl.to(card.value, {
+        
+        // $gsap.from(card.value, {
+        //   width: originWidth,
+        //   height: originHeight,
+        // })
+        $gsap.to(card.value, {
           scale: 1.0,
           width: placeholderW,
           height: placeholderH,
@@ -442,10 +518,10 @@
           ease: criticalSpring(6.0),
           onComplete: onEnd,
           onInterrupt: onEnd,
-        }, 0)
+        })
 
         // Play timeline
-        tl.play()
+        // tl.play()
       })
     }
   })
