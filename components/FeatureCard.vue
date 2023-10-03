@@ -115,7 +115,7 @@
       })
 
       // Bring card to front
-      card.value.style.zIndex = 100
+      card.value!.style.zIndex = '100'
 
       // Get current card size and position relative to nearest positioned ancestor
       // See https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements
@@ -151,6 +151,10 @@
       // Place the expanded content in the card, hide the default content
       defaultCardContent.value!.style.display = 'none'
       expandedCardContent.value!.style.display = 'flex'
+
+      // Position the expanded content normally
+      //  (Because later code will set position = absolute so we need to reset that)
+      expandedCardContent.value!.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
 
       // Determine target styling of card
       // Notes:
@@ -395,7 +399,7 @@
       const originTop = card.value!.offsetTop
 
       // Bring card to front but behind expanding and expanded cards (which have zIndex 100)
-      card.value.style.zIndex = 99
+      card.value!.style.zIndex = '99'
 
       // Show both the expanded content and the default content
       defaultCardContent.value!.style.display = 'flex'
@@ -410,9 +414,6 @@
         
         // Hide expanded content
         expandedCardContent.value!.style.display = 'none'
-
-        // Bring card to normal level
-        card.value.style.zIndex = 0
         
         // Remove absolute positioning + size from card and replace placeholder with it
         // Note: Setting position = '' resets the positioning to the default (static positioning)
@@ -421,20 +422,23 @@
         card.value!.style.cssText = cardPlaceholder!.style.cssText
         card.value!.style.visibility = 'visible'
 
-        card.value!.style.position = cardPlaceholder!.style.position
+        // card.value!.style.position = cardPlaceholder!.style.position
 
-        card.value!.style.width = cardPlaceholder!.style.width
-        card.value!.style.maxWidth = cardPlaceholder!.style.maxWidth
-        card.value!.style.height = cardPlaceholder!.style.height
-        card.value!.style.maxHeight = cardPlaceholder!.style.maxHeight
+        // card.value!.style.width = cardPlaceholder!.style.width
+        // card.value!.style.maxWidth = cardPlaceholder!.style.maxWidth
+        // card.value!.style.height = cardPlaceholder!.style.height
+        // card.value!.style.maxHeight = cardPlaceholder!.style.maxHeight
 
-        card.value!.style.marginLeft = cardPlaceholder!.style.marginLeft
-        card.value!.style.marginRight = cardPlaceholder!.style.marginRight
-        card.value!.style.left = cardPlaceholder!.style.left
-        card.value!.style.right = cardPlaceholder!.style.right
-        card.value!.style.top = cardPlaceholder!.style.top
+        // card.value!.style.marginLeft = cardPlaceholder!.style.marginLeft
+        // card.value!.style.marginRight = cardPlaceholder!.style.marginRight
+        // card.value!.style.left = cardPlaceholder!.style.left
+        // card.value!.style.right = cardPlaceholder!.style.right
+        // card.value!.style.top = cardPlaceholder!.style.top
 
         cardPlaceholder!.replaceWith(card.value!)
+
+        // Bring card to normal level
+        card.value!.style.zIndex = '0'
 
         // Debug
         
@@ -451,21 +455,29 @@
 
       console.log(`Unexpand placeholder - top: ${placeholderTop}, left: ${placeholderLeft}, width: ${placeholderW}, height: ${placeholderH}, parent: ${cardPlaceholder!.offsetParent?.tagName}`)
 
-      // Set origin size and position and positioning
-      // Desparate attempt to debug weird issues
-      // TODO: Comment this properly
+      // Unset all the position styling for the expanded layout of `card`
       
-      card.value!.style.position = 'absolute'
+      card.value!.style.position = ''
 
-      card.value!.style.width = originWidth + 'px'
+      card.value!.style.width = ''
       card.value!.style.maxWidth = ''
-      card.value!.style.height = originHeight + 'px'
+      card.value!.style.height = ''
       card.value!.style.maxHeight = ''
 
       card.value!.style.marginLeft = ''
       card.value!.style.marginRight = ''
-      card.value!.style.left = originLeft + 'px'
+      card.value!.style.left = ''
       card.value!.style.right = ''
+      card.value!.style.top = ''
+
+      // Set styling for animation start
+
+      card.value!.style.position = 'absolute'
+
+      card.value!.style.width = originWidth + 'px'
+      card.value!.style.height = originHeight + 'px'
+
+      card.value!.style.left = originLeft + 'px'
       card.value!.style.top = originTop + 'px'
 
       // Animate card
