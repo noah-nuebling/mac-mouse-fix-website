@@ -397,6 +397,9 @@
 
       const originLeft = card.value!.offsetLeft
       const originTop = card.value!.offsetTop
+      
+      const originCenterX = originLeft + (originWidth/2.0)
+      const originCenterY = originTop + (originHeight/2.0)
 
       // Bring card to front but behind expanding and expanded cards (which have zIndex 100)
       card.value!.style.zIndex = '99'
@@ -415,33 +418,19 @@
         // Hide expanded content
         expandedCardContent.value!.style.display = 'none'
         
-        // Remove absolute positioning + size from card and replace placeholder with it
-        // Note: Setting position = '' resets the positioning to the default (static positioning)
+        // Replace card styling with placeholder styling (except invisibility)
         // Note: For some reason we can't set the .style directly, but instead have to set .style.cssText
 
         card.value!.style.cssText = cardPlaceholder!.style.cssText
         card.value!.style.visibility = 'visible'
 
-        // card.value!.style.position = cardPlaceholder!.style.position
-
-        // card.value!.style.width = cardPlaceholder!.style.width
-        // card.value!.style.maxWidth = cardPlaceholder!.style.maxWidth
-        // card.value!.style.height = cardPlaceholder!.style.height
-        // card.value!.style.maxHeight = cardPlaceholder!.style.maxHeight
-
-        // card.value!.style.marginLeft = cardPlaceholder!.style.marginLeft
-        // card.value!.style.marginRight = cardPlaceholder!.style.marginRight
-        // card.value!.style.left = cardPlaceholder!.style.left
-        // card.value!.style.right = cardPlaceholder!.style.right
-        // card.value!.style.top = cardPlaceholder!.style.top
-
+        // Replace placeholder with card.
         cardPlaceholder!.replaceWith(card.value!)
 
         // Bring card to normal level
         card.value!.style.zIndex = '0'
 
         // Debug
-        
         console.log(`Unexpand result - top: ${card.value!.offsetTop}, left: ${card.value!.offsetLeft}, width: ${card.value!.offsetWidth}, height: ${card.value!.offsetHeight}, parent: ${card.value!.offsetParent?.tagName}`)
       }
 
@@ -450,6 +439,8 @@
       const placeholderW = cardPlaceholder!.offsetWidth
       const placeholderTop = cardPlaceholder!.offsetTop
       const placeholderLeft = cardPlaceholder!.offsetLeft
+      const placeholderCenterX = placeholderLeft + (placeholderW/2.0)
+      const placeholderCenterY = placeholderTop + (placeholderH/2.0)
 
       // Debug 
 
@@ -470,20 +461,42 @@
       card.value!.style.right = ''
       card.value!.style.top = ''
 
-      // Set styling for animation start
+      // Calculate animation curves + animation start and end values
 
-      card.value!.style.position = 'absolute'
+      const curveForSize = criticalSpring(6.0)
+      const curveForCenter = criticalSpring(5.0)
 
-      card.value!.style.width = originWidth + 'px'
-      card.value!.style.height = originHeight + 'px'
+      const startValueForWidth = originWidth
+      const endValueForWidth = placeholderW
+      const startValueForHeight = originHeight
+      const endValueForHeight = placeholderH
 
-      card.value!.style.left = originLeft + 'px'
-      card.value!.style.top = originTop + 'px'
+      const startValueForCenterX = originCenterX
+      const endValueForCenterX = placeholderCenterX
+      const { curveForStart: curveForLeft, startValueForStart: startValueForLeft, endValueForStart: endValueForLeft } = animationCurveForStart(curveForCenter, startValueForCenterX, endValueForCenterX, curveForSize, startValueForWidth, endValueForWidth)
+
+      const startValueForCenterY = originCenterY
+      const endValueForCenterY = placeholderCenterY
+      const { curveForStart: curveForTop, startValueForStart: startValueForTop, endValueForStart: endValueForTop } = animationCurveForStart(curveForCenter, startValueForCenterY, endValueForCenterY, curveForSize, startValueForHeight, endValueForHeight)
+
+
+      // Debug
+      console.log(`curveForLeft: ${traceAnimationCurve(curveForLeft)}, ${startValueForLeft} - ${endValueForLeft}`)
+      console.log(`curveForTop: ${traceAnimationCurve(curveForTop)}, ${startValueForTop} - ${endValueForTop}`)
+
+      // Position card so it overlaps the placeholder (This is the starting state for the animation)
+      if (card.value) {
+        card.value.style.position = 'absolute'
+        card.value.style.top = `${startValueForTop}px`
+        card.value.style.left = `${startValueForLeft}px`
+        card.value.style.width = `${startValueForWidth}px`
+        card.value.style.height = `${startValueForHeight}px`
+      }
 
       // Animate card
       animationContext = $gsap.context((self) => {
 
-        const dur = 0.5
+        const dur = 0.6
 
         // var tl = $gsap.timeline()
 
@@ -499,35 +512,25 @@
           duration: dur,
         })
 
-        // Move card back to placeholder position
-        // $gsap.from(card.value, {
-        //   top: originTop,
-        //   left: originLeft,
-        // })
+        // Animate position
         $gsap.to(card.value, {
-          top: placeholderTop,
+          top: endValueForTop,
           duration: dur,
-          ease: criticalSpring(4.0),
+          ease: curveForTop
         })
 
         $gsap.to(card.value, {
-          left: placeholderLeft,
+          left: endValueForLeft,
           duration: dur,
-          ease: criticalSpring(4.0),
+          ease: curveForLeft,
         })
 
-        // Scale card to placeholder size
-        
-        // $gsap.from(card.value, {
-        //   width: originWidth,
-        //   height: originHeight,
-        // })
+        // Animate size
         $gsap.to(card.value, {
-          scale: 1.0,
-          width: placeholderW,
-          height: placeholderH,
+          width: endValueForWidth,
+          height: endValueForHeight,
           duration: dur,
-          ease: criticalSpring(6.0),
+          ease: curveForSize,
           onComplete: onEnd,
           onInterrupt: onEnd,
         })
