@@ -93,7 +93,7 @@
       if ($store.backdrop == null) {
         var b = document.createElement('div') as HTMLElement
         b.classList.add('h-screen', 'w-screen', 'z-[50]', 'fixed', 'top-0', 'left-0')
-        b.classList.add('bg-stone-900/50') // Not displaying the backdrop. But using it to close card when user click outside the card
+        // b.classList.add('bg-stone-900/50') // Not displaying the backdrop. But using it to close card when user click outside the card
         $store.backdrop = b
       }
 
