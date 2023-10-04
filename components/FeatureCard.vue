@@ -51,7 +51,7 @@
 <script setup lang="ts">
 
   // Import (is that the right term?) vue/nuxt stuff
-  const { $ScrollTrigger, $store, $gsap } = useNuxtApp()
+  const { $ScrollTrigger, $store, $gsap, $Power0, $Power1, $Power2, $Power3, $Power4 } = useNuxtApp()
   const slots = useSlots()
 
   // Define vars
@@ -298,11 +298,23 @@
           defaultCardContent.value!.style.display = 'none'
         }
 
-        // Calculate animation curves + animation start and end values
+        // Animation params
+        // Discussion: 
+        // - We used to use more physically accurate curves with longer decelerations, but they 
+        //      made part of the animation too fast which is especially jarring when there are frame-drops.
+        // Previous curves:
+        // - dur: 0.5, sizeCurve: criticalSpring(4.0), centerCurve: criticalSpring(6.0)
+        // - dur: 0.5, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
+        
+        const dur = 0.45
+        const curveForSize = $Power2.easeOut 
+        const curveForCenter = $Power3.easeOut
 
-        const curveForSize = criticalSpring(4.0)
-        const curveForCenter = criticalSpring(6.0)
+        // Debug
+        console.log(`curveForSize trace ${traceAnimationCurve(curveForSize)}`)
 
+        // Animation preprocessing
+        //  Calculate animation curves + animation start and end values
         const startValueForWidth = originWidth
         const endValueForWidth = calcWidth
         const startValueForHeight = originHeight
@@ -326,7 +338,6 @@
         }
 
         // Animate card
-        const dur = 0.5
 
         // Animate position-related styling
 
