@@ -472,11 +472,20 @@
       card.value!.style.right = ''
       card.value!.style.top = ''
 
-      // Calculate animation curves + animation start and end values
+      // Animation params
+      // Discussion: 
+      // - We used to use more physically accurate curves with longer decelerations, but they 
+      //      made part of the animation too fast which is especially jarring when there are frame-drops.
+      // Previous curves:
+      // - dur: 0.6, sizeCurve: criticalSpring(6.0), centerCurve: criticalSpring(5.0)
+      
+      const dur = 0.6
+      const curveForSize = $Power4.easeOut 
+      const curveForCenter = $Power3.easeOut
 
-      const curveForSize = criticalSpring(6.0)
-      const curveForCenter = criticalSpring(5.0)
-
+      // Animation preprocessing
+        //  Calculate animation curves + animation start and end values
+      
       const startValueForWidth = originWidth
       const endValueForWidth = placeholderW
       const startValueForHeight = originHeight
@@ -489,7 +498,6 @@
       const startValueForCenterY = originCenterY
       const endValueForCenterY = placeholderCenterY
       const { curveForStart: curveForTop, startValueForStart: startValueForTop, endValueForStart: endValueForTop } = animationCurveForStart(curveForCenter, startValueForCenterY, endValueForCenterY, curveForSize, startValueForHeight, endValueForHeight)
-
 
       // Debug
       console.log(`curveForLeft: ${traceAnimationCurve(curveForLeft)}, ${startValueForLeft} - ${endValueForLeft}`)
@@ -506,8 +514,6 @@
 
       // Animate card
       animationContext = $gsap.context((self) => {
-
-        const dur = 0.6
 
         // var tl = $gsap.timeline()
 
