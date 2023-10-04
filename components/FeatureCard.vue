@@ -81,6 +81,19 @@
   // React to isExpanded change
   watch(isExpanded, (shouldExpand) => {
 
+    // Apply `will-change` animation optimization css
+    // Note: Deactivating this because it doesn't seem to work. We also used to apply this on mouse hover
+    
+    if (false && card.value != null) {
+      const css = 'will-change-[top,left,width,height,box-shadow,border-radius]'
+      if (shouldExpand) {
+        card.value.classList.add(css)
+      } else {
+        card.value.classList.remove(css)
+      }
+    }
+    
+
     // Kill current animations
     // Not totally sure if this is appropriate here. I think it prevents the onComplete method from being called when the card is unexpanded during the expand animation, which would lead to the zIndex getting messed up.
     if (animationContext) {
