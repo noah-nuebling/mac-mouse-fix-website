@@ -16,11 +16,12 @@
     "@nuxt/devtools": "latest",
     "@nuxtjs/i18n": "8.0.0-rc.4",
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "@types/node": "^18.17.3",
-    "nuxt": "^3.6.5"
+    "@types/node": "^18.18.3",
+    "nuxt": "^3.7.4"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
-    "gsap": "^3.12.2"
+    "gsap": "^3.12.2",
+    "html2canvas": "^1.4.1"
   }
 }
