@@ -54,18 +54,48 @@
   const { $ScrollTrigger, $store, $gsap, $Power0, $Power1, $Power2, $Power3, $Power4 } = useNuxtApp()
   const slots = useSlots()
 
-  // TEST html2canvas
+  // TEST html2canvas & html-to-canvas
   
   import html2canvas from 'html2canvas';
+  import * as htmlToImage from 'html-to-image';
   async function createImage(node: HTMLElement) {
-    const canvas = await html2canvas(node, { backgroundColor: null });
+
+    // 
+    // html-to-image test
+    //
+
+    const imageConfig = {
+      cacheBust: true, 
+      pixelRatio: 1, 
+      quality: 0.98,
+      // height: node.offsetHeight, 
+      // width: node.offsetWidth, 
+      // canvasWidth: node.offsetWidth, 
+      // canvasHeight: node.offsetHeight,
+    }
+
+    const canvas = await htmlToImage.toCanvas(node, imageConfig)
+    document.body.appendChild(canvas)
+
+    // const dataURL = await htmlToImage.toPng(node, imageConfig)
+    // const link = document.createElement('a');
+    // link.download = 'my-screenshot.png';
+    // link.href = dataURL;
+    // link.click();
+
+    // 
+    // html2canvas test
+    //
+
+    // const canvas = await html2canvas(node, { backgroundColor: null });
+    // document.body.appendChild(canvas)
+
     // const dataURL = canvas.toDataURL('image/png', 1.0);
     // const link = document.createElement('a');
     // link.download = 'my-screenshot.png';
     // link.href = dataURL;
     // link.click();
 
-    document.body.appendChild(canvas)
   }
 
   // Define vars
@@ -99,9 +129,9 @@
     // TEST html2canvas
 
     if (shouldExpand) {
-      createImage(swappableContentContainer.value!)
+      createImage(/* document.body */ card.value!)
     } else {
-      createImage(swappableContentContainer.value!)
+      // createImage(card.value!)
     }
 
     // Apply `will-change` animation optimization css
