@@ -14,20 +14,11 @@
 <template>
   <div
     ref="card"
-    :class="['flex flex-col h-full rounded-[24px] overflow-clip border-4 border-gray-50/25 bg-origin-border', $attrs.class, isExpanded ? '' : '' ]">
-    
-    <!-- Top -->
-    <div ref="topCardContent" class="flex flex-col">
-      <slot name="top"/>
-    </div> 
+    :class="['flex flex-col rounded-[24px] overflow-clip border-4 border-gray-50/25 bg-origin-border min-w-10 min-h-[500px]', $attrs.class, isExpanded ? '' : '' ]">
 
-    <!-- Swap -->
-    <div ref="swappableContentContainer" class="min-h-0 min-w-0
-                                                grow
-                                                flex flex-col">
 
-      <!-- Default -->
-      <div ref="defaultCardContent" class="min-h-0 min-w-0
+     <!-- Default -->
+     <div ref="defaultCardContent" class="min-h-0 min-w-0
                                           grow
                                           flex flex-col">
         <slot name="default"/>
@@ -39,13 +30,8 @@
                                             hidden flex-col">
         <slot name="expanded"/>
       </div>
-    </div>
 
-    <!-- Bottom -->
-    <div ref="bottomCardContent" class="flex flex-col">
-      <slot name="bottom"/>
     </div>
-  </div>
 </template>
 
 <script setup lang="ts">
@@ -77,6 +63,11 @@
   defineExpose({
     expand,
   })
+
+// TESTING
+onMounted(() => {
+  card.value!.style.willChange = 'width, height, top, left'
+})
 
   // React to isExpanded change
   watch(isExpanded, (shouldExpand) => {
@@ -180,7 +171,7 @@
 
       const targetWidth = `min(max(66%, ${700}px), 95%, 800px)`
       const targetMaxWidth = '100%'
-      const targetHeight = /* '900px' */ 'fit-content'
+      const targetHeight = '900px'
       const targetMaxHeight = '80vh'
 
       var targetBorderRadius = ''
@@ -370,13 +361,20 @@
 
         // Animate size-related styling
 
+        
+
         $gsap.to(card.value, {
 
           width: endValueForWidth,
           height: endValueForHeight,
+          // scaleY: 0.25,
+          boxShadow: '0 25px 50px -12px rgb(0 0 0 / 1.0), 0 25px 100px 0px rgb(0 0 0 / 1.0)',
 
-          borderRadius: targetBorderRadius,
-          borderWidth: targetBorderWidth,
+
+          // borderRadius: targetBorderRadius,
+          // borderWidth: targetBorderWidth,
+          
+
 
           duration: dur,
           ease: curveForSize,
