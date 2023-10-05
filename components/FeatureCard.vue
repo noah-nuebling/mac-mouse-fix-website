@@ -143,6 +143,10 @@
       const originBorderWidth = parseInt(getComputedStyle(card.value!).borderWidth.slice(0, -2)) /* Slice off the `px` suffix from the string */
       const originBorderRadius = parseInt(getComputedStyle(card.value!).borderRadius.slice(0, -2))
 
+      // TESTING - Get default card content size
+      const defaultContentHeight = defaultCardContent.value!.offsetHeight
+      const defaultContentWidth = defaultCardContent.value!.offsetWidth
+
       // Debug
       console.log(`Offset height: ${originHeight}`)
 
@@ -200,6 +204,9 @@
       var calcCenterX = 0
       var calcCenterY = 0
 
+      var expandedContentWidth = 0
+      var expandedContentHeight = 0
+
       // Placing the card at it's target (expanded) size and position in the document
       //  We use this to determine the remaining target styling (only 'targetTop' at the time of writing) and to record the calculated size and position. 
       //  We need the calculated size and position for animating. When we tried to animated to the targetStyle directly using gsap it didn't work. It seems the problem was somewhere with centering the absolutely positioned card by setting left and right to 0 and setting the leftMargin and rightMarging to auto. Animating this dinn't work proplerly it seems. There were also problems animating the maxHeight and maxWidth, but they could be resolved by setting those to a very high number right before the animation.
@@ -241,7 +248,11 @@
         calcLeft = card.value.offsetLeft
         calcCenterX = calcLeft + calcWidth/2.0
         calcCenterY = calcTop + calcHeight/2.0
-        calcScale = ((calcWidth / originWidth) + (calcHeight / originHeight)) / 2.0
+        calcScale = ((calcWidth / originWidth) + (calcHeight / originHeight)) / 2.
+        
+        // Measure expanded content size (TESTING)
+        expandedContentWidth = expandedCardContent.value!.offsetWidth
+        expandedContentHeight = expandedCardContent.value!.offsetHeight
 
         // Calculate target style based on scale
         //  Note: Keep this in sync with video wrapper styling to make it look nice
@@ -272,6 +283,20 @@
       // Make the default content and expanded content overlap
       defaultCardContent.value!.style.position = 'absolute'
       expandedCardContent.value!.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
+
+      // TEST - Make content size fix for better performance
+      
+      defaultCardContent.value!.style.minWidth = defaultContentWidth + 'px'
+      defaultCardContent.value!.style.maxWidth = defaultContentWidth + 'px'
+      defaultCardContent.value!.style.minHeight = defaultContentHeight + 'px'
+      defaultCardContent.value!.style.maxHeight = defaultContentHeight + 'px'
+
+      expandedCardContent.value!.style.minWidth = expandedContentWidth + 'px'
+      expandedCardContent.value!.style.maxWidth = expandedContentWidth + 'px'
+      expandedCardContent.value!.style.minHeight = expandedContentHeight + 'px'
+      expandedCardContent.value!.style.maxHeight = expandedContentHeight + 'px'
+
+
 
       // Animate
       animationContext = $gsap.context((self) => {
