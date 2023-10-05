@@ -54,6 +54,20 @@
   const { $ScrollTrigger, $store, $gsap, $Power0, $Power1, $Power2, $Power3, $Power4 } = useNuxtApp()
   const slots = useSlots()
 
+  // TEST html2canvas
+  
+  import html2canvas from 'html2canvas';
+  async function createImage(node: HTMLElement) {
+    const canvas = await html2canvas(node, { backgroundColor: null });
+    // const dataURL = canvas.toDataURL('image/png', 1.0);
+    // const link = document.createElement('a');
+    // link.download = 'my-screenshot.png';
+    // link.href = dataURL;
+    // link.click();
+
+    document.body.appendChild(canvas)
+  }
+
   // Define vars
   const isExpanded = ref(false)
   var animationContext: any = null
@@ -63,6 +77,7 @@
   const card: Ref<HTMLElement | null> = ref(null)
   
   const topCardContent: Ref<HTMLElement | null> = ref(null)  
+  const swappableContentContainer: Ref<HTMLElement | null> = ref(null)
   const defaultCardContent: Ref<HTMLElement | null> = ref(null)
   const expandedCardContent: Ref<HTMLElement | null> = ref(null)
   const bottomCardContent: Ref<HTMLElement | null> = ref(null) 
@@ -80,6 +95,14 @@
 
   // React to isExpanded change
   watch(isExpanded, (shouldExpand) => {
+
+    // TEST html2canvas
+
+    if (shouldExpand) {
+      createImage(swappableContentContainer.value!)
+    } else {
+      createImage(swappableContentContainer.value!)
+    }
 
     // Apply `will-change` animation optimization css
     // Note: Deactivating this because it doesn't seem to work. We also used to apply this on mouse hover
