@@ -28,9 +28,9 @@
 
         <!-- Note: Keep the border color, width and radius of the video wrapper in sync with the FeatureCard to make it look nice -->
 
-        <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="object-cover w-full h-full">
+        <!-- <video id="vid1" preload="auto" playsinline loop autoplay alt="Remap Demo" class="object-cover w-full h-full">
           <source :src="videoPath" type="video/mp4">
-        </video>
+        </video> -->
       </div>
     </template>
     <!-- <template v-slot:bottom>
