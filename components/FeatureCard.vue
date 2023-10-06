@@ -14,7 +14,7 @@
 <template>
   <div
     ref="card"
-    :class="['flex flex-col h-full rounded-[24px] overflow-clip border-4 border-gray-50/25 bg-origin-border will-change-[transform]', $attrs.class, isExpanded ? '' : '' ]">
+    :class="['flex flex-col h-full rounded-[24px] overflow-clip border-4 border-gray-50/25 bg-origin-border will-change-[transform,opacity]', $attrs.class, isExpanded ? '' : '' ]">
     
     <!-- Top -->
     <div ref="topCardContent" class="flex flex-col">
@@ -400,77 +400,57 @@ import findChildMatchingCondition from "~/utils/findChild"
 
         // Animate position-related styling on card
 
-        // $gsap.fromTo(card.value, {
-        //   y: 0,
-        // }, {
-        //   y: translateY,
-
-        //   duration: dur,
-        //   ease: curveForTop,
-        // })
-
-        // $gsap.fromTo(card.value, {
-        //   x: 0,
-        // }, {
-        //   x: translateX,
-
-        //   duration: dur,
-        //   ease: curveForLeft,
-        // })
-
-        // Animate position-related styling on cardCopy
-
-        $gsap.fromTo(cardPlaceholder, {
-          y: -translateY,
-        }, {
+        $gsap.fromTo(card.value, {
           y: 0,
+        }, {
+          y: translateY,
 
           duration: dur,
           ease: curveForTop,
         })
 
-        $gsap.fromTo(cardPlaceholder, {
-          x: -translateX,
-        }, {
+        $gsap.fromTo(card.value, {
           x: 0,
+        }, {
+          x: translateX,
 
           duration: dur,
           ease: curveForLeft,
         })
 
+        // Animate position-related styling on cardCopy
+
+        // $gsap.fromTo(cardPlaceholder, {
+        //   y: -translateY,
+        // }, {
+        //   y: 0,
+
+        //   duration: dur,
+        //   ease: curveForTop,
+        // })
+
+        // $gsap.fromTo(cardPlaceholder, {
+        //   x: -translateX,
+        // }, {
+        //   x: 0,
+
+        //   duration: dur,
+        //   ease: curveForLeft,
+        // })
+
         // TESTING
         console.log(`CurveForLeft: ${ traceAnimationCurve(curveForLeft) }`)
+        cardPlaceholder!.style.visibility = 'hidden'
 
         // Animate size-related styling on card
 
-        // $gsap.fromTo(card.value, {
-        //   scaleX: 1.0,
-        //   scaleY: 1.0
-        // }, {
-
-        //   scaleX: scaleX,
-        //   scaleY: scaleY,
-
-        //   // borderRadius: targetBorderRadius,
-        //   // borderWidth: targetBorderWidth,
-
-        //   duration: dur,
-        //   ease: curveForSize,
-
-        //   onComplete: onEnd,
-        //   onInterrupt: onEnd,
-        // })
-
-        // Animate size-related styling on cardCopy
-
-
-        $gsap.fromTo(cardPlaceholder, {
-          scaleX: 1.0/scaleX,
-          scaleY: 1.0/scaleY,
+        $gsap.fromTo(card.value, {
+          scaleX: 1.0,
+          scaleY: 1.0
         }, {
 
-          scaleX: 1.0,
-          scaleY: 1.0,
+          scaleX: scaleX,
+          scaleY: scaleY,
 
           // borderRadius: targetBorderRadius,
           // borderWidth: targetBorderWidth,
@@ -482,18 +462,39 @@ import findChildMatchingCondition from "~/utils/findChild"
           onInterrupt: onEnd,
         })
 
+        // Animate size-related styling on cardCopy
+
+
+        // $gsap.fromTo(cardPlaceholder, {
+        //   scaleX: 1.0/scaleX,
+        //   scaleY: 1.0/scaleY,
+        // }, {
+
+        //   scaleX: 1.0,
+        //   scaleY: 1.0,
+
+        //   // borderRadius: targetBorderRadius,
+        //   // borderWidth: targetBorderWidth,
+
+        //   duration: dur,
+        //   ease: curveForSize,
+
+        //   onComplete: onEnd,
+        //   onInterrupt: onEnd,
+        // })
+
         // Fade out card
         // TODO: Neither opacity nor autoalpha work. (Not sure what autoAlpha is)
 
         // $gsap.fromTo(card.value, {
-        //   autoAlpha: 0.0
+        //   opacity: 1.0,
         // }, {
-        //   autoAlpha: 0.0,
+        //   opacity: 0.0,
         //   duration: 0.2 * dur,
         // })
 
-        // // Fade in cardCopy
-        // $gsap.fromTo(card.value, {
+        // Fade in cardCopy
+        // $gsap.fromTo(cardPlaceholder, {
         //   autoAlpha: 0.0
         // }, {
         //   autoAlpha: 1.0,
