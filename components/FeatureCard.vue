@@ -14,7 +14,7 @@
 <template>
   <div
     ref="card"
-    :class="['flex flex-col h-full rounded-[24px] overflow-clip border-4 border-gray-50/25 bg-origin-border', $attrs.class, isExpanded ? '' : '' ]">
+    :class="['flex flex-col h-full rounded-[24px] overflow-clip border-4 border-gray-50/25 bg-origin-border will-change-[transform]', $attrs.class, isExpanded ? '' : '' ]">
     
     <!-- Top -->
     <div ref="topCardContent" class="flex flex-col">
@@ -27,14 +27,14 @@
                                                 flex flex-col">
 
       <!-- Default -->
-      <div ref="defaultCardContent" class="min-h-0 min-w-0
+      <div ref="defaultCardContent" id="defaultCardContent" class="min-h-0 min-w-0
                                           grow
                                           flex flex-col">
         <slot name="default"/>
       </div>
 
       <!-- Expanded -->
-      <div ref="expandedCardContent" class="min-h-0 min-w-0
+      <div ref="expandedCardContent" id="expandedCardContent" class="min-h-0 min-w-0
                                             grow
                                             hidden flex-col">
         <slot name="expanded"/>
@@ -49,6 +49,8 @@
 </template>
 
 <script setup lang="ts">
+import findChildMatchingCondition from "~/utils/findChild"
+
 
   // Import (is that the right term?) vue/nuxt stuff
   const { $ScrollTrigger, $store, $gsap, $Power0, $Power1, $Power2, $Power3, $Power4 } = useNuxtApp()
@@ -85,7 +87,7 @@
     // Note: Deactivating this because it doesn't seem to work. We also used to apply this on mouse hover
     
     if (false && card.value != null) {
-      const css = 'will-change-[top,left,width,height,box-shadow,border-radius]'
+      const css = 'will-change-[transform]' //'will-change-[top,left,width,height,box-shadow,border-radius]'
       if (shouldExpand) {
         card.value.classList.add(css)
       } else {
@@ -140,34 +142,44 @@
       const originCenterX = originLeft + originWidth/2.0
       const originCenterY = originTop + originHeight/2.0
 
+      // vvv TODO: Not sure we need to record origin border style. Remove if not.
       const originBorderWidth = parseInt(getComputedStyle(card.value!).borderWidth.slice(0, -2)) /* Slice off the `px` suffix from the string */
       const originBorderRadius = parseInt(getComputedStyle(card.value!).borderRadius.slice(0, -2))
 
       // Debug
       console.log(`Offset height: ${originHeight}`)
 
-      // Create card placeholder
+      // Create card copy
+      //  - Will be used to display expanded content
+      //  - TODO: Rename cardPlaceholder -> cardCopy or whatever
       if (cardPlaceholder == null) {
-        cardPlaceholder = card.value.cloneNode(true) as HTMLDivElement
-        cardPlaceholder.style.visibility = 'hidden'
+        cardPlaceholder = card.value!.cloneNode(true) as HTMLDivElement
+        // cardPlaceholder.style.visibility = 'hidden'
       }
 
       // Set placeholder size to current card size (and replace all previous styling of the placeholder)
       // Note: Don't use tailwind here. See https://tailwindcss.com/docs/content-configuration#dynamic-class-names
       // Edit: Why would we manually set the size of the placeholder? It should naturally be the same size as the original card since it's an exact copy. Edit2: Things seem to still work after commenting this out.
+      //  TODO: Remove this
       // cardPlaceholder.style.height = `${originHeight}px`
       // cardPlaceholder.style.width = `${originWidth}px`
 
       // Replace the card with the placeholder
-      card.value?.replaceWith(cardPlaceholder)
+      // TODO: Remove
+      // card.value?.replaceWith(cardPlaceholder)
 
-      // Place the expanded content in the card, hide the default content
-      defaultCardContent.value!.style.display = 'none'
-      expandedCardContent.value!.style.display = 'flex'
+      // Get references to defaultCardContent and expandedCardContent in the cardCopy
+      const defaultCardContentCopy = findChildMatchingCondition(cardPlaceholder, (child) => child.id == 'defaultCardContent' )
+      const expandedCardContentCopy = findChildMatchingCondition(cardPlaceholder, (child) => child.id == 'expandedCardContent' )
+
+      // Place the expanded content in the card copy, hide the default content
+      defaultCardContentCopy!.style.display = 'none'
+      expandedCardContentCopy!.style.display = 'flex'
 
       // Position the expanded content normally
       //  (Because later code will set position = absolute so we need to reset that)
-      expandedCardContent.value!.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
+      //  TODO: Check if this is still necessary with transform-based animations
+      expandedCardContentCopy!.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
 
       // Determine target styling of card
       // Notes:
@@ -204,41 +216,41 @@
       //  We use this to determine the remaining target styling (only 'targetTop' at the time of writing) and to record the calculated size and position. 
       //  We need the calculated size and position for animating. When we tried to animated to the targetStyle directly using gsap it didn't work. It seems the problem was somewhere with centering the absolutely positioned card by setting left and right to 0 and setting the leftMargin and rightMarging to auto. Animating this dinn't work proplerly it seems. There were also problems animating the maxHeight and maxWidth, but they could be resolved by setting those to a very high number right before the animation.
 
-      if (card.value) {
+      if (cardPlaceholder) {
 
         // Set layout method
-        card.value.style.position = targetLayout
+        cardPlaceholder.style.position = targetLayout
 
         // Set size and stuff
-        card.value.style.width = targetWidth
-        card.value.style.maxWidth = targetMaxWidth
-        card.value.style.height = targetHeight
-        card.value.style.maxHeight = targetMaxHeight
+        cardPlaceholder.style.width = targetWidth
+        cardPlaceholder.style.maxWidth = targetMaxWidth
+        cardPlaceholder.style.height = targetHeight
+        cardPlaceholder.style.maxHeight = targetMaxHeight
 
         // Place in document
-        cardPlaceholder.offsetParent?.appendChild(card.value)
+        card.value!.offsetParent?.appendChild(cardPlaceholder)
 
         // Calculate target style
         //  We calculated targetTop such that the x center of the card stays in the same position after expanding
-        const computedH = card.value.offsetHeight
+        const computedH = cardPlaceholder.offsetHeight
         const heightIncrease = computedH - originHeight
         targetTop = `${originTop - heightIncrease/2.0}px`
 
         // Set position and stuff
-        card.value.style.marginLeft = targetMarginLeft
-        card.value.style.marginRight = targetMarginRight
-        card.value.style.left = targetLeft
-        card.value.style.right = targetRight
-        card.value.style.top = targetTop
+        cardPlaceholder.style.marginLeft = targetMarginLeft
+        cardPlaceholder.style.marginRight = targetMarginRight
+        cardPlaceholder.style.left = targetLeft
+        cardPlaceholder.style.right = targetRight
+        cardPlaceholder.style.top = targetTop
 
         // TESTING
         // return
 
         // Measure computed size, position and scale
-        calcWidth = card.value.offsetWidth
-        calcHeight = card.value.offsetHeight
-        calcTop = card.value.offsetTop
-        calcLeft = card.value.offsetLeft
+        calcWidth = cardPlaceholder.offsetWidth
+        calcHeight = cardPlaceholder.offsetHeight
+        calcTop = cardPlaceholder.offsetTop
+        calcLeft = cardPlaceholder.offsetLeft
         calcCenterX = calcLeft + calcWidth/2.0
         calcCenterY = calcTop + calcHeight/2.0
         calcScale = ((calcWidth / originWidth) + (calcHeight / originHeight)) / 2.0
@@ -250,28 +262,34 @@
 
         // Remove target style
         //  We're going to first remove the target style, then animate the card, and then apply the target style again after the animation ends.
+        // TODO: Remove
 
-        card.value.style.position = ''
+        // cardPlaceholder.style.position = ''
 
-        card.value.style.width = ''
-        card.value.style.maxWidth = ''
-        card.value.style.height = ''
-        card.value.style.maxHeight = ''
+        // cardPlaceholder.style.width = ''
+        // cardPlaceholder.style.maxWidth = ''
+        // cardPlaceholder.style.height = ''
+        // cardPlaceholder.style.maxHeight = ''
 
-        card.value.style.marginLeft = ''
-        card.value.style.marginRight = ''
-        card.value.style.left = ''
-        card.value.style.right = ''
-        card.value.style.top = ''
+        // cardPlaceholder.style.marginLeft = ''
+        // cardPlaceholder.style.marginRight = ''
+        // cardPlaceholder.style.left = ''
+        // cardPlaceholder.style.right = ''
+        // cardPlaceholder.style.top = ''
       }
 
-      // Show both the expanded content and the default content
-      defaultCardContent.value!.style.display = 'flex'
-      expandedCardContent.value!.style.display = 'flex'
+      if (false) {
 
-      // Make the default content and expanded content overlap
-      defaultCardContent.value!.style.position = 'absolute'
-      expandedCardContent.value!.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
+        // TODO: Remove
+
+        // Show both the expanded content and the default content
+        defaultCardContent.value!.style.display = 'flex'
+        expandedCardContent.value!.style.display = 'flex'
+
+        // Make the default content and expanded content overlap
+        defaultCardContent.value!.style.position = 'absolute'
+        expandedCardContent.value!.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
+      }
 
       // Animate
       animationContext = $gsap.context((self) => {
@@ -293,23 +311,30 @@
         // Define post-animation actions
         const onEnd = () => {
 
-          // Set target style
-          card.value!.style.position = targetLayout
+          // TODO: Remove
 
-          card.value!.style.width = targetWidth
-          card.value!.style.maxWidth = targetMaxWidth
-          card.value!.style.height = targetHeight
-          card.value!.style.maxHeight = targetMaxHeight
+          // // Set target style
+          // card.value!.style.position = targetLayout
 
-          card.value!.style.marginLeft = targetMarginLeft
-          card.value!.style.marginRight = targetMarginRight
-          card.value!.style.left = targetLeft
-          card.value!.style.right = targetRight
-          card.value!.style.top = targetTop
+          // card.value!.style.width = targetWidth
+          // card.value!.style.maxWidth = targetMaxWidth
+          // card.value!.style.height = targetHeight
+          // card.value!.style.maxHeight = targetMaxHeight
 
-          // Hide default content
-          defaultCardContent.value!.style.display = 'none'
+          // card.value!.style.marginLeft = targetMarginLeft
+          // card.value!.style.marginRight = targetMarginRight
+          // card.value!.style.left = targetLeft
+          // card.value!.style.right = targetRight
+          // card.value!.style.top = targetTop
+
+          // // Hide default content
+          // defaultCardContent.value!.style.display = 'none'
         }
+
+        // Set transformOrigin
+        cardPlaceholder!.style.transformOrigin = 'left top'
+        card.value!.style.transformOrigin = 'left top'
+
 
         // Animation params
         // Discussion: 
@@ -326,57 +351,108 @@
         // Debug
         console.log(`curveForSize trace ${traceAnimationCurve(curveForSize)}`)
 
+        // 
         // Animation preprocessing
-        //  Calculate animation curves + animation start and end values
+        //  
+
+        // Gather info
+
         const startValueForWidth = originWidth
         const endValueForWidth = calcWidth
+
         const startValueForHeight = originHeight
         const endValueForHeight = calcHeight
 
         const startValueForCenterX = originCenterX
         const endValueForCenterX = calcCenterX
-        const { curveForStart: curveForLeft, startValueForStart: startValueForLeft, endValueForStart: endValueForLeft } = animationCurveForStart(curveForCenter, startValueForCenterX, endValueForCenterX, curveForSize, startValueForWidth, endValueForWidth)
 
         const startValueForCenterY = originCenterY
         const endValueForCenterY = calcCenterY
-        const { curveForStart: curveForTop, startValueForStart: startValueForTop, endValueForStart: endValueForTop } = animationCurveForStart(curveForCenter, startValueForCenterY, endValueForCenterY, curveForSize, startValueForHeight, endValueForHeight)
+
+        // Calculate animation curves + animation start and end values
+
+        var startValueForTop: number
+        var endValueForTop: number
+        var curveForTop: gsap.EaseFunction
+        var { curveForStart: curveForTop, startValueForStart: startValueForTop, endValueForStart: endValueForTop } = animationCurveForStart(curveForCenter, startValueForCenterY, endValueForCenterY, curveForSize, startValueForHeight, endValueForHeight)
+
+        var startValueForLeft: number
+        var endValueForLeft: number
+        var curveForLeft: gsap.EaseFunction
+        var { curveForStart: curveForLeft, startValueForStart: startValueForLeft, endValueForStart: endValueForLeft } = animationCurveForStart(curveForCenter, startValueForCenterX, endValueForCenterX, curveForSize, startValueForWidth, endValueForWidth)
+
+        // Calculate transform values
+        var translateX = endValueForLeft - startValueForLeft
+        var translateY = endValueForTop - startValueForTop
+        var scaleX = endValueForWidth / startValueForWidth
+        var scaleY = endValueForHeight / startValueForHeight
 
         // Position card so it overlaps the placeholder (This is the starting state for the animation)
-        if (card.value) {
-          card.value.style.position = 'absolute'
-          card.value.style.top = `${startValueForTop}px`
-          card.value.style.left = `${startValueForLeft}px`
-          card.value.style.width = `${startValueForWidth}px`
-          card.value.style.height = `${startValueForHeight}px`
-        }
+        // TODO: Remove
 
-        // Animate card
+        // if (card.value) {
+        //   card.value.style.position = 'absolute'
+        //   card.value.style.top = `${startValueForTop}px`
+        //   card.value.style.left = `${startValueForLeft}px`
+        //   card.value.style.width = `${startValueForWidth}px`
+        //   card.value.style.height = `${startValueForHeight}px`
+        // }
 
-        // Animate position-related styling
+        // Animate position-related styling on card
 
-        $gsap.to(card.value, {
-          
-          top: endValueForTop,
+        $gsap.fromTo(card.value, {
+          y: 0,
+        }, {
+          y: translateY,
+
           duration: dur,
           ease: curveForTop,
         })
 
-        $gsap.to(card.value, {
-          
-          left: endValueForLeft,
+        $gsap.fromTo(card.value, {
+          x: 0,
+        }, {
+          x: translateX,
+
           duration: dur,
           ease: curveForLeft,
         })
 
-        // Animate size-related styling
+        // Animate position-related styling on cardCopy
 
-        $gsap.to(card.value, {
+        $gsap.fromTo(cardPlaceholder, {
+          y: -translateY,
+        }, {
+          y: 0,
 
-          width: endValueForWidth,
-          height: endValueForHeight,
+          duration: dur,
+          ease: curveForTop,
+        })
 
-          borderRadius: targetBorderRadius,
-          borderWidth: targetBorderWidth,
+        $gsap.fromTo(cardPlaceholder, {
+          x: -translateX,
+        }, {
+          x: 0,
+
+          duration: dur,
+          ease: curveForLeft,
+        })
+
+        // TESTING
+        console.log(`CurveForLeft: ${ traceAnimationCurve(curveForLeft) }`)
+
+        // Animate size-related styling on card
+
+        $gsap.fromTo(card.value, {
+          scaleX: 1.0,
+          scaleY: 1.0
+        }, {
+
+          scaleX: scaleX,
+          scaleY: scaleY,
+
+          // borderRadius: targetBorderRadius,
+          // borderWidth: targetBorderWidth,
 
           duration: dur,
           ease: curveForSize,
@@ -385,22 +461,43 @@
           onInterrupt: onEnd,
         })
 
-        // Debug
-        // console.log(`target border width: ${targetBorderRadius}, radius: ${targetBorderWidth}`)
+        // Animate size-related styling on cardCopy
 
-        // Fade out default content
-        $gsap.to(defaultCardContent.value, {
-          opacity: 0.0,
+
+        $gsap.fromTo(cardPlaceholder, {
+          scaleX: 1.0/scaleX,
+          scaleY: 1.0/scaleY,
+        }, {
+
+          scaleX: 1.0,
+          scaleY: 1.0,
+
+          // borderRadius: targetBorderRadius,
+          // borderWidth: targetBorderWidth,
+
+          duration: dur,
+          ease: curveForSize,
+
+          onComplete: onEnd,
+          onInterrupt: onEnd,
+        })
+
+        // Fade out card
+        // TODO: Neither opacity nor autoalpha work. (Not sure what autoAlpha is)
+
+        $gsap.fromTo(card.value, {
+          autoAlpha: 0.0
+        }, {
+          autoAlpha: 0.0,
           duration: 0.2 * dur,
         })
 
-        // Fade in expanded content
-        $gsap.from(expandedCardContent.value, {
-          opacity: 0.0
-        })
-        $gsap.to(expandedCardContent.value, {
-          opacity: 1.0,
-          duration: dur,
+        // Fade in cardCopy
+        $gsap.fromTo(card.value, {
+          autoAlpha: 0.0
+        }, {
+          autoAlpha: 1.0,
+          duration: 0.2 * dur,
         })
       })
     } else { // Unexpand
