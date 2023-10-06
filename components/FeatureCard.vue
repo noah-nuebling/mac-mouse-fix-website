@@ -18,7 +18,9 @@
     
     <!-- Content Container -->
 
-    <div :class="['h-full flex flex-col rounded-[24px] border-4 border-gray-50/25 bg-origin-border', $props.contentContainerClass]">
+    <div 
+      ref="contentContainer"
+      :class="['h-full flex flex-col rounded-[24px] border-4 border-gray-50/25 bg-origin-border', $props.contentContainerClass]">
 
         <!-- Top -->
       <div ref="topCardContent" class="flex flex-col">
@@ -82,7 +84,8 @@ import findChildMatchingCondition from "~/utils/findChild"
   // Get references to relevant dom elements
   // The stuff initialized to ref(null) will be automatically bound to the html element with the ref attribute set to the same value by vue
   const card: Ref<HTMLElement | null> = ref(null)
-  
+  const contentContainer: Ref<HTMLElement | null> = ref(null)
+
   const topCardContent: Ref<HTMLElement | null> = ref(null)  
   const defaultCardContent: Ref<HTMLElement | null> = ref(null)
   const expandedCardContent: Ref<HTMLElement | null> = ref(null)
@@ -370,7 +373,7 @@ import findChildMatchingCondition from "~/utils/findChild"
         // - dur: 0.5, sizeCurve: criticalSpring(4.0), centerCurve: criticalSpring(6.0)
         // - dur: 0.5, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
         
-        const dur = 0.45
+        const dur = 5.0 //0.45
         const curveForSize = $Power2.easeOut 
         const curveForCenter = $Power3.easeOut
 
@@ -509,15 +512,17 @@ import findChildMatchingCondition from "~/utils/findChild"
         }, 0)
 
         // Counter-animate card content to prevent stretching
-        tl.fromTo(expandedCardContent, {
+        tl.fromTo(contentContainer.value, {
           scaleX: scaleX,
           scaleY: scaleY,
+          // scale: 1/(Math.max(scaleX, scaleY))
         }, {
           scaleX: 1.0,
           scaleY: 1.0,
+          // scale: 1.0,
 
           duration: dur,
-          ease: curveForSize,
+          ease: (x) => x - (curveFor(x) - x),
         }, 0)
 
         // Fade out placeholder
