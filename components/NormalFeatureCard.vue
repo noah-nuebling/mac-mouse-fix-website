@@ -3,7 +3,7 @@
 -->
 
 <template>
-  <FeatureCard ref="moveSpacesCard" class="feature-card col-span-auto cursor-pointer group shadow-md" @click="$refs.moveSpacesCard.expand()">
+  <FeatureCard ref="moveSpacesCard" class="feature-card col-span-auto cursor-pointer group shadow-md" contentContainerClass="" @click="$refs.moveSpacesCard.expand()">
     <template v-slot:top> 
       <h3 class="text-2xl font-bold text-white/100 m-6 shadow-black/100">{{ $t(titleKey) }}</h3>
     </template>
@@ -13,7 +13,7 @@
           <p class="text-base text-white/100 whitespace-pre-wrap shadow-black/100">{{ $t(bodyKey) }}</p>
         </div>        
       </div>
-      <div class="rounded-[0px] border-[4px] m-[-4px] border-gray-50/20 min-h-[52px] flex items-center justify-center mt-5 cursor-pointer group-hover:underline">
+      <div class="rounded-[0px] border-t-[4px] mt-5 border-gray-50/20 min-h-[52px] flex items-center justify-center cursor-pointer group-hover:underline">
         <!-- vvv Can't seem to give the inline play button image a shadow vvv -->
         <a class="text-lg dark-bg text-white/100 text-center shadow-black/100"><span class="">{{ $t('feature-card.expand-button') }}</span><span class="inline-space-[8]"/><img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-3.6px] filter brightness-0 invert drop-shadow-xl"></a>
       </div>

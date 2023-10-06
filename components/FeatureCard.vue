@@ -14,36 +14,42 @@
 <template>
   <div
     ref="card"
-    :class="['flex flex-col h-full rounded-[24px] overflow-clip border-4 border-gray-50/25 bg-origin-border will-change-[transform,opacity]', $attrs.class, isExpanded ? '' : '' ]">
+    :class="['h-full rounded-[24px] overflow-clip will-change-[transform,opacity]', $props.class]">
     
-    <!-- Top -->
-    <div ref="topCardContent" class="flex flex-col">
-      <slot name="top"/>
-    </div> 
+    <!-- Content Container -->
 
-    <!-- Swap -->
-    <div ref="swappableContentContainer" class="min-h-0 min-w-0
-                                                grow
-                                                flex flex-col">
+    <div :class="['h-full flex flex-col rounded-[24px] border-4 border-gray-50/25 bg-origin-border', $props.contentContainerClass]">
 
-      <!-- Default -->
-      <div ref="defaultCardContent" id="defaultCardContent" class="min-h-0 min-w-0
-                                          grow
-                                          flex flex-col">
-        <slot name="default"/>
-      </div>
+        <!-- Top -->
+      <div ref="topCardContent" class="flex flex-col">
+        <slot name="top"/>
+      </div> 
 
-      <!-- Expanded -->
-      <div ref="expandedCardContent" id="expandedCardContent" class="min-h-0 min-w-0
+      <!-- Swap -->
+      <div ref="swappableContentContainer" class="min-h-0 min-w-0
+                                                  grow
+                                                  flex flex-col">
+
+        <!-- Default -->
+        <div ref="defaultCardContent" id="defaultCardContent" class="min-h-0 min-w-0
                                             grow
-                                            hidden flex-col">
-        <slot name="expanded"/>
-      </div>
-    </div>
+                                            flex flex-col">
+          <slot name="default"/>
+        </div>
 
-    <!-- Bottom -->
-    <div ref="bottomCardContent" class="flex flex-col">
-      <slot name="bottom"/>
+        <!-- Expanded -->
+        <div ref="expandedCardContent" id="expandedCardContent" class="min-h-0 min-w-0
+                                              grow
+                                              hidden flex-col">
+          <slot name="expanded"/>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div ref="bottomCardContent" class="flex flex-col">
+        <slot name="bottom"/>
+      </div>
+
     </div>
   </div>
 </template>
@@ -55,6 +61,14 @@ import findChildMatchingCondition from "~/utils/findChild"
   // Import (is that the right term?) vue/nuxt stuff
   const { $ScrollTrigger, $store, $gsap, $Power0, $Power1, $Power2, $Power3, $Power4 } = useNuxtApp()
   const slots = useSlots()
+
+
+
+
+  var props = defineProps({
+    class: String,
+    contentContainerClass: String,
+  })
 
   // Configure gsap
   // Lag smoothing prevents skipped frames
@@ -494,6 +508,18 @@ import findChildMatchingCondition from "~/utils/findChild"
           onInterrupt: onEnd,
         }, 0)
 
+        // Counter-animate card content to prevent stretching
+        tl.fromTo(expandedCardContent, {
+          scaleX: scaleX,
+          scaleY: scaleY,
+        }, {
+          scaleX: 1.0,
+          scaleY: 1.0,
+
+          duration: dur,
+          ease: curveForSize,
+        }, 0)
+
         // Fade out placeholder
         // TODO: Neither opacity nor autoalpha work. (Not sure what autoAlpha is)
 
@@ -505,6 +531,7 @@ import findChildMatchingCondition from "~/utils/findChild"
         }, 0)
 
         // Fade in card
+
         tl.fromTo(card.value, {
           autoAlpha: 0.0
         }, {

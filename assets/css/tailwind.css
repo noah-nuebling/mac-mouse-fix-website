@@ -27,39 +27,84 @@ Notes:
 }
 
 @layer utilities {
+  
  .normal-feature-card-style-red {
-  @apply bg-gradient-to-b from-rose-400 to-pink-500 shadow-red-900/40;
+  @apply bg-gradient-to-b from-rose-400 to-pink-500;
  }
+ .normal-feature-card-style-red-content {
+  @apply shadow-red-900/40;
+ }
+
  .normal-feature-card-style-orange {
-  @apply bg-gradient-to-b from-amber-400 to-orange-500 shadow-orange-900/30;
+  @apply bg-gradient-to-b from-amber-400 to-orange-500;
  }
+ .normal-feature-card-style-orange-content {
+  @apply shadow-orange-900/30;
+ }
+
  .normal-feature-card-style-yellow {
-  @apply bg-gradient-to-b from-yellow-400 to-amber-500 shadow-yellow-800/30;
+  @apply bg-gradient-to-b from-yellow-400 to-amber-500;
  }
+ .normal-feature-card-style-yellow-content {
+  @apply shadow-yellow-800/30;
+ }
+
  .normal-feature-card-style-blue {
-  @apply bg-gradient-to-b from-cyan-400 to-blue-500 shadow-blue-900/40;
+  @apply bg-gradient-to-b from-cyan-400 to-blue-500;
  }
+ .normal-feature-card-style-blue-content {
+  @apply shadow-blue-900/40;
+ }
+
  .normal-feature-card-style-green {
-  @apply bg-gradient-to-b from-lime-400 to-emerald-500 shadow-green-900/30;
+  @apply bg-gradient-to-b from-lime-400 to-emerald-500;
  }
+ .normal-feature-card-style-green-content {
+  @apply shadow-green-900/30;
+ }
+
  .normal-feature-card-style-purple {
-  @apply bg-gradient-to-b from-fuchsia-400 to-violet-500 shadow-violet-900/40;
+  @apply bg-gradient-to-b from-fuchsia-400 to-violet-500;
  }
+ .normal-feature-card-style-purple-content {
+  @apply shadow-violet-900/40;
+ }
+
  .normal-feature-card-style-yellow-purple {
-  @apply bg-gradient-to-b from-amber-400 to-fuchsia-500 shadow-pink-900/30;
+  @apply bg-gradient-to-b from-amber-400 to-fuchsia-500;
  }
+ .normal-feature-card-style-yellow-purple-content {
+  @apply shadow-pink-900/30;
+ }
+
  .normal-feature-card-style-blue-green {
-  @apply bg-gradient-to-b from-cyan-300 to-green-500 shadow-cyan-900/30;
+  @apply bg-gradient-to-b from-cyan-300 to-green-500;
  }
+ .normal-feature-card-style-blue-green-content {
+  @apply shadow-cyan-900/30;
+ }
+
  .normal-feature-card-style-blue-purple {
-  @apply bg-gradient-to-b from-cyan-400 to-fuchsia-500  shadow-purple-900/30;
+  @apply bg-gradient-to-b from-cyan-400 to-fuchsia-500 ;
  }
+ .normal-feature-card-style-blue-purple-content {
+  @apply bgshadow-purple-900/30;
+ }
+
  .normal-feature-card-style-yellow-green {
-  @apply bg-gradient-to-b from-amber-300 to-green-500 shadow-lime-900/30;
+  @apply bg-gradient-to-b from-amber-300 to-green-500;
  }
+ .normal-feature-card-style-yellow-green-content {
+  @apply shadow-lime-900/30;
+ }
+
  .normal-feature-card-style-gray {
-  @apply bg-gradient-to-b from-slate-400 to-stone-500 shadow-gray-700/40;
+  @apply bg-gradient-to-b from-slate-400 to-stone-500;
  }
+ .normal-feature-card-style-gray-content {
+  @apply shadow-gray-700/40;
+ }
+
  
 
   .text-gradient-violet {
