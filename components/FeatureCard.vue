@@ -56,6 +56,10 @@ import findChildMatchingCondition from "~/utils/findChild"
   const { $ScrollTrigger, $store, $gsap, $Power0, $Power1, $Power2, $Power3, $Power4 } = useNuxtApp()
   const slots = useSlots()
 
+  // Configure gsap
+  // Lag smoothing prevents skipped frames
+  $gsap.ticker.lagSmoothing(32, 16);
+
   // Define vars
   const isExpanded = ref(false)
   var animationContext: any = null
