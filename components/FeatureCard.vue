@@ -294,6 +294,8 @@ import findChildMatchingCondition from "~/utils/findChild"
       // Animate
       animationContext = $gsap.context((self) => {
 
+        var tl = $gsap.timeline()
+
         // Scroll card into view
         // Note: Just can't get this to work for some reason. Not even this codepen works? https://codepen.io/matthiasott/pen/KKVxqyY
         // if (root.value) {
@@ -400,23 +402,23 @@ import findChildMatchingCondition from "~/utils/findChild"
 
         // Animate position-related styling on card
 
-        $gsap.fromTo(card.value, {
+        tl.fromTo(card.value, {
           y: 0,
         }, {
           y: translateY,
 
           duration: dur,
           ease: curveForTop,
-        })
+        }, 0)
 
-        $gsap.fromTo(card.value, {
+        tl.fromTo(card.value, {
           x: 0,
         }, {
           x: translateX,
 
           duration: dur,
           ease: curveForLeft,
-        })
+        }, 0)
 
         // Animate position-related styling on cardCopy
 
@@ -444,7 +446,7 @@ import findChildMatchingCondition from "~/utils/findChild"
 
         // Animate size-related styling on card
 
-        $gsap.fromTo(card.value, {
+        tl.fromTo(card.value, {
           scaleX: 1.0,
           scaleY: 1.0
         }, {
@@ -460,7 +462,7 @@ import findChildMatchingCondition from "~/utils/findChild"
 
           onComplete: onEnd,
           onInterrupt: onEnd,
-        })
+        }, 0)
 
         // Animate size-related styling on cardCopy
 
@@ -486,12 +488,12 @@ import findChildMatchingCondition from "~/utils/findChild"
         // Fade out card
         // TODO: Neither opacity nor autoalpha work. (Not sure what autoAlpha is)
 
-        // $gsap.fromTo(card.value, {
-        //   opacity: 1.0,
+        // tl.fromTo(card.value, {
+        //   alpha: 1.0,
         // }, {
-        //   opacity: 0.0,
+        //   alpha: 0.0,
         //   duration: 0.2 * dur,
-        // })
+        // }, 0)
 
         // Fade in cardCopy
         // $gsap.fromTo(cardPlaceholder, {
@@ -500,6 +502,9 @@ import findChildMatchingCondition from "~/utils/findChild"
         //   autoAlpha: 1.0,
         //   duration: 0.2 * dur,
         // })
+
+        // Play animation
+        tl.play()
       })
     } else { // Unexpand
 
