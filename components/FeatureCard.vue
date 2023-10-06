@@ -54,6 +54,10 @@
   const { $ScrollTrigger, $store, $gsap, $Power0, $Power1, $Power2, $Power3, $Power4 } = useNuxtApp()
   const slots = useSlots()
 
+  // Configure gsap
+  // Lag smoothing prevents skipped frames which makes animations jerky on Safari
+  $gsap.ticker.lagSmoothing(34, 33);
+
   // Define vars
   const isExpanded = ref(false)
   var animationContext: any = null
