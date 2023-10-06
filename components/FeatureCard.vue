@@ -400,23 +400,23 @@ import findChildMatchingCondition from "~/utils/findChild"
 
         // Animate position-related styling on card
 
-        $gsap.fromTo(card.value, {
-          y: 0,
-        }, {
-          y: translateY,
+        // $gsap.fromTo(card.value, {
+        //   y: 0,
+        // }, {
+        //   y: translateY,
 
-          duration: dur,
-          ease: curveForTop,
-        })
+        //   duration: dur,
+        //   ease: curveForTop,
+        // })
 
-        $gsap.fromTo(card.value, {
-          x: 0,
-        }, {
-          x: translateX,
+        // $gsap.fromTo(card.value, {
+        //   x: 0,
+        // }, {
+        //   x: translateX,
 
-          duration: dur,
-          ease: curveForLeft,
-        })
+        //   duration: dur,
+        //   ease: curveForLeft,
+        // })
 
         // Animate position-related styling on cardCopy
 
@@ -443,23 +443,23 @@ import findChildMatchingCondition from "~/utils/findChild"
 
         // Animate size-related styling on card
 
-        $gsap.fromTo(card.value, {
-          scaleX: 1.0,
-          scaleY: 1.0
-        }, {
+        // $gsap.fromTo(card.value, {
+        //   scaleX: 1.0,
+        //   scaleY: 1.0
+        // }, {
 
-          scaleX: scaleX,
-          scaleY: scaleY,
+        //   scaleX: scaleX,
+        //   scaleY: scaleY,
 
-          // borderRadius: targetBorderRadius,
-          // borderWidth: targetBorderWidth,
+        //   // borderRadius: targetBorderRadius,
+        //   // borderWidth: targetBorderWidth,
 
-          duration: dur,
-          ease: curveForSize,
+        //   duration: dur,
+        //   ease: curveForSize,
 
-          onComplete: onEnd,
-          onInterrupt: onEnd,
-        })
+        //   onComplete: onEnd,
+        //   onInterrupt: onEnd,
+        // })
 
         // Animate size-related styling on cardCopy
 
@@ -485,20 +485,20 @@ import findChildMatchingCondition from "~/utils/findChild"
         // Fade out card
         // TODO: Neither opacity nor autoalpha work. (Not sure what autoAlpha is)
 
-        $gsap.fromTo(card.value, {
-          autoAlpha: 0.0
-        }, {
-          autoAlpha: 0.0,
-          duration: 0.2 * dur,
-        })
+        // $gsap.fromTo(card.value, {
+        //   autoAlpha: 0.0
+        // }, {
+        //   autoAlpha: 0.0,
+        //   duration: 0.2 * dur,
+        // })
 
-        // Fade in cardCopy
-        $gsap.fromTo(card.value, {
-          autoAlpha: 0.0
-        }, {
-          autoAlpha: 1.0,
-          duration: 0.2 * dur,
-        })
+        // // Fade in cardCopy
+        // $gsap.fromTo(card.value, {
+        //   autoAlpha: 0.0
+        // }, {
+        //   autoAlpha: 1.0,
+        //   duration: 0.2 * dur,
+        // })
       })
     } else { // Unexpand
 
