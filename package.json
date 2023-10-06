@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
+    "assert": "^2.1.0",
     "gsap": "^3.12.2"
   }
 }

@@ -373,7 +373,7 @@ import findChildMatchingCondition from "~/utils/findChild"
         // - dur: 0.5, sizeCurve: criticalSpring(4.0), centerCurve: criticalSpring(6.0)
         // - dur: 0.5, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
         
-        const dur = 5.0 //0.45
+        const dur = 0.45
         const curveForSize = $Power2.easeOut 
         const curveForCenter = $Power3.easeOut
 
@@ -512,18 +512,50 @@ import findChildMatchingCondition from "~/utils/findChild"
         }, 0)
 
         // Counter-animate card content to prevent stretching
+        
         tl.fromTo(contentContainer.value, {
           scaleX: scaleX,
-          scaleY: scaleY,
-          // scale: 1/(Math.max(scaleX, scaleY))
         }, {
           scaleX: 1.0,
-          scaleY: 1.0,
-          // scale: 1.0,
 
           duration: dur,
-          ease: (x) => x - (curveFor(x) - x),
+          ease: (x) => {
+            const y = curveForSize(x)
+            const scaleInterval = { start: 1/scaleX, end: 1.0 } // Interval of scales applied to the card during animation
+            const inverseScaleInterval = { start: 1/scaleInterval.start, end: 1/scaleInterval.end }
+            const scale = intervalScale(y, unitInterval, scaleInterval )
+            const inverseScale = 1/scale // equivalent to 1/scale
+            const inverseUnitScale = intervalScale(inverseScale, inverseScaleInterval, unitInterval)
+            return inverseUnitScale
+          },
         }, 0)
+
+        tl.fromTo(contentContainer.value, {
+          scaleY: scaleY,
+        }, {
+          scaleY: 1.0,
+
+          duration: dur,
+          ease: (x) => {
+            const y = curveForSize(x)
+            const scaleInterval = { start: 1/scaleY, end: 1.0 } // Interval of scales applied to the card during animation
+            const inverseScaleInterval = { start: 1/scaleInterval.start, end: 1/scaleInterval.end }
+            const scale = intervalScale(y, unitInterval, scaleInterval )
+            const inverseScale = 1/scale // equivalent to 1/scale
+            const inverseUnitScale = intervalScale(inverseScale, inverseScaleInterval, unitInterval)
+            return inverseUnitScale
+          },
+        }, 0)
+
+        /// vvv Doesn't seem to work
+        // tl.fromTo(contentContainer.value, {
+        //   scale: 1/(Math.max(scaleX, scaleY)),
+        // }, {
+        //   scale: 1.0,
+
+        //   duration: dur,
+        //   ease: curveForSize,
+        // }, 0)
 
         // Fade out placeholder
         // TODO: Neither opacity nor autoalpha work. (Not sure what autoAlpha is)
