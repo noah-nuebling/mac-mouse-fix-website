@@ -253,6 +253,10 @@ import findChildMatchingCondition from "~/utils/findChild"
         card.value.style.height = targetHeight
         card.value.style.maxHeight = targetMaxHeight
 
+        // TESTING: Set height on the content div
+        // TODO: Set this back to full on unexpand
+        contentContainer.value!.style.height = 'fit-content'
+
         // Place in document
         cardPlaceholder?.offsetParent?.appendChild(card.value)
 
@@ -564,7 +568,7 @@ import findChildMatchingCondition from "~/utils/findChild"
           alpha: 1.0,
         }, {
           alpha: 0.0,
-          duration: 0.2 * dur,
+          duration: 0.4 * dur,
         }, 0)
 
         // Fade in card
@@ -573,7 +577,7 @@ import findChildMatchingCondition from "~/utils/findChild"
           autoAlpha: 0.0
         }, {
           autoAlpha: 1.0,
-          duration: 0.2 * dur,
+          duration: 0.4 * dur,
         }, 0)
 
         // Play animation
