@@ -154,9 +154,13 @@ import findChildMatchingCondition from "~/utils/findChild"
       // Debug
       console.log(`Offset height: ${originHeight}`)
 
-      // Create card copy
-      //  - Will be used to display expanded content
-      //  - TODO: Rename cardPlaceholder -> cardCopy or whatever
+      // Create cardPlaceholder
+      //  - Will be used as placeholder in the grid while we place the original card outside the grid
+      //  - Might also be used as part of the expand animation 
+      //    - The idea is that the placeholder has the defaultContent, and the card has the expandedContent 
+      //      and then we fade out the placeholder and fade in the card while applying transforms to both to 
+      //      give the impression that the card is moving
+
       if (cardPlaceholder == null) {
         cardPlaceholder = card.value!.cloneNode(true) as HTMLDivElement
         // cardPlaceholder.style.visibility = 'hidden'
@@ -170,21 +174,21 @@ import findChildMatchingCondition from "~/utils/findChild"
       // cardPlaceholder.style.width = `${originWidth}px`
 
       // Replace the card with the placeholder
-      // TODO: Remove
-      // card.value?.replaceWith(cardPlaceholder)
+      card.value?.replaceWith(cardPlaceholder)
 
-      // Get references to defaultCardContent and expandedCardContent in the cardCopy
-      const defaultCardContentCopy = findChildMatchingCondition(cardPlaceholder, (child) => child.id == 'defaultCardContent' )
-      const expandedCardContentCopy = findChildMatchingCondition(cardPlaceholder, (child) => child.id == 'expandedCardContent' )
+      // Get references to defaultCardContent and expandedCardContent in the card
+      //  TODO: Remove
+      // const defaultCardContentCopy = findChildMatchingCondition(cardPlaceholder, (child) => child.id == 'defaultCardContent' )
+      // const expandedCardContentCopy = findChildMatchingCondition(cardPlaceholder, (child) => child.id == 'expandedCardContent' )
 
-      // Place the expanded content in the card copy, hide the default content
-      defaultCardContentCopy!.style.display = 'none'
-      expandedCardContentCopy!.style.display = 'flex'
+      // Place the expanded content in the card, hide the default content
+      defaultCardContent.value!.style.display = 'none'
+      expandedCardContent.value!.style.display = 'flex'
 
       // Position the expanded content normally
       //  (Because later code will set position = absolute so we need to reset that)
       //  TODO: Check if this is still necessary with transform-based animations
-      expandedCardContentCopy!.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
+      expandedCardContent.value!.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
 
       // Determine target styling of card
       // Notes:
@@ -221,47 +225,48 @@ import findChildMatchingCondition from "~/utils/findChild"
       //  We use this to determine the remaining target styling (only 'targetTop' at the time of writing) and to record the calculated size and position. 
       //  We need the calculated size and position for animating. When we tried to animated to the targetStyle directly using gsap it didn't work. It seems the problem was somewhere with centering the absolutely positioned card by setting left and right to 0 and setting the leftMargin and rightMarging to auto. Animating this dinn't work proplerly it seems. There were also problems animating the maxHeight and maxWidth, but they could be resolved by setting those to a very high number right before the animation.
 
-      if (cardPlaceholder) {
+      if (card.value) {
 
         // Set layout method
-        cardPlaceholder.style.position = targetLayout
+        card.value.style.position = targetLayout
 
         // Set size and stuff
-        cardPlaceholder.style.width = targetWidth
-        cardPlaceholder.style.maxWidth = targetMaxWidth
-        cardPlaceholder.style.height = targetHeight
-        cardPlaceholder.style.maxHeight = targetMaxHeight
+        card.value.style.width = targetWidth
+        card.value.style.maxWidth = targetMaxWidth
+        card.value.style.height = targetHeight
+        card.value.style.maxHeight = targetMaxHeight
 
         // Place in document
-        card.value!.offsetParent?.appendChild(cardPlaceholder)
+        cardPlaceholder?.offsetParent?.appendChild(card.value)
 
         // Calculate target style
         //  We calculated targetTop such that the x center of the card stays in the same position after expanding
-        const computedH = cardPlaceholder.offsetHeight
+        const computedH = card.value.offsetHeight
         const heightIncrease = computedH - originHeight
         targetTop = `${originTop - heightIncrease/2.0}px`
 
         // Set position and stuff
-        cardPlaceholder.style.marginLeft = targetMarginLeft
-        cardPlaceholder.style.marginRight = targetMarginRight
-        cardPlaceholder.style.left = targetLeft
-        cardPlaceholder.style.right = targetRight
-        cardPlaceholder.style.top = targetTop
+        card.value.style.marginLeft = targetMarginLeft
+        card.value.style.marginRight = targetMarginRight
+        card.value.style.left = targetLeft
+        card.value.style.right = targetRight
+        card.value.style.top = targetTop
 
         // TESTING
         // return
 
         // Measure computed size, position and scale
-        calcWidth = cardPlaceholder.offsetWidth
-        calcHeight = cardPlaceholder.offsetHeight
-        calcTop = cardPlaceholder.offsetTop
-        calcLeft = cardPlaceholder.offsetLeft
+        calcWidth = card.value.offsetWidth
+        calcHeight = card.value.offsetHeight
+        calcTop = card.value.offsetTop
+        calcLeft = card.value.offsetLeft
         calcCenterX = calcLeft + calcWidth/2.0
         calcCenterY = calcTop + calcHeight/2.0
         calcScale = ((calcWidth / originWidth) + (calcHeight / originHeight)) / 2.0
 
         // Calculate target style based on scale
         //  Note: Keep this in sync with video wrapper styling to make it look nice
+        //  TODO: Make sense of this
         targetBorderWidth = '4px' // `${originBorderWidth * calcScale}px`
         targetBorderRadius = '24px' // `${originBorderRadius * calcScale}px`
 
@@ -405,9 +410,9 @@ import findChildMatchingCondition from "~/utils/findChild"
         //   card.value.style.height = `${startValueForHeight}px`
         // }
 
-        // Animate position-related styling on card
+        // Animate position-related styling on placeholder
 
-        tl.fromTo(card.value, {
+        tl.fromTo(cardPlaceholder, {
           y: 0,
         }, {
           y: translateY,
@@ -416,7 +421,7 @@ import findChildMatchingCondition from "~/utils/findChild"
           ease: curveForTop,
         }, 0)
 
-        tl.fromTo(card.value, {
+        tl.fromTo(cardPlaceholder, {
           x: 0,
         }, {
           x: translateX,
@@ -425,33 +430,33 @@ import findChildMatchingCondition from "~/utils/findChild"
           ease: curveForLeft,
         }, 0)
 
-        // Animate position-related styling on cardCopy
-
-        // $gsap.fromTo(cardPlaceholder, {
-        //   y: -translateY,
-        // }, {
-        //   y: 0,
-
-        //   duration: dur,
-        //   ease: curveForTop,
-        // })
-
-        // $gsap.fromTo(cardPlaceholder, {
-        //   x: -translateX,
-        // }, {
-        //   x: 0,
-
-        //   duration: dur,
-        //   ease: curveForLeft,
-        // })
-
-        // TESTING
-        console.log(`CurveForLeft: ${ traceAnimationCurve(curveForLeft) }`)
-        cardPlaceholder!.style.visibility = 'hidden'
-
-        // Animate size-related styling on card
+        // Animate position-related styling on card
 
         tl.fromTo(card.value, {
+          y: -translateY,
+        }, {
+          y: 0,
+
+          duration: dur,
+          ease: curveForTop,
+        }, 0)
+
+        tl.fromTo(card.value, {
+          x: -translateX,
+        }, {
+          x: 0,
+
+          duration: dur,
+          ease: curveForLeft,
+        }, 0)
+
+        // TESTING
+        // console.log(`CurveForLeft: ${ traceAnimationCurve(curveForLeft) }`)
+        // cardPlaceholder!.style.visibility = 'hidden'
+
+        // Animate size-related styling on placeholder
+
+        tl.fromTo(cardPlaceholder, {
           scaleX: 1.0,
           scaleY: 1.0
         }, {
@@ -469,44 +474,43 @@ import findChildMatchingCondition from "~/utils/findChild"
           onInterrupt: onEnd,
         }, 0)
 
-        // Animate size-related styling on cardCopy
+        // Animate size-related styling on card
 
+        tl.fromTo(card.value, {
+          scaleX: 1.0/scaleX,
+          scaleY: 1.0/scaleY,
+        }, {
 
-        // $gsap.fromTo(cardPlaceholder, {
-        //   scaleX: 1.0/scaleX,
-        //   scaleY: 1.0/scaleY,
-        // }, {
+          scaleX: 1.0,
+          scaleY: 1.0,
 
-        //   scaleX: 1.0,
-        //   scaleY: 1.0,
+          // borderRadius: targetBorderRadius,
+          // borderWidth: targetBorderWidth,
 
-        //   // borderRadius: targetBorderRadius,
-        //   // borderWidth: targetBorderWidth,
+          duration: dur,
+          ease: curveForSize,
 
-        //   duration: dur,
-        //   ease: curveForSize,
+          onComplete: onEnd,
+          onInterrupt: onEnd,
+        }, 0)
 
-        //   onComplete: onEnd,
-        //   onInterrupt: onEnd,
-        // })
-
-        // Fade out card
+        // Fade out placeholder
         // TODO: Neither opacity nor autoalpha work. (Not sure what autoAlpha is)
 
-        // tl.fromTo(card.value, {
-        //   alpha: 1.0,
-        // }, {
-        //   alpha: 0.0,
-        //   duration: 0.2 * dur,
-        // }, 0)
+        tl.fromTo(cardPlaceholder, {
+          alpha: 1.0,
+        }, {
+          alpha: 0.0,
+          duration: 0.2 * dur,
+        }, 0)
 
-        // Fade in cardCopy
-        // $gsap.fromTo(cardPlaceholder, {
-        //   autoAlpha: 0.0
-        // }, {
-        //   autoAlpha: 1.0,
-        //   duration: 0.2 * dur,
-        // })
+        // Fade in card
+        tl.fromTo(card.value, {
+          autoAlpha: 0.0
+        }, {
+          autoAlpha: 1.0,
+          duration: 0.2 * dur,
+        }, 0)
 
         // Play animation
         tl.play()
