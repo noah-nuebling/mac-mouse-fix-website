@@ -412,15 +412,30 @@ import findChildMatchingCondition from "~/utils/findChild"
 
         // Calculate animation curves + animation start and end values
 
-        const curveForTopp: AnimationCurve = animationCurveForStart(curveForCenterYY, curveForHeightt)
-        const curveForLeft: AnimationCurve = animationCurveForStart(curveForCenterXX, curveForWidthh)
+        const curveForTopp: AnimationCurve = combineAnimationCurves(curveForCenterYY, curveForHeightt, (centerY, height) => centerY - height/2.0)
+        const curveForLeft: AnimationCurve = combineAnimationCurves(curveForCenterXX, curveForWidthh, (centerX, width) => centerX - width/2.0)
 
-        // Calculate transform values
+        // Define curves for the transforms
+        // Note: Could we be using our fancy combineAnimationCurves code here instead? I'm not sure the ease on the transform behaves equivalent to the same ease applied to top, left, width, height CSS properties directly. Especially width and height vs scaleX, scaleY.
         
         var translateX = curveForLeft.outputRange.end - curveForLeft.outputRange.start
         var translateY = curveForTopp.outputRange.end - curveForTopp.outputRange.start
         var scaleX = curveForWidthh.outputRange.end / curveForWidthh.outputRange.start
         var scaleY = curveForHeightt.outputRange.end / curveForHeightt.outputRange.start
+
+        const curveForTranslateX: AnimationCurve  = { outputRange: { start: 0.0, end: translateX }, ease: curveForCenter }
+        const curveForTranslateY: AnimationCurve  = { outputRange: { start: 0.0, end: translateY }, ease: curveForCenter }
+        const curveForScaleX: AnimationCurve      = { outputRange: { start: 1.0/scaleX, end: 1.0 }, ease: curveForSize }
+        const curveForScaleY: AnimationCurve      = { outputRange: { start: 1.0/scaleY, end: 1.0 }, ease: curveForSize }
+
+        // Calculate counter-transforms for card-content
+        //  To prevent the content from stretching
+
+        var curveForCounterScaleX = transfromAnimationCurve(curveForScaleX, (scale) => 1/scale)
+        var curveForCounterScaleY = transfromAnimationCurve(curveForScaleY, (scale) => 1/scale)
+
+        var curveForContentScaleX = combineAnimationCurves(curveForCounterScaleX, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * 1)
+        var curveForContentScaleY = combineAnimationCurves(curveForCounterScaleY, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * 1)
 
         // Position card so it overlaps the placeholder (This is the starting state for the animation)
         // TODO: Remove
@@ -520,43 +535,21 @@ import findChildMatchingCondition from "~/utils/findChild"
         // Counter-animate card content to prevent stretching
         
         tl.fromTo(contentContainer.value, {
-          scaleX: scaleX /* * 1/(Math.max(scaleX, scaleY)) */,
+          scaleX: curveForContentScaleX.outputRange.start,
         }, {
-          scaleX: 1.0,
+          scaleX: curveForContentScaleX.outputRange.end,
 
           duration: dur,
-          ease: (x) => {
-            const y = curveForSize(x)
-            const scaleInterval = { start: 1/scaleX, end: 1.0 } // Interval of scales applied to the card during animation
-            const inverseScaleInterval = { start: 1/scaleInterval.start, end: 1/scaleInterval.end }
-            const scale = intervalScale(y, unitInterval, scaleInterval )
-            const inverseScale = 1/scale
-            const coverContainerScale = inverseScale * y
-            // const result = intervalScale(coverContainerScale, multiplyIntervals(inverseScaleInterval, unitInterval), unitInterval)
-            const result = intervalScale(coverContainerScale, inverseScaleInterval, unitInterval)
-
-            return result
-          },
+          ease: curveForContentScaleX.ease
         }, 0)
 
         tl.fromTo(contentContainer.value, {
-          scaleY: scaleY /* * 1/(Math.max(scaleX, scaleY)) */,
+          scaleY: curveForContentScaleY.outputRange.start,
         }, {
-          scaleY: 1.0,
+          scaleY: curveForContentScaleY.outputRange.end,
 
           duration: dur,
-          ease: (x) => {
-            const y = curveForSize(x)
-            const scaleInterval = { start: 1/scaleY, end: 1.0 } // Interval of scales applied to the card during animation
-            const inverseScaleInterval = { start: 1/scaleInterval.start, end: 1/scaleInterval.end }
-            const scale = intervalScale(y, unitInterval, scaleInterval )
-            const inverseScale = 1/scale // equivalent to 1/scale
-            const coverContainerScale = inverseScale * y
-            // const result = intervalScale(coverContainerScale, multiplyIntervals(inverseScaleInterval, unitInterval), unitInterval)
-            const result = intervalScale(coverContainerScale, inverseScaleInterval, unitInterval)
-
-            return result
-          },
+          ease: curveForContentScaleY.ease
         }, 0)
 
         /// vvv Doesn't seem to work
