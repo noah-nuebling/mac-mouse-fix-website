@@ -442,11 +442,11 @@ import findChildMatchingCondition from "~/utils/findChild"
         var curveForCounterScaleY = transfromCurve(curveForInverseScaleY, (scale) => 1/scale)
 
         const largerScaleCurve = scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY
-        var curveForContentScaleX = combineCurves(curveForCounterScaleX, largerScaleCurve, (a, b) => a * 1)
-        var curveForContentScaleY = combineCurves(curveForCounterScaleY, largerScaleCurve, (a, b) => a * 1)
+        var curveForContentScaleX = combineCurves(curveForCounterScaleX, largerScaleCurve, (a, b) => a * b)
+        var curveForContentScaleY = combineCurves(curveForCounterScaleY, largerScaleCurve, (a, b) => a * b)
 
         // DEBUG
-        console.log(`traceeee: ${traceRawCurve(curveForSize)}`)
+        // console.log(`traceeee: ${ traceRawCurve(curveForCounterScaleX) } \ntraceoo: ${ traceRawCurve(largerScaleCurve) } \ntraceaaaa: ${ traceRawCurve(curveForContentScaleX) } \ntracexxx: ${ traceRawCurve(combineCurves(curveForCounterScaleX, largerScaleCurve, (a, b) => a * 1)) }\ntraceyyy: ${ traceRawCurve(animationCurveFromRawCurve(curveForContentScaleX).ease) }`)
 
         // Position card so it overlaps the placeholder (This is the starting state for the animation)
         // TODO: Remove
