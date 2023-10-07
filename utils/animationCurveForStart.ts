@@ -54,10 +54,10 @@ function combineCurves(curve1: Curve, curve2: Curve, transform: (output1: number
 /// Helper
 ///
 
-function sample(arg0: AnimationCurve, t: number): number {
+function sample(curve: AnimationCurve, t: number): number {
   
-  const a = arg0.ease(t)
-  const b = intervalScale(a, unitInterval, arg0.outputRange)
+  const a = curve.ease(t)
+  const b = intervalScale(a, unitInterval, curve.outputRange)
   
   return b
 }
@@ -87,7 +87,7 @@ function animationCurveFromRawCurve(rawCurve: Curve): AnimationCurve {
 
 function rawCurveFromAnimationCurve(animationCurve: AnimationCurve): Curve {
 
-  // Probably won't use this? I think it's usually easier to just sample the animation curve directly.
+  // Probably won't use this? I think it's usually easier to just sample the animation curve directly. Edit: That was too slow, so we're using this.
   
   // Find Curve
   const curve = (arg0: number) => {

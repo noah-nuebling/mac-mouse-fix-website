@@ -435,15 +435,14 @@ import findChildMatchingCondition from "~/utils/findChild"
         const curveForInverseScaleX     = transfromCurve(curveForScaleX,     (v) => v / scaleX)
         const curveForInverseScaleY     = transfromCurve(curveForScaleY,     (v) => v / scaleY)
 
-        // Calculate counter-transforms for card-content
-        //  To prevent the content from stretching
+        // Calculate transforms for card-content
+        //  Counter transform cancels out the card scaling to prevent content from stretching
 
         var curveForCounterScaleX = transfromCurve(curveForInverseScaleX, (scale) => 1/scale)
         var curveForCounterScaleY = transfromCurve(curveForInverseScaleY, (scale) => 1/scale)
 
-        const largerScaleCurve = scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY
-        var curveForContentScaleX = combineCurves(curveForCounterScaleX, largerScaleCurve, (a, b) => a * b)
-        var curveForContentScaleY = combineCurves(curveForCounterScaleY, largerScaleCurve, (a, b) => a * b)
+        var curveForContentScaleX = combineCurves(curveForCounterScaleX, scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
+        var curveForContentScaleY = combineCurves(curveForCounterScaleY, scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
 
         // DEBUG
         // console.log(`traceeee: ${ traceRawCurve(curveForCounterScaleX) } \ntraceoo: ${ traceRawCurve(largerScaleCurve) } \ntraceaaaa: ${ traceRawCurve(curveForContentScaleX) } \ntracexxx: ${ traceRawCurve(combineCurves(curveForCounterScaleX, largerScaleCurve, (a, b) => a * 1)) }\ntraceyyy: ${ traceRawCurve(animationCurveFromRawCurve(curveForContentScaleX).ease) }`)
