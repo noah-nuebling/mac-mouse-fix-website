@@ -425,8 +425,8 @@ import findChildMatchingCondition from "~/utils/findChild"
 
         const curveForTranslateX: AnimationCurve  = { outputRange: { start: 0.0, end: translateX }, ease: curveForCenter }
         const curveForTranslateY: AnimationCurve  = { outputRange: { start: 0.0, end: translateY }, ease: curveForCenter }
-        const curveForScaleX: AnimationCurve      = { outputRange: { start: 1.0/scaleX, end: 1.0 }, ease: curveForSize }
-        const curveForScaleY: AnimationCurve      = { outputRange: { start: 1.0/scaleY, end: 1.0 }, ease: curveForSize }
+        const curveForScaleX: AnimationCurve      = { outputRange: { start: 1.0, end: scaleX }, ease: curveForSize }
+        const curveForScaleY: AnimationCurve      = { outputRange: { start: 1.0, end: scaleY }, ease: curveForSize }
 
         // Calculate counter-transforms for card-content
         //  To prevent the content from stretching
@@ -434,8 +434,8 @@ import findChildMatchingCondition from "~/utils/findChild"
         var curveForCounterScaleX = transfromAnimationCurve(curveForScaleX, (scale) => 1/scale)
         var curveForCounterScaleY = transfromAnimationCurve(curveForScaleY, (scale) => 1/scale)
 
-        var curveForContentScaleX = combineAnimationCurves(curveForCounterScaleX, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * 1)
-        var curveForContentScaleY = combineAnimationCurves(curveForCounterScaleY, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * 1)
+        var curveForContentScaleX = combineAnimationCurves(curveForCounterScaleX, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
+        var curveForContentScaleY = combineAnimationCurves(curveForCounterScaleY, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
 
         // Position card so it overlaps the placeholder (This is the starting state for the animation)
         // TODO: Remove
