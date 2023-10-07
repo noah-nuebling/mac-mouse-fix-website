@@ -54,8 +54,12 @@ function combineCurves(curve1: Curve, curve2: Curve, transform: (output1: number
 /// Helper
 ///
 
-function sample(arg0: AnimationCurve, at: number): number {
-  return intervalScale(at, unitInterval, arg0.outputRange)
+function sample(arg0: AnimationCurve, t: number): number {
+  
+  const a = arg0.ease(t)
+  const b = intervalScale(a, unitInterval, arg0.outputRange)
+  
+  return b
 }
 
 function animationCurveFromRawCurve(rawCurve: Curve): AnimationCurve {

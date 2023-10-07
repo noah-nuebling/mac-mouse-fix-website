@@ -446,7 +446,7 @@ import findChildMatchingCondition from "~/utils/findChild"
         var curveForContentScaleY = combineCurves(curveForCounterScaleY, largerScaleCurve, (a, b) => a * 1)
 
         // DEBUG
-        console.log(`traceeee: ${traceRawCurve(curveForContentScaleX)}`)
+        console.log(`traceeee: ${traceRawCurve(curveForSize)}`)
 
         // Position card so it overlaps the placeholder (This is the starting state for the animation)
         // TODO: Remove
