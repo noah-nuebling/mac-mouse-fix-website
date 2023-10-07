@@ -14,13 +14,13 @@
 <template>
   <div
     ref="card"
-    :class="['h-full rounded-[24px] overflow-clip will-change-[transform,opacity]', $props.class]">
+    :class="['h-full rounded-[24px] overflow-clip outline outline-4 outline-offset-[-4px] outline-gray-50/25 will-change-[transform,opacity]', $props.class]">
     
     <!-- Content Container -->
 
     <div 
       ref="contentContainer"
-      :class="['h-full flex flex-col rounded-[24px] border-4 border-gray-50/25 bg-origin-border', $props.contentContainerClass]">
+      :class="['h-full flex flex-col', $props.contentContainerClass]">
 
         <!-- Top -->
       <div ref="topCardContent" class="flex flex-col">
