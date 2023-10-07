@@ -57,6 +57,7 @@
 </template>
 
 <script setup lang="ts">
+import { AnimationCurve } from "~/utils/animationCurveForStart";
 import findChildMatchingCondition from "~/utils/findChild"
 
 
@@ -390,6 +391,7 @@ import findChildMatchingCondition from "~/utils/findChild"
 
         // Gather info
 
+
         const startValueForWidth = originWidth
         const endValueForWidth = calcWidth
 
@@ -402,23 +404,23 @@ import findChildMatchingCondition from "~/utils/findChild"
         const startValueForCenterY = originCenterY
         const endValueForCenterY = calcCenterY
 
+        const curveForCenterXX = { outputRange: { start: startValueForCenterX, end: endValueForCenterX }, ease: curveForCenter }
+        const curveForCenterYY = { outputRange: { start: startValueForCenterY, end: endValueForCenterY }, ease: curveForCenter }
+
+        const curveForHeightt = { outputRange: { start: startValueForHeight, end: endValueForHeight }, ease: curveForSize }
+        const curveForWidthh = { outputRange: { start: startValueForWidth, end: endValueForWidth }, ease: curveForSize }
+
         // Calculate animation curves + animation start and end values
 
-        var startValueForTop: number
-        var endValueForTop: number
-        var curveForTop: gsap.EaseFunction
-        var { curveForStart: curveForTop, startValueForStart: startValueForTop, endValueForStart: endValueForTop } = animationCurveForStart(curveForCenter, startValueForCenterY, endValueForCenterY, curveForSize, startValueForHeight, endValueForHeight)
-
-        var startValueForLeft: number
-        var endValueForLeft: number
-        var curveForLeft: gsap.EaseFunction
-        var { curveForStart: curveForLeft, startValueForStart: startValueForLeft, endValueForStart: endValueForLeft } = animationCurveForStart(curveForCenter, startValueForCenterX, endValueForCenterX, curveForSize, startValueForWidth, endValueForWidth)
+        const curveForTopp: AnimationCurve = animationCurveForStart(curveForCenterYY, curveForHeightt)
+        const curveForLeft: AnimationCurve = animationCurveForStart(curveForCenterXX, curveForWidthh)
 
         // Calculate transform values
-        var translateX = endValueForLeft - startValueForLeft
-        var translateY = endValueForTop - startValueForTop
-        var scaleX = endValueForWidth / startValueForWidth
-        var scaleY = endValueForHeight / startValueForHeight
+        
+        var translateX = curveForLeft.outputRange.end - curveForLeft.outputRange.start
+        var translateY = curveForTopp.outputRange.end - curveForTopp.outputRange.start
+        var scaleX = curveForWidthh.outputRange.end / curveForWidthh.outputRange.start
+        var scaleY = curveForHeightt.outputRange.end / curveForHeightt.outputRange.start
 
         // Position card so it overlaps the placeholder (This is the starting state for the animation)
         // TODO: Remove
@@ -439,7 +441,7 @@ import findChildMatchingCondition from "~/utils/findChild"
           y: translateY,
 
           duration: dur,
-          ease: curveForTop,
+          ease: curveForTopp.ease,
         }, 0)
 
         tl.fromTo(cardPlaceholder, {
@@ -448,7 +450,7 @@ import findChildMatchingCondition from "~/utils/findChild"
           x: translateX,
 
           duration: dur,
-          ease: curveForLeft,
+          ease: curveForLeft.ease,
         }, 0)
 
         // Animate position-related styling on card
@@ -459,7 +461,7 @@ import findChildMatchingCondition from "~/utils/findChild"
           y: 0,
 
           duration: dur,
-          ease: curveForTop,
+          ease: curveForTopp.ease,
         }, 0)
 
         tl.fromTo(card.value, {
@@ -468,7 +470,7 @@ import findChildMatchingCondition from "~/utils/findChild"
           x: 0,
 
           duration: dur,
-          ease: curveForLeft,
+          ease: curveForLeft.ease,
         }, 0)
 
         // TESTING
@@ -699,8 +701,8 @@ import findChildMatchingCondition from "~/utils/findChild"
       const { curveForStart: curveForTop, startValueForStart: startValueForTop, endValueForStart: endValueForTop } = animationCurveForStart(curveForCenter, startValueForCenterY, endValueForCenterY, curveForSize, startValueForHeight, endValueForHeight)
 
       // Debug
-      console.log(`curveForLeft: ${traceAnimationCurve(curveForLeft)}, ${startValueForLeft} - ${endValueForLeft}`)
-      console.log(`curveForTop: ${traceAnimationCurve(curveForTop)}, ${startValueForTop} - ${endValueForTop}`)
+      // console.log(`curveForLeft: ${traceAnimationCurve(curveForLeft)}, ${startValueForLeft} - ${endValueForLeft}`)
+      // console.log(`curveForTop: ${traceAnimationCurve(curveForTop)}, ${startValueForTop} - ${endValueForTop}`)
 
       // Position card so it overlaps the placeholder (This is the starting state for the animation)
       if (card.value) {
