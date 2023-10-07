@@ -383,7 +383,7 @@ import findChildMatchingCondition from "~/utils/findChild"
         const curveForCenter = $Power3.easeOut
 
         // Debug
-        console.log(`curveForSize trace ${traceAnimationCurve(curveForSize)}`)
+        console.log(`curveForSize trace ${traceRawCurve(curveForSize)}`)
 
         // 
         // Animation preprocessing
@@ -442,8 +442,11 @@ import findChildMatchingCondition from "~/utils/findChild"
         var curveForCounterScaleY = transfromCurve(curveForInverseScaleY, (scale) => 1/scale)
 
         const largerScaleCurve = scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY
-        var curveForContentScaleX = combineCurves(curveForCounterScaleX, largerScaleCurve, (a, b) => a * b)
-        var curveForContentScaleY = combineCurves(curveForCounterScaleY, largerScaleCurve, (a, b) => a * b)
+        var curveForContentScaleX = combineCurves(curveForCounterScaleX, largerScaleCurve, (a, b) => 1 * 1)
+        var curveForContentScaleY = combineCurves(curveForCounterScaleY, largerScaleCurve, (a, b) => 1 * 1)
+
+        // DEBUG
+        console.log(`traceeee: ${traceRawCurve(curveForContentScaleX)}`)
 
         // Position card so it overlaps the placeholder (This is the starting state for the animation)
         // TODO: Remove
@@ -497,7 +500,7 @@ import findChildMatchingCondition from "~/utils/findChild"
         }, 0)
 
         // TESTING
-        // console.log(`CurveForLeft: ${ traceAnimationCurve(curveForLeft) }`)
+        // console.log(`CurveForLeft: ${ traceRawCurve(curveForLeft) }`)
         // cardPlaceholder!.style.visibility = 'hidden'
 
         // Animate size-related styling on placeholder
@@ -712,8 +715,8 @@ import findChildMatchingCondition from "~/utils/findChild"
       const { curveForStart: curveForTop, startValueForStart: startValueForTop, endValueForStart: endValueForTop } = animationCurveForStart(curveForCenter, startValueForCenterY, endValueForCenterY, curveForSize, startValueForHeight, endValueForHeight)
 
       // Debug
-      // console.log(`curveForLeft: ${traceAnimationCurve(curveForLeft)}, ${startValueForLeft} - ${endValueForLeft}`)
-      // console.log(`curveForTop: ${traceAnimationCurve(curveForTop)}, ${startValueForTop} - ${endValueForTop}`)
+      // console.log(`curveForLeft: ${traceRawCurve(curveForLeft)}, ${startValueForLeft} - ${endValueForLeft}`)
+      // console.log(`curveForTop: ${traceRawCurve(curveForTop)}, ${startValueForTop} - ${endValueForTop}`)
 
       // Position card so it overlaps the placeholder (This is the starting state for the animation)
       if (card.value) {
