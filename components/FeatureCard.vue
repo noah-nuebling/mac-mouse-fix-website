@@ -378,7 +378,7 @@ import findChildMatchingCondition from "~/utils/findChild"
         // - dur: 0.5, sizeCurve: criticalSpring(4.0), centerCurve: criticalSpring(6.0)
         // - dur: 0.5, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
         
-        const dur = 5.0//0.45
+        const dur = 0.45
         const curveForSize = $Power2.easeOut 
         const curveForCenter = $Power3.easeOut
 
@@ -428,13 +428,20 @@ import findChildMatchingCondition from "~/utils/findChild"
         const scaleX = curveForScaleX.outputRange.end
         const scaleY = curveForScaleY.outputRange.end
 
+        // Get inverse transforms
+        //  (The transforms will be applied to the placeholder and the inverse transforms to the actual card)
+        const curveForInverseTranslateX = transfromAnimationCurve(curveForTranslateX, (v) => v - translateX)
+        const curveForInverseTranslateY = transfromAnimationCurve(curveForTranslateY, (v) => v - translateY)
+        const curveForInverseScaleX     = transfromAnimationCurve(curveForScaleX,     (v) => v / scaleX)
+        const curveForInverseScaleY     = transfromAnimationCurve(curveForScaleY,     (v) => v / scaleY)
+
         // Calculate counter-transforms for card-content
         //  To prevent the content from stretching
 
-        var curveForCounterScaleX = transfromAnimationCurve(curveForScaleX, (scale) => 1/scale)
-        var curveForCounterScaleY = transfromAnimationCurve(curveForScaleY, (scale) => 1/scale)
+        var curveForCounterScaleX = transfromAnimationCurve(curveForInverseScaleX, (scale) => 1/scale)
+        var curveForCounterScaleY = transfromAnimationCurve(curveForInverseScaleY, (scale) => 1/scale)
 
-        const largerScaleCurve = scaleX > scaleY ? curveForScaleX : curveForScaleY
+        const largerScaleCurve = scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY
         var curveForContentScaleX = combineAnimationCurves(curveForCounterScaleX, largerScaleCurve, (a, b) => a * b)
         var curveForContentScaleY = combineAnimationCurves(curveForCounterScaleY, largerScaleCurve, (a, b) => a * b)
 
@@ -451,42 +458,42 @@ import findChildMatchingCondition from "~/utils/findChild"
 
         // Animate position-related styling on placeholder
 
-        tl.fromTo(cardPlaceholder, {
-          y: 0,
-        }, {
-          y: translateY,
+        // tl.fromTo(cardPlaceholder, {
+        //   y: 0,
+        // }, {
+        //   y: translateY,
 
-          duration: dur,
-          ease: curveForTopp.ease,
-        }, 0)
+        //   duration: dur,
+        //   ease: curveForTopp.ease,
+        // }, 0)
 
-        tl.fromTo(cardPlaceholder, {
-          x: 0,
-        }, {
-          x: translateX,
+        // tl.fromTo(cardPlaceholder, {
+        //   x: 0,
+        // }, {
+        //   x: translateX,
 
-          duration: dur,
-          ease: curveForLeft.ease,
-        }, 0)
+        //   duration: dur,
+        //   ease: curveForLeft.ease,
+        // }, 0)
 
         // Animate position-related styling on card
 
         tl.fromTo(card.value, {
-          y: -translateY,
+          y: curveForInverseTranslateY.outputRange.start,
         }, {
-          y: 0,
+          y: curveForInverseTranslateY.outputRange.end,
 
           duration: dur,
-          ease: curveForTopp.ease,
+          ease: curveForInverseTranslateY.ease,
         }, 0)
 
         tl.fromTo(card.value, {
-          x: -translateX,
+          x: curveForInverseTranslateX.outputRange.start,
         }, {
-          x: 0,
+          x: curveForInverseTranslateX.outputRange.end,
 
           duration: dur,
-          ease: curveForLeft.ease,
+          ease: curveForInverseTranslateY.ease,
         }, 0)
 
         // TESTING
@@ -495,39 +502,49 @@ import findChildMatchingCondition from "~/utils/findChild"
 
         // Animate size-related styling on placeholder
 
-        tl.fromTo(cardPlaceholder, {
-          scaleX: 1.0,
-          scaleY: 1.0
-        }, {
+        // tl.fromTo(cardPlaceholder, {
+        //   scaleX: 1.0,
+        //   scaleY: 1.0
+        // }, {
 
-          scaleX: scaleX,
-          scaleY: scaleY,
+        //   scaleX: scaleX,
+        //   scaleY: scaleY,
 
-          // borderRadius: targetBorderRadius,
-          // borderWidth: targetBorderWidth,
+        //   // borderRadius: targetBorderRadius,
+        //   // borderWidth: targetBorderWidth,
 
-          duration: dur,
-          ease: curveForSize,
+        //   duration: dur,
+        //   ease: curveForSize,
 
-          onComplete: onEnd,
-          onInterrupt: onEnd,
-        }, 0)
+        //   onComplete: onEnd,
+        //   onInterrupt: onEnd,
+        // }, 0)
 
         // Animate size-related styling on card
 
         tl.fromTo(card.value, {
-          scaleX: 1.0/scaleX,
-          scaleY: 1.0/scaleY,
+          scaleX: curveForInverseScaleX.outputRange.start,
         }, {
 
-          scaleX: 1.0,
-          scaleY: 1.0,
+          scaleX: curveForInverseScaleX.outputRange.end,
 
           // borderRadius: targetBorderRadius,
           // borderWidth: targetBorderWidth,
 
           duration: dur,
-          ease: curveForSize,
+          ease: curveForInverseScaleX.ease, // Ease should be same for x and y scale I think, so we could use a single fromTo call
+        }, 0)
+
+        tl.fromTo(card.value, {
+          scaleY: curveForInverseScaleY.outputRange.start,
+        }, {
+          scaleY: curveForInverseScaleY.outputRange.end,
+
+          // borderRadius: targetBorderRadius,
+          // borderWidth: targetBorderWidth,
+
+          duration: dur,
+          ease: curveForInverseScaleY.ease,
 
           onComplete: onEnd,
           onInterrupt: onEnd,
@@ -566,12 +583,12 @@ import findChildMatchingCondition from "~/utils/findChild"
         // Fade out placeholder
         // TODO: Neither opacity nor autoalpha work. (Not sure what autoAlpha is)
 
-        tl.fromTo(cardPlaceholder, {
-          alpha: 1.0,
-        }, {
-          alpha: 0.0,
-          duration: 0.4 * dur,
-        }, 0)
+        // tl.fromTo(cardPlaceholder, {
+        //   alpha: 1.0,
+        // }, {
+        //   alpha: 0.0,
+        //   duration: 0.4 * dur,
+        // }, 0)
 
         // Fade in card
 
