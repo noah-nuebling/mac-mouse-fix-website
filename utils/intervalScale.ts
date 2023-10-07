@@ -29,6 +29,8 @@ function intervalIsInverted(interval: Interval): Boolean {
 }
 
 function multiplyIntervals(interval1: Interval, interval2: Interval): Interval {
+
+  // Not sure what this does. Currently unused.
   
   const min = intervalMin(interval1) * intervalMin(interval2)
   const max = intervalMax(interval1) * intervalMax(interval2)

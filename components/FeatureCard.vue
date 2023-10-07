@@ -417,16 +417,16 @@ import findChildMatchingCondition from "~/utils/findChild"
 
         // Define curves for the transforms
         // Note: Could we be using our fancy combineAnimationCurves code here instead? I'm not sure the ease on the transform behaves equivalent to the same ease applied to top, left, width, height CSS properties directly. Especially width and height vs scaleX, scaleY.
-        
-        var translateX = curveForLeft.outputRange.end - curveForLeft.outputRange.start
-        var translateY = curveForTopp.outputRange.end - curveForTopp.outputRange.start
-        var scaleX = curveForWidthh.outputRange.end / curveForWidthh.outputRange.start
-        var scaleY = curveForHeightt.outputRange.end / curveForHeightt.outputRange.start
 
-        const curveForTranslateX: AnimationCurve  = { outputRange: { start: 0.0, end: translateX }, ease: curveForCenter }
-        const curveForTranslateY: AnimationCurve  = { outputRange: { start: 0.0, end: translateY }, ease: curveForCenter }
-        const curveForScaleX: AnimationCurve      = { outputRange: { start: 1.0, end: scaleX }, ease: curveForSize }
-        const curveForScaleY: AnimationCurve      = { outputRange: { start: 1.0, end: scaleY }, ease: curveForSize }
+        const curveForTranslateX: AnimationCurve  = transfromAnimationCurve(curveForLeft,     (v) => v - curveForLeft.outputRange.start )
+        const curveForTranslateY: AnimationCurve  = transfromAnimationCurve(curveForTopp,     (v) => v - curveForTopp.outputRange.start )
+        const curveForScaleX: AnimationCurve      = transfromAnimationCurve(curveForWidthh,   (v) => v / curveForWidthh.outputRange.start )
+        const curveForScaleY: AnimationCurve      = transfromAnimationCurve(curveForHeightt,  (v) => v / curveForHeightt.outputRange.start )
+
+        const translateX = curveForTranslateX.outputRange.end
+        const translateY = curveForTranslateY.outputRange.end
+        const scaleX = curveForScaleX.outputRange.end
+        const scaleY = curveForScaleY.outputRange.end
 
         // Calculate counter-transforms for card-content
         //  To prevent the content from stretching
@@ -434,8 +434,9 @@ import findChildMatchingCondition from "~/utils/findChild"
         var curveForCounterScaleX = transfromAnimationCurve(curveForScaleX, (scale) => 1/scale)
         var curveForCounterScaleY = transfromAnimationCurve(curveForScaleY, (scale) => 1/scale)
 
-        var curveForContentScaleX = combineAnimationCurves(curveForCounterScaleX, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
-        var curveForContentScaleY = combineAnimationCurves(curveForCounterScaleY, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
+        const largerScaleCurve = scaleX > scaleY ? curveForScaleX : curveForScaleY
+        var curveForContentScaleX = combineAnimationCurves(curveForCounterScaleX, largerScaleCurve, (a, b) => a * b)
+        var curveForContentScaleY = combineAnimationCurves(curveForCounterScaleY, largerScaleCurve, (a, b) => a * b)
 
         // Position card so it overlaps the placeholder (This is the starting state for the animation)
         // TODO: Remove
