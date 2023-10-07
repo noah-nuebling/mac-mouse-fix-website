@@ -57,7 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import { AnimationCurve } from "~/utils/animationCurveForStart";
+import { AnimationCurve, Curve } from "~/utils/animationCurveForStart";
 import findChildMatchingCondition from "~/utils/findChild"
 
 
@@ -404,46 +404,46 @@ import findChildMatchingCondition from "~/utils/findChild"
         const startValueForCenterY = originCenterY
         const endValueForCenterY = calcCenterY
 
-        const curveForCenterXX = { outputRange: { start: startValueForCenterX, end: endValueForCenterX }, ease: curveForCenter }
-        const curveForCenterYY = { outputRange: { start: startValueForCenterY, end: endValueForCenterY }, ease: curveForCenter }
+        const curveForCenterXX  = rawCurveFromAnimationCurve({ outputRange: { start: startValueForCenterX, end: endValueForCenterX }, ease: curveForCenter })
+        const curveForCenterYY  = rawCurveFromAnimationCurve({ outputRange: { start: startValueForCenterY, end: endValueForCenterY }, ease: curveForCenter })
 
-        const curveForHeightt = { outputRange: { start: startValueForHeight, end: endValueForHeight }, ease: curveForSize }
-        const curveForWidthh = { outputRange: { start: startValueForWidth, end: endValueForWidth }, ease: curveForSize }
+        const curveForHeightt   = rawCurveFromAnimationCurve({ outputRange: { start: startValueForHeight, end: endValueForHeight },   ease: curveForSize })
+        const curveForWidthh    = rawCurveFromAnimationCurve({ outputRange: { start: startValueForWidth,  end: endValueForWidth },    ease: curveForSize })
 
         // Calculate animation curves + animation start and end values
 
-        const curveForTopp: AnimationCurve = combineAnimationCurves(curveForCenterYY, curveForHeightt, (centerY, height) => centerY - height/2.0)
-        const curveForLeft: AnimationCurve = combineAnimationCurves(curveForCenterXX, curveForWidthh, (centerX, width) => centerX - width/2.0)
+        const curveForTopp: Curve = combineCurves(curveForCenterYY, curveForHeightt, (centerY, height) => centerY - height/2.0)
+        const curveForLeft: Curve = combineCurves(curveForCenterXX, curveForWidthh, (centerX, width) => centerX - width/2.0)
 
         // Define curves for the transforms
         // Note: Could we be using our fancy combineAnimationCurves code here instead? I'm not sure the ease on the transform behaves equivalent to the same ease applied to top, left, width, height CSS properties directly. Especially width and height vs scaleX, scaleY.
 
-        const curveForTranslateX: AnimationCurve  = transfromAnimationCurve(curveForLeft,     (v) => v - curveForLeft.outputRange.start )
-        const curveForTranslateY: AnimationCurve  = transfromAnimationCurve(curveForTopp,     (v) => v - curveForTopp.outputRange.start )
-        const curveForScaleX: AnimationCurve      = transfromAnimationCurve(curveForWidthh,   (v) => v / curveForWidthh.outputRange.start )
-        const curveForScaleY: AnimationCurve      = transfromAnimationCurve(curveForHeightt,  (v) => v / curveForHeightt.outputRange.start )
+        const curveForTranslateX  = transfromCurve(curveForLeft,     (v) => v - curveForLeft(0.0) )
+        const curveForTranslateY  = transfromCurve(curveForTopp,     (v) => v - curveForTopp(0.0) )
+        const curveForScaleX      = transfromCurve(curveForWidthh,   (v) => v / curveForWidthh(0.0) )
+        const curveForScaleY      = transfromCurve(curveForHeightt,  (v) => v / curveForHeightt(0.0) )
 
-        const translateX = curveForTranslateX.outputRange.end
-        const translateY = curveForTranslateY.outputRange.end
-        const scaleX = curveForScaleX.outputRange.end
-        const scaleY = curveForScaleY.outputRange.end
+        const translateX = curveForTranslateX(1.0)
+        const translateY = curveForTranslateY(1.0)
+        const scaleX = curveForScaleX(1.0)
+        const scaleY = curveForScaleY(1.0)
 
         // Get inverse transforms
         //  (The transforms will be applied to the placeholder and the inverse transforms to the actual card)
-        const curveForInverseTranslateX = transfromAnimationCurve(curveForTranslateX, (v) => v - translateX)
-        const curveForInverseTranslateY = transfromAnimationCurve(curveForTranslateY, (v) => v - translateY)
-        const curveForInverseScaleX     = transfromAnimationCurve(curveForScaleX,     (v) => v / scaleX)
-        const curveForInverseScaleY     = transfromAnimationCurve(curveForScaleY,     (v) => v / scaleY)
+        const curveForInverseTranslateX = transfromCurve(curveForTranslateX, (v) => v - translateX)
+        const curveForInverseTranslateY = transfromCurve(curveForTranslateY, (v) => v - translateY)
+        const curveForInverseScaleX     = transfromCurve(curveForScaleX,     (v) => v / scaleX)
+        const curveForInverseScaleY     = transfromCurve(curveForScaleY,     (v) => v / scaleY)
 
         // Calculate counter-transforms for card-content
         //  To prevent the content from stretching
 
-        var curveForCounterScaleX = transfromAnimationCurve(curveForInverseScaleX, (scale) => 1/scale)
-        var curveForCounterScaleY = transfromAnimationCurve(curveForInverseScaleY, (scale) => 1/scale)
+        var curveForCounterScaleX = transfromCurve(curveForInverseScaleX, (scale) => 1/scale)
+        var curveForCounterScaleY = transfromCurve(curveForInverseScaleY, (scale) => 1/scale)
 
         const largerScaleCurve = scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY
-        var curveForContentScaleX = combineAnimationCurves(curveForCounterScaleX, largerScaleCurve, (a, b) => a * b)
-        var curveForContentScaleY = combineAnimationCurves(curveForCounterScaleY, largerScaleCurve, (a, b) => a * b)
+        var curveForContentScaleX = combineCurves(curveForCounterScaleX, largerScaleCurve, (a, b) => a * b)
+        var curveForContentScaleY = combineCurves(curveForCounterScaleY, largerScaleCurve, (a, b) => a * b)
 
         // Position card so it overlaps the placeholder (This is the starting state for the animation)
         // TODO: Remove
@@ -479,21 +479,21 @@ import findChildMatchingCondition from "~/utils/findChild"
         // Animate position-related styling on card
 
         tl.fromTo(card.value, {
-          y: curveForInverseTranslateY.outputRange.start,
+          y: curveForInverseTranslateY(0.0),
         }, {
-          y: curveForInverseTranslateY.outputRange.end,
+          y: curveForInverseTranslateY(1.0),
 
           duration: dur,
-          ease: curveForInverseTranslateY.ease,
+          ease: animationCurveFromRawCurve(curveForInverseTranslateY).ease,
         }, 0)
 
         tl.fromTo(card.value, {
-          x: curveForInverseTranslateX.outputRange.start,
+          x: curveForInverseTranslateX(0.0),
         }, {
-          x: curveForInverseTranslateX.outputRange.end,
+          x: curveForInverseTranslateX(1.0),
 
           duration: dur,
-          ease: curveForInverseTranslateY.ease,
+          ease: animationCurveFromRawCurve(curveForInverseTranslateX).ease,
         }, 0)
 
         // TESTING
@@ -523,28 +523,28 @@ import findChildMatchingCondition from "~/utils/findChild"
         // Animate size-related styling on card
 
         tl.fromTo(card.value, {
-          scaleX: curveForInverseScaleX.outputRange.start,
+          scaleX: curveForInverseScaleX(0.0),
         }, {
 
-          scaleX: curveForInverseScaleX.outputRange.end,
+          scaleX: curveForInverseScaleX(1.0),
 
           // borderRadius: targetBorderRadius,
           // borderWidth: targetBorderWidth,
 
           duration: dur,
-          ease: curveForInverseScaleX.ease, // Ease should be same for x and y scale I think, so we could use a single fromTo call
+          ease: animationCurveFromRawCurve(curveForInverseScaleX).ease, // Ease should be same for x and y scale I think, so we could use a single fromTo call
         }, 0)
 
         tl.fromTo(card.value, {
-          scaleY: curveForInverseScaleY.outputRange.start,
+          scaleY: curveForInverseScaleY(0.0),
         }, {
-          scaleY: curveForInverseScaleY.outputRange.end,
+          scaleY: curveForInverseScaleY(1.0),
 
           // borderRadius: targetBorderRadius,
           // borderWidth: targetBorderWidth,
 
           duration: dur,
-          ease: curveForInverseScaleY.ease,
+          ease: animationCurveFromRawCurve(curveForInverseScaleY).ease,
 
           onComplete: onEnd,
           onInterrupt: onEnd,
@@ -553,21 +553,21 @@ import findChildMatchingCondition from "~/utils/findChild"
         // Counter-animate card content to prevent stretching
         
         tl.fromTo(contentContainer.value, {
-          scaleX: curveForContentScaleX.outputRange.start,
+          scaleX: curveForContentScaleX(0.0),
         }, {
-          scaleX: curveForContentScaleX.outputRange.end,
+          scaleX: curveForContentScaleX(1.0),
 
           duration: dur,
-          ease: curveForContentScaleX.ease
+          ease: animationCurveFromRawCurve(curveForContentScaleX).ease
         }, 0)
 
         tl.fromTo(contentContainer.value, {
-          scaleY: curveForContentScaleY.outputRange.start,
+          scaleY: curveForContentScaleY(0.0),
         }, {
-          scaleY: curveForContentScaleY.outputRange.end,
+          scaleY: curveForContentScaleY(1.0),
 
           duration: dur,
-          ease: curveForContentScaleY.ease
+          ease: animationCurveFromRawCurve(curveForContentScaleY).ease
         }, 0)
 
         /// vvv Doesn't seem to work

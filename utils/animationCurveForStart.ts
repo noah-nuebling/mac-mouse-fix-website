@@ -1,4 +1,4 @@
-export { type AnimationCurve, type Ease, combineAnimationCurves, transfromAnimationCurve }
+export { type AnimationCurve, type Curve, type Ease, rawCurveFromAnimationCurve, combineCurves, transfromCurve, animationCurveFromRawCurve }
 
 import { strict as assert } from 'assert'
 import { Interval, intervalScale } from './intervalScale'
@@ -25,35 +25,29 @@ type Ease = Curve // Ease should always go through (0,0) and (1,1)
 /// Core
 ///
 
-function transfromAnimationCurve(curve: AnimationCurve, transform: (arg0: number) => number) {
+function transfromCurve(curve: Curve, transform: (arg0: number) => number) {
   
   // Applies `transform` to each output value
 
-  const rawCurve = (arg0: number) => {
-    const a = sample(curve, arg0)
+  const transformed = (arg0: number) => {
+    const a = curve(arg0)
     const result = transform(a)
     return result
   }
 
-  const result = animationCurveFromRawCurve(rawCurve)
-
-  return result
+  return transformed
 }
 
-function combineAnimationCurves(curve1: AnimationCurve, curve2: AnimationCurve, transform: (output1: number, output2: number) => number) {
-  
-  // Applies `transform` to each pair of output values of both curves
+function combineCurves(curve1: Curve, curve2: Curve, transform: (output1: number, output2: number) => number): Curve {
 
-  const rawCurve = (arg0: number) => {
-    const a = sample(curve1, arg0)
-    const b = sample(curve2, arg0)
+  const combined = (arg0: number) => {
+    const a = curve1(arg0)
+    const b = curve2(arg0)
     const result = transform(a, b)
     return result
   }
 
-  const result = animationCurveFromRawCurve(rawCurve)
-
-  return result
+  return combined
 }
 
 ///
@@ -93,4 +87,42 @@ function rawCurveFromAnimationCurve(animationCurve: AnimationCurve): Curve {
 
   // Return curve
   return curve
+}
+
+///
+/// Unused
+///
+
+// Calling transfromAnimationCurve and combineAnimationCurves repeatedly was too slow.
+// Instead: First call rawCurveFromAnimationCurve, then call transformCurve and combineCurves repeatedly, lastly call animationCurveFromRawCurve.
+
+function transfromAnimationCurve(curve: AnimationCurve, transform: (arg0: number) => number) {
+  
+  // Applies `transform` to each output value
+
+  const rawCurve = (arg0: number) => {
+    const a = sample(curve, arg0)
+    const result = transform(a)
+    return result
+  }
+
+  const result = animationCurveFromRawCurve(rawCurve)
+
+  return result
+}
+
+function combineAnimationCurves(curve1: AnimationCurve, curve2: AnimationCurve, transform: (output1: number, output2: number) => number): Curve {
+  
+  // Applies `transform` to each pair of output values of both curves
+
+  const rawCurve = (arg0: number) => {
+    const a = sample(curve1, arg0)
+    const b = sample(curve2, arg0)
+    const result = transform(a, b)
+    return result
+  }
+
+  const result = animationCurveFromRawCurve(rawCurve)
+
+  return result
 }
