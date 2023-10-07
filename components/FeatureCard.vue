@@ -377,7 +377,7 @@ import findChildMatchingCondition from "~/utils/findChild"
         // - dur: 0.5, sizeCurve: criticalSpring(4.0), centerCurve: criticalSpring(6.0)
         // - dur: 0.5, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
         
-        const dur = 0.45
+        const dur = 5.0//0.45
         const curveForSize = $Power2.easeOut 
         const curveForCenter = $Power3.easeOut
 
@@ -518,7 +518,7 @@ import findChildMatchingCondition from "~/utils/findChild"
         // Counter-animate card content to prevent stretching
         
         tl.fromTo(contentContainer.value, {
-          scaleX: scaleX,
+          scaleX: scaleX /* * 1/(Math.max(scaleX, scaleY)) */,
         }, {
           scaleX: 1.0,
 
@@ -528,14 +528,17 @@ import findChildMatchingCondition from "~/utils/findChild"
             const scaleInterval = { start: 1/scaleX, end: 1.0 } // Interval of scales applied to the card during animation
             const inverseScaleInterval = { start: 1/scaleInterval.start, end: 1/scaleInterval.end }
             const scale = intervalScale(y, unitInterval, scaleInterval )
-            const inverseScale = 1/scale // equivalent to 1/scale
-            const inverseUnitScale = intervalScale(inverseScale, inverseScaleInterval, unitInterval)
-            return inverseUnitScale
+            const inverseScale = 1/scale
+            const coverContainerScale = inverseScale * y
+            // const result = intervalScale(coverContainerScale, multiplyIntervals(inverseScaleInterval, unitInterval), unitInterval)
+            const result = intervalScale(coverContainerScale, inverseScaleInterval, unitInterval)
+
+            return result
           },
         }, 0)
 
         tl.fromTo(contentContainer.value, {
-          scaleY: scaleY,
+          scaleY: scaleY /* * 1/(Math.max(scaleX, scaleY)) */,
         }, {
           scaleY: 1.0,
 
@@ -546,8 +549,11 @@ import findChildMatchingCondition from "~/utils/findChild"
             const inverseScaleInterval = { start: 1/scaleInterval.start, end: 1/scaleInterval.end }
             const scale = intervalScale(y, unitInterval, scaleInterval )
             const inverseScale = 1/scale // equivalent to 1/scale
-            const inverseUnitScale = intervalScale(inverseScale, inverseScaleInterval, unitInterval)
-            return inverseUnitScale
+            const coverContainerScale = inverseScale * y
+            // const result = intervalScale(coverContainerScale, multiplyIntervals(inverseScaleInterval, unitInterval), unitInterval)
+            const result = intervalScale(coverContainerScale, inverseScaleInterval, unitInterval)
+
+            return result
           },
         }, 0)
 
