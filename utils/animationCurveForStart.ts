@@ -68,6 +68,12 @@ function animationCurveFromRawCurve(rawCurve: Curve): AnimationCurve {
   // This isn't the actual output range in the maths sense, since there can be smaller and greater values in rawCurve(0.0...1.0)
   const outputRange = { start: rawCurve(0.0), end: rawCurve(1.0) }
 
+  // Catch case when there is no animation
+  //  Otherwise there can be NaNs generated
+  if (outputRange.start == outputRange.end) {
+    return { outputRange: outputRange, ease: (x) => x }
+  }
+
   // Find unitCurve which goes through (0,0) and (1,1)
   const unitCurve = (arg0: number) => {
     const b = rawCurve(arg0)
