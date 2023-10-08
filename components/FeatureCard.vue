@@ -14,50 +14,66 @@
 <template>
   <div
     ref="card"
-    :class="['h-full rounded-[24px] overflow-clip outline outline-[4px] outline-offset-[-4px] outline-gray-50/25 will-change-[transform,opacity]', $props.class]">
+    :class="['relative h-full rounded-[24px] overflow-clip will-change-[transform,opacity] pseudo-border', $props.class]">
     
-    <!-- Content Container -->
+    <!-- 
+      
+      Using ::before to draw border from ChatGPT:
+      
+      .parent::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 2px solid blue; /* Adjust thickness and color as needed */
+        pointer-events: none; /* Ensures the pseudo-element doesn't interfere with interactions */
+        z-index: -1; /* Puts the border behind the content */
+      } 
+    -->
 
-    <div 
+    <!-- Padding Container -->
+
+    <div
       ref="contentContainer"
       :class="['h-full p-[4px]', $props.contentContainerClass]">
 
-      <!-- Inner Content Container -->
-    <div 
-      :class="['h-full flex flex-col overflow-clip rounded-[20px]']">
+        <!-- Content Container -->
+      <div
+        :class="['h-full flex flex-col overflow-clip rounded-[20px]']">
 
-        <!-- Top -->
-      <div ref="topCardContent" class="flex flex-col">
-        <slot name="top"/>
-      </div> 
+          <!-- Top -->
+        <div ref="topCardContent" class="flex flex-col">
+          <slot name="top"/>
+        </div> 
 
-      <!-- Swap -->
-      <div ref="swappableContentContainer" class="min-h-0 min-w-0
-                                                  grow
-                                                  flex flex-col">
+        <!-- Swap -->
+        <div ref="swappableContentContainer" class="min-h-0 min-w-0
+                                                    grow
+                                                    flex flex-col">
 
-        <!-- Default -->
-        <div ref="defaultCardContent" id="defaultCardContent" class="min-h-0 min-w-0
-                                            grow
-                                            flex flex-col">
-          <slot name="default"/>
-        </div>
-
-        <!-- Expanded -->
-        <div ref="expandedCardContent" id="expandedCardContent" class="min-h-0 min-w-0
+          <!-- Default -->
+          <div ref="defaultCardContent" id="defaultCardContent" class="min-h-0 min-w-0
                                               grow
-                                              hidden flex-col">
-          <slot name="expanded"/>
+                                              flex flex-col">
+            <slot name="default"/>
+          </div>
+
+          <!-- Expanded -->
+          <div ref="expandedCardContent" id="expandedCardContent" class="min-h-0 min-w-0
+                                                grow
+                                                hidden flex-col">
+            <slot name="expanded"/>
+          </div>
         </div>
+
+        <!-- Bottom -->
+        <div ref="bottomCardContent" class="flex flex-col">
+          <slot name="bottom"/>
+        </div>
+
       </div>
-
-      <!-- Bottom -->
-      <div ref="bottomCardContent" class="flex flex-col">
-        <slot name="bottom"/>
-      </div>
-
-    </div>
-
     </div>
   </div>
 </template>
@@ -90,6 +106,7 @@ import findChildMatchingCondition from "~/utils/findChild"
   // The stuff initialized to ref(null) will be automatically bound to the html element with the ref attribute set to the same value by vue
   const card: Ref<HTMLElement | null> = ref(null)
   const contentContainer: Ref<HTMLElement | null> = ref(null)
+  // const backgroundContainer: Ref<HTMLElement | null> = ref(null)
 
   const topCardContent: Ref<HTMLElement | null> = ref(null)  
   const defaultCardContent: Ref<HTMLElement | null> = ref(null)
@@ -261,6 +278,7 @@ import findChildMatchingCondition from "~/utils/findChild"
         // TESTING: Set height on the content div
         // TODO: Set this back to full on unexpand
         contentContainer.value!.style.height = 'fit-content'
+        // backgroundContainer.value!.style.height = 'fit-content'
 
         // Place in document
         cardPlaceholder?.offsetParent?.appendChild(card.value)
@@ -382,7 +400,7 @@ import findChildMatchingCondition from "~/utils/findChild"
         // - dur: 0.5, sizeCurve: criticalSpring(4.0), centerCurve: criticalSpring(6.0)
         // - dur: 0.5, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
         
-        const dur = 10.0 //0.45
+        const dur = 0.45
         const curveForSize = $Power2.easeOut 
         const curveForCenter = $Power3.easeOut
 
@@ -575,16 +593,6 @@ import findChildMatchingCondition from "~/utils/findChild"
           duration: dur,
           ease: animationCurveFromRawCurve(curveForContentScaleY).ease
         }, 0)
-
-        /// vvv Doesn't seem to work
-        // tl.fromTo(contentContainer.value, {
-        //   scale: 1/(Math.max(scaleX, scaleY)),
-        // }, {
-        //   scale: 1.0,
-
-        //   duration: dur,
-        //   ease: curveForSize,
-        // }, 0)
 
         // Fade out placeholder
         // TODO: Neither opacity nor autoalpha work. (Not sure what autoAlpha is)
@@ -785,5 +793,10 @@ import findChildMatchingCondition from "~/utils/findChild"
 </script>
 
 <style lang="postcss" scoped>
+
+.pseudo-border::before {
+  content: "";
+  @apply absolute bg-transparent border-[4px] border-gray-50/25 rounded-[24px] pointer-events-none z-[1] top-0 left-0 right-0 bottom-0;
+}
 
 </style>
