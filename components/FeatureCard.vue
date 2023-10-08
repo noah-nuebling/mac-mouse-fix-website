@@ -14,13 +14,17 @@
 <template>
   <div
     ref="card"
-    :class="['h-full rounded-[24px] overflow-clip outline outline-4 outline-offset-[-4px] outline-gray-50/25 will-change-[transform,opacity]', $props.class]">
+    :class="['h-full rounded-[24px] overflow-clip outline outline-[4px] outline-offset-[-4px] outline-gray-50/25 will-change-[transform,opacity]', $props.class]">
     
     <!-- Content Container -->
 
     <div 
       ref="contentContainer"
-      :class="['h-full flex flex-col', $props.contentContainerClass]">
+      :class="['h-full p-[4px]', $props.contentContainerClass]">
+
+      <!-- Inner Content Container -->
+    <div 
+      :class="['h-full flex flex-col overflow-clip rounded-[20px]']">
 
         <!-- Top -->
       <div ref="topCardContent" class="flex flex-col">
@@ -51,6 +55,8 @@
       <div ref="bottomCardContent" class="flex flex-col">
         <slot name="bottom"/>
       </div>
+
+    </div>
 
     </div>
   </div>
@@ -376,7 +382,7 @@ import findChildMatchingCondition from "~/utils/findChild"
         // - dur: 0.5, sizeCurve: criticalSpring(4.0), centerCurve: criticalSpring(6.0)
         // - dur: 0.5, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
         
-        const dur = 0.45
+        const dur = 10.0 //0.45
         const curveForSize = $Power2.easeOut 
         const curveForCenter = $Power3.easeOut
 
