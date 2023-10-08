@@ -41,7 +41,7 @@
 
         <!-- Content Container -->
       <div
-        :class="['h-full flex flex-col overflow-clip rounded-[20px]']">
+        :class="['h-full flex flex-col rounded-[20px]']">
 
           <!-- Top -->
         <div ref="topCardContent" class="flex flex-col">
