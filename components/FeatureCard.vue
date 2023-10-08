@@ -65,9 +65,7 @@ import findChildMatchingCondition from "~/utils/findChild"
   const { $ScrollTrigger, $store, $gsap, $Power0, $Power1, $Power2, $Power3, $Power4 } = useNuxtApp()
   const slots = useSlots()
 
-
-
-
+  // Define props
   var props = defineProps({
     class: String,
     contentContainerClass: String,
@@ -76,7 +74,7 @@ import findChildMatchingCondition from "~/utils/findChild"
   // Configure gsap
   // Lag smoothing prevents skipped frames
   // This prevents issue where first few frames of animation are just skipped under desktop Safari, but when performance is too bad it can make things really unresponsive.
-  $gsap.ticker.lagSmoothing(32, 16);
+  $gsap.ticker.lagSmoothing(34, 33);
 
   // Define vars
   const isExpanded = ref(false)
