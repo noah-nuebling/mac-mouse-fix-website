@@ -244,7 +244,7 @@
 
       // var targetBorderRadius = ''
       // var targetBorderWidth = ''
-      const targetShadow = tw.theme.boxShadow["md-raised"]
+      const targetShadow = '0 4px 64px 32px rgba(0, 0, 0, 0.4), 0 4px 100px 32px rgba(0, 0, 0, 0.4), 0 16px 128px 64px rgba(0, 0, 0, 0.4)'//tw.theme.boxShadow["md-raised"]
 
       var calcScale = 0
       var calcWidth = 0
@@ -294,7 +294,7 @@
         card.value.style.boxShadow = targetShadow
 
         // TESTING
-        return
+        // return
 
         // Measure computed size, position and scale
         calcWidth = card.value.offsetWidth
@@ -308,8 +308,8 @@
         // Calculate target style based on scale
         //  Note: Keep this in sync with video wrapper styling to make it look nice
         //  TODO: Make sense of this
-        targetBorderWidth = '4px' // `${originBorderWidth * calcScale}px`
-        targetBorderRadius = '24px' // `${originBorderRadius * calcScale}px`
+        // targetBorderWidth = '4px' // `${originBorderWidth * calcScale}px`
+        // targetBorderRadius = '24px' // `${originBorderRadius * calcScale}px`
 
         // Hide card and show placeholder
         //  This is the initial state for the animation. The animation might play after a delay, so we need to set the state here to prevent flickering
