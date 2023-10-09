@@ -15,64 +15,60 @@
   <div
     ref="card"
     :class="['relative h-full rounded-[24px] overflow-clip will-change-[transform,opacity] pseudo-border', $props.class]">
+  
+    <!-- Border div -->
+    <div class="absolute bg-transparent border-[4px] border-gray-50/25 rounded-[24px] pointer-events-none z-[1] top-0 left-0 right-0 bottom-0"/>
     
-    <!-- 
-      
-      Using ::before to draw border from ChatGPT:
-      
-      .parent::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        border: 2px solid blue; /* Adjust thickness and color as needed */
-        pointer-events: none; /* Ensures the pseudo-element doesn't interfere with interactions */
-        z-index: -1; /* Puts the border behind the content */
-      } 
-    -->
+    <!-- Background div -->
+    <div :class="['absolute pointer-events-none z-[-1] top-0 left-0 right-0 bottom-0', $props.contentContainerClass]"/>
 
     <!-- Padding Container -->
-
     <div
-      ref="contentContainer"
-      :class="['h-full p-[4px]', $props.contentContainerClass]">
+      ref="paddingContainer"
+      :class="['h-full p-[4px] overflow-clip']">
 
-        <!-- Content Container -->
-      <div
-        :class="['h-full flex flex-col rounded-[20px] overflow-clip']">
+      <!-- Border Clip Container -->
 
-          <!-- Top -->
-        <div ref="topCardContent" class="flex flex-col">
-          <slot name="top"/>
-        </div> 
+      <div 
+        ref="contentClipContainer"
+        class="h-full rounded-[20px] overflow-clip">
 
-        <!-- Swap -->
-        <div ref="swappableContentContainer" class="min-h-0 min-w-0
-                                                    grow
-                                                    flex flex-col">
+          <!-- Content Container -->
+        <div
+          ref="contentContainer"
+          :class="['h-full flex flex-col']">
 
-          <!-- Default -->
-          <div ref="defaultCardContent" id="defaultCardContent" class="min-h-0 min-w-0
-                                              grow
-                                              flex flex-col">
-            <slot name="default"/>
-          </div>
+            <!-- Top -->
+          <div ref="topCardContent" class="flex flex-col">
+            <slot name="top"/>
+          </div> 
 
-          <!-- Expanded -->
-          <div ref="expandedCardContent" id="expandedCardContent" class="min-h-0 min-w-0
+          <!-- Swap -->
+          <div ref="swappableContentContainer" class="min-h-0 min-w-0
+                                                      grow
+                                                      flex flex-col">
+
+            <!-- Default -->
+            <div ref="defaultCardContent" id="defaultCardContent" class="min-h-0 min-w-0
                                                 grow
-                                                hidden flex-col">
-            <slot name="expanded"/>
+                                                flex flex-col">
+              <slot name="default"/>
+            </div>
+
+            <!-- Expanded -->
+            <div ref="expandedCardContent" id="expandedCardContent" class="min-h-0 min-w-0
+                                                  grow
+                                                  hidden flex-col">
+              <slot name="expanded"/>
+            </div>
           </div>
-        </div>
 
-        <!-- Bottom -->
-        <div ref="bottomCardContent" class="flex flex-col">
-          <slot name="bottom"/>
-        </div>
+          <!-- Bottom -->
+          <div ref="bottomCardContent" class="flex flex-col">
+            <slot name="bottom"/>
+          </div>
 
+        </div>
       </div>
     </div>
   </div>
@@ -106,7 +102,8 @@ import findChildMatchingCondition from "~/utils/findChild"
   // The stuff initialized to ref(null) will be automatically bound to the html element with the ref attribute set to the same value by vue
   const card: Ref<HTMLElement | null> = ref(null)
   const contentContainer: Ref<HTMLElement | null> = ref(null)
-  // const backgroundContainer: Ref<HTMLElement | null> = ref(null)
+  const paddingContainer: Ref<HTMLElement | null> = ref(null)
+  const contentClipContainer: Ref<HTMLElement | null> = ref(null)
 
   const topCardContent: Ref<HTMLElement | null> = ref(null)  
   const defaultCardContent: Ref<HTMLElement | null> = ref(null)
@@ -278,7 +275,8 @@ import findChildMatchingCondition from "~/utils/findChild"
         // TESTING: Set height on the content div
         // TODO: Set this back to full on unexpand
         contentContainer.value!.style.height = 'fit-content'
-        // backgroundContainer.value!.style.height = 'fit-content'
+        paddingContainer.value!.style.height = 'fit-content'
+        contentClipContainer.value!.style.height = 'fit-content'
 
         // Place in document
         cardPlaceholder?.offsetParent?.appendChild(card.value)
@@ -816,10 +814,5 @@ import findChildMatchingCondition from "~/utils/findChild"
 </script>
 
 <style lang="postcss" scoped>
-
-.pseudo-border::before {
-  content: "";
-  @apply absolute bg-transparent border-[4px] border-gray-50/25 rounded-[24px] pointer-events-none z-[1] top-0 left-0 right-0 bottom-0;
-}
 
 </style>
