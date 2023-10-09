@@ -148,28 +148,6 @@ import findChildMatchingCondition from "~/utils/findChild"
 
     if (shouldExpand) {
 
-
-            // Wait for expanded card to be rendered, then start animating
-      // See: https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
-      
-      const mutationObserver = new MutationObserver((mutationList, observer) => {
-
-        console.log(`Mutation observed!`)
-
-        // for (const mutation of mutationList) {
-        //   var foundCard = false
-        //   for (const node of mutation.addedNodes.values()) {
-        //     if (node == card.value!) { foundCard = true }
-        //   }
-        // }
-
-        // if (foundCard) { 
-        //   animationWorkload()
-        //   mutationObserver.disconnect()
-        // }
-      })
-      mutationObserver.observe(card.value!, { attributes: true, childList: false, subtree: false })
-
       // Create backdrop
       if ($store.backdrop == null) {
         var b = document.createElement('div') as HTMLElement
@@ -367,8 +345,8 @@ import findChildMatchingCondition from "~/utils/findChild"
         expandedCardContent.value!.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
       }
 
-      // Define animation workload
-      const animationWorkload = (self) => {
+      // Animate
+      animationContext = $gsap.context((self) => {
 
         var tl = $gsap.timeline()
 
@@ -637,10 +615,7 @@ import findChildMatchingCondition from "~/utils/findChild"
 
         // Play animation
         tl.play()
-      }
-
-
-
+      })
     } else { // Unexpand
 
       // Remove backdrop from layout
