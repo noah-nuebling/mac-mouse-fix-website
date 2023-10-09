@@ -11,29 +11,30 @@
     - On the defaultCardContent div we had to set flex-col (default is row), otherwise things would behave super weird when trying to set margins on its child. No clue why. We're setting everything to flex col, even if we only expect the flexbox to contain one item because of this.
     
     - !We made lots of changes since we wrote the stuff above ^^^. We overhauled the animations to be transform-based and let the animations start later so they perform okay on Safari and mobile. Changed the structure to facilitate this and didn't document the decision-making. So I think most of the stuff above is irrelevant now. 
+      - Also the separation into FeatureCard and NormalFeatureCard isn't struct anymore. The design of the card is partially implemented in FeatureCard not separated out into NormalFeatureCard anymore.
   -->
 
 <template>
   <div
     ref="card"
-    :class="['relative h-full rounded-[24px] overflow-clip will-change-[transform,opacity] pseudo-border', $props.class]">
+    :class="['relative h-full overflow-clip will-change-[transform,opacity]', $props.class]">
   
     <!-- Border div -->
-    <div class="absolute bg-transparent border-[4px] border-gray-50/25 rounded-[24px] pointer-events-none z-[1] top-0 left-0 right-0 bottom-0"/>
+    <div :class="['absolute pointer-events-none z-[1] top-0 left-0 right-0 bottom-0 bg-transparent', $props.borderClass]"/>
     
     <!-- Background div -->
-    <div :class="['absolute pointer-events-none z-[-1] top-0 left-0 right-0 bottom-0', $props.contentContainerClass]"/>
+    <div :class="['absolute pointer-events-none z-[-1] top-0 left-0 right-0 bottom-0', $props.backgroundClass]"/>
 
     <!-- Padding Container -->
     <div
       ref="paddingContainer"
-      :class="['h-full p-[4px] overflow-clip']">
+      :class="['h-full p-[4px]']">
 
       <!-- Content Clip Container -->
 
       <div 
         ref="contentClipContainer"
-        class="h-full rounded-[20px] overflow-clip">
+        :class="['h-full rounded-[20px] overflow-clip', $props.contentClass]">
 
           <!-- Content Container -->
         <div
@@ -90,7 +91,9 @@ import findChildMatchingCondition from "~/utils/findChild"
   // Define props
   var props = defineProps({
     class: String,
-    contentContainerClass: String,
+    backgroundClass: String,
+    borderClass: String,
+    contentClass: String,
   })
 
   // Configure gsap

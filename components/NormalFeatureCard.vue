@@ -3,7 +3,15 @@
 -->
 
 <template>
-  <FeatureCard ref="moveSpacesCard" class="feature-card col-span-auto cursor-pointer group shadow-md" contentContainerClass="" @click="$refs.moveSpacesCard.expand()">
+  <FeatureCard 
+    ref="thisCard"
+    class="feature-card col-span-auto cursor-pointer group shadow-md rounded-[24px]" 
+    backgroundClass=""
+    borderClass="border-[4px] border-gray-50/25 rounded-[24px]"
+    contentClass=""
+
+    @click="$refs.thisCard.expand()">
+
     <template v-slot:top> 
       <h3 class="text-2xl font-bold text-white/100 m-6 shadow-black/100">{{ $t(titleKey) }}</h3>
     </template>
