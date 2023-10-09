@@ -244,7 +244,7 @@
 
       // var targetBorderRadius = ''
       // var targetBorderWidth = ''
-      const targetShadow = '0 4px 64px 32px rgba(0, 0, 0, 0.4), 0 4px 100px 32px rgba(0, 0, 0, 0.4), 0 16px 128px 64px rgba(0, 0, 0, 0.4)'//tw.theme.boxShadow["md-raised"]
+      const targetShadow = '0 16px 64px 8px rgba(0, 0, 0, 0.4), 0 16px 100px 16px rgba(0, 0, 0, 0.3), 0 32px 192px 16px rgba(0, 0, 0, 0.2)'//tw.theme.boxShadow["md-raised"]
 
       var calcScale = 0
       var calcWidth = 0
