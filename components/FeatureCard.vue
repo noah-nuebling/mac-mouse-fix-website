@@ -314,6 +314,11 @@ import findChildMatchingCondition from "~/utils/findChild"
         targetBorderWidth = '4px' // `${originBorderWidth * calcScale}px`
         targetBorderRadius = '24px' // `${originBorderRadius * calcScale}px`
 
+        // Hide card and show placeholder
+        //  This is the initial state for the animation. The animation might play after a delay, so we need to set the state here to prevent flickering
+        card.value.style.opacity = '0.0'
+        cardPlaceholder.style.opacity = '1.0'
+
         // Remove target style
         //  We're going to first remove the target style, then animate the card, and then apply the target style again after the animation ends.
         // TODO: Remove
@@ -345,8 +350,8 @@ import findChildMatchingCondition from "~/utils/findChild"
         expandedCardContent.value!.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
       }
 
-      // Animate
-      animationContext = $gsap.context((self) => {
+      // Define animation workload
+      const animationWorkload = () => {
 
         var tl = $gsap.timeline()
 
@@ -398,11 +403,11 @@ import findChildMatchingCondition from "~/utils/findChild"
         //      made part of the animation too fast which is especially jarring when there are frame-drops.
         // Previous curves:
         // - dur: 0.5, sizeCurve: criticalSpring(4.0), centerCurve: criticalSpring(6.0)
-        // - dur: 0.5, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
+        // - dur: 0.45, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
         
-        const dur = 0.45
-        const easeForSize = $Power2.easeOut 
-        const easeForCenter = $Power3.easeOut
+        const dur = 0.5
+        const easeForSize = criticalSpring(4.0)
+        const easeForCenter = criticalSpring(6.0)
 
         // 
         // Animation preprocessing
@@ -613,9 +618,37 @@ import findChildMatchingCondition from "~/utils/findChild"
           duration: 0.4 * dur,
         }, 0)
 
+
+        // Debug
+        console.log(`Start playing animation`)
+
         // Play animation
         tl.play()
-      })
+      }
+
+      // Wait until browser is done rendering, then start animation
+      //  See https://stackoverflow.com/questions/15875128/is-there-element-rendered-event
+      // setTimeout(() => { setTimeout(animationWorkload, 0) }, 0.0 * 1000)
+      
+      function try_do_some_stuff() {
+
+          const offsetW = card.value!.offsetWidth
+          const offsetH = card.value!.offsetHeight
+
+          console.log(`Try do some stuff - h: ${ offsetH } vs ${ originHeight } - w: ${ offsetW } vs ${ originWidth }`)
+
+          if (offsetH != originHeight && offsetW != originWidth) {
+            console.log(`Try do some stuff success`)
+            setTimeout(animationWorkload, 0.0 * 1000)
+          } else {
+            console.log(`Try do some stuff again`)
+            window.requestAnimationFrame(try_do_some_stuff);
+          }
+      };
+      try_do_some_stuff()
+
+      // animationWorkload()
+
     } else { // Unexpand
 
       // Remove backdrop from layout
