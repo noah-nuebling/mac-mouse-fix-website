@@ -79,7 +79,7 @@
 </template>
 
 <script setup lang="ts">
-import { AnimationCurve, Curve } from "~/utils/animationCurveForStart";
+import { AnimationCurve, Curve, transfromCurve, combineCurves } from "~/utils/animationCurveForStart";
 import findChildMatchingCondition from "~/utils/findChild"
 
 
@@ -350,286 +350,278 @@ import findChildMatchingCondition from "~/utils/findChild"
         expandedCardContent.value!.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
       }
 
-      // Define animation workload
-      const animationWorkload = () => {
+      // Define animation timeline
 
-        var tl = $gsap.timeline()
+      var tl = $gsap.timeline({ paused: true })
 
-        // Scroll card into view
-        // Note: Just can't get this to work for some reason. Not even this codepen works? https://codepen.io/matthiasott/pen/KKVxqyY
-        // if (root.value) {
-        //   const r = root.value!
-          
-        //   console.log(`Type of r is: ${root.value!}`)
-
-        //   $gsap.to(window, {
-        //     duration: 1.0,
-        //     scrollTo: '#defaultSlotWrapper',
-        //     ease: "power1.easeInOut",
-        //   })
-        // }
-
-        // Define post-animation actions
-        const onEnd = () => {
-
-          // TODO: Remove
-
-          // // Set target style
-          // card.value!.style.position = targetLayout
-
-          // card.value!.style.width = targetWidth
-          // card.value!.style.maxWidth = targetMaxWidth
-          // card.value!.style.height = targetHeight
-          // card.value!.style.maxHeight = targetMaxHeight
-
-          // card.value!.style.marginLeft = targetMarginLeft
-          // card.value!.style.marginRight = targetMarginRight
-          // card.value!.style.left = targetLeft
-          // card.value!.style.right = targetRight
-          // card.value!.style.top = targetTop
-
-          // // Hide default content
-          // defaultCardContent.value!.style.display = 'none'
-        }
-
-        // Set transformOrigin
-        cardPlaceholder!.style.transformOrigin = 'left top'
-        card.value!.style.transformOrigin = 'left top'
-
-
-        // Animation params
-        // Discussion: 
-        // - We used to use more physically accurate curves with longer decelerations, but they 
-        //      made part of the animation too fast which is especially jarring when there are frame-drops.
-        // Previous curves:
-        // - dur: 0.5, sizeCurve: criticalSpring(4.0), centerCurve: criticalSpring(6.0)
-        // - dur: 0.45, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
+      // Scroll card into view
+      // Note: Just can't get this to work for some reason. Not even this codepen works? https://codepen.io/matthiasott/pen/KKVxqyY
+      // if (root.value) {
+      //   const r = root.value!
         
-        const dur = 0.5
-        const easeForSize = criticalSpring(4.0)
-        const easeForCenter = criticalSpring(6.0)
+      //   console.log(`Type of r is: ${root.value!}`)
 
-        // 
-        // Animation preprocessing
-        //  
+      //   $gsap.to(window, {
+      //     duration: 1.0,
+      //     scrollTo: '#defaultSlotWrapper',
+      //     ease: "power1.easeInOut",
+      //   })
+      // }
 
-        // Create base curves
+      // Define post-animation actions
+      const onEnd = () => {
 
-        const curveForCenterX  = rawCurveFromAnimationCurve({ outputRange: { start: originCenterX, end: calcCenterX }, ease: easeForCenter })
-        const curveForCenterY  = rawCurveFromAnimationCurve({ outputRange: { start: originCenterY, end: calcCenterY }, ease: easeForCenter })
-
-        const curveForHeight   = rawCurveFromAnimationCurve({ outputRange: { start: originHeight, end: calcHeight },   ease: easeForSize })
-        const curveForWidthh    = rawCurveFromAnimationCurve({ outputRange: { start: originWidth,  end: calcWidth },    ease: easeForSize })
-
-        // Calculate animation curves for top/left of the element
-
-        const curveForTopp: Curve = combineCurves(curveForCenterY, curveForHeight, (centerY, height) => centerY - height/2.0)
-        const curveForLeft: Curve = combineCurves(curveForCenterX, curveForWidthh, (centerX, width) => centerX - width/2.0)
-
-        // Find find animations for translate and scale equivalent to the position and size animations defined above
-        //  (Translate and scale are very fast to animate)
-
-        const curveForTranslateX  = transfromCurve(curveForLeft,     (v) => v - curveForLeft(0.0) )
-        const curveForTranslateY  = transfromCurve(curveForTopp,     (v) => v - curveForTopp(0.0) )
-        const curveForScaleX      = transfromCurve(curveForWidthh,   (v) => v / curveForWidthh(0.0) )
-        const curveForScaleY      = transfromCurve(curveForHeight,   (v) => v / curveForHeight(0.0) )
-
-        // Store the overall translate and scale 
-        //  for convenience
-
-        const translateX = curveForTranslateX(1.0)
-        const translateY = curveForTranslateY(1.0)
-        const scaleX = curveForScaleX(1.0)
-        const scaleY = curveForScaleY(1.0)
-
-        // Get inverse transforms
-        //  Note: The transforms will be applied to the placeholder, which will be 
-        //    at the original cards position in the layout, and the *inverse* transforms 
-        //    will be applied to the original card element which will already be at it's target 
-        //    position and size at the start of the animation. (That's why we have to apply *inverse* 
-        //    transforms to it to get it to be at the original size and position at the start of the animation) 
-        //    Overall, the placeholder and the original card should appear at the same position throughout the animation like this.
-        //    Then we can fade between them, to get a smooth transition
-
-        const curveForInverseTranslateX = transfromCurve(curveForTranslateX, (v) => v - translateX)
-        const curveForInverseTranslateY = transfromCurve(curveForTranslateY, (v) => v - translateY)
-        const curveForInverseScaleX     = transfromCurve(curveForScaleX,     (v) => v / scaleX)
-        const curveForInverseScaleY     = transfromCurve(curveForScaleY,     (v) => v / scaleY)
-
-        // Calculate transforms for card-content
-        
-        // Counter scaling cancels out the card scaling to prevent content from stretching
-        var curveForCounterScaleX = transfromCurve(curveForInverseScaleX, (scale) => 1/scale)
-        var curveForCounterScaleY = transfromCurve(curveForInverseScaleY, (scale) => 1/scale)
-
-        // This transform makes the card content scale up cover the card during the animation, but without stretching. 
-        //  Basically we apply the same animation to the content (both axes) as to axis of the card which scales up less.
-        var curveForContentScaleX = combineCurves(curveForCounterScaleX, scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
-        var curveForContentScaleY = combineCurves(curveForCounterScaleY, scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
-
-        // DEBUG
-        // console.log(`traceeee: ${ traceRawCurve(curveForCounterScaleX) } \ntraceoo: ${ traceRawCurve(largerScaleCurve) } \ntraceaaaa: ${ traceRawCurve(curveForContentScaleX) } \ntracexxx: ${ traceRawCurve(combineCurves(curveForCounterScaleX, largerScaleCurve, (a, b) => a * 1)) }\ntraceyyy: ${ traceRawCurve(animationCurveFromRawCurve(curveForContentScaleX).ease) }`)
-
-        // Position card so it overlaps the placeholder (This is the starting state for the animation)
         // TODO: Remove
 
-        // if (card.value) {
-        //   card.value.style.position = 'absolute'
-        //   card.value.style.top = `${startValueForTop}px`
-        //   card.value.style.left = `${startValueForLeft}px`
-        //   card.value.style.width = `${startValueForWidth}px`
-        //   card.value.style.height = `${startValueForHeight}px`
-        // }
+        // // Set target style
+        // card.value!.style.position = targetLayout
 
-        // Animate position-related styling on placeholder
+        // card.value!.style.width = targetWidth
+        // card.value!.style.maxWidth = targetMaxWidth
+        // card.value!.style.height = targetHeight
+        // card.value!.style.maxHeight = targetMaxHeight
 
-        tl.fromTo(cardPlaceholder, {
-          y: curveForTranslateY(0.0),
-        }, {
-          y: curveForTranslateY(1.0),
+        // card.value!.style.marginLeft = targetMarginLeft
+        // card.value!.style.marginRight = targetMarginRight
+        // card.value!.style.left = targetLeft
+        // card.value!.style.right = targetRight
+        // card.value!.style.top = targetTop
 
-          duration: dur,
-          ease: animationCurveFromRawCurve(curveForTranslateY).ease,
-        }, 0)
-
-        tl.fromTo(cardPlaceholder, {
-          x: curveForTranslateX(0.0),
-        }, {
-          x: curveForTranslateX(1.0),
-
-          duration: dur,
-          ease: animationCurveFromRawCurve(curveForTranslateX).ease,
-        }, 0)
-
-        // Animate position-related styling on card
-
-        tl.fromTo(card.value, {
-          y: curveForInverseTranslateY(0.0),
-        }, {
-          y: curveForInverseTranslateY(1.0),
-
-          duration: dur,
-          ease: animationCurveFromRawCurve(curveForInverseTranslateY).ease,
-        }, 0)
-
-        tl.fromTo(card.value, {
-          x: curveForInverseTranslateX(0.0),
-        }, {
-          x: curveForInverseTranslateX(1.0),
-
-          duration: dur,
-          ease: animationCurveFromRawCurve(curveForInverseTranslateX).ease,
-        }, 0)
-
-        // TESTING
-        // console.log(`CurveForLeft: ${ traceRawCurve(curveForLeft) }`)
-        // cardPlaceholder!.style.visibility = 'hidden'
-
-        // Animate size-related styling on placeholder
-
-        tl.fromTo(cardPlaceholder, {
-          scaleX: curveForScaleX(0.0),
-        }, {
-
-          scaleX: curveForScaleX(1.0),
-
-          duration: dur,
-          ease: animationCurveFromRawCurve(curveForScaleX).ease,
-
-
-        }, 0)
-
-        tl.fromTo(cardPlaceholder, {
-          scaleY: curveForScaleY(0.0),
-        }, {
-
-          scaleY: curveForScaleY(1.0),
-
-          duration: dur,
-          ease: animationCurveFromRawCurve(curveForScaleY).ease,
-
-
-        }, 0)
-
-        // Animate size-related styling on card
-
-        tl.fromTo(card.value, {
-          scaleX: curveForInverseScaleX(0.0),
-        }, {
-
-          scaleX: curveForInverseScaleX(1.0),
-
-          // borderRadius: targetBorderRadius,
-          // borderWidth: targetBorderWidth,
-
-          duration: dur,
-          ease: animationCurveFromRawCurve(curveForInverseScaleX).ease, // Ease might be same for x and y scale I think. If so, we could use a single fromTo call
-        }, 0)
-
-        tl.fromTo(card.value, {
-          scaleY: curveForInverseScaleY(0.0),
-        }, {
-          scaleY: curveForInverseScaleY(1.0),
-          duration: dur,
-          ease: animationCurveFromRawCurve(curveForInverseScaleY).ease,
-
-          // TODO: vvv Move this to timeline end, not this random animation
-          onComplete: onEnd,
-          onInterrupt: onEnd,
-        }, 0)
-
-        // Counter-animate card content to prevent stretching
-        
-        tl.fromTo(contentContainer.value, {
-          scaleX: curveForContentScaleX(0.0),
-        }, {
-          scaleX: curveForContentScaleX(1.0),
-
-          duration: dur,
-          ease: animationCurveFromRawCurve(curveForContentScaleX).ease
-        }, 0)
-
-        tl.fromTo(contentContainer.value, {
-          scaleY: curveForContentScaleY(0.0),
-        }, {
-          scaleY: curveForContentScaleY(1.0),
-
-          duration: dur,
-          ease: animationCurveFromRawCurve(curveForContentScaleY).ease
-        }, 0)
-
-        // Fade out placeholder
-        // Notes:
-        //  - Neither opacity nor autoalpha work. (Not sure what autoAlpha is) Edit: Now it does. Not sure why. autoAlpha sets visibility: hidden automatically for optimization. We'll use this if it doesn't cause problems.
-
-        tl.fromTo(cardPlaceholder, {
-          autoAlpha: 1.0,
-        }, {
-          autoAlpha: 0.0,
-          duration: 0.4 * dur,
-        }, 0)
-
-        // Fade in card
-
-        tl.fromTo(card.value, {
-          autoAlpha: 0.0
-        }, {
-          autoAlpha: 1.0,
-          duration: 0.4 * dur,
-        }, 0)
-
-
-        // Debug
-        console.log(`Start playing animation`)
-
-        // Play animation
-        tl.play()
+        // // Hide default content
+        // defaultCardContent.value!.style.display = 'none'
       }
 
-      // Wait until browser is done rendering, then start animation
-      //  See https://stackoverflow.com/questions/15875128/is-there-element-rendered-event
-      // setTimeout(() => { setTimeout(animationWorkload, 0) }, 0.0 * 1000)
+      // Set transformOrigin
+      cardPlaceholder!.style.transformOrigin = 'left top'
+      card.value!.style.transformOrigin = 'left top'
+
+
+      // Animation params
+      // Discussion: 
+      // - We used to use more physically accurate curves with longer decelerations, but they 
+      //      made part of the animation too fast which is especially jarring when there are frame-drops.
+      // Previous curves:
+      // - dur: 0.5, sizeCurve: criticalSpring(4.0), centerCurve: criticalSpring(6.0)
+      // - dur: 0.45, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
       
+      const dur = 0.5
+      const easeForSize = criticalSpring(4.0)
+      const easeForCenter = criticalSpring(6.0)
+
+      // 
+      // Animation preprocessing
+      //  
+
+      // Create base curves
+
+      const curveForCenterX  = rawCurveFromAnimationCurve({ outputRange: { start: originCenterX, end: calcCenterX }, ease: easeForCenter })
+      const curveForCenterY  = rawCurveFromAnimationCurve({ outputRange: { start: originCenterY, end: calcCenterY }, ease: easeForCenter })
+
+      const curveForHeight   = rawCurveFromAnimationCurve({ outputRange: { start: originHeight, end: calcHeight },   ease: easeForSize })
+      const curveForWidthh    = rawCurveFromAnimationCurve({ outputRange: { start: originWidth,  end: calcWidth },    ease: easeForSize })
+
+      // Calculate animation curves for top/left of the element
+
+      const curveForTopp: Curve = combineCurves(curveForCenterY, curveForHeight, (centerY, height) => centerY - height/2.0)
+      const curveForLeft: Curve = combineCurves(curveForCenterX, curveForWidthh, (centerX, width) => centerX - width/2.0)
+
+      // Find find animations for translate and scale equivalent to the position and size animations defined above
+      //  (Translate and scale are very fast to animate)
+
+      const curveForTranslateX  = transfromCurve(curveForLeft,     (v) => v - curveForLeft(0.0) )
+      const curveForTranslateY  = transfromCurve(curveForTopp,     (v) => v - curveForTopp(0.0) )
+      const curveForScaleX      = transfromCurve(curveForWidthh,   (v) => v / curveForWidthh(0.0) )
+      const curveForScaleY      = transfromCurve(curveForHeight,   (v) => v / curveForHeight(0.0) )
+
+      // Store the overall translate and scale 
+      //  for convenience
+
+      const translateX = curveForTranslateX(1.0)
+      const translateY = curveForTranslateY(1.0)
+      const scaleX = curveForScaleX(1.0)
+      const scaleY = curveForScaleY(1.0)
+
+      // Get inverse transforms
+      //  Note: The transforms will be applied to the placeholder, which will be 
+      //    at the original cards position in the layout, and the *inverse* transforms 
+      //    will be applied to the original card element which will already be at it's target 
+      //    position and size at the start of the animation. (That's why we have to apply *inverse* 
+      //    transforms to it to get it to be at the original size and position at the start of the animation) 
+      //    Overall, the placeholder and the original card should appear at the same position throughout the animation like this.
+      //    Then we can fade between them, to get a smooth transition
+
+      const curveForInverseTranslateX = transfromCurve(curveForTranslateX, (v) => v - translateX)
+      const curveForInverseTranslateY = transfromCurve(curveForTranslateY, (v) => v - translateY)
+      const curveForInverseScaleX     = transfromCurve(curveForScaleX,     (v) => v / scaleX)
+      const curveForInverseScaleY     = transfromCurve(curveForScaleY,     (v) => v / scaleY)
+
+      // Calculate transforms for card-content
+      
+      // Counter scaling cancels out the card scaling to prevent content from stretching
+      var curveForCounterScaleX = transfromCurve(curveForInverseScaleX, (scale) => 1/scale)
+      var curveForCounterScaleY = transfromCurve(curveForInverseScaleY, (scale) => 1/scale)
+
+      // This transform makes the card content scale up cover the card during the animation, but without stretching. 
+      //  Basically we apply the same animation to the content (both axes) as to axis of the card which scales up less.
+      var curveForContentScaleX = combineCurves(curveForCounterScaleX, scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
+      var curveForContentScaleY = combineCurves(curveForCounterScaleY, scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
+
+      // DEBUG
+      // console.log(`traceeee: ${ traceRawCurve(curveForCounterScaleX) } \ntraceoo: ${ traceRawCurve(largerScaleCurve) } \ntraceaaaa: ${ traceRawCurve(curveForContentScaleX) } \ntracexxx: ${ traceRawCurve(combineCurves(curveForCounterScaleX, largerScaleCurve, (a, b) => a * 1)) }\ntraceyyy: ${ traceRawCurve(animationCurveFromRawCurve(curveForContentScaleX).ease) }`)
+
+      // Position card so it overlaps the placeholder (This is the starting state for the animation)
+      // TODO: Remove
+
+      // if (card.value) {
+      //   card.value.style.position = 'absolute'
+      //   card.value.style.top = `${startValueForTop}px`
+      //   card.value.style.left = `${startValueForLeft}px`
+      //   card.value.style.width = `${startValueForWidth}px`
+      //   card.value.style.height = `${startValueForHeight}px`
+      // }
+
+      // Animate position-related styling on placeholder
+
+      tl.fromTo(cardPlaceholder, {
+        y: curveForTranslateY(0.0),
+      }, {
+        y: curveForTranslateY(1.0),
+
+        duration: dur,
+        ease: animationCurveFromRawCurve(curveForTranslateY).ease,
+      }, 0)
+
+      tl.fromTo(cardPlaceholder, {
+        x: curveForTranslateX(0.0),
+      }, {
+        x: curveForTranslateX(1.0),
+
+        duration: dur,
+        ease: animationCurveFromRawCurve(curveForTranslateX).ease,
+      }, 0)
+
+      // Animate position-related styling on card
+
+      tl.fromTo(card.value, {
+        y: curveForInverseTranslateY(0.0),
+      }, {
+        y: curveForInverseTranslateY(1.0),
+
+        duration: dur,
+        ease: animationCurveFromRawCurve(curveForInverseTranslateY).ease,
+      }, 0)
+
+      tl.fromTo(card.value, {
+        x: curveForInverseTranslateX(0.0),
+      }, {
+        x: curveForInverseTranslateX(1.0),
+
+        duration: dur,
+        ease: animationCurveFromRawCurve(curveForInverseTranslateX).ease,
+      }, 0)
+
+      // TESTING
+      // console.log(`CurveForLeft: ${ traceRawCurve(curveForLeft) }`)
+      // cardPlaceholder!.style.visibility = 'hidden'
+
+      // Animate size-related styling on placeholder
+
+      tl.fromTo(cardPlaceholder, {
+        scaleX: curveForScaleX(0.0),
+      }, {
+
+        scaleX: curveForScaleX(1.0),
+
+        duration: dur,
+        ease: animationCurveFromRawCurve(curveForScaleX).ease,
+
+
+      }, 0)
+
+      tl.fromTo(cardPlaceholder, {
+        scaleY: curveForScaleY(0.0),
+      }, {
+
+        scaleY: curveForScaleY(1.0),
+
+        duration: dur,
+        ease: animationCurveFromRawCurve(curveForScaleY).ease,
+
+
+      }, 0)
+
+      // Animate size-related styling on card
+
+      tl.fromTo(card.value, {
+        scaleX: curveForInverseScaleX(0.0),
+      }, {
+
+        scaleX: curveForInverseScaleX(1.0),
+
+        // borderRadius: targetBorderRadius,
+        // borderWidth: targetBorderWidth,
+
+        duration: dur,
+        ease: animationCurveFromRawCurve(curveForInverseScaleX).ease, // Ease might be same for x and y scale I think. If so, we could use a single fromTo call
+      }, 0)
+
+      tl.fromTo(card.value, {
+        scaleY: curveForInverseScaleY(0.0),
+      }, {
+        scaleY: curveForInverseScaleY(1.0),
+        duration: dur,
+        ease: animationCurveFromRawCurve(curveForInverseScaleY).ease,
+
+        // TODO: vvv Move this to timeline end, not this random animation
+        onComplete: onEnd,
+        onInterrupt: onEnd,
+      }, 0)
+
+      // Counter-animate card content to prevent stretching
+      
+      tl.fromTo(contentContainer.value, {
+        scaleX: curveForContentScaleX(0.0),
+      }, {
+        scaleX: curveForContentScaleX(1.0),
+
+        duration: dur,
+        ease: animationCurveFromRawCurve(curveForContentScaleX).ease
+      }, 0)
+
+      tl.fromTo(contentContainer.value, {
+        scaleY: curveForContentScaleY(0.0),
+      }, {
+        scaleY: curveForContentScaleY(1.0),
+
+        duration: dur,
+        ease: animationCurveFromRawCurve(curveForContentScaleY).ease
+      }, 0)
+
+      // Fade out placeholder
+      // Notes:
+      //  - Neither opacity nor autoalpha work. (Not sure what autoAlpha is) Edit: Now it does. Not sure why. autoAlpha sets visibility: hidden automatically for optimization. We'll use this if it doesn't cause problems.
+
+      tl.fromTo(cardPlaceholder, {
+        autoAlpha: 1.0,
+      }, {
+        autoAlpha: 0.0,
+        duration: 0.4 * dur,
+      }, 0)
+
+      // Fade in card
+
+      tl.fromTo(card.value, {
+        autoAlpha: 0.0
+      }, {
+        autoAlpha: 1.0,
+        duration: 0.4 * dur,
+      }, 0)
+
+
+      // Wait until browser is done rendering, then start animation
+      //  This works since the timeline is paused. Also we're using fromTo everywhere which renders the from state immediately.
+      //  See https://stackoverflow.com/questions/15875128/is-there-element-rendered-event
+
       function try_do_some_stuff() {
 
           const offsetW = card.value!.offsetWidth
@@ -639,15 +631,13 @@ import findChildMatchingCondition from "~/utils/findChild"
 
           if (offsetH != originHeight && offsetW != originWidth) {
             console.log(`Try do some stuff success`)
-            setTimeout(animationWorkload, 0.0 * 1000)
+            setTimeout(() => { tl.delay(0.0).play() }, 0.0 * 1000)
           } else {
             console.log(`Try do some stuff again`)
             window.requestAnimationFrame(try_do_some_stuff);
           }
       };
       try_do_some_stuff()
-
-      // animationWorkload()
 
     } else { // Unexpand
 
