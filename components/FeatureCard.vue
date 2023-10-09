@@ -620,22 +620,20 @@ import findChildMatchingCondition from "~/utils/findChild"
       //  This works since the timeline is paused. Also we're using fromTo everywhere which renders the from state immediately.
       //  See https://stackoverflow.com/questions/15875128/is-there-element-rendered-event
 
-      function try_do_some_stuff() {
+      window.requestAnimationFrame(() => {
+        setTimeout(() => {
 
-          const offsetW = card.value!.offsetWidth
-          const offsetH = card.value!.offsetHeight
+          // Play timeline after delay
+          // Notes:
+          // - tl.delay() doesn't work anymore for some reason
+          // - 0.05 delay prevents a little more jerkiness in Safari (might be placebo) without feeling less responsive in Chrome.
+          
+          $gsap.delayedCall(0.05, () => tl.play())
 
-          console.log(`Try do some stuff - h: ${ offsetH } vs ${ originHeight } - w: ${ offsetW } vs ${ originWidth }`)
+        }, 0)
+      });
 
-          if (offsetH != originHeight && offsetW != originWidth) {
-            console.log(`Try do some stuff success`)
-            setTimeout(() => { tl.delay(0.0).play() }, 0.0 * 1000)
-          } else {
-            console.log(`Try do some stuff again`)
-            window.requestAnimationFrame(try_do_some_stuff);
-          }
-      };
-      try_do_some_stuff()
+
 
     } else { // Unexpand
 
