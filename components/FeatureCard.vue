@@ -65,14 +65,19 @@
 </template>
 
 <script setup lang="ts">
-import { transformVNodeArgs } from "nuxt/dist/app/compat/capi";
-import { AnimationCurve, Curve, transfromCurve, combineCurves } from "~/utils/animationCurveForStart";
-import findChildMatchingCondition from "~/utils/findChild"
-
+  
+  import { transformVNodeArgs } from "nuxt/dist/app/compat/capi";
+  import { AnimationCurve, Curve, transfromCurve, combineCurves } from "~/utils/animationCurveForStart";
+  import findChildMatchingCondition from "~/utils/findChild"
+  import tailwindConfig from "~/tailwind.config";
+  import resolveConfig from 'tailwindcss/resolveConfig'
 
   // Import (is that the right term?) vue/nuxt stuff
   const { $ScrollTrigger, $store, $gsap, $Power0, $Power1, $Power2, $Power3, $Power4 } = useNuxtApp()
   const slots = useSlots()
+
+  // Import tailwind config
+  const tw = resolveConfig(tailwindConfig)
 
   // Define props
   var props = defineProps({
@@ -231,14 +236,15 @@ import findChildMatchingCondition from "~/utils/findChild"
       const targetHeight = /* '900px' */ 'fit-content'
       const targetMaxHeight = '80vh'
 
-      var targetBorderRadius = ''
-      var targetBorderWidth = ''
-
       const targetMarginLeft = 'auto'
       const targetMarginRight = 'auto'
       const targetLeft = '0'
       const targetRight = '0'
       var targetTop = ''
+
+      // var targetBorderRadius = ''
+      // var targetBorderWidth = ''
+      const targetShadow = tw.theme.boxShadow["md-raised"]
 
       var calcScale = 0
       var calcWidth = 0
@@ -284,8 +290,11 @@ import findChildMatchingCondition from "~/utils/findChild"
         card.value.style.right = targetRight
         card.value.style.top = targetTop
 
+        // Increase shadow
+        card.value.style.boxShadow = targetShadow
+
         // TESTING
-        // return
+        return
 
         // Measure computed size, position and scale
         calcWidth = card.value.offsetWidth

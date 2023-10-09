@@ -38,6 +38,7 @@ module.exports = {
       /* vvv Like Feedback Assistant shadows but without inset – otherwise tailwind shadow coloring colors the inset */
       'sm': '0px 0.5px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 8px 0 rgba(0, 0, 0, 0.08)',
       'md': '0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 8px 32px 0 rgba(0, 0, 0, 0.08)',
+      'md-raised': '0 2px 4px 10px rgba(0, 0, 0, 0.08), 0 4px 16px 10px rgba(0, 0, 0, 0.08), 0 8px 32px 10px rgba(0, 0, 0, 0.08)',
     },
 
     extend: {
