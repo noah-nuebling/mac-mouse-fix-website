@@ -33,14 +33,15 @@
       } 
     -->
 
-    <!-- Padding Container -->
+    <!-- Background Container -->
 
     <div
       ref="contentContainer"
       :class="['h-full p-[4px]', $props.contentContainerClass]">
 
-        <!-- Content Container -->
+        <!-- Actual Content Container -->
       <div
+        ref="innerContentContainer"
         :class="['h-full flex flex-col rounded-[20px] overflow-clip']">
 
           <!-- Top -->
@@ -96,7 +97,8 @@ import findChildMatchingCondition from "~/utils/findChild"
   // Configure gsap
   // Lag smoothing prevents skipped frames
   // This prevents issue where first few frames of animation are just skipped under desktop Safari, but when performance is too bad it can make things really unresponsive.
-  $gsap.ticker.lagSmoothing(34, 33);
+  // $gsap.ticker.lagSmoothing(34, 33);
+  $gsap.ticker.lagSmoothing(17, 16)
 
   // Define vars
   const isExpanded = ref(false)
@@ -106,7 +108,7 @@ import findChildMatchingCondition from "~/utils/findChild"
   // The stuff initialized to ref(null) will be automatically bound to the html element with the ref attribute set to the same value by vue
   const card: Ref<HTMLElement | null> = ref(null)
   const contentContainer: Ref<HTMLElement | null> = ref(null)
-  // const backgroundContainer: Ref<HTMLElement | null> = ref(null)
+  const innerContentContainer: Ref<HTMLElement | null> = ref(null)
 
   const topCardContent: Ref<HTMLElement | null> = ref(null)  
   const defaultCardContent: Ref<HTMLElement | null> = ref(null)
@@ -252,6 +254,8 @@ import findChildMatchingCondition from "~/utils/findChild"
       const targetRight = '0'
       var targetTop = ''
 
+      const targetShadow = '0 2px 8px 0 rgba(0, 0, 0, 0.3), 0 4px 32px 0 rgba(0, 0, 0, 0.3), 0 8px 64px 0 rgba(0, 0, 0, 0.3), 0 8px 128px 0 rgba(0, 0, 0, 0.3)'
+
       var calcScale = 0
       var calcWidth = 0
       var calcHeight = 0
@@ -274,6 +278,9 @@ import findChildMatchingCondition from "~/utils/findChild"
         card.value.style.maxWidth = targetMaxWidth
         card.value.style.height = targetHeight
         card.value.style.maxHeight = targetMaxHeight
+      
+        // Set shadow
+        card.value.style.boxShadow = targetShadow
 
         // TESTING: Set height on the content div
         // TODO: Set this back to full on unexpand
@@ -400,9 +407,9 @@ import findChildMatchingCondition from "~/utils/findChild"
         // - dur: 0.5, sizeCurve: criticalSpring(4.0), centerCurve: criticalSpring(6.0)
         // - dur: 0.5, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
         
-        const dur = 0.45
-        const easeForSize = $Power2.easeOut 
-        const easeForCenter = $Power3.easeOut
+        const dur = 0.5
+        const easeForSize = criticalSpring(4.0) //$Power2.easeOut 
+        const easeForCenter = criticalSpring(6.0) //$Power3.easeOut
 
         // 
         // Animation preprocessing
@@ -478,23 +485,23 @@ import findChildMatchingCondition from "~/utils/findChild"
 
         // Animate position-related styling on placeholder
 
-        tl.fromTo(cardPlaceholder, {
-          y: curveForTranslateY(0.0),
-        }, {
-          y: curveForTranslateY(1.0),
+        // tl.fromTo(cardPlaceholder, {
+        //   y: curveForTranslateY(0.0),
+        // }, {
+        //   y: curveForTranslateY(1.0),
 
-          duration: dur,
-          ease: animationCurveFromRawCurve(curveForTranslateY).ease,
-        }, 0)
+        //   duration: dur,
+        //   ease: animationCurveFromRawCurve(curveForTranslateY).ease,
+        // }, 0)
 
-        tl.fromTo(cardPlaceholder, {
-          x: curveForTranslateX(0.0),
-        }, {
-          x: curveForTranslateX(1.0),
+        // tl.fromTo(cardPlaceholder, {
+        //   x: curveForTranslateX(0.0),
+        // }, {
+        //   x: curveForTranslateX(1.0),
 
-          duration: dur,
-          ease: animationCurveFromRawCurve(curveForTranslateX).ease,
-        }, 0)
+        //   duration: dur,
+        //   ease: animationCurveFromRawCurve(curveForTranslateX).ease,
+        // }, 0)
 
         // Animate position-related styling on card
 
@@ -522,29 +529,29 @@ import findChildMatchingCondition from "~/utils/findChild"
 
         // Animate size-related styling on placeholder
 
-        tl.fromTo(cardPlaceholder, {
-          scaleX: curveForScaleX(0.0),
-        }, {
+        // tl.fromTo(cardPlaceholder, {
+        //   scaleX: curveForScaleX(0.0),
+        // }, {
 
-          scaleX: curveForScaleX(1.0),
+        //   scaleX: curveForScaleX(1.0),
 
-          duration: dur,
-          ease: animationCurveFromRawCurve(curveForScaleX).ease,
-
-
-        }, 0)
-
-        tl.fromTo(cardPlaceholder, {
-          scaleY: curveForScaleY(0.0),
-        }, {
-
-          scaleY: curveForScaleY(1.0),
-
-          duration: dur,
-          ease: animationCurveFromRawCurve(curveForScaleY).ease,
+        //   duration: dur,
+        //   ease: animationCurveFromRawCurve(curveForScaleX).ease,
 
 
-        }, 0)
+        // }, 0)
+
+        // tl.fromTo(cardPlaceholder, {
+        //   scaleY: curveForScaleY(0.0),
+        // }, {
+
+        //   scaleY: curveForScaleY(1.0),
+
+        //   duration: dur,
+        //   ease: animationCurveFromRawCurve(curveForScaleY).ease,
+
+
+        // }, 0)
 
         // Animate size-related styling on card
 
@@ -597,24 +604,35 @@ import findChildMatchingCondition from "~/utils/findChild"
         // Notes:
         //  - Neither opacity nor autoalpha work. (Not sure what autoAlpha is) Edit: Now it does. Not sure why. autoAlpha sets visibility: hidden automatically for optimization. We'll use this if it doesn't cause problems.
 
-        tl.fromTo(cardPlaceholder, {
-          autoAlpha: 1.0,
-        }, {
-          autoAlpha: 0.0,
-          duration: 0.4 * dur,
-        }, 0)
+        // tl.fromTo(cardPlaceholder, {
+        //   autoAlpha: 1.0,
+        // }, {
+        //   autoAlpha: 0.0,
+        //   duration: 0.4 * dur,
+        // }, 0)
 
         // Fade in card
 
-        tl.fromTo(card.value, {
-          autoAlpha: 0.0
+        // tl.fromTo(card.value, {
+        //   autoAlpha: 0.0
+        // }, {
+        //   autoAlpha: 1.0,
+        //   duration: 0.4 * dur,
+        // }, 0)
+
+        // Hide placeholder
+        cardPlaceholder!.style.visibility = 'hidden'
+
+        // Fade in card content
+        tl.fromTo(innerContentContainer.value, {
+          alpha: 0.0,
         }, {
-          autoAlpha: 1.0,
+          alpha: 1.0,
           duration: 0.4 * dur,
         }, 0)
 
         // Play animation
-        tl.play()
+        tl.delay(1.5).play()
       })
     } else { // Unexpand
 
