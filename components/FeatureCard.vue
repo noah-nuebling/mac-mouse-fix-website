@@ -9,6 +9,8 @@
       - We made everything flex because it works and block confuses me. The expandedCardContent div starts out with display: none (twcc `hidden`) and gets display: flex through js
       - We had to add grow for the flex items to grow beyond content size vertically (along with min-[axis]-0 to make it shrink vertically I think?). Not sure what's going on.
     - On the defaultCardContent div we had to set flex-col (default is row), otherwise things would behave super weird when trying to set margins on its child. No clue why. We're setting everything to flex col, even if we only expect the flexbox to contain one item because of this.
+    
+    - !We made lots of changes since we wrote the stuff above ^^^. We overhauled the animations to be transform-based and let the animations start later so they perform okay on Safari and mobile. Changed the structure to facilitate this and didn't document the decision-making. So I think most of the stuff above is irrelevant now. 
   -->
 
 <template>
@@ -27,7 +29,7 @@
       ref="paddingContainer"
       :class="['h-full p-[4px] overflow-clip']">
 
-      <!-- Border Clip Container -->
+      <!-- Content Clip Container -->
 
       <div 
         ref="contentClipContainer"
