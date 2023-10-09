@@ -96,7 +96,7 @@ import findChildMatchingCondition from "~/utils/findChild"
   // Configure gsap
   // Lag smoothing prevents skipped frames
   // This prevents issue where first few frames of animation are just skipped under desktop Safari, but when performance is too bad it can make things really unresponsive.
-  $gsap.ticker.lagSmoothing(34, 33);
+  $gsap.ticker.lagSmoothing(17, 16);
 
   // Define vars
   const isExpanded = ref(false)
