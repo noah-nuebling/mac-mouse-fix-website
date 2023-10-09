@@ -3,9 +3,9 @@
 // Reference:
 // - Tailwind size naming conventions: xs, sm, md(/base/DEFAULT), lg, xl, 2xl, 3xl, ...
 
-const plugin = require('tailwindcss/plugin')
+import plugin from 'tailwindcss/plugin'
 
-module.exports = {
+export default {
   content: [
     
     /// Additions
