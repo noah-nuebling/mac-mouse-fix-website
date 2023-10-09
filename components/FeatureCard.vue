@@ -11,68 +11,54 @@
     - On the defaultCardContent div we had to set flex-col (default is row), otherwise things would behave super weird when trying to set margins on its child. No clue why. We're setting everything to flex col, even if we only expect the flexbox to contain one item because of this.
     
     - !We made lots of changes since we wrote the stuff above ^^^. We overhauled the animations to be transform-based and let the animations start later so they perform okay on Safari and mobile. Changed the structure to facilitate this and didn't document the decision-making. So I think most of the stuff above is irrelevant now. 
-      - Also the separation into FeatureCard and NormalFeatureCard isn't struct anymore. The design of the card is partially implemented in FeatureCard not separated out into NormalFeatureCard anymore.
   -->
 
 <template>
   <div
     ref="card"
     :class="['relative h-full overflow-clip will-change-[transform,opacity]', $props.class]">
-  
-    <!-- Border div -->
-    <div :class="['absolute pointer-events-none z-[1] top-0 left-0 right-0 bottom-0 bg-transparent', $props.borderClass]"/>
-    
-    <!-- Background div -->
-    <div :class="['absolute pointer-events-none z-[-1] top-0 left-0 right-0 bottom-0', $props.backgroundClass]"/>
 
-    <!-- Padding Container -->
+    <!-- Border Container -->
     <div
-      ref="paddingContainer"
-      :class="['h-full p-[4px]']">
+      ref="borderContainer"
+      :class="['h-full overflow-clip', $props.borderClass]">
 
-      <!-- Content Clip Container -->
+        <!-- Content Container -->
+      <div
+        id="contentContainer"
+        ref="contentContainer"
+        :class="['h-full flex flex-col will-change-[transform,opacity]']">
 
-      <div 
-        ref="contentClipContainer"
-        :class="['h-full rounded-[20px] overflow-clip', $props.contentClass]">
+          <!-- Top -->
+        <div ref="topCardContent" class="flex flex-col">
+          <slot name="top"/>
+        </div> 
 
-          <!-- Content Container -->
-        <div
-          id="contentContainer"
-          ref="contentContainer"
-          :class="['h-full flex flex-col']">
+        <!-- Swap -->
+        <div ref="swappableContentContainer" class="min-h-0 min-w-0
+                                                    grow
+                                                    flex flex-col">
 
-            <!-- Top -->
-          <div ref="topCardContent" class="flex flex-col">
-            <slot name="top"/>
-          </div> 
+          <!-- Default -->
+          <div ref="defaultCardContent" id="defaultCardContent" class="min-h-0 min-w-0
+                                              grow
+                                              flex flex-col">
+            <slot name="default"/>
+          </div>
 
-          <!-- Swap -->
-          <div ref="swappableContentContainer" class="min-h-0 min-w-0
-                                                      grow
-                                                      flex flex-col">
-
-            <!-- Default -->
-            <div ref="defaultCardContent" id="defaultCardContent" class="min-h-0 min-w-0
+          <!-- Expanded -->
+          <div ref="expandedCardContent" id="expandedCardContent" class="min-h-0 min-w-0
                                                 grow
-                                                flex flex-col">
-              <slot name="default"/>
-            </div>
-
-            <!-- Expanded -->
-            <div ref="expandedCardContent" id="expandedCardContent" class="min-h-0 min-w-0
-                                                  grow
-                                                  hidden flex-col">
-              <slot name="expanded"/>
-            </div>
+                                                hidden flex-col">
+            <slot name="expanded"/>
           </div>
-
-          <!-- Bottom -->
-          <div ref="bottomCardContent" class="flex flex-col">
-            <slot name="bottom"/>
-          </div>
-
         </div>
+
+        <!-- Bottom -->
+        <div ref="bottomCardContent" class="flex flex-col">
+          <slot name="bottom"/>
+        </div>
+
       </div>
     </div>
   </div>
@@ -91,9 +77,7 @@ import findChildMatchingCondition from "~/utils/findChild"
   // Define props
   var props = defineProps({
     class: String,
-    backgroundClass: String,
     borderClass: String,
-    contentClass: String,
   })
 
   // Configure gsap
@@ -109,8 +93,7 @@ import findChildMatchingCondition from "~/utils/findChild"
   // The stuff initialized to ref(null) will be automatically bound to the html element with the ref attribute set to the same value by vue
   const card: Ref<HTMLElement | null> = ref(null)
   const contentContainer: Ref<HTMLElement | null> = ref(null)
-  const paddingContainer: Ref<HTMLElement | null> = ref(null)
-  const contentClipContainer: Ref<HTMLElement | null> = ref(null)
+  const borderContainer: Ref<HTMLElement | null> = ref(null)
 
   const topCardContent: Ref<HTMLElement | null> = ref(null)  
   const defaultCardContent: Ref<HTMLElement | null> = ref(null)
@@ -283,8 +266,7 @@ import findChildMatchingCondition from "~/utils/findChild"
         // TESTING: Set height on the content div
         // TODO: Set this back to full on unexpand
         contentContainer.value!.style.height = 'fit-content'
-        paddingContainer.value!.style.height = 'fit-content'
-        contentClipContainer.value!.style.height = 'fit-content'
+        borderContainer.value!.style.height = 'fit-content'
 
         // Place in document
         cardPlaceholder?.offsetParent?.appendChild(card.value)

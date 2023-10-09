@@ -6,9 +6,7 @@
   <FeatureCard 
     ref="thisCard"
     class="feature-card col-span-auto cursor-pointer group shadow-md rounded-[24px]" 
-    backgroundClass=""
     borderClass="border-[4px] border-gray-50/25 rounded-[24px]"
-    contentClass=""
 
     @click="$refs.thisCard.expand()">
 
