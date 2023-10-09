@@ -35,6 +35,7 @@
 
           <!-- Content Container -->
         <div
+          id="contentContainer"
           ref="contentContainer"
           :class="['h-full flex flex-col']">
 
@@ -75,6 +76,7 @@
 </template>
 
 <script setup lang="ts">
+import { transformVNodeArgs } from "nuxt/dist/app/compat/capi";
 import { AnimationCurve, Curve, transfromCurve, combineCurves } from "~/utils/animationCurveForStart";
 import findChildMatchingCondition from "~/utils/findChild"
 
@@ -112,6 +114,7 @@ import findChildMatchingCondition from "~/utils/findChild"
 
   // Dynamically created elements
   var cardPlaceholder: HTMLDivElement | null = null
+  var placeholderContentContainer: HTMLDivElement | null = null
 
   // Methods for parent
   function expand() {
@@ -199,7 +202,7 @@ import findChildMatchingCondition from "~/utils/findChild"
 
       if (cardPlaceholder == null) {
         cardPlaceholder = card.value!.cloneNode(true) as HTMLDivElement
-        // cardPlaceholder.style.visibility = 'hidden'
+        placeholderContentContainer = findChild(cardPlaceholder, (element) => element.id == 'contentContainer')
       }
 
       // Set placeholder size to current card size (and replace all previous styling of the placeholder)
@@ -464,6 +467,13 @@ import findChildMatchingCondition from "~/utils/findChild"
       var curveForContentScaleX = combineCurves(curveForCounterScaleX, scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
       var curveForContentScaleY = combineCurves(curveForCounterScaleY, scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
 
+      // Calculate transforms for placeholder content
+      var curveForPlaceholderCounterScaleX = transfromCurve(curveForScaleX, (scale) => 1/scale)
+      var curveForPlaceholderCounterScaleY = transfromCurve(curveForScaleY, (scale) => 1/scale)
+      
+      var curveForPlaceholderContentScaleX = combineCurves(curveForPlaceholderCounterScaleX, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
+      var curveForPlaceholderContentScaleY = combineCurves(curveForPlaceholderCounterScaleY, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
+
       // DEBUG
       // console.log(`traceeee: ${ traceRawCurve(curveForCounterScaleX) } \ntraceoo: ${ traceRawCurve(largerScaleCurve) } \ntraceaaaa: ${ traceRawCurve(curveForContentScaleX) } \ntracexxx: ${ traceRawCurve(combineCurves(curveForCounterScaleX, largerScaleCurve, (a, b) => a * 1)) }\ntraceyyy: ${ traceRawCurve(animationCurveFromRawCurve(curveForContentScaleX).ease) }`)
 
@@ -575,7 +585,8 @@ import findChildMatchingCondition from "~/utils/findChild"
         onInterrupt: onEnd,
       }, 0)
 
-      // Counter-animate card content to prevent stretching
+      // Counter-animate card content 
+      //  to prevent stretching
       
       tl.fromTo(contentContainer.value, {
         scaleX: curveForContentScaleX(0.0),
@@ -593,6 +604,26 @@ import findChildMatchingCondition from "~/utils/findChild"
 
         duration: dur,
         ease: animationCurveFromRawCurve(curveForContentScaleY).ease
+      }, 0)
+
+      // Counter-animate placeholder content 
+
+      tl.fromTo(placeholderContentContainer, {
+        scaleX: curveForPlaceholderContentScaleX(0.0),
+      }, {
+        scaleX: curveForPlaceholderContentScaleX(1.0),
+
+        duration: dur,
+        ease: animationCurveFromRawCurve(curveForPlaceholderContentScaleX).ease
+      }, 0)
+
+      tl.fromTo(placeholderContentContainer, {
+        scaleY: curveForPlaceholderContentScaleY(0.0),
+      }, {
+        scaleY: curveForPlaceholderContentScaleY(1.0),
+
+        duration: dur,
+        ease: animationCurveFromRawCurve(curveForPlaceholderContentScaleY).ease
       }, 0)
 
       // Fade out placeholder
