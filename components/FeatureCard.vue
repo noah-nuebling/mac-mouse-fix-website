@@ -667,7 +667,53 @@
       // Remove backdrop from layout
       $store.backdrop?.remove()
 
-      // Get current card size, position,
+      // Bring card to front but behind expanding and expanded cards (which have zIndex 100)
+      card.value!.style.zIndex = '99'
+
+      // Create copy of card in expanded state
+      const expandedCopy = card.value!.cloneNode(true) as HTMLDivElement
+
+      // 
+      // Restore unexpanded state of card
+      //
+
+      // Replace card styling with placeholder styling
+      // Notes: 
+      // - For some reason we can't set the .style directly, but instead have to set .style.cssText
+      card.value!.style.cssText = cardPlaceholder!.style.cssText
+
+      // TESTING - Remove transform
+      card.value!.style.transform = ''
+
+      // Restore default style of children
+      contentContainer.value!.style.height = '100%'
+      borderContainer.value!.style.height = '100%'
+
+      // Place the default content in the card, hide the expanded content
+      defaultCardContent.value!.style.display = 'flex'
+      expandedCardContent.value!.style.display = 'none'
+
+      // TESTING (We'll animate these later)
+      card.value!.style.visibility = 'visible'
+      card.value!.style.opacity = '1.0'
+
+      // Replace card with expandedCopy
+      // card.value!.replaceWith(expandedCopy)
+
+      // Replace placeholder with unexpanded card.
+      cardPlaceholder!.replaceWith(card.value!)
+
+      // Assign expandedCopy to placeholder
+      //  Not totally sure if the way we structure this makes sense
+      // cardPlaceholder! = expandedCopy
+
+      // Replace  
+
+      // TESTING
+      return
+
+
+            // Get current card size, position,
       //  Border radius, and shadow
 
       const originLayout = 'absolute'
@@ -684,31 +730,19 @@
       const originCenterX = originLeft + (originWidth/2.0)
       const originCenterY = originTop + (originHeight/2.0)
 
-      // Bring card to front but behind expanding and expanded cards (which have zIndex 100)
-      card.value!.style.zIndex = '99'
-
       // Show both the expanded content and the default content
-      defaultCardContent.value!.style.display = 'flex'
-      expandedCardContent.value!.style.display = 'flex'
+      // defaultCardContent.value!.style.display = 'flex'
+      // expandedCardContent.value!.style.display = 'flex'
 
       // Make the default content and expanded content overlap
-      defaultCardContent.value!.style.position = ''
-      expandedCardContent.value!.style.position = 'absolute'
+      // defaultCardContent.value!.style.position = ''
+      // expandedCardContent.value!.style.position = 'absolute'
 
       // After animation completes or is interrupted ...
       const onEnd = () => {
         
         // Hide expanded content
-        expandedCardContent.value!.style.display = 'none'
-        
-        // Replace card styling with placeholder styling (except invisibility)
-        // Note: For some reason we can't set the .style directly, but instead have to set .style.cssText
-
-        card.value!.style.cssText = cardPlaceholder!.style.cssText
-        card.value!.style.visibility = 'visible'
-
-        // Replace placeholder with card.
-        cardPlaceholder!.replaceWith(card.value!)
+        // expandedCardContent.value!.style.display = 'none'
 
         // Bring card to normal level
         card.value!.style.zIndex = '0'
