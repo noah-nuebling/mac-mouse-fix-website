@@ -701,7 +701,7 @@
       // card.value!.replaceWith(expandedCopy)
 
       // Replace placeholder with unexpanded card.
-      cardPlaceholder!.replaceWith(card.value!)
+      destroyCardAndReplaceWith(cardPlaceholder!, card.value!)
 
       // Assign expandedCopy to placeholder
       //  Not totally sure if the way we structure this makes sense
@@ -710,6 +710,7 @@
       // Replace  
 
       // TESTING
+      destroyCard(expandedCopy)
       return
 
 
@@ -869,6 +870,49 @@
       animationContext.revert() /* Clean up animation memory stuff or sth */
     }
   });
+
+
+  //
+  // Helper functions
+  //
+
+  function destroyCardAndReplaceWith(copy: HTMLDivElement, replacement: HTMLElement) {
+
+    // Unload videos
+    destroyVideos(copy)
+
+    // Replace
+    copy.replaceWith(replacement)
+  }
+
+  function destroyCard(card: HTMLDivElement) {
+
+    // Unload videos
+    destroyVideos(card)
+
+    // Remove from DOM
+    card.remove()
+
+  }
+
+  function destroyVideos(element: HTMLElement) {
+
+    // Unload videos and remove
+    // Otherwise the videos keep playing and take up hella cpu and memory
+    // See: https://stackoverflow.com/questions/3258587/how-to-properly-unload-destroy-a-video-element
+
+    while (true) {
+
+      const video: HTMLVideoElement | null = findChild(element, (element) => element.tagName == 'VIDEO') as HTMLVideoElement
+      
+      if (video == null) { break }
+
+      video.src = ''
+      video.load()
+
+      video.remove()
+    }
+  }
 
 </script>
 
