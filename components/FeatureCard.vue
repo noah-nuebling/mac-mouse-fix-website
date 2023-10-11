@@ -698,7 +698,7 @@
       $store.backdrop?.remove()
 
       // Bring card to front but behind expanding and expanded cards (which have zIndex 100)
-      card.value!.style.zIndex = '99'
+      card.value!.style.zIndex = '101'//'99'
 
       // Stop video
       if (video != null) {
@@ -706,44 +706,11 @@
         video.currentTime = 0.0 // TODO: Move to onEnd
       }
 
-      // Create copy of card in expanded state
-      const expandedPlaceholder = card.value!.cloneNode(true) as HTMLDivElement
-
-    // Replace card with expandedCopy
-      card.value!.replaceWith(expandedPlaceholder)
-
-      // 
-      // Restore unexpanded state of card
-      //
-
-      // Replace card styling with placeholder styling
-      // Notes: 
-      // - For some reason we can't set the .style directly, but instead have to set .style.cssText
-      card.value!.style.cssText = cardPlaceholder!.style.cssText
-
-      // Restore default style of children
-      contentContainer.value!.style.height = '100%'
-      borderContainer.value!.style.height = '100%'
-
-      // Place the default content in the card, hide the expanded content
-      defaultCardContent.value!.style.display = 'flex'
-      expandedCardContent.value!.style.display = 'none'
-
-      ///
-      ///
-      ///
-
-      // Replace unexpanded placeholder with now-unexpanded card, and destroy unexpanded placeholder
-      destroyCardAndReplaceWith(cardPlaceholder!, card.value!)
-
       // After animation completes or is interrupted ...
       const onEnd = () => {
 
         // DEBUG
         console.log(`onEnd`)
-        
-        // Destroy placeholder
-        destroyCard(expandedPlaceholder!)
 
         // Reset playback time
         if (video != null) {
@@ -752,16 +719,51 @@
 
         // Bring card to normal level
         card.value!.style.zIndex = '0'
+
+        // 
+        // Restore unexpanded state of card
+        //
+
+        // Replace card styling with placeholder styling
+        // Notes: 
+        // - For some reason we can't set the .style directly, but instead have to set .style.cssText
+        card.value!.style.cssText = cardPlaceholder!.style.cssText
+
+        // Remove transform
+        card.value!.style.transform = ''
+
+        // Restore default style of children
+        contentContainer.value!.style.height = '100%'
+        borderContainer.value!.style.height = '100%'
+
+        // Place the default content in the card, hide the expanded content
+        defaultCardContent.value!.style.display = 'flex'
+        expandedCardContent.value!.style.display = 'none'
+
+        ///
+        /// ^^^
+        ///
+
+        // Hide placeholder, show card
+        cardPlaceholder!.style.visibility = 'hidden'
+        card.value!.style.visibility = 'visible'
+        card.value!.style.opacity = '1.0'
+
+        // Replace placeholder
+        cardPlaceholder!.replaceWith(card.value!)
+
       }
 
       // TESTING (We'll animate these later)
-      card.value!.style.visibility = 'visible'
-      card.value!.style.opacity = '1.0'
       card.value!.style.transform = ''
+      card.value!.style.opacity = '1.0'
+      cardPlaceholder!.style.transform = ''
+      cardPlaceholder!.style.opacity = '1.0'
+      cardPlaceholder!.style.visibility = 'visible'
       
       setTimeout(() => {
         onEnd()
-      }, 0.5 * 1000);
+      }, 0.0 * 1000);
 
       return
 
