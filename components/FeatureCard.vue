@@ -173,6 +173,9 @@
 
     if (shouldExpand) {
 
+      // Load video
+      loadVideos(card.value!)
+
       // Create backdrop
       if ($store.backdrop == null) {
         var b = document.createElement('div') as HTMLElement
@@ -220,14 +223,16 @@
 
       // Create cardPlaceholder
       //  - Will be used as placeholder in the grid while we place the original card outside the grid
-      //  - Might also be used as part of the expand animation 
+      //  - Also used as part of the expand/unexpand animation 
       //    - The idea is that the placeholder has the defaultContent, and the card has the expandedContent 
       //      and then we fade out the placeholder and fade in the card while applying transforms to both to 
-      //      give the impression that the card is moving
+      //      give the impression that the card is moving. For unexpand it's the same idea but reversed
+      //  - We destroy the videos on the placeholder because we don't need to display it and it takes up lot of resources. I think causing iOS to crash after you open a few cards.
 
       if (cardPlaceholder == null) {
         cardPlaceholder = card.value!.cloneNode(true) as HTMLDivElement
-        placeholderContentContainer = findChild(cardPlaceholder, (element) => element.id == 'contentContainer')
+        placeholderContentContainer = findChild(cardPlaceholder, (element) => element.id == 'contentContainer') as HTMLDivElement
+        destroyVideos(cardPlaceholder)
       }
 
       // Set placeholder size to current card size (and replace all previous styling of the placeholder)
@@ -759,6 +764,8 @@
           video.currentTime = 0.0
         }
 
+        // Unload video
+        unloadVideos(card.value!)
       }
 
       // TESTING (We'll animate these later)
@@ -936,22 +943,47 @@
 
   }
 
+  function unloadVideos(element: HTMLElement) {
+
+    // Free videos inside `element` from memory
+    // Notes:
+    // - See https://stackoverflow.com/questions/47445281/how-to-go-about-freeing-an-html5-video-from-memory
+    // - If we don't do this iOS Safari starts crashing after opening a few cards, because they take up a lot of ram
+
+    const videos = findChildren(element, (child) =>  child.tagName == 'VIDEO') as HTMLVideoElement[]
+
+    for (const video of videos) {
+      video.dataset['src'] = video.currentSrc // Not sure why we have to use currentSrc (instead of src) here
+      video.src = ''
+      video.load()
+    }
+  }
+  function loadVideos(element: HTMLElement) {
+
+    const videos = findChildren(element, (child) =>  child.tagName == 'VIDEO') as HTMLVideoElement[]
+
+    for (const video of videos) {
+      const src = video.dataset['src']
+      if (src != undefined) {
+        video.src = src
+        video.load()
+      }
+    }
+  }
+
   function destroyVideos(element: HTMLElement) {
 
     // Unload videos and remove
     // Otherwise the videos keep playing and take up hella cpu and memory
     // See: https://stackoverflow.com/questions/3258587/how-to-properly-unload-destroy-a-video-element
 
-    while (true) {
 
-      const video: HTMLVideoElement | null = findChild(element, (child) => child.tagName == 'VIDEO') as HTMLVideoElement
-      
-      if (video == null) { break }
-
+    const videos = findChildren(element, (child) =>  child.tagName == 'VIDEO') as HTMLVideoElement[]
+    
+    for (const video of videos) {
       video.src = ''
       video.load()
-
-      video.remove()
+      video.remove()  
     }
   }
 
