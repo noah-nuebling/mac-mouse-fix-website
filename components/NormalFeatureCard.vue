@@ -32,9 +32,12 @@
             overflow-clip
             flex items-center justify-center">
 
-        <!-- Note: Keep the border color, width and radius of the video wrapper in sync with the FeatureCard to make it look nice -->
+        <!-- Notes: 
+          - Keep the border color, width and radius of the video wrapper in sync with the FeatureCard to make it look nice
+          - We set autoplay here so the video preloads on iPhone. (src: https://stackoverflow.com/a/39104082/10601702) But we control playback from js.
+        -->
 
-        <video id="vid1" preload="auto" playsinline muted alt="Remap Demo" class="object-cover w-full h-full">
+        <video id="vid1" preload="auto" playsinline autoplay muted alt="Remap Demo" class="object-cover w-full h-full bg-black">
           <source :src="videoPath" type="video/mp4">
         </video>
       </div>

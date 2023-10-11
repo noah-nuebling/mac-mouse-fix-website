@@ -125,6 +125,9 @@
     // Get reference to video
     video = findChild(card.value!, (child) => child.tagName == 'VIDEO') as HTMLVideoElement
 
+    // Stop video from autoplaying
+    video.pause()
+
     // Unexpand card after video finishes playing
     if (video != null) {
       video.addEventListener('ended', () => {
@@ -712,11 +715,6 @@
         // DEBUG
         console.log(`onEnd`)
 
-        // Reset playback time
-        if (video != null) {
-          video.currentTime = 0.0
-        }
-
         // Bring card to normal level
         card.value!.style.zIndex = '0'
 
@@ -751,6 +749,11 @@
 
         // Replace placeholder
         cardPlaceholder!.replaceWith(card.value!)
+
+        // Reset playback time
+        if (video != null) {
+          video.currentTime = 0.0
+        }
 
       }
 
