@@ -405,8 +405,10 @@
       // Define post-animation actions
       const onEnd = () => {
 
+        console.log(`on ENDDD`)
+
         // Play video, once expand animation finishes
-        if (video != null) {
+        if (isExpanded.value! == true && video != null && video.src != null) {
           video.play()
         }
 
@@ -429,6 +431,9 @@
         // // Hide default content
         // defaultCardContent.value!.style.display = 'none'
       }
+
+      tl.eventCallback('onComplete', onEnd)
+      // tl.eventCallback('onInterrupt', onEnd) // <<< TODO: Remove. OnComplete is already called everywhere we care about
 
       // Set transformOrigin
       cardPlaceholder!.style.transformOrigin = 'left top'
@@ -617,10 +622,6 @@
         scaleY: curveForInverseScaleY(1.0),
         duration: dur,
         ease: animationCurveFromRawCurve(curveForInverseScaleY).ease,
-
-        // TODO: vvv Move this to timeline end, not this random animation
-        onComplete: onEnd,
-        onInterrupt: onEnd,
       }, 0)
 
       // Counter-animate card content 
