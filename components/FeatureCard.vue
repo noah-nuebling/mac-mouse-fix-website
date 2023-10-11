@@ -87,8 +87,12 @@
 
   // Configure gsap
   // Lag smoothing prevents skipped frames
-  // This prevents issue where first few frames of animation are just skipped under desktop Safari, but when performance is too bad it can make things really unresponsive.
-  $gsap.ticker.lagSmoothing(17, 16);
+  // Notes:
+  // - This prevents issue where first few frames of animation are just skipped under desktop Safari, but when performance is too bad it can make things really unresponsive.
+  // - On iOS Safari, with batter saver enabled animations play back at half framerate, so we allow down to half framerate before slowing down the animation (values 34, 33)
+  // - This is a global gsap setting, it might not make sense to set it here.
+  
+  $gsap.ticker.lagSmoothing(34, 33);
 
   // Define vars
   const isExpanded = ref(false)
