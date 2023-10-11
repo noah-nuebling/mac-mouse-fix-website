@@ -876,13 +876,13 @@
   // Helper functions
   //
 
-  function destroyCardAndReplaceWith(copy: HTMLDivElement, replacement: HTMLElement) {
+  function destroyCardAndReplaceWith(card: HTMLDivElement, replacement: HTMLElement) {
 
     // Unload videos
-    destroyVideos(copy)
+    destroyVideos(card)
 
     // Replace
-    copy.replaceWith(replacement)
+    card.replaceWith(replacement)
   }
 
   function destroyCard(card: HTMLDivElement) {
@@ -903,7 +903,7 @@
 
     while (true) {
 
-      const video: HTMLVideoElement | null = findChild(element, (element) => element.tagName == 'VIDEO') as HTMLVideoElement
+      const video: HTMLVideoElement | null = findChild(element, (child) => child.tagName == 'VIDEO') as HTMLVideoElement
       
       if (video == null) { break }
 
