@@ -103,9 +103,11 @@
   const topCardContent: Ref<HTMLElement | null> = ref(null)  
   const defaultCardContent: Ref<HTMLElement | null> = ref(null)
   const expandedCardContent: Ref<HTMLElement | null> = ref(null)
-  const bottomCardContent: Ref<HTMLElement | null> = ref(null) 
+  const bottomCardContent: Ref<HTMLElement | null> = ref(null)
 
-  // Dynamically created elements
+  var video: HTMLVideoElement | null = null
+
+  // Define storage for dynamically created elements
   var cardPlaceholder: HTMLDivElement | null = null
   var placeholderContentContainer: HTMLDivElement | null = null
 
@@ -116,6 +118,29 @@
   defineExpose({
     expand,
   })
+
+  // Additional setup after mount
+  onMounted(() => {
+
+    // Get reference to video
+    video = findChild(card.value!, (child) => child.tagName == 'VIDEO') as HTMLVideoElement
+
+    // Unexpand card after video finishes playing
+    if (video != null) {
+      video.addEventListener('ended', () => {
+        isExpanded.value = false
+      }, false)
+    }  
+  })
+
+  // Cleanup after unmount
+  onUnmounted(() => {
+    if (animationContext != null) {
+      animationContext.revert() /* Clean up animation memory stuff or sth */
+    }
+  });
+
+  
 
   // React to isExpanded change
   watch(isExpanded, (shouldExpand) => {
@@ -368,7 +393,12 @@
       // Define post-animation actions
       const onEnd = () => {
 
-        // TODO: Remove
+        // Play video, once expand animation finishes
+        if (video != null) {
+          video.play()
+        }
+
+        // TODO: vvv Remove
 
         // // Set target style
         // card.value!.style.position = targetLayout
@@ -670,6 +700,12 @@
       // Bring card to front but behind expanding and expanded cards (which have zIndex 100)
       card.value!.style.zIndex = '99'
 
+      // Stop video
+      if (video != null) {
+        video.pause()
+        video.currentTime = 0.0 // TODO: Move to onEnd
+      }
+
       // Create copy of card in expanded state
       const expandedCopy = card.value!.cloneNode(true) as HTMLDivElement
 
@@ -742,6 +778,11 @@
       // After animation completes or is interrupted ...
       const onEnd = () => {
         
+        // Reset playback time
+        if (video != null) {
+          video.currentTime = 0.0
+        }
+
         // Hide expanded content
         // expandedCardContent.value!.style.display = 'none'
 
@@ -864,12 +905,6 @@
       })
     }
   })
-
-  onUnmounted(() => {
-    if (animationContext != null) {
-      animationContext.revert() /* Clean up animation memory stuff or sth */
-    }
-  });
 
 
   //
