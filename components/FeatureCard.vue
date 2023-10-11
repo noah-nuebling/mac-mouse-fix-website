@@ -707,7 +707,10 @@
       }
 
       // Create copy of card in expanded state
-      const expandedCopy = card.value!.cloneNode(true) as HTMLDivElement
+      const expandedPlaceholder = card.value!.cloneNode(true) as HTMLDivElement
+
+    // Replace card with expandedCopy
+      card.value!.replaceWith(expandedPlaceholder)
 
       // 
       // Restore unexpanded state of card
@@ -718,9 +721,6 @@
       // - For some reason we can't set the .style directly, but instead have to set .style.cssText
       card.value!.style.cssText = cardPlaceholder!.style.cssText
 
-      // TESTING - Remove transform
-      card.value!.style.transform = ''
-
       // Restore default style of children
       contentContainer.value!.style.height = '100%'
       borderContainer.value!.style.height = '100%'
@@ -729,26 +729,41 @@
       defaultCardContent.value!.style.display = 'flex'
       expandedCardContent.value!.style.display = 'none'
 
+      ///
+      ///
+      ///
+
+      // Replace unexpanded placeholder with now-unexpanded card, and destroy unexpanded placeholder
+      destroyCardAndReplaceWith(cardPlaceholder!, card.value!)
+
+      // After animation completes or is interrupted ...
+      const onEnd = () => {
+
+        // DEBUG
+        console.log(`onEnd`)
+        
+        // Destroy placeholder
+        destroyCard(expandedPlaceholder!)
+
+        // Reset playback time
+        if (video != null) {
+          video.currentTime = 0.0
+        }
+
+        // Bring card to normal level
+        card.value!.style.zIndex = '0'
+      }
+
       // TESTING (We'll animate these later)
       card.value!.style.visibility = 'visible'
       card.value!.style.opacity = '1.0'
+      card.value!.style.transform = ''
+      
+      setTimeout(() => {
+        onEnd()
+      }, 0.5 * 1000);
 
-      // Replace card with expandedCopy
-      // card.value!.replaceWith(expandedCopy)
-
-      // Replace placeholder with unexpanded card.
-      destroyCardAndReplaceWith(cardPlaceholder!, card.value!)
-
-      // Assign expandedCopy to placeholder
-      //  Not totally sure if the way we structure this makes sense
-      // cardPlaceholder! = expandedCopy
-
-      // Replace  
-
-      // TESTING
-      destroyCard(expandedCopy)
       return
-
 
             // Get current card size, position,
       //  Border radius, and shadow
@@ -774,24 +789,6 @@
       // Make the default content and expanded content overlap
       // defaultCardContent.value!.style.position = ''
       // expandedCardContent.value!.style.position = 'absolute'
-
-      // After animation completes or is interrupted ...
-      const onEnd = () => {
-        
-        // Reset playback time
-        if (video != null) {
-          video.currentTime = 0.0
-        }
-
-        // Hide expanded content
-        // expandedCardContent.value!.style.display = 'none'
-
-        // Bring card to normal level
-        card.value!.style.zIndex = '0'
-
-        // Debug
-        console.log(`Unexpand result - top: ${card.value!.offsetTop}, left: ${card.value!.offsetLeft}, width: ${card.value!.offsetWidth}, height: ${card.value!.offsetHeight}, parent: ${card.value!.offsetParent?.tagName}`)
-      }
 
       // Get size and position of placeholder
       const placeholderH = cardPlaceholder!.offsetHeight
