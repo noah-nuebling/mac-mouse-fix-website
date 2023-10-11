@@ -150,20 +150,7 @@
   
 
   // React to isExpanded change
-  watch(isExpanded, (shouldExpand) => {
-
-    // Apply `will-change` animation optimization css
-    // Note: Deactivating this because it doesn't seem to work. We also used to apply this on mouse hover
-    
-    if (false && card.value != null) {
-      const css = 'will-change-[transform]' //'will-change-[top,left,width,height,box-shadow,border-radius]'
-      if (shouldExpand) {
-        card.value.classList.add(css)
-      } else {
-        card.value.classList.remove(css)
-      }
-    }
-    
+  watch(isExpanded, (shouldExpand) => {    
 
     // Kill current animations
     // Not totally sure if this is appropriate here. I think it prevents the onComplete method from being called when the card is unexpanded during the expand animation, which would lead to the zIndex getting messed up.
@@ -214,12 +201,9 @@
       const originCenterX = originLeft + originWidth/2.0
       const originCenterY = originTop + originHeight/2.0
 
-      // vvv TODO: Not sure we need to record origin border style. Remove if not.
-      const originBorderWidth = parseInt(getComputedStyle(card.value!).borderWidth.slice(0, -2)) /* Slice off the `px` suffix from the string */
-      const originBorderRadius = parseInt(getComputedStyle(card.value!).borderRadius.slice(0, -2))
-
-      // Debug
-      console.log(`Offset height: ${originHeight}`)
+      // Record border style (we don't modify border style, so not needed)
+      // const originBorderWidth = parseInt(getComputedStyle(card.value!).borderWidth.slice(0, -2)) /* Slice off the `px` suffix from the string */
+      // const originBorderRadius = parseInt(getComputedStyle(card.value!).borderRadius.slice(0, -2))
 
       // Create cardPlaceholder
       //  - Will be used as placeholder in the grid while we place the original card outside the grid
@@ -235,20 +219,8 @@
         destroyVideos(cardPlaceholder)
       }
 
-      // Set placeholder size to current card size (and replace all previous styling of the placeholder)
-      // Note: Don't use tailwind here. See https://tailwindcss.com/docs/content-configuration#dynamic-class-names
-      // Edit: Why would we manually set the size of the placeholder? It should naturally be the same size as the original card since it's an exact copy. Edit2: Things seem to still work after commenting this out.
-      //  TODO: Remove this
-      // cardPlaceholder.style.height = `${originHeight}px`
-      // cardPlaceholder.style.width = `${originWidth}px`
-
       // Replace the card with the placeholder
       card.value?.replaceWith(cardPlaceholder)
-
-      // Get references to defaultCardContent and expandedCardContent in the card
-      //  TODO: Remove
-      // const defaultCardContentCopy = findChildMatchingCondition(cardPlaceholder, (child) => child.id == 'defaultCardContent' )
-      // const expandedCardContentCopy = findChildMatchingCondition(cardPlaceholder, (child) => child.id == 'expandedCardContent' )
 
       // Place the expanded content in the card, hide the default content
       defaultCardContent.value!.style.display = 'none'
@@ -352,36 +324,6 @@
         //  This is the initial state for the animation. The animation might play after a delay, so we need to set the state here to prevent flickering
         card.value.style.opacity = '0.0'
         cardPlaceholder.style.opacity = '1.0'
-
-        // Remove target style
-        //  We're going to first remove the target style, then animate the card, and then apply the target style again after the animation ends.
-        // TODO: Remove
-
-        // cardPlaceholder.style.position = ''
-
-        // cardPlaceholder.style.width = ''
-        // cardPlaceholder.style.maxWidth = ''
-        // cardPlaceholder.style.height = ''
-        // cardPlaceholder.style.maxHeight = ''
-
-        // cardPlaceholder.style.marginLeft = ''
-        // cardPlaceholder.style.marginRight = ''
-        // cardPlaceholder.style.left = ''
-        // cardPlaceholder.style.right = ''
-        // cardPlaceholder.style.top = ''
-      }
-
-      if (false) {
-
-        // TODO: Remove
-
-        // Show both the expanded content and the default content
-        defaultCardContent.value!.style.display = 'flex'
-        expandedCardContent.value!.style.display = 'flex'
-
-        // Make the default content and expanded content overlap
-        defaultCardContent.value!.style.position = 'absolute'
-        expandedCardContent.value!.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
       }
 
       // Define animation timeline
@@ -412,28 +354,9 @@
           video.play()
         }
 
-        // TODO: vvv Remove
-
-        // // Set target style
-        // card.value!.style.position = targetLayout
-
-        // card.value!.style.width = targetWidth
-        // card.value!.style.maxWidth = targetMaxWidth
-        // card.value!.style.height = targetHeight
-        // card.value!.style.maxHeight = targetMaxHeight
-
-        // card.value!.style.marginLeft = targetMarginLeft
-        // card.value!.style.marginRight = targetMarginRight
-        // card.value!.style.left = targetLeft
-        // card.value!.style.right = targetRight
-        // card.value!.style.top = targetTop
-
-        // // Hide default content
-        // defaultCardContent.value!.style.display = 'none'
       }
 
       tl.eventCallback('onComplete', onEnd)
-      // tl.eventCallback('onInterrupt', onEnd) // <<< TODO: Remove. OnComplete is already called everywhere we care about
 
       // Set transformOrigin
       cardPlaceholder!.style.transformOrigin = 'left top'
@@ -517,20 +440,6 @@
       var curveForPlaceholderContentScaleX = combineCurves(curveForPlaceholderCounterScaleX, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
       var curveForPlaceholderContentScaleY = combineCurves(curveForPlaceholderCounterScaleY, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
 
-      // DEBUG
-      // console.log(`traceeee: ${ traceRawCurve(curveForCounterScaleX) } \ntraceoo: ${ traceRawCurve(largerScaleCurve) } \ntraceaaaa: ${ traceRawCurve(curveForContentScaleX) } \ntracexxx: ${ traceRawCurve(combineCurves(curveForCounterScaleX, largerScaleCurve, (a, b) => a * 1)) }\ntraceyyy: ${ traceRawCurve(animationCurveFromRawCurve(curveForContentScaleX).ease) }`)
-
-      // Position card so it overlaps the placeholder (This is the starting state for the animation)
-      // TODO: Remove
-
-      // if (card.value) {
-      //   card.value.style.position = 'absolute'
-      //   card.value.style.top = `${startValueForTop}px`
-      //   card.value.style.left = `${startValueForLeft}px`
-      //   card.value.style.width = `${startValueForWidth}px`
-      //   card.value.style.height = `${startValueForHeight}px`
-      // }
-
       // Animate position-related styling on placeholder
 
       tl.fromTo(cardPlaceholder, {
@@ -571,10 +480,6 @@
         ease: animationCurveFromRawCurve(curveForInverseTranslateX).ease,
       }, 0)
 
-      // TESTING
-      // console.log(`CurveForLeft: ${ traceRawCurve(curveForLeft) }`)
-      // cardPlaceholder!.style.visibility = 'hidden'
-
       // Animate size-related styling on placeholder
 
       tl.fromTo(cardPlaceholder, {
@@ -608,9 +513,6 @@
       }, {
 
         scaleX: curveForInverseScaleX(1.0),
-
-        // borderRadius: targetBorderRadius,
-        // borderWidth: targetBorderWidth,
 
         duration: dur,
         ease: animationCurveFromRawCurve(curveForInverseScaleX).ease, // Ease might be same for x and y scale I think. If so, we could use a single fromTo call
