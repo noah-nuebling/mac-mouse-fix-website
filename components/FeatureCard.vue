@@ -362,7 +362,6 @@
       cardPlaceholder!.style.transformOrigin = 'left top'
       card.value!.style.transformOrigin = 'left top'
 
-
       // Animation params
       // Discussion: 
       // - We used to use more physically accurate curves with longer decelerations, but they 
@@ -385,7 +384,7 @@
       const curveForCenterY  = rawCurveFromAnimationCurve({ outputRange: { start: originCenterY, end: calcCenterY }, ease: easeForCenter })
 
       const curveForHeight   = rawCurveFromAnimationCurve({ outputRange: { start: originHeight, end: calcHeight },   ease: easeForSize })
-      const curveForWidthh    = rawCurveFromAnimationCurve({ outputRange: { start: originWidth,  end: calcWidth },    ease: easeForSize })
+      const curveForWidthh   = rawCurveFromAnimationCurve({ outputRange: { start: originWidth,  end: calcWidth },    ease: easeForSize })
 
       // Calculate animation curves for top/left of the element
 
@@ -436,129 +435,37 @@
       // Calculate transforms for placeholder content
       var curveForPlaceholderCounterScaleX = transfromCurve(curveForScaleX, (scale) => 1/scale)
       var curveForPlaceholderCounterScaleY = transfromCurve(curveForScaleY, (scale) => 1/scale)
-      
       var curveForPlaceholderContentScaleX = combineCurves(curveForPlaceholderCounterScaleX, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
       var curveForPlaceholderContentScaleY = combineCurves(curveForPlaceholderCounterScaleY, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
 
+      //
+      // Add animations to timeline
+      //
+
       // Animate position-related styling on placeholder
-
       addAnimationToTimeline(tl, cardPlaceholder, 'y', animationCurveFromRawCurve(curveForTranslateY), dur)
-
-      tl.fromTo(cardPlaceholder, {
-        x: curveForTranslateX(0.0),
-      }, {
-        x: curveForTranslateX(1.0),
-
-        duration: dur,
-        ease: animationCurveFromRawCurve(curveForTranslateX).ease,
-      }, 0)
+      addAnimationToTimeline(tl, cardPlaceholder, 'x', animationCurveFromRawCurve(curveForTranslateX), dur)
 
       // Animate position-related styling on card
-
-      tl.fromTo(card.value, {
-        y: curveForInverseTranslateY(0.0),
-      }, {
-        y: curveForInverseTranslateY(1.0),
-
-        duration: dur,
-        ease: animationCurveFromRawCurve(curveForInverseTranslateY).ease,
-      }, 0)
-
-      tl.fromTo(card.value, {
-        x: curveForInverseTranslateX(0.0),
-      }, {
-        x: curveForInverseTranslateX(1.0),
-
-        duration: dur,
-        ease: animationCurveFromRawCurve(curveForInverseTranslateX).ease,
-      }, 0)
+      addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForInverseTranslateY), dur)
+      addAnimationToTimeline(tl, card.value!, 'x', animationCurveFromRawCurve(curveForInverseTranslateX), dur)
 
       // Animate size-related styling on placeholder
-
-      tl.fromTo(cardPlaceholder, {
-        scaleX: curveForScaleX(0.0),
-      }, {
-
-        scaleX: curveForScaleX(1.0),
-
-        duration: dur,
-        ease: animationCurveFromRawCurve(curveForScaleX).ease,
-
-
-      }, 0)
-
-      tl.fromTo(cardPlaceholder, {
-        scaleY: curveForScaleY(0.0),
-      }, {
-
-        scaleY: curveForScaleY(1.0),
-
-        duration: dur,
-        ease: animationCurveFromRawCurve(curveForScaleY).ease,
-
-
-      }, 0)
+      addAnimationToTimeline(tl, cardPlaceholder, 'scaleX', animationCurveFromRawCurve(curveForScaleX), dur)
+      addAnimationToTimeline(tl, cardPlaceholder, 'scaleY', animationCurveFromRawCurve(curveForScaleY), dur)
 
       // Animate size-related styling on card
-
-      tl.fromTo(card.value, {
-        scaleX: curveForInverseScaleX(0.0),
-      }, {
-
-        scaleX: curveForInverseScaleX(1.0),
-
-        duration: dur,
-        ease: animationCurveFromRawCurve(curveForInverseScaleX).ease, // Ease might be same for x and y scale I think. If so, we could use a single fromTo call
-      }, 0)
-
-      tl.fromTo(card.value, {
-        scaleY: curveForInverseScaleY(0.0),
-      }, {
-        scaleY: curveForInverseScaleY(1.0),
-        duration: dur,
-        ease: animationCurveFromRawCurve(curveForInverseScaleY).ease,
-      }, 0)
+      addAnimationToTimeline(tl, card.value!, 'scaleX', animationCurveFromRawCurve(curveForInverseScaleX), dur)
+      addAnimationToTimeline(tl, card.value!, 'scaleY', animationCurveFromRawCurve(curveForInverseScaleY), dur)
 
       // Counter-animate card content 
       //  to prevent stretching
-      
-      tl.fromTo(contentContainer.value, {
-        scaleX: curveForContentScaleX(0.0),
-      }, {
-        scaleX: curveForContentScaleX(1.0),
-
-        duration: dur,
-        ease: animationCurveFromRawCurve(curveForContentScaleX).ease
-      }, 0)
-
-      tl.fromTo(contentContainer.value, {
-        scaleY: curveForContentScaleY(0.0),
-      }, {
-        scaleY: curveForContentScaleY(1.0),
-
-        duration: dur,
-        ease: animationCurveFromRawCurve(curveForContentScaleY).ease
-      }, 0)
+      addAnimationToTimeline(tl, contentContainer.value!, 'scaleX', animationCurveFromRawCurve(curveForContentScaleX), dur)
+      addAnimationToTimeline(tl, contentContainer.value!, 'scaleY', animationCurveFromRawCurve(curveForContentScaleY), dur)
 
       // Counter-animate placeholder content 
-
-      tl.fromTo(placeholderContentContainer, {
-        scaleX: curveForPlaceholderContentScaleX(0.0),
-      }, {
-        scaleX: curveForPlaceholderContentScaleX(1.0),
-
-        duration: dur,
-        ease: animationCurveFromRawCurve(curveForPlaceholderContentScaleX).ease
-      }, 0)
-
-      tl.fromTo(placeholderContentContainer, {
-        scaleY: curveForPlaceholderContentScaleY(0.0),
-      }, {
-        scaleY: curveForPlaceholderContentScaleY(1.0),
-
-        duration: dur,
-        ease: animationCurveFromRawCurve(curveForPlaceholderContentScaleY).ease
-      }, 0)
+      addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleX', animationCurveFromRawCurve(curveForPlaceholderContentScaleX), dur)
+      addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleY', animationCurveFromRawCurve(curveForPlaceholderContentScaleY), dur)
 
       // Fade out placeholder
       // Notes:
@@ -581,7 +488,10 @@
       }, 0)
 
 
+      // 
       // Wait until browser is done rendering, then start animation
+      //
+
       //  This works since the timeline is paused. Also we're using fromTo everywhere which renders the from state immediately.
       //  See https://stackoverflow.com/questions/15875128/is-there-element-rendered-event
 
@@ -822,7 +732,7 @@
 
   function addAnimationToTimeline(tl: gsap.core.Timeline, element: HTMLElement, property: string, curve: AnimationCurve, duration: number, offset: number = 0.0) {
 
-    console.log(`tl: ${ tl }, element: ${ element }, property: ${ property }, curve: ${ curve }, duration: ${ duration }, offset: ${ offset }`)
+    // console.log(`tl: ${ tl }, element: ${ element }, property: ${ property }, curve: ${ curve }, duration: ${ duration }, offset: ${ offset }`)
 
     tl.fromTo(element, {
       [property]: curve.outputRange.start,
