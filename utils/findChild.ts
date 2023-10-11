@@ -2,7 +2,7 @@
 export default findChild
 export { findChildren }
 
-function findChildren(node: Node, condition: (child: Node) => Boolean): Array<Node> {
+function findChildren(node: Node, condition: (child: Node) => boolean): Array<Node> {
 
   // Return empty list if this node is null
   if (node == null) {
@@ -27,7 +27,7 @@ function findChildren(node: Node, condition: (child: Node) => Boolean): Array<No
   return result
 }
 
-function findChild(node: Node, condition: (child: Node) => Boolean): Node | null {
+function findChild(node: Node, condition: (child: Node) => boolean): Node | null {
 
   // Returns `node` if `condition(node) == true`, or the first child of `node` for which `condition(child) == true`. Returns null if it can't find any node matching the `condition`. Performs depth-first search of children (I think).
 

@@ -24,7 +24,7 @@ function intervalMin(interval: Interval): number {
   return interval.start < interval.end ? interval.start : interval.end
 }
 
-function intervalIsInverted(interval: Interval): Boolean {
+function intervalIsInverted(interval: Interval): boolean {
   return interval.start != intervalMin(interval)
 }
 

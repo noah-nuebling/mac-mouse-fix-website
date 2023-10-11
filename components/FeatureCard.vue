@@ -442,14 +442,7 @@
 
       // Animate position-related styling on placeholder
 
-      tl.fromTo(cardPlaceholder, {
-        y: curveForTranslateY(0.0),
-      }, {
-        y: curveForTranslateY(1.0),
-
-        duration: dur,
-        ease: animationCurveFromRawCurve(curveForTranslateY).ease,
-      }, 0)
+      addAnimationToTimeline(tl, cardPlaceholder, 'y', animationCurveFromRawCurve(curveForTranslateY), dur)
 
       tl.fromTo(cardPlaceholder, {
         x: curveForTranslateX(0.0),
@@ -826,6 +819,29 @@
   //
   // Helper functions
   //
+
+  function addAnimationToTimeline(tl: gsap.core.Timeline, element: HTMLElement, property: string, curve: AnimationCurve, duration: number, offset: number = 0.0) {
+
+    console.log(`tl: ${ tl }, element: ${ element }, property: ${ property }, curve: ${ curve }, duration: ${ duration }, offset: ${ offset }`)
+
+    tl.fromTo(element, {
+      [property]: curve.outputRange.start,
+    }, {
+      [property]: curve.outputRange.end,
+
+      duration: duration,
+      ease: curve.ease,
+    }, offset)
+
+    // tl.fromTo(cardPlaceholder, {
+    //   'y': curveForTranslateY(0.0),
+    // }, {
+    //   'y': curveForTranslateY(1.0),
+
+    //   duration: dur,
+    //   ease: animationCurveFromRawCurve(curveForTranslateY).ease,
+    // }, 0)
+  }
 
   function destroyCardAndReplaceWith(card: HTMLDivElement, replacement: HTMLElement) {
 
