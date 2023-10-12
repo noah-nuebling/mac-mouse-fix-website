@@ -587,7 +587,7 @@
 
       return
 
-            // Get current card size, position,
+      // Get current card size, position,
       //  Border radius, and shadow
 
       const originLayout = 'absolute'
