@@ -805,9 +805,18 @@
       video.load()
 
       // This might help load thumbnails on iOS when we reopen cards
-      video.pause()
-      video.src = src 
-      video.pause()
+      // Edit: Doesn't work, just creates memory overloads again. videos just keep playing on iOS it seems. Should test again, no time now.
+      // TODO: Test this again ^^^
+      
+      setTimeout(() => {
+        video.pause()
+        video.currentTime = 0
+        video.src = src
+        video.load()
+        video.pause()
+        console.log(`videoData: preload: ${ video.preload }, currentSrc: ${ video.currentSrc }, currentTime: ${ video.currentTime }, isPaused: ${ video.paused }`)
+      }, 0.9)
+
     }
   }
   function loadVideos(element: HTMLElement) {
