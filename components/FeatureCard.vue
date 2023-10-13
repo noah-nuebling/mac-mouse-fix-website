@@ -477,7 +477,7 @@
       const viewportHeight = window.innerHeight
       const viewportCenter = viewportHeight/2.0
       const cardCenterOffset = cardCenter - viewportCenter
-      if (Math.abs(cardCenterOffset) / viewportHeight > 0.2) {
+      if (Math.abs(cardCenterOffset) / (viewportHeight/2.0) > 0.2) {
         tl.to(document.documentElement, {
           scrollTop: document.documentElement.scrollTop + cardCenterOffset,
           duration: 0.3,
