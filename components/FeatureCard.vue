@@ -34,7 +34,7 @@
           ref="minimizeHint"
           class="absolute top-0 left-0 right-0 bottom-0 bg-black/70 z-[10] flex flex-column items-center justify-center invisible opacity-0 transition-opacity">
           
-          <p class="text-white text-2xl">Click outside of this card to minimize it</p>
+          <p class="text-white text-2xl">{{ $t('feature-card.minimize-hint') }}</p>
         </div>
 
         <!-- Top -->

@@ -1,5 +1,6 @@
 export default {
   'feature-card.expand-button': 'In Aktion sehen',
+  'feature-card.minimize-hint': 'Klicke außerhalb dieser Karte, um sie zu minimieren',
 
   'trackpad-features.title': "Macs sind am besten\nMit einem {track}.\n...Oder?",
   'trackpad-features.title.track': "Trackpad",
