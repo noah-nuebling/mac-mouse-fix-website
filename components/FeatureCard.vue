@@ -463,7 +463,7 @@
       // Add animations to timeline
       //
 
-      if (!prefersReducedMotion) {
+      if (!prefersReducedMotion()) {
 
         // Animate position-related styling on placeholder
         addAnimationToTimeline(tl, cardPlaceholder, 'y', animationCurveFromRawCurve(curveForTranslateY), dur)
