@@ -438,6 +438,13 @@
       var curveForPlaceholderContentScaleX = combineCurves(curveForPlaceholderCounterScaleX, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
       var curveForPlaceholderContentScaleY = combineCurves(curveForPlaceholderCounterScaleY, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
 
+      // Add slight zoom effect on content
+      // var curveForContentZoom = rawCurveFromAnimationCurve({ outputRange: { start: 0.8, end: 1.0 }, ease: easeForSize })
+      // curveForContentScaleX = combineCurves(curveForContentScaleX, curveForContentZoom, (a, b) => a * b)
+      // curveForContentScaleY = combineCurves(curveForContentScaleY, curveForContentZoom, (a, b) => a * b)
+      // curveForPlaceholderContentScaleX = combineCurves(curveForPlaceholderContentScaleX, curveForContentZoom, (a, b) => a * b)
+      // curveForPlaceholderContentScaleY = combineCurves(curveForPlaceholderContentScaleY, curveForContentZoom, (a, b) => a * b)
+
       //
       // Add animations to timeline
       //
@@ -651,7 +658,8 @@
       const curveForInverseScaleY     = transfromCurve(curveForScaleY,     (v) => v / scaleY)
       
       // Calculate transforms for card-content
-      
+      // The direction of the < here makes it so the content scales even more than the card, making for a cool, if slightly vertigo-inducing effect. We don't do this on the expand animations, where the > are opposite (a the time of writing) Edit: Turned the effect off. Was weird.
+
       // Counter scaling cancels out the card scaling to prevent content from stretching
       var curveForCounterScaleX = transfromCurve(curveForInverseScaleX, (scale) => 1/scale)
       var curveForCounterScaleY = transfromCurve(curveForInverseScaleY, (scale) => 1/scale)
@@ -697,10 +705,10 @@
       addAnimationToTimeline(tl, contentContainer.value!, 'scaleY', animationCurveFromRawCurve(curveForPlaceholderContentScaleY), dur)
       
       // Fade out card
-      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0}, ease: (x) => x }, dur * 0.4)
+      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0}, ease: (x) => x }, dur * 0.2)
       
       // Fade in placeholder
-      addAnimationToTimeline(tl, cardPlaceholder!, 'autoAlpha', { outputRange: { start: 0.0, end: 1.0}, ease: (x) => x }, dur * 0.4)  
+      addAnimationToTimeline(tl, cardPlaceholder!, 'autoAlpha', { outputRange: { start: 0.0, end: 1.0}, ease: (x) => x }, dur * 0.2)  
       
       
       // 
