@@ -799,9 +799,15 @@
     const videos = findChildren(element, (child) =>  child.tagName == 'VIDEO') as HTMLVideoElement[]
 
     for (const video of videos) {
-      video.dataset['src'] = video.currentSrc // Not sure why we have to use currentSrc (instead of src) here
+      const src = video.currentSrc // Not sure why we have to use currentSrc (instead of src) here
+      video.dataset['src'] = src
       video.src = ''
       video.load()
+
+      // This might help load thumbnails on iOS when we reopen cards
+      video.pause()
+      video.src = src 
+      video.pause()
     }
   }
   function loadVideos(element: HTMLElement) {
