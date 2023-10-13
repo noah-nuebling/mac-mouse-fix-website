@@ -471,22 +471,10 @@
       // Notes:
       //  - Neither opacity nor autoalpha work. (Not sure what autoAlpha is) Edit: Now it does. Not sure why. autoAlpha sets visibility: hidden automatically for optimization. We'll use this if it doesn't cause problems.
 
-      tl.fromTo(cardPlaceholder, {
-        autoAlpha: 1.0,
-      }, {
-        autoAlpha: 0.0,
-        duration: 0.4 * dur,
-      }, 0)
+      addAnimationToTimeline(tl, cardPlaceholder, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0}, ease: (x) => x }, dur * 0.4)
 
       // Fade in card
-
-      tl.fromTo(card.value, {
-        autoAlpha: 0.0
-      }, {
-        autoAlpha: 1.0,
-        duration: 0.4 * dur,
-      }, 0)
-
+      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 0.0, end: 1.0}, ease: (x) => x }, dur * 0.4)
 
       // 
       // Wait until browser is done rendering, then start animation
@@ -710,22 +698,10 @@
       addAnimationToTimeline(tl, contentContainer.value!, 'scaleY', animationCurveFromRawCurve(curveForPlaceholderContentScaleY), dur)
       
       // Fade out card
-      
-      tl.fromTo(card.value!, {
-        autoAlpha: 1.0,
-      }, {
-        autoAlpha: 0.0,
-        duration: 0.4 * dur,
-      }, 0)
+      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0}, ease: (x) => x }, dur * 0.4)
       
       // Fade in placeholder
-      
-      tl.fromTo(cardPlaceholder, {
-        autoAlpha: 0.0
-      }, {
-        autoAlpha: 1.0,
-        duration: 0.4 * dur,
-      }, 0)
+      addAnimationToTimeline(tl, cardPlaceholder!, 'autoAlpha', { outputRange: { start: 0.0, end: 1.0}, ease: (x) => x }, dur * 0.4)  
       
       
       // 
