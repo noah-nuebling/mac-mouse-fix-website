@@ -203,16 +203,6 @@
       // Insert backdrop into document
       document.body.appendChild($store.backdrop)
 
-      // Close card when it is scrolled away
-      // When the card is already above the trigger zone when this is called, then the card unexpands immediately. But when it's below the trigger zone, this doesn't happen. Not sure why. I think ideally, we would scroll the card into view, but I can't get that to work right now, either. 
-      $ScrollTrigger.create({
-        trigger: card.value,
-        start: "bottom bottom",
-        end: "top top",
-        onLeave: () => isExpanded.value = false,
-        onLeaveBack: () => isExpanded.value = false,
-      })
-
       // Bring card to front
       card.value!.style.zIndex = '100'
 
@@ -378,6 +368,16 @@
         if (isExpanded.value! == true && video != null && video.src != null) {
           video.play()
         }
+
+        // Close card when it is scrolled away
+        // When the card is already above the trigger zone when this is called, then the card unexpands immediately. But when it's below the trigger zone, this doesn't happen. Not sure why. I think ideally, we would scroll the card into view, but I can't get that to work right now, either. 
+        $ScrollTrigger.create({
+          trigger: card.value,
+          start: "center bottom",
+          end: "center top",
+          onLeave: () => isExpanded.value = false,
+          onLeaveBack: () => isExpanded.value = false,
+        })
 
       }
 
