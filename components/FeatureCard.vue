@@ -178,6 +178,9 @@
     // Animate and stuff
     if (shouldExpand) {
 
+      // Scroll card into view 
+      card.value!.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' })
+
       // Set cursor
       card.value!.style.cursor = 'auto'
 
