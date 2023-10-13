@@ -175,7 +175,8 @@
     if (shouldExpand) {
 
       // Load video
-      loadVideos(card.value!)
+      //  Don't need to do this. We immediately reload the video after unloading which loads the thumbnail without loading the whole video
+      // loadVideos(card.value!)
 
       // Create backdrop
       if ($store.backdrop == null) {
@@ -815,7 +816,7 @@
         video.load()
         video.pause()
         console.log(`videoData: preload: ${ video.preload }, currentSrc: ${ video.currentSrc }, currentTime: ${ video.currentTime }, isPaused: ${ video.paused }`)
-      }, 0.9)
+      }, 0.0)
 
     }
   }
