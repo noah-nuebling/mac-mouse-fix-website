@@ -30,7 +30,8 @@
             grow
             rounded-[24px] border-[4px] m-[-4px] border-gray-50/25 
             overflow-clip
-            flex items-center justify-center">
+            flex items-center justify-center
+            ">
 
         <!-- Notes: 
           - Keep the border color, width and radius of the video wrapper in sync with the FeatureCard to make it look nice

@@ -29,7 +29,15 @@
         ref="contentContainer"
         :class="['h-full flex flex-col will-change-[transform,opacity]']">
 
-          <!-- Top -->
+        <!-- Minimize hint -->
+        <div 
+          ref="minimizeHint"
+          class="absolute top-0 left-0 right-0 bottom-0 bg-black/70 z-[10] flex flex-column items-center justify-center invisible opacity-0 transition-opacity">
+          
+          <p class="text-white text-2xl">Click outside of this card to minimize it</p>
+        </div>
+
+        <!-- Top -->
         <div ref="topCardContent" class="flex flex-col">
           <slot name="top"/>
         </div> 
@@ -109,6 +117,8 @@
   const expandedCardContent: Ref<HTMLElement | null> = ref(null)
   const bottomCardContent: Ref<HTMLElement | null> = ref(null)
 
+  var minimizeHint: Ref<HTMLDivElement | null> = ref(null)
+
   var video: HTMLVideoElement | null = null
 
   // Define storage for dynamically created elements
@@ -132,10 +142,14 @@
     // Stop video from autoplaying
     video.pause()
 
-    // Unexpand card after video finishes playing
+    // Do stuff after video ends
     if (video != null) {
       video.addEventListener('ended', () => {
-        isExpanded.value = false
+
+        // Show minimizeHint
+        minimizeHint.value!.style.visibility = 'visible'
+        minimizeHint.value!.style.opacity = '1.0'
+        
       }, false)
     }  
   })
@@ -515,7 +529,7 @@
       $store.backdrop?.remove()
 
       // Bring card to front but behind expanding and expanded cards (which have zIndex 100)
-      card.value!.style.zIndex = '101'//'99'
+      card.value!.style.zIndex = '99'
 
       // Stop video
       if (video != null) {
@@ -528,17 +542,21 @@
         // DEBUG
         console.log(`onEnd`)
 
-        // Bring card to normal level
-        card.value!.style.zIndex = '0'
-
         // 
         // Restore unexpanded state of card
         //
+
+        // Hide minimizeHint
+        minimizeHint.value!.style.visibility = 'hidden'
+        minimizeHint.value!.style.opacity = '0.0'
 
         // Replace card styling with placeholder styling
         // Notes: 
         // - For some reason we can't set the .style directly, but instead have to set .style.cssText
         card.value!.style.cssText = cardPlaceholder!.style.cssText
+
+        // Bring card to normal level
+        card.value!.style.zIndex = '0'
 
         // Remove transform
         card.value!.style.transform = ''
