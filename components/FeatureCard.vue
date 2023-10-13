@@ -513,7 +513,6 @@
       // Stop video
       if (video != null) {
         video.pause()
-        video.currentTime = 0.0 // TODO: Move to onEnd
       }
 
       // After animation completes or is interrupted ...
@@ -536,6 +535,7 @@
 
         // Remove transform
         card.value!.style.transform = ''
+        contentContainer.value!.style.transform = ''
 
         // Restore default style of children
         contentContainer.value!.style.height = '100%'
@@ -657,15 +657,14 @@
       var curveForCounterScaleY = transfromCurve(curveForInverseScaleY, (scale) => 1/scale)
       
       // This transform makes the card content scale up cover the card during the animation, but without stretching. 
-      //  Basically we apply the same animation to the content (both axes) as to axis of the card which scales up less.
-      var curveForContentScaleX = combineCurves(curveForCounterScaleX, scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
-      var curveForContentScaleY = combineCurves(curveForCounterScaleY, scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
+      var curveForContentScaleY = combineCurves(curveForCounterScaleY, scaleX > scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
+      var curveForContentScaleX = combineCurves(curveForCounterScaleX, scaleX > scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
       
       // Calculate transforms for placeholder content
       var curveForPlaceholderCounterScaleX = transfromCurve(curveForScaleX, (scale) => 1/scale)
       var curveForPlaceholderCounterScaleY = transfromCurve(curveForScaleY, (scale) => 1/scale)
-      var curveForPlaceholderContentScaleX = combineCurves(curveForPlaceholderCounterScaleX, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
-      var curveForPlaceholderContentScaleY = combineCurves(curveForPlaceholderCounterScaleY, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
+      var curveForPlaceholderContentScaleX = combineCurves(curveForPlaceholderCounterScaleX, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
+      var curveForPlaceholderContentScaleY = combineCurves(curveForPlaceholderCounterScaleY, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
       
       //
       // Add animations to timeline
