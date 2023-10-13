@@ -125,6 +125,9 @@
   var cardPlaceholder: HTMLDivElement | null = null
   var placeholderContentContainer: HTMLDivElement | null = null
 
+  // Check reducedMotion
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   // Methods for parent
   function expand() {
     isExpanded.value = true
@@ -463,30 +466,33 @@
       // Add animations to timeline
       //
 
-      // Animate position-related styling on placeholder
-      addAnimationToTimeline(tl, cardPlaceholder, 'y', animationCurveFromRawCurve(curveForTranslateY), dur)
-      addAnimationToTimeline(tl, cardPlaceholder, 'x', animationCurveFromRawCurve(curveForTranslateX), dur)
+      if (!reduceMotion) {
 
-      // Animate position-related styling on card
-      addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForInverseTranslateY), dur)
-      addAnimationToTimeline(tl, card.value!, 'x', animationCurveFromRawCurve(curveForInverseTranslateX), dur)
+        // Animate position-related styling on placeholder
+        addAnimationToTimeline(tl, cardPlaceholder, 'y', animationCurveFromRawCurve(curveForTranslateY), dur)
+        addAnimationToTimeline(tl, cardPlaceholder, 'x', animationCurveFromRawCurve(curveForTranslateX), dur)
 
-      // Animate size-related styling on placeholder
-      addAnimationToTimeline(tl, cardPlaceholder, 'scaleX', animationCurveFromRawCurve(curveForScaleX), dur)
-      addAnimationToTimeline(tl, cardPlaceholder, 'scaleY', animationCurveFromRawCurve(curveForScaleY), dur)
+        // Animate position-related styling on card
+        addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForInverseTranslateY), dur)
+        addAnimationToTimeline(tl, card.value!, 'x', animationCurveFromRawCurve(curveForInverseTranslateX), dur)
 
-      // Animate size-related styling on card
-      addAnimationToTimeline(tl, card.value!, 'scaleX', animationCurveFromRawCurve(curveForInverseScaleX), dur)
-      addAnimationToTimeline(tl, card.value!, 'scaleY', animationCurveFromRawCurve(curveForInverseScaleY), dur)
+        // Animate size-related styling on placeholder
+        addAnimationToTimeline(tl, cardPlaceholder, 'scaleX', animationCurveFromRawCurve(curveForScaleX), dur)
+        addAnimationToTimeline(tl, cardPlaceholder, 'scaleY', animationCurveFromRawCurve(curveForScaleY), dur)
 
-      // Counter-animate card content 
-      //  to prevent stretching
-      addAnimationToTimeline(tl, contentContainer.value!, 'scaleX', animationCurveFromRawCurve(curveForContentScaleX), dur)
-      addAnimationToTimeline(tl, contentContainer.value!, 'scaleY', animationCurveFromRawCurve(curveForContentScaleY), dur)
+        // Animate size-related styling on card
+        addAnimationToTimeline(tl, card.value!, 'scaleX', animationCurveFromRawCurve(curveForInverseScaleX), dur)
+        addAnimationToTimeline(tl, card.value!, 'scaleY', animationCurveFromRawCurve(curveForInverseScaleY), dur)
 
-      // Counter-animate placeholder content 
-      addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleX', animationCurveFromRawCurve(curveForPlaceholderContentScaleX), dur)
-      addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleY', animationCurveFromRawCurve(curveForPlaceholderContentScaleY), dur)
+        // Counter-animate card content 
+        //  to prevent stretching
+        addAnimationToTimeline(tl, contentContainer.value!, 'scaleX', animationCurveFromRawCurve(curveForContentScaleX), dur)
+        addAnimationToTimeline(tl, contentContainer.value!, 'scaleY', animationCurveFromRawCurve(curveForContentScaleY), dur)
+
+        // Counter-animate placeholder content 
+        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleX', animationCurveFromRawCurve(curveForPlaceholderContentScaleX), dur)
+        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleY', animationCurveFromRawCurve(curveForPlaceholderContentScaleY), dur)
+      }
 
       // Fade out placeholder
       // Notes:
@@ -696,31 +702,33 @@
       // Add animations to timeline
       //
       
-      // TODO: Update comments (swap placeholder for card)
 
-      // Animate position-related styling on card
-      addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForTranslateY), dur)
-      addAnimationToTimeline(tl, card.value!, 'x', animationCurveFromRawCurve(curveForTranslateX), dur)
-      
-      // Animate position-related styling on placeholder
-      addAnimationToTimeline(tl, cardPlaceholder!, 'y', animationCurveFromRawCurve(curveForInverseTranslateY), dur)
-      addAnimationToTimeline(tl, cardPlaceholder!, 'x', animationCurveFromRawCurve(curveForInverseTranslateX), dur)
-      
-      // Animate size-related styling on card
-      addAnimationToTimeline(tl, card.value!, 'scaleX', animationCurveFromRawCurve(curveForScaleX), dur)
-      addAnimationToTimeline(tl, card.value!, 'scaleY', animationCurveFromRawCurve(curveForScaleY), dur)
-      
-      // Animate size-related styling on placeholder
-      addAnimationToTimeline(tl, cardPlaceholder!, 'scaleX', animationCurveFromRawCurve(curveForInverseScaleX), dur)
-      addAnimationToTimeline(tl, cardPlaceholder!, 'scaleY', animationCurveFromRawCurve(curveForInverseScaleY), dur)
-      
-      // Counter-animate placeholder content
-      addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleX', animationCurveFromRawCurve(curveForContentScaleX), dur)
-      addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleY', animationCurveFromRawCurve(curveForContentScaleY), dur)
-      
-      // Counter-animate card content 
-      addAnimationToTimeline(tl, contentContainer.value!, 'scaleX', animationCurveFromRawCurve(curveForPlaceholderContentScaleX), dur)
-      addAnimationToTimeline(tl, contentContainer.value!, 'scaleY', animationCurveFromRawCurve(curveForPlaceholderContentScaleY), dur)
+      if (!reduceMotion) {
+
+        // Animate position-related styling on card
+        addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForTranslateY), dur)
+        addAnimationToTimeline(tl, card.value!, 'x', animationCurveFromRawCurve(curveForTranslateX), dur)
+        
+        // Animate position-related styling on placeholder
+        addAnimationToTimeline(tl, cardPlaceholder!, 'y', animationCurveFromRawCurve(curveForInverseTranslateY), dur)
+        addAnimationToTimeline(tl, cardPlaceholder!, 'x', animationCurveFromRawCurve(curveForInverseTranslateX), dur)
+        
+        // Animate size-related styling on card
+        addAnimationToTimeline(tl, card.value!, 'scaleX', animationCurveFromRawCurve(curveForScaleX), dur)
+        addAnimationToTimeline(tl, card.value!, 'scaleY', animationCurveFromRawCurve(curveForScaleY), dur)
+        
+        // Animate size-related styling on placeholder
+        addAnimationToTimeline(tl, cardPlaceholder!, 'scaleX', animationCurveFromRawCurve(curveForInverseScaleX), dur)
+        addAnimationToTimeline(tl, cardPlaceholder!, 'scaleY', animationCurveFromRawCurve(curveForInverseScaleY), dur)
+        
+        // Counter-animate placeholder content
+        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleX', animationCurveFromRawCurve(curveForContentScaleX), dur)
+        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleY', animationCurveFromRawCurve(curveForContentScaleY), dur)
+        
+        // Counter-animate card content 
+        addAnimationToTimeline(tl, contentContainer.value!, 'scaleX', animationCurveFromRawCurve(curveForPlaceholderContentScaleX), dur)
+        addAnimationToTimeline(tl, contentContainer.value!, 'scaleY', animationCurveFromRawCurve(curveForPlaceholderContentScaleY), dur)
+      }
       
       // Fade out card
       addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0}, ease: (x) => x }, dur * 0.2)
