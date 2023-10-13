@@ -34,7 +34,7 @@
           ref="minimizeHint"
           class="absolute top-0 left-0 right-0 bottom-0 bg-black/70 z-[10] flex flex-column items-center justify-center invisible opacity-0 transition-opacity">
           
-          <p class="text-white text-2xl">{{ $t('feature-card.minimize-hint') }}</p>
+          <p class="text-white text-center text-2xl">{{ $t('feature-card.minimize-hint') }}</p>
         </div>
 
         <!-- Top -->
@@ -255,10 +255,10 @@
 
       const targetLayout = 'absolute'
 
-      const targetWidth = `min(max(66%, ${700}px), 95%, 800px)`
+      const targetWidth = `min(max(66%, ${700}px), 95%, 800px, 120vh)`
       const targetMaxWidth = '100%'
-      const targetHeight = /* '900px' */ 'fit-content'
-      const targetMaxHeight = '80vh'
+      const targetHeight = 'fit-content'
+      const targetMaxHeight = 'auto'
 
       const targetMarginLeft = 'auto'
       const targetMarginRight = 'auto'
