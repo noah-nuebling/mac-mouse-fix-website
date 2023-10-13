@@ -125,9 +125,6 @@
   var cardPlaceholder: HTMLDivElement | null = null
   var placeholderContentContainer: HTMLDivElement | null = null
 
-  // Check reducedMotion
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
   // Methods for parent
   function expand() {
     isExpanded.value = true
@@ -466,7 +463,7 @@
       // Add animations to timeline
       //
 
-      if (!reduceMotion) {
+      if (!prefersReducedMotion) {
 
         // Animate position-related styling on placeholder
         addAnimationToTimeline(tl, cardPlaceholder, 'y', animationCurveFromRawCurve(curveForTranslateY), dur)
@@ -703,7 +700,7 @@
       //
       
 
-      if (!reduceMotion) {
+      if (!prefersReducedMotion()) {
 
         // Animate position-related styling on card
         addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForTranslateY), dur)
@@ -834,6 +831,11 @@
       video.load()
       video.remove()  
     }
+  }
+
+  function prefersReducedMotion(): boolean {
+    // We tried fetching this once when the component is loaded, but that seems to break nuxt SSR prerendering
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches
   }
 
 </script>
