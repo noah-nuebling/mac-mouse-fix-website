@@ -384,9 +384,9 @@
       // - dur: 0.5, sizeCurve: criticalSpring(4.0), centerCurve: criticalSpring(6.0)
       // - dur: 0.45, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
       
-      const dur = 0.5
-      const easeForSize = criticalSpring(4.0)
-      const easeForCenter = criticalSpring(6.0)
+      const dur = 0.45
+      const easeForSize = $Power2.easeOut
+      const easeForCenter = $Power3.easeOut
 
       // 
       // Animation preprocessing
@@ -622,8 +622,8 @@
        // - dur: 0.6, sizeCurve: $Power4.easeOut, centerCurve: $Power3.easeOut
 
       const dur = 0.6
-      const easeForSize = criticalSpring(6.0)
-      const easeForCenter = criticalSpring(5.0)
+      const easeForSize = $Power4.easeOut
+      const easeForCenter = $Power3.easeOut
       
       // 
       // Animation preprocessing
