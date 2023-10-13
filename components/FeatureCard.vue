@@ -178,9 +178,6 @@
     // Animate and stuff
     if (shouldExpand) {
 
-      // Scroll card into view 
-      card.value!.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' })
-
       // Set cursor
       card.value!.style.cursor = 'auto'
 
@@ -473,6 +470,20 @@
       //
       // Add animations to timeline
       //
+
+      // Scroll card into center of screen
+      const cardViewPortOffset = card.value!.getBoundingClientRect();
+      const cardCenter = cardViewPortOffset.top + cardViewPortOffset.height/2.0
+      const viewportHeight = window.innerHeight
+      const viewportCenter = viewportHeight/2.0
+      const cardCenterOffset = cardCenter - viewportCenter
+      if (Math.abs(cardCenterOffset) > viewportHeight * 0.2) {
+        tl.to(document.documentElement, {
+          scrollTop: document.documentElement.scrollTop + cardCenterOffset,
+          duration: dur * 1.0,
+          ease: $Power3.easeOut,
+        })
+      }
 
       if (!prefersReducedMotion()) {
 
