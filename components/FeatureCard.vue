@@ -16,7 +16,7 @@
 <template>
   <div
     ref="card"
-    :class="['relative h-full overflow-clip will-change-[transform,opacity]', $props.class]">
+    :class="['relative h-full overflow-clip cursor-pointer will-change-[transform,opacity]', $props.class]">
 
     <!-- Border Container -->
     <div
@@ -172,7 +172,14 @@
       animationContext.kill()
     }
 
+    // DEBUG
+    console.log(`Set card cursor to: ${ card.value!.style.cursor }`)
+
+    // Animate and stuff
     if (shouldExpand) {
+
+      // Set cursor
+      card.value!.style.cursor = 'auto'
 
       // Load video
       //  Don't need to do this. We immediately reload the video after unloading which loads the thumbnail without loading the whole video
@@ -181,7 +188,7 @@
       // Create backdrop
       if ($store.backdrop == null) {
         var b = document.createElement('div') as HTMLElement
-        b.classList.add('h-screen', 'w-screen', 'z-[50]', 'fixed', 'top-0', 'left-0')
+        b.classList.add('h-screen', 'w-screen', 'z-[50]', 'fixed', 'top-0', 'left-0', 'cursor-pointer')
         // b.classList.add('bg-stone-900/50') // Not displaying the backdrop. But using it to close card when user click outside the card
         $store.backdrop = b
       }
@@ -558,6 +565,10 @@
         // Notes: 
         // - For some reason we can't set the .style directly, but instead have to set .style.cssText
         card.value!.style.cssText = cardPlaceholder!.style.cssText
+
+        // Set cursor
+        // 'pointer' is the hand
+        card.value!.style.cursor = 'pointer'
 
         // Bring card to normal level
         card.value!.style.zIndex = '0'

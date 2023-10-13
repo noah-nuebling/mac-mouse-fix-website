@@ -5,7 +5,7 @@
 <template>
   <FeatureCard 
     ref="thisCard"
-    class="feature-card col-span-auto cursor-pointer group shadow-md rounded-[24px]" 
+    class="feature-card col-span-auto group shadow-md rounded-[24px]" 
     borderClass="border-[4px] border-gray-50/25 rounded-[24px]"
 
     @click="$refs.thisCard.expand()">
