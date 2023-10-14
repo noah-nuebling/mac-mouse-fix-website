@@ -75,6 +75,7 @@ export default {
       }
       const options = {
         values: {
+          none: '',
           sm: '0 0.02em 2px var(--tw-shadow-color), 0 0.01em 8px var(--tw-shadow-color)', // Alternative: '0 0.02em 1px var(--tw-shadow-color), 0 0.02em 4px var(--tw-shadow-color), 0 0.01em 28px var(--tw-shadow-color)',
           lg: '0 0.02em 1px var(--tw-shadow-color), 0 0.02em 4px var(--tw-shadow-color), 0 0.01em 20px var(--tw-shadow-color), 0 0.01em 24px var(--tw-shadow-color)',
           xl: '0 0.02em 1px var(--tw-shadow-color), 0 0.02em 4px var(--tw-shadow-color), 0 0.01em 20px var(--tw-shadow-color), 0 0.01em 24px var(--tw-shadow-color), 0 0.01em 28px var(--tw-shadow-color), 0 0.01em 32px var(--tw-shadow-color)',

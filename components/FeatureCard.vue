@@ -21,7 +21,7 @@
     <!-- Border Container -->
     <div
       ref="borderContainer"
-      :class="['h-full overflow-clip', $props.borderClass]">
+      :class="['min-h-full overflow-clip', $props.borderClass]">
 
         <!-- Content Container -->
       <div

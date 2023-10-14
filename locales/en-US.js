@@ -38,6 +38,6 @@ export default {
   'remap-engine.body': "Mac Mouse Fix's incredibly intuitive, yet remarkably flexible UI lets you set up your mouse exactly how you want it in seconds.",
 
   'feature.action-table.title': 'Introducing: Action Table',
-  'feature.action-table.body': "Just put the pointer over the '+'-field and click, drag, and scroll away. Then choose an action which will be performed whenever you perform these inputs. Done!",
+  'feature.action-table.body': "With this UI you can add a new action to your mouse in just a few seconds:\n1. Put the mouse pointer over the '+'-field\n2. Click, drag, and scroll away!\n3. Choose an action\nDone! Now you can use the action you chose by clicking, dragging, or scrolling in the way you just did.",
 
 };
