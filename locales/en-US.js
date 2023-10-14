@@ -1,4 +1,5 @@
 export default {
+
   'feature-card.expand-button': 'See It in Action',
   'feature-card.minimize-hint': 'Click outside of this card to minimize it',
 
@@ -34,5 +35,9 @@ export default {
   'remap-engine.title': 'Incredibly {first}.\n{second} Flexible.',
   'remap-engine.title.first': 'Intuitive',
   'remap-engine.title.second': 'Formidably',
-  'remap-engine.body': "Mac Mouse Fix's incredibly intuitive, yet remarkably flexible UI lets you set up your mouse exactly how you want it in seconds."
+  'remap-engine.body': "Mac Mouse Fix's incredibly intuitive, yet remarkably flexible UI lets you set up your mouse exactly how you want it in seconds.",
+
+  'feature.action-table.title': 'Introducing: Action Table',
+  'feature.action-table.body': "Just put the pointer over the '+'-field and click, drag, and scroll away. Then choose an action which will be performed whenever you perform these inputs. Done!",
+
 };

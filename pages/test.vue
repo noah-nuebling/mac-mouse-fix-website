@@ -60,6 +60,8 @@
     
     <i18n-t tag="p" keypath="remap-engine.body" class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]"></i18n-t>
 
+    <NormalFeatureCard titleKey="feature.action-table.title" bodyKey="feature.action-table.body" :videoPath="remapDemoVideoPath" class="shadow-slate-900/30 bg-white text-black"/>
+
 
     <!-- 
       Language Picker
