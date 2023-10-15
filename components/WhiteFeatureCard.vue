@@ -11,17 +11,17 @@
     @click="$refs.thisCard.expand()">
 
     <template v-slot:top> 
-      <h3 class="text-2xl font-bold text-white/90 text-shadow-sm m-6 shadow-black/30">{{ $t(titleKey) }}</h3>
+      <!-- <h3 class="text-2xl font-bold text-white/90 text-shadow-sm m-6 shadow-black/30">{{ $t(titleKey) }}</h3> -->
     </template>
     <template v-slot:default>
-      <div class="flex flex-col items-center h-full m-6 -mt-7 mb-3">
+      <div class="flex flex-col items-center h-full m-6 -mt-0 mb-3">
         <div class="min-w-full -mx-6">
           <!-- <img src="~assets/img/mac-menubar-ventura.png" alt=""> -->
         </div>
-        <div class="w-[1400px] mt-1 mb-[-200px] translate-x-[300px]">
+        <div class="w-[1400px] mt-1 mb-[-245px] translate-x-[345px]">
           <img src="~assets/img/mmf-on-studio-display-4.png" class="" alt="">
         </div>
-        <div class="bg-white/50 rounded-[15px] backdrop-blur-xl shadow-md px-5 py-3 -mt-5 mb-9">
+        <div class="bg-white/50 rounded-[15px] backdrop-blur-xl shadow-md px-5 py-3 -mt-5 mb-9 hidden">
           <!-- <p class="text-base text-slate-900 whitespace-pre-wrap text-shadow-none shadow-black/100 text-start">{{ $t(bodyKey) }}</p> -->
           
           <p class="text-base text-slate-900/90 whitespace-pre-wrap text-shadow-none shadow-black/100 text-start mb-1">
