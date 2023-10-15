@@ -6,34 +6,37 @@
   <FeatureCard 
     ref="thisCard"
     class="feature-card col-span-auto group shadow-md rounded-[24px] max-w-[1000px]" 
-    borderClass="border-[4px] border-gray-50/25 rounded-[24px]"
+    borderClass="border-[4px] border-gray-50/25 rounded-[24px] backdrop-blur-2xl"
 
     @click="$refs.thisCard.expand()">
 
     <template v-slot:top> 
-      <!-- <h3 class="text-2xl font-bold text-gray-800/100 m-6 shadow-black/100">{{ $t(titleKey) }}</h3> -->
+      <h3 class="text-2xl font-bold text-white/90 text-shadow-sm m-6 shadow-black/30">{{ $t(titleKey) }}</h3>
     </template>
     <template v-slot:default>
-      <div class="flex flex-col items-center h-full m-6 mt-0 mb-3">
+      <div class="flex flex-col items-center h-full m-6 -mt-7 mb-3">
         <div class="min-w-full -mx-6">
           <!-- <img src="~assets/img/mac-menubar-ventura.png" alt=""> -->
         </div>
-        <div class="w-[1700px] mt-1 mb-[-240px] translate-x-[22%]">
-          <img src="~assets/img/mmf-on-studio-display-3.png" class="" alt="">
+        <div class="w-[1400px] mt-1 mb-[-200px] translate-x-[300px]">
+          <img src="~assets/img/mmf-on-studio-display-4.png" class="" alt="">
         </div>
-        <div class="bg-white/50 rounded-[15px] backdrop-blur-xl shadow-md px-5 py-3 -mt-5 mb-5">
+        <div class="bg-white/50 rounded-[15px] backdrop-blur-xl shadow-md px-5 py-3 -mt-5 mb-9">
           <!-- <p class="text-base text-slate-900 whitespace-pre-wrap text-shadow-none shadow-black/100 text-start">{{ $t(bodyKey) }}</p> -->
           
           <p class="text-base text-slate-900/90 whitespace-pre-wrap text-shadow-none shadow-black/100 text-start mb-1">
-            <b>With this UI you can add a new action to your mouse in just a few seconds</b>
+            <b>With the Action Table you can add a new action to your mouse in just a few seconds</b>
           </p>
           <ol class="list-decimal list-inside mb-1">
             <li>Put the mouse pointer over the '+'-field</li>
-            <li>Click, drag, and scroll away</li>
+            <li>Click, drag, or scroll on your mouse</li>
             <li>Choose an action</li>
           </ol>
           <p>
             Done! Now you can use the action you chose by clicking, dragging, or scrolling in the way you just did.
+          </p>
+          <p>
+            You can also double click, use keyboard modifiers, and more.
           </p>
         </div>
       </div>
