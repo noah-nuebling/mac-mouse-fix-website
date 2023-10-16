@@ -11,6 +11,8 @@
 
    
 
+    <!-- Replaces Trackpad -->
+
     <i18n-t tag="h2" keypath="trackpad-features.title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-0 mt-20 text-gray-800">
       <template #track> 
         <span class="text-gradient-blue">{{ $t('trackpad-features.title.track')}}</span> 
@@ -49,6 +51,9 @@
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-blue">Think </span>It.<br> <span class="text-gradient-green-yellow">Click</span> It.<br><span class="text-gradient-orange">Do</span> It.</h2> -->
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">As <span class="text-gradient-green-yellow">Flexible</span> as Your Mind.<br>As <span class="text-gradient-orange">Fast</span> As You Can Think.</h2> -->
     
+
+    <!-- Action Table -->
+
     <i18n-t tag="h2" keypath="remap-engine.title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">
       <template #first>
         <span class="text-gradient-green-yellow"> {{ $t('remap-engine.title.first') }}</span>
@@ -81,6 +86,37 @@
       <SmallFeatureCard titleKey="feature.smart-zoom.title"       :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-purple-content normal-feature-card-style-purple"/>
     </div> 
     -->
+
+
+    <!-- Scrolling -->
+    <i18n-t tag="h2" keypath="scrolling..title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">
+      <template #first>
+        <span class="text-gradient-green-yellow"> {{ $t('scrolling.title.first') }}</span>
+      </template>
+      <template #second>
+        <span class="text-gradient-orange"> {{ $t('scrolling.title.second') }}</span>
+      </template>
+    </i18n-t>
+
+    <!-- This is good software -->
+    <i18n-t tag="h2" keypath="good-sofware.title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">
+      <template #first>
+        <span class="text-gradient-green-yellow"> {{ $t('good-sofware.title.first') }}</span>
+      </template>
+      <template #second>
+        <span class="text-gradient-orange"> {{ $t('good-sofware.title.second') }}</span>
+      </template>
+    </i18n-t>
+
+    <!-- Pricing -->
+    <i18n-t tag="h2" keypath="pricing.title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">
+      <template #first>
+        <span class="text-gradient-green-yellow"> {{ $t('pricing.title.first') }}</span>
+      </template>
+      <template #second>
+        <span class="text-gradient-orange"> {{ $t('pricing.title.second') }}</span>
+      </template>
+    </i18n-t>
 
     <div class="min-h-[2000px]"></div>
 
