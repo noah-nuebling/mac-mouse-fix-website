@@ -5,13 +5,14 @@
 <template>
   <FeatureCard 
     ref="thisCard"
-    class="feature-card col-span-auto group shadow-md rounded-[24px]" 
-    borderClass="border-[4px] border-gray-50/25 rounded-[24px] backdrop-blur-2xl"
+    class="feature-card col-span-auto group shadow-md rounded-[24px] shadow-black/30 text-shadow-sm"
+    backgroundFilterClass="backdrop-blur-2xl" 
+    borderClass="border-[4px] border-gray-50/25 rounded-[24px]"
 
     @click="$refs.thisCard.expand()">
 
     <template v-slot:top> 
-      <h3 class="text-2xl font-bold text-white/90 text-shadow-sm m-6 shadow-black/30">Unlimited Possibilities With Keyboard Shortcuts</h3>
+      <h3 class="text-2xl font-bold text-white/90 text-shadow-sm m-6 shadow-black/30">⌘ Keyboard Shortcuts</h3>
     </template>
     <template v-slot:default>
       <div class="flex flex-col items-center h-full m-6 -mt-0 mb-3">
@@ -19,9 +20,9 @@
           <!-- <img src="~assets/img/mac-menubar-ventura.png" alt=""> -->
         </div>
         <div>
-          <p class="text-base text-white/100 whitespace-pre-wrap shadow-black/30 text-shadow-sm">Mac Mouse Fix lets you use keyboard shortcuts straight from your mouse. So you <b>copy and paste, undo and redo, switch between tabs in Safari, control media playback and audio volume</b>, and pretty much anything else you can think of! </p>
+          <p class="text-base text-white/100 whitespace-pre-wrap shadow-black/30 text-shadow-sm">Mac Mouse Fix lets you use keyboard shortcuts straight from your mouse. So you <b>copy and paste, undo and redo, switch between tabs in Safari, control media playback or audio volume</b>, and pretty much anything else you can think of - all with the press of a mouse button.</p>
         </div>
-        <div class="w-[1400px] mt-1 mb-[-245px] translate-x-[345px]">
+        <div class="w-[1400px] mt-1 mb-[-245px] translate-x-[345px] hidden">
           <img src="~assets/img/mmf-on-studio-display-keyboard.png" class="" alt="">
         </div>
         <div class="bg-white/50 rounded-[15px] backdrop-blur-xl shadow-md px-5 py-3 -mt-5 mb-9 hidden">
@@ -31,7 +32,7 @@
             <b>Unlimited possibilities with Keyboard Shortcuts</b>
           </p>
           <p>
-            Mac Mouse Fix lets you use keyboard shortcuts straight from your mouse. So you <b>copy and paste, undo and redo, switch between tabs in Safari, control media playback and audio volume</b>, and pretty much anything else you can think of! 
+            Mac Mouse Fix let's you use keyboard shortcuts. So you <b>copy and paste, undo and redo, switch between tabs in Safari, control media playback or audio volume</b>, and pretty much anything else you can think of - straight from your mouse. 
           </p>  
         </div>
       </div>

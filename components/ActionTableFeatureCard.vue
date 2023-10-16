@@ -6,18 +6,36 @@
   <FeatureCard 
     ref="thisCard"
     class="feature-card col-span-auto group shadow-md rounded-[24px]" 
-    borderClass="border-[4px] border-gray-50/25 rounded-[24px] backdrop-blur-2xl"
+    backgroundFilterClass="backdrop-blur-2xl"
+    borderClass="border-[4px] border-gray-50/25 rounded-[24px]"
 
     @click="$refs.thisCard.expand()">
 
     <template v-slot:top> 
-      <!-- <h3 class="text-2xl font-bold text-white/90 text-shadow-sm m-6 shadow-black/30">{{ $t(titleKey) }}</h3> -->
+      <h3 class="text-2xl font-bold text-white/90 text-shadow-sm m-6 shadow-black/30">Actions</h3>
     </template>
     <template v-slot:default>
-      <div class="flex flex-col items-center h-full m-6 -mt-0 mb-3">
+      <div class="ml-6 text-base text-white/100 whitespace-pre-wrap shadow-black/30 text-shadow-sm ">
+          <p class="mb-1">
+            <b>With the Action Table you can add a new action to your mouse in just a few seconds</b>
+          </p>
+          <ol class="list-decimal list-inside mb-1">
+            <li>Put the mouse pointer over the '+'-field</li>
+            <li>Click, drag, or scroll on your mouse</li>
+            <li>Choose an action</li>
+          </ol>
+          <p>
+            Done! Now you can use the action you chose by clicking, dragging, or scrolling in the way you just did.
+          </p>
+          <p>
+            You can also double click, use keyboard modifiers, and more.
+          </p>
+        </div>
+        <div class="flex flex-col items-center h-full m-6 -mt-0 mb-3">
         <div class="min-w-full -mx-6">
           <!-- <img src="~assets/img/mac-menubar-ventura.png" alt=""> -->
         </div>
+        
         <div class="w-[1400px] mt-1 mb-[-245px] translate-x-[345px]">
           <img src="~assets/img/mmf-on-studio-display-4.png" class="" alt="">
         </div>
@@ -40,7 +58,7 @@
           </p>
         </div>
       </div>
-      <div class="backdrop-blur-xl rounded-[0px] border-t-[4px] mt-5 border-gray-50/25 min-h-[52px] flex items-center justify-center cursor-pointer group-hover:underline">
+      <div class="backdrop-blur-xl rounded-[0px] border-t-[4px] mt-5 border-gray-50/25 min-h-[52px] flex items-center justify-center cursor-pointer group-hover:underline text-shadow-lg shadow-black/30">
         <!-- vvv Can't seem to give the inline play button image a shadow vvv -->
         <a class="text-lg dark-bg text-white/90 text-center shadow-black/100"><span class=""> See How to Add Actions to Your Mouse</span><span class="inline-space-[8]"/><img src="~/assets/img/play.circle-dark@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-3.6px] filter brightness-0 invert drop-shadow-xl"></a>
       </div>

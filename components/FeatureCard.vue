@@ -16,57 +16,61 @@
 <template>
   <div
     ref="card"
-    :class="['relative h-full cursor-pointer will-change-[transform,opacity]', $props.class]">
+    :class="['relative h-full cursor-pointer overflow-clip will-change-[transform,opacity]', $props.class]">
 
-    <!-- Border Container -->
-    <div
-      ref="borderContainer"
-      :class="['h-full overflow-clip', $props.borderClass]">
+    <!-- Background Filter Container -->
+    <div :class="['h-full w-full overflow-clip', $props.backgroundFilterClass]">
 
-        <!-- Content Container -->
+      <!-- Border Container -->
       <div
-        id="contentContainer"
-        ref="contentContainer"
-        :class="['h-full flex flex-col will-change-[transform,opacity]']">
+        ref="borderContainer"
+        :class="['h-full overflow-clip', $props.borderClass]">
 
-        <!-- Minimize hint -->
-        <div 
-          ref="minimizeHint"
-          class="absolute top-0 left-0 right-0 bottom-0 bg-black/70 z-[10] flex flex-column items-center justify-center invisible opacity-0 transition-opacity">
-          
-          <p class="text-white text-center text-2xl">{{ $t('feature-card.minimize-hint') }}</p>
-        </div>
+          <!-- Content Container -->
+        <div
+          id="contentContainer"
+          ref="contentContainer"
+          :class="['h-full flex flex-col will-change-[transform,opacity]']">
 
-        <!-- Top -->
-        <div ref="topCardContent" class="flex flex-col">
-          <slot name="top"/>
-        </div> 
-
-        <!-- Swap -->
-        <div ref="swappableContentContainer" class="min-h-0 min-w-0
-                                                    grow
-                                                    flex flex-col">
-
-          <!-- Default -->
-          <div ref="defaultCardContent" id="defaultCardContent" class="min-h-0 min-w-0
-                                              grow
-                                              flex flex-col">
-            <slot name="default"/>
+          <!-- Minimize hint -->
+          <div 
+            ref="minimizeHint"
+            class="absolute top-0 left-0 right-0 bottom-0 bg-black/70 z-[10] flex flex-column items-center justify-center invisible opacity-0 transition-opacity">
+            
+            <p class="text-white text-center text-2xl">{{ $t('feature-card.minimize-hint') }}</p>
           </div>
 
-          <!-- Expanded -->
-          <div ref="expandedCardContent" id="expandedCardContent" class="min-h-0 min-w-0
+          <!-- Top -->
+          <div ref="topCardContent" class="flex flex-col">
+            <slot name="top"/>
+          </div> 
+
+          <!-- Swap -->
+          <div ref="swappableContentContainer" class="min-h-0 min-w-0
+                                                      grow
+                                                      flex flex-col">
+
+            <!-- Default -->
+            <div ref="defaultCardContent" id="defaultCardContent" class="min-h-0 min-w-0
                                                 grow
-                                                hidden flex-col">
-            <slot name="expanded"/>
+                                                flex flex-col">
+              <slot name="default"/>
+            </div>
+
+            <!-- Expanded -->
+            <div ref="expandedCardContent" id="expandedCardContent" class="min-h-0 min-w-0
+                                                  grow
+                                                  hidden flex-col">
+              <slot name="expanded"/>
+            </div>
           </div>
-        </div>
 
-        <!-- Bottom -->
-        <div ref="bottomCardContent" class="flex flex-col">
-          <slot name="bottom"/>
-        </div>
+          <!-- Bottom -->
+          <div ref="bottomCardContent" class="flex flex-col">
+            <slot name="bottom"/>
+          </div>
 
+        </div>
       </div>
     </div>
   </div>
@@ -91,6 +95,7 @@
   var props = defineProps({
     class: String,
     borderClass: String,
+    backgroundFilterClass: String,
   })
 
   // Configure gsap
