@@ -16,7 +16,7 @@
 <template>
   <div
     ref="card"
-    :class="['relative h-full overflow-clip cursor-pointer will-change-[transform,opacity]', $props.class]">
+    :class="['relative h-full cursor-pointer will-change-[transform,opacity]', $props.class]">
 
     <!-- Border Container -->
     <div

@@ -5,7 +5,7 @@
 <template>
   <FeatureCard 
     ref="thisCard"
-    class="feature-card col-span-auto group shadow-md rounded-[24px] max-w-[1000px]" 
+    class="feature-card col-span-auto group shadow-md rounded-[24px]" 
     borderClass="border-[4px] border-gray-50/25 rounded-[24px] backdrop-blur-2xl"
 
     @click="$refs.thisCard.expand()">
@@ -42,7 +42,7 @@
       </div>
       <div class="backdrop-blur-xl rounded-[0px] border-t-[4px] mt-5 border-gray-50/25 min-h-[52px] flex items-center justify-center cursor-pointer group-hover:underline">
         <!-- vvv Can't seem to give the inline play button image a shadow vvv -->
-        <a class="text-lg dark-bg text-white/90 text-center shadow-black/100"><span class="">{{ $t('feature-card.expand-button') }}</span><span class="inline-space-[8]"/><img src="~/assets/img/play.circle-dark@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-3.6px] filter brightness-0 invert drop-shadow-xl"></a>
+        <a class="text-lg dark-bg text-white/90 text-center shadow-black/100"><span class=""> See How to Add Actions to Your Mouse</span><span class="inline-space-[8]"/><img src="~/assets/img/play.circle-dark@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-3.6px] filter brightness-0 invert drop-shadow-xl"></a>
       </div>
     </template>
     <template v-slot:expanded>
