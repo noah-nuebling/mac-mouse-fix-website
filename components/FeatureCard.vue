@@ -19,7 +19,9 @@
     :class="['relative h-full cursor-pointer overflow-clip will-change-[transform,opacity]', $props.class]">
 
     <!-- Background Filter Container -->
-    <div :class="['h-full w-full overflow-clip', $props.backgroundFilterClass]">
+    <div 
+      ref="backgroundFilterContainer"
+      :class="['h-full w-full', $props.backgroundFilterClass]">
 
       <!-- Border Container -->
       <div
@@ -116,6 +118,7 @@
   const card: Ref<HTMLElement | null> = ref(null)
   const contentContainer: Ref<HTMLElement | null> = ref(null)
   const borderContainer: Ref<HTMLElement | null> = ref(null)
+  const backgroundFilterContainer: Ref<HTMLElement | null> = ref(null)
 
   const topCardContent: Ref<HTMLElement | null> = ref(null)  
   const defaultCardContent: Ref<HTMLElement | null> = ref(null)
@@ -299,6 +302,7 @@
         // TODO: Set this back to full on unexpand
         contentContainer.value!.style.height = 'fit-content'
         borderContainer.value!.style.height = 'fit-content'
+        backgroundFilterContainer.value!.style.height = 'fit-content'
 
         // Place in document
         cardPlaceholder?.offsetParent?.appendChild(card.value)
@@ -599,6 +603,7 @@
         // Restore default style of children
         contentContainer.value!.style.height = '100%'
         borderContainer.value!.style.height = '100%'
+        backgroundFilterContainer.value!.style.height = '100%'
 
         // Place the default content in the card, hide the expanded content
         defaultCardContent.value!.style.display = 'flex'

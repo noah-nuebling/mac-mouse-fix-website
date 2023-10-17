@@ -12,25 +12,12 @@
     @click="$refs.thisCard.expand()">
 
     <template v-slot:top> 
-      <h3 class="text-2xl font-bold text-white/90 text-shadow-sm m-6 shadow-black/30">Actions</h3>
+      <h3 class="text-2xl font-bold text-white/90 text-shadow-sm m-6 shadow-black/30">Adding Actions</h3>
     </template>
     <template v-slot:default>
-      <div class="ml-6 text-base text-white/100 whitespace-pre-wrap shadow-black/30 text-shadow-sm ">
-          <p class="mb-1">
-            <b>With the Action Table you can add a new action to your mouse in just a few seconds</b>
-          </p>
-          <ol class="list-decimal list-inside mb-1">
-            <li>Put the mouse pointer over the '+'-field</li>
-            <li>Click, drag, or scroll on your mouse</li>
-            <li>Choose an action</li>
-          </ol>
-          <p>
-            Done! Now you can use the action you chose by clicking, dragging, or scrolling in the way you just did.
-          </p>
-          <p>
-            You can also double click, use keyboard modifiers, and more.
-          </p>
-        </div>
+      <div class="mx-6 text-base text-white/100 whitespace-pre-wrap shadow-black/30 text-shadow-sm">
+          <p class="indent-0">With Mac Mouse Fix, you can assign actions when you <b>click a mouse button, click and drag, click and scroll, click and hold, double click, triple click, hold a keyboard modifier then click</b>, and so much more - and it's so quick and simple, a 5 year old could do it.</p>
+      </div>
         <div class="flex flex-col items-center h-full m-6 -mt-0 mb-3">
         <div class="min-w-full -mx-6">
           <!-- <img src="~assets/img/mac-menubar-ventura.png" alt=""> -->
