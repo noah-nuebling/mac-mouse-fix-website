@@ -52,6 +52,31 @@
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">As <span class="text-gradient-green-yellow">Flexible</span> as Your Mind.<br>As <span class="text-gradient-orange">Fast</span> As You Can Think.</h2> -->
     
 
+
+    <!-- Scrolling -->
+    <!--
+      Ideas:
+      - Scrolling Has Never Felt So Good
+      - Scroll About with Style
+      - Get On The Scroller-Coaster
+      - Bad UX? Scroll Past That.
+      - Schlechte Software? Einfach weiterscrollen.
+      - Bad software? Just keep scrolling.
+      - An Expensive Trackpad? Just Keep Scrolling.
+    -->
+
+    <h2 class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-violet">Scrolling</span> Has Never
+    <br>Felt So <span class="text-gradient-redd">Good</span>.
+    </h2>
+
+    <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">
+
+      With Mac Mouse Fix, Scrolling on your mouse can feel just as smooth and responsive as it does on a Trackpad or a Touch Screen.
+      Or - if you prefer - as ridgid and predictable as it does on Windows.
+      <br><br>
+      Allows you to change mouse scrolling direction independently of trackpad scrolling direction.m
+    </p>
+
     <!-- Action Table -->
 
     <i18n-t tag="h2" keypath="remap-engine.title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">
@@ -86,17 +111,6 @@
       <SmallFeatureCard titleKey="feature.smart-zoom.title"       :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-purple-content normal-feature-card-style-purple"/>
     </div> 
     -->
-
-
-    <!-- Scrolling -->
-    <i18n-t tag="h2" keypath="scrolling..title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">
-      <template #first>
-        <span class="text-gradient-green-yellow"> {{ $t('scrolling.title.first') }}</span>
-      </template>
-      <template #second>
-        <span class="text-gradient-orange"> {{ $t('scrolling.title.second') }}</span>
-      </template>
-    </i18n-t>
 
     <!-- This is good software -->
     <i18n-t tag="h2" keypath="good-sofware.title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">

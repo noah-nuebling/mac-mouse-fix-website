@@ -108,7 +108,10 @@ Notes:
  
 
   .text-gradient-violet {
-    @apply text-transparent bg-clip-text bg-gradient-to-l from-violet-500 to-indigo-500;
+    @apply text-transparent bg-clip-text bg-gradient-to-l from-indigo-500 to-fuchsia-500;
+  }
+  .text-gradient-red { 
+    @apply text-transparent bg-clip-text bg-gradient-to-l from-red-500 to-orange-300
   }
   .text-gradient-blue {
     @apply text-transparent bg-clip-text bg-gradient-to-l from-blue-500 to-cyan-300;
