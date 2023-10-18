@@ -5,7 +5,7 @@ export default {
 
   'trackpad-features.title': "Macs Are Best\nWith a {track}\n...Right?",
   'trackpad-features.title.track': "Trackpad",
-  'trackpad-features.body': 'Do everything you do on an Apple Trackpad on your third-party mouse.* All interactions feel just as smooth and intuitive as they do on the Trackpad.',
+  'trackpad-features.body': 'Mac Mouse Fix brings all features of an Apple Trackpad to your third-party mouse.* All interactions feel just as **smooth** and **intuitive** as they do on the Trackpad.',
   'trackpad-features.cards.hint.0': 'Explore the range of Trackpad functionalities which Mac Mouse Fix brings to your mouse in the cards below.*',
   'trackpad-features.cards.hint.1': 'Click any card for a video demo.',
   

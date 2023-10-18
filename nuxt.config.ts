@@ -12,6 +12,12 @@ export default defineNuxtConfig({
   ssr: true,
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/i18n'],
+  // markdownit: {
+  //   // runtime: true // Support `$md()`
+  //   // preset: 'default',
+  //   // linkify: true,
+  //   // breaks: true, 
+  // },
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     configPath: '~~/tailwind.config.js'

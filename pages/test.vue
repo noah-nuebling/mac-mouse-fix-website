@@ -20,7 +20,7 @@
     </i18n-t>
 
 
-    <i18n-t tag="p" keypath="trackpad-features.body" class="whitespace-pre-wrap text-3xl max-w-[30em] leading-[1.4] font-medium text-gray-500/80 mb-[5rem] mt-[5rem]"></i18n-t>
+    <p v-html="$md.renderInline($t('trackpad-features.body'))" class="whitespace-pre-wrap text-3xl max-w-[30em] leading-[1.4] font-medium text-gray-500/80 mb-[5rem] mt-[5rem]"></p>
 
     <div class="bg-gray-200/50 rounded-[16px] px-3 pt-3 pb-3 mb-6 shadow-sm-inset">
       <i18n-t tag="p" keypath="trackpad-features.cards.hint.0" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-1 mt-0 w-max-[60rem]"></i18n-t>
@@ -169,6 +169,10 @@
 </template>
 
 <script setup lang="ts">
+
+/* Import plugin stuff */
+
+// const { md } = useNuxtApp()
 
 /* Import i18n stuff
     Note: Why can't we use $i18n in ts like we do in html? */
