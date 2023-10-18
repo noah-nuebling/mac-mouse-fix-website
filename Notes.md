@@ -11,6 +11,17 @@ Expanding card code example: https://greensock.com/forums/topic/21050-expanding-
 
 ---
 
+## Content
+
+- Line length and readability: https://baymard.com/blog/line-length-readability
+  - "optimal line length for body text is 50–60 characters per line, including spaces" -> CSS: 70ch or 34em
+- Readablity scores: https://readabilityformulas.com/readability-scoring-system.php#formulaResults
+  - Word length and sentence length are the most important factors
+
+---
+
+## Implementation
+
 **Best practices**
 - [ ] [Tailwind CSS tutorial series](https://www.youtube.com/watch?v=bxmDnn7lrnk&list=PL4cUxeGkcC9gpXORlEHjc5bgnIi5HEGhw&index=1)
 - [ ] Read: https://tailwindcss.com/docs/reusing-styles

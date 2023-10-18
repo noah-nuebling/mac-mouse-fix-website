@@ -20,7 +20,7 @@
     </i18n-t>
 
 
-    <i18n-t tag="p" keypath="trackpad-features.body" class="whitespace-pre-wrap text-[1.5rem] leading-[1.5] font-medium text-gray-500/80 mb-[5rem] mt-[5rem] w-max-[60rem]"></i18n-t>
+    <i18n-t tag="p" keypath="trackpad-features.body" class="whitespace-pre-wrap text-3xl max-w-[30em] leading-[1.4] font-medium text-gray-500/80 mb-[5rem] mt-[5rem]"></i18n-t>
 
     <div class="bg-gray-200/50 rounded-[16px] px-3 pt-3 pb-3 mb-6 shadow-sm-inset">
       <i18n-t tag="p" keypath="trackpad-features.cards.hint.0" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-1 mt-0 w-max-[60rem]"></i18n-t>
@@ -43,7 +43,7 @@
 
       </div>
     </div>
-    <p class="text-xl text-center text-xs text-gray-500/70 mb-7 mt-10 w-max-[60rem]">* Mac Mouse Fix can only bring all of the Trackpad-features to your third-party mouse in the way described, if your mouse has at least 5 buttons which are recognized by Mac Mouse Fix. If Mac Mouse Fix recognizes less than 5 buttons on your mouse, Mac Mouse Fix will still work great with it, but you will have to set it up in a different way to use all of the Trackpad features listed here.\nMac Mouse Fix does not currently support the Apple Magic Mouse.</p>
+    <p class="text-xs text-center text-gray-500/70 mb-7 mt-10">* Mac Mouse Fix can only bring all of the Trackpad-features to your third-party mouse in the way described, if your mouse has at least 5 buttons which are recognized by Mac Mouse Fix. If Mac Mouse Fix recognizes less than 5 buttons on your mouse, Mac Mouse Fix will still work great with it, but you will have to set it up in a different way to use all of the Trackpad features listed here.\nMac Mouse Fix does not currently support the Apple Magic Mouse.</p>
 
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">Make Your Mouse Do<br>Anything You Can <span class="text-gradient-orange">Think </span>of.<br>As Fast as You Can Think of It.</h2> -->
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-orange">Think </span>It.<br>Then Make Your Mouse Do It.</h2> -->
@@ -69,7 +69,7 @@
     <br>Felt So <span class="text-gradient-redd">Good</span>.
     </h2>
 
-    <p class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]">
+    <p class="text-3xl max-w-[30em] leading-[1.4] font-medium text-gray-500/80 mb-20">
       With Mac Mouse Fix, scrolling on your mouse will feel much better. You can can make it feel as <b>fluid</b> and <b>precise</b> as on a Trackpad, or as <b>consistent</b> and <b>predictable</b> as on Windows - with just a few clicks.
     </p>
 
@@ -111,10 +111,10 @@
       </template>
     </i18n-t>
     
-    <i18n-t tag="p" keypath="remap-engine.body" class="text-2xl font-medium text-gray-500/80 mb-20 w-max-[60rem]"></i18n-t>
+    <i18n-t tag="p" keypath="remap-engine.body" class="text-3xl max-w-[30em] leading-[1.4] font-medium text-gray-500/80 mb-20"></i18n-t>
 
     <div class="flex flex-col items-center gap-10">
-      <ActionTableFeatureCard titleKey="feature.action-table.title" bodyKey="feature.action-table.body" :videoPath="remapDemoVideoPath" class="shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] min-h-[500px] h-[500px] w-full max-w-[1000px]"/>
+      <ActionTableFeatureCard titleKey="feature.action-table.title" bodyKey="feature.action-table.body" :videoPath="remapDemoVideoPath" class="shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] min-h-[500px] h-[500px] w-full max-w-[1000px] "/>
       <KeyboardShortcutFeatureCard titleKey="feature.keyboard-shortcuts.title" bodyKey="feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath" class="shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[center_top_-30rem]  w-full max-w-[1000px]"/>
     </div>
 

@@ -20,7 +20,7 @@
           <!-- <img src="~assets/img/mac-menubar-ventura.png" alt=""> -->
         </div>
         <div>
-          <p class="text-base text-white/100 whitespace-pre-wrap shadow-black/30 text-shadow-sm">Use keyboard shortcuts straight from your mouse. So you can <b>copy and paste, undo and redo, switch between tabs in Safari, control media playback or audio volume</b>, and pretty much anything else you can think of - all with the press of a mouse button.</p>
+          <p class="text-start text-white/100 whitespace-pre-wrap shadow-black/30 text-shadow-sm max-w-[30em]">Use keyboard shortcuts straight from your mouse. So you can <b>copy and paste, undo and redo, switch between tabs in Safari, control media playback or audio volume</b>, and pretty much anything else you can think of - all with the press of a mouse button.</p>
         </div>
         <div class="w-[1400px] mt-1 mb-[-245px] translate-x-[345px] hidden">
           <img src="~assets/img/mmf-on-studio-display-keyboard.png" class="" alt="">

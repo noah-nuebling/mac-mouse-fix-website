@@ -16,7 +16,7 @@
     </template>
     <template v-slot:default>
       <div class="mx-6 text-base text-white/100 whitespace-pre-wrap shadow-black/30 text-shadow-sm">
-          <p class="indent-0">With Mac Mouse Fix, you can assign actions when you <b>click a mouse button, click and drag, click and scroll, click and hold, double click, triple click, hold a keyboard modifier then click</b>, and so much more - and it's so quick and simple, a 5 year old could do it.</p>
+          <p class="indent-0 max-w-[30em] block mx-auto">With Mac Mouse Fix, you can assign actions when you <b>click a mouse button, click and drag, click and scroll, click and hold, double click, triple click, hold a keyboard modifier then click</b>, and so much more - and it's so quick and simple, a 5 year old could do it.</p>
       </div>
         <div class="flex flex-col items-center h-full m-6 -mt-0 mb-3">
         <div class="min-w-full -mx-6">
