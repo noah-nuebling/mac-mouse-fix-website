@@ -1,6 +1,11 @@
 export default {
+
+  /* Feature Cards */
+
   'feature-card.expand-button': 'In Aktion sehen',
   'feature-card.minimize-hint': 'Klicke außerhalb dieser Karte, um sie zu minimieren',
+
+  /* Trackpad Features */
 
   'trackpad-features.title': "Macs sind am besten\nMit einem {track}.\n...Oder?",
   'trackpad-features.title.track': "Trackpad",
@@ -30,6 +35,17 @@ export default {
   'feature.zoom.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
   'feature.smart-zoom.title': 'Smart Zoom',
   'feature.smart-zoom.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
+
+  /* Scrolling */
+
+  'scroll-smoothness.high.title':     'Flüssigkeit: Hoch',
+  'scroll-smoothness.high.body':      "Die Option 'Flüssigkeit: Hoch' in Mac Mouse Fix emuliert präzise das flüssige Scrollen eines Trackpads, einschließlich Details wie dem subtilen Zurückprallen am Ende einer Seite. Das Scrollen bleibt trotzdem reaktionsschnell und präzise.",
+  'scroll-smoothness.regular.title':  'Flüssigkeit: Regulär',
+  'scroll-smoothness.regular.body':   "Wähle die Option 'Flüssigkeit: Regulär' für ein sofortiges, reaktionsschnelles Scrollen, das zwar weniger flüssig als bei einem Trackpad ist, aber dennoch ein großartiges, geschmeidiges Gefühl mit physikbasierten Animationen bietet.\n\nEs fühlt sich an wie das Scrollen in Chrome oder modernen Windows-Anwendungen, nur besser.",
+  'scroll-smoothness.off.title':      'Flüssigkeit: Aus',
+  'scroll-smoothness.off.body':       "Mit dieser Option funktioniert das Scrollen wie gewohnt unter macOS - ohne jegliche Animation oder Flüssigkeit. Aber mit einem wichtigen Unterschied: Ein Inkrement des Scrollrades scrollt in Apps wie dem Finder eine festgelegte Anzahl von *Zeilen* anstelle nur weniger Pixel.\n\nSo funktionierte das Scrollen auch in älteren macOS-Versionen, sowie in Windows und Linux.",
+
+  /* Action Table */
 
   'remap-engine.title': 'Erstaunlich {first}.\n{second} Flexibel.',
   'remap-engine.title.first': 'Intuitiv',

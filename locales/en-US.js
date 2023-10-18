@@ -1,9 +1,11 @@
 export default {
 
-  /* Trackpad Features */
+  /* Feature Cards */
 
   'feature-card.expand-button': 'See It in Action',
   'feature-card.minimize-hint': 'Click outside of this card to minimize it',
+
+  /* Trackpad Features */
 
   'trackpad-features.title': "Macs Are Best\nWith a {track}\n...Right?",
   'trackpad-features.title.track': "Trackpad",
@@ -36,12 +38,12 @@ export default {
 
   /* Scrolling */
 
-  'scroll-smoothness.high.title':     'Scroll Smoothness: High',
-  'scroll-smoothness.high.body':      "With the High Smoothing option, Mac Mouse Fix will precisely emulate the fluidity of scrolling on a Trackpad, down to details such as the little bounce when you reach the end of a page. All the while, scrolling will still feel snappy and responsive.",
-  'scroll-smoothness.regular.title':  'Scroll Smoothness: Regular',
-  'scroll-smoothness.regular.body':   'With the Regular Smoothing option, scrolling will immediately react to your finger movements, making scrolling feel highly snappy and responsive, while still providing a great smooth feel with physics-based animations.\n\nScrolling using this option will feel comparable to (but better than) scrolling in Chrome or modern Windows apps.',
-  'scroll-smoothness.off.title':      'Scroll Smoothness: Off',
-  'scroll-smoothness.off.body':       "When you disable Scroll Smoothing, scrolling will work like it normally does under macOS - without any animation or smoothing. But there is one key difference: One increment of the scrollwheel will scroll a certain number of lines in apps like Finder instead of just scrolling a few pixels. This is how scrolling used to work on old macOS versions as well as Windows and Linux.",
+  'scroll-smoothness.high.title':     'Smoothness: High',
+  'scroll-smoothness.high.body':      "The High Smoothing option in Mac Mouse Fix precisely emulates the fluid scrolling of a trackpad, including details like the subtle bounce at the end of a page. Yet, scrolling remains snappy and responsive.",
+  'scroll-smoothness.regular.title':  'Smoothness: Regular',
+  'scroll-smoothness.regular.body':   "Opt for Regular Smoothing for immediate, snappy scrolling that's less smooth than a trackpad but still provides a great, smooth feel with physics-based animations.\n\nIt feels like scrolling in Chrome or modern Windows apps, but better.",
+  'scroll-smoothness.off.title':      'Smoothness: Off',
+  'scroll-smoothness.off.body':       "With this option, scrolling works as it normally does under macOS - without any animation or smoothing. But with one key difference: One increment of the scrollwheel will scroll a set number of *lines* in apps like Finder instead of just scrolling a few pixels.\n\nThis is how scrolling used to work in older macOS versions, as well as in Windows and Linux.",
 
   /* Action Table */
 
