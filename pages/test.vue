@@ -70,7 +70,7 @@
     </h2>
 
     <p class="text-3xl max-w-[30em] leading-[1.4] font-medium text-gray-500/80 mb-20">
-      With Mac Mouse Fix, scrolling on your mouse will feel much better. You can can make it feel as <b>fluid</b> and <b>precise</b> as on a Trackpad, or as <b>consistent</b> and <b>predictable</b> as on Windows - with just a few clicks.
+      With Mac Mouse Fix, you can can make scrolling feel as <b>fluid</b> and <b>precise</b> as on a Trackpad, or as <b>consistent</b> and <b>predictable</b> as on Windows - with just a few simple clicks.
     </p>
 
     <div class="bg-gray-200/50 rounded-[16px] px-3 pt-3 pb-3 mb-6 shadow-sm-inset">
@@ -79,10 +79,9 @@
     </div>
     <div class="mb-[70px]">
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
-
-        <NormalFeatureCard titleKey="feature.launchpad.title"           bodyKey="feature.launchpad.body"        :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
-        <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
-        <NormalFeatureCard titleKey="feature.pages.title"               bodyKey="feature.pages.body"            :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
+        <NormalFeatureCard titleKey="scroll-smoothness.high.title"           bodyKey="scroll-smoothness.high.body"        :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
+        <NormalFeatureCard titleKey="scroll-smoothness.regular.title"        bodyKey="scroll-smoothness.regular.body"     :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
+        <NormalFeatureCard titleKey="scroll-smoothness.off.title"            bodyKey="scroll-smoothness.off.body"         :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
       </div>
     </div>
 

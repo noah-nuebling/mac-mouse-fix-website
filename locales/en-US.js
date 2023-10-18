@@ -1,5 +1,7 @@
 export default {
 
+  /* Trackpad Features */
+
   'feature-card.expand-button': 'See It in Action',
   'feature-card.minimize-hint': 'Click outside of this card to minimize it',
 
@@ -31,7 +33,18 @@ export default {
   'feature.zoom.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
   'feature.smart-zoom.title': 'Smart Zoom',
   'feature.smart-zoom.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
-  
+
+  /* Scrolling */
+
+  'scroll-smoothness.high.title':     'Scroll Smoothness: High',
+  'scroll-smoothness.high.body':      "With the High Smoothing option, Mac Mouse Fix will precisely emulate the fluidity of scrolling on a Trackpad, down to details such as the little bounce when you reach the end of a page. All the while, scrolling will still feel snappy and responsive.",
+  'scroll-smoothness.regular.title':  'Scroll Smoothness: Regular',
+  'scroll-smoothness.regular.body':   'With the Regular Smoothing option, scrolling will immediately react to your finger movements, making scrolling feel highly snappy and responsive, while still providing a great smooth feel with physics-based animations.\n\nScrolling using this option will feel comparable to (but better than) scrolling in Chrome or modern Windows apps.',
+  'scroll-smoothness.off.title':      'Scroll Smoothness: Off',
+  'scroll-smoothness.off.body':       "When you disable Scroll Smoothing, scrolling will work like it normally does under macOS - without any animation or smoothing. But there is one key difference: One increment of the scrollwheel will scroll a certain number of lines in apps like Finder instead of just scrolling a few pixels. This is how scrolling used to work on old macOS versions as well as Windows and Linux.",
+
+  /* Action Table */
+
   'remap-engine.title': 'Incredibly {first}.\n{second} Flexible.',
   'remap-engine.title.first': 'Intuitive',
   'remap-engine.title.second': 'Formidably',
@@ -40,4 +53,5 @@ export default {
   'feature.action-table.title': 'Action Table',
   'feature.action-table.body': "With the Action Table UI you can add a new action to your mouse in just a few seconds:\n1. Put the mouse pointer over the '+'-field\n2. Click, drag, and scroll away!\n3. Choose an action\nDone! Now you can use the action you chose by clicking, dragging, or scrolling in the way you just did.",
 
+  
 };
