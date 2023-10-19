@@ -1,4 +1,4 @@
-// Sets up a custom directive that we can pass a localization string key and it automatically looks up the translation and then passes it to a markdown parser and then makes that the content of the element
+// Sets up a custom directive "v-translate" that we can pass a localization string key and it automatically looks up the translation and then passes it to a markdown parser and then makes that the content of the element
 // See: 
 // - Nuxt docs: https://nuxt.com/docs/guide/directory-structure/plugins#vue-directives
 // - Vue docs: https://vuejs.org/guide/reusability/custom-directives.html#introduction
@@ -11,13 +11,18 @@ export default defineNuxtPlugin((app) => {
   //  Src: ChatGPT
   app.hook('app:created', () => {
 
-    // Get app instance
-    //  No idea what why this works
+    // Get app reference
+    //  This has a reference to all the stuff we provided in the other plugins
+    //  No idea why this works
     const appp = app.vueApp.$nuxt
+
+    // Get reference to i18n and markdown-it
+    const { $i18n, $md } = app 
+
     // Define directive
     app.vueApp.directive('translate', {
       mounted (el: HTMLElement, binding, vnode, prevVnode) {
-        el.innerHTML = appp.$md.renderInline(appp.$i18n.t(binding.value))
+        el.innerHTML = $md.renderInline($i18n.t(binding.value))
       },
     })
 
@@ -28,6 +33,9 @@ export default defineNuxtPlugin((app) => {
 // Helper
 
 function getCircularReplacer() {
+
+  // We used this for debugging to print circular objects to explore where in the nuxtApp the $i18n is.
+
   const ancestors = [];
   return function (key, value) {
     if (typeof value !== "object" || value === null) {
