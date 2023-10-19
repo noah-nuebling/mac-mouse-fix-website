@@ -110,7 +110,7 @@
       </template>
     </i18n-t>
     
-    <i18n-t tag="p" keypath="remap-engine.body" class="text-3xl max-w-[30em] leading-[1.4] font-medium text-gray-500/80 mb-20"></i18n-t>
+    <p v-html="$mt('remap-engine.body')" class="text-3xl max-w-[30em] leading-[1.4] font-medium text-gray-500/80 mb-20"></p>
 
     <div class="flex flex-col items-center gap-10">
       <ActionTableFeatureCard titleKey="feature.action-table.title" bodyKey="feature.action-table.body" :videoPath="remapDemoVideoPath" class="shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] min-h-[500px] h-[500px] w-full max-w-[1000px] "/>

@@ -11,17 +11,17 @@
     @click="$refs.thisCard.expand()">
 
     <template v-slot:top> 
-      <h3 class="text-2xl font-bold text-white/100 m-6 shadow-black/100" v-html="$md.renderInline($t(titleKey))"></h3>
+      <h3 class="text-2xl font-bold text-white/100 m-6 shadow-black/100" v-html="$mt(titleKey)"></h3>
     </template>
     <template v-slot:default>
       <div class="flex flex-row items-stretch h-full m-6 mt-0 mb-3">
         <div>
-          <p class="text-base text-white/100 whitespace-pre-wrap shadow-black/100" v-html="$md.renderInline($t(bodyKey))"></p>
+          <p class="text-base text-white/100 whitespace-pre-wrap shadow-black/100" v-html="$mt(bodyKey)"></p>
         </div>        
       </div>
       <div class="rounded-[0px] border-t-[4px] mt-5 border-gray-50/20 min-h-[52px] flex items-center justify-center cursor-pointer group-hover:underline">
         <!-- vvv Can't seem to give the inline play button image a shadow vvv -->
-        <a class="text-lg dark-bg text-white/100 text-center shadow-black/100"><span class="" v-html="$md.renderInline($t('feature-card.expand-button'))"></span><span class="inline-space-[8]"/><img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-3.6px] filter brightness-0 invert drop-shadow-xl"></a>
+        <a class="text-lg dark-bg text-white/100 text-center shadow-black/100"><span class="" v-html="$mt('feature-card.expand-button')"></span><span class="inline-space-[8]"/><img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-3.6px] filter brightness-0 invert drop-shadow-xl"></a>
       </div>
     </template>
     <template v-slot:expanded>
@@ -50,6 +50,7 @@
 
 <script setup lang="ts">
 
+import { $mt } from '~/utils/markdownTranslate';
 import remapDemoVideo from '@/assets/video/remap_demo_old.mp4';
 
 var props = defineProps({
