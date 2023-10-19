@@ -11,7 +11,7 @@ export default {
   'trackpad-features.title.track': "Trackpad",
   'trackpad-features.body': 'Mac Mouse Fix brings all features of an Apple Trackpad to your third-party mouse.* All interactions feel just as **smooth** and **intuitive** as they do on the Trackpad.',
   'trackpad-features.cards.hint.0': 'Explore the range of Trackpad functionalities which Mac Mouse Fix brings to your mouse in the cards below.*',
-  'trackpad-features.cards.hint.1': 'Click any card for a video demo.',
+  'trackpad-features.cards.hint.1': 'Click any card for a **video demo**.',
   
   'feature.spaces.title': 'Move Between Spaces',
   'feature.spaces.body': 'Hold a button on your mouse, then drag the mouse left or right to move to another Space with a smooth and intuitive animation which follows the movements of your hand precisely.\n\nIt works just like swiping left of right with 4 fingers on an Apple Trackpad.',
@@ -44,6 +44,13 @@ export default {
   'scroll-smoothness.regular.body':   "Opt for Regular Smoothing for immediate, snappy scrolling that's less smooth than a trackpad but still provides a great, smooth feel with physics-based animations.\n\nIt feels like scrolling in Chrome or modern Windows apps, but better.",
   'scroll-smoothness.off.title':      'Smoothness: Off',
   'scroll-smoothness.off.body':       "With this option, scrolling works as it normally does under macOS - without any animation or smoothing. But with one key difference: One increment of the scrollwheel will scroll a set number of *lines* in apps like Finder instead of just scrolling a few pixels.\n\nThis is how scrolling used to work in older macOS versions, as well as in Windows and Linux.",
+
+  'scroll-feature.reverse.title':       'Reverse Scroll Direction',
+  'scroll-feature.reverse.body':        "Mac Mouse Fix lets you invert the scrolling direction of your mouse - independently of your Trackpad or Magic Mouse.",
+  'scroll-feature.modifiers.title':     'Keyboard Modifiers',
+  'scroll-feature.modifiers.body':      "Hold a keyboard modifier while scrolling to **scroll horizontally, zoom in or out and scroll fast or precisely**",
+  'scroll-feature.configurable.title':  'Simple-yet-powerful Configuration Options',
+  'scroll-feature.configurable.body':   "You can set up scrolling in Mac Mouse Fix in many different ways with just a few clicks. And any options you choose will feel great without any fiddling. If you prefer the way that scrolling natively works in macOS, you can also turn off scrolling enhancements. (Shorten this.)",
 
   /* Action Table */
 
