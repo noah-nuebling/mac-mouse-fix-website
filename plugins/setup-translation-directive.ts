@@ -4,6 +4,7 @@
 // - Vue docs: https://vuejs.org/guide/reusability/custom-directives.html#introduction
 // - Discussion: 
 //  - All these plugins are executed with a large delay after the initial page render. That makes it so the content being loaded through this directive appears with a delay, too. I have no clue what to do about it. Already tried everything I could think of and asked GPT-4, too. See this commit: cf65ebdb7ecbdcb486004058a90a5890269af3cd. Maybe it's a bug and will go away?
+//  - DONT USE THIS - the delay described above is really bad. Instead use v-html="$mt('some.key')". It renders immediately
 
 import { defineNuxtPlugin } from "nuxt/app"
 
@@ -24,7 +25,8 @@ export default defineNuxtPlugin((app) => {
     // Define directive
     app.vueApp.directive('translate', {
       mounted (el: HTMLElement, binding, vnode, prevVnode) {
-        el.innerHTML = $md.renderInline($i18n.t(binding.value))
+
+        el.innerHTML = "don't use v-translate" //$md.renderInline($i18n.t(binding.value))
       },
     })
 
