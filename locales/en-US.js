@@ -11,7 +11,8 @@ export default {
   'trackpad-features.title.track': "Trackpad",
   'trackpad-features.body': 'Mac Mouse Fix brings all features of an Apple Trackpad to your third-party mouse.* All interactions feel just as **smooth** and **intuitive** as they do on the Trackpad.',
   'trackpad-features.cards.hint.0': '**Trackpad Features** which Mac Mouse Fix brings to your mouse',
-  'trackpad-features.cards.hint.1': 'Click any card for a **video demo**.',
+  'trackpad-features.cards.hint.1.0': 'Click any card for a',
+  'trackpad-features.cards.hint.1.1': '**Video Demo**',
   
   'feature.spaces.title': 'Move Between Spaces',
   'feature.spaces.body': 'Hold a button on your mouse, then drag the mouse left or right to move to another Space with a smooth and intuitive animation which follows the movements of your hand precisely.\n\nIt works just like swiping left of right with 4 fingers on an Apple Trackpad.',

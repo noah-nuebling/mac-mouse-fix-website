@@ -29,12 +29,16 @@
        bg-clip-text w-full"></p>
     </div> -->
 
-    <div class="bg-gray-200/50 rounded-[16px] px-6 pt-3 pb-3 mb-6 shadow-sm-inset">
-      <p v-html="$mt('trackpad-features.cards.hint.0')" class="whitespace-pre-wrap text-2xl text-start font-normal text-gray-800/70 mb-1 mt-0 w-max-[60rem]"></p>
-      <p class="whitespace-pre-wrap text-normal text-start font-normal text-gray-500/70 mb-0 mt-0 w-max-[60rem]">
-        <img src='~/assets/img/play.circle@2x.png' alt='Play Video Icon' class='mr-[7px] inline h-[1.1em] align-[-3.0px] filter brightness-0 drop-shadow-xl'>
-        <span v-html="$mt('trackpad-features.cards.hint.1')"></span>
-      </p>
+    <div class="bg-gray-200/50 rounded-[16px] px-6 pt-3 pb-3 mb-6 shadow-sm-inset flex flex-row items-center">
+      <img src='~/assets/img/rectangle.and.hand.point.up.left.filled@8x.png' alt='Play Video Icon' class='mr-[14px] inline h-[1.9em] align-[-3.0px] drop-shadow-xl'>
+      <div>
+        <p v-html="$mt('trackpad-features.cards.hint.0')" class="whitespace-pre-wrap text-2xl text-start font-normal text-gray-800/70 mb-1 mt-0 w-max-[60rem]"></p>
+        <p class="whitespace-pre-wrap text-normal text-start font-normal text-gray-700/70 mb-0 mt-0 w-max-[60rem]">
+          <span v-html="$mt('trackpad-features.cards.hint.1.0')"></span>
+          <img src='~/assets/img/play.circle@2x.png' alt='Play Video Icon' class='ml-[9px] mr-[5px] inline h-[1.1em] align-[-3.0px] filter brightness-0 drop-shadow-xl'>
+          <span v-html="$mt('trackpad-features.cards.hint.1.1')"></span>
+        </p>
+      </div>
     </div>
     
     <div class="">
