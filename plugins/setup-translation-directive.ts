@@ -2,6 +2,8 @@
 // See: 
 // - Nuxt docs: https://nuxt.com/docs/guide/directory-structure/plugins#vue-directives
 // - Vue docs: https://vuejs.org/guide/reusability/custom-directives.html#introduction
+// - Discussion: 
+//  - All these plugins are executed with a large delay after the initial page render. That makes it so the content being loaded through this directive appears with a delay, too. I have no clue what to do about it. Already tried everything I could think of and asked GPT-4, too. See this commit: cf65ebdb7ecbdcb486004058a90a5890269af3cd. Maybe it's a bug and will go away?
 
 import { defineNuxtPlugin } from "nuxt/app"
 
