@@ -5,32 +5,81 @@
 
 import { defineNuxtPlugin } from "nuxt/app"
 
-export default defineNuxtPlugin((app) => {
+export default workload()
 
-  // Wait for app to be ready.
-  //  Src: ChatGPT
-  app.hook('app:created', () => {
+function workload() {
+  
+  // DEBUG
+  // This is only printed ca. 1. second after most of the page content has appeared.
 
-    // Get app reference
-    //  This has a reference to all the stuff we provided in the other plugins
-    //  No idea why this works
-    const appp = app.vueApp.$nuxt
+  console.log(`PLUGIN CALLED`)
 
-    // Get reference to i18n and markdown-it
-    const { $i18n, $md } = app 
+  /* Object Syntax definition */
 
-    // Define directive
-    app.vueApp.directive('translate', {
-      mounted (el: HTMLElement, binding, vnode, prevVnode) {
-        el.innerHTML = $md.renderInline($i18n.t(binding.value))
+  return defineNuxtPlugin({
+
+    name: 'setup-translation-directive',
+    enforce: 'post', // Not sure what this does
+    env: {
+      islands: true // Not sure what this is
+    },
+
+    async setup (nuxtApp) {
+
+      console.log(`APP SETUP`)
+    },
+  
+    hooks: {
+      'app:beforeMount'(vueApp) {
+        // DEBUG
+        console.log(`APP BEFORE MOUNT`)
       },
-    })
+      'app:created'(vueApp) {
+              
+        // DEBUG
+        console.log(`APP CREATED`)
+        
+        // Get app reference
+        //  This has a reference to all the stuff we provided in the other plugins
+        //  No idea why this works
+        const appp = vueApp.$nuxt
+    
+        // Define directive
+        vueApp.directive('translate', {
+          created (el: HTMLElement, binding, vnode, prevVnode) {
+            console.log(`CREATEEE`)
+            el.innerHTML = binding.value //appp.$md.renderInline(appp.$i18n.t(binding.value))
+          },
+        })  
+      },
+    },
 
   })
-})
+}
+
+/* Non-object syntax definition */
+
+// export default defineNuxtPlugin((app) => {
+
+//   // Get app reference
+//   //  This has a reference to all the stuff we provided in the other plugins
+//   //  No idea why this works
+//   const appp = app.vueApp.$nuxt
+
+//   // Get reference to i18n and markdown-it
+//   const { $i18n, $md } = app 
+
+//   // Define directive
+//   app.vueApp.directive('translate', {
+//     created (el: HTMLElement, binding, vnode, prevVnode) {
+//       console.log(`CREATEEE`)
+//       el.innerHTML = $md.renderInline($i18n.t(binding.value))
+//     },
+//   })
+// })
 
 
-// Helper
+/* Helper */
 
 function getCircularReplacer() {
 

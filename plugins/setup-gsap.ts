@@ -9,6 +9,9 @@ import { Power0, Power1, Power2, Power3, Power4 } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 export default defineNuxtPlugin(nuxtApp => {
+
+  console.log(`LOAD PLUGIN: GSAP`)
+
   gsap.registerPlugin(ScrollTrigger)
 
   return {

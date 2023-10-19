@@ -7,6 +7,9 @@
 import { useGlobalStore } from "~/store/global";
 
 export default defineNuxtPlugin(nuxtApp => {
+
+  console.log(`LOAD PLUGIN: STORE`)
+
   const { $pinia } = nuxtApp
   return {
     provide: {

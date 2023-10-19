@@ -6,6 +6,8 @@ import { render } from 'nuxt/dist/app/compat/capi'
 
 export default defineNuxtPlugin(nuxtApp => {
 
+  console.log(`LOAD PLUGIN: MARKDOWNIT`)
+
   const renderer = md()
   renderer.inline
 
