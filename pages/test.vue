@@ -78,10 +78,7 @@
       With Mac Mouse Fix, you can can make scrolling feel as <b>fluid</b> and <b>precise</b> as on a Trackpad, or as <b>consistent</b> and <b>predictable</b> as on Windows - with just a few simple clicks.
     </p>
 
-    <div class="bg-gray-200/50 rounded-[16px] px-3 pt-3 pb-3 mb-6 shadow-sm-inset">
-      <p v-html="$mt('trackpad-features.cards.hint.0')" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-1 mt-0 w-max-[60rem]"></p>
-      <p v-html="$mt('trackpad-features.cards.hint.1')" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-0 mt-0 w-max-[60rem]"></p>
-    </div>
+    <CardHeader titleKey="trackpad-features.cards.hint.0" :iconPath="trackpadImagePath"/>
     <div class="mb-[70px]">
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
         <NormalFeatureCard titleKey="scroll-smoothness.high.title"           bodyKey="scroll-smoothness.high.body"        :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
@@ -90,13 +87,9 @@
       </div>
     </div>
 
-    <div class="bg-gray-200/50 rounded-[16px] px-3 pt-3 pb-3 mb-6 shadow-sm-inset">
-      <p v-html="$mt('trackpad-features.cards.hint.0')" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-1 mt-0 w-max-[60rem]"></p>
-      <p v-html="$mt('trackpad-features.cards.hint.1')" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-0 mt-0 w-max-[60rem]"></p>
-    </div>
+    <CardHeader titleKey="trackpad-features.cards.hint.0" :iconPath="trackpadImagePath" hideVideoHint/>
     <div class="">
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
-
         <NormalFeatureCard titleKey="scroll-feature.reverse.title"        bodyKey="scroll-feature.reverse.body"       :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-orange-950/30 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-cover bg-center bg-black/0 bg-blend-darken"/>
         <NormalFeatureCard titleKey="scroll-feature.modifiers.title"      bodyKey="scroll-feature.modifiers.body"     :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-blue-950/50 bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
         <NormalFeatureCard titleKey="scroll-feature.configurable.title"   bodyKey="scroll-feature.configurable.body"  :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-yellow-content normal-feature-card-style-yellow"/>
@@ -117,9 +110,10 @@
     
     <p v-html="$mt('remap-engine.body')" class="text-3xl max-w-[30em] leading-[1.4] font-medium text-gray-500/80 mb-20"></p>
 
-    <div class="flex flex-col items-center gap-10">
-      <ActionTableFeatureCard titleKey="feature.action-table.title" bodyKey="feature.action-table.body" :videoPath="remapDemoVideoPath" class="shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] min-h-[500px] h-[500px] w-full max-w-[1000px] "/>
-      <KeyboardShortcutFeatureCard titleKey="feature.keyboard-shortcuts.title" bodyKey="feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath" class="shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[center_top_-30rem]  w-full max-w-[1000px]"/>
+    <div class="flex flex-col items-center max-w-[1000px]">
+      <CardHeader titleKey="trackpad-features.cards.hint.0" :iconPath="trackpadImagePath" class="w-full gap-0"/>
+      <ActionTableFeatureCard titleKey="feature.action-table.title" bodyKey="feature.action-table.body" :videoPath="remapDemoVideoPath" class="shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] min-h-[500px] h-[500px] w-full mb-10"/>
+      <KeyboardShortcutFeatureCard titleKey="feature.keyboard-shortcuts.title" bodyKey="feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath" class="shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[center_top_-30rem]  w-full"/>
     </div>
 
     <!--     
