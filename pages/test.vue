@@ -22,9 +22,9 @@
 
     <p v-html="$md.renderInline($t('trackpad-features.body'))" class="whitespace-pre-wrap text-3xl max-w-[30em] leading-[1.4] font-medium text-gray-500/80 mb-[5rem] mt-[5rem]"></p>
 
-    <div v-cloak defer class="bg-gray-200/50 rounded-[16px] px-3 pt-3 pb-3 mb-6 shadow-sm-inset">
-      <p v-translate="'trackpad-features.cards.hint.0'" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-1 mt-0 w-max-[60rem]"></p>
-      <p v-translate="'trackpad-features.cards.hint.1'" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-0 mt-0 w-max-[60rem]"></p>
+    <div class="bg-gray-200/50 rounded-[16px] px-3 pt-3 pb-3 mb-6 shadow-sm-inset">
+      <i18n-t tag="p" keypath="trackpad-features.cards.hint.0" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-1 mt-0 w-max-[60rem]"></i18n-t>
+      <i18n-t tag="p" keypath="trackpad-features.cards.hint.1" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-0 mt-0 w-max-[60rem]"></i18n-t>
     </div>
     <div class="">
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
@@ -86,8 +86,8 @@
     </div>
 
     <div class="bg-gray-200/50 rounded-[16px] px-3 pt-3 pb-3 mb-6 shadow-sm-inset">
-      <p v-translate="'trackpad-features.cards.hint.0'" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-1 mt-0 w-max-[60rem]"></p>
-      <p v-translate="'trackpad-features.cards.hint.1'" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-0 mt-0 w-max-[60rem]"></p>
+      <i18n-t tag="p" keypath="trackpad-features.cards.hint.0" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-1 mt-0 w-max-[60rem]"></i18n-t>
+      <i18n-t tag="p" keypath="trackpad-features.cards.hint.1" class="whitespace-pre-wrap text-normal text-center font-normal text-gray-500/70 mb-0 mt-0 w-max-[60rem]"></i18n-t>
     </div>
     <div class="">
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">

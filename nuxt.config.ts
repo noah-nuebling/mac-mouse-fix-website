@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   // target: 'static', // Only on nuxt 2 I think. On nuxt 3 you use the generate script
   ssr: true,
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/i18n', 'markdown-it'],
+  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/i18n'],
   // markdownit: {
   //   // runtime: true // Support `$md()`
   //   // preset: 'default',
