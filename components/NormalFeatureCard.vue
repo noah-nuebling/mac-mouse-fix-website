@@ -7,6 +7,7 @@
     ref="thisCard"
     class="feature-card col-span-auto group shadow-md rounded-[24px]" 
     borderClass="border-[4px] border-gray-50/25 rounded-[24px]"
+    backgroundFilterClass="backdrop-blur-xll"
 
     @click="$refs.thisCard.expand()">
 

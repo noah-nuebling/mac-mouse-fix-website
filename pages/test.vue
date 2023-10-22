@@ -32,7 +32,7 @@
     <CardHeader titleKey="trackpad-features.cards.hint.0" :iconPath="trackpadImagePath"/>
     
     <div class="">
-      <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-9">
+      <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-[4.5rem]">
         <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
         <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-red-content normal-feature-card-style-red"/>
         <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="text-shadow-xl shadow-green-950/30 bg-[url('/assets/img/mac-wallpaper-sonoma.jpg')] bg-[length:1100px] bg-[center_top_-30rem] bg-black/0 bg-blend-darken"/>
@@ -42,7 +42,7 @@
 
       </div>
 
-      <hr class="mt-10 mx-[12px]">
+      <hr class="mt-10 mx-[12px] invisible">
 
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-9">
         <NormalFeatureCard titleKey="feature.zoom.title"                bodyKey="feature.zoom.body"             :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-yellow-content normal-feature-card-style-yellow"/>
@@ -52,7 +52,7 @@
         <NormalFeatureCard titleKey="feature.smart-zoom.title"          bodyKey="feature.smart-zoom.body"       :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-purple-content normal-feature-card-style-purple"/>
       </div>
     </div>
-    <p v-html="$mt('trackpad-features.disclaimer')" class="text-[1.0rem] text-center text-gray-500/60 mb-7 mt-10 whitespace-pre-line"></p>
+    <p v-html="$mt('trackpad-features.disclaimer')" class="text-[1.0rem] text-center text-gray-500/60 mb-7 mt-[4.5rem] whitespace-pre-line"></p>
 
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">Make Your Mouse Do<br>Anything You Can <span class="text-gradient-orange">Think </span>of.<br>As Fast as You Can Think of It.</h2> -->
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-orange">Think </span>It.<br>Then Make Your Mouse Do It.</h2> -->
@@ -72,14 +72,16 @@
       - Schlechte Software? Einfach weiterscrollen.
       - Bad software? Just keep scrolling.
       - An Expensive Trackpad? Just Keep Scrolling.
+      - Scrolls Like Butter.
+      - Scrolling. Smooth Like Butter.
+      - Scrolling: Smooth Like Butter.
     -->
 
-    <h2 class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-violet">Scrolling</span> Has Never
-    <br>Felt So <span class="text-gradient-redd">Good</span>.
+    <h2 class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-violet">Scrolling</span>. <br>Smooth Like <span class="text-gradient-redd">Butter</span>.
     </h2>
 
-    <p class="text-3xl max-w-[30em] leading-[1.4] font-medium text-gray-500/80 mb-20">
-      With Mac Mouse Fix, you can can make scrolling feel as <b>fluid</b> and <b>precise</b> as on a Trackpad, or as <b>consistent</b> and <b>predictable</b> as on Windows - with just a few simple clicks.
+    <p class="text-3xl font-normal text-gray-700/60 max-w-[30em] leading-[1.4] my-[4.5rem]">
+    With Mac Mouse Fix, you can can make scrolling feel as <b>smooth</b> and <b>fluid</b> as on an Apple trackpad, or as <b>consistent</b> and <b>precise</b> as on Windows - with just a few simple clicks.
     </p>
 
     <CardHeader titleKey="trackpad-features.cards.hint.0" :iconPath="trackpadImagePath"/>

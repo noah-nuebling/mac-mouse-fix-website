@@ -11,10 +11,10 @@ export default {
   */
 
 
-  'trackpad-features.title': "Macs Are Best\nWith a {track}\n...Right?",
+  'trackpad-features.title': "Macs Are Best\nWith a {track},\nRight?",
   'trackpad-features.title.track': "Trackpad",
-  'trackpad-features.body': 'Mac Mouse Fix brings all features of an Apple Trackpad to your third-party mouse. And all interactions feel just as **smooth** and **intuitive** as they do on an Apple trackpad.',
-  'trackpad-features.cards.hint.0': '**Trackpad Features** which Mac Mouse Fix brings to your mouse*',
+  'trackpad-features.body': 'Wrong. Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **cheap** and **ergonomic** third-party mouse. And all interactions feel just as **polished** and **smooth** as they do on the trackpad.',
+  'trackpad-features.cards.hint.0': '**Trackpad Gestures** which Mac Mouse Fix brings to your mouse*',
   'trackpad-features.cards.hint.1.0': 'Click any card for a',
   'trackpad-features.cards.hint.1.1': '*Video Demo*',
   
@@ -44,7 +44,7 @@ export default {
   'feature.mail-actions.title': 'Delete mails quickly and more',
   'feature.mail-actions.body': 'Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to delete messages in Mail, quickly reply to an iMessage, and more.\n\nAny gesture you can perform inside an app by swiping on an Apple trackpad works just as well using Mac Mouse Fix.',
   'feature.free-scroll.title': 'Precise 360\xB0 scrolling',
-  'feature.free-scroll.body': "Hold down **button 5** on your mouse, then **drag** the mouse in **any direction** to precisely scroll with 360° freedom and an intuitive inertial effect. So you can navigate the canvas with ease in image editing apps like Sketch and Affinity Photo.\n\nIt's just as easy and precise as scrolling on an Apple trackpad.",
+  'feature.free-scroll.body': "Hold down **button 5** on your mouse, then **drag** the mouse in **any direction** to precisely scroll with 360° freedom and an intuitive inertial effect. So you can navigate the canvas with ease in pro apps like Affinity Photo.\n\nIt's just as easy and precise as scrolling on an Apple trackpad.",
   'feature.zoom.title': 'Zoom in or out',
   'feature.zoom.body': 'Hold down **button 5** on your mouse, then **scroll** **up** or **down** to zoom in or out in apps like Safari and Preview.\n\nIt works just like pinching with two fingers on an Apple trackpad.',
   'feature.smart-zoom.title': 'Smart zoom',
@@ -55,11 +55,11 @@ export default {
   /* Scrolling */
 
   'scroll-smoothness.high.title':     'Smoothness: High',
-  'scroll-smoothness.high.body':      "The High Smoothing option in Mac Mouse Fix precisely emulates the fluid scrolling of a trackpad, including details like the subtle bounce at the end of a page. Yet, scrolling remains snappy and responsive.",
+  'scroll-smoothness.high.body':      "The high smoothness option in Mac Mouse Fix precisely emulates the fluid scrolling of a trackpad, including details like the subtle bounce at the end of a page. Yet, scrolling remains very precise and responsive.",
   'scroll-smoothness.regular.title':  'Smoothness: Regular',
-  'scroll-smoothness.regular.body':   "Opt for Regular Smoothing for immediate, snappy scrolling that's less smooth than a trackpad but still provides a great, smooth feel with physics-based animations.\n\nIt feels like scrolling in Chrome or modern Windows apps, but better.",
+  'scroll-smoothness.regular.body':   "Opt for regular smoothness for more immediate, snappy scrolling that's less smooth than a trackpad but still provides a great, refined feel with physics-based animations.\n\nIt feels like scrolling in Chrome or modern Windows apps, but better.",
   'scroll-smoothness.off.title':      'Smoothness: Off',
-  'scroll-smoothness.off.body':       "With this option, scrolling works as it normally does under macOS - without any animation or smoothing. But with one key difference: One increment of the scrollwheel will scroll a set number of *lines* in apps like Finder instead of just scrolling a few pixels.\n\nThis is how scrolling used to work in older macOS versions, as well as in Windows and Linux.",
+  'scroll-smoothness.off.body':       "With this option, scrolling works as it normally does under macOS - without any animation or smoothing. But with one key difference: One increment of the scrollwheel will scroll a set number of *lines* in apps like Finder instead of just scrolling a few pixels, making it much easier and more pleasant to navigate your content.\n\nThis is how scrolling used to work in older macOS versions, as well as in Windows and Linux.",
 
   'scroll-feature.reverse.title':       'Reverse Scroll Direction',
   'scroll-feature.reverse.body':        "Mac Mouse Fix lets you invert the scrolling direction of your mouse - independently of your Trackpad or Magic Mouse.",
