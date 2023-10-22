@@ -2,7 +2,7 @@
 <template>
   <div>
     <div class="bg-gray-200/50 rounded-[16px] px-6 py-3 shadow-sm-inset flex flex-row items-center">
-      <!-- <img :src='iconPath' alt='Play Video Icon' class='mr-4 inline h-[1.9em] translate-y-[0.25rem] drop-shadow-xl'> -->
+      <img :src='iconPath' alt='Play Video Icon' class='mr-4 inline h-[1.9em] translate-y-[0.25rem] drop-shadow-xl'>
       <div>
         <p v-html="$mt(titleKey)" class="whitespace-pre-wrap text-[1.6rem] text-start font-normal text-gray-800/70 mb-1 mt-0 w-max-[60rem]"></p>
         <p v-if="!hideVideoHint" class="whitespace-pre-wrap text-normal text-start font-normal text-gray-700/70 mb-0 mt-0 ml-1 w-max-[60rem]">

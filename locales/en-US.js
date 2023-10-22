@@ -13,14 +13,14 @@ export default {
 
   'trackpad-features.title': "Macs Are Best\nWith a {track}\n...Right?",
   'trackpad-features.title.track': "Trackpad",
-  'trackpad-features.body': 'Mac Mouse Fix brings all features of an Apple Trackpad to your third-party mouse.* All interactions feel just as **smooth** and **intuitive** as they do on the Trackpad.',
-  'trackpad-features.cards.hint.0': '**Trackpad Features** which Mac Mouse Fix brings to your mouse',
+  'trackpad-features.body': 'Mac Mouse Fix brings all features of an Apple Trackpad to your third-party mouse. And all interactions feel just as **smooth** and **intuitive** as they do on an Apple trackpad.',
+  'trackpad-features.cards.hint.0': '**Trackpad Features** which Mac Mouse Fix brings to your mouse*',
   'trackpad-features.cards.hint.1.0': 'Click any card for a',
   'trackpad-features.cards.hint.1.1': '*Video Demo*',
   
   'feature.mission-control.title': 'Mission Control',
   'feature.mission-control.body': 'Hold down **button 4** on your mouse, then **drag** the mouse **up** to see an overview of your open windows, applications, and desktops.\n\nIt works just like swiping up with four fingers on an Apple trackpad.',
-  'feature.spaces.title': 'Swipe between full-screen apps',
+  'feature.spaces.title': 'Move between full-screen apps',
   'feature.spaces.body': 'Hold down **button 4** on your mouse, then **drag** the mouse **left** or **right** to move to another desktop or fullscreen-app.\n\nIt works just like swiping left or right with four fingers on an Apple trackpad.',
   'feature.app-expose.title': 'App Exposé',
   'feature.app-expose.body': "Hold down **button 4** on your mouse, then **drag** the mouse **down** to see all windows of the app you're using.\n\nIt works just like swiping down with four fingers on an Apple trackpad.",
@@ -29,9 +29,9 @@ export default {
 
   'feature.show-desktop.body': 'Hold down **button 4** on your mouse, then **scroll** **up** to show your desktop.\n\nIt works just like spreading your thumb and three fingers apart on an Apple trackpad.',
   'feature.launchpad.title': 'Launchpad',
-  'feature.launchpad.body': 'Hold down **button 4** on your mouse, then **scroll** **down** to show your desktop.\n\nIt works just like pinching your thumb and three fingers together on an Apple trackpad.',
+  'feature.launchpad.body': 'Hold down **button 4** on your mouse, then **scroll** **down** to display Launchpad.\n\nIt works just like pinching your thumb and three fingers together on an Apple trackpad.',
   'feature.lookup.title': 'Look up and data detectors',
-  'feature.lookup.body': '**Click** **button 4** on your mouse to look up a word, preview links and files, or take actions with dates, addresses, phone numbers, and other data.\n\n It works just like tapping with 3 fingers or force clicking on an Apple trackpad.',
+  'feature.lookup.body': '**Click** **button 4** on your mouse to look up a word, preview websites and files, or take actions with dates, addresses, phone numbers, and other data.\n\n It works just like tapping with 3 fingers or force clicking on an Apple trackpad.',
 
   // Hold down button 4 on your mouse, then drag the mouse **up**
   // Hold down button 4 on your mouse, then drag the mouse **left**
@@ -49,6 +49,8 @@ export default {
   'feature.zoom.body': 'Hold down **button 5** on your mouse, then **scroll** **up** or **down** to zoom in or out in apps like Safari and Preview.\n\nIt works just like pinching with two fingers on an Apple trackpad.',
   'feature.smart-zoom.title': 'Smart zoom',
   'feature.smart-zoom.body': '**Click** **button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple trackpad.',
+
+  'trackpad-features.disclaimer': "* Mac Mouse Fix can bring these trackpad features to your third-party mouse in the way described here, only if your mouse has at least 5 buttons recognized by Mac Mouse Fix. If Mac Mouse Fix recognizes fewer than 5 buttons on your mouse, it still provides lots of functionality and a great experience, but some features will be less accessible compared to a 5-button mouse. Please note that Mac Mouse Fix does not currently support the Apple Magic Mouse.",
 
   /* Scrolling */
 
