@@ -73,7 +73,7 @@ export default {
   'remap-engine.title': 'Incredibly {first}.\n{second} Flexible.',
   'remap-engine.title.first': 'Intuitive',
   'remap-engine.title.second': 'Formidably',
-  'remap-engine.body': "Mac Mouse Fix's incredibly intuitive, yet remarkably flexible UI lets you set up your mouse exactly how you want it in seconds.",
+  'remap-engine.body': "Mac Mouse Fix's incredibly **intuitive**, yet remarkably **flexible** UI lets you set up your mouse exactly how you want it in seconds.",
 
   'feature.action-table.title': 'Action Table',
   'feature.action-table.body': "With the Action Table UI you can add a new action to your mouse in just a few seconds:\n1. Put the mouse pointer over the '+'-field\n2. Click, drag, and scroll away!\n3. Choose an action\nDone! Now you can use the action you chose by clicking, dragging, or scrolling in the way you just did.",
