@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <div class="bg-gray-200/50 rounded-[16px] px-6 pt-3 pb-3 mb-6 shadow-sm-inset flex flex-row items-center">
+    <div class="bg-gray-200/50 rounded-[16px] px-6 py-3 shadow-sm-inset flex flex-row items-center">
       <img :src='iconPath' alt='Play Video Icon' class='mr-4 inline h-[1.9em] translate-y-[0.25rem] drop-shadow-xl'>
       <div>
         <p v-html="$mt(titleKey)" class="whitespace-pre-wrap text-[1.6rem] text-start font-normal text-gray-800/70 mb-1 mt-0 w-max-[60rem]"></p>
