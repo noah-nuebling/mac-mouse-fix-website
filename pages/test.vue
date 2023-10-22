@@ -29,7 +29,7 @@
        bg-clip-text w-full"></p>
     </div> -->
 
-    <CardHeader titleKey="trackpad-features.cards.hint.0" :iconPath="trackpadImagePath"/>
+    <CardHeader titleKey="trackpad-features.header" :iconPath="trackpadImagePath" iconClass="translate-y-[3px]"/>
     
     <div class="">
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2.5rem] mt-[4.5rem]">
@@ -84,7 +84,7 @@
     With Mac Mouse Fix, you can can make scrolling feel as <b>smooth</b> and <b>fluid</b> as on an Apple trackpad, or as <b>consistent</b> and <b>precise</b> as on Windows - with just a few simple clicks.
     </p>
 
-    <CardHeader titleKey="trackpad-features.cards.hint.0" :iconPath="trackpadImagePath"/>
+    <CardHeader titleKey="scroll-smoothness.header" :iconPath="sparkleArrowsImagePath" iconClass="scale-[0.9] translate-x-[2px]"/>
 
     <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2.5rem] py-0 my-[4.5rem]">
       <NormalFeatureCard titleKey="scroll-smoothness.high.title"           bodyKey="scroll-smoothness.high.body"        :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
@@ -92,11 +92,11 @@
       <NormalFeatureCard titleKey="scroll-smoothness.off.title"            bodyKey="scroll-smoothness.off.body"         :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
     </div>
 
-    <CardHeader titleKey="trackpad-features.cards.hint.0" :iconPath="trackpadImagePath" hideVideoHint/>
+    <CardHeader titleKey="scroll-feature.header" :iconPath="gearArrowsImagePath" hideVideoHint iconClass="scale-[1.1] translate-y-[-1px]"/>
 
     <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2.5rem] my-[4.5rem]">
       <NormalFeatureCard titleKey="scroll-feature.reverse.title"        bodyKey="scroll-feature.reverse.body"       :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-orange-950/30 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-cover bg-center bg-black/0 bg-blend-darken"/>
-      <NormalFeatureCard titleKey="scroll-feature.modifiers.title"      bodyKey="scroll-feature.modifiers.body"     :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-blue-950/50 bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
+      <NormalFeatureCard titleKey="scroll-feature.modifiers.title"      bodyKey="scroll-feature.modifiers.body"     :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-blue-950/50 bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[length:800px] bg-bottom bg-black/0 bg-blend-darken"/>
       <NormalFeatureCard titleKey="scroll-feature.configurable.title"   bodyKey="scroll-feature.configurable.body"  :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-yellow-content normal-feature-card-style-yellow"/>
     </div>
 
@@ -200,6 +200,8 @@ import remapDemoVideoPath from '../assets/video/remap_demo_old.mp4'
 /* Manually import image assets */
 
 import trackpadImagePath from '../assets/img/rectangle.and.hand.point.up.left.filled@8x.png'
+import sparkleArrowsImagePath from '../assets/img/arrow.up.and.down.and.sparkles@8x.png'
+import gearArrowsImagePath from '../assets/img/arrow.gear.png'
 
 </script>
 
