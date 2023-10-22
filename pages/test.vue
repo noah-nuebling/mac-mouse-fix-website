@@ -32,7 +32,7 @@
     <CardHeader titleKey="trackpad-features.cards.hint.0" :iconPath="trackpadImagePath"/>
     
     <div class="">
-      <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mt-9">
+      <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-9">
 
         <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="text-shadow-xl shadow-green-950/30 bg-[url('/assets/img/mac-wallpaper-sonoma.jpg')] bg-[length:1100px] bg-[center_top_-30rem] bg-black/0 bg-blend-darken"/>
         <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-red-content normal-feature-card-style-red"/>
