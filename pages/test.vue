@@ -20,7 +20,7 @@
     </i18n-t>
 
 
-    <p v-html="$mt('trackpad-features.body')" class="whitespace-pre-wrap text-3xl max-w-[30em] leading-[1.4] font-medium text-gray-500/80 mb-[5rem] mt-[5rem]"></p>
+    <p v-html="$mt('trackpad-features.body')" class="whitespace-pre-wrap text-[1.875rem] font-normal text-gray-700/60 max-w-[30em] leading-[1.4] my-[4.5rem]"></p>
     <!-- <p class="whitespace-pre-wrap text-3xl font-bold text-gray-900/70 mb-10 mt-0 w-max-[60rem]">Trackpad Features Which Mac Mouse Fix Brings To Your Mouse
       
     </p>
@@ -32,7 +32,7 @@
     <CardHeader titleKey="trackpad-features.cards.hint.0" :iconPath="trackpadImagePath"/>
     
     <div class="">
-      <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 py-4">
+      <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-0 py-4">
 
         <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="text-shadow-xl shadow-green-950/30 bg-[url('/assets/img/mac-wallpaper-sonoma.jpg')] bg-[length:1100px] bg-[center_top_-30rem] bg-black/0 bg-blend-darken"/>
         <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-red-content normal-feature-card-style-red"/>
