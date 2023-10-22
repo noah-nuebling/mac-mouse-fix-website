@@ -5,8 +5,9 @@
 <template>
   <FeatureCard 
     ref="thisCard"
-    class="feature-card col-span-auto group shadow-md rounded-[24px]" 
-    borderClass="border-[4px] border-gray-50/25 rounded-[24px]"
+    :class="['feature-card col-span-auto group rounded-[24px]', $props.class]" 
+    :borderClass="['border-[4px] border-gray-50/25 rounded-[24px]', $props.borderClass]"
+    :shadowClasss="['shadow-md rounded-[24px]', $props.shadowClasss]"
 
     @click="$refs.thisCard.expand()">
 
@@ -57,6 +58,9 @@ var props = defineProps({
   titleKey: String,
   bodyKey: String,
   videoPath: String,
+  class: String,
+  borderClass: String,
+  shadowClasss: String,
 })
 
 </script>

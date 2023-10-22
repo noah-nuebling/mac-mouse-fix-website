@@ -16,7 +16,10 @@
 <template>
   <div
     ref="card"
-    :class="['relative h-full cursor-pointer overflow-clip will-change-[transform,opacity]', $props.class]">
+    :class="['relative h-full cursor-pointer', $props.class]">
+
+    <!-- Shadow Container -->
+    <div :class="['absolute top-0 left-0 right-0 bottom-0 z-[-1]', $props.shadowClasss]"></div>
 
     <!-- Background Filter Container -->
     <div 
@@ -98,6 +101,7 @@
     class: String,
     borderClass: String,
     backgroundFilterClass: String,
+    shadowClasss: String,
   })
 
   // Configure gsap
