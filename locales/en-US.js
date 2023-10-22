@@ -6,6 +6,10 @@ export default {
   'feature-card.minimize-hint': 'Click outside of this card to minimize it',
 
   /* Trackpad Features */
+  /*
+  See https://support.apple.com/en-us/102482 for Terminology reference
+  */
+
 
   'trackpad-features.title': "Macs Are Best\nWith a {track}\n...Right?",
   'trackpad-features.title.track': "Trackpad",
@@ -14,28 +18,35 @@ export default {
   'trackpad-features.cards.hint.1.0': 'Click any card for a',
   'trackpad-features.cards.hint.1.1': '*Video Demo*',
   
-  'feature.spaces.title': 'Move Between Spaces',
-  'feature.spaces.body': 'Hold a button on your mouse, then drag the mouse left or right to move to another Space with a smooth and intuitive animation which follows the movements of your hand precisely.\n\nIt works just like swiping left of right with 4 fingers on an Apple Trackpad.',
   'feature.mission-control.title': 'Mission Control',
-  'feature.mission-control.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
+  'feature.mission-control.body': 'Hold down button 4 on your mouse, then drag the mouse **up** to see an overview of your open windows, applications, and desktops.\n\nIt works just like swiping up with four fingers on an Apple trackpad.',
+  'feature.spaces.title': 'Swipe between full-screen apps',
+  'feature.spaces.body': 'Hold down button 4 on your mouse, then drag the mouse **left** or **right** to move to another desktop or fullscreen-app.\n\nIt works just like swiping left or right with four fingers on an Apple trackpad.',
   'feature.app-expose.title': 'App Exposé',
-  'feature.app-expose.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
-  'feature.show-desktop.title': 'Show Desktop',
-  'feature.show-desktop.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
+  'feature.app-expose.body': "Hold down button 4 on your mouse, then drag the mouse **down** to see all windows of the app you're using.\n\nIt works just like swiping down with four fingers on an Apple trackpad.",
+  'feature.show-desktop.title': 'Show desktop',
+  'feature.show-desktop.body': 'Hold down button 4 on your mouse, then scroll **up** to show your desktop.\n\nIt works just like spreading your thumb and three fingers apart on an Apple trackpad.',
   'feature.launchpad.title': 'Launchpad',
-  'feature.launchpad.body': 'Hold a button on your mouse, then drag the mouse left or right to move to another Space with a smooth and intuitive animation which follows the movements of your hand precisely.\n\nIt works just like swiping left of right with 4 fingers on an Apple Trackpad.',
-  'feature.lookup.title': 'Look Up & Data Detectors',
-  'feature.lookup.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
-  'feature.pages.title': 'Move between Pages',
-  'feature.pages.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
-  'feature.mail-actions.title': 'Mark Mails as Unread',
-  'feature.mail-actions.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
-  'feature.free-scroll.title': 'Scroll Freely',
-  'feature.free-scroll.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
-  'feature.zoom.title': 'Pinch to Zoom',
-  'feature.zoom.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
-  'feature.smart-zoom.title': 'Smart Zoom',
-  'feature.smart-zoom.body': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Quisquam, voluptatum.',
+  'feature.launchpad.body': 'Hold down button 4 on your mouse, then scroll **down** to show your desktop.\n\nIt works just like pinching your thumb and three fingers together on an Apple trackpad.',
+  'feature.lookup.title': 'Look up and data detectors',
+  'feature.lookup.body': 'Click button 4 on your mouse to look up a word, preview links and files, or take actions with dates, addresses, phone numbers, and other data.\n\n It works just like tapping with 3 fingers or force clicking on an Apple trackpad.',
+
+  // Hold down button 4 on your mouse, then drag the mouse **up**
+  // Hold down button 4 on your mouse, then drag the mouse **left**
+  // Hold down button 4 on your mouse, then drag the mouse **down**
+  // Hold down button 4 on your mouse, then scroll **up** to show
+  // Hold down button 4 on your mouse, then scroll **down** to show
+
+  'feature.pages.title': 'Move between pages',
+  'feature.pages.body': 'Hold down button 5 on your mouse, then drag the mouse **left** or **right** to show the previous or next page in apps like Safari.\n\nIt works just like swiping left or right with two fingers on an Apple trackpad.',
+  'feature.mail-actions.title': 'Delete mails quickly and more',
+  'feature.mail-actions.body': 'Hold down button 5 on your mouse, then drag the mouse **left** or **right** to delete messages in Mail, quickly reply to an iMessage, and more.\n\nAny gesture you can perform inside an app by swiping on an Apple trackpad works just as well using Mac Mouse Fix.',
+  'feature.free-scroll.title': 'Precise 360\xB0 scrolling',
+  'feature.free-scroll.body': "Hold down button 5 on your mouse, then drag the mouse in any direction to precisely scroll with 360° freedom and an intuitive inertial effect. So you can navigate the canvas with ease in image editing apps like Sketch and Affinity Photo.\n\nIt's just as easy and precise as scrolling on an Apple trackpad.",
+  'feature.zoom.title': 'Zoom in or out',
+  'feature.zoom.body': 'Hold down button 5 on your mouse, then scroll **up** or **down** to zoom in or out in apps like Safari and Preview.\n\nIt works just like pinching with two fingers on an Apple trackpad.',
+  'feature.smart-zoom.title': 'Smart zoom',
+  'feature.smart-zoom.body': 'Click button 5 on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple trackpad.',
 
   /* Scrolling */
 
