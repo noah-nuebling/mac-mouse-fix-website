@@ -81,7 +81,7 @@
       <NormalFeatureCard titleKey="scroll-smoothness.off.title"            bodyKey="scroll-smoothness.off.body"         :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
     </div>
 
-    <CardHeader titleKey="scroll-feature.header" :iconPath="gearArrowsImagePath" hideVideoHint iconClass="scale-[1.1] translate-y-[-1px]"/>
+    <CardHeader titleKey="scroll-feature.header" :iconPath="gearImagePath" hideVideoHint iconClass="scale-[0.8] translate-y-[-1px]"/>
 
     <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2.5rem] my-[4.5rem]">
       <NormalFeatureCard titleKey="scroll-feature.reverse.title"        bodyKey="scroll-feature.reverse.body"       :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-orange-950/30 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-cover bg-center bg-black/0 bg-blend-darken"/>
@@ -190,7 +190,8 @@ import remapDemoVideoPath from '../assets/video/remap_demo_old.mp4'
 
 import trackpadImagePath from '../assets/img/rectangle.and.hand.point.up.left.filled@8x.png'
 import sparkleArrowsImagePath from '../assets/img/arrow.up.and.down.and.sparkles@8x.png'
-import gearArrowsImagePath from '../assets/img/arrow.gear.png'
+// import gearArrowsImagePath from '../assets/img/arrow.gear.png'
+import gearImagePath from '../assets/img/gearshape@8x.png'
 
 </script>
 
