@@ -8,6 +8,7 @@
     class="feature-card col-span-auto group shadow-md rounded-[24px] shadow-black/30 text-shadow-sm"
     backgroundFilterClass="backdrop-blur-2xl" 
     borderClass="border-[4px] border-gray-50/25 rounded-[24px]"
+    :doesExpand="true"
 
     @click="$refs.thisCard.expand()">
 

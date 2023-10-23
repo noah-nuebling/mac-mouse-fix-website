@@ -16,7 +16,7 @@
 <template>
   <div
     ref="card"
-    :class="['relative h-full cursor-pointer overflow-clip will-change-[transform,opacity]', $props.class]">
+    :class="['relative h-full overflow-clip will-change-[transform,opacity]', $props.class, doesExpand ? 'cursor-pointer' : '']">
 
     <!-- Background Filter Container -->
     <div 
@@ -80,96 +80,106 @@
 
 <script setup lang="ts">
   
-  import { transformVNodeArgs } from "nuxt/dist/app/compat/capi";
-  import { AnimationCurve, Curve, transfromCurve, combineCurves } from "~/utils/animationCurveForStart";
-  import findChildMatchingCondition from "~/utils/findChild"
-  import tailwindConfig from "~/tailwind.config";
-  import resolveConfig from 'tailwindcss/resolveConfig'
+import { transformVNodeArgs } from "nuxt/dist/app/compat/capi";
+import { AnimationCurve, Curve, transfromCurve, combineCurves } from "~/utils/animationCurveForStart";
+import findChildMatchingCondition from "~/utils/findChild"
+import tailwindConfig from "~/tailwind.config";
+import resolveConfig from 'tailwindcss/resolveConfig'
 
-  // Import (is that the right term?) vue/nuxt stuff
-  const { $ScrollTrigger, $store, $gsap, $Power0, $Power1, $Power2, $Power3, $Power4 } = useNuxtApp()
-  const slots = useSlots()
+// Import (is that the right term?) vue/nuxt stuff
+const { $ScrollTrigger, $store, $gsap, $Power0, $Power1, $Power2, $Power3, $Power4 } = useNuxtApp()
+const slots = useSlots()
 
-  // Import tailwind config
-  const tw = resolveConfig(tailwindConfig)
+// Import tailwind config
+const tw = resolveConfig(tailwindConfig)
 
-  // Define props
-  var props = defineProps({
-    class: String,
-    borderClass: String,
-    backgroundFilterClass: String,
-  })
+// Define props
+var props = defineProps({
+  class: String,
+  borderClass: String,
+  backgroundFilterClass: String,
+  doesExpand: Boolean,
+})
 
-  // Configure gsap
-  // Lag smoothing prevents skipped frames
-  // Notes:
-  // - This prevents issue where first few frames of animation are just skipped under desktop Safari, but when performance is too bad it can make things really unresponsive.
-  // - On iOS Safari, with batter saver enabled animations play back at half framerate, so we allow down to half framerate before slowing down the animation (values 34, 33)
-  // - This is a global gsap setting, it might not make sense to set it here.
-  
-  $gsap.ticker.lagSmoothing(34, 33);
+//
+// Setup expand
+//
 
-  // Define vars
-  const isExpanded = ref(false)
-  var animationContext: any = null
+// Configure gsap
+// Lag smoothing prevents skipped frames
+// Notes:
+// - This prevents issue where first few frames of animation are just skipped under desktop Safari, but when performance is too bad it can make things really unresponsive.
+// - On iOS Safari, with batter saver enabled animations play back at half framerate, so we allow down to half framerate before slowing down the animation (values 34, 33)
+// - This is a global gsap setting, it might not make sense to set it here.
 
-  // Get references to relevant dom elements
-  // The stuff initialized to ref(null) will be automatically bound to the html element with the ref attribute set to the same value by vue
-  const card: Ref<HTMLElement | null> = ref(null)
-  const contentContainer: Ref<HTMLElement | null> = ref(null)
-  const borderContainer: Ref<HTMLElement | null> = ref(null)
-  const backgroundFilterContainer: Ref<HTMLElement | null> = ref(null)
+$gsap.ticker.lagSmoothing(34, 33);
 
-  const topCardContent: Ref<HTMLElement | null> = ref(null)  
-  const defaultCardContent: Ref<HTMLElement | null> = ref(null)
-  const expandedCardContent: Ref<HTMLElement | null> = ref(null)
-  const bottomCardContent: Ref<HTMLElement | null> = ref(null)
+// Define vars
+const isExpanded = ref(false)
+var animationContext: any = null
 
-  var minimizeHint: Ref<HTMLDivElement | null> = ref(null)
+// Get references to relevant dom elements
+// The stuff initialized to ref(null) will be automatically bound to the html element with the ref attribute set to the same value by vue
+const card: Ref<HTMLElement | null> = ref(null)
+const contentContainer: Ref<HTMLElement | null> = ref(null)
+const borderContainer: Ref<HTMLElement | null> = ref(null)
+const backgroundFilterContainer: Ref<HTMLElement | null> = ref(null)
 
-  var video: HTMLVideoElement | null = null
+const topCardContent: Ref<HTMLElement | null> = ref(null)  
+const defaultCardContent: Ref<HTMLElement | null> = ref(null)
+const expandedCardContent: Ref<HTMLElement | null> = ref(null)
+const bottomCardContent: Ref<HTMLElement | null> = ref(null)
 
-  // Define storage for dynamically created elements
-  var cardPlaceholder: HTMLDivElement | null = null
-  var placeholderContentContainer: HTMLDivElement | null = null
+var minimizeHint: Ref<HTMLDivElement | null> = ref(null)
 
-  // Methods for parent
-  function expand() {
-    isExpanded.value = true
+var video: HTMLVideoElement | null = null
+
+// Define storage for dynamically created elements
+var cardPlaceholder: HTMLDivElement | null = null
+var placeholderContentContainer: HTMLDivElement | null = null
+
+// Methods for parent
+function expand() {
+  isExpanded.value = true
+}
+defineExpose({
+  expand,
+})
+
+// Additional setup after mount
+onMounted(() => {
+
+  // Get reference to video
+  video = findChild(card.value!, (child) => child.tagName == 'VIDEO') as HTMLVideoElement
+
+  // Stop video from autoplaying
+  video.pause()
+
+  // Do stuff after video ends
+  if (video != null) {
+    video.addEventListener('ended', () => {
+
+      // Show minimizeHint
+      minimizeHint.value!.style.visibility = 'visible'
+      minimizeHint.value!.style.opacity = '1.0'
+      
+    }, false)
+  }  
+})
+
+// Cleanup after unmount
+onUnmounted(() => {
+  if (animationContext != null) {
+    animationContext.revert() /* Clean up animation memory stuff or sth */
   }
-  defineExpose({
-    expand,
-  })
+});
 
-  // Additional setup after mount
-  onMounted(() => {
+// Don't do stuff if !doesExpand
+// Discussion: 
+// - First, we were trying to wrap this code in a function so that we can early return. But we can't do certain stuff inside functions like access `this` or call stuff like defineExpose, afaiu, so we're just wrapping everything inside a huge if-statement
+// - Edit: Can't call defineExpose from inside if-statement, either, so we doing the if-statement all the way down here
 
-    // Get reference to video
-    video = findChild(card.value!, (child) => child.tagName == 'VIDEO') as HTMLVideoElement
-
-    // Stop video from autoplaying
-    video.pause()
-
-    // Do stuff after video ends
-    if (video != null) {
-      video.addEventListener('ended', () => {
-
-        // Show minimizeHint
-        minimizeHint.value!.style.visibility = 'visible'
-        minimizeHint.value!.style.opacity = '1.0'
-        
-      }, false)
-    }  
-  })
-
-  // Cleanup after unmount
-  onUnmounted(() => {
-    if (animationContext != null) {
-      animationContext.revert() /* Clean up animation memory stuff or sth */
-    }
-  });
-
-  
+if (props.doesExpand) {
 
   // React to isExpanded change
   watch(isExpanded, (shouldExpand) => {    
@@ -789,7 +799,7 @@
 
 
   //
-  // Helper functions
+  // Helper functions for expand
   //
 
   function addAnimationToTimeline(tl: gsap.core.Timeline, element: HTMLElement, property: string, curve: AnimationCurve, duration: number, offset: number = 0.0) {
@@ -888,6 +898,8 @@
     // We tried fetching this once when the component is loaded, but that seems to break nuxt SSR prerendering
     return window.matchMedia("(prefers-reduced-motion: reduce)").matches
   }
+
+} // End of if (doesExpand) { ... 
 
 </script>
 
