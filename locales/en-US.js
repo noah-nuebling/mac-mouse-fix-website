@@ -13,8 +13,8 @@ export default {
 
   'trackpad-features.title': "Macs Are Best\nWith a {track},\nRight?",
   'trackpad-features.title.track': "Trackpad",
-  'trackpad-features.body': 'Wrong. Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **cheap** and **ergonomic** third-party mouse. And all interactions feel just as **polished** and **smooth** as they do on the trackpad.',
-  'trackpad-features.header': '**Trackpad Gestures** which Mac Mouse Fix brings to your mouse*',
+  'trackpad-features.body': 'Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **cheap** and **ergonomic** third-party mouse. And all interactions feel just as **polished** and **smooth** as they do on the trackpad.',
+  'trackpad-features.header': '**Trackpad Gestures** that Mac Mouse Fix brings to your mouse*',
   'video-card-hint.0': 'Click any card for a',
   'video-card-hint.1': '*Video Demo*',
   
@@ -33,12 +33,6 @@ export default {
   'feature.lookup.title': 'Look up and data detectors',
   'feature.lookup.body': '**Click** **button 4** on your mouse to look up a word, preview websites and files, or take actions with dates, addresses, phone numbers, and other data.\n\n It works just like tapping with 3 fingers or force clicking on an Apple trackpad.',
 
-  // Hold down button 4 on your mouse, then drag the mouse **up**
-  // Hold down button 4 on your mouse, then drag the mouse **left**
-  // Hold down button 4 on your mouse, then drag the mouse **down**
-  // Hold down button 4 on your mouse, then scroll **up** to show
-  // Hold down button 4 on your mouse, then scroll **down** to show
-
   'feature.pages.title': 'Move between pages',
   'feature.pages.body': 'Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to show the previous or next page in apps like Safari.\n\nIt works just like swiping left or right with two fingers on an Apple trackpad.',
   'feature.mail-actions.title': 'Delete mails quickly and more',
@@ -54,14 +48,33 @@ export default {
 
   /* Scrolling */
 
-  'scroll-smoothness.header': 'Mac Mouse Fix offers three **Scroll Feels**',
+  /*
+    Title Ideas:
+    - Scrolling Has Never Felt So Good
+    - Scroll About with Style
+    - Get On The Scroller-Coaster
+    - Bad UX? Scroll Past That.
+    - Schlechte Software? Einfach weiterscrollen.
+    - Bad software? Just keep scrolling.
+    - An Expensive Trackpad? Just Keep Scrolling.
+    - Scrolls Like Butter.
+    - Scrolling. Smooth Like Butter.
+    - Scrolling: Smooth Like Butter.
+  */
+
+  'scrolling.title': "{first}.\nSmooth Like Butter.",
+  'scrolling.title.first': "Scrolling",
+
+  'scrolling.body': "Mac Mouse Fix makes scrolling feel as **smooth** and **fluid** as on an Apple trackpad, or as **consistent** and **precise** as on Windows - with just a few simple clicks.",
+
+  'scroll-smoothness.header': 'Choose your **Scroll-Smoothness**',
 
   'scroll-smoothness.high.title':     'Smoothness: High',
   'scroll-smoothness.high.body':      "The high smoothness option in Mac Mouse Fix precisely emulates the fluid scrolling of a trackpad, including details like the subtle bounce at the end of a page. Yet, scrolling remains very precise and responsive.",
   'scroll-smoothness.regular.title':  'Smoothness: Regular',
   'scroll-smoothness.regular.body':   "Opt for regular smoothness for more immediate, snappy scrolling that's less smooth than a trackpad but still provides a great, refined feel with physics-based animations.\n\nIt feels like scrolling in Chrome or modern Windows apps, but better.",
   'scroll-smoothness.off.title':      'Smoothness: Off',
-  'scroll-smoothness.off.body':       "With this option, scrolling works as it normally does under macOS - without any animation or smoothing. But with one key difference: One increment of the scrollwheel will scroll a set number of *lines* in apps like Finder instead of just scrolling a few pixels, making it much easier and more pleasant to navigate your content.\n\nThis is how scrolling used to work in older macOS versions, as well as in Windows and Linux.",
+  'scroll-smoothness.off.body':       "With this option, scrolling works as it normally does under macOS - without any animation or smoothing. But with one key difference: One increment of the scrollwheel will scroll a set number of *lines* in apps like Finder instead of just scrolling a few pixels, making it much easier and more pleasant to navigate your content.\n\nThis is how scrolling works in Windows and Linux as well as older macOS versions.",
 
   'scroll-feature.header': 'Other great **Scroll Features**',
 

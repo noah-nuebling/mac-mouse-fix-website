@@ -63,26 +63,15 @@
 
 
     <!-- Scrolling -->
-    <!--
-      Ideas:
-      - Scrolling Has Never Felt So Good
-      - Scroll About with Style
-      - Get On The Scroller-Coaster
-      - Bad UX? Scroll Past That.
-      - Schlechte Software? Einfach weiterscrollen.
-      - Bad software? Just keep scrolling.
-      - An Expensive Trackpad? Just Keep Scrolling.
-      - Scrolls Like Butter.
-      - Scrolling. Smooth Like Butter.
-      - Scrolling: Smooth Like Butter.
-    -->
 
-    <h2 class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mt-[6rem] text-gray-800"><span class="text-gradient-violet">Scrolling</span>. <br>Smooth Like <span class="text-gradient-redd">Butter</span>.
-    </h2>
+    
+    <i18n-t tag="h2" keypath="scrolling.title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mt-[6rem] text-gray-800">
+      <template #first>
+        <span v-html="$t('scrolling.title.first')" class="text-gradient-violet"></span>
+      </template>
+    </i18n-t>
 
-    <p class="text-3xl font-normal text-gray-700/60 max-w-[30em] leading-[1.4] my-[4.5rem]">
-    With Mac Mouse Fix, you can can make scrolling feel as <b>smooth</b> and <b>fluid</b> as on an Apple trackpad, or as <b>consistent</b> and <b>precise</b> as on Windows - with just a few simple clicks.
-    </p>
+    <p v-html="$mt('scrolling.body')" class="text-3xl font-normal text-gray-700/60 max-w-[30em] leading-[1.4] my-[4.5rem]"></p>
 
     <CardHeader titleKey="scroll-smoothness.header" :iconPath="sparkleArrowsImagePath" iconClass="scale-[0.9] translate-x-[2px]"/>
 
