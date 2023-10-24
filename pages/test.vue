@@ -103,10 +103,12 @@
     
     <p v-html="$mt('remap-engine.body')" class="text-3xl font-normal text-gray-700/60 max-w-[30em] leading-[1.4] my-[4.5rem]"></p>
 
-    <div class="flex flex-col items-center max-w-[1000px]">
-      <CardHeader titleKey="trackpad-features.cards.hint.0" :iconPath="trackpadImagePath" class="w-full mb-[4.5rem] hidden"/>
-      <ActionTableFeatureCard titleKey="feature.action-table.title" bodyKey="feature.action-table.body" :videoPath="remapDemoVideoPath" class="shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] min-h-[500px] h-[500px] w-full mb-[2.5rem]"/>
-      <KeyboardShortcutFeatureCard titleKey="feature.keyboard-shortcuts.title" bodyKey="feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath" class="shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[center_top_-30rem]  w-full"/>
+    <div class="flex flex-col items-center">
+      <div class="max-w-[1000px]">
+        <CardHeader titleKey="trackpad-features.cards.hint.0" :iconPath="trackpadImagePath" class="w-full mb-[4.5rem] hidden"/>
+        <ActionTableFeatureCard titleKey="feature.action-table.title" bodyKey="feature.action-table.body" :videoPath="remapDemoVideoPath" class="shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] min-h-[500px] h-[500px] w-full mb-[2.5rem]"/>
+        <KeyboardShortcutFeatureCard titleKey="feature.keyboard-shortcuts.title" bodyKey="feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath" class="shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[center_top_-30rem]  w-full"/>
+      </div>
     </div>
 
     <!--     
