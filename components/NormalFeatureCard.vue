@@ -17,14 +17,14 @@
     </template>
 
     <template v-slot:default>
-      <div class="flex flex-row items-stretch h-full m-[1.4rem] mt-0 mb-[1.9rem]">
+      <div class="flex flex-row items-stretch justify-center h-full m-[1.4rem] mt-0 mb-[1.9rem]">
         <div>
-          <p class="text-[1.05rem] text-white/100 whitespace-pre-wrap shadow-black/100" v-html="$mt(bodyKey)"></p>
+          <p class="text-[1.05rem] text-white/100 whitespace-pre-wrap shadow-black/100 max-w-[30em]" v-html="$mt(bodyKey)"></p>
         </div>        
       </div>
       <div v-if="videoPath" :class="['mt-[0.0rem] rounded-[0px] border-t-[4px] border-gray-50/20 min-h-[3.25rem] flex items-center justify-center group-hover:underline']">
         <!-- vvv Can't seem to give the inline play button image a shadow vvv -->
-        <a class="text-[1.075rem] font-[600] dark-bg text-white/100 text-center shadow-black/100"><span class="" v-html="$mt('feature-card.expand-button')"></span><span class="inline-space-[8]"/><img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-3.6px] filter brightness-0 invert drop-shadow-xl"></a>
+        <a class="text-[1.075rem] font-[600] dark-bg text-white/100 text-center shadow-black/100"><span class="" v-html="$mt(expandButtonKey ? expandButtonKey : 'feature-card.expand-button')"></span><span class="inline-space-[8]"/><img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-3.6px] filter brightness-0 invert drop-shadow-xl"></a>
       </div>
     </template>
 
@@ -61,6 +61,7 @@ var props = defineProps({
   titleKey: String,
   bodyKey: String,
   videoPath: String,
+  expandButtonKey: String,
 })
 
 </script>

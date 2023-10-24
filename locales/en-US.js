@@ -104,5 +104,7 @@ export default {
   'feature.action-table.title': 'Action Table',
   'feature.action-table.body': "With the Action Table UI you can add a new action to your mouse in just a few seconds:\n1. Put the mouse pointer over the '+'-field\n2. Click, drag, and scroll away!\n3. Choose an action\nDone! Now you can use the action you chose by clicking, dragging, or scrolling in the way you just did.",
 
-  
+  'feature.keyboard-shortcuts.title': "⌘ Keyboard Shortcuts",
+  'feature.keyboard-shortcuts.body': "Use keyboard shortcuts straight from your mouse. So you can **copy and paste, undo and redo, switch between tabs in Safari, control media playback or audio volume**, and pretty much anything else you can think of - all with the press of a mouse button.",
+  'feature.keyboard-shortcuts.expand-button': "See How To Add Keyboard Shortcuts To Your Mouse",
 };
