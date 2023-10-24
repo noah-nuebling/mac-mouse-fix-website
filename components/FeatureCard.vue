@@ -470,21 +470,20 @@ if (props.doesExpand) {
 
       // This transform makes the card content scale up cover the card during the animation, but without stretching. 
       //  Basically we apply the same animation to the content (both axes) as to axis of the card which scales up less.
-      var curveForContentScaleX = combineCurves(curveForCounterScaleX, scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
-      var curveForContentScaleY = combineCurves(curveForCounterScaleY, scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
+      // var curveForContentScaleX = combineCurves(curveForCounterScaleX, scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
+      // var curveForContentScaleY = combineCurves(curveForCounterScaleY, scaleX < scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
+
+      // Let card content stay the same size while the card changes size
+      var curveForContentScaleX = curveForCounterScaleX
+      var curveForContentScaleY = curveForCounterScaleY
 
       // Calculate transforms for placeholder content
       var curveForPlaceholderCounterScaleX = transfromCurve(curveForScaleX, (scale) => 1/scale)
       var curveForPlaceholderCounterScaleY = transfromCurve(curveForScaleY, (scale) => 1/scale)
-      var curveForPlaceholderContentScaleX = combineCurves(curveForPlaceholderCounterScaleX, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
-      var curveForPlaceholderContentScaleY = combineCurves(curveForPlaceholderCounterScaleY, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
-
-      // Add slight zoom effect on content
-      // var curveForContentZoom = rawCurveFromAnimationCurve({ outputRange: { start: 0.8, end: 1.0 }, ease: easeForSize })
-      // curveForContentScaleX = combineCurves(curveForContentScaleX, curveForContentZoom, (a, b) => a * b)
-      // curveForContentScaleY = combineCurves(curveForContentScaleY, curveForContentZoom, (a, b) => a * b)
-      // curveForPlaceholderContentScaleX = combineCurves(curveForPlaceholderContentScaleX, curveForContentZoom, (a, b) => a * b)
-      // curveForPlaceholderContentScaleY = combineCurves(curveForPlaceholderContentScaleY, curveForContentZoom, (a, b) => a * b)
+      // var curveForPlaceholderContentScaleX = combineCurves(curveForPlaceholderCounterScaleX, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
+      // var curveForPlaceholderContentScaleY = combineCurves(curveForPlaceholderCounterScaleY, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
+      var curveForPlaceholderContentScaleX = curveForPlaceholderCounterScaleX
+      var curveForPlaceholderContentScaleY = curveForPlaceholderCounterScaleY
 
       //
       // Add animations to timeline
@@ -732,15 +731,23 @@ if (props.doesExpand) {
       var curveForCounterScaleY = transfromCurve(curveForInverseScaleY, (scale) => 1/scale)
       
       // This transform makes the card content scale up cover the card during the animation, but without stretching. 
-      var curveForContentScaleY = combineCurves(curveForCounterScaleY, scaleX > scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
-      var curveForContentScaleX = combineCurves(curveForCounterScaleX, scaleX > scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
+      // var curveForContentScaleY = combineCurves(curveForCounterScaleY, scaleX > scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
+      // var curveForContentScaleX = combineCurves(curveForCounterScaleX, scaleX > scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
+
+      // This transform makes the card content stay the same size while the card scales
+      var curveForContentScaleY = curveForCounterScaleY 
+      var curveForContentScaleX = curveForCounterScaleX
       
       // Calculate transforms for placeholder content
       var curveForPlaceholderCounterScaleX = transfromCurve(curveForScaleX, (scale) => 1/scale)
       var curveForPlaceholderCounterScaleY = transfromCurve(curveForScaleY, (scale) => 1/scale)
-      var curveForPlaceholderContentScaleX = combineCurves(curveForPlaceholderCounterScaleX, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
-      var curveForPlaceholderContentScaleY = combineCurves(curveForPlaceholderCounterScaleY, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
-      
+
+      // var curveForPlaceholderContentScaleX = combineCurves(curveForPlaceholderCounterScaleX, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
+      // var curveForPlaceholderContentScaleY = combineCurves(curveForPlaceholderCounterScaleY, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
+      var curveForPlaceholderContentScaleX = curveForPlaceholderCounterScaleX
+      var curveForPlaceholderContentScaleY = curveForPlaceholderCounterScaleY
+
+
       //
       // Add animations to timeline
       //
