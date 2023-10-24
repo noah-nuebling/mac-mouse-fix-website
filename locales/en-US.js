@@ -60,6 +60,8 @@ export default {
     - Scrolls Like Butter.
     - Scrolling. Smooth Like Butter.
     - Scrolling: Smooth Like Butter.
+    - Scrolling. Like Butter.
+      - ^ Can't really translate Smooth Like Butter to other languages, but Like Butter might work better? Edit: Nope: Still relies on cultural association between butter and smoothness.
 
     Body ideas:
     - Mac Mouse Fix makes scrolling feel as **smooth** and **fluid** as on an Apple trackpad, or as **consistent** and **precise** as on Windows - with just a few simple clicks.
@@ -71,7 +73,7 @@ export default {
 
   */
 
-  'scrolling.title': "{first}.\nSmooth Like Butter.",
+  'scrolling.title': "{first}.\nSmooth As Butter.",
   'scrolling.title.first': "Scrolling",
 
   'scrolling.body': "Mac Mouse Fix makes scrolling on your mouse feel as **smooth** and **fluid** as on an Apple trackpad, or as **consistent** and **precise** as on Windows.",
@@ -83,16 +85,16 @@ export default {
   'scroll-smoothness.regular.title': 'Smoothness: **Regular**',
   'scroll-smoothness.regular.body': "Choose regular smoothness for **more snappy scrolling**, that's less smooth than a trackpad, but still provides a great, refined feel with physics-based animations.\n\nIt feels similar to scrolling in Chrome or modern Windows apps, just a bit nicer.",
   'scroll-smoothness.off.title': 'Smoothness: **Off**',
-  'scroll-smoothness.off.body': "With this option, scrolling works as it normally does under macOS - without any animation or smoothing. But with one key difference: In apps like Finder, **one increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.\n\nThis is how scrolling works in Windows and Linux, as well as older macOS versions.",
+  'scroll-smoothness.off.body': "With this option, scrolling works as it normally does under macOS - without any animation or smoothing. But with one key difference: In apps like Finder, **one increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.\n\nThis is how scrolling also works in Windows and Linux, as well as older macOS versions.",
 
   'scroll-feature.header': 'Other great **Scrolling Features**',
 
-  'scroll-feature.reverse.title':       'Reverse Scroll Direction',
-  'scroll-feature.reverse.body':        "Mac Mouse Fix lets you invert the scrolling direction of your mouse - independently of your Trackpad or Magic Mouse.",
-  'scroll-feature.modifiers.title':     'Keyboard Modifiers',
-  'scroll-feature.modifiers.body':      "Hold a keyboard modifier while scrolling to **scroll horizontally, zoom in or out and scroll fast or precisely**",
-  'scroll-feature.configurable.title':  'Simple-yet-powerful Configuration Options',
-  'scroll-feature.configurable.body':   "You can set up scrolling in Mac Mouse Fix in many different ways with just a few clicks. And any options you choose will feel great without any fiddling. If you prefer the way that scrolling natively works in macOS, you can also turn off scrolling enhancements. (Shorten this.)",
+  'scroll-feature.reverse.title':       'Reverse scrolling direction',
+  'scroll-feature.reverse.body':        "Mac Mouse Fix lets you change the scrolling direction of your mouse - independently from your trackpad or Magic Mouse.",
+  'scroll-feature.modifiers.title':     'Keyboard modifiers',
+  'scroll-feature.modifiers.body':      "Hold a keyboard modifier while scrolling to scroll horizontally, zoom in or out, and more.",
+  'scroll-feature.configurable.title':  'Simple yet powerful',
+  'scroll-feature.configurable.body':   "You can set up scrolling in Mac Mouse Fix in many different ways with just a few clicks. All options you choose will feel great without fiddling. Each scrolling enhancement provided by Mac Mouse Fix can also be turned off, if you prefer how things work natively in macOS.",
 
   /* Action Table */
 
