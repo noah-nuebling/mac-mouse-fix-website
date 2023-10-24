@@ -96,13 +96,25 @@ export default {
 
   /* Action Table */
 
+  /*
+  Alternative action table body:  
+    
+      **With the Action Table you can add a new action to your mouse in just a few seconds**
+      1. Put the mouse pointer over the '+'-field
+      2. Click, drag, or scroll on your mouse
+      3. Choose an action
+      Done! Now you can use the action you chose by clicking, dragging, or scrolling in the way you just did.
+      You can also double click, use keyboard modifiers, and more.
+  */
+
   'remap-engine.title': 'Incredibly {first}.\n{second} Flexible.',
   'remap-engine.title.first': 'Intuitive',
   'remap-engine.title.second': 'Formidably',
   'remap-engine.body': "Mac Mouse Fix's incredibly **intuitive**, yet remarkably **flexible** UI lets you set up your mouse exactly how you want it in seconds.",
 
-  'feature.action-table.title': 'Action Table',
-  'feature.action-table.body': "With the Action Table UI you can add a new action to your mouse in just a few seconds:\n1. Put the mouse pointer over the '+'-field\n2. Click, drag, and scroll away!\n3. Choose an action\nDone! Now you can use the action you chose by clicking, dragging, or scrolling in the way you just did.",
+  'feature.action-table.title': 'Adding Actions',
+  'feature.action-table.body': "With Mac Mouse Fix, you can assign actions when you **click a mouse button, click and drag, click and scroll, click and hold, double click, triple click, hold a keyboard modifier then click**, and so much more - and it's so quick and simple, a 5 year old could do it.",
+  'feature.action-table.expand-button': "See How to Add Actions to Your Mouse",
 
   'feature.keyboard-shortcuts.title': "⌘ Keyboard Shortcuts",
   'feature.keyboard-shortcuts.body': "Use keyboard shortcuts straight from your mouse. So you can **copy and paste, undo and redo, switch between tabs in Safari, control media playback or audio volume**, and pretty much anything else you can think of - all with the press of a mouse button.",

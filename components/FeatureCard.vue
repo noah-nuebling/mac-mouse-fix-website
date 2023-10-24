@@ -21,12 +21,12 @@
     <!-- Background Filter Container -->
     <div 
       ref="backgroundFilterContainer"
-      :class="['h-full w-full', $props.backgroundFilterClass]">
+      :class="['h-full w-full rounded-[inherit]', $props.backgroundFilterClass]">
 
       <!-- Border Container -->
       <div
         ref="borderContainer"
-        :class="['h-full overflow-clip', $props.borderClass]">
+        :class="['h-full overflow-clip rounded-[inherit]', $props.borderClass]">
 
           <!-- Content Container -->
         <div
