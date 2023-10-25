@@ -123,8 +123,8 @@ export default {
 
   
   'feature.keyboard-shortcuts.title': "Use **Keyboard Shortcuts** from your mouse",
-  'feature.keyboard-shortcuts.body': "One of the the many actions that Mac Mouse Fix lets you use from your mouse is a simulated keyboard shortcut. So you can do anything you can do with a keyboard shortcut straight from your mouse. This includes copy and paste, undo, and redo, changing the audio volume, and much more.",
-  'feature.keyboard-shortcuts.expand-button': "See How To Add Keyboard Shortcuts To Your Mouse",
+  'feature.keyboard-shortcuts.body': "Mac Mouse Fix lets you **do anything you can do with a keyboard shortcut straight from your mouse**. For example, you can copy and paste, change the audio volume, open a new tab in Safari, and much more.",
+  'feature.keyboard-shortcuts.expand-button': "See How to Set It Up",
 
 
   

@@ -114,7 +114,7 @@ export default {
   'feature.action-table.body': "Um eine Geste zu deiner Maus hinzuzufügen, fahre **zuerst** mit dem Mauszeiger über das '+' Feld (unten abgebildet). **Als Zweites**, zeige Mac Mouse Fix eine Geste - das kann ein einfacher Tastenklick sein oder eine kompliziertere Eingabe. Weise **schließlich** der Geste eine Aktion zu, zum Beispiel Intelligentes Zoomen. Und das war's!",
   // 'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
   
-  'feature.keyboard-shortcuts.title': "⌘ Keyboard Shortcuts",
-  'feature.keyboard-shortcuts.body': "Use keyboard shortcuts straight from your mouse. So you can **copy and paste, undo and redo, switch between tabs in Safari, control media playback or audio volume**, and pretty much anything else you can think of - all with the press of a mouse button.",
-  'feature.keyboard-shortcuts.expand-button': "See How To Add Keyboard Shortcuts To Your Mouse",
+  'feature.keyboard-shortcuts.title': "Verwende **Tastaturkurzbefehle** von deiner Maus aus",
+  'feature.keyboard-shortcuts.body': "Mac Mouse Fix ermöglicht es dir, **alles, was du mit einem Tastaturkurzbefehl tun kannst, direkt von deiner Maus aus zu machen**. Zum Beispiel kannst du kopieren und einfügen, die Lautstärke ändern, einen neuen Tab in Safari öffnen und vieles mehr.",
+  'feature.keyboard-shortcuts.expand-button': "Einrichtungsvorgang sehen",
 };
