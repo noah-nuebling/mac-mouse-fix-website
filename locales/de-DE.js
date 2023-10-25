@@ -107,7 +107,7 @@ export default {
   'remap-engine.title': 'Erstaunlich {first}.\n{second} Flexibel.',
   'remap-engine.title.first': 'Intuitiv',
   'remap-engine.title.second': 'Gewaltig',
-  'remap-engine.body': 'Die unglaublich **intuitive** und gleichzeitig bemerkenswert **flexible** Benutzeroberfläche von Mac Mouse Fix ermöglicht es dir, deine Maus in Sekundenschnelle genau so anzupassen, wie du es willst.',
+  'remap-engine.body': 'Mit Mouse Fix kannst du unglaublich **leicht** und **intuitiv** ganz genau anpassen, was deine Maus macht.',
 
   'feature.action-table.title': 'Introducing: Action Table',
   'feature.action-table.body': "Just put the pointer over the '+'-field and click, drag, and scroll away. Then choose an action which will be performed whenever you perform these inputs. Done!",

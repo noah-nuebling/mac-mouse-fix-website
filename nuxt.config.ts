@@ -18,6 +18,7 @@ export default defineNuxtConfig({
   //   // linkify: true,
   //   // breaks: true, 
   // },
+  
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     configPath: '~~/tailwind.config.js'
@@ -35,7 +36,7 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: 'mac_mouse_fix_website_language_cookie',
       alwaysRedirect: true, 
-    }
+    },
   },
   app: {
     // baseURL: process.env.NODE_ENV === 'development' ? '/' : 'mac-mouse-fix-website-nuxt', // Usnig gh-pages dev dependency instead

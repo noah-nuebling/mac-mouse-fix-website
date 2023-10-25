@@ -7,7 +7,6 @@ import { render } from 'nuxt/dist/app/compat/capi'
 export default defineNuxtPlugin(nuxtApp => {
 
   const renderer = md()
-  renderer.inline
 
   return {
     provide: { md: renderer }

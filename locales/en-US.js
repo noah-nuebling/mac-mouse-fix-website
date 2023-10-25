@@ -97,6 +97,10 @@ export default {
   /* Action Table */
 
   /*
+
+  Discussion:
+  - We tried to add a numbered list into the action table body, describing the steps to setup a new gesture. Buttt we couldn't get it to work in a reasonable time. So we're just making it as good as possible in a flowing text.
+
   Alternative action table body:  
     
       **With the Action Table you can add a new action to your mouse in just a few seconds**
@@ -110,11 +114,11 @@ export default {
   'remap-engine.title': 'Incredibly {first}.\n{second} Flexible.',
   'remap-engine.title.first': 'Intuitive',
   'remap-engine.title.second': 'Formidably',
-  'remap-engine.body': "Mac Mouse Fix's incredibly **intuitive**, yet remarkably **flexible** UI lets you customize your mouse exactly how you want it in seconds.",
-
-  'feature.action-table.title': 'Adding Actions',
-  'feature.action-table.body': "With Mac Mouse Fix, you can assign actions when you **click a mouse button, click and drag, click and scroll, click and hold, double click, triple click, hold a keyboard modifier then click**, and so much more - and it's so quick and simple, a 5 year old could do it.",
-  'feature.action-table.expand-button': "See How to Add Actions to Your Mouse",
+  'remap-engine.body': "Mac Mouse Fix makes it incredibly **easy and intuitive to precisely customize** what your mouse does.",
+  
+  'feature.action-table.title': 'Add **Gestures** to your mouse',
+  'feature.action-table.body': "To add a gesture to your mouse, **First** hover over the '+' field (shown below). **Second**, show a gesture to Mac Mouse Fix - this can be a simple *button click* or something as ridiculous as a *triple click and hold, followed by a double click on another button, then scrolling the mouse wheel, all while holding a keyboard modifier* - the flexibility is endless! **Finally**, assign an action, such as opening Mission Control, to that gesture.\n\nVoilà! Now you can perform the new gesture you showed to Mac Mouse Fix to use the action you chose.",
+  'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
 
   'feature.keyboard-shortcuts.title': "⌘ Keyboard Shortcuts",
   'feature.keyboard-shortcuts.body': "Use keyboard shortcuts straight from your mouse. So you can **copy and paste, undo and redo, switch between tabs in Safari, control media playback or audio volume**, and pretty much anything else you can think of - all with the press of a mouse button.",

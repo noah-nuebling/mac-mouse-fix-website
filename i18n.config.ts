@@ -5,5 +5,6 @@ should be possible. But when I try it doesn't compile for some reason.
 
 export default defineI18nConfig(() => ({
   legacy: false,
-  fallbackLocale: 'en-US', 
+  fallbackLocale: 'en-US',
+  
 }))
