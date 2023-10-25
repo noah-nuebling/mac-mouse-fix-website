@@ -111,7 +111,7 @@ export default {
 
   
   'feature.action-table.title': 'Füge deiner Maus **Eigene Gesten** hinzu',
-  'feature.action-table.body': "Um eine Geste zu deiner Maus hinzuzufügen, fahre **zuerst** mit dem Mauszeiger über das '+' Feld (unten abgebildet). **Als Zweites**, zeige Mac Mouse Fix eine Geste - das kann ein einfacher Tastenklick sein oder eine komplizierte Eingabe. Weise **schließlich** der Geste eine Aktion zu, zum Beispiel Intelligentes Zoomen. Und das war's!",
+  'feature.action-table.body': "Um eine Geste zu deiner Maus hinzuzufügen, fahre **zuerst** mit dem Mauszeiger über das '+' Feld (unten abgebildet). **Als Zweites**, zeige Mac Mouse Fix eine Geste - das kann ein einfacher Tastenklick sein oder eine kompliziertere Eingabe. Weise **schließlich** der Geste eine Aktion zu, zum Beispiel Intelligentes Zoomen. Und das war's!",
   // 'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
   
   'feature.keyboard-shortcuts.title': "⌘ Keyboard Shortcuts",
