@@ -117,8 +117,8 @@ export default {
   'remap-engine.body': "Mac Mouse Fix makes it incredibly **easy and intuitive to precisely customize** what your mouse does.",
   
   'feature.action-table.title': 'Add **Custom Gestures** to your mouse',
-  'feature.action-table.body': "To add a gesture to your mouse, **First** hover over the '+' field (shown below). **Second**, show a gesture to Mac Mouse Fix - this can be a simple *button click* or something as ridiculous as a *triple click and hold, followed by a double click on another button, then scrolling the mouse wheel, all while holding a keyboard modifier*. **Finally**, assign an action, such as opening Mission Control, to that gesture. Voilà! The new gesture is ready to use.",
-  'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
+  'feature.action-table.body': "To add a gesture to your mouse, **First** hover over the '+' field (shown below). **Second**, show a gesture to Mac Mouse Fix - this can be a simple button click or a complex input. **Finally**, assign an action, such as Smart Zoom, to that gesture. And that's it!",
+  // 'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
 
 
   

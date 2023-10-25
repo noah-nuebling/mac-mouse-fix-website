@@ -106,7 +106,7 @@
     <div class="flex flex-col items-center">
       <div class="max-w-[1000px] flex flex-col items-center gap-[2.5rem]">
         <CardHeader titleKey="trackpad-features.cards.hint.0" :iconPath="trackpadImagePath" class="w-full hidden"/>
-        <NormalFeatureCard titleKey="feature.action-table.title" bodyKey="feature.action-table.body" :videoPath="remapDemoVideoPath" class="text-shadow-sm shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] w-full" backgroundFilterClass="backdrop-blur-2xl" expand-button-key="feature.action-table.expand-button" :image-path="actionTableImagePath" image-class="w-[1400px] mt-1 mb-[-245px] translate-x-[345px]"/>
+        <NormalFeatureCard titleKey="feature.action-table.title" bodyKey="feature.action-table.body" :videoPath="remapDemoVideoPath" class="text-shadow-sm shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] w-full" backgroundFilterClass="backdrop-blur-2xl" :image-path="actionTableImagePath" image-class="w-[1400px] mt-1 mb-[-245px] translate-x-[345px]"/>
         <NormalFeatureCard titleKey="feature.keyboard-shortcuts.title" bodyKey="feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath" class="text-shadow-sm shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[center_top_-30rem] w-full" backgroundFilterClass="backdrop-blur-2xl" expand-button-key="feature.keyboard-shortcuts.expand-button"/>
       </div>
     </div>

@@ -111,8 +111,8 @@ export default {
 
   
   'feature.action-table.title': 'Füge deiner Maus **Eigene Gesten** hinzu',
-  'feature.action-table.body': "Um eine Geste zu deiner Maus hinzuzufügen, fahre **zuerst** mit dem Mauszeiger über das '+' Feld (unten abgebildet). **Als Zweites**, zeige Mac Mouse Fix eine Geste - das kann ein einfacher Tastenklick sein oder etwas so komplexes wie eine Taste dreifach Klicken und Halten, gefolgt von einem Doppelklick auf eine andere Taste, und dann das Scrollen des Mausrads, alles während du eine Sondertaste auf der Tastatur hältst - die Möglichkeiten sind wirklich endlos! Weise **schließlich** der Geste eine Aktion zu, zum Beispiel das Öffnen von Mission Control. Und Voilà! Die neue Geste ist einsatzbereit.",
-  'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
+  'feature.action-table.body': "Um eine Geste zu deiner Maus hinzuzufügen, fahre **zuerst** mit dem Mauszeiger über das '+' Feld (unten abgebildet). **Als Zweites**, zeige Mac Mouse Fix eine Geste - das kann ein einfacher Tastenklick sein oder eine komplizierte Eingabe. Weise **schließlich** der Geste eine Aktion zu, zum Beispiel Intelligentes Zoomen. Und das war's!",
+  // 'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
   
   'feature.keyboard-shortcuts.title': "⌘ Keyboard Shortcuts",
   'feature.keyboard-shortcuts.body': "Use keyboard shortcuts straight from your mouse. So you can **copy and paste, undo and redo, switch between tabs in Safari, control media playback or audio volume**, and pretty much anything else you can think of - all with the press of a mouse button.",
