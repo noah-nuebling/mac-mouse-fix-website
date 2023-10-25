@@ -76,10 +76,10 @@ export default {
 
   'scrolling.body': "Mac Mouse Fix makes scrolling on your mouse feel as **smooth** and **fluid** as on an Apple trackpad, or as **consistent** and **precise** as on Windows.",
 
-  'scroll-smoothness.header': 'Choose your **Scrolling Smoothness**',
+  'scroll-smoothness.header': 'Choose a **Scrolling Smoothness**',
 
   'scroll-smoothness.high.title': 'Smoothness: **High**',
-  'scroll-smoothness.high.body': "The high smoothness option in Mac Mouse Fix precisely **emulates the fluid scrolling of a trackpad**, including details like the subtle bounce at the end of a page. This lets you scroll far distances with ease, and scrolling remains very precise and responsive.",
+  'scroll-smoothness.high.body': "The high smoothness option in Mac Mouse Fix precisely **emulates the fluid scrolling of a trackpad**, including details like the subtle bounce at the end of a page. With this option you can also scroll far distances with ease.",
   'scroll-smoothness.regular.title': 'Smoothness: **Regular**',
   'scroll-smoothness.regular.body': "Choose regular smoothness for **more snappy scrolling**, that's less smooth than a trackpad, but still provides a great, refined feel with physics-based animations.\n\nIt feels similar to scrolling in Chrome or modern Windows apps, just a bit nicer.",
   'scroll-smoothness.off.title': 'Smoothness: **Off**',
@@ -110,7 +110,7 @@ export default {
   'remap-engine.title': 'Incredibly {first}.\n{second} Flexible.',
   'remap-engine.title.first': 'Intuitive',
   'remap-engine.title.second': 'Formidably',
-  'remap-engine.body': "Mac Mouse Fix's incredibly **intuitive**, yet remarkably **flexible** UI lets you set up your mouse exactly how you want it in seconds.",
+  'remap-engine.body': "Mac Mouse Fix's incredibly **intuitive**, yet remarkably **flexible** UI lets you customize your mouse exactly how you want it in seconds.",
 
   'feature.action-table.title': 'Adding Actions',
   'feature.action-table.body': "With Mac Mouse Fix, you can assign actions when you **click a mouse button, click and drag, click and scroll, click and hold, double click, triple click, hold a keyboard modifier then click**, and so much more - and it's so quick and simple, a 5 year old could do it.",

@@ -58,16 +58,16 @@ export default {
   
   'scrolling.body': "Mit Mac Mouse Fix fühlt sich Scrollen auf deiner Maus so **flüssig** und **geschmeidig** an wie auf einem Apple Trackpad oder so **konsistent** und **präzise** wie unter Windows.",
   
-  'scroll-smoothness.header': 'Wähle deine **Scroll-Flüssigkeit**',
+  'scroll-smoothness.header': 'Wähle eine **Scroll-Flüssigkeit**',
   
   'scroll-smoothness.high.title': 'Flüssigkeit: **Hoch**',
-  'scroll-smoothness.high.body': "Die Option für hohe Flüssigkeit in Mac Mouse Fix emuliert präzise das **flüssige Scrollen eines Trackpads**, einschließlich Details wie dem subtilen Aufprall am Ende einer Seite. So kannst du auch über weite Strecken leicht scrollen, und das Scrollen bleibt sehr präzise und reaktionsschnell.",
+  'scroll-smoothness.high.body': "Die Option für hohe Flüssigkeit in Mac Mouse Fix emuliert präzise das **flüssige Scrollen eines Trackpads**, einschließlich Details wie dem subtilen Aufprall am Ende einer Seite. Mit dieser Option kannst du auch sehr leicht weite Strecken Scrollen.",
   
   'scroll-smoothness.regular.title': 'Flüssigkeit: **Regulär**',
   'scroll-smoothness.regular.body': "Wähle reguläre Flüssigkeit für **flotteres Scrollen**, das weniger geschmeidig ist als auf einem Trackpad, aber dennoch ein großartiges, raffiniertes Scrollgefühl mit physikbasierten Animationen bietet.\n\nEs fühlt sich ähnlich an wie das Scrollen in Chrome oder modernen Windows-Apps. Nur etwas besser.",
   
   'scroll-smoothness.off.title': 'Flüssigkeit: **Aus**',
-  'scroll-smoothness.off.body': "Mit dieser Option funktioniert das Scrollen wie gewohnt unter macOS - ohne jede Animation oder Glättung. Aber mit einem entscheidenden Unterschied: In Apps wie Finder wird **eine Raste des Scrollrads eine festgelegte Anzahl von *Zeilen* scrollen**, anstatt nur ein paar Pixel, was die Navigation konsistenter und angenehmer macht.\n\nSo funktioniert das Scrollen auch in Windows und Linux sowie in älteren macOS-Versionen.",
+  'scroll-smoothness.off.body': "Mit dieser Option funktioniert das Scrollen wie gewohnt unter macOS - ohne jede Animation oder Glättung. Aber mit einem entscheidenden Unterschied: In Apps wie Finder **scrollt eine Raste des Scrollrads eine festgelegte Anzahl von *Zeilen***, statt nur ein paar Pixel. Das macht die Navigation konsistenter und angenehmer.\n\nSo funktioniert das Scrollen auch in Windows und Linux, sowie in älteren macOS-Versionen.",
   
   'scroll-feature.header': 'Andere großartige **Scroll-Funktionen**',
 
@@ -76,7 +76,7 @@ export default {
   'scroll-feature.modifiers.title':     'Sondertasten',
   'scroll-feature.modifiers.body':      "Halte beim Scrollen eine Sondertaste auf deinem Keyboard gedrückt, um horizontal zu scrollen, rein- oder rauszuzoomen und mehr.",
   'scroll-feature.configurable.title':  'Einfach aber flexibel',
-  'scroll-feature.configurable.body':   "Mit nur wenigen Klicks kannst du das Scrollen in Mac Mouse Fix auf viele verschiedene Arten einrichten. Jede von dir gewählte Option wird sich gut anfühlen, ohne dass du herumfummeln musst. Du kannst jede Scroll-Verbesserung von Mac Mouse Fix auch deaktivieren, wenn du die Art und Weise bevorzugst, wie das Scrollen in macOS nativ funktioniert.",
+  'scroll-feature.configurable.body':   "Mit nur wenigen Klicks kannst du das Scrollen in Mac Mouse Fix auf viele verschiedene Arten einrichten. Jede von dir gewählte Option wird sich gut anfühlen, ohne dass du herumschrauben musst. Du kannst jede Scroll-Verbesserung von Mac Mouse Fix auch deaktivieren, wenn du die Art und Weise bevorzugst, wie das Scrollen in macOS nativ funktioniert.",
 
   // GPT 3
   // 'scrolling.title': "{first}.\nSo geschmeidig wie Butter.",
@@ -107,7 +107,7 @@ export default {
   'remap-engine.title': 'Erstaunlich {first}.\n{second} Flexibel.',
   'remap-engine.title.first': 'Intuitiv',
   'remap-engine.title.second': 'Gewaltig',
-  'remap-engine.body': 'Die unglaublich **intuitive** und gleichzeitig bemerkenswert **flexible** Benutzeroberfläche von Mac Mouse Fix ermöglicht es dir, deine Maus in Sekundenschnelle genau so einzurichten, wie du es willst.',
+  'remap-engine.body': 'Die unglaublich **intuitive** und gleichzeitig bemerkenswert **flexible** Benutzeroberfläche von Mac Mouse Fix ermöglicht es dir, deine Maus in Sekundenschnelle genau so anzupassen, wie du es willst.',
 
   'feature.action-table.title': 'Introducing: Action Table',
   'feature.action-table.body': "Just put the pointer over the '+'-field and click, drag, and scroll away. Then choose an action which will be performed whenever you perform these inputs. Done!",
