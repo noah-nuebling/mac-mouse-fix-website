@@ -81,7 +81,7 @@
       <NormalFeatureCard titleKey="scroll-smoothness.off.title"            bodyKey="scroll-smoothness.off.body"         :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
     </div>
 
-    <CardHeader titleKey="scroll-feature.header" :iconPath="gearImagePath" hideVideoHint iconClass="scale-[0.8] translate-y-[-1px]"/>
+    <CardHeader titleKey="scroll-feature.header" :iconPath="arrowsImagePath" hideVideoHint iconClass="scale-[0.8] translate-y-[-1px] translate-x-[-1.5px] px-[0px]"/>
 
     <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2.5rem] my-[4.5rem]">
       <NormalFeatureCard titleKey="scroll-feature.reverse.title"        bodyKey="scroll-feature.reverse.body"            class="text-shadow-lg shadow-orange-950/30 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-cover bg-center bg-black/0 bg-blend-darken"/>
@@ -105,9 +105,9 @@
 
     <div class="flex flex-col items-center">
       <div class="max-w-[1000px] flex flex-col items-center gap-[2.5rem]">
-        <CardHeader titleKey="trackpad-features.cards.hint.0" :iconPath="trackpadImagePath" class="w-full hidden"/>
-        <NormalFeatureCard titleKey="feature.action-table.title" bodyKey="feature.action-table.body" :videoPath="remapDemoVideoPath" class="text-shadow-sm shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] w-full" backgroundFilterClass="backdrop-blur-2xl" :image-path="actionTableImagePath" image-class="w-[1400px] mt-1 mb-[-245px] translate-x-[345px]"/>
-        <NormalFeatureCard titleKey="feature.keyboard-shortcuts.title" bodyKey="feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath" class="text-shadow-sm shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[center_top_-30rem] w-full" backgroundFilterClass="backdrop-blur-2xl" expand-button-key="feature.keyboard-shortcuts.expand-button"/>
+        <CardHeader titleKey="customization-feature.header" :iconPath="gearImagePath" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[5px]"/>
+        <NormalFeatureCard titleKey="customization-feature.action-table.title" bodyKey="customization-feature.action-table.body" :videoPath="remapDemoVideoPath" class="text-shadow-sm shadow-orange-950/30 bg-black/0 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-[center_top_30rem] bg-blend-darken w-full" backgroundFilterClass="backdrop-blur-2xl" :image-path="actionTableImagePath" image-class="w-[1400px] mt-1 mb-[-245px] translate-x-[345px]"/>
+        <NormalFeatureCard titleKey="customization-feature.keyboard-shortcuts.title" bodyKey="customization-feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath" class="text-shadow-sm shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[center_top_-30rem] w-full" backgroundFilterClass="backdrop-blur-2xl" expand-button-key="customization-feature.keyboard-shortcuts.expand-button"/>
       </div>
     </div>
 
@@ -193,6 +193,8 @@ import remapDemoVideoPath from '../assets/video/remap_demo_old.mp4'
 import trackpadImagePath from '../assets/img/rectangle.and.hand.point.up.left.filled@8x.png'
 import sparkleArrowsImagePath from '../assets/img/arrow.up.and.down.and.sparkles@8x.png'
 // import gearArrowsImagePath from '../assets/img/arrow.gear.png'
+import arrowsInGearImagePath from '../assets/img/arrow.in.gear.png'
+import arrowsImagePath from '../assets/img/arrow.up.and.down@8x.png'
 import gearImagePath from '../assets/img/gearshape@8x.png'
 import actionTableImagePath from '../assets/img/mmf-on-studio-display-4.png'
 

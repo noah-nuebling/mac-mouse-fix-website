@@ -109,12 +109,12 @@ export default {
   'remap-engine.title.second': 'Gewaltig',
   'remap-engine.body': 'Mit Mouse Fix kannst du unglaublich **leicht** und **intuitiv** ganz genau anpassen, was deine Maus macht.',
 
-  
-  'feature.action-table.title': 'Füge deiner Maus **Eigene Gesten** hinzu',
-  'feature.action-table.body': "Um eine Geste zu deiner Maus hinzuzufügen, fahre **zuerst** mit dem Mauszeiger über das '+' Feld (unten abgebildet). **Als Zweites**, zeige Mac Mouse Fix eine Geste - das kann ein einfacher Tastenklick sein oder eine kompliziertere Eingabe. Weise **schließlich** der Geste eine Aktion zu, zum Beispiel Intelligentes Zoomen. Und das war's!",
+  'customization-feature.header': "Flexible **Anpassungsmöglichkeiten**",
+  'customization-feature.action-table.title': 'Füge deiner Maus **Eigene Gesten** hinzu',
+  'customization-feature.action-table.body': "Um eine Geste zu deiner Maus hinzuzufügen, fahre **zuerst** mit dem Mauszeiger über das '+' Feld (unten abgebildet). **Als Zweites**, zeige Mac Mouse Fix eine Geste - das kann ein einfacher Tastenklick sein oder eine kompliziertere Eingabe. Weise **schließlich** der Geste eine Aktion zu, zum Beispiel Intelligentes Zoomen. Und das war's!",
   // 'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
   
-  'feature.keyboard-shortcuts.title': "Verwende **Tastaturkurzbefehle** von deiner Maus aus",
-  'feature.keyboard-shortcuts.body': "Mac Mouse Fix ermöglicht es dir, **alles, was du mit einem Tastaturkurzbefehl tun kannst, direkt von deiner Maus aus zu machen**. Zum Beispiel kannst du kopieren und einfügen, die Lautstärke ändern, einen neuen Tab in Safari öffnen und vieles mehr.",
-  'feature.keyboard-shortcuts.expand-button': "Einrichtungsvorgang sehen",
+  'customization-feature.keyboard-shortcuts.title': "Verwende **Tastaturkurzbefehle** von deiner Maus aus",
+  'customization-feature.keyboard-shortcuts.body': "Mac Mouse Fix ermöglicht es dir, **alles, was du mit einem Tastaturkurzbefehl tun kannst, direkt von deiner Maus aus zu machen**. Zum Beispiel kannst du kopieren und einfügen, die Lautstärke ändern, einen neuen Tab in Safari öffnen und vieles mehr.",
+  'customization-feature.keyboard-shortcuts.expand-button': "Einrichtungsvorgang sehen",
 };

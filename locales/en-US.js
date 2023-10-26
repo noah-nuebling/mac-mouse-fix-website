@@ -116,15 +116,14 @@ export default {
   'remap-engine.title.second': 'Formidably',
   'remap-engine.body': "Mac Mouse Fix makes it incredibly **easy and intuitive to precisely customize** what your mouse does.",
   
-  'feature.action-table.title': 'Add **Custom Gestures** to your mouse',
-  'feature.action-table.body': "To add a gesture to your mouse, **First** hover the mouse pointer over the '+' field (shown below). **Second**, show a gesture to Mac Mouse Fix - this can be a simple button click or a more complex input. **Finally**, assign an action, such as Smart Zoom, to that gesture. And that's it!",
+  'customization-feature.header': "Flexible **Customization Options**",
+  'customization-feature.action-table.title': 'Add **Custom Gestures** to your mouse',
+  'customization-feature.action-table.body': "To add a gesture to your mouse, **First** hover the mouse pointer over the '+' field (shown below). **Second**, show a gesture to Mac Mouse Fix - this can be a simple button click or a more complex input. **Finally**, assign an action, such as Smart Zoom, to that gesture. And that's it!",
   // 'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
 
-
-  
-  'feature.keyboard-shortcuts.title': "Use **Keyboard Shortcuts** from your mouse",
-  'feature.keyboard-shortcuts.body': "Mac Mouse Fix lets you **do anything you can do with a keyboard shortcut straight from your mouse**. For example, you can copy and paste, change the audio volume, open a new tab in Safari, and much more.",
-  'feature.keyboard-shortcuts.expand-button': "See How to Set It Up",
+  'customization-feature.keyboard-shortcuts.title': "Use **Keyboard Shortcuts** from your mouse",
+  'customization-feature.keyboard-shortcuts.body': "Mac Mouse Fix lets you **do anything you can do with a keyboard shortcut straight from your mouse**. For example, you can copy and paste, change the audio volume, open a new tab in Safari, and much more.",
+  'customization-feature.keyboard-shortcuts.expand-button': "See How to Set It Up",
 
 
   
