@@ -125,6 +125,70 @@ export default {
   'customization-feature.keyboard-shortcuts.body': "Mac Mouse Fix lets you **do anything you can do with a keyboard shortcut straight from your mouse**. For example, you can copy and paste, change the audio volume, open a new tab in Safari, and much more.",
   'customization-feature.keyboard-shortcuts.expand-button': "See How to Set It Up",
 
+  
+
+  /* Good Software */
+
+  'good-software.title': "Good software that puts your experience first",
+  'good-software.body': "Mac Mouse Fix is unobtrusive, lightweight, polished, and easy to use. Every detail has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Additionally, it is completely open source which means that you can trust that it is secure ((and does not steal your data or mine bitcoin in the background or anything like that)), and (I'm glad to say that) to say the app has been downloaded x times, and users really love it. Here are some positive things that people have to say about the app. Thanks to everyone sharing their feedback...",
+
+  'unobtrusive-lightweight.title': "Unobtrusive and lightweight",
+  'unobtrusive-lightweight.body': "Every detail of Mac Mouse Fix has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Mac Mouse Fix is also engineered so that it consumes absolutely no CPU resources on your computer when it doesn't have to.",
+  'open-source.title': "Open Source",
+  'open-source.body': "Mac Mouse Fix's source code is available on GitHub. Since anyone can see how it works, you can trust that it is secure, and other projects can benefit from its innovations in trackpad simulation and other areas.",
+
+  'user-feedback.card-header.title':  "**What people say** about Mac Mouse Fix",
+  'user-feedback.card-header.sub':    "Thanks to all x people who have downloaded Mac Mouse Fix and anyone sharing feedback! :)",
+
+
+  /*
+
+  
+  title: Good software that puts your experience first
+  content: Mac Mouse Fix is unobtrusive, lightweight, polished, and easy to use. Every detail has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Additionally, it is completely open source which means that you can trust that it is secure ((and does not steal your data or mine bitcoin in the background or anything like that)), and (I'm glad to say that) to say the app has been downloaded x times, and users really love it. Here are some positive things that people have to say about the app. Thanks to everyone sharing their feedback...
+  content: <Cards of what people said>
+
+  title:
+  - Serious bang for your buck
+  - Great pricing
+  - Free for 30 days, $1.99 to own
+  - One simple price
+  - One Simple App. One Simple Price.
+  content: 
+  - Mac Mouse Fix is free for 30 days and costs $1.99 to own. There are no subscriptions or additional costs, and you can easily pay in few clicks from inside the app with Apple Pay, PayPal, Credit card and more.
+  - More info (??) on trial: Free days only count down when you actually use the app - so you can relax when testing app without worry that your free days will run out. 
+  - More info (??) on comparison to alternatives: Buying Mac Mouse Fix and using it with a cheaper mouse is wayyy cheaper compared to alternatives like buying an MX Master ($99.99 MSRP), or an Apple Trackpad ($129.00 MSRP) - and it's not only cheaper, but - in my opinion - you even get a far nicer experience compared to an MX Master, and even slightly nicer than an Apple Trackpad.
+  - More info/rant on why MX Master sucks: The MX Master and other Logitech mice actually has very bad build quality and components compared to its price, and has very bad ergonomics too, at least for my hands. The button placing is very inconvenient, the mouse is way too heavy making it uncomfortable compared to ligher mouse, it's too big, not fitting my hand well, sensor is low quality and inaccurate, lots of input lag on bluetooth, the hardware features it has (gesture button, horizontal wheel, and free-spin) are not well-engineered, and do not feel good or ergonomic to use and their functionality can easily be replaced by Mac Mouse Fix in a better way.
+  - Why it's good to pay (???): 
+    - Support me. Idk I struggle a lot with life, autism, childhood trauma, can't work a normal job. So I hope I can contribute to society and survive with this. Sincere thanks to anyone paying for the app.
+    - Support open source, indie development making software with passion and a focus on a great user experience.
+
+
+  
+  
+  Section 1:
+  - Adjectives:
+    - Collection of adjectives: easy-to-use, polished, fast, detail-oriented, optimized, efficient, lightweight (as in resource-efficient), unobtrusive - stays in background without being noticable or wasting resources when unused, natural extension of your mac
+    - German: poliert, detailorientiert, benutzerfreundlich, unaufdringlich, (schnell, optimiert, effizient, ressourcenschonend,)
+  - Title tdeas:
+    - Unobtrusive, Lightweight, Polished, Easy to use - good software! (from Readme I wrote)
+    - Unaufdringlich, benutzerfreundlich, ressourcenschonend, poliert - gute Software!
+    - Good software that puts your experience first
+      - content: Mac Mouse Fix is unobtrusive, lightweight, polished, and easy to use. Every detail has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Additionally, it is completely open source which means that you can trust that it is secure and does not steal your data or mine bitcoin in the background or anything like that, and (I'm glad to say that) users really love it. Here are some positive things that people have said about the app...
+  - open source (which good in iself, support (indie) open source development), trustworthy, secure
+  - Title ideas
+  Section 2:
+  - number of downloads, popular, (secure), Stuff people say. People think it's amazing. 
+  Section 3:
+  - Pricing 
+        - free for 30 days, $1.99 to own,
+        - very cheap, (and better) compared to alternatives like MX Master, Apple Trackpad, other mouse-enhancing-software. 
+        - easily pay in few clicks from inside the app with Apple Pay, PayPal, Credit card
+        - free days only count when in use so you can relax when testing app, 
+        - in China, Russia, India, some other places, there's a different payment provider (does anybody care??)
+
+
+  */
 
   
 };

@@ -128,17 +128,31 @@
     </div> 
     -->
 
-    <!-- This is good software -->
-    <i18n-t tag="h2" keypath="good-sofware.title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">
+    
+
+    <!-- Good Software -->
+
+    <i18n-t tag="h2" keypath="good-software.title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-[0] mt-[6rem] text-gray-800">
       <template #first>
         <span class="text-gradient-green-yellow"> {{ $t('good-sofware.title.first') }}</span>
       </template>
       <template #second>
-        <span class="text-gradient-orange"> {{ $t('good-sofware.title.second') }}</span>
+        <span class="text-gradient-orange"> {{ $t('good-software.title.second') }}</span>
       </template>
     </i18n-t>
+    
+    <p v-html="$mt('good-software.body')" class="hidden text-3xl font-normal text-gray-700/60 max-w-[30em] leading-[1.4] my-[4.5rem]"></p>
+
+
+    <div class="grid xl:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-[2.5rem] py-0 my-[4.5rem]">
+      <NormalFeatureCard titleKey="unobtrusive-lightweight.title"          bodyKey="unobtrusive-lightweight.body"    class="text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
+      <NormalFeatureCard titleKey="open-source.title"        bodyKey="open-source.body"  class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
+    </div>
+    <CardHeader titleKey="user-feedback.card-header.title" :iconPath="gearImagePath" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[5px] "/>
+
 
     <!-- Pricing -->
+    
     <i18n-t tag="h2" keypath="pricing.title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">
       <template #first>
         <span class="text-gradient-green-yellow"> {{ $t('pricing.title.first') }}</span>
@@ -148,7 +162,7 @@
       </template>
     </i18n-t>
 
-    <div class="min-h-[2000px]"></div>
+    <div class="min-h-[500px]"></div>
 
     <!-- 
       Language Picker
