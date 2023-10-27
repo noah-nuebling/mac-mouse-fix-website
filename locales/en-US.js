@@ -5,6 +5,8 @@ export default {
   'feature-card.expand-button': 'See It in Action',
   'feature-card.minimize-hint': 'Click outside of this card to minimize it',
 
+  'card-header.video-hint': 'Click any card for a *Video Demo*',
+
   /* Trackpad Features */
   /*
   See https://support.apple.com/en-us/102482 for Terminology reference
@@ -15,8 +17,6 @@ export default {
   'trackpad-features.title.track': "Trackpad",
   'trackpad-features.body': 'Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **cheap** and **ergonomic** third-party mouse. And all interactions feel just as **polished** and **smooth** as they do on the trackpad.',
   'trackpad-features.header': '**Trackpad Gestures** that Mac Mouse Fix brings to your mouse*',
-  'video-card-hint.0': 'Click any card for a',
-  'video-card-hint.1': '*Video Demo*',
   
   'feature.lookup.title': 'Look up and Quick Look',
   'feature.lookup.body': '**Click** **button 4** on your mouse to look up a word in the dictionary, preview websites in Safari or files in Finder, and more.\n\n It works just like tapping with 3 fingers or force clicking on an Apple trackpad.',
@@ -122,14 +122,24 @@ export default {
   // 'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
 
   'customization-feature.keyboard-shortcuts.title': "Use **Keyboard Shortcuts** from your mouse",
-  'customization-feature.keyboard-shortcuts.body': "Mac Mouse Fix lets you **do anything you can do with a keyboard shortcut straight from your mouse**. For example, you can copy and paste, change the audio volume, open a new tab in Safari, and much more.",
+  'customization-feature.keyboard-shortcuts.body': "Mac Mouse Fix lets you **do anything you can do with a keyboard shortcut** straight from your mouse. For example, you can copy and paste, change the audio volume, open a new tab in Safari, and much more.",
   'customization-feature.keyboard-shortcuts.expand-button': "See How to Set It Up",
 
   
 
   /* Good Software */
 
-  'good-software.title': "Good software that puts your experience first",
+  /*
+
+  Discussion:
+  - We considered including download count here, but I don't think it's useful and might seem braggadocious/out-of-place or sth in the places where we though to put it. We can just put a little badge at the top of the site or on github.
+
+  */
+
+  'good-software.title': "{first} You Can\n{second} With A\n{third} Feeling",
+  'good-software.title.first': "Software",
+  'good-software.title.second': "Install",
+  'good-software.title.third': "Good",
   'good-software.body': "Mac Mouse Fix is unobtrusive, lightweight, polished, and easy to use. Every detail has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Additionally, it is completely open source which means that you can trust that it is secure ((and does not steal your data or mine bitcoin in the background or anything like that)), and (I'm glad to say that) to say the app has been downloaded x times, and users really love it. Here are some positive things that people have to say about the app. Thanks to everyone sharing their feedback...",
 
   'unobtrusive-lightweight.title': "Unobtrusive and lightweight",
@@ -138,13 +148,21 @@ export default {
   'open-source.body': "Mac Mouse Fix's source code is available on GitHub. Since anyone can see how it works, you can trust that it is secure, and other projects can benefit from its innovations in trackpad simulation and other areas.",
 
   'user-feedback.card-header.title':  "**What people say** about Mac Mouse Fix",
-  'user-feedback.card-header.sub':    "Thanks to all x people who have downloaded Mac Mouse Fix and anyone sharing feedback! :)",
+  'user-feedback.card-header.sub':    "Thanks to anyone sharing feedback! :)",
 
 
   /*
 
   
-  title: Good software that puts your experience first
+  title: 
+  - Good software that puts your experience first
+  - Good Software\nPuts Your\nExperience First
+  - Good Software\nFor Your Computer
+  - Software You Can Feel Good About Installing
+  - Software You Can Install With A Good Feeling
+  - Install With A Good Feeling
+  - Install With Confidence
+  - Software You Can Install With Confidence
   content: Mac Mouse Fix is unobtrusive, lightweight, polished, and easy to use. Every detail has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Additionally, it is completely open source which means that you can trust that it is secure ((and does not steal your data or mine bitcoin in the background or anything like that)), and (I'm glad to say that) to say the app has been downloaded x times, and users really love it. Here are some positive things that people have to say about the app. Thanks to everyone sharing their feedback...
   content: <Cards of what people said>
 
@@ -154,6 +172,8 @@ export default {
   - Free for 30 days, $1.99 to own
   - One simple price
   - One Simple App. One Simple Price.
+  - Great Software Doesn't Have To Come At a Great Price
+  - Great Software, Small Price
   content: 
   - Mac Mouse Fix is free for 30 days and costs $1.99 to own. There are no subscriptions or additional costs, and you can easily pay in few clicks from inside the app with Apple Pay, PayPal, Credit card and more.
   - More info (??) on trial: Free days only count down when you actually use the app - so you can relax when testing app without worry that your free days will run out. 

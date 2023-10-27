@@ -115,6 +115,6 @@ export default {
   // 'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
   
   'customization-feature.keyboard-shortcuts.title': "Verwende **Tastaturkurzbefehle** von deiner Maus aus",
-  'customization-feature.keyboard-shortcuts.body': "Mac Mouse Fix ermöglicht es dir, **alles, was du mit einem Tastaturkurzbefehl tun kannst, direkt von deiner Maus aus zu machen**. Zum Beispiel kannst du kopieren und einfügen, die Lautstärke ändern, einen neuen Tab in Safari öffnen und vieles mehr.",
+  'customization-feature.keyboard-shortcuts.body': "Mac Mouse Fix ermöglicht es dir, **alles, was du mit einem Tastaturkurzbefehl tun kannst** direkt von deiner Maus aus zu machen. Zum Beispiel kannst du kopieren und einfügen, die Lautstärke ändern, einen neuen Tab in Safari öffnen und vieles mehr.",
   'customization-feature.keyboard-shortcuts.expand-button': "Einrichtungsvorgang sehen",
 };

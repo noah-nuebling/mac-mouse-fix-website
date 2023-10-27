@@ -134,10 +134,13 @@
 
     <i18n-t tag="h2" keypath="good-software.title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-[0] mt-[6rem] text-gray-800">
       <template #first>
-        <span class="text-gradient-green-yellow"> {{ $t('good-sofware.title.first') }}</span>
+        <span class="text-gradient-green"> {{ $t('good-software.title.first') }}</span>
       </template>
       <template #second>
-        <span class="text-gradient-orange"> {{ $t('good-software.title.second') }}</span>
+        <span class="text-gradient-blue"> {{ $t('good-software.title.second') }}</span>
+      </template>
+      <template #third>
+        <span class="text-gradient-orange"> {{ $t('good-software.title.third') }}</span>
       </template>
     </i18n-t>
     
@@ -148,7 +151,7 @@
       <NormalFeatureCard titleKey="unobtrusive-lightweight.title"          bodyKey="unobtrusive-lightweight.body"    class="text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
       <NormalFeatureCard titleKey="open-source.title"        bodyKey="open-source.body"  class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
     </div>
-    <CardHeader titleKey="user-feedback.card-header.title" :iconPath="gearImagePath" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[5px] "/>
+    <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="speechBubbleImagePath" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
 
 
     <!-- Pricing -->
@@ -207,10 +210,11 @@ import remapDemoVideoPath from '../assets/video/remap_demo_old.mp4'
 import trackpadImagePath from '../assets/img/rectangle.and.hand.point.up.left.filled@8x.png'
 import sparkleArrowsImagePath from '../assets/img/arrow.up.and.down.and.sparkles@8x.png'
 // import gearArrowsImagePath from '../assets/img/arrow.gear.png'
-import arrowsInGearImagePath from '../assets/img/arrow.in.gear.png'
+// import arrowsInGearImagePath from '../assets/img/arrow.in.gear.png'
 import arrowsImagePath from '../assets/img/arrow.up.and.down@8x.png'
 import gearImagePath from '../assets/img/gearshape@8x.png'
 import actionTableImagePath from '../assets/img/mmf-on-studio-display-4.png'
+import speechBubbleImagePath from '../assets/img/text.bubble@8x.png'
 
 </script>
 
