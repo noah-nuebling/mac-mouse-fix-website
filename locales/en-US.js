@@ -127,7 +127,7 @@ export default {
 
   
 
-  /* Good Software */
+  /* Good Software & Pricing */
 
   /*
 
@@ -136,10 +136,10 @@ export default {
 
   */
 
-  'good-software.title': "{first} You Can\n{second} With A\n{third} Feeling",
+  'good-software.title': "Great {first}.\nSmall {third}.",
   'good-software.title.first': "Software",
-  'good-software.title.second': "Install",
-  'good-software.title.third': "Good",
+  'good-software.title.second': "Price",
+  'good-software.title.third': "Price",
   'good-software.body': "Mac Mouse Fix is unobtrusive, lightweight, polished, and easy to use. Every detail has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Additionally, it is completely open source which means that you can trust that it is secure ((and does not steal your data or mine bitcoin in the background or anything like that)), and (I'm glad to say that) to say the app has been downloaded x times, and users really love it. Here are some positive things that people have to say about the app. Thanks to everyone sharing their feedback...",
 
   'unobtrusive-lightweight.title': "Unobtrusive and lightweight",
@@ -149,6 +149,20 @@ export default {
 
   'user-feedback.card-header.title':  "**What people say** about Mac Mouse Fix",
   'user-feedback.card-header.sub':    "Thanks to anyone sharing feedback! :)",
+
+  'price.title': "Price",
+  'price.body': "Mac Mouse Fix is free for 30 days and costs $1.99 to own. There are no subscriptions or additional costs, and you can easily pay in few clicks from inside the app with Apple Pay, PayPal, Credit card and more.",
+  
+  'free-days.title':  "Free for 30 days",
+  'free-days.body':   "Mac Mouse Fix is free for 30 days. Your free days will only be used up when you actually use Mac Mouse Fix - so you can relax when testing app without worrying when your free days will run out.",
+
+  'alternatives.title':  "Cheaper (and better) than alternatives",
+  'alternatives.body':   "Buying Mac Mouse Fix and using it with a cheaper mouse is wayyy cheaper compared to alternatives like buying an MX Master ($99.99 MSRP), or an Apple Trackpad ($129.00 MSRP) - and it's not only cheaper, but - in my opinion - you even get a far nicer experience compared to an MX Master, and even slightly nicer than an Apple Trackpad.",
+  'alternatives.mx-master-rant': "The MX Master and other Logitech mice actually has very bad build quality and components compared to its price, and has very bad ergonomics too, at least for my hands. The button placing is very inconvenient, the mouse is way too heavy making it uncomfortable compared to ligher mouse, it's too big, not fitting my hand well, sensor is low quality and inaccurate, lots of input lag on bluetooth, the hardware features it has (gesture button, horizontal wheel, and free-spin) are not well-engineered, and do not feel good or ergonomic to use and their functionality can easily be replaced by Mac Mouse Fix in a better way.",
+
+  'pay-reason.pity': "Support me. Idk I struggle a lot with life, autism, childhood trauma, can't work a normal job. So I hope I can contribute to society and survive with this. Sincere thanks to anyone paying for the app.",
+  'pay-reason.open-source-indie': "Support open source, indie development making software with passion and a focus on a great user experience.",
+
 
 
   /*

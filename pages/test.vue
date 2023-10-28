@@ -154,9 +154,11 @@
     <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="speechBubbleImagePath" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
 
 
+    <div class="min-h-[500px]"></div>
+
     <!-- Pricing -->
     
-    <i18n-t tag="h2" keypath="pricing.title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">
+    <i18n-t tag="h2" keypath="pricing.title" class="hidden whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">
       <template #first>
         <span class="text-gradient-green-yellow"> {{ $t('pricing.title.first') }}</span>
       </template>
@@ -165,7 +167,16 @@
       </template>
     </i18n-t>
 
-    <div class="min-h-[500px]"></div>
+
+    <div class="grid xl:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-[2.5rem] py-0 my-[4.5rem]">
+      <NormalFeatureCard titleKey="price.title"          bodyKey="price.body"             class="col-span-full text-shadow-lg shadow-red-950/40 bg-[url('/assets/img/mac-wallpaper-hello-orange-dark.jpg')] bg-[percentage:150%] bg-[center_top_-9rem] bg-black/0 bg-blend-darken"/>
+      <NormalFeatureCard titleKey="free-days.title"        bodyKey="free-days.body" class="text-shadow-sm normal-feature-card-style-blue-content normal-feature-card-style-blue"/>
+      <NormalFeatureCard titleKey="alternatives.title"           bodyKey="alternatives.body"      class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
+    </div>
+
+<!-- 'alternatives.mx-master-rant'
+'pay-reason.pity'
+'pay-reason.open-source-indie' -->
 
     <!-- 
       Language Picker
