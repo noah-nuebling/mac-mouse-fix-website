@@ -6,7 +6,7 @@
 <template>
   <FeatureCard 
     ref="thisCard"
-    class="col-span-auto group shadow-md rounded-[12px]" 
+    class="col-span-auto group shadow-sm rounded-[12px] bg-gray-300/50" 
     borderClass="border-[1px] border-gray-900/25"
     :backgroundFilterClass="backgroundFilterClass"
     :doesExpand="videoPath ? true : false"
@@ -14,13 +14,13 @@
     @click="$refs.thisCard.expand()">
 
     <template v-slot:top> 
-      <h3 class="m-[1.4rem] text-[1.5rem] font-bold text-white/100 shadow-black/100" v-html="title ? title : titleKey ? $mt(titleKey) : ''"></h3>
+      <h3 class="m-[1.4rem] text-[1.5rem] font-bold text-black/40 shadow-black/100" v-html="title ? title : titleKey ? $mt(titleKey) : ''"></h3>
     </template>
 
     <template v-slot:default>
       <div class="flex flex-col items-center justify-start h-full m-[1.4rem] mt-0 mb-[1.9rem]">
         <div>
-          <p class="text-[1.05rem] text-white/100 whitespace-pre-wrap shadow-black/100 max-w-[30em]" v-html="body ? body : bodyKey ? $mt(bodyKey) : ''"></p>
+          <p class="text-[1.05rem] text-black/70 whitespace-pre-wrap shadow-black/100 max-w-[30em]" v-html="body ? body : bodyKey ? $mt(bodyKey) : ''"></p>
         </div>        
         <div v-if="imagePath" :class="imageClass">
           <img :src="imagePath" class="" alt="">

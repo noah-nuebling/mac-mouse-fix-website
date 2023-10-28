@@ -154,9 +154,21 @@
     <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="speechBubbleImagePath" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
 
 
+    <div class="flex flex-row flex-wrap gap-[2.5rem] py-0 my-[4.5rem]">
 
-
-    <div class="min-h-[500px]"></div>
+      <!-- First row -->
+      <div class="flex flex-col gap-[2.5rem]">
+        <QuoteCard v-for="quote in everyNth(3, 0, testemonials)" :title="quote.name" :body="quote.quote" class="h-fit flex-shrink flex-grow"></QuoteCard>
+      </div>
+      <!-- First row -->
+      <div class="flex flex-col gap-[2.5rem]">
+        <QuoteCard v-for="quote in everyNth(3, 1, testemonials)" :title="quote.name" :body="quote.quote" class=""></QuoteCard>
+      </div>
+      <!-- First row -->
+      <div class="flex flex-col gap-[2.5rem]">
+        <QuoteCard v-for="quote in everyNth(3, 2, testemonials)" :title="quote.name" :body="quote.quote" class=""></QuoteCard>
+      </div>
+    </div>
 
     <!-- Pricing -->
     
@@ -229,6 +241,28 @@ import gearImagePath from '../assets/img/gearshape@8x.png'
 import actionTableImagePath from '../assets/img/mmf-on-studio-display-4.png'
 import speechBubbleImagePath from '../assets/img/text.bubble@8x.png'
 
+/* Helper functions */
+
+function everyNth(n: number, startIndex: number, array: any[]): any[] {
+  // Make a new array containg every `n`th element of `array`, starting at `startIndex`
+
+  var result: any[] = []
+
+  var index = startIndex
+  while (true) {
+
+    if (index >= array.length) {
+      break
+    }
+
+    const v = array[index]
+    result.push(v)
+
+    index += n
+  }
+
+  return result
+}
 
 /* Testemonials */
 
@@ -249,7 +283,6 @@ enum PermissionToShare {
 }
 
 const testemonials = [
-
 
   // TODO: ? Add Chris Thomas' message
 
@@ -440,7 +473,7 @@ const testemonials = [
     name: "Chien Wei Chek",
     source: QuoteSource.GitHub,
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/136',
-    permission: PermissionToShare.
+    permission: PermissionToShare.None
   },
   {
     quote: "The vertical scroll is just awesome",
@@ -545,14 +578,14 @@ const testemonials = [
     name: "abhimadav",
     source: QuoteSource.Reddit,
     link: 'https://www.reddit.com/r/macapps/comments/s5h7gb/mac_mouse_fix_2_featuring_nativefeeling_gestures/',
-    permission: PermissionToShare.
+    permission: PermissionToShare.None
   },
   {
     quote: "Thank you for this, i don't understand why apple didn't make this as default, like it's super intuitive doing gestures with the middle click.",
     name: "couch_ech",
     source: QuoteSource.Reddit,
     link: 'https://www.reddit.com/r/macapps/comments/s5h7gb/mac_mouse_fix_2_featuring_nativefeeling_gestures/',
-    permission: PermissionToShare.
+    permission: PermissionToShare.None
   },
   {
     quote: "This App Makes Your Cheap Mouse Work Better Than Trackpad Gestures",
