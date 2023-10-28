@@ -152,6 +152,8 @@
       <NormalFeatureCard titleKey="open-source.title"        bodyKey="open-source.body"  class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
     </div>
     <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="speechBubbleImagePath" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
+    
+
 
 
     <div class="min-h-[500px]"></div>

@@ -152,11 +152,13 @@ onMounted(() => {
   // Get reference to video
   video = findChild(card.value!, (child) => child.tagName == 'VIDEO') as HTMLVideoElement
 
-  // Stop video from autoplaying
-  video.pause()
-
-  // Do stuff after video ends
+  
   if (video != null) {
+
+    // Stop video from autoplaying
+    video.pause()
+
+    // Do stuff after video ends
     video.addEventListener('ended', () => {
 
       // Show minimizeHint
