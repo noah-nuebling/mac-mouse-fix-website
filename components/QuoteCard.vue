@@ -6,7 +6,7 @@
 <template>
   <FeatureCard 
     ref="thisCard"
-    class="col-span-auto group shadow-sm rounded-[12px] bg-gray-300/50" 
+    class="h-fit col-span-auto group shadow-sm rounded-[12px] bg-gray-300/50" 
     borderClass="border-[1px] border-gray-900/25"
     :backgroundFilterClass="backgroundFilterClass"
     :doesExpand="videoPath ? true : false"

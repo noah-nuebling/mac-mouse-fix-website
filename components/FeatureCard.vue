@@ -16,7 +16,7 @@
 <template>
   <div
     ref="card"
-    :class="['relative h-full overflow-clip will-change-[transform,opacity]', $props.class, doesExpand ? 'cursor-pointer' : '']">
+    :class="['relative overflow-clip will-change-[transform,opacity]', $props.class, doesExpand ? 'cursor-pointer' : '']">
 
     <!-- Background Filter Container -->
     <div 
