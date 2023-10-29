@@ -1,5 +1,6 @@
+import { QuoteCard } from "#build/components"
 
-export { type QuoteSource, type PermissionToShare, type QuoteData, getUIStringForQuoteSource as getQuoteSourceString, quoteSourceIsPublic, quotes}
+export { type QuoteSource, type PermissionToShare, type QuoteData, getUIStringForQuoteSource, quoteSourceIsPublic, getUsableQuotes}
 
 /* Define Quote types */
 
@@ -40,6 +41,19 @@ function getUIStringForQuoteSource(source: QuoteSource, name: string) {
 
   const result = $mt(localizationKey, { name: name } )
 
+  return result
+}
+
+/* 
+  Filter and return quotes 
+
+  Clients should use this instead of accessing quotes directly.
+*/
+
+
+function getUsableQuotes(): QuoteData[] {
+
+  var result: QuoteData[] = quotes.filter((quote) => quote.permission != PermissionToShare.Denied)
   return result
 }
 
@@ -108,10 +122,10 @@ const quotes: QuoteData[] = [
   },
   {
     quote: "I've been wanting to get rid of my Magic Mouse for a while and because of your app, I can do just that! You're awesome!!!!",
-    name: "Zachary Taffet",
+    name: "Zach Taffet",
     source: QuoteSource.PayPalDonation,
     link: 'message:<E2.BB.41759.B545C736@ccg13mail04>',
-    permission: PermissionToShare.Requested
+    permission: PermissionToShare.Granted
   },
   {
     quote: "I recommend Mac Mouse Fix, honestly it’s the cheapest, simple, and most well coded app I have yet seen.",
@@ -335,7 +349,7 @@ const quotes: QuoteData[] = [
     name: "David Isom",
     source: QuoteSource.Email,
     link: 'message:<E344087D-7575-4253-B310-D127CC9F4A99@me.com>',
-    permission: PermissionToShare.Requested
+    permission: PermissionToShare.Denied
   },
   {
     quote: "Thank you for Mac Mouse Fix! I love it. You're doing what Apple didn't =)",

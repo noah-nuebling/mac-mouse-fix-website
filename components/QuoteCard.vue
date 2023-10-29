@@ -23,7 +23,7 @@
       <div class="m-[1.4rem]">
         <a :href="quote?.link" :class="quoteSourceIsPublic(quote!.source) ? ['pointer-events-auto'] : ['pointer-events-none']">
           <p class="text-[1.0rem] text-center text-black/60 shadow-black/100">
-            <span v-html="getQuoteSourceString(quote!.source, quote!.name)" class=""></span>
+            <span v-html="getUIStringForQuoteSource(quote!.source, quote!.name)" class=""></span>
           </p>
         </a>
       </div>
@@ -37,7 +37,7 @@
 
 // Imports
 import { $mt } from '~/utils/markdownTranslate';
-import { QuoteData, getQuoteSourceString, quoteSourceIsPublic } from '~/utils/Quotes';
+import { QuoteData, getUIStringForQuoteSource, quoteSourceIsPublic } from '~/utils/Quotes';
 
 // Import images
 import quoteImagePath from '../assets/img/baskerville-bold.quotes.png'

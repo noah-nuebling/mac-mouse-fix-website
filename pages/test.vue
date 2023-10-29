@@ -240,7 +240,8 @@ import { $mt } from '~/utils/markdownTranslate'
 
 /* Import Quote stuff */
 
-import { quotes } from '~/utils/Quotes';
+import { getUsableQuotes } from '~/utils/Quotes';
+const quotes = getUsableQuotes()
 
 /* Call setLocale on locale update
     Notes: 
