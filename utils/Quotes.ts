@@ -247,7 +247,7 @@ const quotes: QuoteData[] = [
     name: "5silentrain",
     source: QuoteSource.Email,
     link: 'message:<CAB+S4pXD+RP3OYxENZXa_+NWLmJBB1Uqf1_Z9xKLqRy=-QaTJg@mail.gmail.com>',
-    permission: PermissionToShare.Requested
+    permission: PermissionToShare.Granted
   },
   {
     quote: "Utterly incredible software, bro :) so simple yet so functional. keep up the good work.",
