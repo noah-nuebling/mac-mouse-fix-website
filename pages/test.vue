@@ -151,9 +151,8 @@
       <NormalFeatureCard titleKey="unobtrusive-lightweight.title"          bodyKey="unobtrusive-lightweight.body"    class="text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
       <NormalFeatureCard titleKey="open-source.title"        bodyKey="open-source.body"  class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
     </div>
+    
     <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="speechBubbleImagePath" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
-
-
     <div class="flex flex-row flex-wrap gap-[2.5rem] py-0 my-[4.5rem]">
 
       <!-- First row -->
@@ -424,7 +423,7 @@ const testemonials = [
     name: "Michael Hicklen",
     source: QuoteSource.Email,
     link: 'message:<13.9C.09725.38CA7836@ccg01mail05>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Granted
   },
   {
     quote: "Click & drag for switching between the screens feels so native.",

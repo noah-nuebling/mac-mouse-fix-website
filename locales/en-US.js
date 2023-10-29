@@ -83,7 +83,7 @@ export default {
   'scroll-smoothness.regular.title': 'Smoothness: **Regular**',
   'scroll-smoothness.regular.body': "Choose regular smoothness for **more snappy scrolling**, that's less smooth than a trackpad, but still provides a great, refined feel with physics-based animations.\n\nIt feels similar to scrolling in Chrome or modern Windows apps, just a bit nicer.",
   'scroll-smoothness.off.title': 'Smoothness: **Off**',
-  'scroll-smoothness.off.body': "With this option, scrolling works as it normally does under macOS - without any animation or smoothing. But with one key difference: In apps like Finder, **one increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.\n\nThis is how scrolling also works in Windows and Linux, as well as older macOS versions.",
+  'scroll-smoothness.off.body': "With this option, scrolling works as it normally does under macOS - without any animation or smoothing. But with one key difference: In apps like Finder, **one increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.\n\nThis is how scrolling also works in most apps on Windows and Linux, as well as older macOS versions.",
 
   'scroll-feature.header': 'Other great **Scrolling Features**',
 
