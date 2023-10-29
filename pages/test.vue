@@ -153,21 +153,45 @@
     </div>
     
     <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="speechBubbleImagePath" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
-    <div class="flex flex-row flex-wrap gap-[2.5rem] py-0 my-[4.5rem]">
 
+    <!-- User Quotes -->
+
+    <!-- Small Layout -->
+    <div class="flex md:hidden lg:hidden flex-row gap-[2.5rem] py-0 my-[4.5rem] justify-center">
       <!-- First row -->
       <div class="flex flex-col gap-[2.5rem]">
-        <QuoteCard v-for="quote in everyNth(3, 0, testemonials)" :title="quote.name" :body="quote.quote" class="h-fit flex-shrink flex-grow"></QuoteCard>
-      </div>
-      <!-- First row -->
-      <div class="flex flex-col gap-[2.5rem]">
-        <QuoteCard v-for="quote in everyNth(3, 1, testemonials)" :title="quote.name" :body="quote.quote" class=""></QuoteCard>
-      </div>
-      <!-- First row -->
-      <div class="flex flex-col gap-[2.5rem]">
-        <QuoteCard v-for="quote in everyNth(3, 2, testemonials)" :title="quote.name" :body="quote.quote" class=""></QuoteCard>
+        <QuoteCard v-for="quote in quotes" :title="quote.name" :body="quote.quote" class=""></QuoteCard>
       </div>
     </div>
+    
+    <!-- Medium Layout -->
+    <div class="hidden md:flex lg:hidden flex-row gap-[2.5rem] py-0 my-[4.5rem]">
+      <!-- First row -->
+      <div class="flex flex-col gap-[2.5rem]">
+        <QuoteCard v-for="quote in everyNth(2, 0, quotes)" :title="quote.name" :body="quote.quote" class=""></QuoteCard>
+      </div>
+      <!-- Second row -->
+      <div class="flex flex-col gap-[2.5rem]">
+        <QuoteCard v-for="quote in everyNth(2, 1, quotes)" :title="quote.name" :body="quote.quote" class=""></QuoteCard>
+      </div>
+    </div>
+
+    <!-- Large Layout -->
+    <div class="hidden md:hidden lg:flex flex-row gap-[2.5rem] py-0 my-[4.5rem]">
+      <!-- First row -->
+      <div class="flex flex-col gap-[2.5rem]">
+        <QuoteCard v-for="quote in everyNth(3, 0, quotes)" :title="quote.name" :body="quote.quote" class=""></QuoteCard>
+      </div>
+      <!-- Second row -->
+      <div class="flex flex-col gap-[2.5rem]">
+        <QuoteCard v-for="quote in everyNth(3, 1, quotes)" :title="quote.name" :body="quote.quote" class=""></QuoteCard>
+      </div>
+      <!-- Third row -->
+      <div class="flex flex-col gap-[2.5rem]">
+        <QuoteCard v-for="quote in everyNth(3, 2, quotes)" :title="quote.name" :body="quote.quote" class=""></QuoteCard>
+      </div>
+    </div>
+    
 
     <!-- Pricing -->
     
@@ -244,6 +268,7 @@ import speechBubbleImagePath from '../assets/img/text.bubble@8x.png'
 
 function everyNth(n: number, startIndex: number, array: any[]): any[] {
   // Make a new array containg every `n`th element of `array`, starting at `startIndex`
+  // We're using this so that we can place the quotes that we want most visible at the top of our `quotes` and then spread them out evenly along several columns.
 
   var result: any[] = []
 
@@ -281,7 +306,7 @@ enum PermissionToShare {
   Granted,
 }
 
-const testemonials = [
+const quotes = [
 
   // TODO: ? Add Chris Thomas' message
 
