@@ -206,9 +206,9 @@
 
 
     <div class="grid xl:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-[2.5rem] py-0 my-[4.5rem]">
-      <NormalFeatureCard titleKey="price.title"          bodyKey="price.body"             class="col-span-full text-shadow-lg shadow-red-950/40 bg-[url('/assets/img/mac-wallpaper-hello-orange-dark.jpg')] bg-[percentage:150%] bg-[center_top_-9rem] bg-black/0 bg-blend-darken"/>
-      <NormalFeatureCard titleKey="free-days.title"        bodyKey="free-days.body" class="text-shadow-sm normal-feature-card-style-blue-content normal-feature-card-style-blue"/>
-      <NormalFeatureCard titleKey="alternatives.title"           bodyKey="alternatives.body"      class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
+      <NormalFeatureCard titleKey="price.title"          bodyKey="price.body"           class="col-span-full text-shadow-lg shadow-red-950/40 bg-[url('/assets/img/mac-wallpaper-hello-orange-dark.jpg')] bg-[percentage:150%] bg-[center_top_-9rem] bg-black/0 bg-blend-darken"/>
+      <NormalFeatureCard titleKey="free-days.title"      bodyKey="free-days.body"       class="text-shadow-sm normal-feature-card-style-blue-content normal-feature-card-style-blue"/>
+      <NormalFeatureCard titleKey="alternatives.title"   bodyKey="alternatives.body"    class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
     </div>
 
 <!-- 'alternatives.mx-master-rant'
