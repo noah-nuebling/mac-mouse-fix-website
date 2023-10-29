@@ -13,12 +13,14 @@
 
     @click="$refs.thisCard.expand()">
 
-    <template v-slot:top> 
+    <template v-slot:top>
       <div class="flex flex-row items-start justify-start h-full m-[1.4rem] mb-[0rem]">
-          <img :src="quoteImagePath" alt="opening quote" class="w-[1.5rem] mr-[0.5rem] opacity-50 translate-y-[0.27em]">
-          <blockquote class="text-[1.05rem] text-black/70 whitespace-pre-wrap shadow-black/100 max-w-[30em]" v-html="quote?.quote"></blockquote>
+          <p class="font-[650] text-[2.8rem] translate-y-[-0.33em] ml-[-0.25rem] mr-[0.3rem] opacity-[0.50]">&#8220</p>
+          <!-- <img :src="quoteImagePath" alt="opening quote" class="w-[1.5rem] mr-[0.5rem] opacity-50 translate-y-[0.27em]"> -->
+          <blockquote class="text-[1.05rem] text-black/90 whitespace-pre-wrap shadow-black/100 max-w-[30em]" v-html="quote?.quote">
+          </blockquote>
       </div>
-      <p class="m-[1.4rem] text-[1.0rem] text-center text-black/40 shadow-black/100">
+      <p class="m-[1.4rem] text-[1.0rem] text-center text-black/60 shadow-black/100">
         <span v-html="quote?.name" class="font-bold"></span>
         <span> on <a src="google.com" class="">GitHub</a></span>
       </p>
@@ -35,8 +37,8 @@ import { $mt } from '~/utils/markdownTranslate';
 import { QuoteData } from '~/utils/Quotes';
 
 // Import images
-import quoteImagePath from '../assets/img/quote.opening@8x.png'
-import quoteBubbleImagePath from '../assets/img/quote.bubble@8x.png'
+import quoteImagePath from '../assets/img/baskerville-bold.quotes.png'
+// import quoteBubbleImagePath from '../assets/img/quote.bubble@8x.png'
 
 // Define props
 // Notes:
