@@ -353,7 +353,7 @@ const quotes: QuoteData[] = [
   },
   {
     quote: "Thank you for Mac Mouse Fix! I love it. You're doing what Apple didn't =)",
-    name: "Fernanda Bari Ramos",
+    name: "Fernanda",
     source: QuoteSource.PayPalDonation,
     link: 'message:<1634211506.4537@paypal.com>',
     permission: PermissionToShare.Requested,
