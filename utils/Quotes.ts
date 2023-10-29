@@ -60,23 +60,23 @@ const quotes: QuoteData[] = [
   {
     quote: "Mac Mouse Fix is the single most important Mac app for me. It feels incredibly polished.",
     name: "Florian Schmidt",
-    source: QuoteSource.Email,
+    source: QuoteSource.PayPalDonation,
     link: 'message:<94.9D.24537.7D594A26@ccg01mail03>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Requested
   },
   {
     quote: "Click & drag for switching between the screens feels so native.",
     name: "Lazar Manasijević",
     source: QuoteSource.Email,
     link: 'message:<BDF0E117-B5BB-4E3E-9CD5-C1DE163F7F02@gmail.com>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Requested
   },
   {
     quote: "You just saved me from spending money on the MX Master.",
     name: "Andreea",
     source: QuoteSource.Email,
     link: 'message:<D50495F3-3F30-4159-A09E-9373A9F40777@gmail.com>',
-    permission: PermissionToShare.None,
+    permission: PermissionToShare.Requested,
   },
   {
     quote: "A must have app for any Mac user with a mouse.",
@@ -102,16 +102,16 @@ const quotes: QuoteData[] = [
   {
     quote: "Mac Mouse Fix is literally everything you could want in your experience of using a mouse with OSX.",
     name: "William Park",
-    source: QuoteSource.Email,
+    source: QuoteSource.PayPalDonation,
     link: 'message:<3B.AC.57749.F6B6C326@ccg13mail02>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Requested
   },
   {
     quote: "I've been wanting to get rid of my Magic Mouse for a while and because of your app, I can do just that! You're awesome!!!!",
     name: "Zachary Taffet",
-    source: QuoteSource.Email,
+    source: QuoteSource.PayPalDonation,
     link: 'message:<E2.BB.41759.B545C736@ccg13mail04>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Requested
   },
   {
     quote: "I recommend Mac Mouse Fix, honestly it’s the cheapest, simple, and most well coded app I have yet seen.",
@@ -125,14 +125,14 @@ const quotes: QuoteData[] = [
     name: "Laurynas Tumosa",
     source: QuoteSource.PayPalDonation,
     link: 'message:<1634236926.25936@paypal.com>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Requested
   },
   {
     quote: "Thank you, saved me from buying an apple mouse",
     name: "Joao Santos",
-    source: QuoteSource.Email,
+    source: QuoteSource.PayPalDonation,
     link: 'message:<5E.65.01822.93ADD426@ccg01mail02>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Requested
   },
   {
     quote: "Probably the best app on my Mac",
@@ -146,7 +146,7 @@ const quotes: QuoteData[] = [
     name: "Shaon Khan",
     source: QuoteSource.Email,
     link: "message:<CAFj72xngJzJz8dvOx4pzL+QZTG97dSeuJ0QQwEmETJ67eGzrbQ@mail.gmail.com>",
-    permission: PermissionToShare.None,
+    permission: PermissionToShare.Granted,
   },
   {
     quote: "The UI in V2 is fantastic and very intuitive.",
@@ -189,7 +189,7 @@ const quotes: QuoteData[] = [
   {
     quote: "This is the single greatest piece of software in Apple's history.",
     name: "Michael Hicklen",
-    source: QuoteSource.Email,
+    source: QuoteSource.PayPalDonation,
     link: 'message:<13.9C.09725.38CA7836@ccg01mail05>',
     permission: PermissionToShare.Granted
   },
@@ -247,28 +247,28 @@ const quotes: QuoteData[] = [
     name: "5silentrain",
     source: QuoteSource.Email,
     link: 'message:<CAB+S4pXD+RP3OYxENZXa_+NWLmJBB1Uqf1_Z9xKLqRy=-QaTJg@mail.gmail.com>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Requested
   },
   {
     quote: "Utterly incredible software, bro :) so simple yet so functional. keep up the good work.",
     name: "Osman Keshawarz",
-    source: QuoteSource.Email,
+    source: QuoteSource.PayPalDonation,
     link: 'message:<36.97.42814.18522A36@ccg01mail04>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Requested
   },
   {
     quote: "Your app is literally the best Mac Mouse Fix available. So simple, light, M1 compatible, no bugs. I’m totally in love. I don’t even use Logitech Hub as your app is far superior. I’ll definitely be recommending your app as much as possible.",
     name: "Marvin Marker",
-    source: QuoteSource.Email,
+    source: QuoteSource.PayPalDonation,
     link: 'message:<221C5A7A-5754-4B3E-A74A-04EC3694772E@gmail.com>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Requested
   },
   {
     quote: "Thanks for this AMAZING software. 10/10!",
     name: "Timon Weides",
     source: QuoteSource.Email,
     link: 'message:<21D82608-53B7-4A72-AD52-E650FF0FED20@live.de>',
-    permission: PermissionToShare.None,
+    permission: PermissionToShare.Requested,
   },
   {
     quote: "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!",
@@ -280,9 +280,9 @@ const quotes: QuoteData[] = [
   {
     quote: "It's exact what I was looking for to make non-Apple-Mice work like I want ",
     name: "Wolf Spalteholz",
-    source: QuoteSource.Email,
+    source: QuoteSource.PayPalDonation,
     link: 'message:<59.33.32745.E2035526@ccg13mail04>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Requested
   },
   {
     quote: "After switching to a mouse, I tried software such as SteerMouse, which received many recommendations and even charges, and finally found that this software meets my needs perfectly, every feature is very useful, and the performance is very good!",
@@ -328,42 +328,42 @@ const quotes: QuoteData[] = [
     name: "Dzhakhongir Normatov",
     source: QuoteSource.Email,
     link: 'message:<280189B0-BC31-4E89-907C-46FBFB584E38@icloud.com>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Requested
   },
   {
     quote: "Many thanks for Mac Mouse Fix—it’s become an essential tool for me, and of all of the programs of this type I’ve found, it’s easily the best.",
-    name: "David",
+    name: "David Isom",
     source: QuoteSource.Email,
     link: 'message:<E344087D-7575-4253-B310-D127CC9F4A99@me.com>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Requested
   },
   {
     quote: "Thank you for Mac Mouse Fix! I love it. You're doing what Apple didn't =)",
     name: "Fernanda Bari Ramos",
     source: QuoteSource.PayPalDonation,
     link: 'message:<1634211506.4537@paypal.com>',
-    permission: PermissionToShare.None,
+    permission: PermissionToShare.Requested,
   },
   {
     quote: "Great app! Love the simplicity and it works like a charm! Thanx :)",
     name: "Peter Leijenhorst",
-    source: QuoteSource.Email,
+    source: QuoteSource.PayPalDonation,
     link: 'message:<49.05.55471.3D245B36@ccg01mail03>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Requested
   },
   {
     quote: "You are an absolute legend thank you so much for creating this app, it's literally perfect",
     name: "Herta Gatter",
-    source: QuoteSource.Email,
+    source: QuoteSource.PayPalDonation,
     link: 'message:<67.68.63016.6BAA3D36@ccg01mail02>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Requested
   },
   {
     quote: "Thanks for your awesome app its just wonderful :).",
     name: "Marvin Pärli",
-    source: QuoteSource.Email,
+    source: QuoteSource.PayPalDonation,
     link: 'message:<9C61D7F1-CABE-4851-8F29-AE04AF932140@icloud.com>',
-    permission: PermissionToShare.None
+    permission: PermissionToShare.Requested
   },
   {
     quote: "Your tool is literally the only way how I can use macOS (with a mouse especially) without freaking out!",
