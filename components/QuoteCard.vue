@@ -6,8 +6,8 @@
 <template>
   <FeatureCard 
     ref="thisCard"
-    class="h-fit col-span-auto group shadow-sm rounded-[12px] bg-gray-300/50" 
-    borderClass="border-[1px] border-gray-900/25"
+    class="h-fit col-span-auto group shadow-none rounded-[12px] bg-gray-300 bg-opacity-[0.2]" 
+    borderClass="border-[1px] border-gray-400/25"
     backgroundFilterClass=""
     :doesExpand="false"
 
