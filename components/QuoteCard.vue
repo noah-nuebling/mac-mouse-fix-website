@@ -20,10 +20,13 @@
           <blockquote class="text-[1.05rem] text-black/90 whitespace-pre-wrap shadow-black/100 max-w-[30em]" v-html="quote?.quote">
           </blockquote>
       </div>
-      <p class="m-[1.4rem] text-[1.0rem] text-center text-black/60 shadow-black/100">
-        <span v-html="quote?.name" class="font-bold"></span>
-        <span> on <a src="google.com" class="">GitHub</a></span>
-      </p>
+      <div class="m-[1.4rem]">
+        <a :href="quote?.link" :class="quoteSourceIsPublic(quote!.source) ? ['pointer-events-auto'] : ['pointer-events-none']">
+          <p class="text-[1.0rem] text-center text-black/60 shadow-black/100">
+            <span v-html="getQuoteSourceString(quote!.source, quote!.name)" class=""></span>
+          </p>
+        </a>
+      </div>
 
     </template>
     
@@ -34,7 +37,7 @@
 
 // Imports
 import { $mt } from '~/utils/markdownTranslate';
-import { QuoteData } from '~/utils/Quotes';
+import { QuoteData, getQuoteSourceString, quoteSourceIsPublic } from '~/utils/Quotes';
 
 // Import images
 import quoteImagePath from '../assets/img/baskerville-bold.quotes.png'

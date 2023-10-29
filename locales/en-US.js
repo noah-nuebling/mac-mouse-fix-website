@@ -224,5 +224,14 @@ export default {
 
   */
 
-  
+
+  /* Quotes */
+
+  'quote-source.email':           "**{ name }** in an email",
+  'quote-source.payPalDonation':  "**{ name }** in a PayPal donation message",
+  'quote-source.gitHub':          "**{ name }** on GitHub",
+  'quote-source.stackExchange':   "**{ name }** on Stack Exchange",
+  'quote-source.reddit':          "**{ name }** on Reddit",
+  'quote-source.lifehacker':      "**{ name }** in a LifeHacker article",
+  'quote-source.youtubeComment':  "**{ name }** in a YouTube comment",
 };

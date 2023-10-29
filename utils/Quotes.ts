@@ -1,16 +1,16 @@
 
-export { type QuoteSource, type PermissionToShare, type QuoteData, quotes }
+export { type QuoteSource, type PermissionToShare, type QuoteData, getUIStringForQuoteSource as getQuoteSourceString, quoteSourceIsPublic, quotes}
 
 /* Define Quote types */
 
 enum QuoteSource {
-  Email,
-  PayPalDonation,
-  GitHub,
-  StackExchange,
-  Reddit,
-  Lifehacker,
-  YoutubeComment,
+  Email           = 'quote-source.email',
+  PayPalDonation  = 'quote-source.payPalDonation',
+  GitHub          = 'quote-source.gitHub',
+  StackExchange   = 'quote-source.stackExchange',
+  Reddit          = 'quote-source.reddit',
+  Lifehacker      = 'quote-source.lifehacker',
+  YoutubeComment  = 'quote-source.youtubeComment',
 }
 enum PermissionToShare {
   None,
@@ -26,9 +26,26 @@ type QuoteData = {
   permission: PermissionToShare,
 }
 
+/* Helper functions */
+
+function quoteSourceIsPublic(source: QuoteSource) {
+  return source != QuoteSource.Email && source != QuoteSource.PayPalDonation
+}
+
+/* String Generator */
+
+function getUIStringForQuoteSource(source: QuoteSource, name: string) {
+
+  const localizationKey: string = source
+
+  const result = $mt(localizationKey, { name: name } )
+
+  return result
+}
+
 /* Define Quotes */
 
-const quotes = [
+const quotes: QuoteData[] = [
 
   {
     quote: "Works so well! Great idea and implementation, and of course the design, in the best Apple traditions!",
@@ -75,14 +92,14 @@ const quotes = [
   {
     quote: "Thank you for Mac Mouse Fix! I love it. You're doing what Apple didn't =)",
     name: "Fernanda Bari Ramos",
-    source: QuoteSource.Email,
+    source: QuoteSource.PayPalDonation,
     link: 'message:<1634211506.4537@paypal.com>',
     permission: PermissionToShare.None,
   },
   {
     quote: "The UI and gestures are so intuitive.",
     name: "Laurynas Tumosa",
-    source: QuoteSource.Email,
+    source: QuoteSource.PayPalDonation,
     link: 'message:<1634236926.25936@paypal.com>',
     permission: PermissionToShare.None
   },

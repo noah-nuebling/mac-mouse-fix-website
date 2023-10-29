@@ -19,19 +19,19 @@ function _setup() {
 }
 
 
-function $mt(key: string): string {
+function $mt(key: string, values?: Object | Array<string>): string {
 
   _setup()
 
   // Get result
-  const result = renderer.renderInline(i18n.t(key))
+  const result = renderer.renderInline(i18n.t(key, values))
 
   // Return
   return result
 }
 
 
-function $mto(key: string): string {
+function $mto(key: string, values?: Object | Array<string>): string {
 
   // Render not-inline (aka "**o**ut of line")
   // Notes: 
@@ -40,7 +40,7 @@ function $mto(key: string): string {
   _setup()
 
   // Get result
-  const result = renderer.render(i18n.t(key))
+  const result = renderer.render(i18n.t(key, values))
 
   // Return
   return result
