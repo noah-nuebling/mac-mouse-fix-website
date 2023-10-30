@@ -143,10 +143,10 @@ const quotes: QuoteData[] = [
   },
   {
     quote: "Thank you, saved me from buying an apple mouse",
-    name: "Joao Santos",
+    name: "João Santos",
     source: QuoteSource.PayPalDonation,
     link: 'message:<5E.65.01822.93ADD426@ccg01mail02>',
-    permission: PermissionToShare.Requested
+    permission: PermissionToShare.Granted
   },
   {
     quote: "Probably the best app on my Mac",
