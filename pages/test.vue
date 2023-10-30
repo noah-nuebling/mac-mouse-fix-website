@@ -9,7 +9,10 @@
 <template>
   <div>
 
+
+    <!-- Intro -->
    
+    <Intro/>
 
     <!-- Replaces Trackpad -->
 
