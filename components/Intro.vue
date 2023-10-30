@@ -7,12 +7,12 @@
 
     <!-- Content -->
 
-    <div class="group w-[100%] h-[calc(100vh-6rem)]">
-      <div class=" h-[100%] w-[100%] flex flex-col items-center justify-center translate-y-[-5rem] scale-[1.3]"> 
-        <img :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" class="h-[14rem] group-hover:invisible">
-        <h1 class="font-[700] text-[5.0rem] text-black/90 mt-[1.75rem] mb-[-1.25rem] group-hover:translate-y-[-3rem] group-hover:scale-[0.8]">Mac Mouse Fix</h1>
-        <p class="text-black opacity-[0.7] mb-[1.5rem] group-hover:opacity-0">Make Your $10 Mouse Better Than an Apple Trackpad</p>
-        <div class="bg-blue-500 rounded-[5rem] group-hover:invisible">
+    <div class="group w-[100%] h-[calc(100vh-6rem)] duration-[0.8s] ease-[cubic-bezier(0.2,0,0.2,1)]">
+      <div ref="innerContent" class="h-[100%] w-[100%] flex flex-col items-center justify-center translate-y-[-5rem] transition-[transform] duration-[inherit] ease-[inherit]"> 
+        <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" class="h-[14rem] transition-[opacity] opacity-0 duration-[inherit] ease-[inherit]">
+        <h1 ref="mmfName" class="font-[700] text-[5.0rem] text-black/90 mt-[1.75rem] mb-[-1.25rem] transition-transform duration-[inherit] ease-[inherit] animate-pulse scale-[0.8]">Mac Mouse Fix</h1>
+        <p ref="tagline" class="text-black mb-[1.5rem] transition-[opacity] opacity-0 duration-[inherit] ease-[inherit]">Make Your $10 Mouse Better Than an Apple Trackpad</p>
+        <div ref="downloadButton" class="bg-blue-500 rounded-[5rem] ransition-[opacity] opacity-0 duration-[inherit] ease-[inherit]">
           <p class="text-white mx-[0.75em] my-[0.25em]">Download</p>
         </div>
       </div>
@@ -27,6 +27,32 @@
   (Not totally sure if necessary)
 */
 import mmfIconImagePath from "../assets/img/mmf-icon.png"
+
+/* Get dom element refs */
+
+const innerContent:   Ref<HTMLElement|null> = ref(null)
+const mmfIcon:        Ref<HTMLElement|null> = ref(null)
+const mmfName:        Ref<HTMLElement|null> = ref(null)
+const tagline:        Ref<HTMLElement|null> = ref(null)
+const downloadButton: Ref<HTMLElement|null> = ref(null)
+
+/* 
+  Wait for mount 
+  so that refs are defined
+*/
+
+onMounted(() => {
+
+  /* Intro animation */
+  innerContent.value!.classList.remove('translate-y-[-5rem]')
+  innerContent.value!.classList.add('translate-y-[-8rem]')
+  mmfIcon.value!.classList.remove('opacity-0')
+  mmfName.value!.classList.remove('animate-pulse', 'scale-[0.8]')
+  tagline.value!.classList.remove('opacity-0')
+  tagline.value!.classList.add('opacity-[0.7]')
+  downloadButton.value!.classList.remove('opacity-0')
+})
+
 
 
 </script>
