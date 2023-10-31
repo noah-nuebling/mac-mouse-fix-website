@@ -9,16 +9,16 @@
 
     <div class="flex items-center justify-center group w-[100%] h-[calc(100vh-5rem)] duration-[0.8s] ease-[cubic-bezier(0.4,0,0.2,1)]">
       <div class="h-fit w-fit border-[0px] relative duration-[inherit] ease-[inherit]">
-        <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center transition-[transform] duration-[inherit] ease-[inherit] border-[0px]', !isMounted ? 'translate-y-[-6rem]' : '']"> 
-          <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['h-[14rem] transition-[opacity] duration-[inherit] ease-[inherit] border-[0px] mt-[-2rem]', !isMounted ? 'opacity-0' : '']">
-          <h1 ref="mmfName" :class="['font-[700] text-[5.0rem] text-black/90 mt-[1.75rem] mb-[-1.25rem] transition-transform duration-[inherit] ease-[inherit]', !isMounted ? 'animate-pulse scale-[0.8]' : '']">Mac Mouse Fix</h1>
-          <p ref="tagline" :class="['text-black mb-[1.5rem] transition-[opacity] duration-[inherit] ease-[inherit]', !isMounted ? 'opacity-0' : 'opacity-[0.7]']">Make Your $10 Mouse Better Than an Apple Trackpad</p>
-          <div ref="downloadButton" :class="['bg-blue-500 rounded-[5rem] transition-[opacity] duration-[inherit] ease-[inherit]', !isMounted ? 'opacity-0' : '']">
+        <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center transition-[transform] duration-[inherit] ease-[inherit] border-[0px]', playLoadingAnimation ? 'translate-y-[-6rem]' : '']"> 
+          <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['h-[14rem] transition-[opacity] duration-[inherit] ease-[inherit] border-[0px] mt-[-2rem]', playLoadingAnimation ? 'opacity-0' : '']">
+          <h1 ref="mmfName" :class="['font-[700] text-[5.0rem] text-black/90 mt-[1.75rem] mb-[-1.25rem] transition-transform duration-[inherit] ease-[inherit]', playLoadingAnimation ? 'animate-pulse scale-[0.8]' : '']">Mac Mouse Fix</h1>
+          <p ref="tagline" :class="['text-black mb-[1.5rem] transition-[opacity] duration-[inherit] ease-[inherit]', playLoadingAnimation ? 'opacity-0' : 'opacity-[0.7]']">Make Your $10 Mouse Better Than an Apple Trackpad</p>
+          <div ref="downloadButton" :class="['bg-blue-500 rounded-[5rem] transition-[opacity] duration-[inherit] ease-[inherit]', playLoadingAnimation ? 'opacity-0' : '']">
             <p class="text-white mx-[0.75em] my-[0.25em] text-[1.0rem]">Download</p>
           </div>
         </div>
-        <img ref="colorSplash1" :src="colorSplashImagePath" alt="Color Splash" :class="['absolute top-0 left-0 translate-x-[calc(-50%-30rem)] translate-y-[calc(-50%-30rem)] scale-[4.0] -z-10 transition-[opacity] duration-[3.6s] ease-[inherit]', !isMounted ? 'opacity-0' : '']">
-        <img ref="colorSplash2" :src="colorSplashImagePath" alt="Color Splash" :class="['absolute bottom-0 right-0 translate-x-[calc(50%+30rem)] translate-y-[calc(50%+35rem)] scale-[4.0] -z-10 transition-[opacity] duration-[3.6s] ease-[inherit]', !isMounted ? 'opacity-0' : '']">
+        <img ref="colorSplash1" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse1 absolute top-0 left-0 translate-x-[calc(-50%-30rem)] translate-y-[calc(-50%-30rem)] scale-[4.0] -z-10 transition-[opacity] duration-[3.6s] ease-[inherit]', !showColorSplashes ? 'opacity-0' : '']">
+        <img ref="colorSplash2" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse2 absolute bottom-0 right-0 translate-x-[calc(50%+30rem)] translate-y-[calc(50%+35rem)] scale-[4.0] -z-10 transition-[opacity] duration-[3.6s] ease-[inherit]', !showColorSplashes ? 'opacity-0' : '']">
       </div>
     </div>
 
@@ -47,14 +47,15 @@ import colorSplashImagePath from "../assets/img/color-splash.png"
 
 /* State */
 
-const isMounted = ref(false)
+const playLoadingAnimation = ref(true) // Initialize to false to disable loading animations
+const showColorSplashes = ref(false)
 
 /* Wait for mount 
-    We play intro animations after mount, not sure if that makes sense?
 */
 
 onMounted(() => {
-  isMounted.value = true
+  playLoadingAnimation.value = false
+  showColorSplashes.value = true
 })
 
 
@@ -62,5 +63,39 @@ onMounted(() => {
 </script>
 
 <style scoped lang="postcss">
+
+/* Color Splash Animations
+    Doesn't seem to work. It's okay
+ */
+
+.color-splash-pulse1 {
+  animation: splash-pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.color-splash-pulse2 {
+  animation: splash-pulse 7s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes splash-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translate(40px, 100px);
+  }
+  20% {
+    opacity: 0.85;
+    transform: translate(-30px, 2px);
+  }
+  40% {
+    opacity: 0.9;
+    transform: translate(0px, 5px);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translate(-7px, -4px);
+  }
+  80% {
+    opacity: 0.85;
+    transform: translate(6px, -2px);
+  }
+}
 
 </style>
