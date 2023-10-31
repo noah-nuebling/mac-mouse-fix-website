@@ -1,11 +1,11 @@
 <template>
-  <div class="mt-[0rem]">
+  <div ref="outerContainer" class="mt-[0rem]">
 
     <!-- Background -->
 
     <div class="bg-transparent w-screen h-[100vh] absolute left-0.5 right-0.5 top-0 bottom-0 -z-10">
       <img ref="colorSplash1" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse1 absolute min-w-[80rem] top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] -z-10 transition-[opacity] duration-[3.6s] ease-[inherit]', !showColorSplashes ? 'opacity-0' : '']">
-        <img ref="colorSplash2" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse2 absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] -z-10 transition-[opacity] duration-[3.6s] ease-[inherit]', !showColorSplashes ? 'opacity-0' : '']">
+      <img ref="colorSplash2" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse2 absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] -z-10 transition-[opacity] duration-[3.6s] ease-[inherit]', !showColorSplashes ? 'opacity-0' : '']">
     </div>
 
     <!-- Content -->
@@ -28,6 +28,13 @@
 
 <script setup lang="ts">
 
+
+/* Import gsap stuff */
+
+import { gsap } from "gsap/gsap-core";
+import { linearScalingEase } from "../utils/criticalSpring"
+
+
 /* Manually import images 
   (Not totally sure if necessary)
 */
@@ -38,13 +45,18 @@ import colorSplashImagePath from "../assets/img/color-splash.png"
     All unused atm
 */
 
-// const innerContent:   Ref<HTMLElement|null> = ref(null)
-// const mmfIcon:        Ref<HTMLElement|null> = ref(null)
-// const mmfName:        Ref<HTMLElement|null> = ref(null)
+const outerContainer:   Ref<HTMLElement|null> = ref(null)
+const innerContent:   Ref<HTMLElement|null> = ref(null)
+const mmfIcon:        Ref<HTMLElement|null> = ref(null)
+const mmfName:        Ref<HTMLElement|null> = ref(null)
 // const tagline:        Ref<HTMLElement|null> = ref(null)
 // const downloadButton: Ref<HTMLElement|null> = ref(null)
 // const colorSplash1:   Ref<HTMLElement|null> = ref(null)
 // const colorSplash2:   Ref<HTMLElement|null> = ref(null)
+
+/* Constants */
+
+const loadingTransitionDuration: number = 0.8 // Keep in sync with tailwind in <template>
 
 /* State */
 
@@ -55,8 +67,29 @@ const showColorSplashes = ref(false)
 */
 
 onMounted(() => {
+
+  /* Play intro animations */
+
   playLoadingAnimation.value = false
   showColorSplashes.value = true
+
+  /* Wait for introAnimations */
+  setTimeout(() => {
+
+    /* Setup scroll animation */
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: outerContainer.value!,
+        pin: true, // Pin the trigger element while active
+        start: "top top", // Start when the top of the trigger hits the top of the viewport
+        end: "+=5000", // End after scrolling 500px beyond the start
+        scrub: 0.5, // Smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+      },
+    })
+    // add animations and labels to the timeline
+    tl.to(outerContainer.value, { scale: 450.0, translateY: '-2050rem', ease: linearScalingEase(450.0) })
+
+  }, loadingTransitionDuration * 1000);
 })
 
 

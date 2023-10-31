@@ -1,9 +1,22 @@
+export { criticalSpring, linearScalingEase }
+
+import { AnimationCurve, animationCurveFromRawCurve } from "./animationCurveForStart"
+
+/*   
+  Logarithmic easing for linear feeling scale animations
+*/
+
+function linearScalingEase(targetScale: number) {
+  const rawCurve = (y: number) => Math.pow(targetScale, y)
+  const animationCurve = animationCurveFromRawCurve(rawCurve)
+  return animationCurve.ease
+}
 
 /*   
   Easing for gsap that feels like critically damped spring. 
   */
 
-export default (x: number) => {
+function criticalSpring(x: number) {
   
   /// Old implementation
   // return "elastic.out(0.001, 1.0)" // First arg is amplitude, values < 1 are mapped to 1
