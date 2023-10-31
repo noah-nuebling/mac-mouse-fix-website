@@ -3,7 +3,10 @@
 
     <!-- Background -->
 
-    <div class="bg-transparent w-screen h-[100vh] absolute left-0.5 right-0.5 top-0 bottom-0 -z-10"></div>
+    <div class="bg-transparent w-screen h-[100vh] absolute left-0.5 right-0.5 top-0 bottom-0 -z-10">
+      <img ref="colorSplash1" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse1 absolute min-w-[80rem] top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] -z-10 transition-[opacity] duration-[3.6s] ease-[inherit]', !showColorSplashes ? 'opacity-0' : '']">
+        <img ref="colorSplash2" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse2 absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] -z-10 transition-[opacity] duration-[3.6s] ease-[inherit]', !showColorSplashes ? 'opacity-0' : '']">
+    </div>
 
     <!-- Content -->
 
@@ -17,8 +20,6 @@
             <p class="text-white mx-[0.75em] my-[0.25em] text-[1.0rem]">Download</p>
           </div>
         </div>
-        <img ref="colorSplash1" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse1 absolute top-0 left-0 translate-x-[calc(-50%-30rem)] translate-y-[calc(-50%-30rem)] scale-[4.0] -z-10 transition-[opacity] duration-[3.6s] ease-[inherit]', !showColorSplashes ? 'opacity-0' : '']">
-        <img ref="colorSplash2" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse2 absolute bottom-0 right-0 translate-x-[calc(50%+30rem)] translate-y-[calc(50%+35rem)] scale-[4.0] -z-10 transition-[opacity] duration-[3.6s] ease-[inherit]', !showColorSplashes ? 'opacity-0' : '']">
       </div>
     </div>
 
