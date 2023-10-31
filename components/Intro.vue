@@ -83,7 +83,7 @@ onMounted(() => {
         trigger: outerContainer.value!,
         pin: true, // Pin the trigger element while active
         start: "top top", // Start when the top of the trigger hits the top of the viewport
-        end: "+=5000", // End after scrolling 500px beyond the start
+        end: "+=4000", // End after scrolling this many px beyond the start
         scrub: 0.5, // Smooth scrubbing, takes 1 second to "catch up" to the scrollbar
       },
     })
