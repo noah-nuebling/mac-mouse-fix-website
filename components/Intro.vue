@@ -1,5 +1,5 @@
 <template>
-  <div ref="outerContainer" class="mt-[0rem]">
+  <div ref="outerContainer" class="mt-[0rem] -z-10">
 
     <!-- Background -->
 
@@ -57,6 +57,7 @@ const mmfName:        Ref<HTMLElement|null> = ref(null)
 /* Constants */
 
 const loadingTransitionDuration: number = 0.8 // Keep in sync with tailwind in <template>
+const defaultScreenHeight = 970.0
 
 /* State */
 
@@ -87,7 +88,10 @@ onMounted(() => {
       },
     })
     // add animations and labels to the timeline
-    tl.to(outerContainer.value, { scale: 450.0, translateY: '-2050rem', ease: linearScalingEase(450.0) })
+    const scale = 450.0 * window.innerHeight / 970.0
+    tl.to(outerContainer.value, { scale: scale, translateY: `${scale * -4.6}rem`, ease: linearScalingEase(scale) })
+
+    tl.set(outerContainer.value, { scale: 1.0 })
 
   }, loadingTransitionDuration * 1000);
 })
