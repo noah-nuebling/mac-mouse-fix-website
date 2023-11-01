@@ -4,8 +4,8 @@
     <!-- Background -->
 
     <div class="bg-transparent w-screen h-[100vh] absolute left-[50%] translate-x-[-50%] top-0 bottom-0 -z-10">
-      <img ref="colorSplash1" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse1 absolute min-w-[80rem] top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] -z-10 transition-[opacity] duration-[3.6s] ease-[inherit]', !showColorSplashes ? 'opacity-0' : '']">
-      <img ref="colorSplash2" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse2 absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] -z-10 transition-[opacity] duration-[3.6s] ease-[inherit]', !showColorSplashes ? 'opacity-0' : '']">
+      <img ref="colorSplash1" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse1 absolute min-w-[80rem] top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] -z-10 opacity-0']">
+      <img ref="colorSplash2" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse2 absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] -z-10 opacity-0']">
     </div>
 
     <!-- Content -->
@@ -51,8 +51,8 @@ const mmfIcon:        Ref<HTMLElement|null> = ref(null)
 const mmfName:        Ref<HTMLElement|null> = ref(null)
 // const tagline:        Ref<HTMLElement|null> = ref(null)
 // const downloadButton: Ref<HTMLElement|null> = ref(null)
-// const colorSplash1:   Ref<HTMLElement|null> = ref(null)
-// const colorSplash2:   Ref<HTMLElement|null> = ref(null)
+const colorSplash1:   Ref<HTMLElement|null> = ref(null)
+const colorSplash2:   Ref<HTMLElement|null> = ref(null)
 
 /* Constants */
 
@@ -74,26 +74,38 @@ onMounted(() => {
   playLoadingAnimation.value = false
   showColorSplashes.value = true
 
-  /* Wait for introAnimations */
-  setTimeout(() => {
+  var tl = gsap.timeline({
+    ease: "power3.inout",
+  })
 
-    /* Setup scroll animation */
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: outerContainer.value!,
-        pin: true, // Pin the trigger element while active
-        start: "top top", // Start when the top of the trigger hits the top of the viewport
-        end: "+=4000", // End after scrolling this many px beyond the start
-        scrub: 0.5, // Smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-      },
-    })
-    // add animations and labels to the timeline
-    const scale = 450.0 * window.innerHeight / 970.0
-    tl.to(innerContent.value, { scale: scale, translateY: `${scale * -4.6}rem`, ease: linearScalingEase(scale) })
+  tl.to(colorSplash1.value, { opacity: 1 }, 0)
+  tl.to(colorSplash2.value, { opacity: 1 }, 0)
 
-    tl.set(innerContent.value, { scale: 1.0 })
+  tl.duration(3.6)
 
-  }, loadingTransitionDuration * 1000);
+  tl.play()
+
+  // tl = gsap.timeline({
+  //   ease: "power3.inout"
+  // })
+  // tl.to()
+
+  /* Setup scroll animation */
+
+  tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: outerContainer.value!,
+      pin: true, // Pin the trigger element while active
+      start: "top top", // Start when the top of the trigger hits the top of the viewport
+      end: "+=4000", // End after scrolling this many px beyond the start
+      scrub: 0.5, // Smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+    },
+  })
+  // add animations and labels to the timeline
+  const scale = 450.0 * window.innerHeight / 970.0
+  tl.to(innerContent.value, { scale: scale, translateY: `${scale * -4.6}rem`, ease: linearScalingEase(scale) })
+  tl.set(innerContent.value, { scale: 1.0 })
+
 })
 
 
