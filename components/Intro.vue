@@ -1,9 +1,9 @@
 <template>
-  <div ref="outerContainer" class="mt-[0rem] -z-10">
+  <div ref="outerContainer" class="relative mt-[-0rem] -z-10">
 
     <!-- Background -->
 
-    <div class="bg-transparent w-screen h-[100vh] absolute left-0.5 right-0.5 top-0 bottom-0 -z-10">
+    <div class="bg-transparent w-screen h-[100vh] absolute left-[50%] translate-x-[-50%] top-0 bottom-0 -z-10">
       <img ref="colorSplash1" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse1 absolute min-w-[80rem] top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] -z-10 transition-[opacity] duration-[3.6s] ease-[inherit]', !showColorSplashes ? 'opacity-0' : '']">
       <img ref="colorSplash2" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse2 absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] -z-10 transition-[opacity] duration-[3.6s] ease-[inherit]', !showColorSplashes ? 'opacity-0' : '']">
     </div>
@@ -89,9 +89,9 @@ onMounted(() => {
     })
     // add animations and labels to the timeline
     const scale = 450.0 * window.innerHeight / 970.0
-    tl.to(outerContainer.value, { scale: scale, translateY: `${scale * -4.6}rem`, ease: linearScalingEase(scale) })
+    tl.to(innerContent.value, { scale: scale, translateY: `${scale * -4.6}rem`, ease: linearScalingEase(scale) })
 
-    tl.set(outerContainer.value, { scale: 1.0 })
+    tl.set(innerContent.value, { scale: 1.0 })
 
   }, loadingTransitionDuration * 1000);
 })
