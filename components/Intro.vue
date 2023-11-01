@@ -1,14 +1,14 @@
 <template>
   <div ref="outerContainer" class="relative mt-[-0rem] -z-10">
 
-    <!-- Background -->
+    <!-- BG + Color Splashes -->
 
-    <div class="bg-transparent w-screen h-[100vh] absolute left-[50%] translate-x-[-50%] top-0 bottom-0 -z-10">
+    <div ref="backgroundContainer" class="bg-transparent w-screen h-[100vh] absolute left-[50%] translate-x-[-50%] top-0 bottom-0 -z-10">
       <img ref="colorSplash1" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse1 absolute min-w-[80rem] top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] -z-10 opacity-0']">
       <img ref="colorSplash2" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse2 absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] -z-10 opacity-0']">
     </div>
 
-    <!-- Content -->
+    <!-- Initial Content -->
 
     <div class="flex items-center justify-center group w-[100%] h-[calc(100vh-5rem)] duration-[0.8s] ease-[cubic-bezier(0.4,0,0.2,1)]">
       <div class="h-fit w-fit border-[0px] relative duration-[inherit] ease-[inherit]">
@@ -21,6 +21,12 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Tagline -->
+
+    <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center opacity-0">
+      <p class="text-white font-[500] text-[2rem]" >Make Your $10 Mouse Better Than an Apple Trackpad</p>
     </div>
 
   </div>
@@ -46,14 +52,16 @@ import colorSplashImagePath from "../assets/img/color-splash.png"
     All unused atm
 */
 
-const outerContainer: Ref<HTMLElement|null> = ref(null)
-const innerContent:   Ref<HTMLElement|null> = ref(null)
-const mmfIcon:        Ref<HTMLElement|null> = ref(null)
-const mmfName:        Ref<HTMLElement|null> = ref(null)
-const tagline:        Ref<HTMLElement|null> = ref(null)
-const downloadButton: Ref<HTMLElement|null> = ref(null)
-const colorSplash1:   Ref<HTMLElement|null> = ref(null)
-const colorSplash2:   Ref<HTMLElement|null> = ref(null)
+const outerContainer:       Ref<HTMLElement|null> = ref(null)
+const innerContent:         Ref<HTMLElement|null> = ref(null)
+const mmfIcon:              Ref<HTMLElement|null> = ref(null)
+const mmfName:              Ref<HTMLElement|null> = ref(null)
+const tagline:              Ref<HTMLElement|null> = ref(null)
+const downloadButton:       Ref<HTMLElement|null> = ref(null)
+const backgroundContainer:  Ref<HTMLElement|null> = ref(null)
+const colorSplash1:         Ref<HTMLElement|null> = ref(null)
+const colorSplash2:         Ref<HTMLElement|null> = ref(null)
+const taglineContainer:     Ref<HTMLElement|null> = ref(null)
 
 /* Constants */
 
@@ -104,19 +112,31 @@ onMounted(() => {
 
   /* Setup scroll animation */
 
+  const sections = [4000, 500, 1000]
+  const sectionsSum = sections.reduce((partialSum, n) => partialSum + n, 0)
+
   const tlScroll = gsap.timeline({
     scrollTrigger: {
       trigger: outerContainer.value!,
       pin: true, // Pin the trigger element while active
+      anticipatePin: 1, // Prevent jitter when pin becomes active
       start: "top top", // Start when the top of the trigger hits the top of the viewport
-      end: "+=4000", // End after scrolling this many px beyond the start
+      end: `+=${ sectionsSum }`, // End after scrolling this many px beyond the start
       scrub: 0.5, // Smooth scrubbing, takes 1 second to "catch up" to the scrollbar
     },
   })
-  // add animations and labels to the timeline
+  
+  // Add zoom animation to tl
   const scale = 450.0 * window.innerHeight / 970.0
-  tlScroll.to(innerContent.value, { scale: scale, translateY: `${scale * -4.6}rem`, ease: linearScalingEase(scale) })
-  tlScroll.set(innerContent.value, { scale: 1.0 })
+  tlScroll.to(innerContent.value, { scale: scale, translateY: `${scale * -4.6}rem`, ease: linearScalingEase(scale), duration: sections[0] })
+  // tlScroll.set(innerContent.value, { scale: 1.0 })
+  // tlScroll.set(backgroundContainer, { backgroundColor: 'black' })
+
+  // Add pause to tl
+  tlScroll.to({}, { duration: sections[1] }, '+=0')
+
+  // Add tagline animatmion to tl
+  tlScroll.to(taglineContainer.value, { opacity: 1, duration: sections[2] }, '+=0')
 
 })
 
