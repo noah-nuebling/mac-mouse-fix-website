@@ -545,24 +545,11 @@ if (props.doesExpand) {
       // 
       // Wait until browser is done rendering, then start animation
       //
+      // Notes:
+      //  - This works since the timeline is paused. Also we're using fromTo everywhere which renders the from state immediately.
+      // - 0.05 delay prevents a little more jerkiness in Safari (might be placebo) without feeling less responsive in Chrome.
 
-      //  This works since the timeline is paused. Also we're using fromTo everywhere which renders the from state immediately.
-      //  See https://stackoverflow.com/questions/15875128/is-there-element-rendered-event
-
-      window.requestAnimationFrame(() => {
-        setTimeout(() => {
-
-          // Play timeline after delay
-          // Notes:
-          // - tl.delay() doesn't work anymore for some reason
-          // - 0.05 delay prevents a little more jerkiness in Safari (might be placebo) without feeling less responsive in Chrome.
-          
-          $gsap.delayedCall(0.05, () => tl.play())
-
-        }, 0)
-      });
-
-
+      doAfterRender(() => { tl.play() }, 0.05)
 
     } else { 
       
@@ -794,15 +781,19 @@ if (props.doesExpand) {
       //
       
       // Discussion: This is useful for expand - Is it also useful for unexpand?
+      
+      doAfterRender(() => { tl.play() }, 0.05)
+    
+      // vvv Old implementation
+      // window.requestAnimationFrame(() => {
+      //   setTimeout(() => {
+          
+      //     // Play timeline after delay
+      //     $gsap.delayedCall(0.05, () => tl.play())
+          
+      //   }, 0)
+      // });
 
-      window.requestAnimationFrame(() => {
-        setTimeout(() => {
-          
-          // Play timeline after delay
-          $gsap.delayedCall(0.05, () => tl.play())
-          
-        }, 0)
-      });
     }
   })
 

@@ -46,7 +46,7 @@ import colorSplashImagePath from "../assets/img/color-splash.png"
     All unused atm
 */
 
-const outerContainer:   Ref<HTMLElement|null> = ref(null)
+const outerContainer: Ref<HTMLElement|null> = ref(null)
 const innerContent:   Ref<HTMLElement|null> = ref(null)
 const mmfIcon:        Ref<HTMLElement|null> = ref(null)
 const mmfName:        Ref<HTMLElement|null> = ref(null)
@@ -77,36 +77,34 @@ onMounted(() => {
 
   // Color splash animation
 
-  var tl = gsap.timeline()
+  const tlSplash = gsap.timeline({ paused: true })
   var ease: any = "none"
   var duration = 3.6
 
-  tl.to(colorSplash1.value, { opacity: 1, ease: ease }, 0)
-  tl.to(colorSplash2.value, { opacity: 1, ease: ease }, 0)
+  tlSplash.to(colorSplash1.value, { opacity: 1, ease: ease }, 0)
+  tlSplash.to(colorSplash2.value, { opacity: 1, ease: ease }, 0)
 
-  tl.duration(duration)
-  tl.play()
+  tlSplash.duration(duration)
+  doAfterRender(() => tlSplash.play(), 0.0)
 
   // Intro transition
 
-  tl = gsap.timeline()
+  const tlIntro = gsap.timeline({ paused: true })
   ease = customInOutEase
   duration = 1.0
 
-  tl.to(innerContent.value, { translateY: 0, ease: ease}, 0)
-  tl.to(mmfIcon.value, { opacity: 1, ease: ease}, 0)
-  tl.to(mmfName.value, { opacity: 1, scale: 1, ease: ease}, 0)
-  tl.to(tagline.value, { opacity: 1, ease: ease}, 0)
-  tl.to(downloadButton.value, { opacity: 1, ease: ease}, 0)
-  
+  tlIntro.to(innerContent.value, { translateY: 0, ease: ease}, 0)
+  tlIntro.to(mmfIcon.value, { opacity: 1, ease: ease}, 0)
+  tlIntro.fromTo(mmfName.value, { opacity: 0.75, scale: 0.8 }, { opacity: 1, scale: 1, ease: ease}, 0)
+  tlIntro.to(tagline.value, { opacity: 1, ease: ease}, 0)
+  tlIntro.to(downloadButton.value, { opacity: 1, ease: ease}, 0)
 
-
-  tl.duration(duration)
-  tl.play()
+  tlIntro.duration(duration)
+  doAfterRender(() => tlIntro.play(), 0.0)
 
   /* Setup scroll animation */
 
-  tl = gsap.timeline({
+  const tlScroll = gsap.timeline({
     scrollTrigger: {
       trigger: outerContainer.value!,
       pin: true, // Pin the trigger element while active
@@ -117,8 +115,8 @@ onMounted(() => {
   })
   // add animations and labels to the timeline
   const scale = 450.0 * window.innerHeight / 970.0
-  tl.to(innerContent.value, { scale: scale, translateY: `${scale * -4.6}rem`, ease: linearScalingEase(scale) })
-  tl.set(innerContent.value, { scale: 1.0 })
+  tlScroll.to(innerContent.value, { scale: scale, translateY: `${scale * -4.6}rem`, ease: linearScalingEase(scale) })
+  tlScroll.set(innerContent.value, { scale: 1.0 })
 
 })
 
