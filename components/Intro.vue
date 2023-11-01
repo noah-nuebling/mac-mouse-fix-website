@@ -12,11 +12,11 @@
 
     <div class="flex items-center justify-center group w-[100%] h-[calc(100vh-5rem)] duration-[0.8s] ease-[cubic-bezier(0.4,0,0.2,1)]">
       <div class="h-fit w-fit border-[0px] relative duration-[inherit] ease-[inherit]">
-        <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center transition-[transform] duration-[inherit] ease-[inherit] border-[0px]', playLoadingAnimation ? 'translate-y-[-6rem]' : '']"> 
-          <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['h-[14rem] transition-[opacity] duration-[inherit] ease-[inherit] border-[0px] mt-[-2rem]', playLoadingAnimation ? 'opacity-0' : '']">
-          <h1 ref="mmfName" :class="['font-[700] text-[5.0rem] text-black/90 mt-[1.75rem] mb-[-1.25rem] transition-transform duration-[inherit] ease-[inherit]', playLoadingAnimation ? 'animate-pulse scale-[0.8]' : '']">Mac Mouse Fix</h1>
-          <p ref="tagline" :class="['text-black mb-[1.5rem] transition-[opacity] duration-[inherit] ease-[inherit]', playLoadingAnimation ? 'opacity-0' : 'opacity-[0.7]']">Make Your $10 Mouse Better Than an Apple Trackpad</p>
-          <div ref="downloadButton" :class="['bg-blue-500 rounded-[5rem] transition-[opacity] duration-[inherit] ease-[inherit]', playLoadingAnimation ? 'opacity-0' : '']">
+        <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center border-[0px] translate-y-[-6rem]']"> 
+          <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['h-[14rem] border-[0px] mt-[-2rem] opacity-0']">
+          <h1 ref="mmfName" :class="['font-[700] text-[5.0rem] text-black/90 mt-[1.75rem] mb-[-1.25rem] scale-[0.8]', playLoadingAnimation ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
+          <p ref="tagline" :class="['text-black mb-[1.5rem] opacity-0']">Make Your $10 Mouse Better Than an Apple Trackpad</p>
+          <div ref="downloadButton" :class="['bg-blue-500 rounded-[5rem] opacity-0']">
             <p class="text-white mx-[0.75em] my-[0.25em] text-[1.0rem]">Download</p>
           </div>
         </div>
@@ -32,7 +32,8 @@
 /* Import gsap stuff */
 
 import { gsap } from "gsap/gsap-core";
-import { linearScalingEase } from "../utils/criticalSpring"
+import { linearScalingEase } from "../utils/curves"
+import { customInOutEase } from "../utils/curves"
 
 
 /* Manually import images 
@@ -49,8 +50,8 @@ const outerContainer:   Ref<HTMLElement|null> = ref(null)
 const innerContent:   Ref<HTMLElement|null> = ref(null)
 const mmfIcon:        Ref<HTMLElement|null> = ref(null)
 const mmfName:        Ref<HTMLElement|null> = ref(null)
-// const tagline:        Ref<HTMLElement|null> = ref(null)
-// const downloadButton: Ref<HTMLElement|null> = ref(null)
+const tagline:        Ref<HTMLElement|null> = ref(null)
+const downloadButton: Ref<HTMLElement|null> = ref(null)
 const colorSplash1:   Ref<HTMLElement|null> = ref(null)
 const colorSplash2:   Ref<HTMLElement|null> = ref(null)
 
@@ -74,21 +75,34 @@ onMounted(() => {
   playLoadingAnimation.value = false
   showColorSplashes.value = true
 
-  var tl = gsap.timeline({
-    ease: "power3.inout",
-  })
+  // Color splash animation
 
-  tl.to(colorSplash1.value, { opacity: 1 }, 0)
-  tl.to(colorSplash2.value, { opacity: 1 }, 0)
+  var tl = gsap.timeline()
+  var ease: any = "none"
+  var duration = 3.6
 
-  tl.duration(3.6)
+  tl.to(colorSplash1.value, { opacity: 1, ease: ease }, 0)
+  tl.to(colorSplash2.value, { opacity: 1, ease: ease }, 0)
 
+  tl.duration(duration)
   tl.play()
 
-  // tl = gsap.timeline({
-  //   ease: "power3.inout"
-  // })
-  // tl.to()
+  // Intro transition
+
+  tl = gsap.timeline()
+  ease = customInOutEase
+  duration = 1.0
+
+  tl.to(innerContent.value, { translateY: 0, ease: ease}, 0)
+  tl.to(mmfIcon.value, { opacity: 1, ease: ease}, 0)
+  tl.to(mmfName.value, { opacity: 1, scale: 1, ease: ease}, 0)
+  tl.to(tagline.value, { opacity: 1, ease: ease}, 0)
+  tl.to(downloadButton.value, { opacity: 1, ease: ease}, 0)
+  
+
+
+  tl.duration(duration)
+  tl.play()
 
   /* Setup scroll animation */
 
