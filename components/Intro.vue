@@ -1,9 +1,14 @@
 <template>
-  <div ref="outerContainer" class="relative mt-[-0rem] -z-10">
+
+  <!-- Outer container 
+        Notes: 
+        - Setting z negative prevents scrolling in the qutoes. Not sure why. -->
+
+  <div ref="outerContainer" class="w-[100%] h-[calc(100vh-5rem)] relative mt-[-0rem] z-10">
 
     <!-- BG + Color Splashes -->
 
-    <div ref="backgroundContainer" class="bg-transparent w-screen h-[100vh] absolute left-[50%] translate-x-[-50%] top-0 bottom-0 -z-10">
+    <div ref="backgroundContainer" class="bg-transparent w-[100vw] h-[100vh] overflow-x-visible overflow-y-visible absolute left-[50%] translate-x-[-50%] top-0 bottom-0 -z-10">
       <img ref="colorSplash1" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse1 absolute min-w-[80rem] top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] z-10 opacity-0']">
       <img ref="colorSplash2" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse2 absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] z-10 opacity-0']">
     </div>
@@ -29,6 +34,52 @@
       <p class="text-white font-[500] text-[2rem]" >Make Your $10 Mouse Better Than an Apple Trackpad</p>
     </div>
 
+    <!-- Quote cards -->
+
+    <div ref="quoteContainer" class="hidden absolute top-0 left-0 right-0 bottom-0 w-full h-full overflow-auto z-30">
+      <div class="h-fit w-fit z-30">
+        <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="'speechBubbleImagePath'" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
+
+        <!-- User Quotes -->
+
+        <!-- Small Layout -->
+        <div class="flex md:hidden lg:hidden flex-row gap-[2.5rem] py-0 my-[4.5rem] justify-center">
+          <!-- First row -->
+          <div class="flex flex-col gap-[2.5rem]">
+            <QuoteCard v-for="q in quotes" :quote="q" class=""/>
+          </div>
+        </div>
+
+        <!-- Medium Layout -->
+        <div class="hidden md:flex lg:hidden flex-row gap-[2.5rem] py-0 my-[4.5rem]">
+          <!-- First row -->
+          <div class="flex flex-col gap-[2.5rem]">
+            <QuoteCard v-for="q in everyNth(2, 0, quotes)" :quote="q" class=""/>
+          </div>
+          <!-- Second row -->
+          <div class="flex flex-col gap-[2.5rem]">
+            <QuoteCard v-for="q in everyNth(2, 1, quotes)" :quote="q" class=""/>
+          </div>
+        </div>
+
+        <!-- Large Layout -->
+        <div class="hidden md:hidden lg:flex flex-row gap-[2.5rem] py-0 my-[4.5rem]">
+          <!-- First row -->
+          <div class="flex flex-col gap-[2.5rem]">
+            <QuoteCard v-for="q in everyNth(3, 0, quotes)" :quote="q" class=""/>
+          </div>
+          <!-- Second row -->
+          <div class="flex flex-col gap-[2.5rem]">
+            <QuoteCard v-for="q in everyNth(3, 1, quotes)" :quote="q" class=""/>
+          </div>
+          <!-- Third row -->
+          <div class="flex flex-col gap-[2.5rem]">
+            <QuoteCard v-for="q in everyNth(3, 2, quotes)" :quote="q" class=""/>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </div>
 </template>
 
@@ -38,15 +89,19 @@
 /* Import gsap stuff */
 
 import { gsap } from "gsap/gsap-core";
-import { linearScalingEase } from "../utils/curves"
-import { customInOutEase } from "../utils/curves"
-
+import { customInOutEase, linearScalingEase } from "../utils/curves"
 
 /* Manually import images 
   (Not totally sure if necessary)
 */
 import mmfIconImagePath from "../assets/img/mmf-icon.png"
 import colorSplashImagePath from "../assets/img/color-splash.png"
+import speechBubbleImagePath from '../assets/img/text.bubble@8x.png'
+
+/* Import Quote stuff */
+
+import { getUsableQuotes } from '~/utils/quotes';
+const quotes = getUsableQuotes()
 
 /* Get dom element refs 
     All unused atm
@@ -112,7 +167,7 @@ onMounted(() => {
 
   /* Setup scroll animation */
 
-  const sections = [4000, 500, 1000]
+  const sections = [4000, 500, 1000, 2000]
   const sectionsSum = sections.reduce((partialSum, n) => partialSum + n, 0)
 
   const tlScroll = gsap.timeline({
@@ -137,6 +192,9 @@ onMounted(() => {
 
   // Add tagline animatmion to tl
   tlScroll.to(taglineContainer.value, { opacity: 1, duration: sections[2] }, '+=0')
+
+    // Add pause to tl
+    tlScroll.to({}, { duration: sections[3] }, '+=0')
 
 })
 

@@ -155,45 +155,7 @@
       <NormalFeatureCard titleKey="open-source.title"        bodyKey="open-source.body"  class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
     </div>
     
-    <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="speechBubbleImagePath" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
 
-    <!-- User Quotes -->
-
-    <!-- Small Layout -->
-    <div class="flex md:hidden lg:hidden flex-row gap-[2.5rem] py-0 my-[4.5rem] justify-center">
-      <!-- First row -->
-      <div class="flex flex-col gap-[2.5rem]">
-        <QuoteCard v-for="q in quotes" :quote="q" class=""/>
-      </div>
-    </div>
-    
-    <!-- Medium Layout -->
-    <div class="hidden md:flex lg:hidden flex-row gap-[2.5rem] py-0 my-[4.5rem]">
-      <!-- First row -->
-      <div class="flex flex-col gap-[2.5rem]">
-        <QuoteCard v-for="q in everyNth(2, 0, quotes)" :quote="q" class=""/>
-      </div>
-      <!-- Second row -->
-      <div class="flex flex-col gap-[2.5rem]">
-        <QuoteCard v-for="q in everyNth(2, 1, quotes)" :quote="q" class=""/>
-      </div>
-    </div>
-
-    <!-- Large Layout -->
-    <div class="hidden md:hidden lg:flex flex-row gap-[2.5rem] py-0 my-[4.5rem]">
-      <!-- First row -->
-      <div class="flex flex-col gap-[2.5rem]">
-        <QuoteCard v-for="q in everyNth(3, 0, quotes)" :quote="q" class=""/>
-      </div>
-      <!-- Second row -->
-      <div class="flex flex-col gap-[2.5rem]">
-        <QuoteCard v-for="q in everyNth(3, 1, quotes)" :quote="q" class=""/>
-      </div>
-      <!-- Third row -->
-      <div class="flex flex-col gap-[2.5rem]">
-        <QuoteCard v-for="q in everyNth(3, 2, quotes)" :quote="q" class=""/>
-      </div>
-    </div>
     
 
     <!-- Pricing -->
@@ -241,9 +203,13 @@
 const { setLocale, locale, defaultLocale } = useI18n() 
 import { $mt } from '~/utils/markdownTranslate'
 
-/* Import Quote stuff */
+/* Import other utils */
 
-import { getUsableQuotes } from '~/utils/Quotes';
+import { everyNth } from '~/utils/util';
+
+/* Import quote stuff */
+
+import { getUsableQuotes } from "../utils/quotes"
 const quotes = getUsableQuotes()
 
 /* Call setLocale on locale update
@@ -270,31 +236,6 @@ import sparkleArrowsImagePath from '../assets/img/arrow.up.and.down.and.sparkles
 import arrowsImagePath from '../assets/img/arrow.up.and.down@8x.png'
 import gearImagePath from '../assets/img/gearshape@8x.png'
 import actionTableImagePath from '../assets/img/mmf-on-studio-display-4.png'
-import speechBubbleImagePath from '../assets/img/text.bubble@8x.png'
-
-/* Helper functions */
-
-function everyNth(n: number, startIndex: number, array: any[]): any[] {
-  // Make a new array containg every `n`th element of `array`, starting at `startIndex`
-  // We're using this so that we can place the quotes that we want most visible at the top of our `quotes` and then spread them out evenly along several columns.
-
-  var result: any[] = []
-
-  var index = startIndex
-  while (true) {
-
-    if (index >= array.length) {
-      break
-    }
-
-    const v = array[index]
-    result.push(v)
-
-    index += n
-  }
-
-  return result
-}
 
 </script>
 
