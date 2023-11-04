@@ -1,4 +1,17 @@
-export { doAfterRender, everyNth }
+export { doAfterRender, everyNth, debouncer }
+
+function debouncer(workload: () => any, timeout: number): () => any {
+
+  // Returns a function that executes `workload` after `timout` milliseconds. If the function is called again during this timeout period, the timeout will reset.
+
+  var timer: any
+  const result = () => {
+    clearTimeout(timer)
+    timer = setTimeout(workload, timeout)
+  }
+
+  return result
+}
 
 function everyNth(n: number, startIndex: number, array: any[]): any[] {
   // Make a new array containg every `n`th element of `array`, starting at `startIndex`

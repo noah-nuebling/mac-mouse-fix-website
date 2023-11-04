@@ -6,6 +6,17 @@
 
   <div ref="outerContainer" class=" relative mt-[-0rem] z-10">
 
+
+    <div class="absolute left-0 top-0 w-full h-[10rem] z-50 flex items-end justify-center">
+      <div class="bg-red-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="killIntroAnimation()">
+        <p class="text-white text-center">Kill</p>
+      </div>
+      <div class="bg-green-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="recreateIntoAnimation()">
+        <p class="text-white text-center">Reload</p>
+      </div>
+    </div>
+
+
     <!-- BG + Color Splashes -->
 
     <div ref="backgroundContainer" class="bg-transparent w-[100vw] h-[100vh] overflow-x-visible overflow-y-visible absolute left-[50%] translate-x-[-50%] top-0 bottom-0 z-0">
@@ -41,7 +52,7 @@
       
       <!-- Expand button etc -->
       <div class="absolute left-0 bottom-0 w-full h-[10rem] z-10 bg-gradient-to-b from-transparent to-black flex items-end justify-center">
-        <div class="bg-blue-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="console.log(`quotesClicked!`), quotesAreExpanded = !quotesAreExpanded">
+        <div class="bg-blue-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
           <p class="text-white text-center">{{ !quotesAreExpanded ? 'See More' : 'See Less' }}</p>
         </div>
       </div>
@@ -116,7 +127,7 @@ import speechBubbleImagePath from '../assets/img/text.bubble@8x.png'
 
 /* Import Quote stuff */
 
-import { everyNth } from "~/utils/util";
+import { everyNth, debouncer } from "~/utils/util";
 import { getUsableQuotes } from '~/utils/quotes';
 const quotes = getUsableQuotes()
 
@@ -194,7 +205,7 @@ onMounted(() => {
   /* Create scroll animation */
 
   recreateIntoAnimation()
-  window.addEventListener("resize", () => recreateIntoAnimation()); // Note: No need to call ScrollTrigger.refresh() here since we're killing and creating new triggers
+  window.addEventListener("resize", () => debouncedRecreateIntroAnimation()); // Note: No need to call ScrollTrigger.refresh() here since we're killing and creating new triggers
 
 })
 
@@ -202,11 +213,21 @@ onMounted(() => {
 
 var tlScroll: gsap.core.Timeline | null = null
 
+const debouncedRecreateIntroAnimation = debouncer(() => recreateIntoAnimation(), 100)
+
+function killIntroAnimation() {
+  if (tlScroll != null) {
+    tlScroll!.scrollTrigger!.kill(true)
+    tlScroll!.pause(0).kill()
+    // $ScrollTrigger.getById("introTrigger")!.kill(true)
+  }
+}
 function recreateIntoAnimation() {
 
+  console.log(`RECREATING`);
+
   /* Kill current animation */
-  tlScroll?.pause(0).kill()
-  $ScrollTrigger.getById("introTrigger")?.kill()
+  killIntroAnimation()
 
   /* Setup new animation */
   const zoomScale = 450.0 * window.innerHeight / 970.0
@@ -244,13 +265,13 @@ function recreateIntoAnimation() {
 
   // Add zoom animation to tl
   tlScroll.addLabel("zoom")
-  tlScroll.to(innerContent.value, { scale: zoomScale, translateY: `${zoomScale * -4.6}rem`, ease: linearScalingEase(zoomScale), duration: zoomDistance }, "zoomStart")
+  tlScroll.fromTo(innerContent.value, { scale: 1, translateY: 0 }, { scale: zoomScale, translateY: `${zoomScale * -4.6}rem`, ease: linearScalingEase(zoomScale), duration: zoomDistance }, "zoomStart")
 
   // Add tagline fadein animation to tl
   tlScroll.fromTo(taglineContainer.value, { opacity: 0 }, { opacity: 1, duration: taglineDistance }, `taglineStart`)
 
   // Fade in background and reset zoom on inner content
-  tlScroll.to(backgroundDiv.value!, { opacity: 1, duration: 1000 }, `zoomEnd-=600`)
+  tlScroll.fromTo(backgroundDiv.value!, { opacity: 0 }, { opacity: 1, duration: 1000 }, `zoomEnd-=600`)
   tlScroll.set(innerContent.value!, { scale: 1.0 }, '>0')
 
   // Add quotes
@@ -266,6 +287,10 @@ function recreateIntoAnimation() {
   tlScroll.fromTo(quoteContainer.value!, { opacity: 0 }, { opacity: 1, duration: 200 }, `quotesStart`)
 
   tlScroll.fromTo(taglineContainer.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: `${ -taglineDistanceToOffscreen }px`, duration: taglineDistanceToOffscreen * 1.3, ease: 'none' }, `quotesStart+=${ quotesDistanceToTagline - 200 }`)
+
+  /* Refresh ScrollTrigger
+      Not sure if or why this is necessary */
+  tlScroll!.scrollTrigger!.refresh()
 }
 
 
