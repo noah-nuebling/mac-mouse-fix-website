@@ -37,46 +37,60 @@
 
     <!-- Quote cards -->
 
-    <div ref="quoteContainer" class="invisible absolute top-0 left-0 right-0 bottom-0 w-full h-full overflow-hidden z-30 border-green-500">
-      <div class="h-[100%]"></div>
-      <div class="h-fit w-fit z-30">
-        <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="'speechBubbleImagePath'" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
-
-        <!-- User Quotes -->
-
-        <!-- Small Layout -->
-        <div class="flex md:hidden lg:hidden flex-row gap-[2.5rem] py-0 my-[4.5rem] justify-center">
-          <!-- First row -->
-          <div class="flex flex-col gap-[2.5rem]">
-            <QuoteCard v-for="q in quotes" :quote="q" class=""/>
-          </div>
+    <div ref="quoteContainer" class="invisible absolute top-0 left-0 right-0 bottom-0 w-full h-full overflow-hidden z-30">
+      
+      <!-- Expand button etc -->
+      <div class="absolute left-0 bottom-0 w-full h-[10rem] z-10 bg-gradient-to-b from-transparent to-black flex items-end justify-center">
+        <div class="bg-blue-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="console.log(`quotesClicked!`), quotesAreExpanded = !quotesAreExpanded">
+          <p class="text-white text-center">{{ !quotesAreExpanded ? 'See More' : 'See Less' }}</p>
         </div>
+      </div>
 
-        <!-- Medium Layout -->
-        <div class="hidden md:flex lg:hidden flex-row gap-[2.5rem] py-0 my-[4.5rem]">
-          <!-- First row -->
-          <div class="flex flex-col gap-[2.5rem]">
-            <QuoteCard v-for="q in everyNth(2, 0, quotes)" :quote="q" class=""/>
-          </div>
-          <!-- Second row -->
-          <div class="flex flex-col gap-[2.5rem]">
-            <QuoteCard v-for="q in everyNth(2, 1, quotes)" :quote="q" class=""/>
-          </div>
-        </div>
+      <!-- Scrolling container -->
+      <div ref="quoteScrollingContainer" class="w-full h-full overflow-hidden">
 
-        <!-- Large Layout -->
-        <div class="hidden md:hidden lg:flex flex-row gap-[2.5rem] py-0 my-[4.5rem]">
-          <!-- First row -->
-          <div class="flex flex-col gap-[2.5rem]">
-            <QuoteCard v-for="q in everyNth(3, 0, quotes)" :quote="q" class=""/>
+        <div class="h-[100%]"></div>
+
+        <div :class="['h-max w-fit mx-auto z-30 overflow-y-clip ', !quotesAreExpanded ? 'max-h-[60rem]' : 'max-h-[calc(fit-content-20rem)]']">
+          
+          <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="'speechBubbleImagePath'" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
+
+          <!-- User Quotes -->
+
+          <!-- Small Layout -->
+          <div class="flex md:hidden lg:hidden flex-row gap-[2.5rem] py-0 my-[4.5rem] justify-center">
+            <!-- First row -->
+            <div class="flex flex-col gap-[2.5rem]">
+              <QuoteCard v-for="q in quotes" :quote="q" class=""/>
+            </div>
           </div>
-          <!-- Second row -->
-          <div class="flex flex-col gap-[2.5rem]">
-            <QuoteCard v-for="q in everyNth(3, 1, quotes)" :quote="q" class=""/>
+
+          <!-- Medium Layout -->
+          <div class="hidden md:flex lg:hiddennnn flex-row gap-[2.5rem] py-0 my-[4.5rem]">
+            <!-- First row -->
+            <div class="flex flex-col gap-[2.5rem]">
+              <QuoteCard v-for="q in everyNth(2, 0, quotes)" :quote="q" class=""/>
+            </div>
+            <!-- Second row -->
+            <div class="flex flex-col gap-[2.5rem]">
+              <QuoteCard v-for="q in everyNth(2, 1, quotes)" :quote="q" class=""/>
+            </div>
           </div>
-          <!-- Third row -->
-          <div class="flex flex-col gap-[2.5rem]">
-            <QuoteCard v-for="q in everyNth(3, 2, quotes)" :quote="q" class=""/>
+
+          <!-- Large Layout -->
+          <div class="hidden md:hidden lg:flexxx flex-row gap-[2.5rem] py-0 my-[4.5rem]">
+            <!-- First row -->
+            <div class="flex flex-col gap-[2.5rem]">
+              <QuoteCard v-for="q in everyNth(3, 0, quotes)" :quote="q" class=""/>
+            </div>
+            <!-- Second row -->
+            <div class="flex flex-col gap-[2.5rem]">
+              <QuoteCard v-for="q in everyNth(3, 1, quotes)" :quote="q" class=""/>
+            </div>
+            <!-- Third row -->
+            <div class="flex flex-col gap-[2.5rem]">
+              <QuoteCard v-for="q in everyNth(3, 2, quotes)" :quote="q" class=""/>
+            </div>
           </div>
         </div>
       </div>
@@ -110,19 +124,20 @@ const quotes = getUsableQuotes()
     All unused atm
 */
 
-const outerContainer:       Ref<HTMLElement|null> = ref(null)
-const innerContent:         Ref<HTMLElement|null> = ref(null)
-const mmfIcon:              Ref<HTMLElement|null> = ref(null)
-const mmfName:              Ref<HTMLElement|null> = ref(null)
-const introTagline:         Ref<HTMLElement|null> = ref(null)
-const downloadButton:       Ref<HTMLElement|null> = ref(null)
-const backgroundContainer:  Ref<HTMLElement|null> = ref(null)
-const colorSplash1:         Ref<HTMLElement|null> = ref(null)
-const colorSplash2:         Ref<HTMLElement|null> = ref(null)
-const backgroundDiv:        Ref<HTMLElement|null> = ref(null)
-const taglineContainer:     Ref<HTMLElement|null> = ref(null)
-const tagline:              Ref<HTMLElement|null> = ref(null)
-const quoteContainer:       Ref<HTMLElement|null> = ref(null)
+const outerContainer:           Ref<HTMLElement|null> = ref(null)
+const innerContent:             Ref<HTMLElement|null> = ref(null)
+const mmfIcon:                  Ref<HTMLElement|null> = ref(null)
+const mmfName:                  Ref<HTMLElement|null> = ref(null)
+const introTagline:             Ref<HTMLElement|null> = ref(null)
+const downloadButton:           Ref<HTMLElement|null> = ref(null)
+const backgroundContainer:      Ref<HTMLElement|null> = ref(null)
+const colorSplash1:             Ref<HTMLElement|null> = ref(null)
+const colorSplash2:             Ref<HTMLElement|null> = ref(null)
+const backgroundDiv:            Ref<HTMLElement|null> = ref(null)
+const taglineContainer:         Ref<HTMLElement|null> = ref(null)
+const tagline:                  Ref<HTMLElement|null> = ref(null)
+const quoteContainer:           Ref<HTMLElement|null> = ref(null)
+const quoteScrollingContainer:  Ref<HTMLElement|null> = ref(null)
 
 
 /* Constants */
@@ -134,6 +149,7 @@ const defaultScreenHeight = 970.0
 
 const playLoadingAnimation = ref(true) // Initialize to false to disable loading animations
 const showColorSplashes = ref(false)
+const quotesAreExpanded = ref(false)
 
 /* Wait for mount 
 */
@@ -180,7 +196,7 @@ onMounted(() => {
 
   const zoomDistance = 3000.0
   const taglineDistance = 1000.0
-  const quotesDistance = quoteContainer.value!.scrollHeight - quoteContainer.value!.offsetHeight
+  const quotesDistance = Math.min(quoteScrollingContainer.value!.scrollHeight - quoteScrollingContainer.value!.offsetHeight, Infinity/* 750 */)
 
   const taglineShift = -1000.0
   const quotesShift = 200.0
@@ -221,7 +237,7 @@ onMounted(() => {
     
     const progress = this.progress()
     const scrollPosition = intervalScale(progress, unitInterval, { start: 0, end: quotesDistance })
-    quoteContainer.value!.scrollTop = scrollPosition
+    quoteScrollingContainer.value!.scrollTop = scrollPosition
     
   }}, `quotesStart`)
   
