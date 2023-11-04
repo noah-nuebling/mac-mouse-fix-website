@@ -81,7 +81,7 @@
 <script setup lang="ts">
   
 import { transformVNodeArgs } from "nuxt/dist/app/compat/capi";
-import { AnimationCurve, Curve, transfromCurve, combineCurves } from "~/utils/animationCurveForStart";
+import { AnimationCurve, Curve, transfromCurve, combineCurves } from "~/utils/animationCurveTransform";
 import findChildMatchingCondition from "~/utils/findChild"
 import tailwindConfig from "~/tailwind.config";
 import resolveConfig from 'tailwindcss/resolveConfig'

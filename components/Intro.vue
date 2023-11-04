@@ -11,6 +11,7 @@
     <div ref="backgroundContainer" class="bg-transparent w-[100vw] h-[100vh] overflow-x-visible overflow-y-visible absolute left-[50%] translate-x-[-50%] top-0 bottom-0 z-0">
       <img ref="colorSplash1" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse1 absolute min-w-[80rem] top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] -z-10 opacity-0']">
       <img ref="colorSplash2" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse2 absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] -z-10 opacity-0']">
+      <div ref="backgroundDiv" class="w-full h-full -z-20 bg-black opacity-0"></div>
     </div>
 
     <!-- Initial Content -->
@@ -118,6 +119,7 @@ const downloadButton:       Ref<HTMLElement|null> = ref(null)
 const backgroundContainer:  Ref<HTMLElement|null> = ref(null)
 const colorSplash1:         Ref<HTMLElement|null> = ref(null)
 const colorSplash2:         Ref<HTMLElement|null> = ref(null)
+const backgroundDiv:        Ref<HTMLElement|null> = ref(null)
 const taglineContainer:     Ref<HTMLElement|null> = ref(null)
 const tagline:              Ref<HTMLElement|null> = ref(null)
 const quoteContainer:       Ref<HTMLElement|null> = ref(null)
@@ -172,8 +174,9 @@ onMounted(() => {
 
   /* Setup scroll animation */
 
-  const containerHeight = outerContainer.value!.offsetHeight
-  const taglineHeight = tagline.value!.offsetHeight
+  const zoomScale = 450.0 * window.innerHeight / 970.0
+  const taglineDistanceToOffscreen = tagline.value!.offsetTop + tagline.value!.offsetHeight
+  const quotesDistanceToTagline = outerContainer.value!.offsetHeight/2 - tagline.value!.offsetHeight/2
 
   const zoomDistance = 3000.0
   const taglineDistance = 1000.0
@@ -194,15 +197,24 @@ onMounted(() => {
       scrub: 0.0, // Smooth scrubbing, takes x second to "catch up" to the scrollbar
     },
   })
+
+  tlScroll.addLabel("zoomStart",    `${ 0 }`)
+  tlScroll.addLabel("zoomStop",     `${ zoomDistance }`)
+  tlScroll.addLabel("taglineStart", `${ zoomDistance + taglineShift }`)
+  tlScroll.addLabel("taglineStop",  `${ zoomDistance + taglineShift + taglineDistance }`)
+  tlScroll.addLabel("quotesStart",  `${ zoomDistance + taglineShift + taglineDistance + quotesShift }`)
+  tlScroll.addLabel("quotesStop",   `${ zoomDistance + taglineShift + taglineDistance + quotesShift + quotesDistance }`)
   
   // Add zoom animation to tl
-  const scale = 450.0 * window.innerHeight / 970.0
-  tlScroll.to(innerContent.value, { scale: scale, translateY: `${scale * -4.6}rem`, ease: linearScalingEase(scale), duration: zoomDistance })
-  // tlScroll.set(innerContent.value, { scale: 1.0 })
-  // tlScroll.set(backgroundContainer, { backgroundColor: 'black' })
+  tlScroll.addLabel("zoom")
+  tlScroll.to(innerContent.value, { scale: zoomScale, translateY: `${zoomScale * -4.6}rem`, ease: linearScalingEase(zoomScale), duration: zoomDistance }, "zoomStart")
 
   // Add tagline fadein animation to tl
-  tlScroll.fromTo(taglineContainer.value, { opacity: 0 }, { opacity: 1, duration: taglineDistance }, `>${ taglineShift }`)
+  tlScroll.fromTo(taglineContainer.value, { opacity: 0 }, { opacity: 1, duration: taglineDistance }, `taglineStart`)
+
+  // Fade in background and reset zoom on inner content
+  tlScroll.to(backgroundDiv.value!, { opacity: 1, duration: 1000 }, `zoomEnd-=600`)
+  tlScroll.set(innerContent.value!, { scale: 1.0 }, '>0')
 
   // Add quotes
   tlScroll.to({}, { duration: quotesDistance, onUpdate: function() { 
@@ -210,17 +222,13 @@ onMounted(() => {
     const progress = this.progress()
     const scrollPosition = intervalScale(progress, unitInterval, { start: 0, end: quotesDistance })
     quoteContainer.value!.scrollTop = scrollPosition
-
-    console.log(`Quotes progress: ${ progress } scrollPos: ${ scrollPosition }`);
     
-  }}, `>${ quotesShift }`)
-  tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, `<0` )
-  tlScroll.fromTo(quoteContainer.value!, { opacity: 0 }, { opacity: 1, duration: 200 }, `<0`)
+  }}, `quotesStart`)
+  
+  tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, `quotesStart` )
+  tlScroll.fromTo(quoteContainer.value!, { opacity: 0 }, { opacity: 1, duration: 200 }, `quotesStart`)
 
-  const taglineDistanceToOffscreen = tagline.value!.offsetTop + tagline.value!.offsetHeight
-  const quotesDistanceToTagline = containerHeight/2 - tagline.value!.offsetHeight/2
-
-  tlScroll.fromTo(taglineContainer.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: `${ -taglineDistanceToOffscreen }px`, duration: taglineDistanceToOffscreen * 1.3, ease: 'none' }, `<${ quotesDistanceToTagline - 200 }`)
+  tlScroll.fromTo(taglineContainer.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: `${ -taglineDistanceToOffscreen }px`, duration: taglineDistanceToOffscreen * 1.3, ease: 'none' }, `quotesStart+=${ quotesDistanceToTagline - 200 }`)
 
 
   // Add pause to tl

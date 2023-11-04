@@ -1,6 +1,6 @@
 export { criticalSpring, linearScalingEase, customInOutEase }
 
-import { AnimationCurve, animationCurveFromRawCurve } from "./animationCurveForStart"
+import { AnimationCurve, animationCurveFromRawCurve } from "./animationCurveTransform"
 import { CustomEase } from "gsap/all";
 
 /* Custom inOut ease 
@@ -13,8 +13,8 @@ const customInOutEase: any = CustomEase.create("custom", "M0,0 C0,0 -0.047,0 0,0
   Logarithmic easing for linear feeling scale animations
 */
 
-function linearScalingEase(targetScale: number) {
-  const rawCurve = (y: number) => Math.pow(targetScale, y)
+function linearScalingEase(scalingFactor: number) {
+  const rawCurve = (y: number) => Math.pow(scalingFactor, y)
   const animationCurve = animationCurveFromRawCurve(rawCurve)
   return animationCurve.ease
 }
