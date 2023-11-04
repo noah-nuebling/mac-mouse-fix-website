@@ -51,7 +51,7 @@
 
         <div class="h-[100%]"></div>
 
-        <div :class="['h-max w-fit mx-auto z-30 overflow-y-clip ', !quotesAreExpanded ? 'max-h-[60rem]' : 'max-h-[calc(fit-content-20rem)]']">
+        <div :class="['h-max w-fit mx-auto z-30 overflow-y-clip ', !quotesAreExpanded ? 'max-h-[60rem]' : 'max-h-[fit-content] mb-[10rem]']">
           
           <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="'speechBubbleImagePath'" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
 
@@ -149,7 +149,7 @@ const defaultScreenHeight = 970.0
 
 const playLoadingAnimation = ref(true) // Initialize to false to disable loading animations
 const showColorSplashes = ref(false)
-const quotesAreExpanded = ref(false)
+const quotesAreExpanded = ref(true)
 
 watch(quotesAreExpanded, (newValue) => {
   recreateIntoAnimation()
