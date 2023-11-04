@@ -58,11 +58,11 @@
       </div>
 
       <!-- Scrolling container -->
-      <div ref="quoteScrollingContainer" class="w-full h-full overflow-hidden">
+      <div ref="quoteScrollingContainer" class="w-full h-full overflow-scroll">
 
-        <div class="h-[100%]"></div>
+        <div class="h-[100%] border-[10px] border-blue-500"></div>
 
-        <div :class="['h-max w-fit mx-auto z-30 overflow-y-clip ', !quotesAreExpanded ? 'max-h-[60rem]' : 'max-h-[fit-content] mb-[10rem]']">
+        <div :class="['h-max w-fit mx-auto z-30 overflow-y-clip ', !quotesAreExpanded ? 'max-h-[60rem]' : 'max-h-[fit-content] mb-[10rem] border-[10px] border-green-500']">
           
           <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="'speechBubbleImagePath'" class="hidden w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
 
@@ -127,7 +127,7 @@ import speechBubbleImagePath from '../assets/img/text.bubble@8x.png'
 
 /* Import Quote stuff */
 
-import { everyNth, debouncer } from "~/utils/util";
+import { everyNth, debouncer, watchProperty } from "~/utils/util";
 import { getUsableQuotes } from '~/utils/quotes';
 const quotes = getUsableQuotes()
 
@@ -213,7 +213,7 @@ onMounted(() => {
 
 var tlScroll: gsap.core.Timeline | null = null
 
-const debouncedRecreateIntroAnimation = debouncer(() => recreateIntoAnimation(), 100)
+const debouncedRecreateIntroAnimation = debouncer(() => recreateIntoAnimation(), 0/* 100 */)
 
 function killIntroAnimation() {
   if (tlScroll != null) {
@@ -276,10 +276,14 @@ function recreateIntoAnimation() {
 
   // Add quotes
   tlScroll.to({}, { duration: quotesDistance, onUpdate: function() { 
-    
+
     const progress = this.progress()
     const scrollPosition = intervalScale(progress, unitInterval, { start: 0, end: quotesDistance })
     quoteScrollingContainer.value!.scrollTop = scrollPosition
+
+    doAfterRender(() => {
+      console.log(`quote scroll UPDATE - progress: ${ progress }, position: ${ quoteScrollingContainer.value!.scrollTop }`);
+    })
     
   }}, `quotesStart`)
 
