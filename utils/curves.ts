@@ -1,13 +1,6 @@
-export { criticalSpring, linearScalingEase, customInOutEase }
+export { criticalSpring, linearScalingEase }
 
 import { AnimationCurve, animationCurveFromRawCurve } from "./animationCurveTransform"
-import { CustomEase } from "gsap/all";
-
-/* Custom inOut ease 
-    Created with this: https://gsap.com/docs/v3/Eases/
-*/
-
-const customInOutEase: any = CustomEase.create("custom", "M0,0 C0,0 -0.047,0 0,0 0.027,0 0.105,0.011 0.178,0.113 0.258,0.225 0.288,0.343 0.34,0.481 0.388,0.609 0.458,0.874 0.581,0.948 0.685,1.01 1,1 1,1 1,1 1,1 1,1 1,1 1,1 1,1 1.056,1 1,1 1,1")
 
 /*   
   Logarithmic easing for linear feeling scale animations

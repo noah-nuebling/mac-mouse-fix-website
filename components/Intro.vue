@@ -104,8 +104,8 @@
 
 /* Import gsap stuff */
 
-import { gsap } from "gsap/gsap-core";
-import { customInOutEase, linearScalingEase } from "../utils/curves"
+const { $gsap, $ScrollTrigger, $customInOutEase } = useNuxtApp()
+import { linearScalingEase } from "../utils/curves"
 
 /* Manually import images 
   (Not totally sure if necessary)
@@ -151,8 +151,11 @@ const playLoadingAnimation = ref(true) // Initialize to false to disable loading
 const showColorSplashes = ref(false)
 const quotesAreExpanded = ref(false)
 
-/* Wait for mount 
-*/
+watch(quotesAreExpanded, (newValue) => {
+  recreateIntoAnimation()
+})
+
+/* Wait for mount */
 
 onMounted(() => {
 
@@ -163,7 +166,7 @@ onMounted(() => {
 
   // Color splash animation
 
-  const tlSplash = gsap.timeline({ paused: true })
+  const tlSplash = $gsap.timeline({ paused: true })
   var ease: any = "none"
   var duration = 3.6
 
@@ -175,8 +178,8 @@ onMounted(() => {
 
   // Intro transition
 
-  const tlIntro = gsap.timeline({ paused: true })
-  ease = customInOutEase
+  const tlIntro = $gsap.timeline({ paused: true })
+  ease = $customInOutEase
   duration = 1.0
 
   tlIntro.to(innerContent.value, { translateY: 0, ease: ease}, 0)
@@ -188,8 +191,24 @@ onMounted(() => {
   tlIntro.duration(duration)
   doAfterRender(() => tlIntro.play(), 0.0)
 
-  /* Setup scroll animation */
+  /* Create scroll animation */
 
+  recreateIntoAnimation()
+  window.addEventListener("resize", () => recreateIntoAnimation()); // Note: No need to call ScrollTrigger.refresh() here since we're killing and creating new triggers
+
+})
+
+/* Functions */
+
+var tlScroll: gsap.core.Timeline | null = null
+
+function recreateIntoAnimation() {
+
+  /* Kill current animation */
+  tlScroll?.pause(0).kill()
+  $ScrollTrigger.getById("introTrigger")?.kill()
+
+  /* Setup new animation */
   const zoomScale = 450.0 * window.innerHeight / 970.0
   const taglineDistanceToOffscreen = tagline.value!.offsetTop + tagline.value!.offsetHeight
   const quotesDistanceToTagline = outerContainer.value!.offsetHeight/2 - tagline.value!.offsetHeight/2
@@ -203,14 +222,16 @@ onMounted(() => {
 
   const overallDistance = [zoomDistance, taglineDistance, quotesDistance, taglineShift, quotesShift].reduce((partialSum, n) => partialSum + n, 0)
 
-  const tlScroll = gsap.timeline({
+  tlScroll = $gsap.timeline({
     scrollTrigger: {
+      id: "introTrigger",
       trigger: outerContainer.value!,
       pin: true, // Pin the trigger element while active
       anticipatePin: 1, // Prevent jitter when pin becomes active
       start: "top top", // Start when the top of the trigger hits the top of the viewport
       end: `+=${ overallDistance }`, // End after scrolling this many px beyond the start
       scrub: 0.0, // Smooth scrubbing, takes x second to "catch up" to the scrollbar
+      markers: true,
     },
   })
 
@@ -220,7 +241,7 @@ onMounted(() => {
   tlScroll.addLabel("taglineStop",  `${ zoomDistance + taglineShift + taglineDistance }`)
   tlScroll.addLabel("quotesStart",  `${ zoomDistance + taglineShift + taglineDistance + quotesShift }`)
   tlScroll.addLabel("quotesStop",   `${ zoomDistance + taglineShift + taglineDistance + quotesShift + quotesDistance }`)
-  
+
   // Add zoom animation to tl
   tlScroll.addLabel("zoom")
   tlScroll.to(innerContent.value, { scale: zoomScale, translateY: `${zoomScale * -4.6}rem`, ease: linearScalingEase(zoomScale), duration: zoomDistance }, "zoomStart")
@@ -240,18 +261,12 @@ onMounted(() => {
     quoteScrollingContainer.value!.scrollTop = scrollPosition
     
   }}, `quotesStart`)
-  
+
   tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, `quotesStart` )
   tlScroll.fromTo(quoteContainer.value!, { opacity: 0 }, { opacity: 1, duration: 200 }, `quotesStart`)
 
   tlScroll.fromTo(taglineContainer.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: `${ -taglineDistanceToOffscreen }px`, duration: taglineDistanceToOffscreen * 1.3, ease: 'none' }, `quotesStart+=${ quotesDistanceToTagline - 200 }`)
-
-
-  // Add pause to tl
-  // tlScroll.to({}, { duration: sections[4] }, '+=0')  
-
-})
-
+}
 
 
 </script>

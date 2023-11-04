@@ -37,7 +37,7 @@
 
 // Imports
 import { $mt } from '~/utils/markdownTranslate';
-import { QuoteData, getUIStringForQuoteSource, quoteSourceIsPublic } from '~/utils/Quotes';
+import { QuoteData, getUIStringForQuoteSource, quoteSourceIsPublic } from '~/utils/quotes';
 
 // Import images
 import quoteImagePath from '../assets/img/baskerville-bold.quotes.png'
