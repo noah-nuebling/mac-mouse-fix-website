@@ -53,7 +53,7 @@
 
         <div :class="['h-max w-fit mx-auto z-30 overflow-y-clip ', !quotesAreExpanded ? 'max-h-[60rem]' : 'max-h-[fit-content] mb-[10rem]']">
           
-          <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="'speechBubbleImagePath'" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
+          <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="'speechBubbleImagePath'" class="hidden w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
 
           <!-- User Quotes -->
 
@@ -231,7 +231,7 @@ function recreateIntoAnimation() {
       start: "top top", // Start when the top of the trigger hits the top of the viewport
       end: `+=${ overallDistance }`, // End after scrolling this many px beyond the start
       scrub: 0.0, // Smooth scrubbing, takes x second to "catch up" to the scrollbar
-      markers: true,
+      markers: false,
     },
   })
 

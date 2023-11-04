@@ -15,14 +15,14 @@
 
     <template v-slot:top>
       <div class="flex flex-row items-start justify-center h-fit m-[1.4rem] mb-[0rem]">
-          <p class="font-[650] text-[2.8rem] translate-y-[-0.33em] ml-[-0.25rem] mr-[0.3rem] mb-[-10rem] opacity-[0.50]">&#8220</p>
+          <p class="text-white font-[650] text-[2.8rem] translate-y-[-0.33em] ml-[-0.25rem] mr-[0.3rem] mb-[-10rem] opacity-[0.50]">&#8220</p>
           <!-- <img :src="quoteImagePath" alt="opening quote" class="w-[1.5rem] mr-[0.5rem] opacity-50 translate-y-[0.27em]"> -->
-          <blockquote class="text-[1.05rem] text-black/90 whitespace-pre-wrap shadow-black/100 max-w-[30em]" v-html="quote?.quote">
+          <blockquote class="text-[1.05rem] text-white/90 whitespace-pre-wrap shadow-black/100 max-w-[30em]" v-html="quote?.quote">
           </blockquote>
       </div>
       <div class="m-[1.4rem]">
         <a :href="quote?.link" :class="quoteSourceIsPublic(quote!.source) ? ['pointer-events-auto'] : ['pointer-events-none']">
-          <p class="text-[1.0rem] text-center text-black/60 shadow-black/100">
+          <p class="text-[1.0rem] text-center text-white/60 shadow-black/100">
             <span v-html="getUIStringForQuoteSource(quote!.source, quote!.name)" class=""></span>
           </p>
         </a>
