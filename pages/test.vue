@@ -9,6 +9,10 @@
 <template>
   <div>
 
+    <!-- Debug Stuff -->
+
+    <!-- <div class="w-full h-[200px] bg-red-700">200px</div> -->
+
     <!-- Debug Buttons -->
 
     <div class="hidden items-end justify-center fixed left-0 top-0 w-full h-[10rem] z-50">

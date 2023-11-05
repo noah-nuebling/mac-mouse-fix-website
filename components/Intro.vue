@@ -214,8 +214,11 @@ onMounted(() => {
 
     // Discussion:
     // - We're only updating the animation, if the height has changed more than `yThreshold`. This is to prevent the animation from being recalculated when the address bar extends/retracts on mobile Safari. ChatGPT said that 100 should work everywhere.
+    // - I just tested on an iPhone Pro Max 15 Simulator on 50% website size in landscape and 100 wasn't enough. 200 seems to work though. 
 
-    const yThreshold = 100
+    const yThreshold = 200
+
+    window.locationbar
 
     const dx = window.innerWidth - viewportSizeForCurrentAnimation.width
     const dy = window.innerHeight - viewportSizeForCurrentAnimation.height
@@ -363,7 +366,11 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, `quotesStart` )
   tlScroll.fromTo(quoteExpandButton.value!, { opacity: 0 }, { opacity: 1, duration: 200 }, `quotesStart+=500`)
 
-  tlScroll.fromTo(taglineContainer.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: `${ -taglineDistanceToOffscreen }px`, duration: taglineDistanceToOffscreen * 1.3, ease: 'none' }, `quotesStart+=${ quotesDistanceToTagline - 150 }`)
+  // Tagline fade-out
+  const taglineOutShift = quotesDistanceToTagline - 150
+  const taglineOutStart = `quotesStart+=${ taglineOutShift }`
+  const taglineOutDuration = Math.min(taglineDistanceToOffscreen * 1.3, quotesDistance - taglineOutShift)
+  tlScroll.fromTo(taglineContainer.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: `${ -taglineDistanceToOffscreen }px`, duration: taglineOutDuration, ease: 'none' }, taglineOutStart)
 
   /* Restore scroll position of quotes and viewport
       Notes:   
