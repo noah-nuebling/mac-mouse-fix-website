@@ -1,4 +1,6 @@
-export { doAfterRender, everyNth, debouncer, watchProperty }
+import { request } from "https"
+
+export { doAfterRenderrr, doAfterRender, doBeforeRender, everyNth, debouncer, watchProperty }
 
 function debouncer(workload: () => any, timeout: number): () => any {
 
@@ -36,9 +38,18 @@ function everyNth(n: number, startIndex: number, array: any[]): any[] {
 }
 
 function doAfterRender(workload: () => any, additionalDelay: number = 0.0) {
+  // If you pass 0 into setTimeout(), the workload will be executed right after the next render
+  setTimeout(workload, additionalDelay)
+}
+function doBeforeRender(workload: () => any) {
+  // requestAnimationFrame() lets you execute code right before the next render, but after styles and layout have already been calculated for the current frame.
+  requestAnimationFrame(workload)
+}
+
+function doAfterRenderrr(workload: () => any, additionalDelay: number = 0.0) {
 
   // Notes:
-  // - Not totally sure what this does
+  // - Not totally sure what this does. Made for specific use case. Don't generally use this.
   // - This seems to help prevent a stutter at the start of gsap animations in Safari. We might be able to achieve the same effect using less nested calls. ChatGPT said it's a common trick to nest two requestAnimationFrames().
   // - If you use this to start a gsap timeline, make sure to create the timeline with `gsap.timeline({ paused: true })`, so it doesn't play immediately
   // - See https://stackoverflow.com/questions/15875128/is-there-element-rendered-event

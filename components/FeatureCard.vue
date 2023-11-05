@@ -547,7 +547,7 @@ if (props.doesExpand) {
       //  - This works since the timeline is paused. Also we're using fromTo everywhere which renders the from state immediately.
       //  - 0.05s delay prevents a little more jerkiness in Safari (might be placebo) without feeling less responsive in Chrome.
 
-      doAfterRender(() => { tl.play() }, 50)
+      doAfterRenderrr(() => { tl.play() }, 50)
 
     } else { 
       
@@ -780,7 +780,7 @@ if (props.doesExpand) {
       
       // Discussion: This is useful for expand - Is it also useful for unexpand?
       
-      doAfterRender(() => { tl.play() }, 50)
+      doAfterRenderrr(() => { tl.play() }, 50)
     
       // vvv Old implementation
       // window.requestAnimationFrame(() => {
