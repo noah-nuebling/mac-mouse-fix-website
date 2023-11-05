@@ -6,16 +6,7 @@
 
   <div ref="outerContainer" class=" relative mt-[-0rem] z-10">
 
-    <!-- Debug Buttons -->
 
-    <div class="hidden items-end justify-center absolute left-0 top-0 w-full h-[10rem] z-50">
-      <div class="bg-red-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="killIntroAnimation()">
-        <p class="text-white text-center">Kill</p>
-      </div>
-      <div class="bg-green-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="recreateIntoAnimation()">
-        <p class="text-white text-center">Reload</p>
-      </div>
-    </div>
 
 
     <!-- BG + Color Splashes -->
@@ -132,6 +123,13 @@ import { everyNth, debouncer, watchProperty } from "~/utils/util";
 import { getUsableQuotes } from '~/utils/quotes';
 const quotes = getUsableQuotes()
 
+/* Expose methods */
+
+defineExpose({
+  killIntroAnimation, // For debug
+  recreateIntroAnimation, // For debug
+})
+
 /* Get dom element refs 
     All unused atm
 */
@@ -164,7 +162,7 @@ const showColorSplashes = ref(false)
 const quotesAreExpanded = ref(true)
 
 watch(quotesAreExpanded, (newValue) => {
-  recreateIntoAnimation()
+  recreateIntroAnimation()
 })
 
 /* Wait for mount */
@@ -205,7 +203,7 @@ onMounted(() => {
 
   /* Create scroll animation */
 
-  recreateIntoAnimation()
+  recreateIntroAnimation()
   window.addEventListener("resize", () => debouncedRecreateIntroAnimation()); // Note: No need to call ScrollTrigger.refresh() here since we're killing and creating new triggers
 
 })
@@ -220,22 +218,25 @@ onMounted(() => {
 
 var tlScroll: gsap.core.Timeline | null = null
 
-const debouncedRecreateIntroAnimation = debouncer(() => recreateIntoAnimation(), 0/* 100 */)
+const debouncedRecreateIntroAnimation = debouncer(() => recreateIntroAnimation(), 0/* 100 */)
 
 function killIntroAnimation(reset: boolean = false) {
   if (tlScroll != null) {
-    tlScroll!.scrollTrigger!.kill(true)
+    tlScroll!.scrollTrigger!.kill(true, false)
     tlScroll!.pause(reset ? 0 : undefined).kill()
     tlScroll = null
   }
 }
-function recreateIntoAnimation() {
+function recreateIntroAnimation() {
 
-  // console.log(`RECREATING ANIMATION`);
+  const animationAlreadyExists = tlScroll != null
 
-  /* Store scrollTop of quotes 
-      (workaround for retaining scrollPosition of the quoteScrollingContainer after recreating the animation) */
-  const quotesScrollTop = quoteScrollingContainer.value!.scrollTop
+  /* Store viewport scrollTop
+      For restoring later. See below */
+  var windowScrollPosition = 0
+  if (animationAlreadyExists) {
+    windowScrollPosition = window.scrollY
+  }
 
   /* Take measurements for new animation 
       Notes: 
@@ -254,7 +255,9 @@ function recreateIntoAnimation() {
   const overallDistance = [zoomDistance, taglineDistance, quotesDistance, taglineShift, quotesShift].reduce((partialSum, n) => partialSum + n, 0)
 
   /* Kill current animation */
-  killIntroAnimation()
+  if (animationAlreadyExists) {
+    killIntroAnimation()
+  }
 
   /* Setup new animation */
   tlScroll = $gsap.timeline({
@@ -289,11 +292,14 @@ function recreateIntoAnimation() {
   tlScroll.set(innerContent.value!, { scale: 1.0 }, '>0')
 
   // Add quotes
+  var lastQuoteScrollPosition = 0
   tlScroll.to({}, { duration: quotesDistance, onUpdate: function() { 
 
     const progress = this.progress()
     const scrollPosition = intervalScale(progress, unitInterval, { start: 0, end: quotesDistance })
     quoteScrollingContainer.value!.scrollTop = scrollPosition
+
+    lastQuoteScrollPosition = scrollPosition
 
     // DEBUG
     // console.log(`After onUpdate() - quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }, animationProgress: ${ progress }, height: ${ quoteScrollingContainer.value!.offsetHeight }, scrollHeight: ${ quoteScrollingContainer.value!.scrollHeight }, clientHeight: ${ quoteScrollingContainer.value!.clientHeight }`);
@@ -304,10 +310,20 @@ function recreateIntoAnimation() {
 
   tlScroll.fromTo(taglineContainer.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: `${ -taglineDistanceToOffscreen }px`, duration: taglineDistanceToOffscreen * 1.3, ease: 'none' }, `quotesStart+=${ quotesDistanceToTagline - 200 }`)
 
-  /* Restore scroll position of quotes 
-      See where we record `quotesScrollTop` for more info */
+  /* Restore scroll position of quotes and viewport
+      Notes:   
+      - Otherwise scrollPosition of the quoteScrollingContainer isn't restored and scroll linked animations flicker after recreating the animation
+      - There are more methods to scroll viewport programmatically like setting document.body.scrollTop. Not sure if that's better in any way.
+      - I don't really have a clue why this works. Thank the lord ChatGPT.
+  */
+
+  if (animationAlreadyExists) {
+    $gsap.ticker.add(() => { // What
+      window.scrollTo(0, windowScrollPosition)
+    }, true, false)
+  }
   requestAnimationFrame(() => {
-    quoteScrollingContainer.value!.scrollTop = quotesScrollTop
+    quoteScrollingContainer.value!.scrollTop = lastQuoteScrollPosition
   })
 
   /* Update scrollTrigger

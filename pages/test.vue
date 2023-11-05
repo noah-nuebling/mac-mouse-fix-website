@@ -9,10 +9,21 @@
 <template>
   <div>
 
+    <!-- Debug Buttons -->
+
+    <div class="flex items-end justify-center fixed left-0 top-0 w-full h-[10rem] z-50">
+      <div class="bg-red-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="$refs.intro.killIntroAnimation()">
+        <p class="text-white text-center">Kill</p>
+      </div>
+      <div class="bg-green-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="$refs.intro.recreateIntroAnimation()">
+        <p class="text-white text-center">Reload</p>
+      </div>
+    </div>
+
 
     <!-- Intro -->
    
-    <Intro/>
+    <Intro ref="intro"/>
 
     <!-- Replaces Trackpad -->
 
