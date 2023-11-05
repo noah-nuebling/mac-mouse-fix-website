@@ -6,9 +6,6 @@
 
   <div ref="outerContainer" class=" relative mt-[-0rem] z-10">
 
-
-
-
     <!-- BG + Color Splashes -->
 
     <div ref="backgroundContainer" class="bg-transparent overflow-x-visible overflow-y-visible absolute w-[100vw] h-[calc(100vh)] top-[0] bottom-[0] left-[50%] translate-x-[-50%] z-0">
@@ -206,8 +203,11 @@ onMounted(() => {
   tlIntro.duration(duration)
   doAfterRender(() => tlIntro.play(), 0.0)
 
-  /* Create scroll animation */
-  doAfterRender(() => recreateIntroAnimation(), duration*1000)
+  /* Create scroll animation, then enable vertical scrolling */
+  doAfterRender(() => {
+    recreateIntroAnimation()
+    document.documentElement.style.overflowY = 'scroll'
+  }, duration*1000)
   
   /* Update scroll animation on window resize */
   window.addEventListener("resize", () => {

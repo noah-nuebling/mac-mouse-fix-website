@@ -10,10 +10,16 @@ Notes:
 @layer base {
 
   html {
+
+    /* Disable vertical scroll - is re-enabled inside Intro.vue */
+    overflow-y: clip;
+
+    /* Disable horizontal scroll */
     @apply overflow-x-clip
   }
 
   body {
+
     @apply bg-gray-50;
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif; /* Copied from https://www.apple.com/by/apple-watch-series-7/ */
     
