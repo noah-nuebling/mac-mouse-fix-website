@@ -43,9 +43,9 @@
     <div ref="quoteContainer" class="invisible absolute top-0 left-0 right-0 bottom-0 w-full h-full overflow-hidden z-30">
       
       <!-- Expand button etc -->
-      <div class="absolute left-0 bottom-0 w-full h-[10rem] z-10 bg-gradient-to-b from-transparent to-black flex items-end justify-center">
-        <div class="bg-blue-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
-          <p class="text-white text-center">{{ !quotesAreExpanded ? 'See More' : 'See Less' }}</p>
+      <div :class="['absolute left-0 bottom-0 w-full h-[10rem] z-50 bg-gradient-to-b from-transparent to-black flex items-end justify-center', quotesAreExpanded ? '' : '']">
+        <div ref="quoteExpandButton" class="bg-white/30 backdrop-blur-2xl rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
+          <p class="text-white text-center" v-html="!quotesAreExpanded ? 'See More' : 'See Less'"></p>
         </div>
       </div>
 
@@ -54,7 +54,7 @@
 
         <div class="h-[100%]"></div>
 
-        <div :class="['h-max w-fit mx-auto z-30 overflow-y-clip', !quotesAreExpanded ? 'max-h-[60rem]' : 'max-h-[fit-content] mb-[10rem]']">
+        <div :class="['relative h-max w-fit mx-auto z-30 overflow-y-clip', !quotesAreExpanded ? 'max-h-[60rem]' : 'max-h-[fit-content] mb-[10rem]']">
           
           <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="'speechBubbleImagePath'" class="hidden w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
 
@@ -149,6 +149,7 @@ const taglineContainer:         Ref<HTMLElement|null> = ref(null)
 const tagline:                  Ref<HTMLElement|null> = ref(null)
 const quoteContainer:           Ref<HTMLElement|null> = ref(null)
 const quoteScrollingContainer:  Ref<HTMLElement|null> = ref(null)
+const quoteExpandButton:        Ref<HTMLElement|null> = ref(null)
 
 
 /* Constants */
@@ -344,9 +345,9 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     
   }}, `quotesStart`)
   tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, `quotesStart` )
-  tlScroll.fromTo(quoteContainer.value!, { opacity: 0 }, { opacity: 1, duration: 200 }, `quotesStart`)
+  tlScroll.fromTo(quoteExpandButton.value!, { opacity: 0 }, { opacity: 1, duration: 200 }, `quotesStart+=500`)
 
-  tlScroll.fromTo(taglineContainer.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: `${ -taglineDistanceToOffscreen }px`, duration: taglineDistanceToOffscreen * 1.3, ease: 'none' }, `quotesStart+=${ quotesDistanceToTagline - 200 }`)
+  tlScroll.fromTo(taglineContainer.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: `${ -taglineDistanceToOffscreen }px`, duration: taglineDistanceToOffscreen * 1.3, ease: 'none' }, `quotesStart+=${ quotesDistanceToTagline - 150 }`)
 
   /* Restore scroll position of quotes and viewport
       Notes:   
