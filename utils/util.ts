@@ -38,7 +38,8 @@ function everyNth(n: number, startIndex: number, array: any[]): any[] {
 function doAfterRender(workload: () => any, additionalDelay: number = 0.0) {
 
   // Notes:
-  // - This seems to help prevent a stutter at the start of gsap animations in Safari. 
+  // - Not totally sure what this does
+  // - This seems to help prevent a stutter at the start of gsap animations in Safari. We might be able to achieve the same effect using less nested calls. ChatGPT said it's a common trick to nest two requestAnimationFrames().
   // - If you use this to start a gsap timeline, make sure to create the timeline with `gsap.timeline({ paused: true })`, so it doesn't play immediately
   // - See https://stackoverflow.com/questions/15875128/is-there-element-rendered-event
   // - tl.delay() doesn't work anymore for some reason
@@ -47,7 +48,7 @@ function doAfterRender(workload: () => any, additionalDelay: number = 0.0) {
 
   window.requestAnimationFrame(() => {
     setTimeout(() => {
-      $gsap.delayedCall(additionalDelay, workload)
+      $gsap.delayedCall(additionalDelay/1000.0, workload)
     }, 0)
   });
 }

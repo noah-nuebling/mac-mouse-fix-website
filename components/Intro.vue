@@ -48,7 +48,7 @@
 
     <!-- Quote cards -->
 
-    <div ref="quoteContainer" class="invisible absolute top-0 left-0 right-0 bottom-0 w-full h-full overflow-hidden z-30">
+    <div ref="quoteContainer" class="absolute top-0 left-0 right-0 bottom-0 w-full h-full overflow-hidden z-30">
       
       <!-- Expand button etc -->
       <div class="absolute left-0 bottom-0 w-full h-[10rem] z-10 bg-gradient-to-b from-transparent to-black flex items-end justify-center">
@@ -62,7 +62,7 @@
 
         <div class="h-[100%] border-[10px] border-blue-500"></div>
 
-        <div :class="['h-max w-fit mx-auto z-30 overflow-y-clip ', !quotesAreExpanded ? 'max-h-[60rem]' : 'max-h-[fit-content] mb-[10rem] border-[10px] border-green-500']">
+        <div :class="['h-max w-fit mx-auto z-30 overflow-y-clip', !quotesAreExpanded ? 'max-h-[60rem]' : 'max-h-[fit-content] mb-[10rem] border-[10px] border-green-500']">
           
           <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="'speechBubbleImagePath'" class="hidden w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
 
@@ -209,27 +209,37 @@ onMounted(() => {
 
 })
 
+/* Debug */
+
+setInterval(() => {
+  console.log(`Quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }`);
+})
+
 /* Functions */
 
 var tlScroll: gsap.core.Timeline | null = null
 
 const debouncedRecreateIntroAnimation = debouncer(() => recreateIntoAnimation(), 0/* 100 */)
 
-function killIntroAnimation() {
+function killIntroAnimation(reset: boolean = false) {
   if (tlScroll != null) {
     tlScroll!.scrollTrigger!.kill(true)
-    tlScroll!.pause(0).kill()
+    tlScroll!.pause(reset ? 0 : undefined).kill()
+    tlScroll = null
     // $ScrollTrigger.getById("introTrigger")!.kill(true)
   }
 }
 function recreateIntoAnimation() {
 
-  console.log(`RECREATING`);
+  console.log(`RECREATING ANIMATION`);
 
-  /* Kill current animation */
-  killIntroAnimation()
+  /* Store scrollTop of quotes 
+      (workaround for retaining scrollPosition of the quoteScrollingContainer after recreating the animation) */
+  const quotesScrollTop = quoteScrollingContainer.value!.scrollTop
 
-  /* Setup new animation */
+  /* Take measurements for new animation 
+      Notes: 
+      - I thought doing this first might help prevent forced reflows, but doesn't seem to work. But generally ChatGPT advised me to do all DOM reads in a batch and before writes if possible for optimization. See browser rendering cycle and stuff (yeah I know this isn't helpful)*/
   const zoomScale = 450.0 * window.innerHeight / 970.0
   const taglineDistanceToOffscreen = tagline.value!.offsetTop + tagline.value!.offsetHeight
   const quotesDistanceToTagline = outerContainer.value!.offsetHeight/2 - tagline.value!.offsetHeight/2
@@ -243,6 +253,10 @@ function recreateIntoAnimation() {
 
   const overallDistance = [zoomDistance, taglineDistance, quotesDistance, taglineShift, quotesShift].reduce((partialSum, n) => partialSum + n, 0)
 
+  /* Kill current animation */
+  killIntroAnimation()
+
+  /* Setup new animation */
   tlScroll = $gsap.timeline({
     scrollTrigger: {
       id: "introTrigger",
@@ -275,26 +289,52 @@ function recreateIntoAnimation() {
   tlScroll.set(innerContent.value!, { scale: 1.0 }, '>0')
 
   // Add quotes
+  var isFirstUpdate = true
   tlScroll.to({}, { duration: quotesDistance, onUpdate: function() { 
 
     const progress = this.progress()
     const scrollPosition = intervalScale(progress, unitInterval, { start: 0, end: quotesDistance })
     quoteScrollingContainer.value!.scrollTop = scrollPosition
 
-    doAfterRender(() => {
-      console.log(`quote scroll UPDATE - progress: ${ progress }, position: ${ quoteScrollingContainer.value!.scrollTop }`);
-    })
+    if (isFirstUpdate) {
+      // setTimeout(() => {
+        // quoteScrollingContainer.value!.scrollTop = scrollPosition
+      // }, 0)
+      requestAnimationFrame(() => {
+        // quoteScrollingContainer.value!.scrollTop = scrollPosition
+      })
+      isFirstUpdate = false
+    }
+
+    console.log(`After onUpdate() - quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }, animationProgress: ${ progress }, height: ${ quoteScrollingContainer.value!.offsetHeight }, scrollHeight: ${ quoteScrollingContainer.value!.scrollHeight }, clientHeight: ${ quoteScrollingContainer.value!.clientHeight }`);
+    // doAfterRender(() => {
+    //   console.log(`AFTER RENDER - quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }, animationProgress: ${ progress }`);
+    //   // quoteScrollingContainer.value!.scrollTop = scrollPosition
+    // })
     
   }}, `quotesStart`)
-
-  tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, `quotesStart` )
-  tlScroll.fromTo(quoteContainer.value!, { opacity: 0 }, { opacity: 1, duration: 200 }, `quotesStart`)
+  // tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, `quotesStart` )
+  tlScroll.fromTo(quoteContainer.value!, { autoAlpha: 0 }, { autoAlpha: 1, duration: 200 }, `quotesStart`)
 
   tlScroll.fromTo(taglineContainer.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: `${ -taglineDistanceToOffscreen }px`, duration: taglineDistanceToOffscreen * 1.3, ease: 'none' }, `quotesStart+=${ quotesDistanceToTagline - 200 }`)
 
+  /* Restore quotes scrollTop */
+  requestAnimationFrame(() => {
+    quoteScrollingContainer.value!.scrollTop = quotesScrollTop
+    console.log(`Set Quote scrollTop (inside requestAnimationFrame): ${ quotesScrollTop }`);
+  })
+
+
+  /* Update scrollTrigger
+      Doesn't seem to have any effect */
+  // doAfterRender(() => {
+  //   console.log("HHHHNGGGGG");
+  //   tlScroll!.scrollTrigger?.update()
+  // }, 1000)
+
   /* Refresh ScrollTrigger
-      Not sure if or why this is necessary */
-  tlScroll!.scrollTrigger!.refresh()
+      This seems to be unnecessary, since we create a completely new scrollTrigger. Also this leads to forcedReflow and other warnings in Chrome console. Edit: Chrome warnings now appear anyways. Idk. */
+  // tlScroll!.scrollTrigger!.refresh()
 }
 
 
