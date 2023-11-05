@@ -11,15 +11,15 @@
 
     <!-- BG + Color Splashes -->
 
-    <div ref="backgroundContainer" class="bg-transparent w-[100vw] h-[100vh] overflow-x-visible overflow-y-visible absolute left-[50%] translate-x-[-50%] top-0 bottom-0 z-0">
+    <div ref="backgroundContainer" class="bg-transparent overflow-x-visible overflow-y-visible absolute w-[100vw] h-[calc(100vh)] top-[0] bottom-[0] left-[50%] translate-x-[-50%] z-0">
       <img ref="colorSplash1" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse1 absolute min-w-[80rem] top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] -z-10 opacity-0']">
       <img ref="colorSplash2" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse2 absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] -z-10 opacity-0']">
-      <div ref="backgroundDiv" class="w-full h-full -z-20 bg-black opacity-0"></div>
+      <div ref="backgroundDiv" class="w-full h-[calc(100%+10rem)] translate-y-[-10rem] -z-20 bg-black opacity-0"></div>
     </div>
 
     <!-- Initial Content -->
 
-    <div class="flex items-center justify-center group w-[100%] h-[calc(100vh-0rem)] duration-[0.8s] ease-[cubic-bezier(0.4,0,0.2,1)]">
+    <div class="flex items-center justify-center group w-[100%] h-[calc(100vh-0rem)]">
       <div class="h-fit w-fit border-[0px] relative">
         <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center border-[0px] translate-y-[-6rem] -z-20']"> 
           <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['h-[14rem] border-[0px] mt-[-2rem] opacity-0']">
@@ -160,11 +160,11 @@ const defaultScreenHeight = 970.0
 /* State */
 
 const playLoadingAnimation = ref(true) // Initialize to false to disable loading animations
-const showColorSplashes = ref(false)
 const quotesAreExpanded = ref(false)
 
-watch(quotesAreExpanded, (newValue) => {
+var viewportSizeForCurrentAnimation = { width: 0, height: 0 }
 
+watch(quotesAreExpanded, (newValue) => {
   // Measure quotes section size
   const quotesDistance = quoteScrollingContainer.value!.scrollHeight - quoteScrollingContainer.value!.offsetHeight
   // Wait until quotes are rendered at new size, and then recreate animation
@@ -177,11 +177,10 @@ onMounted(() => {
 
   /* Play intro animations */
 
+  // Stop playing loading animation (pulse animation on `Mac Mouse Fix`)
   playLoadingAnimation.value = false
-  showColorSplashes.value = true
 
   // Color splash animation
-
   const tlSplash = $gsap.timeline({ paused: true })
   var ease: any = "none"
   var duration = 3.6
@@ -190,7 +189,7 @@ onMounted(() => {
   tlSplash.to(colorSplash2.value, { opacity: 1, ease: ease }, 0)
 
   tlSplash.duration(duration)
-  doAfterRenderrr(() => tlSplash.play(), 0.0)
+  doAfterRender(() => tlSplash.play(), 0.0)
 
   // Intro transition
 
@@ -205,13 +204,26 @@ onMounted(() => {
   tlIntro.to(downloadButton.value, { opacity: 1, ease: ease}, 0)
 
   tlIntro.duration(duration)
-  doAfterRenderrr(() => tlIntro.play(), 0.0)
+  doAfterRender(() => tlIntro.play(), 0.0)
 
   /* Create scroll animation */
+  doAfterRender(() => recreateIntroAnimation(), duration*1000)
+  
+  /* Update scroll animation on window resize */
+  window.addEventListener("resize", () => {
 
-  recreateIntroAnimation()
-  window.addEventListener("resize", () => debouncedRecreateIntroAnimation()); // Note: No need to call ScrollTrigger.refresh() here since we're killing and creating new triggers
+    // Discussion:
+    // - We're only updating the animation, if the height has changed more than `yThreshold`. This is to prevent the animation from being recalculated when the address bar extends/retracts on mobile Safari. ChatGPT said that 100 should work everywhere.
 
+    const yThreshold = 100
+
+    const dx = window.innerWidth - viewportSizeForCurrentAnimation.width
+    const dy = window.innerHeight - viewportSizeForCurrentAnimation.height
+
+    if (Math.abs(dx) > 0 || Math.abs(dy) > yThreshold) {
+      debouncedRecreateIntroAnimation()
+    }
+  }); // Note: No need to call ScrollTrigger.refresh() here since we're killing and creating new triggers
 })
 
 /* Debug */
@@ -234,6 +246,10 @@ function killIntroAnimation(reset: boolean = false) {
   }
 }
 function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDistance: number = 0.0) {
+
+  console.log(`Recreating intro animation`);
+
+  viewportSizeForCurrentAnimation = { width: window.innerWidth, height: window.innerHeight }
 
   const animationAlreadyExists = tlScroll != null
 
@@ -275,20 +291,20 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
     const current = windowScrollPosition // aka quotesStartAnchored
 
-    const quotesEndAtBottomPosition = outerContainer.value!.offsetTop + quotesStop
-    const quotesEndAtTopPosition    = quotesEndAtBottomPosition + window.innerHeight
-    const quotesEndAtThresholdPosition = quotesEndAtBottomPosition // + 150
+    const quotesEndAtBottomPosition   = outerContainer.value!.offsetTop + quotesStop
+    const quotesEndAtTopPosition      = quotesEndAtBottomPosition + window.innerHeight
+    const thresholdPosition  = quotesEndAtBottomPosition // + 150
 
     const d = quotesDistance - previousQuotesDistance
     const quotesEndWasOnScreen = quotesEndAtBottomPosition - d < current && current < quotesEndAtTopPosition - d
 
-    const quotesEndAnchoredPosition = current + d
+    const quotesEndEndAnchoredPosition = current + d
 
-    if (current > quotesEndAtThresholdPosition) {
-      if (quotesEndWasOnScreen) {
-        windowScrollPosition = quotesEndAnchoredPosition
+    if (current > thresholdPosition) {
+      if (!quotesEndWasOnScreen) {
+        windowScrollPosition = thresholdPosition
       } else {
-        windowScrollPosition = quotesEndAtThresholdPosition
+        windowScrollPosition = quotesEndEndAnchoredPosition
       }
     } // else -> scroll position is anchored at the top of the quotes
   }
@@ -305,7 +321,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
       trigger: outerContainer.value!,
       pin: true, // Pin the trigger element while active
       anticipatePin: 1, // Prevent jitter when pin becomes active
-      start: "top top", // Start when the top of the trigger hits the top of the viewport
+      start: "top top", // Start when the top of the trigger hits the top of the viewport. Seems it doesn't work when reentering animation from the bottom in Safari
       end: `+=${ overallDistance }`, // End after scrolling this many px beyond the start
       scrub: 0.0, // Smooth scrubbing, takes x second to "catch up" to the scrollbar
       markers: false,
@@ -328,7 +344,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   // Fade in background and reset zoom on inner content
   tlScroll.fromTo(backgroundDiv.value!, { opacity: 0 }, { opacity: 1, duration: 1000 }, `zoomEnd-=600`)
-  tlScroll.set(innerContent.value!, { scale: 1.0 }, '>0')
+  tlScroll.fromTo(innerContent.value!, { scale: zoomScale }, { scale: 1, duration: 0 }, '>0')
 
   // Add quotes
   var lastQuoteScrollPosition = 0
