@@ -4,9 +4,11 @@
   <div>
 
     <!-- Header -->
-    <header class="shadow-sm bg-white z-10">
-      <nav class="container mx-auto p-4 flex justify-between">
-        <NuxtLink to="/" class="font-bold">Nuxt Dojo</NuxtLink>
+    <header class="fixed left-0 right-0 shadow-sm bg-white z-50">
+      <nav class="container mx-auto py-[0.4rem] text-[1rem] font-[400] flex justify-between">
+        
+        <NuxtLink to="/" class="font-display font-[600] text-[1.75rem] opacity-[0.85] tracking-[0.011em] leading-[1.15em]">iPad Pro</NuxtLink>
+
         <ul class="flex gap-4">
           <li><NuxtLink to="/">Home</NuxtLink></li> <!-- NuxtLink dynamically generates the page instead of requesting prerendered page from the server -->
           <li><NuxtLink to="/about">About</NuxtLink></li>

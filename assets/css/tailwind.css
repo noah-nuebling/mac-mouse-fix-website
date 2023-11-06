@@ -11,17 +11,24 @@ Notes:
 
   html {
 
+    /* Set size of 1rem 
+        By default, this was 16px (from tailwind?). But Apple website and default is 12px */
+
+    font-size: 12px;
+
     /* Disable vertical scroll - is re-enabled inside Intro.vue */
     overflow-y: clip;
 
     /* Disable horizontal scroll */
-    @apply overflow-x-clip
+    @apply overflow-x-clip;
+
+    /* Set default font family (Defined in tailwind.config.js) */
+    @apply font-body;
   }
 
   body {
 
     @apply bg-gray-50;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif; /* Copied from https://www.apple.com/by/apple-watch-series-7/ */
     
     /* zoom: 122%; Like Feedback Assistant */
   }

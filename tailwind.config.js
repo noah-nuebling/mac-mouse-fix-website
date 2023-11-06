@@ -29,6 +29,19 @@ export default {
   ],
   theme: {
 
+    fontFamily: {
+      'display': '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif', /* Copied from big text on iPad Pro page */  //"'SF Pro Display', 'SF Pro Icons', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif", /* Copied from https://www.apple.com/by/apple-watch-series-7/, with changes */
+      'body': '"SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif', /* Copied from small text on iPad Pro page */
+    },
+    // fontSize: {
+    //   xs: '0.75',
+    //   sm: '0.875rem',
+    //   base: '1rem',
+    //   lg: '1.125', 
+    //   xl: '1.25rem',
+    //   ...
+    // },
+
     boxShadow: {
       
       /* vvv From Feedback Assistant */
