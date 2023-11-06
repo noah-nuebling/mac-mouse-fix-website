@@ -51,7 +51,7 @@
 
         <div class="h-[100%]"></div>
 
-        <div :class="['relative h-max w-fit mx-auto z-30 overflow-y-clip', !quotesAreExpanded ? 'max-h-[60rem]' : 'max-h-[fit-content] mb-[10rem]']">
+        <div :class="['relative h-max w-fit mx-auto z-30 overflow-y-clip', !quotesAreExpanded ? 'max-h-[45rem]' : 'max-h-[fit-content] mb-[10rem]']">
           
           <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="'speechBubbleImagePath'" class="hidden w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
 

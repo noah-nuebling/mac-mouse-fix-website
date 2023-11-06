@@ -65,52 +65,10 @@ const quotes: QuoteData[] = [
   /* Tier 1 */
 
   {
-    quote: "This has nearly doubled my productivity.",
-    name: "holdingsllc",
+    quote: "Among all apps that try to fix this problem, this one is undoubtly the best!",
+    name: "tomatsaev",
     source: QuoteSource.GitHub,
-    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/419',
-    permission: PermissionToShare.None
-  },
-  {
-    quote: "Mac Mouse Fix is the single most important Mac app for me. It feels incredibly polished.",
-    name: "Florian Schmidt",
-    source: QuoteSource.PayPalDonation,
-    link: 'message:<94.9D.24537.7D594A26@ccg01mail03>',
-    permission: PermissionToShare.Requested
-  },
-  {
-    quote: "Click & drag for switching between the screens feels so native.",
-    name: "Lazar Manasijević",
-    source: QuoteSource.Email,
-    link: 'message:<BDF0E117-B5BB-4E3E-9CD5-C1DE163F7F02@gmail.com>',
-    permission: PermissionToShare.Requested
-  },
-  {
-    quote: "You just saved me from spending money on the MX Master.",
-    name: "Andreea",
-    source: QuoteSource.Email,
-    link: 'message:<D50495F3-3F30-4159-A09E-9373A9F40777@gmail.com>',
-    permission: PermissionToShare.Requested,
-  },
-  {
-    quote: "A must have app for any Mac user with a mouse.",
-    name: "4332weizi",
-    source: QuoteSource.GitHub,
-    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/326',
-    permission: PermissionToShare.None
-  },
-  {
-    quote: "Your app is incredible and absolutely vital to my workflow. I literally can't use my mac without MMF.",
-    name: "ar311krypton",
-    source: QuoteSource.GitHub,
-    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/369',
-    permission: PermissionToShare.None
-  },
-  {
-    quote: "The vertical scroll is just awesome",
-    name: "nickcolea",
-    source: QuoteSource.GitHub,
-    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/378',
+    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/34',
     permission: PermissionToShare.None
   },
   {
@@ -121,7 +79,136 @@ const quotes: QuoteData[] = [
     permission: PermissionToShare.Requested
   },
   {
-    quote: "I've been wanting to get rid of my Magic Mouse for a while and because of your app, I can do just that! You're awesome!!!!",
+    quote: "Works like a charm and it's easy to set up!",
+    name: "Tomáš Nesrovnal",
+    source: QuoteSource.StackExchange,
+    link: 'https://apple.stackexchange.com/a/371330/308049',
+    permission: PermissionToShare.None
+  },
+  {
+    quote: "This is the best mouse software on the Mac.",
+    name: "samueljim",
+    source: QuoteSource.GitHub,
+    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/105',
+    permission: PermissionToShare.None
+  },
+  {
+    quote: "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!",
+    name: "Erik Svendsen",
+    source: QuoteSource.PayPalDonation,
+    link: 'message:<04.52.53548.372FA446@ccg13mail05>',
+    permission: PermissionToShare.Granted,
+  },
+  {
+    quote: "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is.",
+    name: "Shaon Khan",
+    source: QuoteSource.Email,
+    link: "message:<CAFj72xngJzJz8dvOx4pzL+QZTG97dSeuJ0QQwEmETJ67eGzrbQ@mail.gmail.com>",
+    permission: PermissionToShare.Granted,
+  },
+  {
+    quote: "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows.",
+    name: "abhimadav",
+    source: QuoteSource.Reddit,
+    link: 'https://www.reddit.com/r/macapps/comments/s5h7gb/mac_mouse_fix_2_featuring_nativefeeling_gestures/',
+    permission: PermissionToShare.None
+  },
+  {
+    quote: "Thanks for this AMAZING software. 10/10!",
+    name: "Timon Weides",
+    source: QuoteSource.Email,
+    link: 'message:<21D82608-53B7-4A72-AD52-E650FF0FED20@live.de>',
+    permission: PermissionToShare.Requested,
+  },
+  {
+    quote: "Probably the best app on my Mac",
+    name: "SaMaY-69",
+    source: QuoteSource.GitHub,
+    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/273',
+    permission: PermissionToShare.None
+  },
+  {
+    quote: "No other similar utility can compete",
+    name: "5silentrain",
+    source: QuoteSource.Email,
+    link: 'message:<CAB+S4pXD+RP3OYxENZXa_+NWLmJBB1Uqf1_Z9xKLqRy=-QaTJg@mail.gmail.com>',
+    permission: PermissionToShare.Granted
+  },
+
+
+
+  {
+    quote: "A must have app for any Mac user with a mouse.",
+    name: "4332weizi",
+    source: QuoteSource.GitHub,
+    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/326',
+    permission: PermissionToShare.None
+  },
+  {
+    quote: "You just saved me from spending money on the MX Master.",
+    name: "Andreea",
+    source: QuoteSource.Email,
+    link: 'message:<D50495F3-3F30-4159-A09E-9373A9F40777@gmail.com>',
+    permission: PermissionToShare.Requested,
+  },
+  {
+    quote: "This has nearly doubled my productivity.",
+    name: "holdingsllc",
+    source: QuoteSource.GitHub,
+    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/419',
+    permission: PermissionToShare.None
+  },
+  {
+    quote: "The UI and gestures are so intuitive.",
+    name: "Laurynas Tumosa",
+    source: QuoteSource.PayPalDonation,
+    link: 'message:<1634236926.25936@paypal.com>',
+    permission: PermissionToShare.Requested
+  },
+  {
+    quote: "Love this app so much, it's a must-have!",
+    name: "LinusGeffarth",
+    source: QuoteSource.GitHub,
+    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/297#issuecomment-1211926291',
+    permission: PermissionToShare.None
+  },
+  {
+    quote: "Your app is incredible and absolutely vital to my workflow. I literally can't use my mac without MMF.",
+    name: "ar311krypton",
+    source: QuoteSource.GitHub,
+    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/369',
+    permission: PermissionToShare.None
+  },
+  {
+    quote: "Mac Mouse Fix is the single most important Mac app for me. It feels incredibly polished.",
+    name: "Florian Schmidt",
+    source: QuoteSource.PayPalDonation,
+    link: 'message:<94.9D.24537.7D594A26@ccg01mail03>',
+    permission: PermissionToShare.Requested
+  },
+  {
+    quote: "Mac Mouse Fix is the best in its class!",
+    name: "ib0ndar",
+    source: QuoteSource.GitHub,
+    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/378',
+    permission: PermissionToShare.None
+  },
+  {
+    quote: "The vertical scroll is just awesome",
+    name: "nickcolea",
+    source: QuoteSource.GitHub,
+    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/378',
+    permission: PermissionToShare.None
+  },
+  {
+    quote: "Click & drag for switching between the screens feels so native.",
+    name: "Lazar Manasijević",
+    source: QuoteSource.Email,
+    link: 'message:<BDF0E117-B5BB-4E3E-9CD5-C1DE163F7F02@gmail.com>',
+    permission: PermissionToShare.Requested
+  },
+  {
+    quote: "I've been wanting to get rid of my Magic Mouse for a while and because of your app, I can do just that!",
     name: "Zach Taffet",
     source: QuoteSource.PayPalDonation,
     link: 'message:<E2.BB.41759.B545C736@ccg13mail04>',
@@ -135,13 +222,6 @@ const quotes: QuoteData[] = [
     permission: PermissionToShare.None
   },
   {
-    quote: "The UI and gestures are so intuitive.",
-    name: "Laurynas Tumosa",
-    source: QuoteSource.PayPalDonation,
-    link: 'message:<1634236926.25936@paypal.com>',
-    permission: PermissionToShare.Requested
-  },
-  {
     quote: "Thank you, saved me from buying an apple mouse",
     name: "João Santos",
     source: QuoteSource.PayPalDonation,
@@ -149,31 +229,10 @@ const quotes: QuoteData[] = [
     permission: PermissionToShare.Granted
   },
   {
-    quote: "Probably the best app on my Mac",
-    name: "SaMaY-69",
-    source: QuoteSource.GitHub,
-    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/273',
-    permission: PermissionToShare.None
-  },
-  {
-    quote: "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is.",
-    name: "Shaon Khan",
-    source: QuoteSource.Email,
-    link: "message:<CAFj72xngJzJz8dvOx4pzL+QZTG97dSeuJ0QQwEmETJ67eGzrbQ@mail.gmail.com>",
-    permission: PermissionToShare.Granted,
-  },
-  {
     quote: "The UI in V2 is fantastic and very intuitive.",
     name: "nghtstr",
     source: QuoteSource.GitHub,
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/135',
-    permission: PermissionToShare.None
-  },
-  {
-    quote: "Love this app so much, it's a must-have!",
-    name: "LinusGeffarth",
-    source: QuoteSource.GitHub,
-    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/297#issuecomment-1211926291',
     permission: PermissionToShare.None
   },
   {
@@ -186,6 +245,20 @@ const quotes: QuoteData[] = [
 
   /* Tier 2 */
 
+  {
+    quote: "I really appreciate the simplicity it brings.",
+    name: "chamburr",
+    source: QuoteSource.GitHub,
+    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/150',
+    permission: PermissionToShare.None
+  },
+  {
+    quote: "After switching to a mouse, I tried software such as SteerMouse, which received many recommendations and even charges, and finally found that this software meets my needs perfectly, every feature is very useful, and the performance is very good!",
+    name: "SamyukL",
+    source: QuoteSource.GitHub,
+    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/449',
+    permission: PermissionToShare.None
+  },
   {
     quote: "Awesome app, it definitely deserves to be shared widely with others 😁",
     name: "Jeff Su",
@@ -208,60 +281,11 @@ const quotes: QuoteData[] = [
     permission: PermissionToShare.Granted
   },
   {
-    quote: "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows.",
-    name: "abhimadav",
-    source: QuoteSource.Reddit,
-    link: 'https://www.reddit.com/r/macapps/comments/s5h7gb/mac_mouse_fix_2_featuring_nativefeeling_gestures/',
-    permission: PermissionToShare.None
-  },
-  {
-    quote: "Works like a charm and it's easy to set up!",
-    name: "Tomáš Nesrovnal",
-    source: QuoteSource.StackExchange,
-    link: 'https://apple.stackexchange.com/a/371330/308049',
-    permission: PermissionToShare.None
-  },
-  {
     quote: "This is great software and solved all my mouse issues.",
     name: "Mladen Mihajlovic",
     source: QuoteSource.StackExchange,
     link: 'https://superuser.com/a/1699506',
     permission: PermissionToShare.None
-  },
-  {
-    quote: "I really appreciate the simplicity it brings.",
-    name: "chamburr",
-    source: QuoteSource.GitHub,
-    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/150',
-    permission: PermissionToShare.None
-  },
-  {
-    quote: "Among all apps that try to fix this problem, this one is undoubtly the best!",
-    name: "tomatsaev",
-    source: QuoteSource.GitHub,
-    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/34',
-    permission: PermissionToShare.None
-  },
-  {
-    quote: "This is the best mouse software on the Mac.",
-    name: "samueljim",
-    source: QuoteSource.GitHub,
-    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/105',
-    permission: PermissionToShare.None
-  },
-  {
-    quote: "Mac Mouse Fix is the best in its class!",
-    name: "ib0ndar",
-    source: QuoteSource.GitHub,
-    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/378',
-    permission: PermissionToShare.None
-  },
-  {
-    quote: "No other similar utility can compete",
-    name: "5silentrain",
-    source: QuoteSource.Email,
-    link: 'message:<CAB+S4pXD+RP3OYxENZXa_+NWLmJBB1Uqf1_Z9xKLqRy=-QaTJg@mail.gmail.com>',
-    permission: PermissionToShare.Granted
   },
   {
     quote: "Utterly incredible software, bro :) so simple yet so functional. keep up the good work.",
@@ -278,32 +302,11 @@ const quotes: QuoteData[] = [
     permission: PermissionToShare.Requested
   },
   {
-    quote: "Thanks for this AMAZING software. 10/10!",
-    name: "Timon Weides",
-    source: QuoteSource.Email,
-    link: 'message:<21D82608-53B7-4A72-AD52-E650FF0FED20@live.de>',
-    permission: PermissionToShare.Requested,
-  },
-  {
-    quote: "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!",
-    name: "Erik Svendsen",
-    source: QuoteSource.PayPalDonation,
-    link: 'message:<04.52.53548.372FA446@ccg13mail05>',
-    permission: PermissionToShare.Granted,
-  },
-  {
     quote: "It's exact what I was looking for to make non-Apple-Mice work like I want ",
     name: "Wolf Spalteholz",
     source: QuoteSource.PayPalDonation,
     link: 'message:<59.33.32745.E2035526@ccg13mail04>',
     permission: PermissionToShare.Requested
-  },
-  {
-    quote: "After switching to a mouse, I tried software such as SteerMouse, which received many recommendations and even charges, and finally found that this software meets my needs perfectly, every feature is very useful, and the performance is very good!",
-    name: "SamyukL",
-    source: QuoteSource.GitHub,
-    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/449',
-    permission: PermissionToShare.None
   },
 
 
