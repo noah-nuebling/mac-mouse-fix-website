@@ -30,8 +30,15 @@ export default {
   theme: {
 
     fontFamily: {
-      'display': '"SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif', /* Copied from big text on iPad Pro page */  //"'SF Pro Display', 'SF Pro Icons', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif", /* Copied from https://www.apple.com/by/apple-watch-series-7/, with changes */
-      'body': '"SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif', /* Copied from small text on iPad Pro page */
+
+      /* Copied from Apple website, but adding "-apple-system[-xxx]" and "BlinkMacSystemFont"
+          - Otherwise Safari would use Helvetica 
+          - BlinkMacSystemFont is for Chrome I think, so probably not necessary
+          - Info on -apple-system-xxx and system-ui fonts: 1. https://furbo.org/2018/03/28/system-fonts-in-css/ 2. https://stackoverflow.com/a/32660790 
+          - When -apple-system is used it automatically seems to switch to SF Display at a certain size. Maybe even dynamically interpolating between them. I think size was like 20px. See this WWDC talk at around 10:00 min: https://developer.apple.com/videos/play/wwdc2020/10175/*/
+
+      'display': '"SF Pro Display", "SF Pro Icons", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif', /* Copied from big text on iPad Pro page */ 
+      'body': '"SF Pro Text", "SF Pro Icons", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif', /* Copied from small text on iPad Pro page */
     },
     // fontSize: {
     //   xs: '0.75',

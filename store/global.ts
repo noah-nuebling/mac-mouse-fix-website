@@ -8,7 +8,8 @@ import { defineStore } from 'pinia'
 export const useGlobalStore = defineStore('global', () => {
 
   // Variables
-  const backdrop: Ref<HTMLElement | null> = ref(null)
+  const backdrop = ref<HTMLElement | null>(null)
+  const navbarHasDarkAppearance = ref<boolean>(false)
 
   // Functions
   // function increment() {
@@ -16,5 +17,5 @@ export const useGlobalStore = defineStore('global', () => {
   // }
 
   // Return 
-  return { backdrop }
+  return { backdrop, navbarHasDarkAppearance }
 })

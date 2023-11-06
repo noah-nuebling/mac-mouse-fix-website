@@ -116,7 +116,6 @@ import speechBubbleImagePath from '../assets/img/text.bubble@8x.png'
 
 import { everyNth, debouncer, watchProperty } from "~/utils/util";
 import { getUsableQuotes } from '~/utils/quotes';
-import { assert } from "console";
 const quotes = getUsableQuotes()
 
 /* Expose methods */
@@ -125,6 +124,14 @@ defineExpose({
   killIntroAnimation, // For debug
   recreateIntroAnimation, // For debug
 })
+
+/* Get global state */
+
+import { useGlobalStore } from "~/store/global";
+import { storeToRefs } from "pinia";
+import { start } from "repl";
+const globalStore = useGlobalStore()
+const { navbarHasDarkAppearance } = storeToRefs(globalStore)
 
 /* Get dom element refs 
     All unused atm
@@ -239,6 +246,7 @@ onMounted(() => {
 /* Functions */
 
 var tlScroll: gsap.core.Timeline | null = null
+var navTrigger: ScrollTrigger | null = null
 
 const debouncedRecreateIntroAnimation = debouncer(() => recreateIntroAnimation(), 0/* 100 */)
 
@@ -247,6 +255,7 @@ function killIntroAnimation(reset: boolean = false) {
     tlScroll!.scrollTrigger!.kill(true, false)
     tlScroll!.pause(reset ? 0 : undefined).kill()
     tlScroll = null
+    navTrigger!.kill(true, false)
   }
 }
 function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDistance: number = 0.0) {
@@ -318,10 +327,23 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     killIntroAnimation()
   }
 
+  /* Setup navbar transitions */
+
+  const startOffset = zoomStop-500
+  navTrigger = $ScrollTrigger.create({
+    trigger: outerContainer.value!,
+    start: `top+=${ startOffset } top`,
+    end: `+=${ overallDistance-startOffset + window.innerHeight }`,
+    onEnter: () => { navbarHasDarkAppearance.value = true }, 
+    onEnterBack: () => { navbarHasDarkAppearance.value = true }, 
+    onLeave: () => { navbarHasDarkAppearance.value = false }, 
+    onLeaveBack: () => { navbarHasDarkAppearance.value = false }, 
+  })
+
   /* Setup new animation */
   tlScroll = $gsap.timeline({
     scrollTrigger: {
-      id: "introTrigger",
+      id: "introTrigger", // Used this to kill scrollTrigger, but unused at time of writing
       trigger: outerContainer.value!,
       pin: true, // Pin the trigger element while active
       anticipatePin: 1, // Prevent jitter when pin becomes active
@@ -389,6 +411,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   requestAnimationFrame(() => {
     quoteScrollingContainer.value!.scrollTop = lastQuoteScrollPosition
   })
+
 
   /* Update scrollTrigger
       Doesn't seem to have any effect */
