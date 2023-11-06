@@ -24,6 +24,8 @@
       </div>
     </div>
 
+    <!-- Nav bar -->
+    <!-- <Header :darkAppearance="false"/> -->
 
     <!-- Intro -->
    

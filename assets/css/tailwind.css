@@ -24,6 +24,10 @@ Notes:
 
     /* Set default font family (Defined in tailwind.config.js) */
     @apply font-body;
+
+    /* Enable text antialiasing 
+        Apple website uses this. Makes text a bit thinner / sharper */
+    @apply antialiased;
   }
 
   body {

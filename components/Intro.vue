@@ -22,9 +22,7 @@
           <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['h-[14rem] border-[0px] mt-[-2rem] opacity-0']">
           <h1 ref="mmfName" :class="['font-[700] text-[5.0rem] text-black/90 mt-[1.75rem] mb-[-1.25rem] scale-[0.8]', playLoadingAnimation ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
           <p ref="introTagline" :class="['text-black mb-[1.5rem] opacity-0']">Make Your $10 Mouse Better Than an Apple Trackpad</p>
-          <div ref="downloadButton" :class="['bg-blue-500 rounded-[5rem] opacity-0']">
-            <p class="text-white mx-[0.75em] my-[0.25em] text-[1.0rem]">Download</p>
-          </div>
+          <DownloadButton ref="downloadButton" class="bg-blue-500 rounded-full text-white px-[0.85em] py-[0.3em] text-[1.0rem] opacity-0"></DownloadButton>
         </div>
       </div>
     </div>
@@ -132,21 +130,21 @@ defineExpose({
     All unused atm
 */
 
-const outerContainer:           Ref<HTMLElement|null> = ref(null)
-const innerContent:             Ref<HTMLElement|null> = ref(null)
-const mmfIcon:                  Ref<HTMLElement|null> = ref(null)
-const mmfName:                  Ref<HTMLElement|null> = ref(null)
-const introTagline:             Ref<HTMLElement|null> = ref(null)
-const downloadButton:           Ref<HTMLElement|null> = ref(null)
-const backgroundContainer:      Ref<HTMLElement|null> = ref(null)
-const colorSplash1:             Ref<HTMLElement|null> = ref(null)
-const colorSplash2:             Ref<HTMLElement|null> = ref(null)
-const backgroundDiv:            Ref<HTMLElement|null> = ref(null)
-const taglineContainer:         Ref<HTMLElement|null> = ref(null)
-const tagline:                  Ref<HTMLElement|null> = ref(null)
-const quoteContainer:           Ref<HTMLElement|null> = ref(null)
-const quoteScrollingContainer:  Ref<HTMLElement|null> = ref(null)
-const quoteExpandButton:        Ref<HTMLElement|null> = ref(null)
+const outerContainer          = ref<HTMLElement|null>(null)
+const innerContent            = ref<HTMLElement|null>(null)
+const mmfIcon                 = ref<HTMLElement|null>(null)
+const mmfName                 = ref<HTMLElement|null>(null)
+const introTagline            = ref<HTMLElement|null>(null)
+const downloadButton          = ref<DownloadButton|null>(null)
+const backgroundContainer     = ref<HTMLElement|null>(null)
+const colorSplash1            = ref<HTMLElement|null>(null)
+const colorSplash2            = ref<HTMLElement|null>(null)
+const backgroundDiv           = ref<HTMLElement|null>(null)
+const taglineContainer        = ref<HTMLElement|null>(null)
+const tagline                 = ref<HTMLElement|null>(null)
+const quoteContainer          = ref<HTMLElement|null>(null)
+const quoteScrollingContainer = ref<HTMLElement|null>(null)
+const quoteExpandButton       = ref<HTMLElement|null>(null)
 
 
 /* Constants */
@@ -171,6 +169,9 @@ watch(quotesAreExpanded, (newValue) => {
 /* Wait for mount */
 
 onMounted(() => {
+
+  console.log(`Download button: ${ downloadButton.value.rootElement.style.opacity }`);
+  
 
   /* Play intro animations */
 
@@ -198,7 +199,7 @@ onMounted(() => {
   tlIntro.to(mmfIcon.value, { opacity: 1, ease: ease}, 0)
   tlIntro.fromTo(mmfName.value, { opacity: 0.75, scale: 0.8 }, { opacity: 1, scale: 1, ease: ease}, 0)
   tlIntro.to(introTagline.value, { opacity: 1, ease: ease}, 0)
-  tlIntro.to(downloadButton.value, { opacity: 1, ease: ease}, 0)
+  tlIntro.to(downloadButton.value.rootElement, { opacity: 1, ease: ease}, 0)
 
   tlIntro.duration(duration)
   doAfterRender(() => tlIntro.play(), 0.0)
