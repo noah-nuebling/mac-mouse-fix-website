@@ -387,13 +387,20 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     
   }}, `quotesStart`)
   tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, `quotesStart` )
-  tlScroll.fromTo(quoteExpandButton.value!, { opacity: 0 }, { opacity: 1, duration: 200 }, `quotesStart+=500`)
+
+  /* Quote Expand button fade-in */
+  const quoteExpandInShift = 500
+  const quoteExpandInStart = `quotesStart+=${ quoteExpandInShift }`
+  const quoteExpandInDuration = Math.min(200, quotesDistance - quoteExpandInShift) // Should be 200, but capped so it doesn't go on until after quotesStop
+  tlScroll.fromTo(quoteExpandButton.value!, { opacity: 0 }, { opacity: 1, duration: quoteExpandInDuration }, quoteExpandInStart)
 
   // Tagline fade-out
   const taglineOutShift = quotesDistanceToTagline - 150
   const taglineOutStart = `quotesStart+=${ taglineOutShift }`
-  const taglineOutDuration = Math.min(taglineDistanceToOffscreen * 1.3, quotesDistance - taglineOutShift)
-  tlScroll.fromTo(taglineContainer.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: `${ -taglineDistanceToOffscreen }px`, duration: taglineOutDuration, ease: 'none' }, taglineOutStart)
+  const taglineOutDurationTarget = taglineDistanceToOffscreen * 1.3
+  const taglineOutDuration = Math.min(taglineOutDurationTarget, quotesDistance - taglineOutShift) // Should be taglineDistanceToOffscreen * 1.3, but capped so it doesn't go on until after quotesStop
+  const f = taglineOutDuration/taglineOutDurationTarget
+  tlScroll.fromTo(taglineContainer.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: `${ -(taglineDistanceToOffscreen * f) }px`, duration: taglineOutDuration, ease: 'none' }, taglineOutStart)
 
   /* Restore scroll position of quotes and viewport
       Notes:   

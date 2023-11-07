@@ -3,7 +3,7 @@
   <header :class="['fixed left-0 right-0 header-shadow backdrop-blur-[20px] backdrop-saturate-[1.8] z-50 transition-colors duration-[0.5s]', navbarHasDarkAppearance ? 'bg-neutral-900/80 text-white/[0.85]' : 'bg-neutral-50/80 text-black/[0.85]']">
     <nav class="container mx-auto py-[0.4rem] text-[1rem] font-[400] flex justify-between items-center">
       
-      <NuxtLink to="/" class="font-display mx-[2rem] font-[600] text-[1.75rem] tracking-[0.011em] leading-[1.15em]">Mac Mouse Fix</NuxtLink>
+      <NuxtLink to="/" class="font-display mx-[2rem] font-[600] text-[1.75rem] tracking-[-0.00em] leading-[1.15em]">Mac Mouse Fix</NuxtLink>
 
       <ul class="flex gap-[2rem] mx-[2rem] font-[400] my-[1.0rem] items-center h-fit tracking-[-0.01em]">
 
