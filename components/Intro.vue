@@ -25,6 +25,10 @@
           <DownloadButton ref="downloadButton" class="bg-blue-500 rounded-full text-white px-[0.85em] py-[0.3em] text-[1.0rem] opacity-0"></DownloadButton>
         </div>
       </div>
+
+      <div ref="chevronDown" class="absolute left-0 right-0 bottom-0 h-fit flex justify-center opacity-0">
+        <img :src="chevronImagePath" alt="" class="w-[2rem] m-[3rem] opacity-[0.85]">
+      </div>
     </div>
 
     <!-- Tagline -->
@@ -110,6 +114,7 @@ import { linearScalingEase } from "../utils/curves"
 */
 import mmfIconImagePath from "../assets/img/mmf-icon.png"
 import colorSplashImagePath from "../assets/img/color-splash.png"
+import chevronImagePath from "../assets/img/chevron.down@8x.png"
 import speechBubbleImagePath from '../assets/img/text.bubble@8x.png'
 
 /* Import Quote stuff */
@@ -143,6 +148,7 @@ const mmfIcon                 = ref<HTMLElement|null>(null)
 const mmfName                 = ref<HTMLElement|null>(null)
 const introTagline            = ref<HTMLElement|null>(null)
 const downloadButton          = ref<DownloadButton|null>(null)
+const chevronDown             = ref<HTMLElement|null>(null)
 const backgroundContainer     = ref<HTMLElement|null>(null)
 const colorSplash1            = ref<HTMLElement|null>(null)
 const colorSplash2            = ref<HTMLElement|null>(null)
@@ -207,6 +213,8 @@ onMounted(() => {
   tlIntro.fromTo(mmfName.value, { opacity: 0.75, scale: 0.8 }, { opacity: 1, scale: 1, ease: ease}, 0)
   tlIntro.to(introTagline.value, { opacity: 1, ease: ease}, 0)
   tlIntro.to(downloadButton.value.rootElement, { opacity: 1, ease: ease}, 0)
+  tlIntro.to(downloadButton.value.rootElement, { opacity: 1, ease: ease}, 0)
+  tlIntro.fromTo(chevronDown.value!, { opacity: 0, translateY: '-6rem' }, { opacity: 1, translateY: 0, ease: ease }, 0)
 
   tlIntro.duration(duration)
   doAfterRender(() => tlIntro.play(), 0.0)
@@ -364,6 +372,9 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   // Add zoom animation to tl
   tlScroll.addLabel("zoom")
   tlScroll.fromTo(innerContent.value, { scale: 1, translateY: 0 }, { scale: zoomScale, translateY: `${zoomScale * -4.6}rem`, ease: linearScalingEase(zoomScale), duration: zoomDistance }, "zoomStart")
+
+  // Add fade-out to chevron
+  tlScroll.fromTo(chevronDown.value, { opacity: 1, translateY: 0 }, { opacity: 0, translateY: '-0rem', duration: zoomDistance/20 }, zoomStart)
 
   // Add tagline fadein animation to tl
   tlScroll.fromTo(taglineContainer.value, { opacity: 0 }, { opacity: 1, duration: taglineDistance }, `taglineStart`)
