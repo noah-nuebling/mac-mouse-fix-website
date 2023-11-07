@@ -4,7 +4,7 @@
         Notes: 
         - Setting z negative prevents scrolling in the qutoes. Not sure why. -->
 
-  <div ref="outerContainer" class=" relative mt-[-0rem] z-10">
+  <div ref="outerContainer" class=" relative mt-[-0rem] z-10 overflow-y-clip">
 
     <!-- BG + Color Splashes -->
 
