@@ -9,9 +9,25 @@
     <!-- BG + Color Splashes -->
 
     <div ref="backgroundContainer" class="bg-transparent overflow-x-visible overflow-y-visible absolute w-[100vw] h-[calc(100vh)] top-[0] bottom-[0] left-[50%] translate-x-[-50%] z-0">
-      <img ref="colorSplash1" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse1 absolute min-w-[80rem] top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] -z-10 opacity-0']">
-      <img ref="colorSplash2" :src="colorSplashImagePath" alt="Color Splash" :class="['.color-splash-pulse2 absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] -z-10 opacity-0']">
-      <div ref="backgroundDiv" class="w-full h-[calc(100%+10rem)] translate-y-[-10rem] -z-20 bg-black opacity-0"></div>
+      <div :class="['absolute inset-0 z-10', splashDance ? 'color-splash-dance1' : '' ]">
+        <div :class="['absolute inset-0 ', splashDance ? 'color-splash-pulse1' : '' ]">
+          <!-- <img :src="colorSplashImagePath" alt="" :class="['min-w-[80rem] absolute top-0 left-0 w-min h-min translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] border border-green-500']"> -->
+          <div ref="colorSplash1" class="absolute inset-0">
+            <img :src="colorSplashImagePath" alt=""       :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-opacity duration-[1s]', splashDance ? 'opacity-0' : '']">
+            <img :src="colorSplashDark2ImagePath" alt=""  :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-opacity duration-[1s]', splashDance ? '' : 'opacity-0']">
+          </div>
+        </div>
+      </div>
+      <div :class="['absolute inset-0 z-10', splashDance ? 'color-splash-dance2' : '' ]">
+        <div :class="['absolute inset-0', splashDance ? 'color-splash-pulse2' : '' ]">
+          <div ref="colorSplash2" class="absolute inset-0">
+            <img :src="colorSplashImagePath" alt=""       :class="['absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-opacity duration-[1s]', splashDance ? 'opacity-0' : '']">
+            <img :src="colorSplashDark2ImagePath" alt=""  :class="['absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-opacity duration-[1s]', splashDance ? '' : 'opacity-0']">
+          </div>
+        </div>
+      </div>
+    
+      <div ref="backgroundDiv" class="w-full h-[calc(100%+10rem)] translate-y-[-10rem] -z-20 bg-neutral-900 opacity-0"></div>
     </div>
 
     <!-- Initial Content -->
@@ -39,10 +55,10 @@
 
     <!-- Quote cards -->
 
-    <div ref="quoteContainer" class="invisible absolute top-0 left-0 right-0 bottom-0 w-full h-full overflow-hidden z-30">
+    <div ref="quoteContainer" class="invisible absolute top-0 left-0 right-0 bottom-0 w-full h-full z-30">
       
       <!-- Expand button etc -->
-      <div :class="['absolute left-0 bottom-0 w-full h-[10rem] z-50 bg-gradient-to-b from-transparent to-black flex items-end justify-center', quotesAreExpanded ? '' : '']">
+      <div :class="['absolute w-[100vw] left-[50%] translate-x-[-50%] bottom-0  h-[10rem] z-50 bg-gradient-to-b from-transparent to-neutral-900 flex items-end justify-center', quotesAreExpanded ? '' : '']">
         <div ref="quoteExpandButton" class="bg-white/30 backdrop-blur-2xl rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
           <p class="text-white text-center" v-html="!quotesAreExpanded ? 'See More' : 'See Less'"></p>
         </div>
@@ -114,6 +130,8 @@ import { linearScalingEase } from "../utils/curves"
 */
 import mmfIconImagePath from "../assets/img/mmf-icon.png"
 import colorSplashImagePath from "../assets/img/color-splash.png"
+import colorSplashDark1ImagePath from "../assets/img/color-splash-dark-1.png"
+import colorSplashDark2ImagePath from "../assets/img/color-splash-dark-2.png"
 import chevronImagePath from "../assets/img/chevron.down@8x.png"
 import speechBubbleImagePath from '../assets/img/text.bubble@8x.png'
 
@@ -169,6 +187,7 @@ const defaultScreenHeight = 970.0
 
 const playLoadingAnimation = ref(true) // Initialize to false to disable loading animations
 const quotesAreExpanded = ref(false)
+const splashDance = ref(false)
 
 var viewportSizeForCurrentAnimation = { width: 0, height: 0 }
 
@@ -343,7 +362,9 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     killIntroAnimation()
   }
 
-  /* Setup navbar transitions */
+  /* Setup navbar transitions 
+      Notes:
+      - We would've done this as part of the main intro scroll animation, but this needs to go on longer, so we need a separate scrollTrigger */
 
   const startOffset = zoomStop-500
   navTrigger = $ScrollTrigger.create({
@@ -379,7 +400,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   // Add zoom animation to tl
   tlScroll.addLabel("zoom")
-  tlScroll.fromTo(innerContent.value, { scale: 1, translateY: 0 }, { scale: zoomScale, translateY: `${zoomScale * -4.6}rem`, ease: linearScalingEase(zoomScale), duration: zoomDistance }, "zoomStart")
+  tlScroll.fromTo(innerContent.value, { scale: 1, translateY: 0 }, { scale: zoomScale, translateY: `${zoomScale * -4.35}rem`, ease: linearScalingEase(zoomScale), duration: zoomDistance }, "zoomStart")
 
   // Add fade-out to chevron
   tlScroll.fromTo(chevronDown.value, { opacity: 1, translateY: 0 }, { opacity: 0, translateY: '-0rem', duration: zoomDistance/20 }, zoomStart)
@@ -387,9 +408,13 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   // Add tagline fadein animation to tl
   tlScroll.fromTo(taglineContainer.value, { opacity: 0 }, { opacity: 1, duration: taglineDistance }, `taglineStart`)
 
-  // Fade in background and reset zoom on inner content
-  tlScroll.fromTo(backgroundDiv.value!, { opacity: 0 }, { opacity: 1, duration: 1000 }, `zoomEnd-=600`)
-  tlScroll.fromTo(innerContent.value!, { scale: zoomScale }, { scale: 1, duration: 0 }, '>0')
+  // Fade in background, start splash dance, and reset zoom on inner content
+  const bgStart = zoomStop-600
+  const bgDistance = 1000
+  const bgStop = bgStart + bgDistance
+  tlScroll.fromTo(backgroundDiv.value!, { opacity: 0 }, { opacity: 1, duration: bgDistance }, bgStart)
+  tlScroll.set({}, { onComplete: () => { splashDance.value = true }, onReverseComplete: () => { splashDance.value = false } }, bgStart)
+  tlScroll.fromTo(innerContent.value!, { scale: zoomScale }, { scale: 1, duration: 0 }, bgStop)
 
   // Add quotes
   var lastQuoteScrollPosition = 0
@@ -406,6 +431,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     
   }}, `quotesStart`)
   tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, `quotesStart` )
+  tlScroll.fromTo(quoteContainer.value!, { opacity: 0 }, { opacity: 1, duration: Math.min(400, quotesDistance) }, `quotesStart` )
 
   /* Quote Expand button fade-in */
   const quoteExpandInShift = 500
@@ -457,14 +483,62 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 <style scoped lang="postcss">
 
 /* Color Splash Animations
-    Doesn't seem to work. It's okay
  */
 
 .color-splash-pulse1 {
-  animation: splash-pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: splash-pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 .color-splash-pulse2 {
-  animation: splash-pulse 7s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: splash-pulse 14s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-direction: reverse;
+}
+
+.color-splash-dance1 {
+  animation: splash-dance1 20s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-direction: alternate;
+}
+.color-splash-dance2 {
+  animation: splash-dance2 20s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-direction: alternate;
+}
+
+@keyframes splash-dance1 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(110%, 0);
+  }
+  40% {
+    transform: translate(110%, 140%);
+  }
+  60% {
+    transform: translate(-30%, 140%);
+  }
+  90% {
+    transform: translate(-30%, 0);
+  }
+}
+
+@keyframes splash-dance2 {
+
+  // Same as splash-dance1 with inverted signs
+
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-110%, 0);
+  }
+  40% {
+    transform: translate(-110%, -140%);
+  }
+  60% {
+    transform: translate(30%, -140%);
+  }
+  90% {
+    transform: translate(30%, 0);
+  }
 }
 
 @keyframes splash-pulse {
@@ -474,19 +548,19 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   }
   20% {
     opacity: 0.85;
-    transform: translate(-30px, 2px);
+    transform: translate(-30px, 20px);
   }
   40% {
     opacity: 0.9;
-    transform: translate(0px, 5px);
+    transform: translate(0px, 50px);
   }
   60% {
     opacity: 0.8;
-    transform: translate(-7px, -4px);
+    transform: translate(-70px, -40px);
   }
   80% {
     opacity: 0.85;
-    transform: translate(6px, -2px);
+    transform: translate(60px, -20px);
   }
 }
 
