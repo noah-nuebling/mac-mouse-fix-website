@@ -34,12 +34,6 @@ import { storeToRefs } from "pinia";
 const globalState = useGlobalStore()
 const { navbarHasDarkAppearance } = storeToRefs(globalState)
 
-watch(navbarHasDarkAppearance, (newValue) => {
-
-  console.log(`Navbar dark state: ${ newValue }`);
-  
-})
-
 </script>
 
 

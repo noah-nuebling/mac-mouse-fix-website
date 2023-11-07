@@ -4,7 +4,7 @@
   <div>
 
     <!-- NavBar -->
-    <Navbar :darkAppearance="false"/>
+    <Navbar/>
 
     <!-- Output page content -->
     <div class="container mx-auto pt-[0rem]"><slot /></div> <!-- page templates will be inserted here (about.vue, index.vue, etc) -->
