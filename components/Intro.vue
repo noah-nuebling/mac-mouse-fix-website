@@ -4,25 +4,24 @@
         Notes: 
         - Setting z negative prevents scrolling in the qutoes. Not sure why. -->
 
-  <div ref="outerContainer" class=" relative mt-[-0rem] z-10 overflow-y-clip">
+  <div ref="outerContainer" class=" relative mt-[-0rem] z-10">
 
     <!-- BG + Color Splashes -->
 
-    <div ref="backgroundContainer" class="bg-transparent overflow-x-visible overflow-y-visible absolute w-[100vw] h-[calc(100vh)] top-[0] bottom-[0] left-[50%] translate-x-[-50%] z-0">
-      <div :class="['absolute inset-0 z-10', splashDance ? 'color-splash-dance1' : '' ]">
-        <div :class="['absolute inset-0 ', splashDance ? 'color-splash-pulse1' : '' ]">
-          <!-- <img :src="colorSplashImagePath" alt="" :class="['min-w-[80rem] absolute top-0 left-0 w-min h-min translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] border border-green-500']"> -->
-          <div ref="colorSplash1" class="absolute inset-0">
-            <img :src="colorSplashImagePath" alt=""       :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-opacity duration-[1s]', splashDance ? 'opacity-0' : '']">
-            <img :src="colorSplashDark2ImagePath" alt=""  :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-opacity duration-[1s]', splashDance ? '' : 'opacity-0']">
+    <div ref="backgroundContainer" class="bg-transparent overflow-x-visible overflow-y-clip absolute w-[100vw] h-[calc(100vh)] top-[0] bottom-[0] left-[50%] translate-x-[-50%] z-0">
+      <div :class="['absolute inset-0 z-10 color-splash-dance1', splashDance ? '' : 'paused']">
+        <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
+          <div ref="colorSplash1" class="absolute inset-0 opacity-0">
+            <img :src="colorSplashImagePath" alt=""       :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', splashDance ? 'opacity-0' : '']">
+            <img :src="colorSplashDark2ImagePath" alt=""  :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', splashDance ? '' : 'opacity-0']">
           </div>
         </div>
       </div>
-      <div :class="['absolute inset-0 z-10', splashDance ? 'color-splash-dance2' : '' ]">
-        <div :class="['absolute inset-0', splashDance ? 'color-splash-pulse2' : '' ]">
-          <div ref="colorSplash2" class="absolute inset-0">
-            <img :src="colorSplashImagePath" alt=""       :class="['absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-opacity duration-[1s]', splashDance ? 'opacity-0' : '']">
-            <img :src="colorSplashDark2ImagePath" alt=""  :class="['absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-opacity duration-[1s]', splashDance ? '' : 'opacity-0']">
+      <div :class="['absolute inset-0 z-10 color-splash-dance2', splashDance ? '' : 'paused']">
+        <div :class="['absolute inset-0 color-splash-pulse2', splashDance ? '' : 'paused']">
+          <div ref="colorSplash2" class="absolute inset-0 opacity-0">
+            <img :src="colorSplashImagePath" alt=""       :class="['absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', splashDance ? 'opacity-0' : '']">
+            <img :src="colorSplashDark2ImagePath" alt=""  :class="['absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', splashDance ? '' : 'opacity-0']">
           </div>
         </div>
       </div>
@@ -137,9 +136,11 @@ import speechBubbleImagePath from '../assets/img/text.bubble@8x.png'
 
 /* Import Quote stuff */
 
-import { everyNth, debouncer, watchProperty } from "~/utils/util";
 import { getUsableQuotes } from '~/utils/quotes';
 const quotes = getUsableQuotes()
+
+/* Import Other */
+import { everyNth, debouncer, watchProperty, prefersReducedMotion } from "~/utils/util";
 
 /* Expose methods */
 
@@ -413,7 +414,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   const bgDistance = 1000
   const bgStop = bgStart + bgDistance
   tlScroll.fromTo(backgroundDiv.value!, { opacity: 0 }, { opacity: 1, duration: bgDistance }, bgStart)
-  tlScroll.set({}, { onComplete: () => { splashDance.value = true }, onReverseComplete: () => { splashDance.value = false } }, bgStart)
+  tlScroll.set({}, { onComplete: () => { splashDance.value = !prefersReducedMotion() }, onReverseComplete: () => { splashDance.value = false } }, bgStart)
   tlScroll.fromTo(innerContent.value!, { scale: zoomScale }, { scale: 1, duration: 0 }, bgStop)
 
   // Add quotes
@@ -489,7 +490,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   animation: splash-pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 .color-splash-pulse2 {
-  animation: splash-pulse 14s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: splash-pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   animation-direction: reverse;
 }
 
@@ -503,6 +504,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 }
 
 @keyframes splash-dance1 {
+  
   0%, 100% {
     transform: translate(0, 0);
   }
@@ -544,7 +546,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 @keyframes splash-pulse {
   0%, 100% {
     opacity: 1;
-    transform: translate(40px, 100px);
+    transform: translate(0px, 0px);
   }
   20% {
     opacity: 0.85;

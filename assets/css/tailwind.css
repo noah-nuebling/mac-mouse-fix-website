@@ -56,6 +56,10 @@ Notes:
 }
 
 @layer utilities {
+
+  .paused {
+    animation-play-state: paused !important; /* Not sure it's smart to use !important here, but necessary rn */
+  }
   
  .normal-feature-card-style-red {
   @apply bg-gradient-to-b from-rose-400 to-pink-500;

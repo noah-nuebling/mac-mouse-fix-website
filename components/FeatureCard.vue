@@ -81,6 +81,7 @@
 <script setup lang="ts">
   
 import { AnimationCurve, Curve, transfromCurve, combineCurves } from "~/utils/animationCurveTransform";
+import { prefersReducedMotion } from "~/utils/util";
 import tailwindConfig from "~/tailwind.config";
 import resolveConfig from 'tailwindcss/resolveConfig'
 
@@ -890,11 +891,6 @@ if (props.doesExpand) {
       video.load()
       video.remove()  
     }
-  }
-
-  function prefersReducedMotion(): boolean {
-    // We tried fetching this once when the component is loaded, but that seems to break nuxt SSR prerendering
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches
   }
 
 } // End of if (doesExpand) { ... 

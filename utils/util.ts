@@ -1,6 +1,11 @@
 import { request } from "https"
 
-export { doAfterRenderrr, doAfterRender, doBeforeRender, everyNth, debouncer, watchProperty }
+export { doAfterRenderrr, doAfterRender, doBeforeRender, everyNth, debouncer, watchProperty, prefersReducedMotion }
+
+function prefersReducedMotion(): boolean {
+  // We tried fetching this once when the component is loaded, but that seems to break nuxt SSR prerendering
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches
+}
 
 function debouncer(workload: () => any, timeout: number): () => any {
 
