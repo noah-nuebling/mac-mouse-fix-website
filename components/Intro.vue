@@ -219,6 +219,14 @@ onMounted(() => {
   tlIntro.duration(duration)
   doAfterRender(() => tlIntro.play(), 0.0)
 
+  /* Make chevron bounce after delay 
+      Not totally sure if this is helpful or annoying. */
+  const chevronBounceDelay = 3.0
+  setTimeout(() => {
+    const c = chevronDown.value!.firstChild as HTMLElement
+    c.classList.add('cool-bounce')
+  }, chevronBounceDelay * 1000);
+
   /* Create scroll animation, then enable vertical scrolling */
   doAfterRender(() => {
     recreateIntroAnimation()
@@ -479,6 +487,24 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   80% {
     opacity: 0.85;
     transform: translate(6px, -2px);
+  }
+}
+
+.cool-bounce {
+  animation: cool-bounce 1.75s infinite;
+}
+
+@keyframes cool-bounce {
+
+  /* Copied from tailwind, just starting with translate 0 instead of -25%, so position doesn't jump when we start the animation */
+
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(33%);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 
