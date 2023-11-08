@@ -9,15 +9,27 @@
     <!-- BG + Color Splashes -->
 
     <div ref="backgroundContainer" class="bg-transparent overflow-x-visible overflow-y-clip absolute w-[100vw] h-[calc(100vh)] top-[0] bottom-[0] left-[50%] translate-x-[-50%] z-0">
+      
+      <!-- Center splash -->
+      <div :class="['absolute inset-0 z-10']">
+        <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
+          <div ref="colorSplashCenter" class="absolute inset-0 opacity-0">
+            <img :src="colorSplashDark2ImagePath" alt=""  :class="['w-[80rem] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] scale-[1.5] opacity-[0.2]']">
+          </div>
+        </div>
+      </div>
+
+      <!-- Top-left splash -->
       <div :class="['absolute inset-0 z-10 color-splash-dance1', splashDance ? '' : 'paused']">
         <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
           <div ref="colorSplash1" class="absolute inset-0 opacity-0">
             <img :src="colorSplashImagePath" alt=""       :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', splashDance ? 'opacity-0' : '']">
-            <img :src="colorSplashDark2ImagePath" alt=""  :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', splashDance ? '' : 'opacity-0']">
-            <div></div>
+            <img :src="colorSplashDark1ImagePath" alt=""  :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', splashDance ? '' : 'opacity-0']">
           </div>
         </div>
       </div>
+      
+      <!-- Bottom-right splash -->
       <div :class="['absolute inset-0 z-10 color-splash-dance2', splashDance ? '' : 'paused']">
         <div :class="['absolute inset-0 color-splash-pulse2', splashDance ? '' : 'paused']">
           <div ref="colorSplash2" class="absolute inset-0 opacity-0">
@@ -27,6 +39,7 @@
         </div>
       </div>
     
+      <!-- Bg -->
       <div ref="backgroundDiv" class="w-full h-[calc(100%+10rem)] translate-y-[-10rem] -z-20 bg-neutral-900 opacity-0"></div>
     </div>
 
@@ -222,6 +235,7 @@ const chevronDown             = ref<HTMLElement|null>(null)
 const backgroundContainer     = ref<HTMLElement|null>(null)
 const colorSplash1            = ref<HTMLElement|null>(null)
 const colorSplash2            = ref<HTMLElement|null>(null)
+const colorSplashCenter       = ref<HTMLElement|null>(null)
 const backgroundDiv           = ref<HTMLElement|null>(null)
 const taglineContainer        = ref<HTMLElement|null>(null)
 const tagline                 = ref<HTMLElement|null>(null)
@@ -484,6 +498,12 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   }}, `quotesStart`)
   tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, `quotesStart` )
   tlScroll.fromTo(quoteContainer.value!, { opacity: 0 }, { opacity: 1, duration: Math.min(400, quotesDistance) }, `quotesStart` )
+
+  // Fade in center color splash
+  const splashFadeShift = 300
+  const splashFadeStart = quotesStart + splashFadeShift
+  const splashFadeDuration = Math.min(500, quotesDistance - splashFadeShift)
+  tlScroll.fromTo(colorSplashCenter.value, { opacity: 0 }, { opacity: 1, duration: splashFadeDuration }, splashFadeStart)
 
   /* Quote Expand button fade-in */
   const quoteExpandInShift = 500
