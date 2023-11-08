@@ -401,7 +401,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   // Add zoom animation to tl
   tlScroll.addLabel("zoom")
-  tlScroll.fromTo(innerContent.value, { scale: 1, translateY: 0 }, { scale: zoomScale, translateY: `${zoomScale * -4.35}rem`, ease: linearScalingEase(zoomScale), duration: zoomDistance }, "zoomStart")
+  tlScroll.fromTo(innerContent.value, { scale: 1, translateY: 0 }, { scale: zoomScale, translateY: `${zoomScale * -4.55}rem`, ease: linearScalingEase(zoomScale), duration: zoomDistance }, "zoomStart")
 
   // Add fade-out to chevron
   tlScroll.fromTo(chevronDown.value, { opacity: 1, translateY: 0 }, { opacity: 0, translateY: '-0rem', duration: zoomDistance/20 }, zoomStart)
@@ -509,16 +509,16 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     transform: translate(0, 0);
   }
   20% {
-    transform: translate(110%, 0);
+    transform: translate(100%, 0);
   }
   40% {
-    transform: translate(110%, 140%);
+    transform: translate(100%, 140%);
   }
   60% {
-    transform: translate(-30%, 140%);
+    transform: translate(-20%, 140%);
   }
   90% {
-    transform: translate(-30%, 0);
+    transform: translate(-20%, 0);
   }
 }
 
@@ -530,16 +530,16 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     transform: translate(0, 0);
   }
   20% {
-    transform: translate(-110%, 0);
+    transform: translate(-100%, 0);
   }
   40% {
-    transform: translate(-110%, -140%);
+    transform: translate(-100%, -140%);
   }
   60% {
-    transform: translate(30%, -140%);
+    transform: translate(20%, -140%);
   }
   90% {
-    transform: translate(30%, 0);
+    transform: translate(20%, 0);
   }
 }
 
