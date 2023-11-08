@@ -14,6 +14,7 @@
           <div ref="colorSplash1" class="absolute inset-0 opacity-0">
             <img :src="colorSplashImagePath" alt=""       :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', splashDance ? 'opacity-0' : '']">
             <img :src="colorSplashDark2ImagePath" alt=""  :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', splashDance ? '' : 'opacity-0']">
+            <div></div>
           </div>
         </div>
       </div>
@@ -509,16 +510,16 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     transform: translate(0, 0);
   }
   20% {
-    transform: translate(100%, 0);
+    transform: translate(110%, 0);
   }
   40% {
-    transform: translate(100%, 140%);
+    transform: translate(110%, 140%);
   }
   60% {
-    transform: translate(-20%, 140%);
+    transform: translate(-30%, 140%);
   }
   90% {
-    transform: translate(-20%, 0);
+    transform: translate(-30%, 0);
   }
 }
 
@@ -530,16 +531,16 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     transform: translate(0, 0);
   }
   20% {
-    transform: translate(-100%, 0);
+    transform: translate(-110%, 0);
   }
   40% {
-    transform: translate(-100%, -140%);
+    transform: translate(-110%, -140%);
   }
   60% {
-    transform: translate(20%, -140%);
+    transform: translate(30%, -140%);
   }
   90% {
-    transform: translate(20%, 0);
+    transform: translate(30%, 0);
   }
 }
 
