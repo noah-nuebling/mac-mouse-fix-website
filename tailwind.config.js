@@ -96,6 +96,23 @@ export default {
 
     plugin(function ({ matchUtilities }) {
 
+      /* SVG filter plugin
+          Probably can't be combined with other tailwind filters */
+
+      const newUtilities = {
+        'svg-filter': (value) => {
+          return {
+            'filter': `url('#${ value }')`
+          }
+        }
+      }
+      const options = {
+      }
+      matchUtilities(newUtilities, options);
+    }),
+
+    plugin(function ({ matchUtilities }) {
+
       /* `text-shadow-x` plugin */
 
       const newUtilities = {

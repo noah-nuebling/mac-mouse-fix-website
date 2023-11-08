@@ -13,7 +13,7 @@
         <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
           <div ref="colorSplash1" class="absolute inset-0 opacity-0">
             <img :src="colorSplashImagePath" alt=""       :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', splashDance ? 'opacity-0' : '']">
-            <img :src="colorSplashDark2ImagePath" alt=""  :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', splashDance ? '' : 'opacity-0']">
+            <img :src="colorSplashDark2ImagePath" alt=""  :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', splashDance ? '' : 'opacity-0']">
             <div></div>
           </div>
         </div>
@@ -21,8 +21,8 @@
       <div :class="['absolute inset-0 z-10 color-splash-dance2', splashDance ? '' : 'paused']">
         <div :class="['absolute inset-0 color-splash-pulse2', splashDance ? '' : 'paused']">
           <div ref="colorSplash2" class="absolute inset-0 opacity-0">
-            <img :src="colorSplashImagePath" alt=""       :class="['absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', splashDance ? 'opacity-0' : '']">
-            <img :src="colorSplashDark2ImagePath" alt=""  :class="['absolute min-w-[80rem] bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', splashDance ? '' : 'opacity-0']">
+            <img :src="colorSplashImagePath" alt=""       :class="['min-w-[80rem] absolute bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', splashDance ? 'opacity-0' : '']">
+            <img :src="colorSplashDark2ImagePath" alt=""  :class="['min-w-[80rem] absolute bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', splashDance ? '' : 'opacity-0']">
           </div>
         </div>
       </div>
@@ -115,6 +115,56 @@
     </div>
     
   </div>
+
+
+<!-- Noise filter from ChatGPT
+  Notes: 
+  - Apply in css like: `filter: url('#noise-filter');` or in tailwind with `svg-filter-[noise-filter]`
+  - Noise is the only way we found to mitigate heavy color banding on the color splashes.
+    - We also tried to create the color splashes in pure css, using 1. approach: blurred circle and 2. approach: radial gradient - but there was still the same banding 
+  - We tried applying noise to the color splashes directly in affinty photo, but that makes the image size huge (seems to prevent compression)
+  -> So the best we can come up with is applying noise in css directly.
+-->
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filter-defs">
+    <defs>
+
+        <filter id="splash-noise">
+
+            <!-- V1 (ChatGPT - makes things washed out and `mode` doesn't work for some reason) -->
+            <!-- <feTurbulence type="fractalNoise" baseFrequency="3.0" numOctaves="2" stitchTiles="noStitch" result="turbulence" />
+            <feComposite in="turbulence" in2="SourceGraphic" operator="in" result="monochromeNoise" />
+            <feBlend in="SourceGraphic" in2="monochromeNoise" mode="hue" result="r"/> -->
+
+            <!-- V2 (Noise on alpha) (seems to make banding worse, and tanks scrolling performance) -->
+            <feTurbulence type="fractalNoise" baseFrequency="1.0" numOctaves="2" stitchTiles="noStitch" result="turbulence" />
+            <feComposite in="SourceGraphic" in2="turbulence" operator="out" result="noisyDark" />
+            <feComponentTransfer in="noisyDark">
+              <feFuncR type="identity"/>
+              <feFuncG type="identity"/>
+              <feFuncB type="identity"/>
+              <feFuncA type="linear" slope="2.0"/>
+            </feComponentTransfer>
+
+            <!-- V3 (Noise on hue)  -->
+        </filter>
+
+
+        <filter id="alpha-boost">
+
+          <!-- Alpha boost - for testing - tanks scrolling performance -->
+
+          <feComponentTransfer in="SourceGraphic">
+            <feFuncR type="identity"/>
+            <feFuncG type="identity"/>
+            <feFuncB type="identity"/>
+            <feFuncA type="linear" slope="1.5"/>
+          </feComponentTransfer>
+
+        </filter>
+    </defs>
+</svg>
+
 </template>
 
 <script setup lang="ts">
@@ -496,11 +546,11 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 }
 
 .color-splash-dance1 {
-  animation: splash-dance1 20s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: splash-dance1 60s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   animation-direction: alternate;
 }
 .color-splash-dance2 {
-  animation: splash-dance2 20s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: splash-dance2 60s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   animation-direction: alternate;
 }
 
