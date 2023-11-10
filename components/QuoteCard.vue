@@ -36,7 +36,8 @@
 <script setup lang="ts">
 
 // Imports
-import { $mt } from '~/utils/markdownTranslate';
+// import { $mt } from '~/utils/markdownTranslate';
+const $mt = useMT()
 import { QuoteData, getUIStringForQuoteSource, quoteSourceIsPublic } from '~/utils/quotes';
 
 // Import images

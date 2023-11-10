@@ -215,7 +215,8 @@
     Note: Why can't we use $i18n in ts like we do in html? */
 
 const { setLocale, locale, defaultLocale } = useI18n() 
-import { $mt } from '~/utils/markdownTranslate'
+const $mt = useMT()
+// import { $mt } from '~/utils/markdownTranslate'
 
 /* Import other utils */
 

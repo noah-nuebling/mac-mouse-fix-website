@@ -1,7 +1,8 @@
 
-import md from 'markdown-it'
+import md from 'markdown-it' // We used to import 'md' here and it seemed to work the same.
 
-export { $mt, $mto}
+
+// export { $mt, $mto }
 
 var didSetup = false
 var i18n: any
@@ -18,16 +19,27 @@ function _setup() {
   }
 }
 
-
-function $mt(key: string, values?: Object | Array<string>): string {
+export function useMT() {
 
   _setup()
 
-  // Get result
-  const result = renderer.renderInline(i18n.t(key, values))
+  // Define mt
+  function mt(key: string, values?: Object | Array<string>): string {
 
-  // Return
-  return result
+    // Get result
+    const translation = i18n.t(key, values)
+    const result = renderer.renderInline(translation)
+
+    if (key == 'navbar.github') {
+      console.log(`uiStringForQuoteSource - src:${ key }, result: ${ result }`);
+    }
+
+    // Return
+    return result
+  }
+
+  // Return mt
+  return mt
 }
 
 

@@ -50,7 +50,7 @@
         <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center border-[0px] translate-y-[-6rem] -z-20']"> 
           <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['h-[14rem] border-[0px] mt-[-2rem] opacity-0']">
           <h1 ref="mmfName" :class="['font-[700] text-[5.0rem] text-black/90 mt-[1.75rem] mb-[-1.25rem] scale-[0.8]', playLoadingAnimation ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
-          <p ref="introTagline" :class="['text-black mb-[1.5rem] opacity-0']">Make Your $10 Mouse Better Than an Apple Trackpad</p>
+          <p ref="introTagline" :class="['text-black mb-[1.5rem] opacity-0']">{{ $t('intro.tagline') }}</p>
           <DownloadButton ref="downloadButton" class="bg-blue-500 rounded-full text-white px-[0.85em] py-[0.3em] text-[1.0rem] opacity-0"></DownloadButton>
         </div>
       </div>
@@ -63,7 +63,7 @@
     <!-- Tagline -->
 
     <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center opacity-0">
-      <p ref="tagline" class="text-white font-[500] text-[2rem]" >Make Your $10 Mouse Better Than an Apple Trackpad</p>
+      <p ref="tagline" class="text-white font-[500] text-[2rem]" >{{ $t('intro.big-tagline') }}</p>
     </div>
 
     <!-- Quote cards -->
@@ -73,7 +73,7 @@
       <!-- Expand button etc -->
       <div :class="['absolute w-[100vw] left-[50%] translate-x-[-50%] bottom-0  h-[10rem] z-50 bg-gradient-to-b from-transparent to-neutral-900 flex items-end justify-center', quotesAreExpanded ? '' : '']">
         <div ref="quoteExpandButton" class="bg-white/30 backdrop-blur-2xl rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
-          <p class="text-white text-center" v-html="!quotesAreExpanded ? 'See More' : 'See Less'"></p>
+          <p class="text-white text-center" v-html="!quotesAreExpanded ? $t('quotes.see-more') : $t('quotes.see-less')"></p>
         </div>
       </div>
 
@@ -308,8 +308,10 @@ onMounted(() => {
       Not totally sure if this is helpful or annoying. */
   const chevronBounceDelay = 3.0
   setTimeout(() => {
-    const c = chevronDown.value!.firstChild as HTMLElement
-    c.classList.add('cool-bounce')
+    if (chevronDown.value != null) {
+      const c = chevronDown.value!.firstChild as HTMLElement
+      c.classList.add('cool-bounce')
+    }
   }, chevronBounceDelay * 1000);
 
   /* Create scroll animation, then enable vertical scrolling */
@@ -488,7 +490,9 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
     const progress = this.progress()
     const scrollPosition = intervalScale(progress, unitInterval, { start: 0, end: quotesDistance })
-    quoteScrollingContainer.value!.scrollTop = scrollPosition
+    if (quoteScrollingContainer.value != null) { // Prevent some errors when we switch language, maybe at other times too
+      quoteScrollingContainer.value!.scrollTop = scrollPosition
+    }
 
     lastQuoteScrollPosition = scrollPosition
 
@@ -554,8 +558,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
 <style scoped lang="postcss">
 
-/* Color Splash Animations
- */
+/* Color Splash Animations */
 
 .color-splash-pulse1 {
   animation: splash-pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -595,7 +598,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
 @keyframes splash-dance2 {
 
-  // Same as splash-dance1 with inverted signs
+  /* Same as splash-dance1 with inverted signs */
 
   0%, 100% {
     transform: translate(0, 0);

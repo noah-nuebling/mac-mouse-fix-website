@@ -2,7 +2,7 @@
 
 <template>
     <div ref="rootElement" :class="['cursor-pointer']">
-      <p class="text-inherit">Download</p>
+      <p class="text-inherit">{{ $t('download-button') }}</p>
     </div>
 </template>
 

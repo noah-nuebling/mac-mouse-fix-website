@@ -57,7 +57,8 @@
 
 <script setup lang="ts">
 
-import { $mt, $mto } from '~/utils/markdownTranslate';
+// import { $mt, $mto } from '~/utils/markdownTranslate';
+const $mt = useMT()
 import remapDemoVideo from '@/assets/video/remap_demo_old.mp4';
 
 var props = defineProps({

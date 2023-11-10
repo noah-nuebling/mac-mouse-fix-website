@@ -1,5 +1,29 @@
 export default {
 
+  /* Navbar */
+
+  'download-button': 'Laden',
+  'navbar.overview': 'Übersicht',
+  'navbar.github':   'Mehr auf GitHub',
+
+  /* Intro */
+
+  'intro.tagline': 'Mache deine $10 Maus besser als ein Apple Trackpad',
+  'intro.big-tagline': 'Mache deine $10 Maus besser als ein Apple Trackpad',
+  
+  /* Quotes */
+  
+  'quotes.see-more': 'Mehr sehen',
+  'quotes.see-less': 'Weniger sehen',
+
+  'quote-source.email':           "**{ name }** in einer E-Mail",
+  'quote-source.payPalDonation':  "**{ name }** in einer PayPal-Spendennachricht",
+  'quote-source.gitHub':          "**{ name }** auf GitHub",
+  'quote-source.stackExchange':   "**{ name }** auf Stack Exchange",
+  'quote-source.reddit':          "**{ name }** auf Reddit",
+  'quote-source.lifehacker':      "**{ name }** in einem LifeHacker-Artikel",
+  'quote-source.youtubeComment':  "**{ name }** in einem YouTube-Kommentar",
+
   /* Feature Cards */
 
   'feature-card.expand-button': 'In Aktion sehen',
@@ -117,15 +141,4 @@ export default {
   'customization-feature.keyboard-shortcuts.title': "Verwende **Tastaturkurzbefehle** von deiner Maus aus",
   'customization-feature.keyboard-shortcuts.body': "Mac Mouse Fix ermöglicht es dir, **alles, was du mit einem Tastaturkurzbefehl tun kannst** direkt von deiner Maus aus zu machen. Zum Beispiel kannst du kopieren und einfügen, die Lautstärke ändern, einen neuen Tab in Safari öffnen und vieles mehr.",
   'customization-feature.keyboard-shortcuts.expand-button': "Einrichtungsvorgang sehen",
-
-
-    /* Quotes */
-
-    'quote-source.email':           "**{ name }** in einer E-Mail",
-    'quote-source.payPalDonation':  "**{ name }** in einer PayPal-Spendennachricht",
-    'quote-source.gitHub':          "**{ name }** auf GitHub",
-    'quote-source.stackExchange':   "**{ name }** auf Stack Exchange",
-    'quote-source.reddit':          "**{ name }** auf Reddit",
-    'quote-source.lifehacker':      "**{ name }** in einem LifeHacker-Artikel",
-    'quote-source.youtubeComment':  "**{ name }** in einem YouTube-Kommentar",
 };

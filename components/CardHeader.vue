@@ -16,7 +16,8 @@
 
 <script setup lang="ts">
 
-import { $mt } from '#imports';
+// import { $mt } from '#imports';
+const $mt = useMT()
 
 var props = defineProps({
   titleKey: String,

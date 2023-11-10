@@ -1,4 +1,29 @@
 export default {
+  
+  /* Navbar */
+
+  'download-button': 'Download',
+  'navbar.overview': 'Overview',
+  'navbar.github':   'More on GitHub',
+
+  /* Intro */
+
+  'intro.tagline': 'Make Your $10 Mouse Better Than an Apple Trackpad',
+  'intro.big-tagline': 'Make Your $10 Mouse Better Than an Apple Trackpad',
+
+  /* Quotes */
+
+  'quotes.see-more': 'See More',
+  'quotes.see-less': 'See Less',
+
+  'quote-source.email':           "**{ name }** in an email",
+  'quote-source.payPalDonation':  "**{ name }** in a PayPal donation message",
+  'quote-source.gitHub':          "**{ name }** on GitHub",
+  'quote-source.stackExchange':   "**{ name }** on Stack Exchange",
+  'quote-source.reddit':          "**{ name }** on Reddit",
+  'quote-source.lifehacker':      "**{ name }** in a LifeHacker article",
+  'quote-source.youtubeComment':  "**{ name }** in a YouTube comment",
+
 
   /* Feature Cards */
 
@@ -225,13 +250,5 @@ export default {
   */
 
 
-  /* Quotes */
 
-  'quote-source.email':           "**{ name }** in an email",
-  'quote-source.payPalDonation':  "**{ name }** in a PayPal donation message",
-  'quote-source.gitHub':          "**{ name }** on GitHub",
-  'quote-source.stackExchange':   "**{ name }** on Stack Exchange",
-  'quote-source.reddit':          "**{ name }** on Reddit",
-  'quote-source.lifehacker':      "**{ name }** in a LifeHacker article",
-  'quote-source.youtubeComment':  "**{ name }** in a YouTube comment",
 };

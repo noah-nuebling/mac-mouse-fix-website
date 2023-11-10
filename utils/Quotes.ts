@@ -1,10 +1,12 @@
 import { QuoteCard } from "#build/components"
+import { log } from "console"
 
 export { type QuoteSource, type PermissionToShare, type QuoteData, getUIStringForQuoteSource, quoteSourceIsPublic, getUsableQuotes}
 
 /* Define Quote types */
 
 enum QuoteSource {
+  // (string equivalents are localization keys)
   Email           = 'quote-source.email',
   PayPalDonation  = 'quote-source.payPalDonation',
   GitHub          = 'quote-source.gitHub',
@@ -39,7 +41,9 @@ function getUIStringForQuoteSource(source: QuoteSource, name: string) {
 
   const localizationKey: string = source
 
-  const result = $mt(localizationKey, { name: name } )
+
+  const $mt = useMT() // Using composable here, so maybe this should be composable, too, instead of pure ts? But it works atm.
+  const result = $mt( localizationKey, { name: name } )
 
   return result
 }
