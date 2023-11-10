@@ -220,15 +220,6 @@ import { everyNth } from '~/utils/util';
 import { getUsableQuotes } from "../utils/quotes"
 const quotes = getUsableQuotes()
 
-/* Call setLocale on locale update
-    Notes: 
-    - Otherwise the url doesn't update. No idea what we are doing 
-    - The <select> language picker updates the `locale` */
-
-watch(locale, () => {
-  setLocale(locale.value);
-})
-
 /* Manually import video assets
     Note I feel like this is way too cumbersome. We know in advance which videos to import anyways (so we don't need 'dynamic' imports which should make it even easier) so why do we have to manually import in code? It should automatically import the static assets we use.
     Also See: https://stackoverflow.com/questions/75218697/nuxt-dynamic-image-require-is-not-defined

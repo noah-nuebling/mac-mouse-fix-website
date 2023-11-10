@@ -41,7 +41,7 @@ export default defineNuxtConfig({
     detectBrowserLanguage: { /* Not sure what we're doing here */
       useCookie: true, // If true, non-english users will only be redirected the first time IIUC - only set false for testing
       cookieKey: 'i18n_redirected',
-      redirectOn: 'root', // 'root' is allegedly better than 'no prefix'
+      redirectOn: 'no prefix', // 'root' is allegedly better than 'no prefix' for SEO or sth
     },
   },
   app: {
