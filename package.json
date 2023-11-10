@@ -2,7 +2,8 @@
   "name": "nuxt-app",
   "private": true,
   "type": "module",
-  "_comment": "Some error when adding i18n told me to add type: module. But that didn't remove the error",
+  "_comment0": "Some error when adding i18n told me to add type: module. But that didn't remove the error",
+  "_comment1": "TODO: Change i18n version from next to ^8.0.0 once there's a stable v8 release. We used next so it would update through rc versions.",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -14,7 +15,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@nuxtjs/i18n": "8.0.0-rc.4",
+    "@nuxtjs/i18n": "next",
     "@nuxtjs/tailwindcss": "^6.9.4",
     "@types/node": "^18.18.9",
     "nuxt": "^3.8.1"
