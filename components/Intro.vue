@@ -217,7 +217,6 @@ defineExpose({
 
 import { useGlobalStore } from "~/store/global";
 import { storeToRefs } from "pinia";
-import { start } from "repl";
 const globalStore = useGlobalStore()
 const { navbarHasDarkAppearance } = storeToRefs(globalStore)
 

@@ -80,7 +80,7 @@
 
 <script setup lang="ts">
   
-import { AnimationCurve, Curve, transfromCurve, combineCurves } from "~/utils/animationCurveTransform";
+import { type AnimationCurve, type Curve, transfromCurve, combineCurves } from "~/utils/animationCurveTransform";
 import { prefersReducedMotion } from "~/utils/util";
 import tailwindConfig from "~/tailwind.config";
 import resolveConfig from 'tailwindcss/resolveConfig'
