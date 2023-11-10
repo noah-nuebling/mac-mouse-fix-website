@@ -39,9 +39,9 @@ export default defineNuxtConfig({
     vueI18n: './i18n.config.ts',
     strategy: 'prefix_except_default', //'prefix',
     detectBrowserLanguage: { /* Not sure what we're doing here */
-      useCookie: false, // If true, non-english users will only be redirected the first time - only set false for testing
+      useCookie: true, // If true, non-english users will only be redirected the first time IIUC - only set false for testing
       cookieKey: 'i18n_redirected',
-      redirectOn: 'root',
+      redirectOn: 'root', // 'root' is allegedly better than 'no prefix'
     },
   },
   app: {

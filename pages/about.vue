@@ -4,7 +4,7 @@
   <div>
 
     <h2>About</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi ipsa, culpa necessitatibus inventore similique quam autem sapiente quos. Doloribus, voluptatum. Quas totam illum rem assumenda accusantium asperiores inventore quam ea!</p>
+    <p> {{ $t('test-stuff') }} </p>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi ipsa, culpa necessitatibus inventore similique quam autem sapiente quos. Doloribus, voluptatum. Quas totam illum rem assumenda accusantium asperiores inventore quam ea!</p>
   
   </div>

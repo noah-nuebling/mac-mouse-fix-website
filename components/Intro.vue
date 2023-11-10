@@ -183,6 +183,14 @@
 <script setup lang="ts">
 
 
+/* Debug */
+
+const i18n = useI18n()
+const locale = i18n.locale
+
+console.log(`Locale during Intro.vue setup: ${ locale.value }, browserLocale: ${ i18n.getBrowserLocale() }`);
+
+
 /* Import gsap stuff */
 
 const { $gsap, $ScrollTrigger, $customInOutEase } = useNuxtApp()

@@ -1,5 +1,9 @@
 export default {
 
+  /* Test */
+
+  'test-stuff': "de-de3 stuff",
+
   /* Navbar */
 
   'download-button': 'Laden',
