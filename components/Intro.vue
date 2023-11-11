@@ -71,8 +71,8 @@
     <div ref="quoteContainer" class="invisible absolute top-0 left-0 right-0 bottom-0 w-full h-full z-30">
       
       <!-- Expand button etc -->
-      <div :class="['absolute w-[100vw] left-[50%] translate-x-[-50%] bottom-0  h-[10rem] z-50 bg-gradient-to-b from-transparent to-neutral-900 flex items-end justify-center', quotesAreExpanded ? '' : '']">
-        <div ref="quoteExpandButton" class="bg-white/30 backdrop-blur-2xl rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
+      <div :class="['text-[0.9rem] absolute w-[100vw] left-[50%] translate-x-[-50%] bottom-0  h-[10rem] z-50 bg-gradient-to-b from-transparent to-neutral-900 flex items-end justify-center', quotesAreExpanded ? '' : '']">
+        <div ref="quoteExpandButton" class="bg-white/[0.2] backdrop-blur-2xl rounded-full border border-white/[0.15] w-fit h-fit py-[0.25rem] px-[0.7rem] m-[2.5rem] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
           <p class="text-white text-center" v-html="!quotesAreExpanded ? $t('quotes.see-more') : $t('quotes.see-less')"></p>
         </div>
       </div>
@@ -82,10 +82,8 @@
 
         <div class="h-[100%]"></div>
 
-        <div :class="['relative h-max w-fit mx-auto z-30 overflow-y-clip', !quotesAreExpanded ? 'max-h-[45rem]' : 'max-h-[fit-content] mb-[10rem]']">
-          
-          <CardHeader titleKey="user-feedback.card-header.title" subtitleKey="user-feedback.card-header.sub" :iconPath="'speechBubbleImagePath'" class="hidden w-full" icon-class="scale-[1.0] translate-x-[0px] px-[8px] "/>
-
+        <div :class="['relative h-max w-fit mx-auto z-30 overflow-y-clip', !quotesAreExpanded ? 'max-h-[45rem]' : 'max-h-[fit-content] mb-[7.5rem]']">
+        
           <!-- User Quotes -->
 
           <!-- Small Layout -->
@@ -97,7 +95,7 @@
           </div>
 
           <!-- Medium Layout -->
-          <div class="hidden md:flex lg:hiddennnn flex-row gap-[2.5rem] py-0 my-[4.5rem]">
+          <div class="hidden md:flex lg:hiddennnn flex-row gap-[2.5rem]">
             <!-- First row -->
             <div class="flex flex-col gap-[2.5rem]">
               <QuoteCard v-for="q in everyNth(2, 0, quotes)" :quote="q" class=""/>
@@ -109,7 +107,7 @@
           </div>
 
           <!-- Large Layout -->
-          <div class="hidden md:hidden lg:flexxx flex-row gap-[2.5rem] py-0 my-[4.5rem]">
+          <div class="hidden md:hidden lg:flexxx flex-row gap-[2.5rem]">
             <!-- First row -->
             <div class="flex flex-col gap-[2.5rem] m-[0]">
               <QuoteCard v-for="q in everyNth(3, 0, quotes)" :quote="q" class=""/>
@@ -123,6 +121,14 @@
               <QuoteCard v-for="q in everyNth(3, 2, quotes)" :quote="q" class=""/>
             </div>
           </div>
+
+          <!-- Thank you message -->
+          <div class="flex justify-center">
+            <div class="text-[1.05rem] text-center bg-neutral-50/[0.2] rounded-[1rem]  text-white/[0.8] px-[1em] py-[0.8em] border border-neutral-50/[0.15] mt-[5.5rem] mb-[2.5rem] w-fit flex justify-center">
+              <p v-html="$mt('quotes.thankyou')" class="max-w-[35em]"></p>
+            </div>
+          </div>
+          <!-- <CardHeader titleKey="user-feedback.card-header.title" :hideVideoHint="true" subtitleKey="" class="w-full"/> -->
         </div>
       </div>
     </div>
@@ -213,6 +219,7 @@ const quotes = getUsableQuotes()
 
 /* Import Other */
 import { everyNth, debouncer, watchProperty, prefersReducedMotion } from "~/utils/util";
+const $mt = useMT()
 
 /* Expose methods */
 

@@ -245,6 +245,8 @@ export default {
   'quotes.see-more': 'See More',
   'quotes.see-less': 'See Less',
 
+  'quotes.thankyou': '**Thank you** to everyone who shared their appreciation and thoughts! Reading such messages always motivates me and makes me a little happier. :)',
+
   'quote-source.email':           "**{ name }** in an email",
   'quote-source.payPalDonation':  "**{ name }** in a PayPal donation message",
   'quote-source.gitHub':          "**{ name }** on GitHub",

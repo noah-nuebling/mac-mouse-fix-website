@@ -100,7 +100,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.GitHub,
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/34',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: 101,
   },
   {
     quote: "Mac Mouse Fix is literally everything you could want in your experience of using a mouse with OSX.",
@@ -110,7 +110,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.PayPalDonation,
     link: 'message:<3B.AC.57749.F6B6C326@ccg13mail02>',
     permission: PermissionToShare.Requested,
-    weight: 0,
+    weight: 175,
   },
   {
     quote: "Works like a charm and it's easy to set up!",
@@ -120,7 +120,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.StackExchange,
     link: 'https://apple.stackexchange.com/a/371330/308049',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: 140,
   },
   {
     quote: "This is the best mouse software on the Mac.",
@@ -140,7 +140,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.PayPalDonation,
     link: 'message:<04.52.53548.372FA446@ccg13mail05>',
     permission: PermissionToShare.Granted,
-    weight: 0,
+    weight: -100,
   },
   {
     quote: "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is.",
@@ -150,7 +150,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.Email,
     link: "message:<CAFj72xngJzJz8dvOx4pzL+QZTG97dSeuJ0QQwEmETJ67eGzrbQ@mail.gmail.com>",
     permission: PermissionToShare.Granted,
-    weight: 0,
+    weight: 200,
   },
   {
     quote: "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows.",
@@ -160,7 +160,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.Reddit,
     link: 'https://www.reddit.com/r/macapps/comments/s5h7gb/mac_mouse_fix_2_featuring_nativefeeling_gestures/',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: 101,
   },
   {
     quote: "Thanks for this AMAZING software. 10/10!",
@@ -180,7 +180,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.GitHub,
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/273',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: 199,
   },
   {
     quote: "No other similar utility can compete",
@@ -190,7 +190,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.Email,
     link: 'message:<CAB+S4pXD+RP3OYxENZXa_+NWLmJBB1Uqf1_Z9xKLqRy=-QaTJg@mail.gmail.com>',
     permission: PermissionToShare.Granted,
-    weight: 0,
+    weight: -100,
   },
   {
     quote: "A must have app for any Mac user with a mouse.",
@@ -200,7 +200,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.GitHub,
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/326',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: 170,
   },
   {
     quote: "You just saved me from spending money on the MX Master.",
@@ -210,7 +210,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.Email,
     link: 'message:<D50495F3-3F30-4159-A09E-9373A9F40777@gmail.com>',
     permission: PermissionToShare.Requested,
-    weight: 0,
+    weight: 145,
   },
   {
     quote: "This has nearly doubled my productivity.",
@@ -220,7 +220,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.GitHub,
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/419',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: 180,
   },
   {
     quote: "The UI and gestures are so intuitive.",
@@ -230,7 +230,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.PayPalDonation,
     link: 'message:<1634236926.25936@paypal.com>',
     permission: PermissionToShare.Requested,
-    weight: 0,
+    weight: -100,
   },
   {
     quote: "Love this app so much, it's a must-have!",
@@ -240,17 +240,17 @@ const quotes: QuoteData[] = [
     source: QuoteSource.GitHub,
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/297#issuecomment-1211926291',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: -100,
   },
   {
-    quote: "Your app is incredible and absolutely vital to my workflow. I literally can't use my mac without MMF.",
+    quote: "Your app is incredible and absolutely vital to my workflow.",
     quoteKey: "quotes.15",
     originalLanguage: 'en',
     name: "ar311krypton",
     source: QuoteSource.GitHub,
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/369',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: 160,
   },
   {
     quote: "Mac Mouse Fix is the single most important Mac app for me. It feels incredibly polished.",
@@ -260,7 +260,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.PayPalDonation,
     link: 'message:<94.9D.24537.7D594A26@ccg01mail03>',
     permission: PermissionToShare.Requested,
-    weight: 0,
+    weight: -100,
   },
   {
     quote: "Mac Mouse Fix is the best in its class!",
@@ -280,7 +280,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.GitHub,
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/378',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: 150,
   },
   {
     quote: "Click & drag for switching between the screens feels so native.",
@@ -290,7 +290,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.Email,
     link: 'message:<BDF0E117-B5BB-4E3E-9CD5-C1DE163F7F02@gmail.com>',
     permission: PermissionToShare.Requested,
-    weight: 0,
+    weight: 102,
   },
   {
     quote: "I've been wanting to get rid of my Magic Mouse for a while and because of your app, I can do just that!",
@@ -300,7 +300,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.PayPalDonation,
     link: 'message:<E2.BB.41759.B545C736@ccg13mail04>',
     permission: PermissionToShare.Granted,
-    weight: 0,
+    weight: -100,
   },
   {
     quote: "I recommend Mac Mouse Fix, honestly it’s the cheapest, simple, and most well coded app I have yet seen.",
@@ -310,7 +310,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.Reddit,
     link: 'https://www.reddit.com/r/MacOS/comments/y9q18r/comment/it80ce6/?utm_source=share&utm_medium=web2x&context=3',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: 100.9,
   },
   {
     quote: "Thank you, saved me from buying an apple mouse",
@@ -320,7 +320,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.PayPalDonation,
     link: 'message:<5E.65.01822.93ADD426@ccg01mail02>',
     permission: PermissionToShare.Granted,
-    weight: 0,
+    weight: 101,
   },
   {
     quote: "The UI in V2 is fantastic and very intuitive.",
@@ -330,7 +330,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.GitHub,
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/135',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: -100,
   },
   {
     quote: "I spent last week without it and my whole workflow was interrupted. Thank you for such a brilliant app.",
@@ -340,7 +340,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.GitHub,
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/326',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: -100,
   },
   {
     quote: "I really appreciate the simplicity it brings.",
@@ -370,7 +370,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.YoutubeComment,
     link: 'https://www.youtube.com/watch?v=gkYNdy-Hig4',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: -200,
   },
   {
     quote: "This App Makes Your Cheap Mouse Work Better Than Trackpad Gestures",
@@ -380,7 +380,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.Lifehacker,
     link: 'https://lifehacker.com/this-app-makes-your-cheap-mouse-work-better-than-trackp-1848416099',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: -100,
   },
   {
     quote: "This is the single greatest piece of software in Apple's history.",
@@ -410,7 +410,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.PayPalDonation,
     link: 'message:<36.97.42814.18522A36@ccg01mail04>',
     permission: PermissionToShare.Requested,
-    weight: 0,
+    weight: 101,
   },
   {
     quote: "Your app is literally the best Mac Mouse Fix available. So simple, light, M1 compatible, no bugs. I’m totally in love. I don’t even use Logitech Hub as your app is far superior. I’ll definitely be recommending your app as much as possible.",
@@ -420,7 +420,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.PayPalDonation,
     link: 'message:<221C5A7A-5754-4B3E-A74A-04EC3694772E@gmail.com>',
     permission: PermissionToShare.Requested,
-    weight: 0,
+    weight: 130,
   },
   {
     quote: "It's exact what I was looking for to make non-Apple-Mice work like I want ",
@@ -430,7 +430,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.PayPalDonation,
     link: 'message:<59.33.32745.E2035526@ccg13mail04>',
     permission: PermissionToShare.Requested,
-    weight: 0,
+    weight: -100,
   },
   {
     quote: "This software is amazing!",
@@ -440,7 +440,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.StackExchange,
     link: 'https://apple.stackexchange.com/a/371342/308049',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: -100,
   },
   {
     quote: "Thanks, the app is very cool",
@@ -460,7 +460,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.GitHub,
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/136',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: -100,
   },
   {
     quote: "It works perfectly with my mouse",
@@ -480,7 +480,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.Email,
     link: 'message:<280189B0-BC31-4E89-907C-46FBFB584E38@icloud.com>',
     permission: PermissionToShare.Requested,
-    weight: 0,
+    weight: -100,
   },
   {
     quote: "Many thanks for Mac Mouse Fix—it’s become an essential tool for me, and of all of the programs of this type I’ve found, it’s easily the best.",
@@ -510,7 +510,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.PayPalDonation,
     link: 'message:<49.05.55471.3D245B36@ccg01mail03>',
     permission: PermissionToShare.Requested,
-    weight: 0,
+    weight: -100,
   },
   {
     quote: "You are an absolute legend thank you so much for creating this app, it's literally perfect",
@@ -520,7 +520,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.PayPalDonation,
     link: 'message:<67.68.63016.6BAA3D36@ccg01mail02>',
     permission: PermissionToShare.Requested,
-    weight: 0,
+    weight: -100,
   },
   {
     quote: "Thanks for your awesome app its just wonderful :).",
@@ -530,7 +530,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.PayPalDonation,
     link: 'message:<9C61D7F1-CABE-4851-8F29-AE04AF932140@icloud.com>',
     permission: PermissionToShare.Requested,
-    weight: 0,
+    weight: -200,
   },
   {
     quote: "Your tool is literally the only way how I can use macOS (with a mouse especially) without freaking out!",
