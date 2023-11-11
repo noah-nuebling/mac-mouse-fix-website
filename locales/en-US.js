@@ -15,20 +15,6 @@ export default {
   'intro.tagline': 'Make Your $10 Mouse Better Than an Apple Trackpad',
   'intro.big-tagline': 'Make Your $10 Mouse Better Than an Apple Trackpad',
 
-  /* Quotes */
-
-  'quotes.see-more': 'See More',
-  'quotes.see-less': 'See Less',
-
-  'quote-source.email':           "**{ name }** in an email",
-  'quote-source.payPalDonation':  "**{ name }** in a PayPal donation message",
-  'quote-source.gitHub':          "**{ name }** on GitHub",
-  'quote-source.stackExchange':   "**{ name }** on Stack Exchange",
-  'quote-source.reddit':          "**{ name }** on Reddit",
-  'quote-source.lifehacker':      "**{ name }** in a LifeHacker article",
-  'quote-source.youtubeComment':  "**{ name }** in a YouTube comment",
-
-
   /* Feature Cards */
 
   'feature-card.expand-button': 'See It in Action',
@@ -253,6 +239,74 @@ export default {
 
   */
 
+
+  /* Quotes */
+
+  'quotes.see-more': 'See More',
+  'quotes.see-less': 'See Less',
+
+  'quote-source.email':           "**{ name }** in an email",
+  'quote-source.payPalDonation':  "**{ name }** in a PayPal donation message",
+  'quote-source.gitHub':          "**{ name }** on GitHub",
+  'quote-source.stackExchange':   "**{ name }** on Stack Exchange",
+  'quote-source.reddit':          "**{ name }** on Reddit",
+  'quote-source.lifehacker':      "**{ name }** in a LifeHacker article",
+  'quote-source.youtubeComment':  "**{ name }** in a YouTube comment",
+
+  'quotes.translation-disclaimer.en': "", // Leave current language blank
+  'quotes.translation-disclaimer.de': "Translated from German",
+  'quotes.translation-disclaimer.zh': "Translated from Chinese",
+
+  // vvv Leave quotes blank which are originally in the current language
+
+  'quotes.0': "",
+  'quotes.1': "",
+  'quotes.2': "",
+  'quotes.3': "",
+  'quotes.4': "",
+  'quotes.5': "",
+  'quotes.6': "",
+  'quotes.7': "",
+  'quotes.8': "",
+  'quotes.9': "",
+  'quotes.10': "",
+  'quotes.11': "",
+  'quotes.12': "",
+  'quotes.13': "",
+  'quotes.14': "",
+  'quotes.15': "",
+  'quotes.16': "",
+  'quotes.17': "",
+  'quotes.18': "",
+  'quotes.19': "",
+  'quotes.20': "",
+  'quotes.21': "",
+  'quotes.22': "",
+  'quotes.23': "",
+  'quotes.24': "",
+  'quotes.25': "",
+  'quotes.26': "",
+  'quotes.27': "",
+  'quotes.28': "",
+  'quotes.29': "",
+  'quotes.30': "",
+  'quotes.31': "",
+  'quotes.32': "",
+  'quotes.33': "",
+  'quotes.34': "",
+  'quotes.35': "",
+  'quotes.36': "",
+  'quotes.37': "",
+  'quotes.38': "",
+  'quotes.39': "",
+  'quotes.40': "",
+  'quotes.41': "",
+  'quotes.42': "",
+  'quotes.43': "",
+  'quotes.44': "",
+  'quotes.45': "",
+  'quotes.46': "",
+  'quotes.47': "I've been searching for a similar app for a long time, and finally found this one, thumbs up 👍.", 
 
 
 };

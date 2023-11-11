@@ -9,21 +9,18 @@
     :class="['h-fit col-span-auto group shadow-none rounded-[12px] bg-gray-300 bg-opacity-[0.2]', $attrs.class]" 
     borderClass="border-[1px] border-gray-400/25"
     backgroundFilterClass=""
-    :doesExpand="false"
-
-    @click="$refs.thisCard.expand()">
+    :doesExpand="false">
 
     <template v-slot:top>
       <div class="flex flex-row items-start justify-center h-fit m-[1.3rem]">
           <p class="text-white font-[650] text-[2.8rem] translate-y-[-0.33em] ml-[-0.25rem] mr-[0.3rem] mb-[-10rem] opacity-[0.50]">&#8220</p>
           <!-- <img :src="quoteImagePath" alt="opening quote" class="w-[1.5rem] mr-[0.5rem] opacity-50 translate-y-[0.27em]"> -->
-          <blockquote class="text-[1.05rem] text-white/90 whitespace-pre-wrap shadow-black/100 max-w-[30em]" v-html="quote?.quote">
-          </blockquote>
+          <blockquote class="text-[1.05rem] text-white/90 whitespace-pre-wrap shadow-black/100 max-w-[30em]" v-html="uiStrings.quote"/>
       </div>
       <div class="m-[0.6rem] mt-[-0.3rem]">
         <a :href="quote?.link" :class="quoteSourceIsPublic(quote!.source) ? ['pointer-events-auto'] : ['pointer-events-none']">
           <p class="text-[0.8rem] font-[300] text-center text-white/70 shadow-black/100">
-            <span v-html="getUIStringForQuoteSource(quote!.source, quote!.name)" class=""></span>
+            <span v-html="uiStrings.source" class=""></span>
           </p>
         </a>
       </div>
@@ -36,12 +33,11 @@
 <script setup lang="ts">
 
 // Imports
-// import { $mt } from '~/utils/markdownTranslate';
 const $mt = useMT()
-import { type QuoteData, getUIStringForQuoteSource, quoteSourceIsPublic } from '~/utils/quotes';
+import { type QuoteData, getUIStrings, quoteSourceIsPublic } from '~/utils/quotes';
 
 // Import images
-import quoteImagePath from '../assets/img/baskerville-bold.quotes.png'
+// import quoteImagePath from '../assets/img/baskerville-bold.quotes.png'
 // import quoteBubbleImagePath from '../assets/img/quote.bubble@8x.png'
 
 // Define props
@@ -50,6 +46,15 @@ import quoteImagePath from '../assets/img/baskerville-bold.quotes.png'
 var props = defineProps<{
   quote?: QuoteData,
 }>()
+
+// Get uiStrings
+const uiStrings = getUIStrings(props.quote!)
+
+// Get language name (unused)
+const i18n = useI18n()
+function getLocalizedLanguageName(languageTag: string) {
+  return i18n.localeProperties.value.name!
+}
 
 </script>
 
