@@ -144,55 +144,6 @@
     
   </div>
 
-
-<!-- Noise filter from ChatGPT
-  Notes: 
-  - Apply in css like: `filter: url('#noise-filter');` or in tailwind with `svg-filter-[noise-filter]`
-  - Noise is the only way we found to mitigate heavy color banding on the color splashes.
-    - We also tried to create the color splashes in pure css, using 1. approach: blurred circle and 2. approach: radial gradient - but there was still the same banding 
-  - We tried applying noise to the color splashes directly in affinty photo, but that makes the image size huge (seems to prevent compression)
-  -> So the best we can come up with is applying noise in css directly.
--->
-
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filter-defs">
-    <defs>
-
-        <filter id="splash-noise">
-
-            <!-- V1 (ChatGPT - makes things washed out and `mode` doesn't work for some reason) -->
-            <!-- <feTurbulence type="fractalNoise" baseFrequency="3.0" numOctaves="2" stitchTiles="noStitch" result="turbulence" />
-            <feComposite in="turbulence" in2="SourceGraphic" operator="in" result="monochromeNoise" />
-            <feBlend in="SourceGraphic" in2="monochromeNoise" mode="hue" result="r"/> -->
-
-            <!-- V2 (Noise on alpha) (seems to make banding worse, and tanks scrolling performance) -->
-            <feTurbulence type="fractalNoise" baseFrequency="1.0" numOctaves="2" stitchTiles="noStitch" result="turbulence" />
-            <feComposite in="SourceGraphic" in2="turbulence" operator="out" result="noisyDark" />
-            <feComponentTransfer in="noisyDark">
-              <feFuncR type="identity"/>
-              <feFuncG type="identity"/>
-              <feFuncB type="identity"/>
-              <feFuncA type="linear" slope="2.0"/>
-            </feComponentTransfer>
-
-            <!-- V3 (Noise on hue)  -->
-        </filter>
-
-
-        <filter id="alpha-boost">
-
-          <!-- Alpha boost - for testing - tanks scrolling performance -->
-
-          <feComponentTransfer in="SourceGraphic">
-            <feFuncR type="identity"/>
-            <feFuncG type="identity"/>
-            <feFuncB type="identity"/>
-            <feFuncA type="linear" slope="1.5"/>
-          </feComponentTransfer>
-
-        </filter>
-    </defs>
-</svg>
-
 </template>
 
 <script setup lang="ts">

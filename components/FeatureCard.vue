@@ -16,7 +16,7 @@
 <template>
   <div
     ref="card"
-    :class="['relative overflow-clip will-change-[transform,opacity]', $props.class, doesExpand ? 'cursor-pointer' : '']">
+    :class="['overflow-clip relative will-change-[transform,opacity] ', $props.class, doesExpand ? 'cursor-pointer' : '']">
 
     <!-- Background Filter Container -->
     <div 
@@ -26,13 +26,13 @@
       <!-- Border Container -->
       <div
         ref="borderContainer"
-        :class="['h-full overflow-clip rounded-[inherit]', $props.borderClass]">
+        :class="['overflow-clip h-full rounded-[inherit]', $props.borderClass]">
 
           <!-- Content Container -->
         <div
           id="contentContainer"
           ref="contentContainer"
-          :class="['h-full flex flex-col will-change-[transform,opacity]']">
+          :class="['h-full flex flex-col will-change-[transform,opacity] ']">
 
           <!-- Minimize hint -->
           <div 
@@ -115,6 +115,7 @@ $gsap.ticker.lagSmoothing(34, 33);
 
 // Define vars
 const isExpanded = ref(false)
+const isAnimationExpanded = ref(false) // Set only after the animations complete
 var animationContext: any = null
 
 // Get references to relevant dom elements
@@ -143,6 +144,8 @@ function expand() {
 }
 defineExpose({
   expand,
+  isExpanded,
+  isAnimationExpanded,
 })
 
 // Additional setup after mount
@@ -381,6 +384,9 @@ if (props.doesExpand) {
 
         console.log(`on ENDDD`)
 
+        // Update state
+        isAnimationExpanded.value = true
+
         // Play video, once expand animation finishes
         if (isExpanded.value! == true && video != null && video.src != null) {
           video.play()
@@ -572,6 +578,9 @@ if (props.doesExpand) {
 
         // DEBUG
         console.log(`onEnd`)
+
+        // Update state
+        isAnimationExpanded.value = false
 
         // 
         // Restore unexpanded state of card

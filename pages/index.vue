@@ -48,7 +48,14 @@
 
     <CardHeader titleKey="trackpad-features.header" :iconPath="trackpadImagePath" iconClass="translate-y-[3px]"/>
     
-    <div class="">
+    <div class="relative">
+
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute inset-0 z-10"></div>
+        <img :src="colorSplashImagePath" alt="" class="w-[100rem] absolute left-[25%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]">
+        <img :src="colorSplashImagePath" alt="" class="w-[100rem] absolute left-[75%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]">
+      </div>
+
       <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2.5rem] mt-[4.5rem]">
         <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
         <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-red-content normal-feature-card-style-red"/>
@@ -235,6 +242,7 @@ import sparkleArrowsImagePath from '../assets/img/arrow.up.and.down.and.sparkles
 import arrowsImagePath from '../assets/img/arrow.up.and.down@8x.png'
 import gearImagePath from '../assets/img/gearshape@8x.png'
 import actionTableImagePath from '../assets/img/mmf-on-studio-display-4.png'
+import colorSplashImagePath from '../assets/img/color-splash.png'
 
 </script>
 
