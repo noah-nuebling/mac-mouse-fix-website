@@ -26,8 +26,8 @@
         <div :class="['absolute inset-0 z-10 color-splash-dance1', splashDance ? '' : 'paused']">
           <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
             <div ref="colorSplash1" class="absolute inset-0 opacity-0">
-              <img :src="colorSplashImagePath" alt=""       :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', splashDance ? 'opacity-0' : '']">
-              <img :src="colorSplashDark1ImagePath" alt=""  :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', splashDance ? '' : 'opacity-0']">
+              <img :src="colorSplashImagePath" alt=""       :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
+              <img :src="colorSplashDark1ImagePath" alt=""  :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
             </div>
           </div>
         </div>
@@ -36,8 +36,8 @@
         <div :class="['absolute inset-0 z-10 color-splash-dance2', splashDance ? '' : 'paused']">
           <div :class="['absolute inset-0 color-splash-pulse2', splashDance ? '' : 'paused']">
             <div ref="colorSplash2" class="absolute inset-0 opacity-0">
-              <img :src="colorSplashImagePath" alt=""       :class="['min-w-[80rem] absolute bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', splashDance ? 'opacity-0' : '']">
-              <img :src="colorSplashDark2ImagePath" alt=""  :class="['min-w-[80rem] absolute bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', splashDance ? '' : 'opacity-0']">
+              <img :src="colorSplashImagePath" alt=""       :class="['min-w-[80rem] absolute bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
+              <img :src="colorSplashDark2ImagePath" alt=""  :class="['min-w-[80rem] absolute bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
             </div>
           </div>
         </div>
