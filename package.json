@@ -4,14 +4,14 @@
   "type": "module",
   "_comment0": "Some error when adding i18n told me to add type: module. But that didn't remove the error",
   "_comment1": "TODO: Change i18n version from next to ^8.0.0 once there's a stable v8 release. We used next so it would update through rc versions.",
+  "_comments_on_scripts": ["1. Calling it 'upload', bc 'deploy' seems to be reserved in pnpm",
+                            "2. To test deployment version, run generate, then preview."],
   "scripts": {
-    "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "_comment": "v Call this 'upload', bc 'deploy' seems to be reserved in pnpm",
     "upload": "./scripts/deploy.sh",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "test": "./scripts/test.sh",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",

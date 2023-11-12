@@ -1,6 +1,10 @@
 import { request } from "https"
 
-export { doAfterRenderrr, doAfterRender, doBeforeRender, everyNth, debouncer, watchProperty, prefersReducedMotion }
+export { doAfterRenderrr, doAfterRender, doBeforeRender, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx }
+
+function remInPx() {
+  return parseFloat(getComputedStyle(document.documentElement).fontSize);
+}
 
 function prefersReducedMotion(): boolean {
   // We tried fetching this once when the component is loaded, but that seems to break nuxt SSR prerendering

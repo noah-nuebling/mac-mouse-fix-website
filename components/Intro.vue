@@ -227,7 +227,7 @@ import { getUsableQuotes } from '~/utils/quotes';
 const quotes = getUsableQuotes()
 
 /* Import Other */
-import { everyNth, debouncer, watchProperty, prefersReducedMotion } from "~/utils/util";
+import { everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx } from "~/utils/util";
 const $mt = useMT()
 
 /* Expose methods */
@@ -405,16 +405,28 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   /* Take measurements for new animation 
       Notes: 
       - I thought doing this first might help prevent forced reflows, but doesn't seem to work. But generally ChatGPT advised me to do all DOM reads in a batch and before writes if possible for optimization. See browser rendering cycle and stuff (yeah I know this isn't helpful)*/
-  const zoomScale = 450.0 * window.innerHeight / 970.0
+  var zoomScale = 450.0 * window.innerHeight / 970.0
+  var zoomTranslateY = zoomScale * -4.55 * remInPx()
   const taglineDistanceToOffscreen = tagline.value!.offsetTop + tagline.value!.offsetHeight
   const quotesDistanceToTagline = outerContainer.value!.offsetHeight/2 - tagline.value!.offsetHeight/2
 
-  const zoomDistance = 3000.0
+  var zoomDistance = 3000.0
+  
   const taglineDistance = 1000.0
   const quotesDistance = quoteScrollingContainer.value!.scrollHeight - quoteScrollingContainer.value!.offsetHeight
 
   const taglineShift = -1000.0
   const quotesShift = 200.0
+
+  /* Override animation params for reduceMotion */
+
+  if (prefersReducedMotion()) {
+    zoomScale = 1.15
+    zoomTranslateY = 0
+    zoomDistance = -taglineShift
+  }
+
+  /* Calculate anchorpoints */
 
   const zoomStart     = 0
   const zoomStop      = zoomDistance
@@ -432,7 +444,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
     const quotesEndAtBottomPosition   = outerContainer.value!.offsetTop + quotesStop
     const quotesEndAtTopPosition      = quotesEndAtBottomPosition + window.innerHeight
-    const thresholdPosition  = quotesEndAtBottomPosition // + 150
+    const thresholdPosition           = quotesEndAtBottomPosition // + 150
 
     const d = quotesDistance - previousQuotesDistance
     const quotesEndWasOnScreen = quotesEndAtBottomPosition - d < current && current < quotesEndAtTopPosition - d
@@ -482,22 +494,21 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     },
   })
 
-  tlScroll.addLabel("zoomStart",    `${ zoomStart }`)
-  tlScroll.addLabel("zoomStop",     `${ zoomStop }`)
-  tlScroll.addLabel("taglineStart", `${ taglineStart }`)
-  tlScroll.addLabel("taglineStop",  `${ taglineStop }`)
-  tlScroll.addLabel("quotesStart",  `${ quotesStart }`)
-  tlScroll.addLabel("quotesStop",   `${ quotesStop }`)
-
   // Add zoom animation to tl
+  //  Notes: This has bad performance under Safari
+  //  - will-change makes it better but makes the text blurry. 
+  //  - We're using matrix instead of scale, because Apple MacBook Air website uses matrix for a similar effect and it has better performance. But it doesn't seem to help here. Maybe a tinyyy bit.
+  //  - When we just reduce the scaling factor a little it improves. On the apple website the text is larger to begin with, so the scaling factor is smaller, than currently on this site. Reducing scaling factor is so far the only thing I found that removes framedrops.
+  //  - Here's the old solution: tlScroll.fromTo(innerContent.value, { scale: 1, translateY: 0 }, { scale: zoomScale, translateY: `${zoomScale * -4.55}rem`, ease: linearScalingEase(zoomScale), duration: zoomDistance }, zoomStart)
   tlScroll.addLabel("zoom")
-  tlScroll.fromTo(innerContent.value, { scale: 1, translateY: 0 }, { scale: zoomScale, translateY: `${zoomScale * -4.55}rem`, ease: linearScalingEase(zoomScale), duration: zoomDistance }, "zoomStart")
+  const zoomMatrix = `matrix(${ zoomScale }, 0, 0, ${ zoomScale }, 0, ${ zoomTranslateY })`
+  tlScroll.fromTo(innerContent.value, {  transform: 'matrix(1, 0, 0, 1, 0, 0)' }, { transform: zoomMatrix, ease: linearScalingEase(zoomScale), duration: zoomDistance }, zoomStart)
 
   // Add fade-out to chevron
   tlScroll.fromTo(chevronDown.value, { opacity: 1, translateY: 0 }, { opacity: 0, translateY: '-0rem', duration: zoomDistance/20 }, zoomStart)
 
   // Add tagline fadein animation to tl
-  tlScroll.fromTo(taglineContainer.value, { opacity: 0 }, { opacity: 1, duration: taglineDistance }, `taglineStart`)
+  tlScroll.fromTo(taglineContainer.value, { opacity: 0 }, { opacity: 1, duration: taglineDistance }, taglineStart)
 
   // Fade in background, start splash dance, and reset zoom on inner content
   const bgStart = zoomStop-600
@@ -522,9 +533,9 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     // DEBUG
     // console.log(`After onUpdate() - quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }, animationProgress: ${ progress }, height: ${ quoteScrollingContainer.value!.offsetHeight }, scrollHeight: ${ quoteScrollingContainer.value!.scrollHeight }, clientHeight: ${ quoteScrollingContainer.value!.clientHeight }`);
     
-  }}, `quotesStart`)
-  tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, `quotesStart` )
-  tlScroll.fromTo(quoteContainer.value!, { opacity: 0 }, { opacity: 1, duration: Math.min(400, quotesDistance) }, `quotesStart` )
+  }}, quotesStart)
+  tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, quotesStart )
+  tlScroll.fromTo(quoteContainer.value!, { opacity: 0 }, { opacity: 1, duration: Math.min(400, quotesDistance) }, quotesStart )
 
   // Fade in center color splash
   const splashFadeShift = 300
@@ -534,13 +545,13 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   /* Quote Expand button fade-in */
   const quoteExpandInShift = 500
-  const quoteExpandInStart = `quotesStart+=${ quoteExpandInShift }`
+  const quoteExpandInStart = quotesStart + quoteExpandInShift
   const quoteExpandInDuration = Math.min(200, quotesDistance - quoteExpandInShift) // Should be 200, but capped so it doesn't go on until after quotesStop
   tlScroll.fromTo(quoteExpandButton.value!, { opacity: 0 }, { opacity: 1, duration: quoteExpandInDuration }, quoteExpandInStart)
 
   // Tagline fade-out
   const taglineOutShift = quotesDistanceToTagline - 150
-  const taglineOutStart = `quotesStart+=${ taglineOutShift }`
+  const taglineOutStart = quotesStart + taglineOutShift
   const taglineOutDurationTarget = taglineDistanceToOffscreen * 1.3
   const taglineOutDuration = Math.min(taglineOutDurationTarget, quotesDistance - taglineOutShift) // Should be taglineDistanceToOffscreen * 1.3, but capped so it doesn't go on until after quotesStop
   const f = taglineOutDuration/taglineOutDurationTarget
