@@ -139,7 +139,7 @@ export default {
   'quotes.see-more': 'Mehr sehen',
   'quotes.see-less': 'Weniger sehen',
 
-  'quotes.thankyou': '**Dankeschön** an alle, die ihre Wertschätzung und Gedanken geteilt haben! Solche Nachrichten zu lesen motiviert mich immer und macht mich ein bisschen glücklicher. :)',
+  'quotes.thankyou': '**Dankeschön** an alle, die ihre Wertschätzung und Gedanken geteilt haben! Auch an die, die hier nicht aufgeführt sind. Solche Nachrichten zu lesen motiviert mich immer und macht mich ein bisschen glücklicher. :)',
 
   'quote-source.email':           "**{ name }** in einer E-Mail",
   'quote-source.payPalDonation':  "**{ name }** in einer PayPal-Spendennachricht",

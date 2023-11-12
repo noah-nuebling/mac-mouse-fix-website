@@ -124,8 +124,13 @@
 
           <!-- Thank you message -->
           <div class="flex justify-center">
-            <div class="text-[1.05rem] text-center bg-neutral-50/[0.2] rounded-[1rem]  text-white/[0.8] px-[1em] py-[0.8em] border border-neutral-50/[0.15] mt-[5.5rem] mb-[2.5rem] w-fit flex justify-center">
-              <p v-html="$mt('quotes.thankyou')" class="max-w-[35em]"></p>
+            <div class="text-[1.05rem] bg-neutral-50/[0.2] rounded-[1rem]  text-white/[0.8] border border-neutral-50/[0.15] mt-[5.5rem] mb-[2.5rem] w-fit h-fit flex flex-col justify-center items-center">
+              <div class="flex flex-row items-start justify-center h-fit w-fit m-[1.3rem]">
+                  <!-- <p class="text-white font-[650] text-[2.8rem] translate-y-[-0.33em] ml-[-0.25rem] mr-[0.3rem] mb-[-10rem] opacity-[0.50]">&#8220</p> -->
+                  <!-- <img :src="quoteImagePath" alt="opening quote" class="w-[1.5rem] mr-[0.5rem] opacity-50 translate-y-[0.27em]"> -->
+                  <p v-html="$mt('quotes.thankyou')" class="max-w-[35em] text-center"></p>
+              </div>
+              <p v-html="$mt('quotes.thankyou.source')" class="m-[0.6rem] mt-[-0.3rem] text-[0.8rem] font-[300]"></p>
             </div>
           </div>
           <!-- <CardHeader titleKey="user-feedback.card-header.title" :hideVideoHint="true" subtitleKey="" class="w-full"/> -->
