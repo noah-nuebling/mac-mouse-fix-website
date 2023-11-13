@@ -15,12 +15,12 @@
 
     <!-- Debug Buttons -->
 
-    <div class="hidden items-end justify-center fixed left-0 top-0 w-full h-[10rem] z-50">
+    <div class="items-end justify-center fixed left-0 top-0 w-full h-[10rem] z-50">
       <div class="bg-red-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="$refs.intro.killIntroAnimation()">
-        <p class="text-white text-center">Kill</p>
+        <p class="text-white text-center">Kill Intro</p>
       </div>
       <div class="bg-green-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="$refs.intro.recreateIntroAnimation()">
-        <p class="text-white text-center">Reload</p>
+        <p class="text-white text-center">Reload Intro</p>
       </div>
     </div>
 
@@ -224,7 +224,7 @@ const $mt = useMT()
 // import { $mt } from '~/utils/markdownTranslate'
 
 /* Import gsap stuff */
-const { $gsap } = useNuxtApp()
+const { $gsap, $ScrollTrigger } = useNuxtApp()
 
 /* Import quote stuff */
 
@@ -257,7 +257,7 @@ import colorSplashImagePath from '../assets/img/color-splash.png'
 import { useGlobalStore } from '~/store/global';
 import { storeToRefs } from 'pinia';
 const global = useGlobalStore()
-const { introAnimationIsReady } = storeToRefs(global)
+const { introAnimationId } = storeToRefs(global)
 
 /* Get refs */
 
@@ -267,37 +267,74 @@ const trackpadSplash1 = ref<HTMLElement | null>(null)
 const trackpadSplash2 = ref<HTMLElement | null>(null)
 const trackpadRule = ref<HTMLElement | null>(null)
 
+/* Other vars */
+const sectionToTimelineMap = new Map<Ref<HTMLElement | null>, gsap.core.Timeline>()
+const cardsSections = [trackpadCardsSection1, trackpadCardsSection2]
+
 onMounted(() => {
 
-  watch(introAnimationIsReady, (newValue) => {
+  watch(introAnimationId, (newValue) => {
 
-    if (newValue == false) { return }
+    console.log(`Intro is ready: ${ newValue }`)
 
-    /* Create scroll-linked animation for the color trackpad section */
+    if (newValue == 0) { return }
 
+    if (false /* newValue > 1 */) {
+      // Refresh scrollTriggers
+      // Discussion: In theory, we only have to refresh the scroll triggers when the intro animation updates (and changes height), but when we tried to refresh the scrollTriggers there was always a flicker or it didn't work at all. We tried doAfterRender() doBeforeRender() and gsap.ticker.add(..., true, false). So instead we're just completely recreating the animations every time now. That prevents the flicker. 
+      $gsap.ticker.add(() => {
+        for (const section of cardsSections) {
+          const tl = sectionToTimelineMap.get(section)
+          if (tl != null) {
+            tl.scrollTrigger!.refresh()
+          }
+        }
+      }, true, false)
+      return
+    }
+
+    /* Delete existing animations */
+
+    for (const section of cardsSections) {
+      const tl = sectionToTimelineMap.get(section)
+      if (tl != null) {
+        killCardParallaxAnimation(tl)
+        sectionToTimelineMap.delete(section) // Not sure if necessary
+      }
+    }
+
+    /* Create scroll-linked parallax animations for cardsSections */
+    
     const cardsOffset = '3rem'
-
-    const cardsSections = [trackpadCardsSection1, trackpadCardsSection2]
-    const sectionToTimelineMap = new Map<Ref<HTMLElement | null>, gsap.core.Timeline>()
 
     for (const section of cardsSections) {
 
       const tlTrack = $gsap.timeline({scrollTrigger: {
         trigger: section.value!,
-        pin: false, // Pin the trigger element while active
+        pin: false,
         start: "top bottom", // Top of element, bottom of viewport
         end: `bottom top`,
         scrub: 0.0, // Smooth scrubbing, takes x second to "catch up" to the scrollbar
-        markers: true,
+        markers: false, // Debug
       }})
 
-      tlTrack.fromTo(section.value!,  { translateY: cardsOffset }, { translateY: '-' + cardsOffset, duration: 1, ease: 'linear'}, 0)
+      tlTrack.fromTo(section.value!,  { translateY: cardsOffset }, { translateY: '-' + cardsOffset, duration: 1, ease: 'linear' }, 0)
 
       sectionToTimelineMap.set(section, tlTrack)
     }
-
   })
 })
+
+function killCardParallaxAnimation(tl: gsap.core.Timeline | undefined | null, reset: boolean = false) {
+
+  // Mostly copied from Intro.vue
+
+  if (tl != null) {
+    tl!.scrollTrigger!.kill(true, false)
+    tl!.pause(reset ? 0 : undefined).kill()
+    tl = null // Not sure if setting to null like this works
+  }
+}
 
 </script>
 

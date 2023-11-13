@@ -10,7 +10,7 @@ export const useGlobalStore = defineStore('global', () => {
   // Variables
   // const backdrop = ref<HTMLElement | null>(null)
   const navbarHasDarkAppearance = ref<boolean>(false)
-  const introAnimationIsReady = ref(false)
+  const introAnimationId = ref(0) // This increments every time the intro animation is (re-)created. Useful for watching.
 
   // Functions
   // function increment() {
@@ -18,5 +18,5 @@ export const useGlobalStore = defineStore('global', () => {
   // }
 
   // Return 
-  return { navbarHasDarkAppearance, introAnimationIsReady }
+  return { navbarHasDarkAppearance, introAnimationId }
 })

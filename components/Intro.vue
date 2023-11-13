@@ -228,7 +228,6 @@ const defaultScreenHeight = 970.0
 const playLoadingAnimation = ref(true) // Initialize to false to disable loading animations
 const quotesAreExpanded = ref(false)
 const splashDance = ref(false)
-global.introAnimationIsReady = false
 
 var viewportSizeForCurrentAnimation = { width: 0, height: 0 }
 
@@ -526,9 +525,14 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     quoteScrollingContainer.value!.scrollTop = lastQuoteScrollPosition
   })
 
-  // Signal
-  global.introAnimationIsReady = true
+  // Signal globally
+  global.introAnimationId += 1
 
+  // Recalculate all scrollTriggers (This scrolltrigger doesn't need to be recalculcated, because it was just recreated, but all the ones further down the page need to be recalculated)
+  // doAfterRender(() => {
+  //   console.log(`Refresh all scrollTriggers`);
+  //   $ScrollTrigger.refresh()
+  // }, 1 * 1000)
 
   /* Update scrollTrigger
       Doesn't seem to have any effect */
