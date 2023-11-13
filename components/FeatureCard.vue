@@ -16,7 +16,8 @@
 <template>
   <div
     ref="card"
-    :class="['overflow-clip relative will-change-[transform,opacity] ', $props.class, doesExpand ? 'cursor-pointer' : '']">
+    :class="['overflow-clip relative will-change-[transform,opacity] ', $props.class, doesExpand ? 'cursor-pointer' : '']"
+    v-on-click-outside="{ onEvent: () => { isExpanded = false }, condition: isExpanded, blockEvents: true }">
 
     <!-- Background Filter Container -->
     <div 
@@ -208,19 +209,21 @@ if (props.doesExpand) {
       // loadVideos(card.value!)
 
       // Create backdrop
-      if ($store.backdrop == null) {
-        var b = document.createElement('div') as HTMLElement
-        b.classList.add('h-screen', 'w-screen', 'z-[50]', 'fixed', 'top-0', 'left-0', 'cursor-auto')
-        // b.classList.add('bg-stone-900/50') // Not displaying the backdrop. But using it to close card when user click outside the card
-        $store.backdrop = b
-      }
+      // Notes: We used the backdrop only to monitor clicks outside the card. But this broke when we made everything look Apple-y. So we're just using v-click-outside instead.
+      
+      // if ($store.backdrop == null) {
+      //   var b = document.createElement('div') as HTMLElement
+      //   b.classList.add('h-screen', 'w-screen', 'z-[50]', 'fixed', 'top-0', 'left-0', 'cursor-auto')
+      //   // b.classList.add('bg-stone-900/50') // Not displaying the backdrop. But using it to close card when user click outside the card
+      //   $store.backdrop = b
+      // }
 
       // Close card when backdrop is clicked
       //  We need to do this every time so *this* specific card is closed and not another card that the backdrop was previously used with
-      $store.backdrop.onclick = (_) => isExpanded.value = false
+      // $store.backdrop.onclick = (_) => isExpanded.value = false
 
       // Insert backdrop into document
-      document.body.appendChild($store.backdrop)
+      // document.body.appendChild($store.backdrop)
 
       // Bring card to front
       card.value!.style.zIndex = '100'
@@ -568,7 +571,7 @@ if (props.doesExpand) {
       //
 
       // Remove backdrop from layout
-      $store.backdrop?.remove()
+      // $store.backdrop?.remove()
 
       // Bring card to front but behind expanding and expanded cards (which have zIndex 100)
       card.value!.style.zIndex = '99'
