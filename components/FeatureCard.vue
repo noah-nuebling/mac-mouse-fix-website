@@ -422,10 +422,11 @@ if (props.doesExpand) {
       // Previous curves:
       // - dur: 0.5, sizeCurve: criticalSpring(4.0), centerCurve: criticalSpring(6.0)
       // - dur: 0.45, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
+      // - dur: 0.6, sizeCurve: $Power3.easeOut, centerCurve: $Power4.easeOut
       
-      const dur = 0.45
-      const easeForSize = $Power2.easeOut
-      const easeForCenter = $Power3.easeOut
+      const dur = 0.6
+      const easeForSize = $Power3.easeOut
+      const easeForCenter = $Power4.easeOut
 
       // 
       // Animation preprocessing
@@ -673,6 +674,7 @@ if (props.doesExpand) {
        // Previous curves:
        // - dur: 0.6, sizeCurve: criticalSpring(6.0), centerCurve: criticalSpring(5.0)
        // - dur: 0.6, sizeCurve: $Power4.easeOut, centerCurve: $Power3.easeOut
+       // - dur: 0.7, sizeCurve: $Power4.easeOut, centerCurve: $Power3.easeOut
 
       const dur = 0.6
       const easeForSize = $Power4.easeOut
