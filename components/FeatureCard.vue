@@ -37,9 +37,9 @@
           <!-- Minimize hint -->
           <div 
             ref="minimizeHint"
-            class="absolute top-0 left-0 right-0 bottom-0 bg-black/70 z-[10] flex flex-column items-center justify-center invisible opacity-0 transition-opacity">
+            class="hidden justify-center items-center absolute inset-0 bg-white/70 backdrop-blur-xl z-[10] invisible opacity-0 transition-opacity duration-[0.5s]">
             
-            <p class="text-white text-center text-2xl">{{ $t('feature-card.minimize-hint') }}</p>
+            <p class="text-blue-500/90 font-[600] text-center text-[1.6rem] group-hover:underline">{{ $t('feature-card.minimize-hint') }}</p>
           </div>
 
           <!-- Top -->
@@ -139,11 +139,11 @@ var cardPlaceholder: HTMLDivElement | null = null
 var placeholderContentContainer: HTMLDivElement | null = null
 
 // Methods for parent
-function expand() {
-  isExpanded.value = true
+function toggleExpand() {
+  isExpanded.value = !isExpanded.value
 }
 defineExpose({
-  expand,
+  toggleExpand,
   isExpanded,
   isAnimationExpanded,
 })
@@ -201,7 +201,7 @@ if (props.doesExpand) {
     if (shouldExpand) {
 
       // Set cursor
-      card.value!.style.cursor = 'auto'
+      // card.value!.style.cursor = 'auto'
 
       // Load video
       //  Don't need to do this. We immediately reload the video after unloading which loads the thumbnail without loading the whole video
@@ -210,7 +210,7 @@ if (props.doesExpand) {
       // Create backdrop
       if ($store.backdrop == null) {
         var b = document.createElement('div') as HTMLElement
-        b.classList.add('h-screen', 'w-screen', 'z-[50]', 'fixed', 'top-0', 'left-0', 'cursor-pointer')
+        b.classList.add('h-screen', 'w-screen', 'z-[50]', 'fixed', 'top-0', 'left-0', 'cursor-auto')
         // b.classList.add('bg-stone-900/50') // Not displaying the backdrop. But using it to close card when user click outside the card
         $store.backdrop = b
       }
@@ -325,7 +325,7 @@ if (props.doesExpand) {
         //  We calculated targetTop such that the x center of the card stays in the same position after expanding
         const computedH = card.value.offsetHeight
         const heightIncrease = computedH - originHeight
-        targetTop = `${ originTop }px`//`${originTop - heightIncrease/2.0}px`
+        targetTop = /* `${originTop - heightIncrease/2.0}px` */ `${ originTop }px`
 
         // Set position and stuff
         card.value.style.marginLeft = targetMarginLeft
@@ -409,6 +409,8 @@ if (props.doesExpand) {
       // Set transformOrigin
       cardPlaceholder!.style.transformOrigin = 'left top'
       card.value!.style.transformOrigin = 'left top'
+      contentContainer.value!.style.transformOrigin = "center top"
+      placeholderContentContainer!.style.transformOrigin = "center top"
 
       // Animation params
       // Discussion: 
@@ -492,11 +494,10 @@ if (props.doesExpand) {
       var curveForPlaceholderContentScaleX = curveForPlaceholderCounterScaleX
       var curveForPlaceholderContentScaleY = curveForPlaceholderCounterScaleY
 
-      //
-      // Add animations to timeline
+      // 
+      // Scroll card into center of screen
       //
 
-      // Scroll card into center of screen
       const cardViewPortOffset = card.value!.getBoundingClientRect();
       const cardCenter = cardViewPortOffset.top + cardViewPortOffset.height/2.0
       const viewportHeight = window.innerHeight
@@ -509,6 +510,10 @@ if (props.doesExpand) {
           ease: $Power1.easeOut,
         })
       }
+
+      //
+      // Add animations to timeline
+      //
 
       if (!prefersReducedMotion()) {
 
@@ -597,7 +602,7 @@ if (props.doesExpand) {
 
         // Set cursor
         // 'pointer' is the hand
-        card.value!.style.cursor = 'pointer'
+        // card.value!.style.cursor = 'pointer'
 
         // Bring card to normal level
         card.value!.style.zIndex = '0'

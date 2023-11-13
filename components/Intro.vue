@@ -192,8 +192,8 @@ defineExpose({
 
 import { useGlobalStore } from "~/store/global";
 import { storeToRefs } from "pinia";
-const globalStore = useGlobalStore()
-const { navbarHasDarkAppearance } = storeToRefs(globalStore)
+const global = useGlobalStore()
+const { navbarHasDarkAppearance } = storeToRefs(global)
 
 /* Get dom element refs 
     All unused atm
@@ -228,6 +228,7 @@ const defaultScreenHeight = 970.0
 const playLoadingAnimation = ref(true) // Initialize to false to disable loading animations
 const quotesAreExpanded = ref(false)
 const splashDance = ref(false)
+global.introAnimationIsReady = false
 
 var viewportSizeForCurrentAnimation = { width: 0, height: 0 }
 
@@ -524,6 +525,9 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   requestAnimationFrame(() => {
     quoteScrollingContainer.value!.scrollTop = lastQuoteScrollPosition
   })
+
+  // Signal
+  global.introAnimationIsReady = true
 
 
   /* Update scrollTrigger

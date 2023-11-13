@@ -18,7 +18,7 @@ export default {
   /* Feature Cards */
 
   'feature-card.expand-button': 'In Aktion sehen',
-  'feature-card.minimize-hint': 'Klicke außerhalb dieser Karte, um sie zu minimieren',
+  'feature-card.minimize-hint': 'Minimize 􀊗',
 
   'video-card-hint.0': 'Klicke eine beliebige Karte für eine',
   'video-card-hint.1': '*Video-Demo*',

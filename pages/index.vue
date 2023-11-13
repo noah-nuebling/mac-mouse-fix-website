@@ -30,14 +30,15 @@
 
     <!-- Replaces Trackpad -->
 
-    <i18n-t tag="h2" keypath="trackpad-features.title" class="whitespace-pre-wrap xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mt-[6rem] text-gray-800">
-      <template #track> 
-        <span class="text-gradient-blue">{{ $t('trackpad-features.title.track')}}</span> 
-      </template>
-    </i18n-t>
+    <div class="w-full flex flex-col justify-center items-center">
+      <i18n-t tag="h2" keypath="trackpad-features.title" class="text-center whitespace-pre-wrap xl:text-[5rem] md:text-[3.5rem] text-[3rem] font-[700] leading-[1.05] tracking-[-0.15rem] mt-[18rem] text-gray-800">
+        <template #track> 
+          <span class="text-gradient-blue">{{ $t('trackpad-features.title.track')}}</span> 
+        </template>
+      </i18n-t>
 
-
-    <p v-html="$mt('trackpad-features.body')" class="whitespace-pre-wrap text-3xl font-normal text-gray-700/60 max-w-[30em] leading-[1.4] my-[4.5rem]"></p>
+      <p v-html="$mt('trackpad-features.body')" class="text-center max-w-[30em] whitespace-pre-wrap text-[1.8rem] font-[400] text-black/[0.9] leading-[1.4] tracking-[-0.005rem] my-[4.5rem]"></p>
+    </div>
     <!-- <p class="whitespace-pre-wrap text-3xl font-bold text-gray-900/70 mb-10 mt-0 w-max-[60rem]">Trackpad Features Which Mac Mouse Fix Brings To Your Mouse
       
     </p>
@@ -46,37 +47,42 @@
        bg-clip-text w-full"></p>
     </div> -->
 
-    <CardHeader titleKey="trackpad-features.header" :iconPath="trackpadImagePath" iconClass="translate-y-[3px]"/>
     
-    <div class="relative">
+    
+    <div class="shadow-sm shadow-black/[0.0] border-0 border-neutral-900/[0.15] bg-neutral-900/[0.01] rounded-[2rem] p-[1rem]">
 
-      <div class="absolute inset-0 -z-10">
-        <div class="absolute inset-0 z-10"></div>
-        <img :src="colorSplashImagePath" alt="" class="w-[100rem] absolute left-[25%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]">
-        <img :src="colorSplashImagePath" alt="" class="w-[100rem] absolute left-[75%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]">
+      <CardHeader titleKey="trackpad-features.header" :iconPath="trackpadImagePath" iconClass="translate-y-[3px]" class="mt-[2rem] mb-[calc(6.5rem-3vh)] mx-[0] !rounded-[2rem] !border-none !font-[400]"/>
+
+      <div ref="trackpadCardsSection" class="relative">
+
+        <div class="absolute inset-0 -z-10">
+          <div class="absolute inset-0 z-10"></div>
+          <img ref="trackpadSplash1" :src="colorSplashImagePath" alt="" class="min-w-[150rem] absolute left-[75%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]">
+          <img ref="trackpadSplash2" :src="colorSplashImagePath" alt="" class="min-w-[150rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]">
+        </div>
+
+        <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2.5rem]">
+          <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
+          <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-red-content normal-feature-card-style-red"/>
+          <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="text-shadow-xl shadow-green-950/30 bg-[url('/assets/img/mac-wallpaper-sonoma.jpg')] bg-[length:1100px] bg-[center_top_-30rem] bg-black/0 bg-blend-darken"/>
+          <NormalFeatureCard titleKey="feature.app-expose.title"          bodyKey="feature.app-expose.body"       :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-red-950/40 bg-[url('/assets/img/mac-wallpaper-hello-orange-dark.jpg')] bg-[percentage:150%] bg-[center_top_-9rem] bg-black/0 bg-blend-darken"/>
+          <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-blue-content normal-feature-card-style-blue"/>
+          <NormalFeatureCard titleKey="feature.launchpad.title"           bodyKey="feature.launchpad.body"        :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
+
+        </div>
+
+        <hr ref="trackpadRule" class="my-[2.25rem] mx-[12px] border-neutral-900/[0.05]">
+
+        <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2.5rem]">
+          <NormalFeatureCard titleKey="feature.zoom.title"                bodyKey="feature.zoom.body"             :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-yellow-content normal-feature-card-style-yellow"/>
+          <NormalFeatureCard titleKey="feature.pages.title"               bodyKey="feature.pages.body"            :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
+          <NormalFeatureCard titleKey="feature.mail-actions.title"        bodyKey="feature.mail-actions.body"     :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-orange-950/30 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-cover bg-center bg-black/0 bg-blend-darken"/>
+          <NormalFeatureCard titleKey="feature.free-scroll.title"         bodyKey="feature.free-scroll.body"      :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-blue-950/50 bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[length:800px] bg-bottom bg-black/0 bg-blend-darken"/>
+          <NormalFeatureCard titleKey="feature.smart-zoom.title"          bodyKey="feature.smart-zoom.body"       :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-purple-content normal-feature-card-style-purple"/>
+        </div>
       </div>
-
-      <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2.5rem] mt-[4.5rem]">
-        <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
-        <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-red-content normal-feature-card-style-red"/>
-        <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="text-shadow-xl shadow-green-950/30 bg-[url('/assets/img/mac-wallpaper-sonoma.jpg')] bg-[length:1100px] bg-[center_top_-30rem] bg-black/0 bg-blend-darken"/>
-        <NormalFeatureCard titleKey="feature.app-expose.title"          bodyKey="feature.app-expose.body"       :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-red-950/40 bg-[url('/assets/img/mac-wallpaper-hello-orange-dark.jpg')] bg-[percentage:150%] bg-[center_top_-9rem] bg-black/0 bg-blend-darken"/>
-        <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-blue-content normal-feature-card-style-blue"/>
-        <NormalFeatureCard titleKey="feature.launchpad.title"           bodyKey="feature.launchpad.body"        :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
-
-      </div>
-
-      <hr class="my-[2.25rem] mx-[12px] border-gray-300/35">
-
-      <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2.5rem]">
-        <NormalFeatureCard titleKey="feature.zoom.title"                bodyKey="feature.zoom.body"             :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-yellow-content normal-feature-card-style-yellow"/>
-        <NormalFeatureCard titleKey="feature.pages.title"               bodyKey="feature.pages.body"            :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
-        <NormalFeatureCard titleKey="feature.mail-actions.title"        bodyKey="feature.mail-actions.body"     :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-orange-950/30 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-cover bg-center bg-black/0 bg-blend-darken"/>
-        <NormalFeatureCard titleKey="feature.free-scroll.title"         bodyKey="feature.free-scroll.body"      :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-blue-950/50 bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[length:800px] bg-bottom bg-black/0 bg-blend-darken"/>
-        <NormalFeatureCard titleKey="feature.smart-zoom.title"          bodyKey="feature.smart-zoom.body"       :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-purple-content normal-feature-card-style-purple"/>
-      </div>
+      <p v-html="$mt('trackpad-features.disclaimer')" class="text-[1.0rem] text-center text-gray-500/60 mt-[4.5rem] mb-[4.5rem] whitespace-pre-line"></p>
     </div>
-    <p v-html="$mt('trackpad-features.disclaimer')" class="text-[1.0rem] text-center text-gray-500/60 mt-[4.5rem] mb-[4.5rem] whitespace-pre-line"></p>
 
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">Make Your Mouse Do<br>Anything You Can <span class="text-gradient-orange">Think </span>of.<br>As Fast as You Can Think of It.</h2> -->
     <!-- <h2 class="xl:text-7xl md:text-6xl text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800"><span class="text-gradient-orange">Think </span>It.<br>Then Make Your Mouse Do It.</h2> -->
@@ -218,6 +224,9 @@ const { setLocale, locale, defaultLocale } = useI18n()
 const $mt = useMT()
 // import { $mt } from '~/utils/markdownTranslate'
 
+/* Import gsap stuff */
+const { $gsap } = useNuxtApp()
+
 /* Import other utils */
 
 import { everyNth } from '~/utils/util';
@@ -243,6 +252,56 @@ import arrowsImagePath from '../assets/img/arrow.up.and.down@8x.png'
 import gearImagePath from '../assets/img/gearshape@8x.png'
 import actionTableImagePath from '../assets/img/mmf-on-studio-display-4.png'
 import colorSplashImagePath from '../assets/img/color-splash.png'
+
+/* Get global store */
+import { useGlobalStore } from '~/store/global';
+import { storeToRefs } from 'pinia';
+const global = useGlobalStore()
+const { introAnimationIsReady } = storeToRefs(global)
+
+/* Get refs */
+
+const trackpadCardsSection = ref<HTMLDivElement | null>(null)
+const trackpadSplash1 = ref<HTMLElement | null>(null)
+const trackpadSplash2 = ref<HTMLElement | null>(null)
+const trackpadRule = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+
+  watch(introAnimationIsReady, (newValue) => {
+
+    if (newValue == false) { return }
+
+    /* Create scroll-linked animation for the color trackpad section */
+
+    
+    const cardsOffset = '4rem'
+
+    const tlTrack = $gsap.timeline({scrollTrigger: {
+      trigger: trackpadCardsSection.value!,
+      pin: false, // Pin the trigger element while active
+      start: "top bottom", // Top of element, bottom of viewport
+      end: `bottom top`,
+      scrub: 0.0, // Smooth scrubbing, takes x second to "catch up" to the scrollbar
+      markers: true,
+    }})
+
+    // tlTrack.set(trackpadSplash1.value, { top: '25%', left: '75%' }, 0)
+    // tlTrack.set(trackpadSplash2.value, { top: '75%', left: '25%' }, 0)
+
+    // tlTrack.to(trackpadSplash1.value, { top: '35%', left: '65%', duration: 1, ease: 'linear'}, 0)
+    // tlTrack.to(trackpadSplash2.value, { top: '65%', left: '35%', duration: 1, ease: 'linear'}, 0)
+
+    tlTrack.fromTo(trackpadCardsSection.value,  { translateY: cardsOffset }, { translateY: '-' + cardsOffset, duration: 1, ease: 'linear'}, 0)
+    tlTrack.fromTo(trackpadRule.value,          { translateY: '-' + cardsOffset }, { translateY: cardsOffset, duration: 1, ease: 'linear'}, 0)
+
+    tlTrack.duration(4)
+
+    console.log(`splash: ${ trackpadSplash1.value }, section: ${ trackpadCardsSection.value }`);
+
+  })
+
+})
 
 </script>
 

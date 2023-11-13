@@ -18,8 +18,8 @@ export default {
   /* Feature Cards */
 
   'feature-card.expand-button': 'See It in Action',
-  'feature-card.unexpand-button': 'Minimize',
-  'feature-card.minimize-hint': 'Click outside of this card to minimize it',
+  'feature-card.unexpand-button': 'Minimize 􀜪',
+  'feature-card.minimize-hint': 'Minimize 􀜪',
 
   'card-header.video-hint': 'Click any card for a *Video Demo*',
 

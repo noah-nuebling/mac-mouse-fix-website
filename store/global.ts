@@ -10,6 +10,7 @@ export const useGlobalStore = defineStore('global', () => {
   // Variables
   const backdrop = ref<HTMLElement | null>(null)
   const navbarHasDarkAppearance = ref<boolean>(false)
+  const introAnimationIsReady = ref(false)
 
   // Functions
   // function increment() {
@@ -17,5 +18,5 @@ export const useGlobalStore = defineStore('global', () => {
   // }
 
   // Return 
-  return { backdrop, navbarHasDarkAppearance }
+  return { backdrop, navbarHasDarkAppearance, introAnimationIsReady }
 })
