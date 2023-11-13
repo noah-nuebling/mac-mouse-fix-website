@@ -53,7 +53,7 @@
 
       <CardHeader titleKey="trackpad-features.header" :iconPath="trackpadImagePath" iconClass="translate-y-[3px]" class="mt-[2rem] mb-[calc(6.5rem-3vh)] mx-[0] !rounded-[2rem] !border-none !font-[400]"/>
 
-      <div ref="trackpadCardsSection" class="relative">
+      <div class="relative">
 
         <div class="absolute inset-0 -z-10">
           <div class="absolute inset-0 z-10"></div>
@@ -61,19 +61,18 @@
           <img ref="trackpadSplash2" :src="colorSplashImagePath" alt="" class="min-w-[150rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]">
         </div>
 
-        <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2.5rem]">
+        <div ref="trackpadCardsSection1" class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2.5rem] relative z-[10]">
           <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
           <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-red-content normal-feature-card-style-red"/>
           <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="text-shadow-xl shadow-green-950/30 bg-[url('/assets/img/mac-wallpaper-sonoma.jpg')] bg-[length:1100px] bg-[center_top_-30rem] bg-black/0 bg-blend-darken"/>
           <NormalFeatureCard titleKey="feature.app-expose.title"          bodyKey="feature.app-expose.body"       :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-red-950/40 bg-[url('/assets/img/mac-wallpaper-hello-orange-dark.jpg')] bg-[percentage:150%] bg-[center_top_-9rem] bg-black/0 bg-blend-darken"/>
           <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-blue-content normal-feature-card-style-blue"/>
           <NormalFeatureCard titleKey="feature.launchpad.title"           bodyKey="feature.launchpad.body"        :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
-
         </div>
 
-        <hr ref="trackpadRule" class="my-[2.25rem] mx-[12px] border-neutral-900/[0.05]">
+        <hr ref="trackpadRule" class="my-[2.25rem] mx-[12px] border-neutral-950/[0.066]">
 
-        <div class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2.5rem]">
+        <div ref="trackpadCardsSection2" class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[2.5rem] relative z-[9]">
           <NormalFeatureCard titleKey="feature.zoom.title"                bodyKey="feature.zoom.body"             :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-yellow-content normal-feature-card-style-yellow"/>
           <NormalFeatureCard titleKey="feature.pages.title"               bodyKey="feature.pages.body"            :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
           <NormalFeatureCard titleKey="feature.mail-actions.title"        bodyKey="feature.mail-actions.body"     :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-orange-950/30 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-cover bg-center bg-black/0 bg-blend-darken"/>
@@ -227,14 +226,15 @@ const $mt = useMT()
 /* Import gsap stuff */
 const { $gsap } = useNuxtApp()
 
-/* Import other utils */
-
-import { everyNth } from '~/utils/util';
-
 /* Import quote stuff */
 
 import { getUsableQuotes } from "../utils/quotes"
 const quotes = getUsableQuotes()
+
+/* Import other stuff */
+
+import { everyNth } from '~/utils/util';
+import { type Ref } from 'vue'
 
 /* Manually import video assets
     Note I feel like this is way too cumbersome. We know in advance which videos to import anyways (so we don't need 'dynamic' imports which should make it even easier) so why do we have to manually import in code? It should automatically import the static assets we use.
@@ -261,7 +261,8 @@ const { introAnimationIsReady } = storeToRefs(global)
 
 /* Get refs */
 
-const trackpadCardsSection = ref<HTMLDivElement | null>(null)
+const trackpadCardsSection1 = ref<HTMLDivElement | null>(null)
+const trackpadCardsSection2 = ref<HTMLDivElement | null>(null)
 const trackpadSplash1 = ref<HTMLElement | null>(null)
 const trackpadSplash2 = ref<HTMLElement | null>(null)
 const trackpadRule = ref<HTMLElement | null>(null)
@@ -274,33 +275,28 @@ onMounted(() => {
 
     /* Create scroll-linked animation for the color trackpad section */
 
-    
-    const cardsOffset = '4rem'
+    const cardsOffset = '3rem'
 
-    const tlTrack = $gsap.timeline({scrollTrigger: {
-      trigger: trackpadCardsSection.value!,
-      pin: false, // Pin the trigger element while active
-      start: "top bottom", // Top of element, bottom of viewport
-      end: `bottom top`,
-      scrub: 0.0, // Smooth scrubbing, takes x second to "catch up" to the scrollbar
-      markers: true,
-    }})
+    const cardsSections = [trackpadCardsSection1, trackpadCardsSection2]
+    const sectionToTimelineMap = new Map<Ref<HTMLElement | null>, gsap.core.Timeline>()
 
-    // tlTrack.set(trackpadSplash1.value, { top: '25%', left: '75%' }, 0)
-    // tlTrack.set(trackpadSplash2.value, { top: '75%', left: '25%' }, 0)
+    for (const section of cardsSections) {
 
-    // tlTrack.to(trackpadSplash1.value, { top: '35%', left: '65%', duration: 1, ease: 'linear'}, 0)
-    // tlTrack.to(trackpadSplash2.value, { top: '65%', left: '35%', duration: 1, ease: 'linear'}, 0)
+      const tlTrack = $gsap.timeline({scrollTrigger: {
+        trigger: section.value!,
+        pin: false, // Pin the trigger element while active
+        start: "top bottom", // Top of element, bottom of viewport
+        end: `bottom top`,
+        scrub: 0.0, // Smooth scrubbing, takes x second to "catch up" to the scrollbar
+        markers: true,
+      }})
 
-    tlTrack.fromTo(trackpadCardsSection.value,  { translateY: cardsOffset }, { translateY: '-' + cardsOffset, duration: 1, ease: 'linear'}, 0)
-    tlTrack.fromTo(trackpadRule.value,          { translateY: '-' + cardsOffset }, { translateY: cardsOffset, duration: 1, ease: 'linear'}, 0)
+      tlTrack.fromTo(section.value!,  { translateY: cardsOffset }, { translateY: '-' + cardsOffset, duration: 1, ease: 'linear'}, 0)
 
-    tlTrack.duration(4)
-
-    console.log(`splash: ${ trackpadSplash1.value }, section: ${ trackpadCardsSection.value }`);
+      sectionToTimelineMap.set(section, tlTrack)
+    }
 
   })
-
 })
 
 </script>
