@@ -4,10 +4,10 @@
   <div>
 
     <!-- NavBar -->
-    <Navbar/>
+    <Navbar class="max-w-[100rem]"/>
 
     <!-- Output page content -->
-    <div class="container mx-auto pt-[0rem]"><slot /></div> <!-- page templates will be inserted here (about.vue, index.vue, etc) -->
+    <div class="max-w-[130rem] mx-auto pt-[0rem]"><slot /></div> <!-- page templates will be inserted here (about.vue, index.vue, etc) -->
 
     <!-- 
     Locale Picker

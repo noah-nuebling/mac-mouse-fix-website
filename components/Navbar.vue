@@ -1,6 +1,6 @@
 <template>
-  <header :class="['fixed left-0 right-0 header-shadow backdrop-blur-[20px] backdrop-saturate-[1.8] z-50 transition-colors duration-[0.5s]', navbarHasDarkAppearance ? 'bg-neutral-950/80 text-white/[0.85]' : 'bg-neutral-50/80 text-black/[0.85]']">
-    <nav class="container mx-auto py-[0.4rem] text-[1rem] font-[400] flex justify-between items-center">
+  <header :class="['fixed left-0 right-0 header-shadow backdrop-blur-[20px] backdrop-saturate-[1.8] z-50 transition-colors duration-[0.5s] !max-w-full', navbarHasDarkAppearance ? 'bg-neutral-950/80 text-white/[0.85]' : 'bg-neutral-50/80 text-black/[0.85]']">
+    <nav :class="['py-[0.4rem] text-[1rem] font-[400] flex justify-between items-center relative left-[50%] translate-x-[-50%]', $attrs.class]">
       
       <NuxtLink :to="localePath('/')" class="font-display mx-[2rem] font-[600] text-[1.75rem] tracking-[-0.00em] leading-[1.15em]">Mac Mouse Fix</NuxtLink>
 

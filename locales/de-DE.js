@@ -29,7 +29,7 @@ export default {
   'trackpad-features.title.track': "Trackpad",
   'trackpad-features.body': 'Jetzt nicht mehr! Mac Mouse Fix bringt alle Funktionen eines Apple Trackpads - und mehr - auf deine **günstige** und **ergonomische** Drittanbieter-Maus. Und alle Interaktionen fühlen sich genauso **ausgefeilt** und **geschmeidig** an wie auf dem Trackpad.',
 
-  'trackpad-features.header': '**Trackpad-Gesten** welche Mac Mouse Fix auf deine Maus bringt*',
+  'trackpad-features.header': '**Trackpad-Gesten** die Mac Mouse Fix auf deine Maus bringt',
 
   'feature.lookup.title': 'Quick Look und Nachschlagen',
   'feature.lookup.body': '**Klicke** **Taste 4** auf deiner Maus, um ein Wort im Wörterbuch nachzuschlagen, einen schnellen Blick auf Webseiten in Safari oder Dateien im Finder zu werfen, und mehr.\n\nEs funktioniert genauso wie das Tippen mit 3 Fingern oder ein kräftiger Klick auf einem Apple Trackpad.',

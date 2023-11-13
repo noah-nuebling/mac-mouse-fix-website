@@ -337,10 +337,13 @@ function killIntroAnimation(reset: boolean = false) {
 }
 function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDistance: number = 0.0) {
 
+  // Debug
   console.log(`Recreating intro animation`);
+  console.log(`Window width: ${ window.innerWidth }`);
+  
 
+  // Update state
   viewportSizeForCurrentAnimation = { width: window.innerWidth, height: window.innerHeight }
-
   const animationAlreadyExists = tlScroll != null
 
   // Validate
