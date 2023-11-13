@@ -29,6 +29,18 @@ export default {
   ],
   theme: {
 
+    screens: {
+
+      // Responsive prefixes.
+      // Notes:
+      // - Using `max` for desktop first design. using `M:some-tailwind-class` will apply that class at the M size and below
+      // - Stole those breakpoints from the Apple iMac and MacBook Air website. They used 734, 1068 and 1440. But there were no changes to the site at 1440. But we might use 1440 as the default width of our stuff.
+
+      lg: { max: "1440px" },
+			md: { max: "1068px" }, // equivalent to css: @media (max-width: 1068px) { ... }
+			sm: { max: "734px" },
+    },
+
     fontFamily: {
 
       /* Copied from Apple website, but adding "-apple-system[-xxx]" and "BlinkMacSystemFont"

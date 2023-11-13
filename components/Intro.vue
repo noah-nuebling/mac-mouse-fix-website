@@ -91,7 +91,7 @@
           <!-- User Quotes -->
 
           <!-- Small Layout -->
-          <div class="flex md:hidden lg:hidden flex-row gap-[2.5rem] py-0 my-[4.5rem] justify-center">
+          <div class="sm:flex hidden flex-row gap-[2.5rem] py-0 my-[4.5rem] justify-center">
             <!-- First row -->
             <div class="flex flex-col gap-[2.5rem] m-[0]">
               <QuoteCard v-for="q in quotes" :quote="q" class=""/>
@@ -99,7 +99,7 @@
           </div>
 
           <!-- Medium Layout -->
-          <div class="hidden md:flex lg:hiddennnn flex-row gap-[2.5rem]">
+          <div class="sm:hidden flex flex-row gap-[2.5rem]">
             <!-- First row -->
             <div class="flex flex-col gap-[2.5rem]">
               <QuoteCard v-for="q in everyNth(2, 0, quotes)" :quote="q" class=""/>
@@ -107,22 +107,6 @@
             <!-- Second row -->
             <div class="flex flex-col gap-[2.5rem]">
               <QuoteCard v-for="q in everyNth(2, 1, quotes)" :quote="q" class=""/>
-            </div>
-          </div>
-
-          <!-- Large Layout -->
-          <div class="hidden md:hidden lg:flexxx flex-row gap-[2.5rem]">
-            <!-- First row -->
-            <div class="flex flex-col gap-[2.5rem] m-[0]">
-              <QuoteCard v-for="q in everyNth(3, 0, quotes)" :quote="q" class=""/>
-            </div>
-            <!-- Second row -->
-            <div class="flex flex-col gap-[2.5rem] m-[0]">
-              <QuoteCard v-for="q in everyNth(3, 1, quotes)" :quote="q" class=""/>
-            </div>
-            <!-- Third row -->
-            <div class="flex flex-col gap-[2.5rem] m-[0]">
-              <QuoteCard v-for="q in everyNth(3, 2, quotes)" :quote="q" class=""/>
             </div>
           </div>
 
