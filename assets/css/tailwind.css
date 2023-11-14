@@ -12,9 +12,9 @@ Notes:
   html {
 
     /* Set size of 1rem 
-        By default, this was 16px (from tailwind?). But Apple website and default is 12px */
+        By default, this was 16px (from tailwind?). But Apple website and default is 12px. Edit: It seems 12px is what Apple uses for the very smallest text. Couldn't find anything smaller. */
 
-    font-size: 12px;
+    @apply sm:text-[12px] text-[12px];
 
     /* Disable vertical scroll - is re-enabled inside Intro.vue */
     overflow-y: clip;

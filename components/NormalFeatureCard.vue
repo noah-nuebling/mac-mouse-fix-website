@@ -14,37 +14,42 @@
     @click="$refs.thisCard.toggleExpand()">
 
     <template v-slot:top>
-      <div class="rounded-[5px] px-[5px] h-fit m-[1.4rem] mb-[-1rem] flex justify-center">
-        <a class="text-blue-500 w-full text-center text-[1.0rem] font-[400] group-hover:underline">
+      <!-- Expand button -->
+      <div class="rounded-[5px] px-[5px] h-fit m-[rem] flex justify-center mt-[1.4rem] mb-[0.1rem] mx-[1rem]">
+        <a class="text-blue-500 w-full text-center sm:text-[1.0rem] text-[1.0rem] font-[400] group-hover:underline">
           <span :class="['', isExpanded ? '' : 'opacity-0 absolute border']">
             <span v-html="$mt('feature-card.unexpand-button')"></span> <span class="inline-space-[8] hidden"/> <img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-2.6px] drop-shadow-xl svg-filter-[tint-blue] hidden">
           </span>
           <span :class="['', isExpanded ? 'opacity-0 absolute' : '']" v-html="$mt(expandButtonKey ? expandButtonKey : 'feature-card.expand-button') + ' 􀊕'"></span>
         </a>
       </div>
-      <h3 class="text-center m-[1.4rem] mt-[1rem] text-[1.6rem] font-[650] shadow-black/100" v-html="$mt(titleKey!)"></h3>
+      <!-- Title -->
+      <h3 class="text-center sm:text-[1.4rem] text-[1.6rem] leading-[1.3] font-[650] shadow-black/100 sm:mx-[2rem] mx-[3rem]" v-html="$mt(titleKey!)"></h3>
     </template>
 
     <template v-slot:default>
-      <div class="flex flex-col items-center justify-start h-full mx-[3.0rem] mt-[1.4rem] mb-[-0.0rem]">
+      <div class="flex flex-col items-center justify-start h-full sm:m-[2rem] m-[3.0rem] sm:mt-[1.33rem] mt-[2.33rem]">
+
+        <!-- Body -->
         <div>
-          <p class="text-[1.0rem] !font-[400] whitespace-pre-wrap shadow-black/100 max-w-[30em]" v-html="$mt(bodyKey!)"></p>
+          <p class="sm:text-[1.0rem] text-[1.0rem] font-[400] whitespace-pre-wrap shadow-black/100 max-w-[30em]" v-html="$mt(bodyKey!)"></p>
         </div>        
+
+        <!-- Image -->
         <div v-if="imagePath" :class="imageClass">
           <img :src="imagePath" class="" alt="">
         </div>
-      </div>
-      <div v-if="videoPath" :class="['mx-[1.5rem] mb-[0.8rem] mt-[-0rem] rounded-[0px] border-t-[0px] border-neutral-950/[0.05] min-h-[3.25rem] flex items-center justify-start group-hover:underline', backgroundFilterClass]">
-        <!-- vvv Can't seem to give the inline play button image a shadow vvv -->
-        
+
       </div>
     </template>
 
     <template v-slot:expanded>
 
+      <!-- Video -->
       <div class="
+
             grow
-            rounded-[0rem] border-[0px] m-[-0px] border-black/[0.05]
+            rounded-b-[1.5rem] border-[0px] mt-[1.4rem] border-black/[0.05]
             overflow-clip
             flex items-center justify-center
             ">

@@ -34,11 +34,15 @@ export default {
       // Responsive prefixes.
       // Notes:
       // - Using `max` for desktop first design. using `M:some-tailwind-class` will apply that class at the M size and below
-      // - Stole those breakpoints from the Apple iMac and MacBook Air website. They used 734, 1068 and 1440. But there were no changes to the site at 1440. But we might use 1440 as the default width of our stuff.
+      // - Stole those breakpoints from the Apple iMac and MacBook Air website. They used 734, 1068 and 1440. But there were no changes to the site at 1440. (So there's only 3 sizes for everything - small, medium, large.) We might use 1440 as the default width of our stuff.
+      //  - On the iMac and Air site, the content for the smallest breakpoint had a size of ca. 415, if the width got lower than that the text just wrapped and the images sized to fit.
+      //  - iMac and Air sites used 320px as min width before responsive stuff stopped working. 320px is width of iPhone 5, 375px is width of iPhone 6
+      //  - From playing around, AirPods Max site has breakpoints at ca. 1600, 1440, 1068, 734, 375. But we should be okay with only 3 breakpoints I think.
 
       lg: { max: "1440px" },
 			md: { max: "1068px" }, // equivalent to css: @media (max-width: 1068px) { ... }
 			sm: { max: "734px" },
+      xs: { max: "375px" },
     },
 
     fontFamily: {
@@ -73,7 +77,7 @@ export default {
       /* vvv Like Feedback Assistant shadows but without inset – otherwise tailwind shadow coloring colors the inset */
       'sm': '0px 0.5px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 8px 0 rgba(0, 0, 0, 0.08)',
       'md': '0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 8px 32px 0 rgba(0, 0, 0, 0.08)',
-      'md-raised': '0 2px 4px 10px rgba(0, 0, 0, 0.08), 0 4px 16px 10px rgba(0, 0, 0, 0.08), 0 8px 32px 10px rgba(0, 0, 0, 0.08)',
+      'md-raised': '0 16px 64px 8px rgba(0, 0, 0, 0.4), 0 16px 100px 16px rgba(0, 0, 0, 0.3), 0 32px 192px 16px rgba(0, 0, 0, 0.2)',
     },
 
     extend: {

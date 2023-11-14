@@ -31,13 +31,13 @@
     <!-- Replaces Trackpad -->
 
     <div class="w-full flex flex-col justify-center items-center">
-      <i18n-t tag="h2" keypath="trackpad-features.title" class="text-center whitespace-pre-wrap text-[5rem] md:text-[3.5rem] sm:text-[3rem] font-[700] leading-[1.05] tracking-[-0.15rem] mt-[18rem] text-gray-800">
+      <i18n-t tag="h2" keypath="trackpad-features.title" class="text-center whitespace-pre-wrap xs:text-[2.75rem] sm:text-[3.25rem] md:text-[5rem] text-[5rem] font-[700] leading-[1.05] tracking-[-0.15rem] mx-[1rem] mt-[18rem] text-gray-800">
         <template #track> 
           <span class="text-gradient-blue">{{ $t('trackpad-features.title.track')}}</span> 
         </template>
       </i18n-t>
 
-      <p v-html="$mt('trackpad-features.body')" class="text-center max-w-[30em] whitespace-pre-wrap text-[1.8rem] font-[400] text-black/[0.9] leading-[1.4] tracking-[-0.005rem] my-[4.5rem]"></p>
+      <p v-html="$mt('trackpad-features.body')" class="text-center max-w-[30em] whitespace-pre-wrap sm:text-[1.4rem] text-[1.8rem] font-[400] text-black/[0.9] leading-[1.4] tracking-[-0.005rem] my-[4.5rem] mx-[1rem]"></p>
     </div>
     <!-- <p class="whitespace-pre-wrap text-3xl font-bold text-gray-900/70 mb-10 mt-0 w-max-[60rem]">Trackpad Features Which Mac Mouse Fix Brings To Your Mouse
       
@@ -49,10 +49,10 @@
 
     
     
-    <div class="shadow-sm shadow-black/[0.0] border-0 border-neutral-900/[0.15] bg-neutral-900/[0.01] rounded-[4rem] px-[2.5rem] relative md:mx-0 mx-[2.5rem]">
+    <div class="shadow-sm shadow-black/[0.0] border-0 border-neutral-900/[0.15] bg-neutral-900/[0.015] sm:rounded-[2rem] rounded-[4rem] relative sm:px-[0.5rem] px-[2.5rem] xs:mx-0 mx-[2.5rem]">
 
-      <div class="relative pt-[7rem] pb-[calc(7rem-1.25rem)] mx-[1rem]">
-        <p v-html="$mt('trackpad-features.header')" class="whitespace-pre-wrap text-[1.8rem] font-[400] leading-[1.7rem] text-center text-neutral-950/80 mb-[0.25rem] w-max-[60rem]"></p>
+      <div class="relative sm:pt-[5.5rem] sm:pb-[calc(5.5rem-3rem)] pt-[7rem] pb-[calc(7rem-1.5rem)] mx-[1rem]">
+        <p v-html="$mt('trackpad-features.header')" class="whitespace-pre-wrap sm:text-[1.4rem] text-[1.8rem] font-[400] leading-[1.4] text-center text-neutral-950/80 mb-[0.25rem] w-max-[60rem]"></p>
       </div>
       <!-- <CardHeader titleKey='trackpad-features.header' :iconPath="trackpadImagePath" iconClass="translate-y-[3px]" class="mt-[0rem] mb-[calc(6.5rem-2rem)] mx-[0] !rounded-[2rem] border !font-[400]"/> -->
 
@@ -65,7 +65,7 @@
           </div>
 
           <!-- <hr ref="trackpadRule" class="mb-[2.25rem] mx-[12px] border-neutral-950/[0.066]"> -->
-          <div ref="trackpadCardsSection1" class="grid justify-items-center w-fit items-center grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] relative z-[10]">
+          <div ref="trackpadCardsSection1" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] relative z-[10]">
             <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="remapDemoVideoPath"       class="w-fit text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
             <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="w-fit text-shadow-sm normal-feature-card-style-red-content normal-feature-card-style-red"/>
             <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="w-fit text-shadow-xl shadow-green-950/30 bg-[url('/assets/img/mac-wallpaper-sonoma.jpg')] bg-[length:1100px] bg-[center_top_-30rem] bg-black/0 bg-blend-darken"/>
@@ -87,7 +87,9 @@
           </div>
         </div>
       </div>
-      <p v-html="$mt('trackpad-features.disclaimer')" class="text-[1.0rem] text-center text-gray-500/60 mt-[4.5rem] mb-[4.5rem] whitespace-pre-line"></p>
+      <div class="max-w-[calc(100%-0rem)] relative left-[50%] translate-x-[-50%] sm:px-[1rem] px-[5rem] pt-[calc(5.5rem-0.5rem)] pb-[5.5rem]">
+        <p v-html="$mt('trackpad-features.disclaimer')" class="text-[1.0rem] text-center text-neutral-900/[0.7] whitespace-pre-line"></p>
+      </div>
     </div>
 
     <!-- Scrolling -->
@@ -304,7 +306,7 @@ onMounted(() => {
 
     /* Create scroll-linked parallax animations for cardsSections */
     
-    const cardsOffset = '3rem'
+    const cardsOffset = '4rem'
 
     for (const section of cardsSections) {
 

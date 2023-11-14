@@ -277,7 +277,7 @@ if (props.doesExpand) {
 
       const targetLayout = 'absolute'
 
-      const targetWidth = `min(max(66%, ${700}px), 95%, 800px, 120vh)`
+      const targetWidth = `min(max(66%, ${700}px), 100%, 800px, 110vh)`
       const targetMaxWidth = '100%'
       const targetHeight = 'fit-content'
       const targetMaxHeight = 'auto'
@@ -290,7 +290,7 @@ if (props.doesExpand) {
 
       // var targetBorderRadius = ''
       // var targetBorderWidth = ''
-      const targetShadow = '0 16px 64px 8px rgba(0, 0, 0, 0.4), 0 16px 100px 16px rgba(0, 0, 0, 0.3), 0 32px 192px 16px rgba(0, 0, 0, 0.2)'//tw.theme.boxShadow["md-raised"]
+      const targetShadow = tw.theme.boxShadow["md-raised"]
 
       var calcScale = 0
       var calcWidth = 0

@@ -58,7 +58,7 @@ export default {
   'feature.smart-zoom.title': 'Smart zoom',
   'feature.smart-zoom.body': '**Click** **button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple trackpad.',
 
-  'trackpad-features.disclaimer': "* Mac Mouse Fix can bring these trackpad features to your third-party mouse in the way described here, only if your mouse has at least 5 buttons recognized by Mac Mouse Fix. If Mac Mouse Fix recognizes fewer than 5 buttons on your mouse, it still provides lots of functionality and a great experience, but some features will be less accessible compared to a 5-button mouse. Please note that Mac Mouse Fix does not currently support the Apple Magic Mouse.",
+  'trackpad-features.disclaimer': "Mac Mouse Fix can bring these trackpad features to your third-party mouse in the way described here, only if your mouse has at least 5 buttons recognized by Mac Mouse Fix. If Mac Mouse Fix recognizes fewer than 5 buttons on your mouse, it still provides lots of functionality and a great experience, but some features will be less accessible compared to a 5-button mouse. Please note that Mac Mouse Fix does not currently support the Apple Magic Mouse.",
 
   /* Scrolling */
 

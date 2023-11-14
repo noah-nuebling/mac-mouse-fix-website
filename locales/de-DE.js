@@ -55,7 +55,7 @@ export default {
   'feature.smart-zoom.title': 'Intelligentes Zoomen',
   'feature.smart-zoom.body': '**Klicke** **Taste 5** auf deiner Maus, um eine Webseite oder ein PDF zu vergrößern oder zu verkleinern.\n\nEs funktioniert genauso wie das Doppeltippen mit zwei Fingern auf einem Apple Trackpad.',
 
-  'trackpad-features.disclaimer': "* Mac Mouse Fix kann diese Trackpad-Funktionen nur dann in der hier beschriebenen Weise auf deine Maus bringen, wenn Mac Mouse Fix mindestens 5 Tasten auf deiner Maus erkennt. Wenn Mac Mouse Fix weniger als 5 Tasten auf deiner Maus erkennt, bietet es immer noch viele Funktionen und ein gutes Erlebnis, aber einige Funktionen sind weniger zugänglich im Vergleich zu einer 5-Tasten-Maus. Bitte beachte, dass Mac Mouse Fix die Apple Magic Mouse derzeit nicht unterstützt.",
+  'trackpad-features.disclaimer': "Mac Mouse Fix kann diese Trackpad-Funktionen nur dann in der hier beschriebenen Weise auf deine Maus bringen, wenn Mac Mouse Fix mindestens 5 Tasten auf deiner Maus erkennt. Wenn Mac Mouse Fix weniger als 5 Tasten auf deiner Maus erkennt, bietet es immer noch viele Funktionen und ein gutes Erlebnis, aber einige Funktionen sind weniger zugänglich im Vergleich zu einer 5-Tasten-Maus. Bitte beachte, dass Mac Mouse Fix die Apple Magic Mouse derzeit nicht unterstützt.",
 
   /* Scrolling */
 
