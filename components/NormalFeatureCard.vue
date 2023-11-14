@@ -14,8 +14,11 @@
     @click="$refs.thisCard.toggleExpand()">
 
     <template v-slot:top>
+      
+      <!-- Spacer -->
+      <div :class="['', videoPath ? 'h-[3.0rem]' : 'h-[2.75rem]']"></div>
       <!-- Expand button -->
-      <div class="rounded-[5px] px-[5px] h-fit m-[rem] flex justify-center mt-[1.4rem] mb-[0.1rem] mx-[1rem]">
+      <div v-if="videoPath" class="absolute h-fit mt-[1.4rem] left-[50%] translate-x-[-50%]">
         <a class="text-blue-500 w-full text-center sm:text-[1.0rem] text-[1.0rem] font-[400] group-hover:underline">
           <span :class="['', isExpanded ? '' : 'opacity-0 absolute border']">
             <span v-html="$mt('feature-card.unexpand-button')"></span> <span class="inline-space-[8] hidden"/> <img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-2.6px] drop-shadow-xl svg-filter-[tint-blue] hidden">
@@ -28,7 +31,7 @@
     </template>
 
     <template v-slot:default>
-      <div class="flex flex-col items-center justify-start h-full sm:m-[2rem] m-[3.0rem] sm:mt-[1.33rem] mt-[2.33rem]">
+      <div class="flex flex-col items-center justify-start h-full sm:m-[2rem] m-[3.0rem] sm:mt-[1.33rem] mt-[2.75rem]">
 
         <!-- Body -->
         <div>

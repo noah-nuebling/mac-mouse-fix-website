@@ -29,8 +29,8 @@ export default {
   */
 
 
-  'trackpad-features.title': "Macs Are Best\nWith a {track},\nRight?",
-  'trackpad-features.title.track': "Trackpad",
+  'trackpad-features.title': "Macs Are Best\nWith a {accent},\nRight?",
+  'trackpad-features.title.accent': "Trackpad",
   'trackpad-features.body': 'Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **precise** and **ergonomic** third-party mouse. And all interactions feel just as **polished** and **smooth** as they do on the trackpad.',
   'trackpad-features.header': '**Trackpad Gestures** that Mac Mouse Fix brings to your mouse',
   
@@ -87,8 +87,8 @@ export default {
 
   */
 
-  'scrolling.title': "{first}.\nSmooth As Butter.",
-  'scrolling.title.first': "Scrolling",
+  'scrolling.title': "{accent}.\nSmooth As Butter.",
+  'scrolling.title.accent': "Scrolling",
 
   'scrolling.body': "Mac Mouse Fix makes scrolling on your mouse feel as **smooth** and **fluid** as on an Apple trackpad, or as **consistent** and **precise** as on Windows.",
 
@@ -127,9 +127,9 @@ export default {
       You can also double click, use keyboard modifiers, and more.
   */
 
-  'remap-engine.title': 'Incredibly {first}.\n{second} Flexible.',
-  'remap-engine.title.first': 'Intuitive',
-  'remap-engine.title.second': 'Formidably',
+  'remap-engine.title': 'Incredibly {accent}.\n{accent2} Flexible.',
+  'remap-engine.title.accent': 'Intuitive',
+  'remap-engine.title.accent2': 'Formidably',
   'remap-engine.body': "Mac Mouse Fix makes it incredibly **easy and intuitive to precisely customize** what your mouse does.",
   
   'customization-feature.header': "Flexible **Customization Options**",
@@ -152,10 +152,9 @@ export default {
 
   */
 
-  'good-software.title': "Great {first}.\nSmall {third}.",
-  'good-software.title.first': "Software",
-  'good-software.title.second': "Price",
-  'good-software.title.third': "Price",
+  'good-software.title': "Great {accent}.\nSmall {accent2}.",
+  'good-software.title.accent': "Software",
+  'good-software.title.accent2': "Price",
   'good-software.body': "Mac Mouse Fix is unobtrusive, lightweight, polished, and easy to use. Every detail has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Additionally, it is completely open source which means that you can trust that it is secure ((and does not steal your data or mine bitcoin in the background or anything like that)), and (I'm glad to say that) to say the app has been downloaded x times, and users really love it. Here are some positive things that people have to say about the app. Thanks to everyone sharing their feedback...",
 
   'unobtrusive-lightweight.title': "Unobtrusive and lightweight",

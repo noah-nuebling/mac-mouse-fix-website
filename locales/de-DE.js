@@ -25,8 +25,8 @@ export default {
 
   /* Trackpad Features */
 
-  'trackpad-features.title': "Macs sind am besten\nMit einem {track},\nOder?",
-  'trackpad-features.title.track': "Trackpad",
+  'trackpad-features.title': "Macs sind am besten\nMit einem {accent},\nOder?",
+  'trackpad-features.title.accent': "Trackpad",
   'trackpad-features.body': 'Jetzt nicht mehr! Mac Mouse Fix bringt alle Funktionen eines Apple Trackpads - und mehr - auf deine **ergonomische** und **präzise** Drittanbieter-Maus. Und alle Interaktionen fühlen sich genauso **ausgefeilt** und **geschmeidig** an wie auf dem Trackpad.',
 
   'trackpad-features.header': '**Trackpad-Gesten** die Mac Mouse Fix auf deine Maus bringt',
@@ -68,8 +68,8 @@ export default {
   // 'scroll-smoothness.off.body':       "Mit dieser Option funktioniert das Scrollen wie gewohnt unter macOS - ohne jegliche Animation oder Flüssigkeit. Aber mit einem wichtigen Unterschied: Ein Inkrement des Scrollrades scrollt in Apps wie dem Finder eine festgelegte Anzahl von *Zeilen* anstelle nur weniger Pixel.\n\nSo funktionierte das Scrollen auch in älteren macOS-Versionen, sowie in Windows und Linux.",
 
 
-  'scrolling.title': "{first}.\nButterweich.",
-  'scrolling.title.first': "Scrollen",
+  'scrolling.title': "{accent}.\nButterweich.",
+  'scrolling.title.accent': "Scrollen",
   
   'scrolling.body': "Mit Mac Mouse Fix fühlt sich Scrollen auf deiner Maus so **flüssig** und **geschmeidig** an wie auf einem Apple Trackpad oder so **konsistent** und **präzise** wie unter Windows.",
   
@@ -119,9 +119,9 @@ export default {
 
   /* Action Table */
 
-  'remap-engine.title': 'Erstaunlich {first}.\n{second} Flexibel.',
-  'remap-engine.title.first': 'Intuitiv',
-  'remap-engine.title.second': 'Gewaltig',
+  'remap-engine.title': 'Erstaunlich {accent}.\n{accent2} Flexibel.',
+  'remap-engine.title.accent': 'Intuitiv',
+  'remap-engine.title.accent2': 'Gewaltig',
   'remap-engine.body': 'Mit Mouse Fix kannst du unglaublich **leicht** und **intuitiv** ganz genau anpassen, was deine Maus macht.',
 
   'customization-feature.header': "Flexible **Anpassungsmöglichkeiten**",

@@ -30,48 +30,26 @@
 
     <!-- Replaces Trackpad -->
 
-    <div class="w-full flex flex-col justify-center items-center">
-      <i18n-t tag="h2" keypath="trackpad-features.title" class="text-center whitespace-pre-wrap xs:text-[2.75rem] sm:text-[3.25rem] md:text-[5rem] text-[5rem] font-[700] leading-[1.05] tracking-[-0.15rem] mx-[1rem] mt-[18rem] text-gray-800">
-        <template #track> 
-          <span class="text-gradient-blue">{{ $t('trackpad-features.title.track')}}</span> 
-        </template>
-      </i18n-t>
-
-      <p v-html="$mt('trackpad-features.body')" class="text-center max-w-[30em] whitespace-pre-wrap sm:text-[1.4rem] text-[1.8rem] font-[400] text-black/[0.9] leading-[1.4] tracking-[-0.005rem] my-[4.5rem] mx-[1rem]"></p>
-    </div>
-    <!-- <p class="whitespace-pre-wrap text-3xl font-bold text-gray-900/70 mb-10 mt-0 w-max-[60rem]">Trackpad Features Which Mac Mouse Fix Brings To Your Mouse
-      
-    </p>
-    <div class="bg-gray-900/90 rounded-[7px] text-sm px-3 py-2 ml-6  -translate-y-3 shadow-sm-inset bg-[linear-gradient(225deg,#1f005c,#540083,#a200a9,#d00099,#f60069,#ff1e38)]">
-      <p v-html="$mt('trackpad-features.cards.hint.1')" class="whitespace-pre-wrap text-normal text-center font-bold text-gray-50/90 mb-0 mt-0 w-max-[60rem] 
-       bg-clip-text w-full"></p>
-    </div> -->
-
+    <SectionHeader title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" title-accent-class="text-gradient-blue" body-key="trackpad-features.body" />
     
-    
-    <div class="shadow-sm shadow-black/[0.0] border-0 border-neutral-900/[0.15] bg-neutral-900/[0.015] sm:rounded-[2rem] rounded-[4rem] relative sm:px-[0.5rem] px-[2.5rem] xs:mx-0 mx-[2.5rem]">
-
-      <div class="relative sm:pt-[5.5rem] sm:pb-[calc(5.5rem-3rem)] pt-[7rem] pb-[calc(7rem-1.5rem)] mx-[1rem]">
-        <p v-html="$mt('trackpad-features.header')" class="whitespace-pre-wrap sm:text-[1.4rem] text-[1.8rem] font-[400] leading-[1.4] text-center text-neutral-950/80 mb-[0.25rem] w-max-[60rem]"></p>
-      </div>
-      <!-- <CardHeader titleKey='trackpad-features.header' :iconPath="trackpadImagePath" iconClass="translate-y-[3px]" class="mt-[0rem] mb-[calc(6.5rem-2rem)] mx-[0] !rounded-[2rem] border !font-[400]"/> -->
+    <CardContainer title-key="trackpad-features.header">
 
       <div class="w-full flex justify-center">
         <div class="relative flex flex-col items-center w-fit">
           <div class="absolute inset-0 -z-10">
             <div class="absolute inset-0 z-10"></div>
-            <img ref="trackpadSplash1" :src="colorSplashImagePath" alt="" class="min-w-[150rem] absolute left-[75%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.4]">
-            <img ref="trackpadSplash2" :src="colorSplashImagePath" alt="" class="min-w-[150rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.4]">
+            <img ref="trackpadSplash1" :src="colorSplashImagePath" alt="" class="min-w-[150rem] absolute left-[75%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]">
+            <img ref="trackpadSplash2" :src="colorSplashImagePath" alt="" class="min-w-[150rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]">
           </div>
 
           <!-- <hr ref="trackpadRule" class="mb-[2.25rem] mx-[12px] border-neutral-950/[0.066]"> -->
           <div ref="trackpadCardsSection1" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] relative z-[10]">
-            <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="remapDemoVideoPath"       class="w-fit text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
-            <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="w-fit text-shadow-sm normal-feature-card-style-red-content normal-feature-card-style-red"/>
-            <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="w-fit text-shadow-xl shadow-green-950/30 bg-[url('/assets/img/mac-wallpaper-sonoma.jpg')] bg-[length:1100px] bg-[center_top_-30rem] bg-black/0 bg-blend-darken"/>
-            <NormalFeatureCard titleKey="feature.app-expose.title"          bodyKey="feature.app-expose.body"       :videoPath="remapDemoVideoPath"       class="w-fit text-shadow-lg shadow-red-950/40 bg-[url('/assets/img/mac-wallpaper-hello-orange-dark.jpg')] bg-[percentage:150%] bg-[center_top_-9rem] bg-black/0 bg-blend-darken"/>
-            <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="remapDemoVideoPath"       class="w-fit text-shadow-sm normal-feature-card-style-blue-content normal-feature-card-style-blue"/>
-            <NormalFeatureCard titleKey="feature.launchpad.title"           bodyKey="feature.launchpad.body"        :videoPath="remapDemoVideoPath"       class="w-fit text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
+            <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="remapDemoVideoPath"       class="w-fit normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
+            <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="remapDemoVideoPath"       class="w-fit normal-feature-card-style-red-content normal-feature-card-style-red"/>
+            <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="remapDemoVideoPath"       class="w-fit shadow-green-950/30 bg-[url('/assets/img/mac-wallpaper-sonoma.jpg')] bg-[length:1100px] bg-[center_top_-30rem] bg-black/0 bg-blend-darken"/>
+            <NormalFeatureCard titleKey="feature.app-expose.title"          bodyKey="feature.app-expose.body"       :videoPath="remapDemoVideoPath"       class="w-fit shadow-red-950/40 bg-[url('/assets/img/mac-wallpaper-hello-orange-dark.jpg')] bg-[percentage:150%] bg-[center_top_-9rem] bg-black/0 bg-blend-darken"/>
+            <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="remapDemoVideoPath"       class="w-fit normal-feature-card-style-blue-content normal-feature-card-style-blue"/>
+            <NormalFeatureCard titleKey="feature.launchpad.title"           bodyKey="feature.launchpad.body"        :videoPath="remapDemoVideoPath"       class="w-fit shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
           </div>
 
           <div class="w-full">
@@ -79,129 +57,76 @@
           </div>
 
           <div ref="trackpadCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] relative z-[9]">
-            <NormalFeatureCard titleKey="feature.zoom.title"                bodyKey="feature.zoom.body"             :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-yellow-content normal-feature-card-style-yellow"/>
-            <NormalFeatureCard titleKey="feature.pages.title"               bodyKey="feature.pages.body"            :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
-            <NormalFeatureCard titleKey="feature.mail-actions.title"        bodyKey="feature.mail-actions.body"     :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-orange-950/30 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-cover bg-center bg-black/0 bg-blend-darken"/>
-            <NormalFeatureCard titleKey="feature.free-scroll.title"         bodyKey="feature.free-scroll.body"      :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-blue-950/50 bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[length:800px] bg-bottom bg-black/0 bg-blend-darken"/>
-            <NormalFeatureCard titleKey="feature.smart-zoom.title"          bodyKey="feature.smart-zoom.body"       :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-purple-content normal-feature-card-style-purple"/>
+            <NormalFeatureCard titleKey="feature.zoom.title"                bodyKey="feature.zoom.body"             :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-yellow-content normal-feature-card-style-yellow"/>
+            <NormalFeatureCard titleKey="feature.pages.title"               bodyKey="feature.pages.body"            :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-green-content normal-feature-card-style-green"/>
+            <NormalFeatureCard titleKey="feature.mail-actions.title"        bodyKey="feature.mail-actions.body"     :videoPath="remapDemoVideoPath"       class="shadow-orange-950/30 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-cover bg-center bg-black/0 bg-blend-darken"/>
+            <NormalFeatureCard titleKey="feature.free-scroll.title"         bodyKey="feature.free-scroll.body"      :videoPath="remapDemoVideoPath"       class="shadow-blue-950/50 bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[length:800px] bg-bottom bg-black/0 bg-blend-darken"/>
+            <NormalFeatureCard titleKey="feature.smart-zoom.title"          bodyKey="feature.smart-zoom.body"       :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-purple-content normal-feature-card-style-purple"/>
           </div>
         </div>
       </div>
       <div class="max-w-[calc(100%-0rem)] relative left-[50%] translate-x-[-50%] sm:px-[1rem] px-[5rem] pt-[calc(5.5rem-0.5rem)] pb-[5.5rem]">
         <p v-html="$mt('trackpad-features.disclaimer')" class="text-[1.0rem] text-center text-neutral-900/[0.7] whitespace-pre-line"></p>
       </div>
-    </div>
+
+    </CardContainer>
 
     <!-- Scrolling -->
 
-    
-    <i18n-t tag="h2" keypath="scrolling.title" class="whitespace-pre-wrap text-7xl md:text-6xl sm:text-5xl font-bold tracking-tight mt-[6rem] text-gray-800">
-      <template #first>
-        <span v-html="$t('scrolling.title.first')" class="text-gradient-violet"></span>
-      </template>
-    </i18n-t>
+    <SectionHeader title-key="scrolling.title" title-accent-key="scrolling.title.accent" title-accent-class="text-gradient-violet" body-key="scrolling.body" />
+  
 
-    <p v-html="$mt('scrolling.body')" class="text-3xl font-normal text-gray-700/60 max-w-[30em] leading-[1.4] my-[4.5rem]"></p>
-
-    <CardHeader titleKey="scroll-smoothness.header" :iconPath="sparkleArrowsImagePath" iconClass="scale-[0.9] translate-x-[2px]"/>
-
-    <div class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] py-0 my-[4.5rem]">
-      <NormalFeatureCard titleKey="scroll-smoothness.high.title"           bodyKey="scroll-smoothness.high.body"        :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
-      <NormalFeatureCard titleKey="scroll-smoothness.regular.title"        bodyKey="scroll-smoothness.regular.body"     :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
-      <NormalFeatureCard titleKey="scroll-smoothness.off.title"            bodyKey="scroll-smoothness.off.body"         :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
-    </div>
-
-    <CardHeader titleKey="scroll-feature.header" :iconPath="arrowsImagePath" hideVideoHint iconClass="scale-[0.8] translate-y-[-1px] translate-x-[-1.5px] px-[0px]"/>
-
-    <div class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] my-[4.5rem]">
-      <NormalFeatureCard titleKey="scroll-feature.reverse.title"        bodyKey="scroll-feature.reverse.body"            class="text-shadow-lg shadow-orange-950/30 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-cover bg-center bg-black/0 bg-blend-darken"/>
-      <NormalFeatureCard titleKey="scroll-feature.modifiers.title"      bodyKey="scroll-feature.modifiers.body"          class="text-shadow-lg shadow-blue-950/50 bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[length:800px] bg-bottom bg-black/0 bg-blend-darken"/>
-      <NormalFeatureCard titleKey="scroll-feature.configurable.title"   bodyKey="scroll-feature.configurable.body"       class="text-shadow-sm normal-feature-card-style-yellow-content normal-feature-card-style-yellow"/>
-    </div>
-
-
-    <!-- Action Table -->
-
-    <i18n-t tag="h2" keypath="remap-engine.title" class="whitespace-pre-wrap text-7xl md:text-6xl sm:text-5xl font-bold tracking-tight mb-[0] mt-[6rem] text-gray-800">
-      <template #first>
-        <span class="text-gradient-green-yellow"> {{ $t('remap-engine.title.first') }}</span>
-      </template>
-      <template #second>
-        <span class="text-gradient-orange"> {{ $t('remap-engine.title.second') }}</span>
-      </template>
-    </i18n-t>
-    
-    <p v-html="$mt('remap-engine.body')" class="text-3xl font-normal text-gray-700/60 max-w-[30em] leading-[1.4] my-[4.5rem]"></p>
-
-    <div class="flex flex-col items-center">
-      <div class="max-w-[1000px] flex flex-col items-center gap-[2.5rem]">
-        <CardHeader titleKey="customization-feature.header" :iconPath="gearImagePath" class="w-full" icon-class="scale-[1.0] translate-x-[0px] px-[5px]"/>
-        <NormalFeatureCard titleKey="customization-feature.action-table.title" bodyKey="customization-feature.action-table.body" :videoPath="remapDemoVideoPath" class="text-shadow-sm shadow-orange-950/30 bg-black/0 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-[center_top_30rem] bg-blend-darken w-full" backgroundFilterClass="backdrop-blur-2xl" :image-path="actionTableImagePath" image-class="w-[1400px] mt-1 mb-[-245px] translate-x-[345px]"/>
-        <NormalFeatureCard titleKey="customization-feature.keyboard-shortcuts.title" bodyKey="customization-feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath" class="text-shadow-sm shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[center_top_-30rem] w-full" backgroundFilterClass="backdrop-blur-2xl" expand-button-key="customization-feature.keyboard-shortcuts.expand-button"/>
+    <CardContainer title-key="scroll-smoothness.header" class="mb-[10rem]">
+      <div ref="scrollingCardsSection1" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] py-[4.5rem] my-[0]">
+        <NormalFeatureCard titleKey="scroll-smoothness.high.title"           bodyKey="scroll-smoothness.high.body"        :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
+        <NormalFeatureCard titleKey="scroll-smoothness.regular.title"        bodyKey="scroll-smoothness.regular.body"     :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
+        <NormalFeatureCard titleKey="scroll-smoothness.off.title"            bodyKey="scroll-smoothness.off.body"         :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
       </div>
-    </div>
+    </CardContainer>
+  
+    <CardContainer title-key="scroll-feature.header">
+      <div ref="scrollingCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] py-[4.5rem] my-[0]">
+        <NormalFeatureCard titleKey="scroll-feature.reverse.title"        bodyKey="scroll-feature.reverse.body"            class="text-shadow-lg shadow-orange-950/30 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-cover bg-center bg-black/0 bg-blend-darken"/>
+        <NormalFeatureCard titleKey="scroll-feature.modifiers.title"      bodyKey="scroll-feature.modifiers.body"          class="text-shadow-lg shadow-blue-950/50 bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[length:800px] bg-bottom bg-black/0 bg-blend-darken"/>
+        <NormalFeatureCard titleKey="scroll-feature.configurable.title"   bodyKey="scroll-feature.configurable.body"       class="text-shadow-sm normal-feature-card-style-yellow-content normal-feature-card-style-yellow"/>
+      </div>
+    </CardContainer>
 
-    <!--     
-      Non-trackpad features section - not enough features to warrant a whole section at this point
-    <div class="flex flex-row flex-wrap">
-      <SmallFeatureCard titleKey="feature.spaces.title"          :videoPath="remapDemoVideoPath"        class="text-shadow-xl shadow-green-950/30 bg-[url('/assets/img/mac-wallpaper-sonoma.jpg')] bg-[length:1100px] bg-[center_top_-30rem] bg-black/0 bg-blend-darken"/>
-      <SmallFeatureCard titleKey="feature.mission-control.title"  :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-red-content normal-feature-card-style-red"/>
-      <SmallFeatureCard titleKey="feature.app-expose.title"       :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-blue-content normal-feature-card-style-blue"/>
-      <SmallFeatureCard titleKey="feature.show-desktop.title"     :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-red-950/40 bg-[url('/assets/img/mac-wallpaper-hello-orange-dark.jpg')] bg-[percentage:140%] bg-[center_top_-7rem] bg-black/0 bg-blend-darken"/>
-      <SmallFeatureCard titleKey="feature.launchpad.title"        :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
-      <SmallFeatureCard titleKey="feature.lookup.title"           :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
-      <SmallFeatureCard titleKey="feature.pages.title"            :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
-      <SmallFeatureCard titleKey="feature.mail-actions.title"     :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-orange-950/30 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-cover bg-center bg-black/0 bg-blend-darken"/>
-      <SmallFeatureCard titleKey="feature.free-scroll.title"      :videoPath="remapDemoVideoPath"       class="text-shadow-lg shadow-blue-950/50 bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
-      <SmallFeatureCard titleKey="feature.zoom.title"             :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-yellow-content normal-feature-card-style-yellow"/>
-      <SmallFeatureCard titleKey="feature.smart-zoom.title"       :videoPath="remapDemoVideoPath"       class="text-shadow-sm normal-feature-card-style-purple-content normal-feature-card-style-purple"/>
-    </div> 
-    -->
 
+    <!-- Action Table 
+          Notes:
+          - Thought about including a non-trackpad features section - but not enough features so far to warrant a whole section -->
+
+    <SectionHeader title-key="remap-engine.title" title-accent-key="remap-engine.title.accent" title-accent-class="text-gradient-green-yellow" title-accent2-key="remap-engine.title.accent2" title-accent2-class="text-gradient-orange" body-key="remap-engine.body" />
+
+    <CardContainer>
+      <div ref="actionTableCardsSection" class="flex flex-col items-center">
+        <div class="max-w-[1000px] flex flex-col items-center gap-[2.5rem]">
+          <NormalFeatureCard titleKey="customization-feature.action-table.title" bodyKey="customization-feature.action-table.body" :videoPath="remapDemoVideoPath" class="text-shadow-sm shadow-orange-950/30 bg-black/0 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-[center_top_30rem] bg-blend-darken w-full" backgroundFilterClass="backdrop-blur-2xl" :image-path="actionTableImagePath" image-class="w-[1400px] mt-1 mb-[-245px] translate-x-[345px]"/>
+          <NormalFeatureCard titleKey="customization-feature.keyboard-shortcuts.title" bodyKey="customization-feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath" class="text-shadow-sm shadow-orange-950/30 bg-white bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[center_top_-30rem] w-full" backgroundFilterClass="backdrop-blur-2xl" expand-button-key="customization-feature.keyboard-shortcuts.expand-button"/>
+        </div>
+      </div>
+    </CardContainer>
+
+    <!-- Price / Good Software -->
+
+    <SectionHeader title-key="good-software.title" title-accent-key="good-software.title.accent" title-accent-class="text-gradient-green" title-accent2-key="good-software.title.accent2" title-accent2-class="text-gradient-orange" body-key="good-software.body" />
+
+    <CardContainer>
+      <div ref="priceCardsSection1" class="grid grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] py-0 my-[4.5rem]">
+        <NormalFeatureCard titleKey="unobtrusive-lightweight.title"          bodyKey="unobtrusive-lightweight.body"    class="text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
+        <NormalFeatureCard titleKey="open-source.title"        bodyKey="open-source.body"  class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
+      </div>
+    </CardContainer>
     
 
-    <!-- Good Software -->
-
-    <i18n-t tag="h2" keypath="good-software.title" class="whitespace-pre-wrap text-7xl md:text-6xl sm:text-5xl font-bold tracking-tight mb-[0] mt-[6rem] text-gray-800">
-      <template #first>
-        <span class="text-gradient-green"> {{ $t('good-software.title.first') }}</span>
-      </template>
-      <template #second>
-        <span class="text-gradient-blue"> {{ $t('good-software.title.second') }}</span>
-      </template>
-      <template #third>
-        <span class="text-gradient-orange"> {{ $t('good-software.title.third') }}</span>
-      </template>
-    </i18n-t>
-    
-    <p v-html="$mt('good-software.body')" class="hidden text-3xl font-normal text-gray-700/60 max-w-[30em] leading-[1.4] my-[4.5rem]"></p>
-
-
-    <div class="grid grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] py-0 my-[4.5rem]">
-      <NormalFeatureCard titleKey="unobtrusive-lightweight.title"          bodyKey="unobtrusive-lightweight.body"    class="text-shadow-lg shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
-      <NormalFeatureCard titleKey="open-source.title"        bodyKey="open-source.body"  class="text-shadow-sm normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
-    </div>
-    
-
-    
-
-    <!-- Pricing -->
-    
-    <i18n-t tag="h2" keypath="pricing.title" class="hidden whitespace-pre-wrap text-7xl md:text-6xl sm:text-5xl font-bold tracking-tight mb-20 mt-20 text-gray-800">
-      <template #first>
-        <span class="text-gradient-green-yellow"> {{ $t('pricing.title.first') }}</span>
-      </template>
-      <template #second>
-        <span class="text-gradient-orange"> {{ $t('pricing.title.second') }}</span>
-      </template>
-    </i18n-t>
-
-
-    <div class="grid grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] py-0 my-[4.5rem]">
-      <NormalFeatureCard titleKey="price.title"          bodyKey="price.body"           class="col-span-full text-shadow-lg shadow-red-950/40 bg-[url('/assets/img/mac-wallpaper-hello-orange-dark.jpg')] bg-[percentage:150%] bg-[center_top_-9rem] bg-black/0 bg-blend-darken"/>
-      <NormalFeatureCard titleKey="free-days.title"      bodyKey="free-days.body"       class="text-shadow-sm normal-feature-card-style-blue-content normal-feature-card-style-blue"/>
-      <NormalFeatureCard titleKey="alternatives.title"   bodyKey="alternatives.body"    class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
-    </div>
+    <CardContainer>
+      <div ref="priceCardsSection2" class="grid grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] py-0 my-[4.5rem]">
+        <NormalFeatureCard titleKey="price.title"          bodyKey="price.body"           class="col-span-full text-shadow-lg shadow-red-950/40 bg-[url('/assets/img/mac-wallpaper-hello-orange-dark.jpg')] bg-[percentage:150%] bg-[center_top_-9rem] bg-black/0 bg-blend-darken"/>
+        <NormalFeatureCard titleKey="free-days.title"      bodyKey="free-days.body"       class="text-shadow-sm normal-feature-card-style-blue-content normal-feature-card-style-blue"/>
+        <NormalFeatureCard titleKey="alternatives.title"   bodyKey="alternatives.body"    class="text-shadow-sm normal-feature-card-style-green-content normal-feature-card-style-green"/>
+      </div>
+    </CardContainer>
 
 <!-- 'alternatives.mx-master-rant'
 'pay-reason.pity'
@@ -268,9 +193,15 @@ const trackpadSplash1 = ref<HTMLElement | null>(null)
 const trackpadSplash2 = ref<HTMLElement | null>(null)
 const trackpadRule = ref<HTMLElement | null>(null)
 
+const scrollingCardsSection1 = ref<HTMLElement | null>(null)
+const scrollingCardsSection2 = ref<HTMLElement | null>(null)
+const actionTableCardsSection = ref<HTMLElement | null>(null)
+const priceCardsSection1 = ref<HTMLElement | null>(null)
+const priceCardsSection2 = ref<HTMLElement | null>(null)
+
 /* Other vars */
 const sectionToTimelineMap = new Map<Ref<HTMLElement | null>, gsap.core.Timeline>()
-const cardsSections = [trackpadCardsSection1, trackpadCardsSection2]
+const cardsSections = [trackpadCardsSection1, trackpadCardsSection2, scrollingCardsSection1, scrollingCardsSection2, actionTableCardsSection, priceCardsSection1, priceCardsSection2]
 
 onMounted(() => {
 
