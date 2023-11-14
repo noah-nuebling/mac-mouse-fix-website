@@ -29,6 +29,10 @@ export default {
   ],
   theme: {
 
+    /* Discussion of color sections:
+        - We currently plan to give each section an accent color. Different colors we could use that make a strong, distinct impression from the other colors:
+          - Red, Orange, Yellow, Green, Light Blue, Dark Blue, Purple, Pink */
+
     screens: {
 
       // Responsive prefixes.

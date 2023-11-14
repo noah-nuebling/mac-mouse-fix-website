@@ -60,8 +60,8 @@
         <div class="relative flex flex-col items-center w-fit">
           <div class="absolute inset-0 -z-10">
             <div class="absolute inset-0 z-10"></div>
-            <img ref="trackpadSplash1" :src="colorSplashImagePath" alt="" class="min-w-[150rem] absolute left-[75%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]">
-            <img ref="trackpadSplash2" :src="colorSplashImagePath" alt="" class="min-w-[150rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]">
+            <img ref="trackpadSplash1" :src="colorSplashImagePath" alt="" class="min-w-[150rem] absolute left-[75%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.4]">
+            <img ref="trackpadSplash2" :src="colorSplashImagePath" alt="" class="min-w-[150rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.4]">
           </div>
 
           <!-- <hr ref="trackpadRule" class="mb-[2.25rem] mx-[12px] border-neutral-950/[0.066]"> -->
