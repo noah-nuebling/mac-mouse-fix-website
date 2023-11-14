@@ -32,7 +32,7 @@ Notes:
 
   body {
 
-    @apply bg-gray-50;
+    @apply bg-neutral-50;
     
     /* zoom: 122%; Like Feedback Assistant */
   }

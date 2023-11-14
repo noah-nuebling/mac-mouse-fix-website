@@ -27,7 +27,7 @@ export default {
 
   'trackpad-features.title': "Macs sind am besten\nMit einem {track},\nOder?",
   'trackpad-features.title.track': "Trackpad",
-  'trackpad-features.body': 'Jetzt nicht mehr! Mac Mouse Fix bringt alle Funktionen eines Apple Trackpads - und mehr - auf deine **günstige** und **ergonomische** Drittanbieter-Maus. Und alle Interaktionen fühlen sich genauso **ausgefeilt** und **geschmeidig** an wie auf dem Trackpad.',
+  'trackpad-features.body': 'Jetzt nicht mehr! Mac Mouse Fix bringt alle Funktionen eines Apple Trackpads - und mehr - auf deine **ergonomische** und **präzise** Drittanbieter-Maus. Und alle Interaktionen fühlen sich genauso **ausgefeilt** und **geschmeidig** an wie auf dem Trackpad.',
 
   'trackpad-features.header': '**Trackpad-Gesten** die Mac Mouse Fix auf deine Maus bringt',
 
@@ -55,7 +55,7 @@ export default {
   'feature.smart-zoom.title': 'Intelligentes Zoomen',
   'feature.smart-zoom.body': '**Klicke** **Taste 5** auf deiner Maus, um eine Webseite oder ein PDF zu vergrößern oder zu verkleinern.\n\nEs funktioniert genauso wie das Doppeltippen mit zwei Fingern auf einem Apple Trackpad.',
 
-  'trackpad-features.disclaimer': "Mac Mouse Fix kann diese Trackpad-Funktionen nur dann in der hier beschriebenen Weise auf deine Maus bringen, wenn Mac Mouse Fix mindestens 5 Tasten auf deiner Maus erkennt. Wenn Mac Mouse Fix weniger als 5 Tasten auf deiner Maus erkennt, bietet es immer noch viele Funktionen und ein gutes Erlebnis, aber einige Funktionen sind weniger zugänglich im Vergleich zu einer 5-Tasten-Maus. Bitte beachte, dass Mac Mouse Fix die Apple Magic Mouse derzeit nicht unterstützt.",
+  'trackpad-features.disclaimer': "Hinweis: Mac Mouse Fix kann diese Trackpad-Funktionen nur dann in der hier beschriebenen Weise auf deine Maus bringen, wenn deine Maus mindestens 5 Tasten hat. Diese Tasten sind typischerweise Linksklick, Rechtsklick, Mausrad-Klick und 2 Seitentasten. Wenn deine Maus weniger als 5 Tasten hat, bietet Mac Mouse Fix immer noch viele Funktionen und ein gutes Erlebnis, aber einige Funktionen sind weniger leicht zugänglich im Vergleich zu einer 5-Tasten-Maus. Bei bestimmten Mäusen, die für die Verwendung mit hauseigenen Treibern wie Logitech Options entwickelt wurden, kann Mac Mouse Fix derzeit nicht alle Tasten erkennen. Mac Mouse Fix unterstützt die Apple Magic Mouse derzeit nicht.",
 
   /* Scrolling */
 

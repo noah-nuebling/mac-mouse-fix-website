@@ -31,7 +31,7 @@ export default {
 
   'trackpad-features.title': "Macs Are Best\nWith a {track},\nRight?",
   'trackpad-features.title.track': "Trackpad",
-  'trackpad-features.body': 'Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **cheap** and **ergonomic** third-party mouse. And all interactions feel just as **polished** and **smooth** as they do on the trackpad.',
+  'trackpad-features.body': 'Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **precise** and **ergonomic** third-party mouse. And all interactions feel just as **polished** and **smooth** as they do on the trackpad.',
   'trackpad-features.header': '**Trackpad Gestures** that Mac Mouse Fix brings to your mouse',
   
   'feature.lookup.title': 'Look up and Quick Look',
@@ -58,7 +58,7 @@ export default {
   'feature.smart-zoom.title': 'Smart zoom',
   'feature.smart-zoom.body': '**Click** **button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple trackpad.',
 
-  'trackpad-features.disclaimer': "Mac Mouse Fix can bring these trackpad features to your third-party mouse in the way described here, only if your mouse has at least 5 buttons recognized by Mac Mouse Fix. If Mac Mouse Fix recognizes fewer than 5 buttons on your mouse, it still provides lots of functionality and a great experience, but some features will be less accessible compared to a 5-button mouse. Please note that Mac Mouse Fix does not currently support the Apple Magic Mouse.",
+  'trackpad-features.disclaimer': "Note: Mac Mouse Fix can bring these trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't currently recognize all the buttons. Mac Mouse Fix doesn't currently support the Apple Magic Mouse.",
 
   /* Scrolling */
 

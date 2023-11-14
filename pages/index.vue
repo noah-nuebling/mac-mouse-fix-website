@@ -304,6 +304,9 @@ onMounted(() => {
       }
     }
 
+    /* Respect reduce motion */
+    if (prefersReducedMotion()) { return }
+
     /* Create scroll-linked parallax animations for cardsSections */
     
     const cardsOffset = '4rem'
