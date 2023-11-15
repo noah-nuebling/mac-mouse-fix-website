@@ -30,14 +30,13 @@
 
     <!-- Replaces Trackpad -->
 
-    <SectionHeader title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" title-accent-class="text-gradient-blue" body-key="trackpad-features.body" />
+    <SectionHeader class="var-[accent-color=#3b82f6]" title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" title-accent-class="text-gradient-blue" body-key="trackpad-features.body" />
     
-    <CardContainer title-key="trackpad-features.header" class="varr-[accent-color=#3b82f6] tex-[500]">
+    <CardContainer title-key="trackpad-features.header" class="var-[accent-color=#3b82f6]">
 
       <div class="w-full flex justify-center">
         <div class="relative flex flex-col items-center w-fit">
-          <div class="absolute inset-0 -z-10">
-            <div class="absolute inset-0 z-10"></div>
+          <div class="absolute inset-0 -z-10 pointer-events-none">
             <img ref="trackpadSplash1" :src="colorSplashImagePath" alt="" class="min-w-[150rem] absolute left-[75%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]">
             <img ref="trackpadSplash2" :src="colorSplashImagePath" alt="" class="min-w-[150rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]">
           </div>
@@ -73,26 +72,25 @@
 
     <!-- Scrolling -->
 
-    <SectionHeader title-key="scrolling.title" title-accent-key="scrolling.title.accent" title-accent-class="text-gradient-violet" body-key="scrolling.body" />
-  
+    <SectionHeader class="var-[accent-color=#a855f7]" title-key="scrolling.title" title-accent-key="scrolling.title.accent" title-accent-class="text-gradient-violet" body-key="scrolling.body" />
 
-    <CardContainer title-key="scroll-smoothness.header" class="mb-[10rem] varr-[accent-color=#a855f7]">
+    <CardContainer title-key="scroll-smoothness.header" class="mb-[10rem] var-[accent-color=#a855f7]">
       <div class="w-fit relative left-[50%] translate-x-[-50%]">
-        <div class="absolute inset-0 -z-10">
-          <img ref="trackpadSplash2" :src="colorSplashImagePath" alt="" class="f-w-[120rem] f-h-[70rem] absolute left-[33%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]">
+        <div class="absolute inset-0 -z-10 pointer-events-none">
+          <img :src="colorSplashImagePath" alt="" class="f-w-[120rem] f-h-[70rem] absolute left-[33%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]">
         </div>
         <div ref="scrollingCardsSection1" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] my-[0] w-fit">
-          <NormalFeatureCard titleKey="scroll-smoothness.high.title"           bodyKey="scroll-smoothness.high.body"        :videoPath="remapDemoVideoPath"       class="shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
-          <NormalFeatureCard titleKey="scroll-smoothness.regular.title"        bodyKey="scroll-smoothness.regular.body"     :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
-          <NormalFeatureCard titleKey="scroll-smoothness.off.title"            bodyKey="scroll-smoothness.off.body"         :videoPath="remapDemoVideoPath"       class="normal-feature-card-style-green-content normal-feature-card-style-green"/>
+          <NormalFeatureCard titleKey="scroll-smoothness.high.title"           bodyKey="scroll-smoothness.high.body"        :videoPath="remapDemoVideoPath"       title-class="!font-[400]" class="shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
+          <NormalFeatureCard titleKey="scroll-smoothness.regular.title"        bodyKey="scroll-smoothness.regular.body"     :videoPath="remapDemoVideoPath"       title-class="!font-[400]" class="normal-feature-card-style-orange-content normal-feature-card-style-orange"/>
+          <NormalFeatureCard titleKey="scroll-smoothness.off.title"            bodyKey="scroll-smoothness.off.body"         :videoPath="remapDemoVideoPath"       title-class="!font-[400]" class="normal-feature-card-style-green-content normal-feature-card-style-green"/>
         </div>
       </div>
     </CardContainer>
   
-    <CardContainer title-key="scroll-feature.header" class="varr-[accent-color=#a855f7]">
+    <CardContainer title-key="scroll-feature.header" class="var-[accent-color=#a855f7]">
       <div class="w-fit relative left-[50%] translate-x-[-50%]">
-        <div class="absolute inset-0 -z-10">
-          <img ref="trackpadSplash2" :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] scale-[1] absolute left-[75%] top-[40%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]">
+        <div class="absolute inset-0 -z-10 pointer-events-none">
+          <img :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] scale-[1] absolute left-[75%] top-[40%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]">
         </div>
         <div ref="scrollingCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] my-[0] w-fit">
           <NormalFeatureCard titleKey="scroll-feature.reverse.title"        bodyKey="scroll-feature.reverse.body"            class="shadow-orange-950/30 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-cover bg-center bg-black/0 bg-blend-darken"/>
@@ -107,18 +105,18 @@
           Notes:
           - Thought about including a non-trackpad features section - but not enough features so far to warrant a whole section -->
 
-    <SectionHeader class="varr-[accent-color=#ef4444]" title-key="remap-engine.title" title-accent-key="remap-engine.title.accent" title-accent-class="text-gradient-green" title-accent2-key="remap-engine.title.accent2" title-accent2-class="text-gradient-red" body-key="remap-engine.body" />
+    <SectionHeader class="var-[accent-color=#ef4444]" title-key="remap-engine.title" title-accent-key="remap-engine.title.accent" title-accent-class="text-gradient-green" title-accent2-key="remap-engine.title.accent2" title-accent2-class="text-gradient-red" body-key="remap-engine.body" />
 
-    <CardContainer class="varr-[accent-color=#ef4444]">
+    <CardContainer class="var-[accent-color=#ef4444]">
       <div class="flex justify-center">
         <div class="w-fit relative">
-          <div class="absolute inset-0 -z-10">
-              <img ref="trackpadSplash2" :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[75%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]">
-              <img ref="trackpadSplash2" :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]">
+          <div class="absolute inset-0 -z-10 pointer-events-none">
+              <img :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[75%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]">
+              <img :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]">
           </div>
           <div ref="actionTableCardsSection" class="max-w-[1000px] flex flex-col items-center gap-[2.5rem] w-fit py-[4.5rem]">
-            <NormalFeatureCard titleKey="customization-feature.action-table.title" bodyKey="customization-feature.action-table.body" :videoPath="remapDemoVideoPath" class="shadow-orange-950/30 bg-black/0 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-[center_top_30rem] bg-blend-darken" backgroundFilterClass="backdrop-blur-2xl" :image-path="actionTableImagePath" image-class="mx-[-10rem] w-[80rem] mt-1 mb-[-245px] translate-x-[20rem]"/>
-            <NormalFeatureCard titleKey="customization-feature.keyboard-shortcuts.title" bodyKey="customization-feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath" class="w-full shadow-orange-950/30bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[center_top_-30rem]" backgroundFilterClass="backdrop-blur-2xl" expand-button-key="customization-feature.keyboard-shortcuts.expand-button"/>
+            <NormalFeatureCard titleKey="customization-feature.action-table.title" bodyKey="customization-feature.action-table.body" :videoPath="remapDemoVideoPath"              title-class="!font-[400]" class="shadow-orange-950/30 bg-black/0 bg-[url('/assets/img/mac-wallpaper-ventura.jpg')] bg-[center_top_30rem] bg-blend-darken" backgroundFilterClass="backdrop-blur-2xl" :image-path="actionTableImagePath" image-class="mx-[-10rem] w-[80rem] mt-1 mb-[-245px] translate-x-[20rem]"/>
+            <NormalFeatureCard titleKey="customization-feature.keyboard-shortcuts.title" bodyKey="customization-feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath"  title-class="!font-[400]" class="w-full shadow-orange-950/30bg-[url('/assets/img/mac-wallpaper-big-sur.jpg')] bg-[center_top_-30rem]" backgroundFilterClass="backdrop-blur-2xl" expand-button-key="customization-feature.keyboard-shortcuts.expand-button"/>
           </div>
         </div>
       </div>
@@ -126,12 +124,12 @@
 
     <!-- Price / Good Software -->
 
-    <SectionHeader title-key="good-software.title" title-accent2-key="good-software.title.accent2" title-accent2-class="text-gradient-green" body-key="good-software.body" />
+    <SectionHeader class="var-[accent-color=#22c55e]" title-key="good-software.title" title-accent2-key="good-software.title.accent2" title-accent2-class="text-gradient-green" body-key="good-software.body" />
 
-    <CardContainer  title-key="price.header" class="mb-[5rem] varr-[accent-color=#22c55e]">
+    <CardContainer  title-key="price.header" class="mb-[5rem] var-[accent-color=#22c55e]">
       <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
-        <div class="absolute inset-0 -z-10">
-            <img ref="trackpadSplash2" :src="colorSplashImagePath" alt="" class="f-w-[150rem] f-h-[75rem] absolute left-[25%] top-[33%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[280deg]">
+        <div class="absolute inset-0 -z-10 pointer-events-none">
+            <img :src="colorSplashImagePath" alt="" class="f-w-[150rem] f-h-[75rem] absolute left-[25%] top-[33%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[280deg]">
         </div>
         <div ref="priceCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem]">
           <NormalFeatureCard titleKey="free-days.title"      bodyKey="free-days.body"       class="normal-feature-card-style-blue-content normal-feature-card-style-blue"/>
@@ -141,10 +139,10 @@
       </div>
     </CardContainer>
 
-    <CardContainer title-key="good-software.header" class="varr-[accent-color=#22c55e]">
+    <CardContainer title-key="good-software.header" class="var-[accent-color=#22c55e]">
       <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
-        <div class="absolute inset-0 -z-10">
-          <img ref="trackpadSplash1" :src="colorSplashImagePath" alt="" class="f-h-[50rem] f-w-[100rem] absolute left-[66%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[280deg]">
+        <div class="absolute inset-0 -z-10 pointer-events-none">
+          <img :src="colorSplashImagePath" alt="" class="f-h-[50rem] f-w-[100rem] absolute left-[66%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[280deg]">
         </div>
         <div ref="priceCardsSection1" class=" grid grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] relative">
           <NormalFeatureCard titleKey="unobtrusive-lightweight.title"          bodyKey="unobtrusive-lightweight.body"    class="shadow-violet-950/50 bg-[url('/assets/img/mac-wallpaper-monterey.jpg')] bg-cover bg-bottom bg-black/0 bg-blend-darken"/>
@@ -299,7 +297,5 @@ function killCardParallaxAnimation(tl: gsap.core.Timeline | undefined | null, re
 </script>
 
 <style lang="postcss" scoped>
-
-
 
 </style>

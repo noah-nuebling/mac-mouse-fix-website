@@ -126,10 +126,10 @@ export default {
     plugin(function ({ matchUtilities }) {
 
       /* Set variable utility
-        So we can set --css-variables directly from tailwind. Syntax: var-[accent-color:#3b82f6] to set. Then text-[var(--accent-color)] to use. */
+        So we can set --css-variables directly from tailwind. Syntax: var-[accent-color=#3b82f6] to set. Then text-[var(--accent-color)] to use. */
 
       const newUtilities = {
-        'varr': (value) => {
+        'var': (value) => {
           var [varName, varValue] = value.split('=')
           return {
             [`--${ varName }`]: varValue,

@@ -9,9 +9,14 @@ Notes:
 
 @layer base {
 
-  strong {
+  .accent-strong strong {
+    /* markdown-it produces <stong> tags for text wrapped in `**`. `--accent-color` isn't magic, it's just a custom variable we define */
     @apply text-[var(--accent-color)] font-[600]
   }
+  .accent-strong-none strong {
+    @apply text-[unset]
+  }
+
 
   html {
 

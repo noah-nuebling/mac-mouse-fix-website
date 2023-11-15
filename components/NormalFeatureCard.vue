@@ -27,11 +27,11 @@
         </a>
       </div>
       <!-- Title -->
-      <h3 class="text-center sm:text-[1.4rem] text-[1.6rem] leading-[1.3] font-[650] sm:mx-[2rem] mx-[3rem]" v-html="$mt(titleKey!)"></h3>
+      <h3 :class="['text-center sm:text-[1.4rem] text-[1.6rem] leading-[1.3] font-[650] sm:mx-[2rem] mx-[3rem]', titleClass]" v-html="$mt(titleKey!)"></h3>
     </template>
 
     <template v-slot:default>
-      <div class="flex flex-col items-center justify-start h-full sm:m-[2rem] m-[3.0rem] sm:mt-[1.33rem] mt-[2.75rem]">
+      <div class="flex flex-col items-center justify-start h-full sm:m-[2rem] m-[3.0rem] sm:mt-[1.33rem] mt-[2.75rem] accent-strong">
 
         <!-- Body -->
         <div>
@@ -93,6 +93,7 @@ var props = defineProps({
   videoPath: String,
   expandButtonKey: String,
   backgroundFilterClass: String,
+  titleClass: String,
 })
 
 </script>
