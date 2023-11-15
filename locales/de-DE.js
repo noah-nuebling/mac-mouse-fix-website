@@ -55,7 +55,7 @@ export default {
   'feature.smart-zoom.title': 'Intelligentes Zoomen',
   'feature.smart-zoom.body': '**Klicke** **Taste 5** auf deiner Maus, um eine Webseite oder ein PDF zu vergrößern oder zu verkleinern.\n\nEs funktioniert genauso wie das Doppeltippen mit zwei Fingern auf einem Apple Trackpad.',
 
-  'trackpad-features.disclaimer': "Hinweis: Mac Mouse Fix kann diese Trackpad-Funktionen nur dann in der hier beschriebenen Weise auf deine Maus bringen, wenn deine Maus mindestens 5 Tasten hat. Diese Tasten sind typischerweise Linksklick, Rechtsklick, Mausrad-Klick und 2 Seitentasten. Wenn deine Maus weniger als 5 Tasten hat, bietet Mac Mouse Fix immer noch viele Funktionen und ein gutes Erlebnis, aber einige Funktionen sind weniger leicht zugänglich im Vergleich zu einer 5-Tasten-Maus. Bei bestimmten Mäusen, die für die Verwendung mit hauseigenen Treibern wie Logitech Options entwickelt wurden, kann Mac Mouse Fix derzeit nicht alle Tasten erkennen. Mac Mouse Fix unterstützt die Apple Magic Mouse derzeit nicht.",
+  'trackpad-features.disclaimer': "Hinweis: Mac Mouse Fix kann diese Trackpad-Funktionen nur dann in der hier beschriebenen Weise auf deine Maus bringen, wenn deine Maus mindestens 5 Tasten hat. Diese 5 Tasten sind typischerweise Linksklick, Rechtsklick, Mausrad-Klick und 2 Seitentasten. Wenn deine Maus weniger als 5 Tasten hat, bietet Mac Mouse Fix immer noch viele Funktionen und ein gutes Erlebnis, aber einige Funktionen sind weniger leicht zugänglich im Vergleich zu einer 5-Tasten-Maus. Bei bestimmten Mäusen, die für die Verwendung mit hauseigenen Treibern wie Logitech Options entwickelt wurden, kann Mac Mouse Fix derzeit nicht alle Tasten erkennen. Mac Mouse Fix unterstützt die Apple Magic Mouse derzeit nicht.",
 
   /* Scrolling */
 
@@ -119,9 +119,8 @@ export default {
 
   /* Action Table */
 
-  'remap-engine.title': 'Erstaunlich {accent}.\n{accent2} Flexibel.',
-  'remap-engine.title.accent': 'Intuitiv',
-  'remap-engine.title.accent2': 'Gewaltig',
+  'remap-engine.title': 'Ungeheuer {accent2}\n- Aber dennoch -\nErstaunlich intuitiv.',
+  'remap-engine.title.accent2': 'Flexibel',
   'remap-engine.body': 'Mit Mouse Fix kannst du unglaublich **leicht** und **intuitiv** ganz genau anpassen, was deine Maus macht.',
 
   'customization-feature.header': "Flexible **Anpassungsmöglichkeiten**",
@@ -133,6 +132,10 @@ export default {
   'customization-feature.keyboard-shortcuts.body': "Mac Mouse Fix ermöglicht es dir, **alles, was du mit einem Tastaturkurzbefehl tun kannst** direkt von deiner Maus aus zu machen. Zum Beispiel kannst du kopieren und einfügen, die Lautstärke ändern, einen neuen Tab in Safari öffnen und vieles mehr.",
   'customization-feature.keyboard-shortcuts.expand-button': "Einrichtungsvorgang sehen",
 
+  /* Good Software & Pricing */
+
+  'good-software.title': "Gute Software.\nGuter {accent2}.",
+  'good-software.title.accent2': "Preis",
 
   /* Quotes */
   

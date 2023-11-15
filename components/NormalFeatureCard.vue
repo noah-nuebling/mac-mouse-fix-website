@@ -6,7 +6,7 @@
 
   <FeatureCard 
     ref="thisCard"
-    class="h-full feature-card col-span-auto group shadow-md rounded-[1.5rem] !text-black/[0.8] !bg-gradient-to-b !from-neutral-50/50 !to-neutral-50/50 !backdrop-blur-xl !shadow-black/[0.05] !text-shadow-none " 
+    class="h-full feature-card col-span-auto group shadow-refactoringui !shadow-black/[0.06] rounded-[1.5rem] !text-black/[0.8] !bg-gradient-to-b !from-white/50 !to-neutral-50/50 !backdrop-blur-xl border border-neutral-900/[0.02]" 
     borderClass="border-[0px] border-black/[0.05] "
     :backgroundFilterClass="backgroundFilterClass"
     :doesExpand="videoPath ? true : false"
@@ -19,15 +19,15 @@
       <div :class="['', videoPath ? 'h-[3.0rem]' : 'h-[2.75rem]']"></div>
       <!-- Expand button -->
       <div v-if="videoPath" class="absolute h-fit mt-[1.4rem] left-[50%] translate-x-[-50%]">
-        <a class="text-blue-500 w-full text-center sm:text-[1.0rem] text-[1.0rem] font-[400] group-hover:underline">
+        <a class="text-[var(--accent-color)] w-full text-center sm:text-[1.0rem] text-[1.0rem] font-[400] group-hover:underline">
           <span :class="['', isExpanded ? '' : 'opacity-0 absolute border']">
-            <span v-html="$mt('feature-card.unexpand-button')"></span> <span class="inline-space-[8] hidden"/> <img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-2.6px] drop-shadow-xl svg-filter-[tint-blue] hidden">
+            <span v-html="$mt('feature-card.unexpand-button')"></span> <span class="inline-space-[8] hidden"/> <img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-2.6px] svg-filter-[tint-blue] hidden">
           </span>
           <span :class="['', isExpanded ? 'opacity-0 absolute' : '']" v-html="$mt(expandButtonKey ? expandButtonKey : 'feature-card.expand-button') + ' 􀊕'"></span>
         </a>
       </div>
       <!-- Title -->
-      <h3 class="text-center sm:text-[1.4rem] text-[1.6rem] leading-[1.3] font-[650] shadow-black/100 sm:mx-[2rem] mx-[3rem]" v-html="$mt(titleKey!)"></h3>
+      <h3 class="text-center sm:text-[1.4rem] text-[1.6rem] leading-[1.3] font-[650] sm:mx-[2rem] mx-[3rem]" v-html="$mt(titleKey!)"></h3>
     </template>
 
     <template v-slot:default>
@@ -35,7 +35,7 @@
 
         <!-- Body -->
         <div>
-          <p class="sm:text-[1.0rem] text-[1.0rem] font-[400] whitespace-pre-wrap shadow-black/100 max-w-[30em]" v-html="$mt(bodyKey!)"></p>
+          <p class="sm:text-[1.0rem] text-[1.0rem] font-[400] whitespace-pre-wrap max-w-[30em]" v-html="$mt(bodyKey!)"></p>
         </div>        
 
         <!-- Image -->

@@ -58,7 +58,7 @@ export default {
   'feature.smart-zoom.title': 'Smart zoom',
   'feature.smart-zoom.body': '**Click** **button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple trackpad.',
 
-  'trackpad-features.disclaimer': "Note: Mac Mouse Fix can bring these trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't currently recognize all the buttons. Mac Mouse Fix doesn't currently support the Apple Magic Mouse.",
+  'trackpad-features.disclaimer': "Note: Mac Mouse Fix can bring these trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These 5 buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't currently recognize all the buttons. Mac Mouse Fix doesn't currently support the Apple Magic Mouse.",
 
   /* Scrolling */
 
@@ -127,9 +127,9 @@ export default {
       You can also double click, use keyboard modifiers, and more.
   */
 
-  'remap-engine.title': 'Incredibly {accent}.\n{accent2} Flexible.',
-  'remap-engine.title.accent': 'Intuitive',
-  'remap-engine.title.accent2': 'Formidably',
+  'remap-engine.title': 'Formidably {accent2}\n- But Still -\nAmazingly Intuitive.',
+  'remap-engine.title.accent': 'Flexible',
+  'remap-engine.title.accent2': 'Flexible',
   'remap-engine.body': "Mac Mouse Fix makes it incredibly **easy and intuitive to precisely customize** what your mouse does.",
   
   'customization-feature.header': "Flexible **Customization Options**",
@@ -152,10 +152,11 @@ export default {
 
   */
 
-  'good-software.title': "Great {accent}.\nSmall {accent2}.",
-  'good-software.title.accent': "Software",
+  'good-software.header': "Great **Software**",
+
+  'good-software.title': "Great Software.\nGreat {accent2}.",
   'good-software.title.accent2': "Price",
-  'good-software.body': "Mac Mouse Fix is unobtrusive, lightweight, polished, and easy to use. Every detail has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Additionally, it is completely open source which means that you can trust that it is secure ((and does not steal your data or mine bitcoin in the background or anything like that)), and (I'm glad to say that) to say the app has been downloaded x times, and users really love it. Here are some positive things that people have to say about the app. Thanks to everyone sharing their feedback...",
+  'good-software.body': "Mac Mouse Fix is unobtrusive, lightweight, polished, and easy to use. It's also Open-Source and it comes at a great price.",
 
   'unobtrusive-lightweight.title': "Unobtrusive and lightweight",
   'unobtrusive-lightweight.body': "Every detail of Mac Mouse Fix has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Mac Mouse Fix is also engineered so that it consumes absolutely no CPU resources on your computer when it doesn't have to.",
@@ -165,8 +166,10 @@ export default {
   'user-feedback.card-header.title':  "**What people say** about Mac Mouse Fix",
   'user-feedback.card-header.sub':    "Thanks to anyone sharing feedback! :)",
 
-  'price.title': "Price",
-  'price.body': "Mac Mouse Fix is free for 30 days and costs $1.99 to own. There are no subscriptions or additional costs, and you can easily pay in few clicks from inside the app with Apple Pay, PayPal, Credit card and more.",
+  'price.header': "Mac Mouse Fix comes at a great **Price**",
+
+  'price.title': "$1.99 to own",
+  'price.body': "Mac Mouse Fix costs $1.99 to own. There are no subscriptions or additional costs, and you can easily pay in few clicks from inside the app with Apple Pay, PayPal, Credit card and more.",
   
   'free-days.title':  "Free for 30 days",
   'free-days.body':   "Mac Mouse Fix is free for 30 days. Your free days will only be used up when you actually use Mac Mouse Fix - so you can relax when testing app without worrying when your free days will run out.",

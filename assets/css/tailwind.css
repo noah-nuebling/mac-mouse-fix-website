@@ -9,6 +9,10 @@ Notes:
 
 @layer base {
 
+  strong {
+    @apply text-[var(--accent-color)] font-[600]
+  }
+
   html {
 
     /* Set size of 1rem 
@@ -144,7 +148,14 @@ Notes:
     @apply text-transparent bg-clip-text bg-gradient-to-l from-indigo-500 to-fuchsia-500;
   }
   .text-gradient-red { 
+    @apply text-transparent bg-clip-text bg-gradient-to-l to-[hsl(0,100%,62%)] via-35% via-[hsl(4,80%,53%)] from-[hsla(10,95%,40%)] 
+    /* @apply text-transparent bg-clip-text bg-gradient-to-l to-red-500 from-red-600 */
+  }
+  .text-gradient-orange-red { 
     @apply text-transparent bg-clip-text bg-gradient-to-l from-red-500 to-amber-400
+  }
+  .text-gradient-blue-light-blue {
+    @apply text-transparent bg-clip-text bg-gradient-to-l from-blue-500 to-cyan-300;
   }
   .text-gradient-blue {
     @apply text-transparent bg-clip-text bg-gradient-to-l from-blue-500 to-cyan-300;
@@ -168,7 +179,11 @@ Notes:
   .text-gradient-yellow {
     @apply text-transparent bg-clip-text bg-gradient-to-l from-lime-300 to-amber-300
   } */
-  .text-gradient-orange { 
+  .text-gradient-orange-yellow { 
     @apply text-transparent bg-clip-text bg-gradient-to-l from-orange-500 to-yellow-300
+  }
+  .text-gradient-orange { 
+    /* @apply text-transparent bg-clip-text bg-gradient-to-l from-red-500 to-orange-300 */
+    @apply text-transparent bg-clip-text bg-gradient-to-l to-[hsl(35,100%,55.4%)] from-[hsl(0,85.2%,60.2%)]
   }
 }
