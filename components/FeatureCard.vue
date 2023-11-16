@@ -33,7 +33,7 @@
         <div
           id="contentContainer"
           ref="contentContainer"
-          :class="['h-full flex flex-col will-change-[transform,opacity] ']">
+          :class="['h-full flex flex-col will-change-[transform,opacity]', $props.contentClass]">
 
           <!-- Minimize hint -->
           <div 
@@ -85,6 +85,7 @@ import { type AnimationCurve, type Curve, transfromCurve, combineCurves } from "
 import { prefersReducedMotion } from "~/utils/util";
 import tailwindConfig from "~/tailwind.config";
 import resolveConfig from 'tailwindcss/resolveConfig'
+const constants = useConstants()
 
 // Import (is that the right term?) vue/nuxt stuff
 const { $ScrollTrigger, $store, $gsap, $Power0, $Power1, $Power2, $Power3, $Power4 } = useNuxtApp()
@@ -98,6 +99,7 @@ var props = defineProps({
   class: String,
   borderClass: String,
   backgroundFilterClass: String,
+  contentClass: String,
   doesExpand: Boolean,
 })
 
@@ -519,7 +521,8 @@ if (props.doesExpand) {
       // Add animations to timeline
       //
 
-      if (!prefersReducedMotion()) {
+      const doesGrowInBothDimensions = originWidth < calcWidth && originHeight < calcHeight
+      if (!prefersReducedMotion() && doesGrowInBothDimensions && window.innerWidth > constants.breakpoints.xs) {
 
         // Animate position-related styling on placeholder
         addAnimationToTimeline(tl, cardPlaceholder, 'y', animationCurveFromRawCurve(curveForTranslateY), dur)
@@ -755,12 +758,16 @@ if (props.doesExpand) {
       var curveForPlaceholderContentScaleY = curveForPlaceholderCounterScaleY
 
 
-      //
-      // Add animations to timeline
-      //
-      
 
-      if (!prefersReducedMotion()) {
+      /* Add animations to timeline 
+          Notes: We only enable complex animations under certain conditions (otherwise we do a simple fade). Conditiona at the time of writing:
+          - prefersReducedMotion is off
+          - animation grows in both dimensions -> That's because our animations look really crappy when the card shrinks while revealing the video.
+          - The window is wider than the xs breakpoint (iPhone 6 width) -> That's because the animations are really slow on my iPhone 8. Not sure if necessary since the growing condition should already disable animations on iPhone 8.
+      */
+      
+      const doesShrinkInBothDimensions = currentWidth > targetWidth && currentHeight > targetWidth
+      if (!prefersReducedMotion() && doesShrinkInBothDimensions && window.innerWidth > constants.breakpoints.xs) {
 
         // Animate position-related styling on card
         addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForTranslateY), dur)

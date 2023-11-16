@@ -82,7 +82,7 @@ export default {
   'scroll-smoothness.regular.body': "Wähle reguläre Flüssigkeit für **flotteres Scrollen**, das weniger geschmeidig ist als auf einem Trackpad, aber dennoch ein großartiges, raffiniertes Scrollgefühl mit physikbasierten Animationen bietet.\n\nEs fühlt sich ähnlich an wie das Scrollen in Chrome oder modernen Windows-Apps. Nur etwas besser.",
   
   'scroll-smoothness.off.title': 'Flüssigkeit: **Aus**',
-  'scroll-smoothness.off.body': "Mit dieser Option funktioniert das Scrollen wie gewohnt unter macOS - ohne jede Animation oder Glättung. Aber mit einem entscheidenden Unterschied: In Apps wie Finder **scrollt eine Raste des Scrollrads eine festgelegte Anzahl von *Zeilen***, statt nur ein paar Pixel. Das macht die Navigation konsistenter und angenehmer.\n\nSo funktioniert das Scrollen auch in den meisten Apps auf Windows und Linux, sowie in älteren macOS-Versionen.",
+  'scroll-smoothness.off.body': "Mit dieser Option funktioniert das Scrollen wie gewohnt unter macOS - ohne jede Animation oder Glättung. Aber mit einem entscheidenden Unterschied: In Apps wie Finder **scrollt eine Raste des Scrollrads** eine **festgelegte Anzahl von *Zeilen***, statt nur ein paar Pixel. Das macht die Navigation konsistenter und angenehmer.\n\nSo funktioniert das Scrollen auch in den meisten Apps auf Windows und Linux, sowie in älteren macOS-Versionen.",
   
   'scroll-feature.header': 'Andere großartige **Scroll-Funktionen**',
 

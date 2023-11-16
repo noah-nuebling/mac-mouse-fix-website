@@ -6,10 +6,11 @@
 
   <FeatureCard 
     ref="thisCard"
-    class="h-full feature-card col-span-auto group shadow-refactoringui !shadow-black/[0.06] rounded-[1.5rem] !text-black/[0.8] !bg-gradient-to-b !from-white/50 !to-neutral-50/50 !backdrop-blur-xl border border-neutral-900/[0.02]" 
-    borderClass="border-[0px] border-black/[0.05] "
+    class="h-full feature-card col-span-auto group shadow-refactoringui !shadow-black/[0.06] rounded-[1.5rem] !text-black/[0.8] !bg-neutral-50/50 !backdrop-blur-xl" 
+    borderClass="border-[0px] border-black/[0.05]"
     :backgroundFilterClass="backgroundFilterClass"
     :doesExpand="videoPath ? true : false"
+    
 
     @click="$refs.thisCard.toggleExpand()">
 
@@ -19,7 +20,7 @@
       <div :class="['', videoPath ? 'h-[3.0rem]' : 'h-[2.75rem]']"></div>
       <!-- Expand button -->
       <div v-if="videoPath" class="absolute h-fit mt-[1.4rem] left-[50%] translate-x-[-50%]">
-        <a class="text-[var(--accent-color)] w-full text-center sm:text-[1.0rem] text-[1.0rem] font-[400] group-hover:underline">
+        <a class="w-full text-center sm:text-[1.0rem] text-[1.0rem] font-[400] text-gradient-to-l cool-hover-underline">
           <span :class="['', isExpanded ? '' : 'opacity-0 absolute border']">
             <span v-html="$mt('feature-card.unexpand-button')"></span> <span class="inline-space-[8] hidden"/> <img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-2.6px] svg-filter-[tint-blue] hidden">
           </span>
@@ -27,15 +28,15 @@
         </a>
       </div>
       <!-- Title -->
-      <h3 :class="['text-center sm:text-[1.4rem] text-[1.6rem] leading-[1.3] font-[650] sm:mx-[2rem] mx-[3rem]', titleClass]" v-html="$mt(titleKey!)"></h3>
+      <h3 :class="['strong:font-weight-inherit text-center sm:text-[1.4rem] text-[1.6rem] leading-[1.3] font-[650] sm:mx-[2rem] mx-[3rem]', titleClass]" v-html="$mt(titleKey!)"></h3>
     </template>
 
     <template v-slot:default>
-      <div class="flex flex-col items-center justify-start h-full sm:m-[2rem] m-[3.0rem] sm:mt-[1.33rem] mt-[2.75rem] accent-strong">
+      <div class="flex flex-col items-center justify-start h-full sm:m-[2rem] m-[3.0rem] sm:mt-[1.33rem] mt-[2.75rem] ">
 
         <!-- Body -->
         <div>
-          <p class="sm:text-[1.0rem] text-[1.0rem] font-[400] whitespace-pre-wrap max-w-[30em]" v-html="$mt(bodyKey!)"></p>
+          <p class="strong:font-[500]  sm:text-[1.0rem] text-[1.0rem] font-[400] whitespace-pre-wrap max-w-[30em]" v-html="$mt(bodyKey!)"></p>
         </div>        
 
         <!-- Image -->
@@ -101,5 +102,13 @@ var props = defineProps({
 <style scoped lang="postcss">
 
   /* Avoid styling here when using tailwind. See https://tailwindcss.com/docs/reusing-styles. */
+
+
+  .group:hover .cool-hover-underline:after {
+
+    /* Custom underline, because normal css underline doesnt work when we apply gradient to text */
+
+    @apply content-[''] absolute left-0 w-full bottom-[2.5px] h-[1px] rounded-[1px] bg-gradient-to-l
+  }
 
 </style>

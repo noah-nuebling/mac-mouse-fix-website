@@ -49,7 +49,7 @@ export default {
 
   'feature.zoom.title': 'Zoom in or out',
   'feature.zoom.body': 'Hold down **button 5** on your mouse, then **scroll** **up** or **down** to zoom in or out in apps like Safari and Preview.\n\nIt works just like pinching with two fingers on an Apple trackpad.',
-  'feature.pages.title': 'Go back and forward',
+  'feature.pages.title': 'Go **Back** and **Forward**',
   'feature.pages.body': 'Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to show the previous or next page in apps like Safari.\n\nIt works just like swiping left or right with two fingers on an Apple trackpad.',
   'feature.mail-actions.title': 'Delete mails quickly and more',
   'feature.mail-actions.body': 'Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to delete messages in Mail, quickly reply to an iMessage, and more.\n\nAny gesture you can perform inside an app by swiping on an Apple trackpad works just as well using Mac Mouse Fix.',
@@ -90,7 +90,7 @@ export default {
   'scrolling.title': "{accent}.\nSmooth As Butter.",
   'scrolling.title.accent': "Scrolling",
 
-  'scrolling.body': "Mac Mouse Fix makes scrolling on your mouse feel as **smooth** and **fluid** as on an Apple trackpad, or as **consistent** and **precise** as on Windows.",
+  'scrolling.body': "Scrolling with a third-party mouse on macOS can feel **jolty** and **hard to control** - especially when you're used to Windows or an Apple Trackpad. Mac Mouse Fix provides a **best-in-class scrolling experience** that feels great to use and is easy on your eyes - and fingers.",
 
   'scroll-smoothness.header': 'Choose a **Scrolling Smoothness**',
 
@@ -103,7 +103,7 @@ export default {
 
   'scroll-feature.header': 'Other great **Scrolling Features**',
 
-  'scroll-feature.reverse.title':       'Reverse scrolling direction',
+  'scroll-feature.reverse.title':       'Change the **Scrolling Direction**',
   'scroll-feature.reverse.body':        "Mac Mouse Fix lets you change the scrolling direction of your mouse - independently from your trackpad or Magic Mouse.",
   'scroll-feature.modifiers.title':     'Keyboard modifiers',
   'scroll-feature.modifiers.body':      "Hold a keyboard modifier while scrolling to scroll horizontally, zoom in or out, and more.",
@@ -127,14 +127,14 @@ export default {
       You can also double click, use keyboard modifiers, and more.
   */
 
-  'remap-engine.title': 'Formidably {accent2}\n- But Still -\nAmazingly Intuitive.',
-  'remap-engine.title.accent': 'Flexible',
+  'remap-engine.title': 'Amazingly {accent2}\n{accent} Intuitive.',
+  'remap-engine.title.accent':  'and',
   'remap-engine.title.accent2': 'Flexible',
-  'remap-engine.body': "Mac Mouse Fix makes it incredibly **easy and intuitive to precisely customize** what your mouse does.",
+  'remap-engine.body': "Customizing how your mouse works in Mac Mouse Fix is **better than in any competing app** - Both when it comes to how **easy** it is, *and* when it comes to the range of **powerful** things you can do. That's amazing isn't it?", // Mac Mouse Fix makes it incredibly **easy and intuitive to precisely customize** what your mouse does.
   
   'customization-feature.header': "Flexible **Customization Options**",
   'customization-feature.action-table.title': 'Add **Custom Gestures** to your mouse',
-  'customization-feature.action-table.body': "To add a gesture to your mouse, **First** hover the mouse pointer over the '+' field (shown below). **Second**, show a gesture to Mac Mouse Fix - this can be a simple button click or a more complex input. **Finally**, assign an action, such as Smart Zoom, to that gesture. And that's it!",
+  'customization-feature.action-table.body': "To add an action to your mouse, **First** hover the mouse pointer over the '+' field (shown below). **Second**, show an input to Mac Mouse Fix - this can be a simple button click, hold, or something (much) more complex. **Finally**, assign an action, such as Smart Zoom, to that input. And that's it!",
   // 'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
 
   'customization-feature.keyboard-shortcuts.title': "Use **Keyboard Shortcuts** from your mouse",
@@ -152,30 +152,31 @@ export default {
 
   */
 
-  'good-software.header': "Great **Software**",
+
 
   'good-software.title': "Great Software.\nGreat {accent2}.",
   'good-software.title.accent2': "Price",
-  'good-software.body': "Mac Mouse Fix is unobtrusive, lightweight, polished, and easy to use. It's also Open-Source and it comes at a great **price**.",
+  'good-software.body': "I strive to make Mac Mouse Fix software that you can **feel great about installing**. Both by doing my best to make a **great piece of software** all around, and by **offering it as cheaply as possible** - so you get amazing **value for your money**.",
 
-  'unobtrusive-lightweight.title': "Unobtrusive and lightweight",
-  'unobtrusive-lightweight.body': "Every detail of Mac Mouse Fix has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Mac Mouse Fix is also engineered so that it consumes absolutely no CPU resources on your computer when it doesn't have to.",
+
+  'good-software.header': "Great **Software** ...",
+
+  'unobtrusive-lightweight.title': "**Unobtrusive** and **lightweight**",
+  'unobtrusive-lightweight.body': "Every detail of Mac Mouse Fix has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Mac Mouse Fix is extremely optimized and consumes no CPU resources on your computer unless it really has to.",
   'open-source.title': "Open Source",
-  'open-source.body': "Mac Mouse Fix's source code is available on GitHub. Since anyone can see how it works, you can trust that it is secure, and other projects can benefit from its innovations in trackpad simulation and other areas.",
+  'open-source.body': "Mac Mouse Fix's source code is available on GitHub. Since anyone can see how it works, you can trust that it is secure and trustworthy. Also, other projects can benefit from its innovations in trackpad simulation and other areas.",
 
-  'user-feedback.card-header.title':  "**What people say** about Mac Mouse Fix",
-  'user-feedback.card-header.sub':    "Thanks to anyone sharing feedback! :)",
 
-  'price.header': "Mac Mouse Fix comes at a great **Price**",
+  'price.header': "... doesn't have to come at a big **Price**",
 
-  'price.title': "$1.99 to own",
-  'price.body': "Mac Mouse Fix costs $1.99 to own. There are no subscriptions or additional costs, and you can easily pay in few clicks from inside the app with Apple Pay, PayPal, Credit card and more.",
+  'price.title': "**$1.99** to own",
+  'price.body': "Mac Mouse Fix costs $1.99 to own - forever. There are no subscriptions or additional costs, and you can easily pay in few clicks from inside the app with Apple Pay, PayPal, Credit card and more.",
   
-  'free-days.title':  "Free for 30 days",
+  'free-days.title':  "Free for **30 days**",
   'free-days.body':   "Mac Mouse Fix is **free for 30 days**. Your free days will only be used up **when you actually use Mac Mouse Fix** - so you can relax when testing app without worrying when your free days will run out.",
 
   'alternatives.title':  "Cheaper (and better) than alternatives",
-  'alternatives.body':   "Buying Mac Mouse Fix and using it with a cheaper mouse is wayyy cheaper compared to alternatives like buying an MX Master ($99.99 MSRP), or an Apple Trackpad ($129.00 MSRP) - and it's not only cheaper, but - in my opinion - you even get a far nicer experience compared to an MX Master, and even slightly nicer than an Apple Trackpad.",
+  'alternatives.body':   "Buying Mac Mouse Fix is more than **50x cheaper** compared to alternatives like buying an MX Master ($99.99 MSRP), or an Apple Trackpad ($129.00 MSRP) - and it's not only cheaper, but - in my opinion - you even get a far nicer experience compared to an MX Master, and even slightly nicer than an Apple Trackpad.",
   'alternatives.mx-master-rant': "The MX Master and other Logitech mice actually has very bad build quality and components compared to its price, and has very bad ergonomics too, at least for my hands. The button placing is very inconvenient, the mouse is way too heavy making it uncomfortable compared to ligher mouse, it's too big, not fitting my hand well, sensor is low quality and inaccurate, lots of input lag on bluetooth, the hardware features it has (gesture button, horizontal wheel, and free-spin) are not well-engineered, and do not feel good or ergonomic to use and their functionality can easily be replaced by Mac Mouse Fix in a better way.",
 
   'pay-reason.pity': "Support me. Idk I struggle a lot with life, autism, childhood trauma, can't work a normal job. So I hope I can contribute to society and survive with this. Sincere thanks to anyone paying for the app.",
@@ -244,6 +245,9 @@ export default {
 
 
   /* Quotes */
+
+  'user-feedback.card-header.title':  "**What people say** about Mac Mouse Fix",
+  'user-feedback.card-header.sub':    "Thanks to anyone sharing feedback! :)",
 
   'quotes.see-more': 'See More',
   'quotes.see-less': 'See Less',

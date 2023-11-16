@@ -41,6 +41,7 @@ export default {
     screens: {
 
       // Responsive prefixes.
+      // ! Keep this in sync with constants.ts
       // Notes:
       // - Using `max` for desktop first design. using `M:some-tailwind-class` will apply that class at the M size and below
       // - Stole those breakpoints from the Apple iMac and MacBook Air website. They used 734, 1068 and 1440. But there were no changes to the site at 1440. (So there's only 3 sizes for everything - small, medium, large.) We might use 1440 as the default width of our stuff.
@@ -93,6 +94,9 @@ export default {
     },
 
     extend: {
+      fontWeight: {
+        'weight-inherit': 'inherit', // Using this to prevent <strong> text from markdown-it from being super fat. (Since we apply gradients to emphasize instead)
+      },
       backgroundImage: (theme) => ({ 
         // 'gradient-blue': `linear-gradient(to bottom, ${theme('colors.cyan.400')}, ${theme('colors.blue.500')})`,        /* bg-gradient-to-b from-cyan-400 to-blue-500 */
         // 'gradient-orange': `linear-gradient(to bottom, ${theme('colors.amber.400')}, ${theme('colors.orange.500')})`,   /* bg-gradient-to-b from-amber-400 to-orange-500 */
@@ -109,41 +113,21 @@ export default {
       }
     }
   },
+
   plugins: [
 
-    // plugin(function({ matchUtilities, theme }) {
-    //   matchUtilities(
-    //     {
-    //       tab: (value) => ({
-    //         tabSize: value
-    //       }),
-    //     },
-    //     { values: theme('tabSize') }
-    //   )
-    // }),
+    plugin(function ({ addVariant }) {
 
+      /* Variant for styling <strong> children, which markdown-it outputs for markdown source text wrapped in `**` 
+        Use like `strong:color-blue-500` to style all <strong> children */
 
-    plugin(function ({ matchUtilities }) {
-
-      /* Set variable utility
-        So we can set --css-variables directly from tailwind. Syntax: var-[accent-color=#3b82f6] to set. Then text-[var(--accent-color)] to use. */
-
-      const newUtilities = {
-        'var': (value) => {
-          var [varName, varValue] = value.split('=')
-          return {
-            [`--${ varName }`]: varValue,
-          }
-        }
-      }
-      const options = { }
-      matchUtilities(newUtilities, options);
+      addVariant('strong', '& strong')
     }),
 
     plugin(function ({ matchUtilities }) {
 
       /* Force size utility
-        Sometimes w- and h- don't work for some reason. This sets min- and max- at once to try and force the element to be that size */
+        Sometimes w- and h- don't work for some reason. This sets min- and max- at once to try and force the element to be exacltly that size */
 
       const newUtilities = {
         'f-w': (value) => {

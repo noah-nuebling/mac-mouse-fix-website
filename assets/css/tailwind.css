@@ -10,11 +10,8 @@ Notes:
 @layer base {
 
   .accent-strong strong {
-    /* markdown-it produces <stong> tags for text wrapped in `**`. `--accent-color` isn't magic, it's just a custom variable we define */
-    @apply text-[var(--accent-color)] font-[600]
-  }
-  .accent-strong-none strong {
-    @apply text-[unset]
+    /* markdown-it produces <stong> tags for text wrapped in `**`. `--accent-color` isn't magic, it's just a custom variable we define. This is unused now, sice we use gradients for everything */
+    @apply text-[var(--accent-color)] font-[unset]
   }
 
 
@@ -147,48 +144,58 @@ Notes:
   @apply shadow-gray-700/40;
  }
 
- 
 
-  .text-gradient-violet {
-    @apply text-transparent bg-clip-text bg-gradient-to-l from-indigo-500 to-fuchsia-500;
+  .text-gradient-to-r {
+    @apply text-transparent bg-gradient-to-r;
+    -webkit-background-clip: text; /* Webkit to try and fix underlines, but don't think it works */
+    background-clip: text;
   }
-  .text-gradient-red { 
-    @apply text-transparent bg-clip-text bg-gradient-to-l to-[hsl(0,100%,62%)] via-35% via-[hsl(4,80%,53%)] from-[hsla(10,95%,40%)] 
-    /* @apply text-transparent bg-clip-text bg-gradient-to-l to-red-500 from-red-600 */
-  }
-  .text-gradient-orange-red { 
-    @apply text-transparent bg-clip-text bg-gradient-to-l from-red-500 to-amber-400
-  }
-  .text-gradient-blue-light-blue {
-    @apply text-transparent bg-clip-text bg-gradient-to-l from-blue-500 to-cyan-300;
-  }
-  .text-gradient-blue {
-    @apply text-transparent bg-clip-text bg-gradient-to-l from-blue-500 to-cyan-300;
-  }
-  .text-gradient-blue-wide {
-    @apply text-transparent bg-clip-text bg-gradient-to-l from-indigo-400 to-teal-300;
+  .text-gradient-to-l {
+    @apply text-transparent bg-gradient-to-l;
+    -webkit-background-clip: text;
+    background-clip: text;
   }
 
-  .text-gradient-blue-green {
-    @apply text-transparent bg-clip-text bg-gradient-to-l from-cyan-400 to-teal-300;
+  .gradient-violet {
+    @apply from-indigo-500 to-fuchsia-500;
   }
-  .text-gradient-green-yellow {
-    @apply text-transparent bg-clip-text bg-gradient-to-l from-green-400 to-yellow-300;
+  .gradient-red { 
+    @apply to-[hsl(0,100%,62%)] via-35% via-[hsl(4,80%,53%)] from-[hsla(10,95%,40%)] 
+    /* @apply to-red-500 from-red-600 */
   }
-  .text-gradient-green {
-    @apply text-transparent bg-clip-text bg-gradient-to-l from-green-600 to-lime-400;
+  .gradient-orange-red { 
+    @apply from-red-500 to-amber-400
+  }
+  .gradient-blue-light-blue {
+    @apply from-blue-500 to-cyan-300;
+  }
+  .gradient-blue {
+    @apply from-blue-500 to-cyan-300;
+  }
+  .gradient-blue-wide {
+    @apply from-indigo-400 to-teal-300;
+  }
+
+  .gradient-blue-green {
+    @apply from-cyan-400 to-teal-300;
+  }
+  .gradient-green-yellow {
+    @apply from-green-400 to-yellow-300;
+  }
+  .gradient-green {
+    @apply from-green-600 to-lime-400;
   }
   /* .text-gradient-light-yellow {
-    @apply text-transparent bg-clip-text bg-gradient-to-l from-lime-300 to-amber-300
+    @apply from-lime-300 to-amber-300
   }
   .text-gradient-yellow {
-    @apply text-transparent bg-clip-text bg-gradient-to-l from-lime-300 to-amber-300
+    @apply from-lime-300 to-amber-300
   } */
-  .text-gradient-orange-yellow { 
-    @apply text-transparent bg-clip-text bg-gradient-to-l from-orange-500 to-yellow-300
+  .gradient-orange-yellow { 
+    @apply from-orange-500 to-yellow-300
   }
-  .text-gradient-orange { 
-    /* @apply text-transparent bg-clip-text bg-gradient-to-l from-red-500 to-orange-300 */
-    @apply text-transparent bg-clip-text bg-gradient-to-l to-[hsl(35,100%,55.4%)] from-[hsl(0,85.2%,60.2%)]
+  .gradient-orange { 
+    /* @apply from-red-500 to-orange-300 */
+    @apply to-[hsl(35,100%,55.4%)] from-[hsl(0,85.2%,60.2%)]
   }
 }

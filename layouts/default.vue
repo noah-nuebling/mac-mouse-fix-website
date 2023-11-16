@@ -9,12 +9,16 @@
     <!-- Output page content -->
     <div class="min-w-[320px] max-w-[1560px] mx-auto pt-[0rem]"><slot /></div> <!-- page templates will be inserted here (about.vue, index.vue, etc) -->
 
-    <!-- 
-    Locale Picker
-    Notes: 
-    - I can't seem to give this a blue accent under the arrow like the native system buttons. This should be default look for <select> buttons. See https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select. But the current look is good enough for Chrome and Safari.
-    -->
-    <div class=" mb-[-5rem] pt-[5rem] flex justify-center">
+
+    <!-- Bottom Nav -->
+    <div class="h-[calc(50vh-13rem)] flex justify-center items-center p-[5rem]">
+
+      <!-- 
+      Locale Picker
+      Notes: 
+      - I can't seem to give this a blue accent under the arrow like the native system buttons. This should be default look for <select> buttons. See https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select. But the current look is good enough for Chrome and Safari.
+      -->
+
       <select ref="localePicker" @change="handleLocaleSelect" class="rounded-[50vh] outline outline-1 outline-slate-500/20"> 
         <option v-for="$loc in $i18n.locales" :value="$loc.code"> {{ $loc.name }}</option> 
       </select> 
@@ -35,7 +39,7 @@
     -> So the best we can come up with is applying noise in css directly.
   -->
 
-  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="filter-defs">
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="hidden filter-defs">
     <defs>
       <filter id="tint-blue">
         <feFlood flood-color="#3b82f6" flood-opacity="1.0" result="flood" />
