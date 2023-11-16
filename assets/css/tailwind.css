@@ -171,7 +171,8 @@ Notes:
   }
   .gradient-blue {
     /* @apply from-blue-500 to-cyan-300; */
-    @apply from-[#065ff7] to-[color(display-p3_-0.0495_0.6058_1.0307)]
+    /* @apply from-[#065ff7] to-[color(display-p3_-0.0495_0.6058_1.0307)]  <- Most intense gradient I could come up with */
+    @apply from-[#065ff7] to-[#329ee8] /* <- Less neon version of most intense  */
   }
   .gradient-blue-wide {
     @apply from-indigo-400 to-teal-300;

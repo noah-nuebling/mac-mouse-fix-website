@@ -32,14 +32,14 @@
 
     <div class="relative">
       <!-- Section head -->
-      <SectionHeader class="strong:gradient-blue strong:filter strong:brightness-[1.1]" title-accent-class="text-gradient-to-l gradient-blue brightness-[1.43] filter hue-rotate-[0deg]" title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" body-key="trackpad-features.body" />
+      <SectionHeader class="strong:gradient-blue strong:filter strong:brightness-[1.05]" title-accent-class="text-gradient-to-l gradient-blue brightness-[1.43] filter hue-rotate-[0deg]" title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" body-key="trackpad-features.body" />
       <!-- Color splash -->
       <div class="hidden absolute top-0 bottom-0 left-[50%] translate-x-[-50%] w-[100vw]">
         <img :src="colorSplashImagePath" alt="" class="f-w-[100rem] relative left-[-15rem] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.7] filter hue-rotate-[0deg]">
       </div>
     </div>
 
-    <CardContainer title-key="trackpad-features.header" class="gradient-blue ch-[.card-title_strong]:filter ch-[.card-title_strong]:brightness-[1.25]" title-class="strong:filter strong:brightness-[1.25]">
+    <CardContainer title-key="trackpad-features.header" class="gradient-blue strong:filter ch-[.card-title_strong]:brightness-[1.15]" title-class="strong:filter strong:brightness-[1.2] strong:hue-rotate-[0deg]">
 
       <div class="w-full flex justify-center">
         <div class="relative flex flex-col items-center w-fit">
