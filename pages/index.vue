@@ -32,14 +32,14 @@
 
     <div class="relative">
       <!-- Section head -->
-      <SectionHeader class="var-[accent-color=hsla(217,90%,48%,1)] gradient-blue" title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" title-accent-class="text-gradient-to-l gradient-blue" body-key="trackpad-features.body" />
+      <SectionHeader class="strong:gradient-blue strong:filter strong:brightness-[1.1]" title-accent-class="text-gradient-to-l gradient-blue brightness-[1.43] filter hue-rotate-[0deg]" title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" body-key="trackpad-features.body" />
       <!-- Color splash -->
       <div class="hidden absolute top-0 bottom-0 left-[50%] translate-x-[-50%] w-[100vw]">
         <img :src="colorSplashImagePath" alt="" class="f-w-[100rem] relative left-[-15rem] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.7] filter hue-rotate-[0deg]">
       </div>
     </div>
 
-    <CardContainer title-key="trackpad-features.header" class="var-[accent-color=hsla(217,90%,48%,1)] gradient-blue">
+    <CardContainer title-key="trackpad-features.header" class="gradient-blue ch-[.card-title_strong]:filter ch-[.card-title_strong]:brightness-[1.25]" title-class="strong:filter strong:brightness-[1.25]">
 
       <div class="w-full flex justify-center">
         <div class="relative flex flex-col items-center w-fit">
@@ -79,9 +79,9 @@
 
     <!-- Scrolling -->
 
-    <SectionHeader class="var-[accent-color=hsla(271,85%,52%,1)] gradient-violet" title-key="scrolling.title" title-accent-key="scrolling.title.accent" title-accent-class="text-gradient-to-l" body-key="scrolling.body" />
+    <SectionHeader class="gradient-violet" title-accent-class="text-gradient-to-l filter brightness-[1.06]" title-key="scrolling.title" title-accent-key="scrolling.title.accent" body-key="scrolling.body" />
     
-    <CardContainer title-key="scroll-smoothness.header" class="mb-[10rem] var-[accent-color=hsla(271,85%,52%,1)] gradient-violet">
+    <CardContainer title-key="scroll-smoothness.header" class="mb-[10rem] strong:filter gradient-violet ch-[.card-sm]:brightness-[0.93]">
       <div class="w-fit relative left-[50%] translate-x-[-50%]">
         <div class="absolute inset-0 -z-10 pointer-events-none">
           <img :src="colorSplashImagePath" alt="" class="f-w-[120rem] f-h-[70rem] absolute left-[33%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]">
@@ -94,7 +94,7 @@
       </div>
     </CardContainer>
   
-    <CardContainer title-key="scroll-feature.header" class="var-[accent-color=hsla(271,85%,52%,1)] gradient-violet">
+    <CardContainer title-key="scroll-feature.header" class="gradient-violet">
       <div class="w-fit relative left-[50%] translate-x-[-50%]">
         <div class="absolute inset-0 -z-10 pointer-events-none">
           <img :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] scale-[1] absolute left-[75%] top-[40%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]">
@@ -112,9 +112,9 @@
           Notes:
           - Thought about including a non-trackpad features section - but not enough features so far to warrant a whole section -->
 
-    <SectionHeader class="var-[accent-color=hsla(0,91%,45%,1)] gradient-red" title-key="remap-engine.title" title-accent-key="remap-engine.title.accent" title-accent-class="italic" title-accent2-key="remap-engine.title.accent2" title-accent2-class="text-gradient-to-l gradient-red" body-key="remap-engine.body" />
+    <SectionHeader class="gradient-red strong:filter strong:brightness-[1.0]" title-accent-class="italic" title-accent2-class="text-gradient-to-l filter brightness-[1.12] hue-rotate-[-0deg]" title-key="remap-engine.title" title-accent-key="remap-engine.title.accent" title-accent2-key="remap-engine.title.accent2" body-key="remap-engine.body" />
 
-    <CardContainer class="var-[accent-color=hsla(0,91%,45%,1)] gradient-red">
+    <CardContainer class="gradient-red ch-[.card-title_strong]:brightness-[1.0] strong:brightness-[0.95]">
       <div class="flex justify-center">
         <div class="w-fit relative">
           <div class="absolute inset-0 -z-10 pointer-events-none">
@@ -131,9 +131,11 @@
 
     <!-- Price / Good Software -->
 
-    <SectionHeader class="var-[accent-color=hsla(142,93%,30%,1)] gradient-green" title-key="good-software.title" title-accent2-key="good-software.title.accent2" title-accent2-class="text-gradient-to-l gradient-green" body-key="good-software.body" />
+    <SectionHeader class="gradient-green strong:filter strong:brightness-[1.15]" title-accent2-class="text-gradient-to-l gradient-green filter brightness-[1.35]" title-key="good-software.title" title-accent2-key="good-software.title.accent2" body-key="good-software.body" />
     
-    <CardContainer title-key="good-software.header" class="var-[accent-color=hsla(142,100%,30%,1)] gradient-green">
+    <CardContainer title-key="good-software.header" 
+      class="gradient-green strong:filter ch-[.card-title_strong]:brightness-[1.2]"             title-class=" strong:filter strong:brightness-[1.2]">
+
       <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
         <div class="absolute inset-0 -z-10 pointer-events-none">
           <img :src="colorSplashImagePath" alt="" class="f-h-[50rem] f-w-[100rem] absolute left-[33%] top-[33%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8] filter invert hue-rotate-[125deg]">
@@ -145,7 +147,9 @@
       </div>
     </CardContainer>
 
-    <CardContainer  title-key="price.header" class="mt-[5rem] var-[accent-color=hsla(142,100%,30%,1)] gradient-green">
+    <CardContainer  title-key="price.header"        
+      class="gradient-green strong:filter ch-[.card-title_strong]:brightness-[1.2] mt-[5rem]"   title-class=" strong:filter strong:brightness-[1.2]">
+
       <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
         <div class="absolute inset-0 -z-10 pointer-events-none">
             <img :src="colorSplashImagePath" alt="" class="f-w-[150rem] f-h-[75rem] absolute left-[75%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8] filter invert hue-rotate-[125deg]">

@@ -170,7 +170,8 @@ Notes:
     @apply from-blue-500 to-cyan-300;
   }
   .gradient-blue {
-    @apply from-blue-500 to-cyan-300;
+    /* @apply from-blue-500 to-cyan-300; */
+    @apply from-[#065ff7] to-[color(display-p3_-0.0495_0.6058_1.0307)]
   }
   .gradient-blue-wide {
     @apply from-indigo-400 to-teal-300;
@@ -182,8 +183,11 @@ Notes:
   .gradient-green-yellow {
     @apply from-green-400 to-yellow-300;
   }
+  .gradient-green-big {
+    @apply to-[#a0f102] from-[#22c55e] /* Made with big text as basis, because simply applying brightness filter to other green gradient didn't work */
+  }
   .gradient-green {
-    @apply from-green-600 to-lime-400;
+    @apply to-[#039d23] from-[#017e03]
   }
   /* .text-gradient-light-yellow {
     @apply from-lime-300 to-amber-300

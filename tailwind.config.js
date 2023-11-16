@@ -35,6 +35,8 @@ export default {
         - Red, Orange, Yellow, Green, Light Blue, Dark Blue, Purple, Pink 
       - Analysis of tailwind color pallete and Apple System colors: I analyzed the tailwind color palette using https://hslpicker.com/#6567f1 and https://tailwindcolor.com/. In think I understand the pattern of how they came up with them. Here's how I managed to come up with very similar colors myself based on my understanding of their process: First, you find the purest version of your color, for this you pick a hue, set saturation to 80, and lightness to 50. We don't choose 100 as the base saturation, because that can look a bit 'neon' and 'unnatural' and also we want space to adjust colors so that we can more freely adjust colors to make many different colors with different hues have matching perceived 'colorfulness' and brightness. After setting our h, s, and l to the initial values, we adjust the s and l values to find the purest and most 'direct' looking version of the color, without having it start to look 'neon'. For this it's interesting to note, that decreasing the lightness increases perceived colorfulness, and increasing lightness decreases colorfulness. We can adjust saturation to compensate for this. Once we have found our 'purest' looking version of the hue, now we have found our base color. This matches the -500 version of a color in the tailwind scheme. Next we find the lightest version of the color, aka the -100 version. For this we take our original color, then increase the lightness to 95, increase the saturation to compensate the loss of 'colorfulness', and then make further small adjustments to h, s, and l to achieve the best looking color which also matches other tailwind -100 colors in lightness and colorfulness. Then we create the darkest version, aka the -900 version of the color. For this, we take the original -500 color, then decrease the lightness to 30, then lower the saturation to compensate for the increase in colorfulness, and then make further smaller adjustments to achieve the best result which also matches other -900 colors in colorfulness and lightness. Lastly, you want to come up with the in between colors, like -700 or -400. I haven't thought about this, too much, and I haven't tried to create these myself but I think one way that could work is to first try to create a color that is visually exactly  between the -500 and and -900 colors, and call that the -700 version, and then come up with one that is visually exactly between the -500 and -100 versions, and call that the -300 version. Then you could continue this 'bisection' process to get the -200, -400, -600, and -800 versions of the color. For every version you create you should also make sure that it matches other tailwind colors with the same number in lightness and colorfulness. Another thing I noticed looking at the colors on https://tailwindcolor.com/ (it seems to use tailwind 1, tailwind 2 might have changed this) is that the -200, -300, -400 versions in the red to yellow range have increased colorfulness and I think also decreased lightness compared to all other -200, -300, -400 color versions on the site. This might be bcause of my monitor or me using Apple Nightshift or something. I'm not sure. Lastly, I also analyzed some of Apple's system colors, and all the ones I found were very close to pure colors. All the ones I looked at used saturation 100 and lightness just a few percentages higher than 50. They also seemed to gravitate towards colors 'between' other colors. Not sure that description makes sense. Like their blue hue is exactly at the point between where the hue looks 'light-blue-ish' and where it looks 'dark-blue-ish'. Like EXACTLY in the middle where it looks like neither light nor dark blue. I analyzed one or two other colors from Apple, and for all the ones I looked at it was like this. However, I personally clearly prefer the tailwind colors which have a lower saturation which gives them a more sophisticated, natural, less 'neon' look and better matching between colors of different hues. 
       - There's also oklch (css natively supports it) which is a human perception-based way to pick colors -> https://oklch.com/. It's really cool. I'm not sure I find it more usable than hsl, because most of the perceivable colors aren't available on computer monitors, so you constantly have to work around that. 
+      - We used to use accent colors before we gave all the text gradients - Green: hsla(142,93%,30%,1), Red: hsla(0,91%,45%,1), Purple: hsla(271,85%,52%,1), Blue: hsla(217,90%,48%,1)
+      - On giving all the text gradients: We're using some custom tailwind variants and utilities to make this work ('strong' and 'ch') - I hope its worth it. Also we're using oklch.com to pick nice gradients with readable brightness and good visual impact. We also found that the gradients look significantly brighter on thinner, smaller text. So we're using css brightness filter to compensate.
       
     */
 
@@ -115,6 +117,19 @@ export default {
   },
 
   plugins: [
+
+    plugin(function ({ matchVariant }) {
+
+      /* Variant for styling children with a certain selector
+        Use like `ch-[.some-class]:color-blue-500` to style all children with class `.some-class` */
+
+      const options = {}
+
+      matchVariant('ch', (value, extra) => {
+        const v = value.replaceAll('_', ' ')
+        return `& ${ v }`
+      }, options)
+    }),
 
     plugin(function ({ addVariant }) {
 
