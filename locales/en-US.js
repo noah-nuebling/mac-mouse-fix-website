@@ -162,7 +162,7 @@ export default {
   'good-software.header': "Great **Software** ...",
 
   'unobtrusive-lightweight.title': "**Unobtrusive** and **lightweight**",
-  'unobtrusive-lightweight.body': "Every detail of Mac Mouse Fix has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Mac Mouse Fix is extremely optimized and consumes no CPU resources on your computer unless it really has to.",
+  'unobtrusive-lightweight.body': "Every detail of Mac Mouse Fix has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Mac Mouse Fix is extremely optimized and consumes no Battery or CPU resources on your computer unless it really has to.",
   'open-source.title': "Open Source",
   'open-source.body': "Mac Mouse Fix's source code is available on GitHub. Since anyone can see how it works, you can trust that it is secure and trustworthy. Also, other projects can benefit from its innovations in trackpad simulation and other areas.",
 
