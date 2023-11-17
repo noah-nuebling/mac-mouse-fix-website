@@ -4,7 +4,7 @@
         Notes: 
         - Setting z negative prevents scrolling in the qutoes. Not sure why. -->
 
-  <div ref="outerContainer" class=" relative mt-[-0rem] z-10">
+  <div ref="outerContainer" class=" relative z-10">
 
     <!-- BG + Color Splashes -->
 
@@ -25,9 +25,9 @@
         <!-- Top-left splash -->
         <div :class="['absolute inset-0 z-10 color-splash-dance1', splashDance ? '' : 'paused']">
           <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
-            <div ref="colorSplash1" class="absolute inset-0 opacity-1">
-              <img :src="colorSplashImagePath" alt=""       :class="['f-w-[calc((0.75*120vw)+(0.25*120*19.20px))] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
-              <img :src="colorSplashDark1ImagePath" alt=""  :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
+            <div ref="colorSplash1" class="absolute inset-0 opacity-1 ">
+              <img :src="colorSplashImagePath" alt=""       :class="['f-w-[calc((0.5*235vh)+(0.5*235*9.75px))] absolute top-[0] left-[calc(50%-0.5*1920px)] translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
+              <img :src="colorSplashDark1ImagePath" alt=""  :class="['f-w-[calc((0.5*235vh)+(0.5*235*9.75px))] absolute top-[0] left-[calc(50%-0.5*1920px)] translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
             </div>
           </div>
         </div>
@@ -36,8 +36,8 @@
         <div :class="['absolute inset-0 z-10 color-splash-dance2', splashDance ? '' : 'paused']">
           <div :class="['absolute inset-0 color-splash-pulse2', splashDance ? '' : 'paused']">
             <div ref="colorSplash2" class="absolute inset-0 opacity-1">
-              <img :src="colorSplashImagePath" alt=""       :class="['f-w-[calc((0.75*95vw)+(0.25*95*19.20px))] absolute bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
-              <img :src="colorSplashDark2ImagePath" alt=""  :class="['min-w-[80rem] absolute bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
+              <img :src="colorSplashImagePath" alt=""       :class="['f-w-[calc((0.5*185vh)+(0.5*185*9.75px))] absolute bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
+              <img :src="colorSplashDark2ImagePath" alt=""  :class="['f-w-[calc((0.5*185vh)+(0.5*185*9.75px))] absolute bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
             </div>
           </div>
         </div>
@@ -226,7 +226,7 @@ watch(quotesAreExpanded, (newValue) => {
 
 /* Debug */
 
-console.log(`Window width: ${ vw() * 100 }`)
+console.log(`Window dims: ${ vw() * 100 } x ${ vh() * 10095 }`)
 
 /* Wait for mount */
 
@@ -550,11 +550,11 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 }
 
 .color-splash-dance1 {
-  animation: splash-dance1 60s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: splash-dance1 40s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   animation-direction: alternate;
 }
 .color-splash-dance2 {
-  animation: splash-dance2 60s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: splash-dance2 40s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   animation-direction: alternate;
 }
 
@@ -564,16 +564,16 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     transform: translate(0, 0);
   }
   20% {
-    transform: translate(110%, 0);
+    transform: translate(90%, 50%);
   }
   40% {
-    transform: translate(110%, 140%);
+    transform: translate(90%, 130%);
   }
   60% {
-    transform: translate(-30%, 140%);
+    transform: translate(-10%, 130%);
   }
-  90% {
-    transform: translate(-30%, 0);
+  80% {
+    transform: translate(-10%, 60%);
   }
 }
 
@@ -585,16 +585,16 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     transform: translate(0, 0);
   }
   20% {
-    transform: translate(-110%, 0);
+    transform: translate(-90%, -50%);
   }
   40% {
-    transform: translate(-110%, -140%);
+    transform: translate(-90%, -130%);
   }
   60% {
-    transform: translate(30%, -140%);
+    transform: translate(10%, -130%);
   }
-  90% {
-    transform: translate(30%, 0);
+  80% {
+    transform: translate(10%, -60%);
   }
 }
 
