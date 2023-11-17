@@ -239,9 +239,12 @@ const priceCardsSection2 = ref<HTMLElement | null>(null)
 /* Other vars */
 const sectionToTimelineMap = new Map<Ref<HTMLElement | null>, gsap.core.Timeline>()
 var fadeTimelines: Array<gsap.core.Timeline> = []
+var headerSectionTimelines: Array<gsap.core.Timeline> = []
 const cardsSections = [trackpadCardsSection1, trackpadCardsSection2, scrollingCardsSection1, scrollingCardsSection2, actionTableCardsSection, priceCardsSection1, priceCardsSection2]
 
 onMounted(() => {
+
+  const headerSections = rootElement.value!.getElementsByClassName('section')
 
   watch(introAnimationId, (newValue) => {
 
@@ -278,6 +281,11 @@ onMounted(() => {
       const tl = fadeTimelines.pop()
       killScrollTriggerAnimation(tl)
     }
+    while (true) {
+      if (headerSectionTimelines.length == 0) { break }
+      const tl = headerSectionTimelines.pop()
+      killScrollTriggerAnimation(tl)
+    }
 
     /* Respect reduce motion */
     if (prefersReducedMotion()) { return }
@@ -302,7 +310,7 @@ onMounted(() => {
       sectionToTimelineMap.set(section, tlTrack)
     }
 
-    /* Create fade-in animations for titles and bodys */
+    /* Create fade-in animations */
 
     const toFade: Array<HTMLElement> = []
     const classes = ['fadeee']
@@ -312,7 +320,7 @@ onMounted(() => {
         toFade.push(element as HTMLElement)
       }
     }
-    
+
     for (const element of toFade) {
 
       const tlFade = $gsap.timeline({ scrollTrigger: {
@@ -328,6 +336,39 @@ onMounted(() => {
       tlFade.fromTo(element, { translateY: "0rem", opacity: '0' }, { translateY: '0rem', opacity: '1', duration: 0.33, ease: linearFadingEase(0) }, 0)
 
       fadeTimelines.push(tlFade)
+    }
+
+    /* headerSections animations */
+    
+    for (const element of headerSections) {
+
+      const title = element.getElementsByClassName('section-title')
+      const body = element.getElementsByClassName('section-body')
+
+      const tlFade = $gsap.timeline({ scrollTrigger: {
+        trigger: element,
+        pin: true,
+        start: "top top",
+        end: "+=1000",
+        scrub: true,
+        markers: false,
+        anticipatePin: 1.0,
+        snap: {
+          snapTo: [0, 1000],
+          delay: 0.0,
+          duration: { min: 0.02, max: 0.5 },
+          // ease: 'power3.out',
+          inertia: true,
+
+        }
+      }})
+
+      tlFade.to(0, { duration: 0 }, 0)
+      tlFade.fromTo(title, { opacity: '1', translateY: 0 }, { opacity: '0', translateY: '-4rem', duration: 750, ease: linearFadingEase(0) }, '>')
+      tlFade.fromTo(body,  { opacity: '0', translateY: "4rem" }, { opacity: '1', translateY: 0, duration: 750, ease: linearFadingEase(0) }, '>+=250')
+      tlFade.to({}, { duration: 0 }, '>')
+
+      headerSectionTimelines.push(tlFade)
     }
 
   })
