@@ -330,7 +330,7 @@ if (props.doesExpand) {
         //  We calculated targetTop such that the x center of the card stays in the same position after expanding
         const computedH = card.value.offsetHeight
         const heightIncrease = computedH - originHeight
-        targetTop = /* `${originTop - heightIncrease/2.0}px` */ `${ originTop }px`
+        targetTop = /* `${originTop - heightIncrease/2.0}px` */ `${ originTop-(2.5*12) }px`
 
         // Set position and stuff
         card.value.style.marginLeft = targetMarginLeft

@@ -134,7 +134,7 @@ export default {
   
   'customization-feature.header': "Flexible **Customization Options**",
   'customization-feature.action-table.title': 'Add **Custom Gestures** to your mouse',
-  'customization-feature.action-table.body': "To add an action to your mouse, **First** hover the mouse pointer over the '+' field (shown below). **Second**, show an input to Mac Mouse Fix - this can be a simple button click, hold, or something (much) more complex. **Finally**, assign an action, such as Smart Zoom, to that input. And that's it!",
+  'customization-feature.action-table.body': "To add an action to your mouse, **First** hover the mouse pointer over the '+' field (shown below). **Second**, show an input to Mac Mouse Fix - this can be a simple button click, hold, or something much more complex. **Finally**, assign an action, such as Smart Zoom, to that input. And that's it!",
   // 'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
 
   'customization-feature.keyboard-shortcuts.title': "Use **Keyboard Shortcuts** from your mouse",
@@ -170,13 +170,13 @@ export default {
   'price.header': "... Great **Price**",
 
   'price.title': "**$1.99** to own",
-  'price.body': "Mac Mouse Fix costs $1.99 to own - forever. There are no subscriptions or additional costs, and you can easily pay in few clicks from inside the app with Apple Pay, PayPal, Credit card and more.",
+  'price.body': "Mac Mouse Fix costs $1.99 to own - forever. There are **no subscriptions or additional costs**, and you can easily pay in few clicks from inside the app with **Apple Pay**, **PayPal**, **Credit card** and more.",
   
   'free-days.title':  "Free for **30 days**",
-  'free-days.body':   "Mac Mouse Fix is **free for 30 days**. Your free days will only be used up **when you actually use Mac Mouse Fix** - so you can relax when testing app without worrying when your free days will run out.",
+  'free-days.body':   "Mac Mouse Fix is **free for 30 days**. Your free days will only be used up **when you actually use Mac Mouse Fix** - so you can **relax** and get everything out of your free days without pressure to use app before the free days run out.",
 
-  'alternatives.title':  "Cheaper (and better) than alternatives",
-  'alternatives.body':   "Buying Mac Mouse Fix is more than **50x cheaper** compared to alternatives like buying an MX Master ($99.99 MSRP), or an Apple Trackpad ($129.00 MSRP) - and it's not only cheaper, but - in my opinion - you even get a far nicer experience compared to an MX Master, and even slightly nicer than an Apple Trackpad.",
+  'alternatives.title':  "Better value than **Alternatives**",
+  'alternatives.body':   "Mac Mouse Fix is **50x cheaper** compared to alternatives like buying a Logitech MX Master ($99.99 MSRP), or an Apple Trackpad ($129.00 MSRP).\n\nAnd that's even though Mac Mouse Fix - even paired with a cheap mouse - offers a far nicer experience compared a MX Master.",
   'alternatives.mx-master-rant': "The MX Master and other Logitech mice actually has very bad build quality and components compared to its price, and has very bad ergonomics too, at least for my hands. The button placing is very inconvenient, the mouse is way too heavy making it uncomfortable compared to ligher mouse, it's too big, not fitting my hand well, sensor is low quality and inaccurate, lots of input lag on bluetooth, the hardware features it has (gesture button, horizontal wheel, and free-spin) are not well-engineered, and do not feel good or ergonomic to use and their functionality can easily be replaced by Mac Mouse Fix in a better way.",
 
   'pay-reason.pity': "Support me. Idk I struggle a lot with life, autism, childhood trauma, can't work a normal job. So I hope I can contribute to society and survive with this. Sincere thanks to anyone paying for the app.",
