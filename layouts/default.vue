@@ -11,7 +11,7 @@
 
 
     <!-- Bottom Nav -->
-    <div class="h-[calc(50vh-13rem)] flex justify-center items-center p-[5rem]">
+    <div class="flex justify-center items-center p-[5rem] my-[15vh]">
 
       <!-- 
       Locale Picker

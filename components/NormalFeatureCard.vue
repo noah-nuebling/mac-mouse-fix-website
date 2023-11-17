@@ -6,7 +6,7 @@
 
   <FeatureCard 
     ref="thisCard"
-    class="h-full feature-card col-span-auto group shadow-refactoringui !shadow-black/[0.06] rounded-[1.5rem] !text-black/[0.8] !bg-neutral-50/[0.7] !backdrop-blur-xl" 
+    class="h-full feature-card col-span-auto group shadow-lg3 !shadow-black/[0.045] rounded-[1.5rem] !text-black/[0.8] bg-neutral-50/[0.7] !backdrop-blur-xl" 
     borderClass="border-[0px] border-black/[0.05]"
     :backgroundFilterClass="backgroundFilterClass"
     :doesExpand="videoPath ? true : false"
@@ -28,7 +28,7 @@
         </a>
       </div>
       <!-- Title -->
-      <h3 :class="['card-title strong:font-weight-inherit text-center sm:text-[1.4rem] text-[1.6rem] leading-[1.3] font-[650] sm:mx-[2rem] mx-[3rem]', titleClass]" v-html="$mt(titleKey!)"></h3>
+      <h3 :class="['card-title text-center sm:text-[1.4rem] text-[1.6rem] leading-[1.3] font-[700] strong:font-[700] sm:mx-[2rem] mx-[3rem]', titleClass]" v-html="$mt(titleKey!)"></h3>
     </template>
 
     <template v-slot:default>
@@ -36,7 +36,7 @@
 
         <!-- Body -->
         <div>
-          <p class="card-sm strong:font-[500] sm:text-[1.0rem] text-[1.0rem] font-[400] whitespace-pre-wrap max-w-[30em]" v-html="$mt(bodyKey!)"></p>
+          <p class="card-sm strong:font-[500] sm:text-[1.0rem] text-[1.1rem] font-[400] whitespace-pre-wrap max-w-[30em]" v-html="$mt(bodyKey!)"></p>
         </div>        
 
         <!-- Image -->

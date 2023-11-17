@@ -89,6 +89,9 @@ export default {
       /* vvv Like Feedback Assistant shadows but without inset – otherwise tailwind shadow coloring colors the inset */
       'sm': '0px 0.5px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 8px 0 rgba(0, 0, 0, 0.08)',
       'md': '0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 8px 32px 0 rgba(0, 0, 0, 0.08)',
+      'lg': '0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 20px 32px -5px rgba(0, 0, 0, 0.1)',
+      'lg2': '0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 8px 32px 0 rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.1) 0px 8px 10px -6px',
+      'lg3': 'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.1) 0px 8px 10px -6px, 0 8px 32px -6px rgba(0, 0, 0, 0.08)',
       'md-raised': '0 16px 64px 8px rgba(0, 0, 0, 0.4), 0 16px 100px 16px rgba(0, 0, 0, 0.3), 0 32px 192px 16px rgba(0, 0, 0, 0.2)',
 
       /* vvv Stolen from refactoringUI website */

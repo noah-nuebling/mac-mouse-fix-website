@@ -7,7 +7,7 @@
  -->
 
 <template>
-  <div>
+  <div ref="rootElement" class="strong:box-decoration-clone">
 
     <!-- Debug Stuff -->
 
@@ -32,7 +32,7 @@
 
     <div class="relative">
       <!-- Section head -->
-      <SectionHeader class="strong:gradient-blue strong:filter strong:brightness-[1.05]" title-accent-class="text-gradient-to-l gradient-blue brightness-[1.43] filter hue-rotate-[0deg]" title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" body-key="trackpad-features.body" />
+      <SectionHeader class="strong:gradient-blue strong:filter strong:brightness-[1.0]" title-accent-class="text-gradient-to-l gradient-blue brightness-[1.43] filter hue-rotate-[0deg]" title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" body-key="trackpad-features.body" />
       <!-- Color splash -->
       <div class="hidden absolute top-0 bottom-0 left-[50%] translate-x-[-50%] w-[100vw]">
         <img :src="colorSplashImagePath" alt="" class="f-w-[100rem] relative left-[-15rem] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.7] filter hue-rotate-[0deg]">
@@ -81,10 +81,10 @@
 
     <SectionHeader class="gradient-violet" title-accent-class="text-gradient-to-l filter brightness-[1.06]" title-key="scrolling.title" title-accent-key="scrolling.title.accent" body-key="scrolling.body" />
     
-    <CardContainer title-key="scroll-smoothness.header" class="mb-[10rem] strong:filter gradient-violet ch-[.card-sm]:brightness-[0.93]">
+    <CardContainer title-key="scroll-smoothness.header" class="gradient-violet strong:filter ch-[.card-sm_strong]:brightness-[0.93] mb-[5rem]">
       <div class="w-fit relative left-[50%] translate-x-[-50%]">
         <div class="absolute inset-0 -z-10 pointer-events-none">
-          <img :src="colorSplashImagePath" alt="" class="f-w-[120rem] f-h-[70rem] absolute left-[33%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]">
+          <img :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] absolute left-[25%] top-[40%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]">
         </div>
         <div ref="scrollingCardsSection1" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] my-[0] w-fit">
           <NormalFeatureCard titleKey="scroll-smoothness.high.title"           bodyKey="scroll-smoothness.high.body"        :videoPath="remapDemoVideoPath"       title-class="" class=""/>
@@ -94,10 +94,10 @@
       </div>
     </CardContainer>
   
-    <CardContainer title-key="scroll-feature.header" class="gradient-violet">
+    <CardContainer title-key="scroll-feature.header"    class="gradient-violet strong:filter ch-[.card-sm_strong]:brightness-[0.93] ">
       <div class="w-fit relative left-[50%] translate-x-[-50%]">
         <div class="absolute inset-0 -z-10 pointer-events-none">
-          <img :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] scale-[1] absolute left-[75%] top-[40%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]">
+          <img :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] scale-[1] absolute left-[66%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]">
         </div>
         <div ref="scrollingCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] my-[0] w-fit">
           <NormalFeatureCard titleKey="scroll-feature.reverse.title"        bodyKey="scroll-feature.reverse.body"            class=""/>
@@ -121,7 +121,7 @@
               <img :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[75%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]">
               <img :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]">
           </div>
-          <div ref="actionTableCardsSection" class="max-w-[1000px] flex flex-col items-center gap-[2.5rem] w-fit py-[4.5rem]">
+          <div ref="actionTableCardsSection" class="max-w-[1000px] flex flex-col items-center gap-[5rem] w-fit py-[4.5rem]">
             <NormalFeatureCard titleKey="customization-feature.action-table.title" bodyKey="customization-feature.action-table.body" :videoPath="remapDemoVideoPath"              title-class="!font-[600]" class="" backgroundFilterClass="backdrop-blur-2xl" :image-path="actionTableImagePath" image-class="mx-[-10rem] w-[80rem] mt-1 mb-[-245px] translate-x-[20rem]"/>
             <NormalFeatureCard titleKey="customization-feature.keyboard-shortcuts.title" bodyKey="customization-feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath"  title-class="!font-[600]" class="w-full" backgroundFilterClass="backdrop-blur-2xl" expand-button-key="customization-feature.keyboard-shortcuts.expand-button"/>
           </div>
@@ -134,7 +134,7 @@
     <SectionHeader class="gradient-green strong:filter strong:brightness-[1.15]" title-accent2-class="text-gradient-to-l gradient-green filter brightness-[1.35]" title-key="good-software.title" title-accent2-key="good-software.title.accent2" body-key="good-software.body" />
     
     <CardContainer title-key="good-software.header" 
-      class="gradient-green strong:filter ch-[.card-title_strong]:brightness-[1.2]"             title-class=" strong:filter strong:brightness-[1.2]">
+      class="gradient-green strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] "             title-class=" strong:filter strong:brightness-[1.2]">
 
       <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
         <div class="absolute inset-0 -z-10 pointer-events-none">
@@ -148,7 +148,7 @@
     </CardContainer>
 
     <CardContainer  title-key="price.header"        
-      class="gradient-green strong:filter ch-[.card-title_strong]:brightness-[1.2] mt-[5rem]"   title-class=" strong:filter strong:brightness-[1.2]">
+      class="gradient-green strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] mt-[5rem]"   title-class=" strong:filter strong:brightness-[1.2]">
 
       <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
         <div class="absolute inset-0 -z-10 pointer-events-none">
@@ -195,6 +195,7 @@ const quotes = getUsableQuotes()
 
 import { everyNth } from '~/utils/util';
 import { type Ref } from 'vue'
+import { linearFadingEase } from '~/utils/curves'
 
 /* Manually import video assets
     Note I feel like this is way too cumbersome. We know in advance which videos to import anyways (so we don't need 'dynamic' imports which should make it even easier) so why do we have to manually import in code? It should automatically import the static assets we use.
@@ -221,6 +222,8 @@ const { introAnimationId } = storeToRefs(global)
 
 /* Get refs */
 
+const rootElement = ref<HTMLElement | null>(null)
+
 const trackpadCardsSection1 = ref<HTMLDivElement | null>(null)
 const trackpadCardsSection2 = ref<HTMLDivElement | null>(null)
 const trackpadSplash1 = ref<HTMLElement | null>(null)
@@ -235,6 +238,7 @@ const priceCardsSection2 = ref<HTMLElement | null>(null)
 
 /* Other vars */
 const sectionToTimelineMap = new Map<Ref<HTMLElement | null>, gsap.core.Timeline>()
+var fadeTimelines: Array<gsap.core.Timeline> = []
 const cardsSections = [trackpadCardsSection1, trackpadCardsSection2, scrollingCardsSection1, scrollingCardsSection2, actionTableCardsSection, priceCardsSection1, priceCardsSection2]
 
 onMounted(() => {
@@ -248,6 +252,7 @@ onMounted(() => {
     if (false /* newValue > 1 */) {
       // Refresh scrollTriggers
       // Discussion: In theory, we only have to refresh the scroll triggers when the intro animation updates (and changes height), but when we tried to refresh the scrollTriggers there was always a flicker or it didn't work at all. We tried doAfterRender() doBeforeRender() and gsap.ticker.add(..., true, false). So instead we're just completely recreating the animations every time now. That prevents the flicker. 
+      //              -> Update! maybe setting invalidateOnRefresh on the scrollTriggers would prevent us from having to recreate the animations everytime
       $gsap.ticker.add(() => {
         for (const section of cardsSections) {
           const tl = sectionToTimelineMap.get(section)
@@ -264,9 +269,14 @@ onMounted(() => {
     for (const section of cardsSections) {
       const tl = sectionToTimelineMap.get(section)
       if (tl != null) {
-        killCardParallaxAnimation(tl)
+        killScrollTriggerAnimation(tl)
         sectionToTimelineMap.delete(section) // Not sure if necessary
       }
+    }
+    while (true) {
+      if (fadeTimelines.length == 0) { break }
+      const tl = fadeTimelines.pop()
+      killScrollTriggerAnimation(tl)
     }
 
     /* Respect reduce motion */
@@ -278,7 +288,7 @@ onMounted(() => {
 
     for (const section of cardsSections) {
 
-      const tlTrack = $gsap.timeline({scrollTrigger: {
+      const tlTrack = $gsap.timeline({ scrollTrigger: {
         trigger: section.value!,
         pin: false,
         start: "top bottom", // Top of element, bottom of viewport
@@ -291,10 +301,39 @@ onMounted(() => {
 
       sectionToTimelineMap.set(section, tlTrack)
     }
+
+    /* Create fade-in animations for titles and bodys */
+
+    const toFade: Array<HTMLElement> = []
+    const classes = ['fadeee']
+    for (const c of classes) {
+      const elements = rootElement.value!.getElementsByClassName(c)
+      for (const element of elements) {
+        toFade.push(element as HTMLElement)
+      }
+    }
+    
+    for (const element of toFade) {
+
+      const tlFade = $gsap.timeline({ scrollTrigger: {
+        trigger: element,
+        pin: false,
+        start: "bottom 95%",
+        end: "center 70%",
+        scrub: false,
+        toggleActions: 'play none none reverse',
+        markers: false,
+      }})
+
+      tlFade.fromTo(element, { translateY: "0rem", opacity: '0' }, { translateY: '0rem', opacity: '1', duration: 0.33, ease: linearFadingEase(0) }, 0)
+
+      fadeTimelines.push(tlFade)
+    }
+
   })
 })
 
-function killCardParallaxAnimation(tl: gsap.core.Timeline | undefined | null, reset: boolean = false) {
+function killScrollTriggerAnimation(tl: gsap.core.Timeline | undefined | null, reset: boolean = false) {
 
   // Mostly copied from Intro.vue
 

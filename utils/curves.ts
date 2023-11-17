@@ -1,10 +1,28 @@
-export { criticalSpring, linearScalingEase }
+export { criticalSpring, linearScalingEase, linearFadingEase }
 
 import { AnimationCurve, animationCurveFromRawCurve } from "./animationCurveTransform"
 
 /*   
   Logarithmic easing for linear feeling scale animations
 */
+
+function linearFadingEase(a: number) {
+  
+  // See https://www.desmos.com/calculator/hou11kpoqj
+
+  if (a == 0) {
+    return (x: number) => x
+  }
+
+  const c = -Math.exp(-a)+1
+  const f = (x: number) => Math.log(-x*c + 1)/-a
+  const rawCurve = f
+
+  console.log(`linearFadingEase: ${ Math.pow(-Math.E, -a*0.1) }`)
+
+  const animationCurve = animationCurveFromRawCurve(rawCurve)
+  return animationCurve.ease
+}
 
 function linearScalingEase(scalingFactor: number) {
   const rawCurve = (y: number) => Math.pow(scalingFactor, y)

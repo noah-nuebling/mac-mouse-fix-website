@@ -35,7 +35,7 @@ export default {
   'trackpad-features.header': '**Trackpad Gestures** that Mac Mouse Fix brings to your mouse',
   
   'feature.lookup.title': 'Look up and Quick Look',
-  'feature.lookup.body': '**Click** **button 4** on your mouse to look up a word in the dictionary, preview websites in Safari or files in Finder, and more.\n\n It works just like tapping with 3 fingers or force clicking on an Apple trackpad.',
+  'feature.lookup.body': '**Click button 4** on your mouse to look up a word in the dictionary, preview websites in Safari or files in Finder, and more.\n\n It works just like tapping with 3 fingers or force clicking on an Apple trackpad.',
   'feature.mission-control.title': 'Mission Control',
   'feature.mission-control.body': 'Hold down **button 4** on your mouse, then **drag** the mouse **up** to see an overview of your open windows, applications, and desktops.\n\nIt works just like swiping up with four fingers on an Apple trackpad.',
   'feature.spaces.title': 'Move between desktops',
@@ -43,12 +43,12 @@ export default {
   'feature.app-expose.title': 'App Exposé',
   'feature.app-expose.body': "Hold down **button 4** on your mouse, then **drag** the mouse **down** to see all windows of the app you're using.\n\nIt works just like swiping down with four fingers on an Apple trackpad.",
   'feature.show-desktop.title': 'Show desktop',
-  'feature.show-desktop.body': 'Hold down **button 4** on your mouse, then **scroll** **up** to show your desktop.\n\nIt works just like spreading your thumb and three fingers apart on an Apple trackpad.',
+  'feature.show-desktop.body': 'Hold down **button 4** on your mouse, then **scroll up** to show your desktop.\n\nIt works just like spreading your thumb and three fingers apart on an Apple trackpad.',
   'feature.launchpad.title': 'Launchpad',
-  'feature.launchpad.body': 'Hold down **button 4** on your mouse, then **scroll** **down** to display Launchpad.\n\nIt works just like pinching your thumb and three fingers together on an Apple trackpad.',
+  'feature.launchpad.body': 'Hold down **button 4** on your mouse, then **scroll down** to display Launchpad.\n\nIt works just like pinching your thumb and three fingers together on an Apple trackpad.',
 
   'feature.zoom.title': 'Zoom in or out',
-  'feature.zoom.body': 'Hold down **button 5** on your mouse, then **scroll** **up** or **down** to zoom in or out in apps like Safari and Preview.\n\nIt works just like pinching with two fingers on an Apple trackpad.',
+  'feature.zoom.body': 'Hold down **button 5** on your mouse, then **scroll up** or **down** to zoom in or out in apps like Safari and Preview.\n\nIt works just like pinching with two fingers on an Apple trackpad.',
   'feature.pages.title': 'Go **Back** and **Forward**',
   'feature.pages.body': 'Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to show the previous or next page in apps like Safari.\n\nIt works just like swiping left or right with two fingers on an Apple trackpad.',
   'feature.mail-actions.title': 'Delete mails quickly and more',
@@ -56,7 +56,7 @@ export default {
   'feature.free-scroll.title': 'Precise 360\xB0 scrolling',
   'feature.free-scroll.body': "Hold down **button 5** on your mouse, then **drag** the mouse in **any direction** to precisely scroll with 360° freedom and an intuitive inertial effect. So you can navigate the canvas with ease in pro apps like Excel or Affinity Photo.\n\nIt's just as easy and precise as scrolling on an Apple trackpad.",
   'feature.smart-zoom.title': 'Smart zoom',
-  'feature.smart-zoom.body': '**Click** **button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple trackpad.',
+  'feature.smart-zoom.body': '**Click button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple trackpad.',
 
   'trackpad-features.disclaimer': "Note: Mac Mouse Fix can bring these trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These 5 buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't currently recognize all the buttons. Mac Mouse Fix doesn't currently support the Apple Magic Mouse.",
 
@@ -92,7 +92,7 @@ export default {
 
   'scrolling.body': "Scrolling with a third-party mouse on macOS can feel **jolty** and **hard to control** - especially when you're used to Windows or an Apple Trackpad. Mac Mouse Fix provides a **best-in-class scrolling experience** that feels great to use and is easy on your eyes - and fingers.",
 
-  'scroll-smoothness.header': 'Choose a **Scrolling Smoothness**',
+  'scroll-smoothness.header': 'Choose a **Scrolling Smoothness** ...',
 
   'scroll-smoothness.high.title': 'Smoothness: **High**',
   'scroll-smoothness.high.body': "The high smoothness option in Mac Mouse Fix precisely **emulates the fluid scrolling of a trackpad**, including details like the subtle bounce at the end of a page. With this option you can also scroll far distances with ease.",
@@ -101,7 +101,7 @@ export default {
   'scroll-smoothness.off.title': 'Smoothness: **Off**',
   'scroll-smoothness.off.body': "With this option, scrolling works as it normally does under macOS - without any animation or smoothing. But with one key difference: In apps like Finder, **one increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.\n\nThis is how scrolling also works in most apps on Windows and Linux, as well as older macOS versions.",
 
-  'scroll-feature.header': 'Other great **Scrolling Features**',
+  'scroll-feature.header': '... And **More**',
 
   'scroll-feature.reverse.title':       'Change the **Scrolling Direction**',
   'scroll-feature.reverse.body':        "Mac Mouse Fix lets you change the scrolling direction of your mouse - independently from your trackpad or Magic Mouse.",
@@ -167,7 +167,7 @@ export default {
   'open-source.body': "Mac Mouse Fix's source code is available on GitHub. Since anyone can see how it works, you can trust that it is secure and trustworthy. Also, other projects can benefit from its innovations in trackpad simulation and other areas.",
 
 
-  'price.header': "... doesn't have to come at a big **Price**",
+  'price.header': "... Great **Price**",
 
   'price.title': "**$1.99** to own",
   'price.body': "Mac Mouse Fix costs $1.99 to own - forever. There are no subscriptions or additional costs, and you can easily pay in few clicks from inside the app with Apple Pay, PayPal, Credit card and more.",
