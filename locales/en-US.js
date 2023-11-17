@@ -31,7 +31,7 @@ export default {
 
   'trackpad-features.title': "Macs Are Best\nWith a {accent},\nRight?",
   'trackpad-features.title.accent': "Trackpad",
-  'trackpad-features.body': 'Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **precise** and **ergonomic** third-party mouse. And all interactions feel just as **polished** and **smooth** as they do on the trackpad.',
+  'trackpad-features.body': 'Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **precise** and **ergonomic** third-party mouse. And all interactions feel just as **smooth** and **natural** as they do on the trackpad.',
   'trackpad-features.header': '**Trackpad Gestures** that Mac Mouse Fix brings to your mouse',
   
   'feature.lookup.title': 'Look up and Quick Look',

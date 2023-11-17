@@ -59,7 +59,7 @@
           </div>
 
           <div class="w-full">
-            <hr ref="trackpadRule" class="my-[2.25rem] mx-[2.5rem] border-t-[1px] border-neutral-950/[0.066]">
+            <hr ref="trackpadRule" class="my-[2.25rem] mx-[2.5rem] border-t-[1px] border-neutral-950/[0.05]">
           </div>
 
           <div ref="trackpadCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] relative z-[9]">
@@ -319,7 +319,7 @@ onMounted(() => {
         trigger: element,
         pin: false,
         start: "bottom 95%",
-        end: "center 70%",
+        end: "bottom 10%",
         scrub: false,
         toggleActions: 'play none none reverse',
         markers: false,
