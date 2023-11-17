@@ -1,6 +1,27 @@
 import { request } from "https"
 
-export { doAfterRenderrr, doAfterRender, doBeforeRender, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx }
+export { doAfterRenderrr, doAfterRender, doBeforeRender, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax }
+
+/* vh and vw 
+    src: https://stackoverflow.com/a/44109531 */
+
+function vh() {
+  var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  return h/100;
+}
+
+function vw() {
+  var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  return w/100;
+}
+
+function vmin() {
+  return Math.min(vh(), vw());
+}
+
+function vmax() {
+  return Math.max(vh(), vw());
+}
 
 function remInPx() {
   return parseFloat(getComputedStyle(document.documentElement).fontSize);

@@ -17,7 +17,7 @@
         <div :class="['absolute inset-0 z-10']">
           <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
             <div ref="colorSplashCenter" class="absolute inset-0 opacity-0">
-              <img :src="colorSplashDark2ImagePath" alt=""  :class="['w-[80rem] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] scale-[1.5] opacity-[0.2]']">
+              <img :src="colorSplashDark2ImagePath" alt=""  :class="['w-[80rem] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] scale-[1.5] opacity-[0.2]']">
             </div>
           </div>
         </div>
@@ -25,8 +25,8 @@
         <!-- Top-left splash -->
         <div :class="['absolute inset-0 z-10 color-splash-dance1', splashDance ? '' : 'paused']">
           <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
-            <div ref="colorSplash1" class="absolute inset-0 opacity-0">
-              <img :src="colorSplashImagePath" alt=""       :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
+            <div ref="colorSplash1" class="absolute inset-0 opacity-1">
+              <img :src="colorSplashImagePath" alt=""       :class="['f-w-[calc((0.75*120vw)+(0.25*120*19.20px))] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
               <img :src="colorSplashDark1ImagePath" alt=""  :class="['min-w-[80rem] absolute top-0 left-0 translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
             </div>
           </div>
@@ -35,8 +35,8 @@
         <!-- Bottom-right splash -->
         <div :class="['absolute inset-0 z-10 color-splash-dance2', splashDance ? '' : 'paused']">
           <div :class="['absolute inset-0 color-splash-pulse2', splashDance ? '' : 'paused']">
-            <div ref="colorSplash2" class="absolute inset-0 opacity-0">
-              <img :src="colorSplashImagePath" alt=""       :class="['min-w-[80rem] absolute bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
+            <div ref="colorSplash2" class="absolute inset-0 opacity-1">
+              <img :src="colorSplashImagePath" alt=""       :class="['f-w-[calc((0.75*95vw)+(0.25*95*19.20px))] absolute bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
               <img :src="colorSplashDark2ImagePath" alt=""  :class="['min-w-[80rem] absolute bottom-0 right-0 translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
             </div>
           </div>
@@ -50,16 +50,16 @@
     <!-- Initial Content -->
 
     <div class="flex items-center justify-center group w-[100%] h-[calc(100vh-0rem)]">
-      <div class="h-fit w-fit border-[0px] relative">
-        <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center border-[0px] translate-y-[-6rem] -z-20']"> 
-          <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['h-[14rem] border-[0px] mt-[-2rem] opacity-0']">
-          <h1 ref="mmfName" :class="['font-[700] text-[5.0rem] text-black/90 mt-[1.75rem] mb-[-1.25rem] scale-[0.8]', playLoadingAnimation ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
-          <p ref="introTagline" :class="['text-black mb-[1.5rem] opacity-0']">{{ $t('intro.tagline') }}</p>
-          <DownloadButton ref="downloadButton" class="bg-blue-500 rounded-full text-white px-[0.85em] py-[0.3em] text-[1.0rem] opacity-0"></DownloadButton>
+      <div class="h-fit w-fit relative translate-y-[-1.5rem]">
+        <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center -z-20', false ? initialTranslateYTW : '' ]"> 
+          <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['h-[16.5rem] mt-[-2rem] mb-[3rem] opacity-1']">
+          <h1 ref="mmfName" :class="['font-[700] text-[5.75rem] text-black/90 mb-[-1rem] tracking-[-0.01em]', false ? initialNameScaleTW : '', playLoadingAnimation && false ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
+          <p ref="introTagline" :class="['text-[1.1rem] text-black mb-[2.25rem] opacity-1 tracking-[0.01em]']">{{ $t('intro.tagline') }}</p>
+          <DownloadButton ref="downloadButton" class="bg-blue-500 rounded-full text-white px-[0.85em] py-[0.3em] text-[1.2rem] tracking-[0.0em] opacity-1"></DownloadButton>
         </div>
       </div>
 
-      <div ref="chevronDown" class="absolute left-0 right-0 bottom-0 h-fit flex justify-center opacity-0">
+      <div ref="chevronDown" class="absolute left-0 right-0 bottom-0 h-fit flex justify-center opacity-0 z-[-10]">
         <img :src="chevronImagePath" alt="" class="w-[2rem] m-[3rem] opacity-[0.85]">
       </div>
     </div>
@@ -162,7 +162,7 @@ import { getUsableQuotes } from '~/utils/quotes';
 const quotes = getUsableQuotes()
 
 /* Import Other */
-import { everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx } from "~/utils/util";
+import { everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax } from "~/utils/util";
 const $mt = useMT()
 
 /* Expose methods */
@@ -204,8 +204,10 @@ const quoteExpandButton       = ref<HTMLElement|null>(null)
 
 /* Constants */
 
-const loadingTransitionDuration: number = 0.8 // Keep in sync with tailwind in <template>
-const defaultScreenHeight = 970.0
+const initialTranslateY = '-25rem'/* '-3.5rem' */
+const initialTranslateYTW = 'translate-y-[-25rem]'
+const initialNameScale = 0.8
+const initialNameScaleTW = 'scale-[0.8]'
 
 /* State */
 
@@ -222,6 +224,10 @@ watch(quotesAreExpanded, (newValue) => {
   doAfterRender(() => recreateIntroAnimation(true, quotesDistance))
 })
 
+/* Debug */
+
+console.log(`Window width: ${ vw() * 100 }`)
+
 /* Wait for mount */
 
 onMounted(() => {
@@ -235,36 +241,31 @@ onMounted(() => {
   playLoadingAnimation.value = false
 
   // Color splash animation
-  const tlSplash = $gsap.timeline({ paused: true })
+  // const tlSplash = $gsap.timeline({ paused: true })
   var ease: any = "none"
   var duration = 3.6
 
-  tlSplash.to(colorSplash1.value, { opacity: 1, ease: ease }, 0)
-  tlSplash.to(colorSplash2.value, { opacity: 1, ease: ease }, 0)
+  // tlSplash.to(colorSplash1.value, { opacity: 1, ease: ease }, 0)
+  // tlSplash.to(colorSplash2.value, { opacity: 1, ease: ease }, 0)
 
-  tlSplash.duration(duration)
-  doAfterRender(() => tlSplash.play(), 0.0)
+  // tlSplash.duration(duration)
+  // doAfterRender(() => tlSplash.play(), 0.0)
 
   // Intro transition
+  //  Edit: Removed the intro transition - Not this is just chevron fade-in
 
   const tlIntro = $gsap.timeline({ paused: true })
   ease = $customInOutEase
   duration = 1.0
 
-  tlIntro.to(innerContent.value, { translateY: 0, ease: ease}, 0)
-  tlIntro.to(mmfIcon.value, { opacity: 1, ease: ease}, 0)
-  tlIntro.fromTo(mmfName.value, { opacity: 0.75, scale: 0.8 }, { opacity: 1, scale: 1, ease: ease}, 0)
-  tlIntro.to(introTagline.value, { opacity: 1, ease: ease}, 0)
-  tlIntro.to(downloadButton.value.rootElement, { opacity: 1, ease: ease}, 0)
-  tlIntro.to(downloadButton.value.rootElement, { opacity: 1, ease: ease}, 0)
-  tlIntro.fromTo(chevronDown.value!, { opacity: 0, translateY: '-6rem' }, { opacity: 1, translateY: 0, ease: ease }, 0)
+  tlIntro.fromTo(chevronDown.value!, { opacity: 0, translateY: initialTranslateY }, { opacity: 1, translateY: 0, ease: ease }, 0)
 
   tlIntro.duration(duration)
   doAfterRender(() => tlIntro.play(), 0.0)
 
   /* Make chevron bounce after delay 
       Not totally sure if this is helpful or annoying. */
-  const chevronBounceDelay = 3.0
+  const chevronBounceDelay = 0.5 + duration
   setTimeout(() => {
     if (chevronDown.value != null) {
       const c = chevronDown.value!.firstChild as HTMLElement

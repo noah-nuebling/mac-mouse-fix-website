@@ -146,10 +146,9 @@ export default {
 
       /* Force size utility
         Sometimes w- and h- don't work for some reason. This sets min- and max- at once to try and force the element to be exacltly that size */
-
       const newUtilities = {
         'f-w': (value) => {
-          console.log(`varName and value: ${ value }`)
+          value = value.replaceAll('_', ' ')
           return {
             'min-width': value,
             'width': value,
@@ -157,6 +156,7 @@ export default {
           }
         },
         'f-h': (value) => {
+          value = value.replaceAll('_', ' ')
           return {
             'min-height': value,
             'height': value,
