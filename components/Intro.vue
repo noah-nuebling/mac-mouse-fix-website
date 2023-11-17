@@ -66,8 +66,8 @@
 
     <!-- Tagline -->
 
-    <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center opacity-0">
-      <p ref="tagline" class="text-white font-[500] text-[2rem]" >{{ $t('intro.big-tagline') }}</p>
+    <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center opacity-0 ">
+      <p ref="tagline" class=" taglineee" >{{ $t('intro.big-tagline') }}</p>
     </div>
 
     <!-- Quote cards -->
@@ -637,6 +637,15 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     transform: translateY(33%);
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
+}
+
+.taglineee {
+  @apply font-[500] text-[3rem] text-center text-white/[0.7] backdrop-saturate-[14.4] backdrop-brightness-[2.0] backdrop-blur-[24px] backdrop-contrast-[1];
+
+
+  /* -webkit-mask: linear-gradient(#000 0 0) text; */
+  mask: linear-gradient(black, black) text;
+
 }
 
 </style>
