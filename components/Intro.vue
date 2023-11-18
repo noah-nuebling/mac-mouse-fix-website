@@ -74,8 +74,8 @@
 
     <div ref="quoteContainer" class="invisible absolute top-0 left-0 right-0 bottom-0 w-full h-full z-30">
       
-      <!-- Expand button etc -->
-      <div :class="['text-[0.9rem] absolute w-[100vw] left-[50%] translate-x-[-50%] bottom-0  h-[10rem] z-50 bg-gradient-to-b from-transparent to-neutral-900 flex items-end justify-center', quotesAreExpanded ? '' : '']">
+      <!-- Expand button & shadow -->
+      <div ref="quoteBottom" :class="['text-[0.9rem] absolute w-[100vw] left-[50%] translate-x-[-50%] bottom-0  h-[10rem] z-50 bg-gradient-to-b from-transparent to-neutral-900 flex items-end justify-center', quotesAreExpanded ? '' : '']">
         <div ref="quoteExpandButton" class="bg-white/[0.2] backdrop-blur-2xl rounded-full border border-white/[0.15] w-fit h-fit py-[0.25rem] px-[0.7rem] m-[2.5rem] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
           <p class="text-white text-center" v-html="!quotesAreExpanded ? $t('quotes.see-more') : $t('quotes.see-less')"></p>
         </div>
@@ -111,15 +111,8 @@
           </div>
 
           <!-- Thank you message -->
-          <div class="flex justify-center">
-            <div class="text-[1.05rem] bg-neutral-50/[0.2] rounded-[1rem]  text-white/[0.8] border border-neutral-50/[0.15] mt-[5.5rem] mb-[2.5rem] w-fit h-fit flex flex-col justify-center items-center">
-              <div class="flex flex-row items-start justify-center h-fit w-fit m-[1.3rem]">
-                  <!-- <p class="text-white font-[650] text-[2.8rem] translate-y-[-0.33em] ml-[-0.25rem] mr-[0.3rem] mb-[-10rem] opacity-[0.50]">&#8220</p> -->
-                  <!-- <img :src="quoteImagePath" alt="opening quote" class="w-[1.5rem] mr-[0.5rem] opacity-50 translate-y-[0.27em]"> -->
-                  <p v-html="$mt('quotes.thankyou')" class="max-w-[35em] text-center"></p>
-              </div>
-              <!-- <p v-html="$mt('quotes.thankyou.source')" class=" m-[0.6rem] mt-[-0.3rem] text-[0.8rem] font-[300]"></p> -->
-            </div>
+          <div class="flex justify-center mt-[10rem] mb-[calc(10rem+5rem)]">
+            <QuoteCard :text="$mt('quotes.thankyou')" class="border"/>
           </div>
           <!-- <CardHeader titleKey="user-feedback.card-header.title" :hideVideoHint="true" subtitleKey="" class="w-full"/> -->
         </div>
@@ -198,6 +191,7 @@ const backgroundDiv           = ref<HTMLElement|null>(null)
 const taglineContainer        = ref<HTMLElement|null>(null)
 const tagline                 = ref<HTMLElement|null>(null)
 const quoteContainer          = ref<HTMLElement|null>(null)
+const quoteBottom             = ref<HTMLElement|null>(null)
 const quoteScrollingContainer = ref<HTMLElement|null>(null)
 const quoteExpandButton       = ref<HTMLElement|null>(null)
 
@@ -473,7 +467,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     
   }}, quotesStart)
   tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, quotesStart )
-  tlScroll.fromTo(quoteContainer.value!, { opacity: 0 }, { opacity: 1, duration: Math.min(400, quotesDistance) }, quotesStart )
+  tlScroll.fromTo(quoteBottom.value!, { opacity: 0 }, { opacity: 1, duration: Math.min(400, quotesDistance) }, quotesStart )
 
   // Fade in center color splash
   // const splashFadeShift = 300

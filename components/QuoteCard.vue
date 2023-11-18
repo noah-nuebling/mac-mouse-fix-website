@@ -3,38 +3,37 @@
   It's derived (copy-pasted + changes) from NormalFeatureCard.
 -->
 
+
 <template>
-  <FeatureCard 
-    ref="thisCard"
-    :class="['h-fit col-span-auto group shadow-none rounded-[1.5rem] text-[1.0rem] bg-white bg-opacity-[0.04] backdrop-saturate-[1.1] backdrop-brightness-[1.0]', $attrs.class]" 
-    borderClass="border-[1px] border-gray-400/25"
-    backgroundFilterClass=""
-    :doesExpand="false">
-
-    <!-- 
-    Notes: 
-      - The text-glow effect adds a super cool glow effect, but we need to only enable it when the card is on screen, otherwise performance tanks on Safari. Edit: Now performance is fine?
-    -->
-
-    <template v-slot:top>
-      <!-- Quote -->
-      <div ref="quoteElement" class="flex flex-row items-start justify-start h-fit mx-[2.5em] my-[3.5em]">
-          <p class="text-white/[0.3] font-[650] text-[3.75em] translate-y-[-0.375em] ml-[-0.05em] mr-[0.125em] h-0 opacity-[0.99]">&#8220</p>
-          <!-- <img :src="quoteImagePath" alt="opening quote" class="w-[1.5rem] mr-[0.5rem] opacity-50 translate-y-[0.27em]"> -->
-          <blockquote :class="['text-[1.5em] whitespace-pre-wrap max-w-[30em] text-glow-2', false ? '' : '']" v-html="uiStrings.quote"/>
-      </div>
-      <!-- Quote Source -->
-      <div class="mt-[-1.5em] mb-[0.6em]">
-        <a :href="quote?.link" :class="quoteSourceIsPublic(quote!.source) ? ['pointer-events-auto'] : ['pointer-events-none']">
-          <p class="text-[1.0em] font-[300] text-center text-white/[0.5]">
-            <span v-html="uiStrings.source" class=""></span>
-          </p>
-        </a>
-      </div>
-
-    </template>
+  <!-- 
+  Notes: 
+  - The text-glow effect adds a super cool glow effect, but we need to only enable it when the card is on screen, otherwise performance tanks on Safari. Edit: Now performance is fine?
+  -->
+  <div 
+  ref="thisCard"
+  :class="['h-fit col-span-auto group shadow-none rounded-[1.5rem] text-[1.0rem] bg-white/[0.04] border-[1px] border-neutral-100/[0.15] relative', $attrs.class]" >
     
-  </FeatureCard>
+    <!-- Background
+          Need to make separate background container because chrome doesn't support nested backdrop filters for some reason -->
+    <div class="absolute inset-0 backdrop-saturate-[1.1] backdrop-brightness-[1.0] rounded-[inherit]">
+
+    </div>
+
+    <!-- Quote -->
+    <div ref="quoteElement" class="flex flex-row items-start justify-start h-fit mx-[2.5em] my-[3.5em]">
+      <p v-if="quote" class="text-white/[0.3] font-[650] text-[3.75em] translate-y-[-0.375em] ml-[-0.05em] mr-[0.125em] h-0 opacity-[0.99]">&#8220</p>
+      <!-- <img :src="quoteImagePath" alt="opening quote" class="w-[1.5rem] mr-[0.5rem] opacity-50 translate-y-[0.27em]"> -->
+      <blockquote :class="['text-[1.5em] whitespace-pre-wrap max-w-[30em] text-glow-2', false ? '' : '']" v-html="quote ? uiStrings!.quote : text!"/>
+    </div>
+    <!-- Quote Source -->
+    <div v-if="quote" class="mt-[-1.5em] mb-[0.6em]">
+      <a :href="quote?.link" :class="quoteSourceIsPublic(quote!.source) ? ['pointer-events-auto'] : ['pointer-events-none']">
+        <p class="text-[1.0em] font-[300] text-center text-white/[0.5]">
+          <span v-html="uiStrings!.source" class=""></span>
+        </p>
+      </a>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -53,6 +52,7 @@ import { type QuoteData, getUIStrings, quoteSourceIsPublic } from '~/utils/quote
 //  - Using "pure type annotations" instead of "object declaration syntax", because there you need to pass in the constructor of a type, and QuoteData doesn't have a constructor. See https://vuejs.org/guide/components/props.html
 var props = defineProps<{
   quote?: QuoteData,
+  text?: String,
 }>()
 
 // Get template refs
@@ -62,15 +62,8 @@ var props = defineProps<{
 // const doGlow = ref(true) // Does this have to be `ref()` ed for reactivity to work?
 var scrollTrigger: ScrollTrigger | null = null
 
-
 // Get uiStrings
-const uiStrings = getUIStrings(props.quote!)
-
-// Get language name (unused)
-const i18n = useI18n()
-function getLocalizedLanguageName(languageTag: string) {
-  return i18n.localeProperties.value.name!
-}
+const uiStrings = props.quote ? getUIStrings(props.quote) : null
 
 
 onMounted(() => {
