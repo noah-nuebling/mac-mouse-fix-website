@@ -53,6 +53,47 @@ Notes:
 
 
 @layer components {
+
+  .text-glow-2 {
+
+    mask: linear-gradient(black, black) text;
+    @apply text-white/[0.3]; backdrop-filter: contrast(0.85) saturate(10.5) brightness(2.2) hue-rotate(10deg);
+
+    /* vvv Attempt at making it look better (failed) */
+
+    /* vvv Lower contrast and lower brightness keeps highlights the same while making unlit text a bit ligher */
+    /* @apply text-white/[0.3]; backdrop-filter: contrast(0.75) saturate(10.5) brightness(1.9) hue-rotate(10deg);  */
+
+    /* vvv Lower brightness until unlit is og lightness again, and highlights are less blown out */
+    @apply text-white/[0.3]; backdrop-filter: contrast(0.75) saturate(10.5) brightness(1.7) hue-rotate(10deg);
+
+    /* vvv Lower dynamic range even more */
+    /* @apply text-white/[0.3]; backdrop-filter: contrast(0.66) saturate(10.5) brightness(1.4) hue-rotate(10deg); */
+
+    /* vvv Lower dynamic range evennnn more */
+    /* @apply text-white/[0.3]; backdrop-filter: contrast(0.5) saturate(10.5) brightness(1.4) hue-rotate(10deg); */
+  }
+
+  .text-glow {
+
+    mask: linear-gradient(black, black) text;
+
+    /* @apply text-white/[0.3] backdrop-saturate-[4.0] backdrop-brightness-[2.3] backdrop-contrast-[0.3] bg-blend-normal filter saturate-[1.5]; */
+    /* @apply text-white/[0.3] backdrop-saturate-[4.4] backdrop-brightness-[2.3] backdrop-contrast-[1] bg-blend-normal filter saturate-[1.2]; */
+    /* vvv I like this one */
+    @apply text-white/[0.3] backdrop-contrast-[0.85] backdrop-saturate-[10.4] backdrop-brightness-[2.2];
+    /* @apply text-white/[0.3] backdrop-contrast-[0.85] backdrop-saturate-[10.4] backdrop-brightness-[2.2] hue-rotate-[20deg]; */
+    /* @apply text-white/[0.3] backdrop-contrast-[1.75] backdrop-saturate-[13.4] backdrop-brightness-[2.2] filter brightness-[0.9]; */
+    /* @apply text-white/[0.15]; backdrop-filter: brightness(1) saturate(4) brightness(2) contrast(0.99) brightness(1); */
+    /* @apply text-white/[0.5]; backdrop-filter: brightness(1) saturate(18) contrast(1.5) brightness(1.4)  brightness(1); */
+  
+    /* @apply text-white/[0.7] backdrop-saturate-[15.0] backdrop-brightness-[2.0] backdrop-contrast-[1.0]; */
+    /* @apply text-white/[0.0]; backdrop-filter: contrast(0.5) saturate(4.0) brightness(2.0); */
+    /* vvv Like this one */
+    /* @apply text-white/[0.3]; backdrop-filter: brightness(4.0) saturate(4.0); filter: hue-rotate(40deg); */
+    /* @apply text-white/[0.3]; backdrop-filter: brightness(4.0) saturate(4.0); filter: hue-rotate(55deg) saturate(0.7); */
+  }
+
   .btn { /* This is from the tutorial - TODO: Remove */
     @apply bg-[#12b489] text-white px-3 py-2 rounded-md text-sm;
   }

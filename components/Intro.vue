@@ -66,8 +66,8 @@
 
     <!-- Tagline -->
 
-    <div ref="taglineContainer" class="taglineee-container absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-[20] ">
-      <p ref="tagline" class="taglineee opacity-0" >{{ $t('intro.big-tagline') }}</p>
+    <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-[20] ">
+      <p ref="tagline" class="font-[500] text-[3rem] text-center backdrop-blur-[20px] text-glow opacity-0" >{{ $t('intro.big-tagline') }}</p>
     </div>
 
     <!-- Quote cards -->
@@ -86,26 +86,26 @@
 
         <div class="h-[100%]"></div>
 
-        <div :class="['relative h-max w-fit mx-auto z-30 overflow-y-clip', !quotesAreExpanded ? 'max-h-[45rem]' : 'max-h-[fit-content] mb-[7.5rem]']">
+        <div :class="['relative h-max w-[80rem] mx-auto z-30 overflow-y-clip', !quotesAreExpanded ? 'max-h-[calc(100vh+2.5rem)]' : 'max-h-[fit-content] mb-[7.5rem]']">
         
           <!-- User Quotes -->
 
           <!-- Small Layout -->
-          <div class="sm:flex hidden flex-row gap-[2.5rem] py-0 my-[4.5rem] justify-center">
+          <div class="sm:flex hidden flex-row py-0 my-[4.5rem] mx-[1rem] justify-center">
             <!-- First row -->
-            <div class="flex flex-col gap-[2.5rem] m-[0]">
+            <div class="flex flex-col gap-[4.5rem] m-[0] items-stretch">
               <QuoteCard v-for="q in quotes" :quote="q" class=""/>
             </div>
           </div>
 
           <!-- Medium Layout -->
-          <div class="sm:hidden flex flex-row gap-[2.5rem]">
+          <div class="sm:hidden flex flex-row gap-[3.5rem] mx-[3.5rem]">
             <!-- First row -->
-            <div class="flex flex-col gap-[2.5rem]">
+            <div class="flex flex-col gap-[4.5rem] items-stretch">
               <QuoteCard v-for="q in everyNth(2, 0, quotes)" :quote="q" class=""/>
             </div>
             <!-- Second row -->
-            <div class="flex flex-col gap-[2.5rem]">
+            <div class="flex flex-col gap-[4.5rem] items-stretch">
               <QuoteCard v-for="q in everyNth(2, 1, quotes)" :quote="q" class=""/>
             </div>
           </div>
@@ -476,10 +476,10 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   tlScroll.fromTo(quoteContainer.value!, { opacity: 0 }, { opacity: 1, duration: Math.min(400, quotesDistance) }, quotesStart )
 
   // Fade in center color splash
-  const splashFadeShift = 300
-  const splashFadeStart = quotesStart + splashFadeShift
-  const splashFadeDuration = Math.min(500, quotesDistance - splashFadeShift)
-  tlScroll.fromTo(colorSplashCenter.value, { opacity: 0 }, { opacity: 1, duration: splashFadeDuration }, splashFadeStart)
+  // const splashFadeShift = 300
+  // const splashFadeStart = quotesStart + splashFadeShift
+  // const splashFadeDuration = Math.min(500, quotesDistance - splashFadeShift)
+  // tlScroll.fromTo(colorSplashCenter.value, { opacity: 0 }, { opacity: 1, duration: splashFadeDuration }, splashFadeStart)
 
   /* Quote Expand button fade-in */
   const quoteExpandInShift = 500
@@ -488,7 +488,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   tlScroll.fromTo(quoteExpandButton.value!, { opacity: 0 }, { opacity: 1, duration: quoteExpandInDuration }, quoteExpandInStart)
 
   // Tagline fade-out
-  const taglineOutShift = quotesDistanceToTagline - 150
+  const taglineOutShift = quotesDistanceToTagline - 50*vh()
   const taglineOutStart = quotesStart + taglineOutShift
   const taglineOutDurationTarget = taglineDistanceToOffscreen * 1.3
   const taglineOutDuration = Math.min(taglineOutDurationTarget, quotesDistance - taglineOutShift) // Should be taglineDistanceToOffscreen * 1.3, but capped so it doesn't go on until after quotesStop
@@ -561,7 +561,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   
   0%, 100% {
     transform: translate(0, 0);
-    animation-timing-function: ease-out;
+    animation-timing-function: cubic-bezier(0.1, 0, 0.6, 1); /* <-- Start faster, so visitor sees the cool effects */
   }
   20% {
     transform: translate(90%, 50%);
@@ -574,7 +574,6 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   }
   80% {
     transform: translate(-10%, 60%);
-    animation-timing-function: ease-in;
   }
 }
 
@@ -584,7 +583,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   0%, 100% {
     transform: translate(0, 0);
-    animation-timing-function: ease-out;
+    animation-timing-function: cubic-bezier(0.1, 0, 0.6, 1); /* <-- Start faster, so visitor sees the cool effects */
   }
   20% {
     transform: translate(-90%, -50%);
@@ -597,7 +596,6 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   }
   80% {
     transform: translate(10%, -60%);
-    animation-timing-function: ease-in;
   }
 }
 
@@ -642,33 +640,5 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   }
 }
 
-.taglineee-container {
-  /* @apply filter saturate-[2]; */
-}
-
-.taglineee {
-  @apply font-[500] text-[3rem] text-center backdrop-blur-[20px];
-  
-  /* @apply text-white/[0.3] backdrop-saturate-[4.0] backdrop-brightness-[2.3] backdrop-contrast-[0.3] bg-blend-normal filter saturate-[1.5]; */
-  /* @apply text-white/[0.3] backdrop-saturate-[4.4] backdrop-brightness-[2.3] backdrop-contrast-[1] bg-blend-normal filter saturate-[1.2]; */
-  /* vvv I like this one */
-  @apply text-white/[0.3] backdrop-contrast-[0.85] backdrop-saturate-[10.4] backdrop-brightness-[2.2];
-  /* @apply text-white/[0.3] backdrop-contrast-[0.85] backdrop-saturate-[10.4] backdrop-brightness-[2.2] hue-rotate-[20deg]; */
-  /* @apply text-white/[0.3] backdrop-contrast-[1.75] backdrop-saturate-[13.4] backdrop-brightness-[2.2] filter brightness-[0.9]; */
-  /* @apply text-white/[0.15]; backdrop-filter: brightness(1) saturate(4) brightness(2) contrast(0.99) brightness(1); */
-  /* @apply text-white/[0.5]; backdrop-filter: brightness(1) saturate(18) contrast(1.5) brightness(1.4)  brightness(1); */
-
-  /* @apply text-white/[0.7] backdrop-saturate-[15.0] backdrop-brightness-[2.0] backdrop-contrast-[1.0]; */
-  /* @apply text-white/[0.0]; backdrop-filter: contrast(0.5) saturate(4.0) brightness(2.0); */
-  /* vvv Like this one */
-  /* @apply text-white/[0.3]; backdrop-filter: brightness(4.0) saturate(4.0); filter: hue-rotate(40deg); */
-  /* @apply text-white/[0.3]; backdrop-filter: brightness(4.0) saturate(4.0); filter: hue-rotate(55deg) saturate(0.7); */
-  
-  mask: linear-gradient(black, black) text;
-
-  /* -webkit-mask: linear-gradient(#000 0 0) text; */
-  
-
-}
 
 </style>
