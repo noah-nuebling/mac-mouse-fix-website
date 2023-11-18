@@ -67,7 +67,7 @@
     <!-- Tagline -->
 
     <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-[20] ">
-      <p ref="tagline" class="font-[500] text-[3rem] text-center backdrop-blur-[20px] text-glow opacity-0" >{{ $t('intro.big-tagline') }}</p>
+      <p ref="tagline" class="font-[500] text-[3rem] text-center backdrop-blur-[20px] text-white/[0.7] opacity-0 text-glow" v-html="$mt('intro.big-tagline')"></p>
     </div>
 
     <!-- Quote cards -->
@@ -112,7 +112,7 @@
 
           <!-- Thank you message -->
           <div class="flex justify-center mt-[10rem] mb-[calc(10rem+5rem)]">
-            <QuoteCard :text="$mt('quotes.thankyou')" :dontGlow="true" class="strong:inline-block strong:text-glow-2"/>
+            <QuoteCard :text="$mt('quotes.thankyou')" :dontGlow="true" class="strong:inline-block strong:text-glow-2 strong:text-white/[0.3]"/>
           </div>
           <!-- <CardHeader titleKey="user-feedback.card-header.title" :hideVideoHint="true" subtitleKey="" class="w-full"/> -->
         </div>

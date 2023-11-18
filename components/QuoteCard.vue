@@ -11,7 +11,7 @@
   -->
   <div 
   ref="thisCard"
-  :class="['h-fit col-span-auto group shadow-none shadow-black-[0.2] rounded-[1.5rem] text-[1.0rem] bg-white/[0.04] border-[1px] border-neutral-100/[0.15] relative', $attrs.class]" >
+  :class="['h-fit col-span-auto group shadow-none rounded-[1.5rem] text-[1.0rem] bg-white/[0.04] border-[1px] border-neutral-100/[0.15] relative', $attrs.class]" >
     
     <!-- Background
           Need to make separate background container because chrome doesn't support nested backdrop filters for some reason -->
@@ -23,10 +23,10 @@
     <div ref="quoteElement" class="flex flex-row items-start justify-start h-fit mx-[2.5em] my-[3.5em]">
       <p v-if="quote" class="text-white/[0.3] font-[650] text-[3.75em] translate-y-[-0.375em] ml-[-0.05em] mr-[0.125em] h-0 opacity-[0.99]">&#8220</p>
       <!-- <img :src="quoteImagePath" alt="opening quote" class="w-[1.5rem] mr-[0.5rem] opacity-50 translate-y-[0.27em]"> -->
-      <blockquote :class="['text-[1.5em] whitespace-pre-wrap max-w-[30em] text-white/[0.7]', dontGlow ? '' : 'text-glow-2']" v-html="quote ? uiStrings!.quote : text!"/>
+      <blockquote :class="['text-[1.5em] whitespace-pre-wrap max-w-[30em]', dontGlow ? 'text-white/[0.7]' : 'text-glow-2 text-white/[0.3]']" v-html="quote ? uiStrings!.quote : text!"/>
     </div>
     <!-- Quote Source -->
-    <div v-if="quote" class="mt-[-1.5em] mb-[0.6em] strong:font-[600] strong:text-glow-2 strong:inline-block">
+    <div v-if="quote" class="mt-[-1.5em] mb-[0.6em] strong:font-[600] strong:text-glow-2 strong:inline-block strong:text-white/[0.3]">
       <a :href="quote?.link" :class="quoteSourceIsPublic(quote!.source) ? ['pointer-events-auto'] : ['pointer-events-none']">
         <p class="text-[1.0em] font-[300] text-center text-white/[0.5]">
           <span v-html="uiStrings!.source" class=""></span>
