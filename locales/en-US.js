@@ -252,7 +252,7 @@ export default {
   'quotes.see-more': 'See More',
   'quotes.see-less': 'See Less',
 
-  'quotes.thankyou': '**Thank you** to everyone who shared their appreciation and thoughts! Also to those who aren\'t listed here. Reading such messages always motivates me and makes me a little happier. :)',
+  'quotes.thankyou': '**Thank you**\nto everyone who shared their appreciation and thoughts! Also to those who aren\'t listed here. Reading such messages always motivates me and makes me a little happier. **:)**',
   'quotes.thankyou.source': '**Noah Nuebling**, creator of Mac Mouse Fix',
 
   'quote-source.email':           "**{ name }** in an email",

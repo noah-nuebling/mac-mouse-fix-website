@@ -75,8 +75,8 @@
     <div ref="quoteContainer" class="invisible absolute top-0 left-0 right-0 bottom-0 w-full h-full z-30">
       
       <!-- Expand button & shadow -->
-      <div ref="quoteBottom" :class="['text-[0.9rem] absolute w-[100vw] left-[50%] translate-x-[-50%] bottom-0  h-[10rem] z-50 bg-gradient-to-b from-transparent to-neutral-900 flex items-end justify-center', quotesAreExpanded ? '' : '']">
-        <div ref="quoteExpandButton" class="bg-white/[0.2] backdrop-blur-2xl rounded-full border border-white/[0.15] w-fit h-fit py-[0.25rem] px-[0.7rem] m-[2.5rem] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
+      <div ref="quoteBottom" :class="['text-[0.9rem] absolute w-[100vw] left-[50%] translate-x-[-50%] bottom-0  h-[10rem] z-50 flex items-end justify-center', quotesAreExpanded ? '' : '']">
+        <div ref="quoteExpandButton" class="bg-white/[0.2] backdrop-blur-2xl rounded-full border border-white/[0.15] w-fit h-fit py-[0.25rem] px-[0.7rem] m-[2.5rem] shadow-sm shadow-black/[0.2] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
           <p class="text-white text-center" v-html="!quotesAreExpanded ? $t('quotes.see-more') : $t('quotes.see-less')"></p>
         </div>
       </div>
@@ -112,7 +112,7 @@
 
           <!-- Thank you message -->
           <div class="flex justify-center mt-[10rem] mb-[calc(10rem+5rem)]">
-            <QuoteCard :text="$mt('quotes.thankyou')" class="border"/>
+            <QuoteCard :text="$mt('quotes.thankyou')" :dontGlow="true" class="strong:inline-block strong:text-glow-2"/>
           </div>
           <!-- <CardHeader titleKey="user-feedback.card-header.title" :hideVideoHint="true" subtitleKey="" class="w-full"/> -->
         </div>
