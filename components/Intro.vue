@@ -4,52 +4,11 @@
         Notes: 
         - Setting z negative prevents scrolling in the qutoes. Not sure why. -->
 
-  <div ref="outerContainer" class=" relative z-10">
-
-    <!-- BG + Color Splashes -->
-
-    <div ref="backgroundContainer" class="bg-transparent absolute w-[100vw] h-[calc(100vh)] top-[0] bottom-[0] left-[50%] translate-x-[-50%] z-0">
-      
-      <!-- Splash container -->
-      <div class="absolute inset-0 w-full h-full overflow-y-clip">
-
-        <!-- Center splash -->
-        <div :class="['absolute inset-0 z-10']">
-          <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
-            <div ref="colorSplashCenter" class="absolute inset-0 opacity-0">
-              <img :src="colorSplashDark2ImagePath" alt=""  :class="['w-[80rem] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] scale-[1.5] opacity-[0.2]']">
-            </div>
-          </div>
-        </div>
-
-        <!-- Top-left splash -->
-        <div :class="['absolute inset-0 z-10 color-splash-dance1', splashDance ? '' : 'paused']">
-          <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
-            <div ref="colorSplash1" class="absolute inset-0 opacity-1 ">
-              <img :src="colorSplashImagePath" alt=""       :class="['f-w-[calc((0.5*235vh)+(0.5*235*9.75px))] absolute top-[0] left-[calc(50%-0.5*1920px)] translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
-              <img :src="colorSplashDark1ImagePath" alt=""  :class="['f-w-[calc((0.5*235vh)+(0.5*235*9.75px))] absolute top-[0] left-[calc(50%-0.5*1920px)] translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
-            </div>
-          </div>
-        </div>
-        
-        <!-- Bottom-right splash -->
-        <div :class="['absolute inset-0 z-10 color-splash-dance2', splashDance ? '' : 'paused']">
-          <div :class="['absolute inset-0 color-splash-pulse2', splashDance ? '' : 'paused']">
-            <div ref="colorSplash2" class="absolute inset-0 opacity-1">
-              <img :src="colorSplashImagePath" alt=""       :class="['f-w-[calc((0.5*185vh)+(0.5*185*9.75px))] absolute bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
-              <img :src="colorSplashDark2ImagePath" alt=""  :class="['f-w-[calc((0.5*185vh)+(0.5*185*9.75px))] absolute bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
-            </div>
-          </div>
-        </div>
-      </div>
-    
-      <!-- Background -->
-      <div ref="backgroundDiv" class="absolute inset-0 top-[-30rem] -z-20 bg-neutral-900 opacity-0"></div>
-    </div>
+  <div ref="outerContainer" class="relative z-10">
 
     <!-- Initial Content -->
 
-    <div class="flex items-center justify-center group w-[100%] h-[calc(100vh-0rem)]">
+    <div class="flex items-center justify-center group w-[100%] h-[calc(100vh-0rem)] relative z-[-20]">
       <div class="h-fit w-fit relative translate-y-[-1.5rem]">
         <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center -z-20', false ? initialTranslateYTW : '' ]"> 
           <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['h-[16.5rem] mt-[-2rem] mb-[3rem] opacity-1']">
@@ -64,10 +23,51 @@
       </div>
     </div>
 
+    <!-- Background -->
+
+    <div ref="backgroundContainer" class="bg-transparent absolute w-[100vw] h-[calc(100vh)] top-[0] bottom-[0] left-[50%] translate-x-[-50%] z-[5]">
+      <div ref="backgroundDiv" class="absolute inset-0 top-[-30rem] -z-20 bg-neutral-900 opacity-0"></div>
+    </div>
+
+    <!-- Splash container -->
+    <div class="absolute inset-0 w-full h-full overflow-y-clip z-[10]">
+
+      <!-- Center splash -->
+      <div :class="['absolute inset-0 z-10']">
+        <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
+          <div ref="colorSplashCenter" class="absolute inset-0 opacity-0">
+            <img :src="colorSplashDark2ImagePath" alt=""  :class="['w-[80rem] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] scale-[1.5] opacity-[0.2]']">
+          </div>
+        </div>
+      </div>
+
+      <!-- Top-left splash -->
+      <div :class="['absolute inset-0 z-10 color-splash-dance1', splashDance ? '' : 'paused']">
+        <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
+          <div ref="colorSplash1" class="absolute inset-0 opacity-1 ">
+            <img :src="colorSplashImagePath" alt=""       :class="['f-w-[calc((0.5*235vh)+(0.5*235*9.75px))] absolute top-[0] left-[calc(50%-0.5*1920px)] translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
+            <img :src="colorSplashDark1ImagePath" alt=""  :class="['f-w-[calc((0.5*200vh)+(0.5*200*9.75px))] absolute top-[0] left-[calc(50%-0.5*1920px)] translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom-right splash -->
+      <div :class="['absolute inset-0 z-10 color-splash-dance2', splashDance ? '' : 'paused']">
+        <div :class="['absolute inset-0 color-splash-pulse2', splashDance ? '' : 'paused']">
+          <div ref="colorSplash2" class="absolute inset-0 opacity-1">
+            <img :src="colorSplashImagePath" alt=""       :class="['f-w-[calc((0.5*185vh)+(0.5*185*9.75px))] absolute bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
+            <img :src="colorSplashDark2ImagePath" alt=""  :class="['f-w-[calc((0.5*220vh)+(0.5*220*9.75px))] absolute bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
     <!-- Tagline -->
 
-    <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center opacity-0 ">
-      <p ref="tagline" class=" taglineee" >{{ $t('intro.big-tagline') }}</p>
+    <div ref="taglineContainer" class="taglineee-container absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-[20] ">
+      <p ref="tagline" class="taglineee opacity-0" >{{ $t('intro.big-tagline') }}</p>
     </div>
 
     <!-- Quote cards -->
@@ -233,7 +233,6 @@ console.log(`Window dims: ${ vw() * 100 } x ${ vh() * 10095 }`)
 onMounted(() => {
 
   console.log(`Download button: ${ downloadButton.value.rootElement.style.opacity }`);
-  
 
   /* Play intro animations */
 
@@ -345,7 +344,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
       Notes: 
       - I thought doing this first might help prevent forced reflows, but doesn't seem to work. But generally ChatGPT advised me to do all DOM reads in a batch and before writes if possible for optimization. See browser rendering cycle and stuff (yeah I know this isn't helpful)*/
   var zoomScale = 450.0 * window.innerHeight / 970.0
-  var zoomTranslateY = zoomScale * -4.55 * remInPx()
+  var zoomTranslateY = zoomScale * -5.55 * remInPx()
   const taglineDistanceToOffscreen = tagline.value!.offsetTop + tagline.value!.offsetHeight
   const quotesDistanceToTagline = outerContainer.value!.offsetHeight/2 - tagline.value!.offsetHeight/2
 
@@ -355,7 +354,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   const quotesDistance = quoteScrollingContainer.value!.scrollHeight - quoteScrollingContainer.value!.offsetHeight
 
   const taglineShift = -1000.0
-  const quotesShift = 200.0
+  const quotesShift = 666.0
 
   /* Override animation params for reduceMotion */
 
@@ -447,14 +446,14 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   tlScroll.fromTo(chevronDown.value, { opacity: 1, translateY: 0 }, { opacity: 0, translateY: '-0rem', duration: zoomDistance/20 }, zoomStart)
 
   // Add tagline fadein animation to tl
-  tlScroll.fromTo(taglineContainer.value, { opacity: 0 }, { opacity: 1, duration: taglineDistance }, taglineStart)
+  tlScroll.fromTo(tagline.value, { opacity: 0 }, { opacity: 1, duration: taglineDistance }, taglineStart)
 
   // Fade in background, start splash dance, and reset zoom on inner content
   const bgStart = zoomStop-600
   const bgDistance = 1000
   const bgStop = bgStart + bgDistance
   tlScroll.fromTo(backgroundDiv.value!, { opacity: 0 }, { opacity: 1, duration: bgDistance }, bgStart)
-  tlScroll.set({}, { onComplete: () => { splashDance.value = !prefersReducedMotion() }, onReverseComplete: () => { splashDance.value = false } }, bgStart)
+  tlScroll.set({}, { onComplete: () => { splashDance.value = !prefersReducedMotion() }, onReverseComplete: () => { splashDance.value = false } }, bgStart-300)
   tlScroll.fromTo(innerContent.value!, { scale: zoomScale }, { scale: 1, duration: 0 }, bgStop)
 
   // Add quotes
@@ -494,7 +493,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   const taglineOutDurationTarget = taglineDistanceToOffscreen * 1.3
   const taglineOutDuration = Math.min(taglineOutDurationTarget, quotesDistance - taglineOutShift) // Should be taglineDistanceToOffscreen * 1.3, but capped so it doesn't go on until after quotesStop
   const f = taglineOutDuration/taglineOutDurationTarget
-  tlScroll.fromTo(taglineContainer.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: `${ -(taglineDistanceToOffscreen * f) }px`, duration: taglineOutDuration, ease: 'none' }, taglineOutStart)
+  tlScroll.fromTo(tagline.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: `${ -(taglineDistanceToOffscreen * f) }px`, duration: taglineOutDuration, ease: 'none' }, taglineOutStart)
 
   /* Restore scroll position of quotes and viewport
       Notes:   
@@ -562,6 +561,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   
   0%, 100% {
     transform: translate(0, 0);
+    animation-timing-function: ease-out;
   }
   20% {
     transform: translate(90%, 50%);
@@ -574,6 +574,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   }
   80% {
     transform: translate(-10%, 60%);
+    animation-timing-function: ease-in;
   }
 }
 
@@ -583,6 +584,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   0%, 100% {
     transform: translate(0, 0);
+    animation-timing-function: ease-out;
   }
   20% {
     transform: translate(-90%, -50%);
@@ -595,6 +597,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   }
   80% {
     transform: translate(10%, -60%);
+    animation-timing-function: ease-in;
   }
 }
 
@@ -639,12 +642,32 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   }
 }
 
-.taglineee {
-  @apply font-[500] text-[3rem] text-center text-white/[0.7] backdrop-saturate-[14.4] backdrop-brightness-[2.0] backdrop-blur-[24px] backdrop-contrast-[1];
+.taglineee-container {
+  /* @apply filter saturate-[2]; */
+}
 
+.taglineee {
+  @apply font-[500] text-[3rem] text-center backdrop-blur-[20px];
+  
+  /* @apply text-white/[0.3] backdrop-saturate-[4.0] backdrop-brightness-[2.3] backdrop-contrast-[0.3] bg-blend-normal filter saturate-[1.5]; */
+  /* @apply text-white/[0.3] backdrop-saturate-[4.4] backdrop-brightness-[2.3] backdrop-contrast-[1] bg-blend-normal filter saturate-[1.2]; */
+  /* vvv I like this one */
+  @apply text-white/[0.3] backdrop-contrast-[0.85] backdrop-saturate-[10.4] backdrop-brightness-[2.2];
+  /* @apply text-white/[0.3] backdrop-contrast-[0.85] backdrop-saturate-[10.4] backdrop-brightness-[2.2] hue-rotate-[20deg]; */
+  /* @apply text-white/[0.3] backdrop-contrast-[1.75] backdrop-saturate-[13.4] backdrop-brightness-[2.2] filter brightness-[0.9]; */
+  /* @apply text-white/[0.15]; backdrop-filter: brightness(1) saturate(4) brightness(2) contrast(0.99) brightness(1); */
+  /* @apply text-white/[0.5]; backdrop-filter: brightness(1) saturate(18) contrast(1.5) brightness(1.4)  brightness(1); */
+
+  /* @apply text-white/[0.7] backdrop-saturate-[15.0] backdrop-brightness-[2.0] backdrop-contrast-[1.0]; */
+  /* @apply text-white/[0.0]; backdrop-filter: contrast(0.5) saturate(4.0) brightness(2.0); */
+  /* vvv Like this one */
+  /* @apply text-white/[0.3]; backdrop-filter: brightness(4.0) saturate(4.0); filter: hue-rotate(40deg); */
+  /* @apply text-white/[0.3]; backdrop-filter: brightness(4.0) saturate(4.0); filter: hue-rotate(55deg) saturate(0.7); */
+  
+  mask: linear-gradient(black, black) text;
 
   /* -webkit-mask: linear-gradient(#000 0 0) text; */
-  mask: linear-gradient(black, black) text;
+  
 
 }
 
