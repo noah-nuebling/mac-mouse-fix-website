@@ -106,7 +106,7 @@ var props = defineProps({
 
   .group:hover .cool-hover-underline:after {
 
-    /* Custom underline, because normal css underline doesnt work when we apply gradient to text */
+    /* Custom underline, because normal css underline doesnt work when we apply gradient to text. The tw gradient stops are automatically inherited down the tree. (As are all css vars)*/
 
     @apply content-[''] absolute left-0 w-full bottom-[2.5px] h-[1px] rounded-[1px] bg-gradient-to-l
   }

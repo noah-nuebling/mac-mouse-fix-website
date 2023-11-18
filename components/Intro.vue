@@ -75,7 +75,8 @@
     <div ref="quoteContainer" class="invisible absolute top-0 left-0 right-0 bottom-0 w-full h-full z-30">
       
       <!-- Expand button & shadow -->
-      <div ref="quoteBottom" :class="['text-[0.9rem] absolute w-[100vw] left-[50%] translate-x-[-50%] bottom-0  h-[10rem] z-50 flex items-end justify-center', quotesAreExpanded ? '' : '']">
+      <div ref="quoteBottom" :class="['text-[1rem] absolute w-[100vw] left-[50%] translate-x-[-50%] bottom-0  h-[10rem] z-50 flex items-end justify-center', quotesAreExpanded ? '' : '']">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/0 via-black/[0.1] via-20% to-black/[0.7]"></div>
         <div ref="quoteExpandButton" class="bg-white/[0.2] backdrop-blur-2xl rounded-full border border-white/[0.15] w-fit h-fit py-[0.25rem] px-[0.7rem] m-[2.5rem] shadow-sm shadow-black/[0.2] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
           <p class="text-white text-center" v-html="!quotesAreExpanded ? $t('quotes.see-more') : $t('quotes.see-less')"></p>
         </div>
@@ -86,12 +87,12 @@
 
         <div class="h-[100%]"></div>
 
-        <div :class="['relative h-max w-[80rem] mx-auto z-30 overflow-y-clip', !quotesAreExpanded ? 'max-h-[calc(100vh+2.5rem)]' : 'max-h-[fit-content] mb-[7.5rem]']">
+        <div :class="['relative h-max mx-auto z-30 overflow-y-clip flex flex-col items-center', !quotesAreExpanded ? 'sm:max-h-[calc(200vh+2.5rem)] max-h-[calc(100vh+2.5rem)]' : 'max-h-[fit-content] mb-[7.5rem]']">
         
           <!-- User Quotes -->
 
           <!-- Small Layout -->
-          <div class="sm:flex hidden flex-row py-0 my-[4.5rem] mx-[1rem] justify-center">
+          <div class="sm:flex hidden flex-row py-0 mx-[1rem] justify-center">
             <!-- First row -->
             <div class="flex flex-col gap-[4.5rem] m-[0] items-stretch">
               <QuoteCard v-for="q in quotes" :quote="q" class=""/>
@@ -99,7 +100,7 @@
           </div>
 
           <!-- Medium Layout -->
-          <div class="sm:hidden flex flex-row gap-[3.5rem] mx-[3.5rem]">
+          <div class="sm:hidden flex flex-row gap-[3.5rem] mx-[3.5rem] ">
             <!-- First row -->
             <div class="flex flex-col gap-[4.5rem] items-stretch">
               <QuoteCard v-for="q in everyNth(2, 0, quotes)" :quote="q" class=""/>
@@ -111,8 +112,8 @@
           </div>
 
           <!-- Thank you message -->
-          <div class="flex justify-center mt-[10rem] mb-[calc(10rem+5rem)]">
-            <QuoteCard :text="$mt('quotes.thankyou')" :dontGlow="true" class="strong:inline-block strong:text-glow-2 strong:text-white/[0.3]"/>
+          <div class="flex justify-center mt-[14.5rem] mb-[calc(10rem+5rem)]">
+            <QuoteCard :text="$mt('quotes.thankyou')" :doGlow="false" class="strong:inline-block strong:text-glow-2 strong:text-white/[0.3]"/>
           </div>
           <!-- <CardHeader titleKey="user-feedback.card-header.title" :hideVideoHint="true" subtitleKey="" class="w-full"/> -->
         </div>
@@ -467,7 +468,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     
   }}, quotesStart)
   tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, quotesStart )
-  tlScroll.fromTo(quoteBottom.value!, { opacity: 0 }, { opacity: 1, duration: Math.min(400, quotesDistance) }, quotesStart )
+  // tlScroll.fromTo(quoteBottom.value!, { opacity: 0 }, { opacity: 1, duration: Math.min(400, quotesDistance) }, quotesStart )
 
   // Fade in center color splash
   // const splashFadeShift = 300
@@ -479,7 +480,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   const quoteExpandInShift = 500
   const quoteExpandInStart = quotesStart + quoteExpandInShift
   const quoteExpandInDuration = Math.min(200, quotesDistance - quoteExpandInShift) // Should be 200, but capped so it doesn't go on until after quotesStop
-  tlScroll.fromTo(quoteExpandButton.value!, { opacity: 0 }, { opacity: 1, duration: quoteExpandInDuration }, quoteExpandInStart)
+  tlScroll.fromTo(quoteBottom.value!, { opacity: 0 }, { opacity: 1, duration: quoteExpandInDuration }, quoteExpandInStart)
 
   // Tagline fade-out
   const taglineOutShift = quotesDistanceToTagline - 50*vh()

@@ -69,13 +69,16 @@ Notes:
 
     /* vvv Lower brightness until unlit is og lightness again, and highlights are less blown out */
     @apply text-white/[0.3]; 
-    backdrop-filter: contrast(0.75) saturate(10.5) brightness(1.7) hue-rotate(10deg);
+    @apply glow-2;
 
     /* vvv Lower dynamic range even more */
     /* @apply text-white/[0.3]; backdrop-filter: contrast(0.66) saturate(10.5) brightness(1.4) hue-rotate(10deg); */
 
     /* vvv Lower dynamic range evennnn more */
     /* @apply text-white/[0.3]; backdrop-filter: contrast(0.5) saturate(10.5) brightness(1.4) hue-rotate(10deg); */
+  }
+  .glow-2 {
+    backdrop-filter: contrast(0.75) saturate(10.5) brightness(1.7) hue-rotate(10deg);
   }
 
   .text-glow {

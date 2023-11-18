@@ -3,6 +3,7 @@ export default {
   /* Test */
 
   'test-stuff': "en-us stuff",
+  'test.80-chars-roman': 'These are some amazing characters, very nice characters in deed. 80 of em in nu.',
 
   /* Navbar */
 

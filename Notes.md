@@ -13,8 +13,18 @@ Expanding card code example: https://greensock.com/forums/topic/21050-expanding-
 
 ## Content
 
-- Line length and readability: https://baymard.com/blog/line-length-readability
-  - "optimal line length for body text is 50–60 characters per line, including spaces" -> CSS: 70ch or 34em
+- Line length/line width and readability: https://baymard.com/blog/line-length-readability
+  - The site says line length should be between 50-60 or 50 - 80 chars, according to most sources. 
+  - Upper bound for Korean, Chinese, Japanese should be 40 chars instead of 80
+  - Max in CSS: 70ch or 34em according to this site
+  - Measurements on this site:
+    - We measured 80 chars at font-size:18px to be 656px - thats *36em*. Scaling this down:
+    - 50 chars -> 22.5em
+    - 60 chars -> 27em
+    - 65 chars -> 30em
+    - 70 chars -> 31.5em
+    - 80 chars -> 36em
+    - -> As a simplified rule: use 30em as base line length, adjust +-7.5em to taste --- I think we can use same for Korean, Japanese, Chinese.
 - Readablity scores: https://readabilityformulas.com/readability-scoring-system.php#formulaResults
   - Word length and sentence length are the most important factors
 
