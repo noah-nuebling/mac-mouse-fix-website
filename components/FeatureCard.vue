@@ -330,7 +330,7 @@ if (props.doesExpand) {
         //  We calculated targetTop such that the x center of the card stays in the same position after expanding
         const computedH = card.value.offsetHeight
         const heightIncrease = computedH - originHeight
-        targetTop = /* `${originTop - heightIncrease/2.0}px` */ `${ originTop-(2*remInPx()) }px`
+        targetTop = /* `${originTop - heightIncrease/2.0}px` */ `${ originTop-(1*remInPx()) }px`
 
         // Set position and stuff
         card.value.style.marginLeft = targetMarginLeft
@@ -428,7 +428,8 @@ if (props.doesExpand) {
       
       const dur = 0.6
       const easeForSize = $Power3.easeOut
-      const easeForCenter = $Power4.easeOut
+      const easeForPosition = $Power4.easeOut
+      const easeForFadeOut = 
 
       // 
       // Animation preprocessing
@@ -436,16 +437,16 @@ if (props.doesExpand) {
 
       // Create base curves
 
-      const curveForCenterX  = rawCurveFromAnimationCurve({ outputRange: { start: originCenterX, end: calcCenterX }, ease: easeForCenter })
-      const curveForCenterY  = rawCurveFromAnimationCurve({ outputRange: { start: originCenterY, end: calcCenterY }, ease: easeForCenter })
+      const curveForCenterX  = rawCurveFromAnimationCurve({ outputRange: { start: originCenterX, end: calcCenterX }, ease: easeForPosition })
+      const curveForCenterY  = rawCurveFromAnimationCurve({ outputRange: { start: originCenterY, end: calcCenterY }, ease: easeForPosition }) // Unused now
 
       const curveForHeight   = rawCurveFromAnimationCurve({ outputRange: { start: originHeight, end: calcHeight },   ease: easeForSize })
       const curveForWidth    = rawCurveFromAnimationCurve({ outputRange: { start: originWidth,  end: calcWidth },    ease: easeForSize })
 
       // Calculate animation curves for top/left of the element
-      //  Edit: Just using the previous centerCurver eases now because we're anchoring our animation at the top, not the center
+      //  Edit: Just using the previous centerY ease for top now because we're anchoring our animation at the top, not the center anymore
 
-      const curveForTop: Curve =  rawCurveFromAnimationCurve({ outputRange: { start: originLeft, end: calcLeft }, ease: easeForCenter }) // combineCurves(curveForCenterY, curveForHeight, (centerY, height) => centerY - height/2.0)
+      const curveForTop: Curve =  rawCurveFromAnimationCurve({ outputRange: { start: originTop, end: calcTop }, ease: easeForPosition }) // combineCurves(curveForCenterY, curveForHeight, (centerY, height) => centerY - height/2.0)
       const curveForLeft: Curve = combineCurves(curveForCenterX, curveForWidth,  (centerX, width) => centerX - width/2.0)
 
       // Find find animations for translate and scale equivalent to the position and size animations defined above
@@ -555,10 +556,10 @@ if (props.doesExpand) {
       // Notes:
       //  - Neither opacity nor autoalpha work. (Not sure what autoAlpha is) Edit: Now it does. Not sure why. autoAlpha sets visibility: hidden automatically for optimization. We'll use this if it doesn't cause problems.
 
-      addAnimationToTimeline(tl, cardPlaceholder, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0}, ease: (x) => x }, dur * 0.4)
+      addAnimationToTimeline(tl, cardPlaceholder, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0}, ease: easeForFadeOut }, dur * 0.4)
 
       // Fade in card
-      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 0.0, end: 1.0}, ease: (x) => x }, dur * 0.4)
+      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 0.0, end: 1.0}, ease: (x) => easeforFadeIn }, dur * 0.4)
 
       // 
       // Wait until browser is done rendering, then start animation
@@ -682,7 +683,7 @@ if (props.doesExpand) {
 
       const dur = 0.6
       const easeForSize = $Power4.easeOut
-      const easeForCenter = $Power3.easeOut
+      const easeForPosition = $Power3.easeOut
       
       // 
       // Animation preprocessing
@@ -692,25 +693,29 @@ if (props.doesExpand) {
 
       const currentWidth = card.value!.offsetWidth
       const currentHeight = card.value!.offsetHeight
-      const currentCenterX = card.value!.offsetLeft + (currentWidth/2.0)
-      const currentCenterY = card.value!.offsetTop + (currentHeight/2.0)
+      const currentLeft = card.value!.offsetLeft
+      const currentTop = card.value!.offsetTop
+      const currentCenterX = currentLeft + (currentWidth/2.0)
+      const currentCenterY = currentTop + (currentHeight/2.0)
 
       const targetWidth = cardPlaceholder!.offsetWidth
       const targetHeight = cardPlaceholder!.offsetHeight
-      const targetCenterX = cardPlaceholder!.offsetLeft + (targetWidth/2.0)
-      const targetCenterY = cardPlaceholder!.offsetTop + (targetHeight/2.0)
+      const targetLeft = cardPlaceholder!.offsetLeft;
+      const targetTop = cardPlaceholder!.offsetTop;
+      const targetCenterX = targetLeft + (targetWidth/2.0)
+      const targetCenterY = targetTop + (targetHeight/2.0)
 
       // Create base curves
 
-      const curveForCenterX  = rawCurveFromAnimationCurve({ outputRange: { start: currentCenterX , end: targetCenterX }, ease: easeForCenter })
-      const curveForCenterY  = rawCurveFromAnimationCurve({ outputRange: { start: currentCenterY, end: targetCenterY }, ease: easeForCenter })
+      const curveForCenterX  = rawCurveFromAnimationCurve({ outputRange: { start: currentCenterX , end: targetCenterX }, ease: easeForPosition })
+      const curveForCenterY  = rawCurveFromAnimationCurve({ outputRange: { start: currentCenterY, end: targetCenterY }, ease: easeForPosition })
       
       const curveForHeight   = rawCurveFromAnimationCurve({ outputRange: { start: currentHeight, end: targetHeight },   ease: easeForSize })
       const curveForWidth   = rawCurveFromAnimationCurve({ outputRange: { start: currentWidth,  end: targetWidth },    ease: easeForSize })
       
       // Calculate animation curves for top/left of the element
       
-      const curveForTop: Curve = combineCurves(curveForCenterY, curveForHeight, (centerY, height) => centerY - height/2.0)
+      const curveForTop: Curve = rawCurveFromAnimationCurve({ outputRange: { start: currentTop, end: targetTop }, ease: easeForPosition }) // combineCurves(curveForCenterY, curveForHeight, (centerY, height) => centerY - height/2.0) <-- not using this bc anchoring card at the top now
       const curveForLeft: Curve = combineCurves(curveForCenterX, curveForWidth, (centerX, width) => centerX - width/2.0)
       
       // Find find animations for translate and scale equivalent to the position and size animations defined above
