@@ -87,6 +87,12 @@ import tailwindConfig from "~/tailwind.config";
 import resolveConfig from 'tailwindcss/resolveConfig'
 const constants = useConstants()
 
+// Import BezierEasing
+//  Notes: 
+//  - Should we import this through nuxt plugins or is this okay?... ChatGPT says this is okay. Plugins just let you globally inject for convenience, so you don't have to import.
+//  - Not using the package atm, so we uninstalled it.
+// import BezierEasing from 'bezier-easing'
+
 // Import (is that the right term?) vue/nuxt stuff
 const { $ScrollTrigger, $store, $gsap, $Power0, $Power1, $Power2, $Power3, $Power4 } = useNuxtApp()
 const slots = useSlots()
@@ -421,6 +427,7 @@ if (props.doesExpand) {
       // Discussion: 
       // - We used to use more physically accurate curves with longer decelerations, but they 
       //      made part of the animation too fast which is especially jarring when there are frame-drops.
+      // - We could make things look smoother by using bezier-easing npm package, if we drew the fade-in out a little longer like the MMF tab transitions, but then the cards become too transparent and you see what's behind. We'd have to fade the content but I think that'd bring a host of other problems, since we also need to fade the whole cards. We'll just leave it like it is.
       // Previous curves:
       // - dur: 0.5, sizeCurve: criticalSpring(4.0), centerCurve: criticalSpring(6.0)
       // - dur: 0.45, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
@@ -429,7 +436,9 @@ if (props.doesExpand) {
       const dur = 0.6
       const easeForSize = $Power3.easeOut
       const easeForPosition = $Power4.easeOut
-      const easeForFadeOut = 
+      const easeForFadeOut  = (x: number) => x //BezierEasing(0.0, 0.0, 1.0, 1.0)
+      const easeForFadeIn   = (x: number) => x //BezierEasing(0.0, 0.0, 1.0, 1.0)
+      const fadeDuration = dur * 0.4
 
       // 
       // Animation preprocessing
@@ -556,10 +565,10 @@ if (props.doesExpand) {
       // Notes:
       //  - Neither opacity nor autoalpha work. (Not sure what autoAlpha is) Edit: Now it does. Not sure why. autoAlpha sets visibility: hidden automatically for optimization. We'll use this if it doesn't cause problems.
 
-      addAnimationToTimeline(tl, cardPlaceholder, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0}, ease: easeForFadeOut }, dur * 0.4)
+      addAnimationToTimeline(tl, cardPlaceholder, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0}, ease: easeForFadeOut }, fadeDuration)
 
       // Fade in card
-      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 0.0, end: 1.0}, ease: (x) => easeforFadeIn }, dur * 0.4)
+      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 0.0, end: 1.0}, ease: easeForFadeIn }, fadeDuration)
 
       // 
       // Wait until browser is done rendering, then start animation
