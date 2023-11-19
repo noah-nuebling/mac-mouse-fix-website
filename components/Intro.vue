@@ -10,9 +10,9 @@
 
     <div class="flex items-center justify-center group w-[100%] h-[calc(100vh-0rem)] relative z-[-20]">
       <div class="h-fit w-fit relative translate-y-[-1.5rem]">
-        <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center -z-20', false ? initialTranslateYTW : '' ]"> 
+        <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center -z-20' ]"> 
           <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['h-[16.5rem] mt-[-2rem] mb-[3rem] opacity-1']">
-          <h1 ref="mmfName" :class="['font-[700] text-[5.75rem] text-[hsl(0,0%,10%)] mb-[-1rem] tracking-[-0.01em]', false ? initialNameScaleTW : '', playLoadingAnimation && false ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
+          <h1 ref="mmfName" :class="['font-[700] text-[5.75rem] text-[hsl(0,0%,10%)] mb-[-1rem] tracking-[-0.01em] z-10', initialTranslateYTW, playLoadingAnimation && false ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
           <p ref="introTagline" :class="['text-[1.1rem] text-black mb-[2.25rem] opacity-1 tracking-[0.01em]']">{{ $t('intro.tagline') }}</p>
           <DownloadButton ref="downloadButton" class="bg-blue-500 rounded-full text-white px-[0.85em] py-[0.3em] text-[1.2rem] tracking-[0.0em] opacity-1"></DownloadButton>
         </div>
@@ -200,11 +200,12 @@ const quoteBottom             = ref<HTMLElement|null>(null)
 const quoteScrollingContainer = ref<HTMLElement|null>(null)
 const quoteExpandButton       = ref<HTMLElement|null>(null)
 
+const initialContentElements = [mmfIcon, mmfName, introTagline, downloadButton]
 
 /* Constants */
 
-const initialTranslateY = '-10rem'/* '-3.5rem' */
-const initialTranslateYTW = 'translate-y-[-10rem]'
+const initialTranslateY = '-0rem'/* '-3.5rem' */
+const initialTranslateYTW = 'translate-y-[-0rem]'
 const initialNameScale = 0.8
 const initialNameScaleTW = 'scale-[0.8]'
 
@@ -343,7 +344,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
       Notes: 
       - I thought doing this first might help prevent forced reflows, but doesn't seem to work. But generally ChatGPT advised me to do all DOM reads in a batch and before writes if possible for optimization. See browser rendering cycle and stuff (yeah I know this isn't helpful)*/
   var zoomScale = 200.0 * window.innerHeight / constants.base.height
-  var zoomTranslateY = zoomScale * -5.59 * remInPx()
+  var zoomTranslateY = zoomScale * 0.5 * remInPx()
   const taglineDistanceToOffscreen = tagline.value!.offsetTop + tagline.value!.offsetHeight
   const quotesDistanceToTagline = outerContainer.value!.offsetHeight/2 - tagline.value!.offsetHeight/2
 
@@ -440,10 +441,18 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   //  - Here's the old solution: tlScroll.fromTo(innerContent.value, { scale: 1, translateY: 0 }, { scale: zoomScale, translateY: `${zoomScale * -4.55}rem`, ease: linearScalingEase(zoomScale), duration: zoomDistance }, zoomStart)
   tlScroll.addLabel("zoom")
   const zoomMatrix = `matrix(${ zoomScale }, 0, 0, ${ zoomScale }, 0, ${ zoomTranslateY })`
-  tlScroll.fromTo(innerContent.value, {  transform: 'matrix(1, 0, 0, 1, 0, 0)' }, { transform: zoomMatrix, ease: linearScalingEase(zoomScale), duration: zoomDistance }, zoomStart)
+  tlScroll.fromTo(mmfName.value, {  transform: 'matrix(1, 0, 0, 1, 0, 0)' }, { transform: zoomMatrix, ease: linearScalingEase(zoomScale), duration: zoomDistance }, zoomStart)
 
   // Add fade-out to chevron
-  tlScroll.fromTo(chevronDown.value, { opacity: 1, translateY: 0 }, { opacity: 0, translateY: '-0rem', duration: zoomDistance/20 }, zoomStart)
+  tlScroll.fromTo(chevronDown.value, { opacity: 1, translateY: 0 }, { opacity: 0, translateY: '-0rem', duration: zoomDistance/2 }, zoomStart)
+
+  // Fade out initialContent except name (which zooms)
+  for (var el of initialContentElements) {
+    if (el == mmfName) { continue }
+    if (el == downloadButton) { el = downloadButton.value.rootElement }
+    else { el = el.value }
+    tlScroll.fromTo(el, { opacity: 1, translateY: 0 }, { opacity: 0, duration: zoomDistance/2 }, zoomStart)
+  }
 
   // Add tagline fadein animation to tl
   tlScroll.fromTo(tagline.value, { opacity: 0 }, { opacity: 1, duration: taglineDistance }, taglineStart)
@@ -454,7 +463,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   const bgStop = bgStart + bgDistance
   tlScroll.fromTo(backgroundDiv.value!, { opacity: 0 }, { opacity: 1, duration: bgDistance }, bgStart)
   tlScroll.set({}, { onComplete: () => { splashDance.value = !prefersReducedMotion() }, onReverseComplete: () => { splashDance.value = false } }, bgStart-300)
-  tlScroll.fromTo(innerContent.value!, { scale: zoomScale }, { scale: 1, duration: 0 }, bgStop)
+  tlScroll.fromTo(mmfName.value!, { scale: zoomScale }, { scale: 1, duration: 0 }, bgStop)
 
   // Add quotes
   var lastQuoteScrollPosition = 0
