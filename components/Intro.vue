@@ -341,9 +341,11 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   /* Take measurements for new animation 
       Notes: 
-      - I thought doing this first might help prevent forced reflows, but doesn't seem to work. But generally ChatGPT advised me to do all DOM reads in a batch and before writes if possible for optimization. See browser rendering cycle and stuff (yeah I know this isn't helpful)*/
-  var zoomScale = 200.0 * window.innerHeight / constants.base.height
-  var zoomTranslateY = zoomScale * -5.59 * remInPx()
+      - I thought doing this first might help prevent forced reflows, but doesn't seem to work. But generally ChatGPT advised me to do all DOM reads in a batch and before writes if possible for optimization. See browser rendering cycle and stuff (yeah I know this isn't helpful)
+      - Currently, 200 zoomScale is enough on Safari but on Chrome we need 250. I think making zoomScale higher might make performance worse on Safari.
+    */
+  var zoomScale = 250.0 * window.innerHeight / constants.base.height
+  var zoomTranslateY = zoomScale * -5.52 * remInPx()
   const taglineDistanceToOffscreen = tagline.value!.offsetTop + tagline.value!.offsetHeight
   const quotesDistanceToTagline = outerContainer.value!.offsetHeight/2 - tagline.value!.offsetHeight/2
 
