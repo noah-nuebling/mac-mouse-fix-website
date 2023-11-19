@@ -209,6 +209,10 @@ if (props.doesExpand) {
     // Animate and stuff
     if (shouldExpand) {
 
+      ///
+      /// >>> Expand <<<
+      ///
+
       // Set cursor
       // card.value!.style.cursor = 'auto'
 
@@ -433,12 +437,18 @@ if (props.doesExpand) {
       // - dur: 0.45, sizeCurve: $Power2.easeOut, centerCurve: $Power3.easeOut
       // - dur: 0.6, sizeCurve: $Power3.easeOut, centerCurve: $Power4.easeOut
       
+      const shrinks = originWidth > calcWidth || originHeight > calcHeight
+      const useSimpleAnimations = prefersReducedMotion() || shrinks || window.innerWidth <= constants.breakpoints.xs
+
       const dur = 0.6
       const easeForSize = $Power3.easeOut
       const easeForPosition = $Power4.easeOut
       const easeForFadeOut  = (x: number) => x //BezierEasing(0.0, 0.0, 1.0, 1.0)
       const easeForFadeIn   = (x: number) => x //BezierEasing(0.0, 0.0, 1.0, 1.0)
-      const fadeDuration = dur * 0.4
+      const fadeDur = dur * 0.4
+      
+      const simpleDur = 0.6
+      const simpleFadeDur = simpleDur * 0.35 // 0.6 // 0.35
 
       // 
       // Animation preprocessing
@@ -446,33 +456,33 @@ if (props.doesExpand) {
 
       // Create base curves
 
-      const curveForCenterX  = rawCurveFromAnimationCurve({ outputRange: { start: originCenterX, end: calcCenterX }, ease: easeForPosition })
+      const curveForCenterX  = useSimpleAnimations ? null : rawCurveFromAnimationCurve({ outputRange: { start: originCenterX, end: calcCenterX }, ease: easeForPosition })
       const curveForCenterY  = rawCurveFromAnimationCurve({ outputRange: { start: originCenterY, end: calcCenterY }, ease: easeForPosition }) // Unused now
 
-      const curveForHeight   = rawCurveFromAnimationCurve({ outputRange: { start: originHeight, end: calcHeight },   ease: easeForSize })
-      const curveForWidth    = rawCurveFromAnimationCurve({ outputRange: { start: originWidth,  end: calcWidth },    ease: easeForSize })
+      const curveForHeight   = useSimpleAnimations ? null : rawCurveFromAnimationCurve({ outputRange: { start: originHeight, end: calcHeight },   ease: easeForSize })
+      const curveForWidth    = useSimpleAnimations ? null : rawCurveFromAnimationCurve({ outputRange: { start: originWidth,  end: calcWidth },    ease: easeForSize })
 
       // Calculate animation curves for top/left of the element
       //  Edit: Just using the previous centerY ease for top now because we're anchoring our animation at the top, not the center anymore
 
-      const curveForTop: Curve =  rawCurveFromAnimationCurve({ outputRange: { start: originTop, end: calcTop }, ease: easeForPosition }) // combineCurves(curveForCenterY, curveForHeight, (centerY, height) => centerY - height/2.0)
-      const curveForLeft: Curve = combineCurves(curveForCenterX, curveForWidth,  (centerX, width) => centerX - width/2.0)
+      const curveForTop = rawCurveFromAnimationCurve({ outputRange: { start: originTop, end: calcTop }, ease: easeForPosition }) // combineCurves(curveForCenterY, curveForHeight, (centerY, height) => centerY - height/2.0)
+      const curveForLeft = useSimpleAnimations ? null : combineCurves(curveForCenterX!, curveForWidth!,  (centerX, width) => centerX - width/2.0)
 
       // Find find animations for translate and scale equivalent to the position and size animations defined above
       //  (Translate and scale are very fast to animate)
 
-      const curveForTranslateX  = transfromCurve(curveForLeft,     (v) => v - curveForLeft(0.0) )
+      const curveForTranslateX  = useSimpleAnimations ? null : transfromCurve(curveForLeft!,     (v) => v - curveForLeft!(0.0) )
       const curveForTranslateY  = transfromCurve(curveForTop,      (v) => v - curveForTop(0.0) )
-      const curveForScaleX      = transfromCurve(curveForWidth,    (v) => v / curveForWidth(0.0) )
-      const curveForScaleY      = transfromCurve(curveForHeight,   (v) => v / curveForHeight(0.0) )
+      const curveForScaleX      = useSimpleAnimations ? null : transfromCurve(curveForWidth!,    (v) => v / curveForWidth!(0.0) )
+      const curveForScaleY      = useSimpleAnimations ? null : transfromCurve(curveForHeight!,   (v) => v / curveForHeight!(0.0) )
 
       // Store the overall translate and scale 
       //  for convenience
 
-      const translateX = curveForTranslateX(1.0)
+      const translateX = useSimpleAnimations ? null : curveForTranslateX!(1.0)
       const translateY = curveForTranslateY(1.0)
-      const scaleX = curveForScaleX(1.0)
-      const scaleY = curveForScaleY(1.0)
+      const scaleX = useSimpleAnimations ? null : curveForScaleX!(1.0)
+      const scaleY = useSimpleAnimations ? null : curveForScaleY!(1.0)
 
       // Get inverse transforms
       //  Note: The transforms will be applied to the placeholder, which will be 
@@ -483,16 +493,16 @@ if (props.doesExpand) {
       //    Overall, the placeholder and the original card should appear at the same position throughout the animation like this.
       //    Then we can fade between them, to get a smooth transition
 
-      const curveForInverseTranslateX = transfromCurve(curveForTranslateX, (v) => v - translateX)
+      const curveForInverseTranslateX = useSimpleAnimations ? null : transfromCurve(curveForTranslateX!, (v) => v - translateX!)
       const curveForInverseTranslateY = transfromCurve(curveForTranslateY, (v) => v - translateY)
-      const curveForInverseScaleX     = transfromCurve(curveForScaleX,     (v) => v / scaleX)
-      const curveForInverseScaleY     = transfromCurve(curveForScaleY,     (v) => v / scaleY)
+      const curveForInverseScaleX     = useSimpleAnimations ? null : transfromCurve(curveForScaleX!,     (v) => v / scaleX!)
+      const curveForInverseScaleY     = useSimpleAnimations ? null : transfromCurve(curveForScaleY!,     (v) => v / scaleY!)
 
       // Calculate transforms for card-content
       
       // Counter scaling cancels out the card scaling to prevent content from stretching
-      var curveForCounterScaleX = transfromCurve(curveForInverseScaleX, (scale) => 1/scale)
-      var curveForCounterScaleY = transfromCurve(curveForInverseScaleY, (scale) => 1/scale)
+      var curveForCounterScaleX = useSimpleAnimations ? null : transfromCurve(curveForInverseScaleX!, (scale) => 1/scale)
+      var curveForCounterScaleY = useSimpleAnimations ? null : transfromCurve(curveForInverseScaleY!, (scale) => 1/scale)
 
       // This transform makes the card content scale up cover the card during the animation, but without stretching. 
       //  Basically we apply the same animation to the content (both axes) as to axis of the card which scales up less.
@@ -504,12 +514,12 @@ if (props.doesExpand) {
       var curveForContentScaleY = curveForCounterScaleY
 
       // Calculate transforms for placeholder content
-      var curveForPlaceholderCounterScaleX = transfromCurve(curveForScaleX, (scale) => 1/scale)
-      var curveForPlaceholderCounterScaleY = transfromCurve(curveForScaleY, (scale) => 1/scale)
+      var curveForPlaceholderCounterScaleX = useSimpleAnimations ? null : transfromCurve(curveForScaleX!, (scale) => 1/scale)
+      var curveForPlaceholderCounterScaleY = useSimpleAnimations ? null : transfromCurve(curveForScaleY!, (scale) => 1/scale)
       // var curveForPlaceholderContentScaleX = combineCurves(curveForPlaceholderCounterScaleX, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
       // var curveForPlaceholderContentScaleY = combineCurves(curveForPlaceholderCounterScaleY, scaleX < scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
-      var curveForPlaceholderContentScaleX = curveForPlaceholderCounterScaleX
-      var curveForPlaceholderContentScaleY = curveForPlaceholderCounterScaleY
+      var curveForPlaceholderContentScaleX = useSimpleAnimations ? null : curveForPlaceholderCounterScaleX
+      var curveForPlaceholderContentScaleY = useSimpleAnimations ? null : curveForPlaceholderCounterScaleY
 
       // 
       // Scroll card into center of screen
@@ -532,43 +542,41 @@ if (props.doesExpand) {
       // Add animations to timeline
       //
 
-      const doesGrowInBothDimensions = originWidth < calcWidth && originHeight < calcHeight
-      if (!prefersReducedMotion() && doesGrowInBothDimensions && window.innerWidth > constants.breakpoints.xs) {
-
-        // Animate position-related styling on placeholder
-        addAnimationToTimeline(tl, cardPlaceholder, 'y', animationCurveFromRawCurve(curveForTranslateY), dur)
-        addAnimationToTimeline(tl, cardPlaceholder, 'x', animationCurveFromRawCurve(curveForTranslateX), dur)
-
-        // Animate position-related styling on card
-        addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForInverseTranslateY), dur)
-        addAnimationToTimeline(tl, card.value!, 'x', animationCurveFromRawCurve(curveForInverseTranslateX), dur)
+      if (!useSimpleAnimations) {
 
         // Animate size-related styling on placeholder
-        addAnimationToTimeline(tl, cardPlaceholder, 'scaleX', animationCurveFromRawCurve(curveForScaleX), dur)
-        addAnimationToTimeline(tl, cardPlaceholder, 'scaleY', animationCurveFromRawCurve(curveForScaleY), dur)
+        addAnimationToTimeline(tl, cardPlaceholder, 'scaleX', animationCurveFromRawCurve(curveForScaleX!), dur)
+        addAnimationToTimeline(tl, cardPlaceholder, 'scaleY', animationCurveFromRawCurve(curveForScaleY!), dur)
 
         // Animate size-related styling on card
-        addAnimationToTimeline(tl, card.value!, 'scaleX', animationCurveFromRawCurve(curveForInverseScaleX), dur)
-        addAnimationToTimeline(tl, card.value!, 'scaleY', animationCurveFromRawCurve(curveForInverseScaleY), dur)
+        addAnimationToTimeline(tl, card.value!, 'scaleX', animationCurveFromRawCurve(curveForInverseScaleX!), dur)
+        addAnimationToTimeline(tl, card.value!, 'scaleY', animationCurveFromRawCurve(curveForInverseScaleY!), dur)
 
         // Counter-animate card content 
         //  to prevent stretching
-        addAnimationToTimeline(tl, contentContainer.value!, 'scaleX', animationCurveFromRawCurve(curveForContentScaleX), dur)
-        addAnimationToTimeline(tl, contentContainer.value!, 'scaleY', animationCurveFromRawCurve(curveForContentScaleY), dur)
+        addAnimationToTimeline(tl, contentContainer.value!, 'scaleX', animationCurveFromRawCurve(curveForContentScaleX!), dur)
+        addAnimationToTimeline(tl, contentContainer.value!, 'scaleY', animationCurveFromRawCurve(curveForContentScaleY!), dur)
 
         // Counter-animate placeholder content 
-        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleX', animationCurveFromRawCurve(curveForPlaceholderContentScaleX), dur)
-        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleY', animationCurveFromRawCurve(curveForPlaceholderContentScaleY), dur)
+        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleX', animationCurveFromRawCurve(curveForPlaceholderContentScaleX!), dur)
+        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleY', animationCurveFromRawCurve(curveForPlaceholderContentScaleY!), dur)
       }
+
+      // Animate position-related styling on placeholder
+      addAnimationToTimeline(tl, cardPlaceholder, 'y', animationCurveFromRawCurve(curveForTranslateY), useSimpleAnimations ? simpleDur : dur)
+      if (!useSimpleAnimations) addAnimationToTimeline(tl, cardPlaceholder, 'x', animationCurveFromRawCurve(curveForTranslateX!), useSimpleAnimations ? simpleDur : dur)
+
+      // Animate position-related styling on card
+      addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForInverseTranslateY), useSimpleAnimations ? simpleDur : dur)
+      if (!useSimpleAnimations) addAnimationToTimeline(tl, card.value!, 'x', animationCurveFromRawCurve(curveForInverseTranslateX!), useSimpleAnimations ? simpleDur : dur)
 
       // Fade out placeholder
       // Notes:
       //  - Neither opacity nor autoalpha work. (Not sure what autoAlpha is) Edit: Now it does. Not sure why. autoAlpha sets visibility: hidden automatically for optimization. We'll use this if it doesn't cause problems.
-
-      addAnimationToTimeline(tl, cardPlaceholder, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0}, ease: easeForFadeOut }, fadeDuration)
+      addAnimationToTimeline(tl, cardPlaceholder, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0 }, ease: easeForFadeOut }, useSimpleAnimations ? simpleFadeDur : fadeDur)
 
       // Fade in card
-      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 0.0, end: 1.0}, ease: easeForFadeIn }, fadeDuration)
+      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 0.0, end: 1.0 }, ease: easeForFadeIn },      useSimpleAnimations ? simpleFadeDur : fadeDur)
 
       // 
       // Wait until browser is done rendering, then start animation
@@ -582,7 +590,7 @@ if (props.doesExpand) {
     } else { 
       
       // 
-      // Unexpand
+      //  >>> Unexpand <<<
       //
 
       // Remove backdrop from layout
@@ -684,20 +692,6 @@ if (props.doesExpand) {
       cardPlaceholder!.style.transformOrigin = 'left top'
       card.value!.style.transformOrigin = 'left top'
       
-       // Animation params
-       // Previous curves:
-       // - dur: 0.6, sizeCurve: criticalSpring(6.0), centerCurve: criticalSpring(5.0)
-       // - dur: 0.6, sizeCurve: $Power4.easeOut, centerCurve: $Power3.easeOut
-       // - dur: 0.7, sizeCurve: $Power4.easeOut, centerCurve: $Power3.easeOut
-
-      const dur = 0.6
-      const easeForSize = $Power4.easeOut
-      const easeForPosition = $Power3.easeOut
-      
-      // 
-      // Animation preprocessing
-      //  
-      
       // Gather data
 
       const currentWidth = card.value!.offsetWidth
@@ -714,46 +708,63 @@ if (props.doesExpand) {
       const targetCenterX = targetLeft + (targetWidth/2.0)
       const targetCenterY = targetTop + (targetHeight/2.0)
 
+      // Animation params
+      // Previous curves:
+      // - dur: 0.6, sizeCurve: criticalSpring(6.0), centerCurve: criticalSpring(5.0)
+      // - dur: 0.6, sizeCurve: $Power4.easeOut, centerCurve: $Power3.easeOut
+      // - dur: 0.7, sizeCurve: $Power4.easeOut, centerCurve: $Power3.easeOut
+
+      const dur = 0.6
+      const easeForSize = $Power4.easeOut
+      const easeForPosition = $Power3.easeOut
+      const fadeDur = dur * 0.2
+      
+      const simpleDur = 0.6
+      const simpleFadeDur = simpleDur * 0.35
+      
+      const grows = currentWidth < targetWidth || currentHeight < targetHeight
+      const useSimpleAnimations = prefersReducedMotion() || grows || window.innerWidth <= constants.breakpoints.xs
+
       // Create base curves
 
-      const curveForCenterX  = rawCurveFromAnimationCurve({ outputRange: { start: currentCenterX , end: targetCenterX }, ease: easeForPosition })
-      const curveForCenterY  = rawCurveFromAnimationCurve({ outputRange: { start: currentCenterY, end: targetCenterY }, ease: easeForPosition })
+      const curveForCenterX  = useSimpleAnimations ? null : rawCurveFromAnimationCurve({ outputRange: { start: currentCenterX , end: targetCenterX }, ease: easeForPosition })
+      const curveForCenterY  = useSimpleAnimations ? null : rawCurveFromAnimationCurve({ outputRange: { start: currentCenterY, end: targetCenterY }, ease: easeForPosition })
       
-      const curveForHeight   = rawCurveFromAnimationCurve({ outputRange: { start: currentHeight, end: targetHeight },   ease: easeForSize })
-      const curveForWidth   = rawCurveFromAnimationCurve({ outputRange: { start: currentWidth,  end: targetWidth },    ease: easeForSize })
+      const curveForHeight   = useSimpleAnimations ? null : rawCurveFromAnimationCurve({ outputRange: { start: currentHeight, end: targetHeight },   ease: easeForSize })
+      const curveForWidth    = useSimpleAnimations ? null : rawCurveFromAnimationCurve({ outputRange: { start: currentWidth,  end: targetWidth },    ease: easeForSize })
       
       // Calculate animation curves for top/left of the element
       
-      const curveForTop: Curve = rawCurveFromAnimationCurve({ outputRange: { start: currentTop, end: targetTop }, ease: easeForPosition }) // combineCurves(curveForCenterY, curveForHeight, (centerY, height) => centerY - height/2.0) <-- not using this bc anchoring card at the top now
-      const curveForLeft: Curve = combineCurves(curveForCenterX, curveForWidth, (centerX, width) => centerX - width/2.0)
+      const curveForTop = rawCurveFromAnimationCurve({ outputRange: { start: currentTop, end: targetTop }, ease: easeForPosition }) // combineCurves(curveForCenterY, curveForHeight, (centerY, height) => centerY - height/2.0) <-- not using this bc anchoring card at the top now
+      const curveForLeft = useSimpleAnimations ? null : combineCurves(curveForCenterX!, curveForWidth, (centerX, width) => centerX - width/2.0)
       
       // Find find animations for translate and scale equivalent to the position and size animations defined above
       
-      const curveForTranslateX  = transfromCurve(curveForLeft,      (v) => v - curveForLeft(0.0) )
+      const curveForTranslateX  = useSimpleAnimations ? null : transfromCurve(curveForLeft,      (v) => v - curveForLeft(0.0) )
       const curveForTranslateY  = transfromCurve(curveForTop,       (v) => v - curveForTop(0.0) )
-      const curveForScaleX      = transfromCurve(curveForWidth,     (v) => v / curveForWidth(0.0) )
-      const curveForScaleY      = transfromCurve(curveForHeight,    (v) => v / curveForHeight(0.0) )
+      const curveForScaleX      = useSimpleAnimations ? null : transfromCurve(curveForWidth!,     (v) => v / curveForWidth!(0.0) )
+      const curveForScaleY      = useSimpleAnimations ? null : transfromCurve(curveForHeight!,    (v) => v / curveForHeight!(0.0) )
       
       // Store the overall translate and scale 
       
-      const translateX = curveForTranslateX(1.0)
+      const translateX = useSimpleAnimations ? null : curveForTranslateX!(1.0)
       const translateY = curveForTranslateY(1.0)
-      const scaleX = curveForScaleX(1.0)
-      const scaleY = curveForScaleY(1.0)
+      const scaleX = useSimpleAnimations ? null : curveForScaleX!(1.0)
+      const scaleY = useSimpleAnimations ? null : curveForScaleY!(1.0)
       
       // Get inverse transforms
       
-      const curveForInverseTranslateX = transfromCurve(curveForTranslateX, (v) => v - translateX)
+      const curveForInverseTranslateX = useSimpleAnimations ? null : transfromCurve(curveForTranslateX!, (v) => v - translateX!)
       const curveForInverseTranslateY = transfromCurve(curveForTranslateY, (v) => v - translateY)
-      const curveForInverseScaleX     = transfromCurve(curveForScaleX,     (v) => v / scaleX)
-      const curveForInverseScaleY     = transfromCurve(curveForScaleY,     (v) => v / scaleY)
+      const curveForInverseScaleX     = useSimpleAnimations ? null : transfromCurve(curveForScaleX!,     (v) => v / scaleX!)
+      const curveForInverseScaleY     = useSimpleAnimations ? null : transfromCurve(curveForScaleY!,     (v) => v / scaleY!)
       
       // Calculate transforms for card-content
       // The direction of the < here makes it so the content scales even more than the card, making for a cool, if slightly vertigo-inducing effect. We don't do this on the expand animations, where the > are opposite (a the time of writing) Edit: Turned the effect off. Was weird.
 
       // Counter scaling cancels out the card scaling to prevent content from stretching
-      var curveForCounterScaleX = transfromCurve(curveForInverseScaleX, (scale) => 1/scale)
-      var curveForCounterScaleY = transfromCurve(curveForInverseScaleY, (scale) => 1/scale)
+      var curveForCounterScaleX = useSimpleAnimations ? null : transfromCurve(curveForInverseScaleX!, (scale) => 1/scale)
+      var curveForCounterScaleY = useSimpleAnimations ? null : transfromCurve(curveForInverseScaleY!, (scale) => 1/scale)
       
       // This transform makes the card content scale up cover the card during the animation, but without stretching. 
       // var curveForContentScaleY = combineCurves(curveForCounterScaleY, scaleX > scaleY ? curveForInverseScaleX : curveForInverseScaleY, (a, b) => a * b)
@@ -764,13 +775,13 @@ if (props.doesExpand) {
       var curveForContentScaleX = curveForCounterScaleX
       
       // Calculate transforms for placeholder content
-      var curveForPlaceholderCounterScaleX = transfromCurve(curveForScaleX, (scale) => 1/scale)
-      var curveForPlaceholderCounterScaleY = transfromCurve(curveForScaleY, (scale) => 1/scale)
+      var curveForPlaceholderCounterScaleX = useSimpleAnimations ? null : transfromCurve(curveForScaleX!, (scale) => 1/scale)
+      var curveForPlaceholderCounterScaleY = useSimpleAnimations ? null : transfromCurve(curveForScaleY!, (scale) => 1/scale)
 
       // var curveForPlaceholderContentScaleX = combineCurves(curveForPlaceholderCounterScaleX, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
       // var curveForPlaceholderContentScaleY = combineCurves(curveForPlaceholderCounterScaleY, scaleX > scaleY ? curveForScaleX : curveForScaleY, (a, b) => a * b)
-      var curveForPlaceholderContentScaleX = curveForPlaceholderCounterScaleX
-      var curveForPlaceholderContentScaleY = curveForPlaceholderCounterScaleY
+      var curveForPlaceholderContentScaleX = useSimpleAnimations ? null : curveForPlaceholderCounterScaleX
+      var curveForPlaceholderContentScaleY = useSimpleAnimations ? null : curveForPlaceholderCounterScaleY
 
 
 
@@ -781,39 +792,38 @@ if (props.doesExpand) {
           - The window is wider than the xs breakpoint (iPhone 6 width) -> That's because the animations are really slow on my iPhone 8. Not sure if necessary since the growing condition should already disable animations on iPhone 8.
       */
       
-      const doesShrinkInBothDimensions = currentWidth > targetWidth && currentHeight > targetWidth
-      if (!prefersReducedMotion() && doesShrinkInBothDimensions && window.innerWidth > constants.breakpoints.xs) {
-
-        // Animate position-related styling on card
-        addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForTranslateY), dur)
-        addAnimationToTimeline(tl, card.value!, 'x', animationCurveFromRawCurve(curveForTranslateX), dur)
-        
-        // Animate position-related styling on placeholder
-        addAnimationToTimeline(tl, cardPlaceholder!, 'y', animationCurveFromRawCurve(curveForInverseTranslateY), dur)
-        addAnimationToTimeline(tl, cardPlaceholder!, 'x', animationCurveFromRawCurve(curveForInverseTranslateX), dur)
+      if (!useSimpleAnimations) {
         
         // Animate size-related styling on card
-        addAnimationToTimeline(tl, card.value!, 'scaleX', animationCurveFromRawCurve(curveForScaleX), dur)
-        addAnimationToTimeline(tl, card.value!, 'scaleY', animationCurveFromRawCurve(curveForScaleY), dur)
+        addAnimationToTimeline(tl, card.value!, 'scaleX', animationCurveFromRawCurve(curveForScaleX!), dur)
+        addAnimationToTimeline(tl, card.value!, 'scaleY', animationCurveFromRawCurve(curveForScaleY!), dur)
         
         // Animate size-related styling on placeholder
-        addAnimationToTimeline(tl, cardPlaceholder!, 'scaleX', animationCurveFromRawCurve(curveForInverseScaleX), dur)
-        addAnimationToTimeline(tl, cardPlaceholder!, 'scaleY', animationCurveFromRawCurve(curveForInverseScaleY), dur)
+        addAnimationToTimeline(tl, cardPlaceholder!, 'scaleX', animationCurveFromRawCurve(curveForInverseScaleX!), dur)
+        addAnimationToTimeline(tl, cardPlaceholder!, 'scaleY', animationCurveFromRawCurve(curveForInverseScaleY!), dur)
         
         // Counter-animate placeholder content
-        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleX', animationCurveFromRawCurve(curveForContentScaleX), dur)
-        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleY', animationCurveFromRawCurve(curveForContentScaleY), dur)
+        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleX', animationCurveFromRawCurve(curveForContentScaleX!), dur)
+        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleY', animationCurveFromRawCurve(curveForContentScaleY!), dur)
         
         // Counter-animate card content 
-        addAnimationToTimeline(tl, contentContainer.value!, 'scaleX', animationCurveFromRawCurve(curveForPlaceholderContentScaleX), dur)
-        addAnimationToTimeline(tl, contentContainer.value!, 'scaleY', animationCurveFromRawCurve(curveForPlaceholderContentScaleY), dur)
+        addAnimationToTimeline(tl, contentContainer.value!, 'scaleX', animationCurveFromRawCurve(curveForPlaceholderContentScaleX!), dur)
+        addAnimationToTimeline(tl, contentContainer.value!, 'scaleY', animationCurveFromRawCurve(curveForPlaceholderContentScaleY!), dur)
       }
+
+      // Animate position-related styling on card
+      addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForTranslateY), useSimpleAnimations ? simpleDur : dur)
+      if (!useSimpleAnimations) { addAnimationToTimeline(tl, card.value!, 'x', animationCurveFromRawCurve(curveForTranslateX!), useSimpleAnimations ? simpleDur : dur) }
       
+      // Animate position-related styling on placeholder
+      addAnimationToTimeline(tl, cardPlaceholder!, 'y', animationCurveFromRawCurve(curveForInverseTranslateY), useSimpleAnimations ? simpleDur : dur)
+      if (!useSimpleAnimations) { addAnimationToTimeline(tl, cardPlaceholder!, 'x', animationCurveFromRawCurve(curveForInverseTranslateX!), useSimpleAnimations ? simpleDur : dur) }
+    
       // Fade out card
-      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0}, ease: (x) => x }, dur * 0.2)
+      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0}, ease: (x) => x }, useSimpleAnimations ? simpleFadeDur : fadeDur)
       
       // Fade in placeholder
-      addAnimationToTimeline(tl, cardPlaceholder!, 'autoAlpha', { outputRange: { start: 0.0, end: 1.0}, ease: (x) => x }, dur * 0.2)  
+      addAnimationToTimeline(tl, cardPlaceholder!, 'autoAlpha', { outputRange: { start: 0.0, end: 1.0}, ease: (x) => x }, useSimpleAnimations ? simpleFadeDur : fadeDur)  
       
       
       // 
