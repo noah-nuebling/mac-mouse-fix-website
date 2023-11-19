@@ -12,7 +12,7 @@
       <div class="h-fit w-fit relative translate-y-[-1.5rem]">
         <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center -z-20', false ? initialTranslateYTW : '' ]"> 
           <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['h-[16.5rem] mt-[-2rem] mb-[3rem] opacity-1']">
-          <h1 ref="mmfName" :class="['font-[700] text-[5.75rem] text-black/90 mb-[-1rem] tracking-[-0.01em]', false ? initialNameScaleTW : '', playLoadingAnimation && false ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
+          <h1 ref="mmfName" :class="['font-[700] text-[5.75rem] text-[hsl(0,0%,10%)] mb-[-1rem] tracking-[-0.01em]', false ? initialNameScaleTW : '', playLoadingAnimation && false ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
           <p ref="introTagline" :class="['text-[1.1rem] text-black mb-[2.25rem] opacity-1 tracking-[0.01em]']">{{ $t('intro.tagline') }}</p>
           <DownloadButton ref="downloadButton" class="bg-blue-500 rounded-full text-white px-[0.85em] py-[0.3em] text-[1.2rem] tracking-[0.0em] opacity-1"></DownloadButton>
         </div>
@@ -136,7 +136,6 @@ const locale = i18n.locale
 
 console.log(`Locale during Intro.vue setup: ${ locale.value }, browserLocale: ${ i18n.getBrowserLocale() }`);
 
-
 /* Import gsap stuff */
 
 const { $gsap, $ScrollTrigger, $customInOutEase } = useNuxtApp()
@@ -159,6 +158,7 @@ const quotes = getUsableQuotes()
 
 /* Import Other */
 import { everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation } from "~/utils/util";
+const constants = useConstants()
 const $mt = useMT()
 
 /* Expose methods */
@@ -342,7 +342,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   /* Take measurements for new animation 
       Notes: 
       - I thought doing this first might help prevent forced reflows, but doesn't seem to work. But generally ChatGPT advised me to do all DOM reads in a batch and before writes if possible for optimization. See browser rendering cycle and stuff (yeah I know this isn't helpful)*/
-  var zoomScale = 450.0 * window.innerHeight / 970.0
+  var zoomScale = 200.0 * window.innerHeight / constants.base.height
   var zoomTranslateY = zoomScale * -5.59 * remInPx()
   const taglineDistanceToOffscreen = tagline.value!.offsetTop + tagline.value!.offsetHeight
   const quotesDistanceToTagline = outerContainer.value!.offsetHeight/2 - tagline.value!.offsetHeight/2
@@ -353,7 +353,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   const quotesDistance = quoteScrollingContainer.value!.scrollHeight - quoteScrollingContainer.value!.offsetHeight // Distance that the quotes are scrolling for
 
   // Define Offset from the start of one main event of the animation to the end of the previous main event
-  const taglineShift = -zoomDistance * (0.33) // Offset between zoomStop and taglineStart
+  const taglineShift = -(zoomDistance * 0.25) // Offset between zoomStop and taglineStart
   const quotesShift = 666.0                   // Offset between taglineStop and quotesStart
 
   /* Override animation params for reduceMotion */
@@ -407,7 +407,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
       Notes:
       - We would've done this as part of the main intro scroll animation, but this needs to go on longer, so we need a separate scrollTrigger */
 
-  const startOffset = zoomStop-500
+  const startOffset = zoomStop-150
   navTrigger = $ScrollTrigger.create({
     trigger: outerContainer.value!,
     start: `top+=${ startOffset } top`,
