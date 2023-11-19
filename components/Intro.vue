@@ -26,48 +26,50 @@
     <!-- Background -->
 
     <div ref="backgroundContainer" class="bg-transparent absolute w-[100vw] h-[calc(100vh)] top-[0] bottom-[0] left-[50%] translate-x-[-50%] z-[5]">
-      <div ref="backgroundDiv" class="absolute inset-0 top-[-30rem] -z-20 bg-neutral-900 opacity-0"></div>
+      <div ref="backgroundDiv" class="absolute inset-0 top-[-30rem] -z-20 bg-[hsl(0,0%,0%)] opacity-0"></div>
     </div>
 
     <!-- Splash container -->
     <div class="absolute inset-0 w-full h-full overflow-y-clip z-[10]">
 
-      <!-- Center splash -->
-      <div :class="['absolute inset-0 z-10']">
-        <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
-          <div ref="colorSplashCenter" class="absolute inset-0 opacity-0">
-            <img :src="colorSplashDark2ImagePath" alt=""  :class="['w-[80rem] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] scale-[1.5] opacity-[0.2]']">
-          </div>
+      <!-- Dark Center splash -->
+      <div :class="['hidden absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
+        <div ref="colorSplashCenter" class="absolute inset-0">
+          <img :src="colorSplashDark2ImagePath" alt=""  :class="['w-[80rem] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] scale-[1.5] opacity-[0.2]']">
         </div>
       </div>
 
-      <!-- Top-left splash -->
-      <div :class="['absolute inset-0 z-10 color-splash-dance1', splashDance ? '' : 'paused']">
+      <!-- Top-left splash (dark) -->
+      <div ref="dancer1" :class="['absolute inset-0 z-10 color-splash-dance1', splashDance ? '' : 'paused']">
         <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
           <div ref="colorSplash1" class="absolute inset-0 opacity-1 ">
-            <img :src="colorSplashImagePath" alt=""       :class="['f-w-[calc((0.5*235vh)+(0.5*235*9.75px))] absolute top-[0] left-[calc(50%-0.5*1920px)] translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
             <img :src="colorSplashDark1ImagePath" alt=""  :class="['f-w-[calc((0.5*200vh)+(0.5*200*9.75px))] absolute top-[0] left-[calc(50%-0.5*1920px)] translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
           </div>
         </div>
       </div>
 
-      <!-- Bottom-right splash -->
-      <div :class="['absolute inset-0 z-10 color-splash-dance2', splashDance ? '' : 'paused']">
+      <!-- Top-left splash (light) -->
+      <img :src="colorSplashImagePath" alt="" :class="['f-w-[calc((0.5*235vh)+(0.5*235*9.75px))] absolute z-[10] top-[0] left-[calc(50%-0.5*1920px)] translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
+
+      <!-- Bottom-right splash (dark) -->
+      <div ref="dancer2" :class="['absolute inset-0 z-10 color-splash-dance2', splashDance ? '' : 'paused']">
         <div :class="['absolute inset-0 color-splash-pulse2', splashDance ? '' : 'paused']">
           <div ref="colorSplash2" class="absolute inset-0 opacity-1">
-            <img :src="colorSplashImagePath" alt=""       :class="['f-w-[calc((0.5*185vh)+(0.5*185*9.75px))] absolute bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
             <img :src="colorSplashDark2ImagePath" alt=""  :class="['f-w-[calc((0.5*220vh)+(0.5*220*9.75px))] absolute bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Bottom-right splash (light) -->
+    <img :src="colorSplashImagePath" alt="" :class="['f-w-[calc((0.5*185vh)+(0.5*185*9.75px))] absolute z-[10] bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
+
 
 
     <!-- Tagline -->
 
     <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-[20] ">
-      <p ref="tagline" class="font-[500] text-[3rem] text-center backdrop-blur-[20px] text-white/[0.7] opacity-0 text-glow" v-html="$mt('intro.big-tagline')"></p>
+      <p ref="tagline" class="font-[500] text-[2.75rem] text-center opacity-0 text-glow-2 text-[hsla(0,0%,100%,0.7)]" v-html="$mt('intro.big-tagline')"></p>
     </div>
 
     <!-- Quote cards -->
@@ -75,10 +77,11 @@
     <div ref="quoteContainer" class="invisible absolute top-0 left-0 right-0 bottom-0 w-full h-full z-30">
       
       <!-- Expand button & shadow -->
-      <div ref="quoteBottom" :class="['text-[1rem] absolute w-[100vw] left-[50%] translate-x-[-50%] bottom-0  h-[10rem] z-50 flex items-end justify-center', quotesAreExpanded ? '' : '']">
+      <div ref="quoteBottom" :class="['absolute w-[100vw] left-[50%] translate-x-[-50%] bottom-0  h-[10rem] z-50 flex items-end justify-center', quotesAreExpanded ? '' : '']">
         <div class="absolute inset-0 bg-gradient-to-b from-black/0 via-black/[0.1] via-20% to-black/[0.7]"></div>
-        <div ref="quoteExpandButton" class="bg-white/[0.2] backdrop-blur-2xl rounded-full border border-white/[0.15] w-fit h-fit py-[0.25rem] px-[0.7rem] m-[2.5rem] shadow-sm shadow-black/[0.2] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
-          <p class="text-white text-center" v-html="!quotesAreExpanded ? $t('quotes.see-more') : $t('quotes.see-less')"></p>
+        <div ref="quoteExpandButton" class="text-[1.1rem] relative w-fit h-fit py-[0.3em] px-[0.75em] m-[2.5em] shadow-sm shadow-black/[0.0] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
+          <div class="absolute inset-0 bg-white/[0.1] backdrop-blur-[1rem] backdrop-saturate-[1.5] rounded-full border border-white/[0.2] z-10"/>
+          <p class="text-[1em] text-white/[0.7] font-[500] text-center relative z-20" v-html="!quotesAreExpanded ? $t('quotes.see-more') : $t('quotes.see-less')"></p>
         </div>
       </div>
 
@@ -87,7 +90,7 @@
 
         <div class="h-[100%]"></div>
 
-        <div :class="['relative h-max mx-auto z-30 overflow-y-clip flex flex-col items-center', !quotesAreExpanded ? 'sm:max-h-[calc(200vh+2.5rem)] max-h-[calc(100vh+2.5rem)]' : 'max-h-[fit-content] mb-[7.5rem]']">
+        <div :class="['relative h-max mx-auto z-30 overflow-y-clip flex flex-col items-center pb-[7.2rem]', !quotesAreExpanded ? 'sm:max-h-[calc(200vh+2.5rem)] max-h-[calc(100vh+2.5rem)]' : 'max-h-[fit-content]']">
         
           <!-- User Quotes -->
 
@@ -112,7 +115,7 @@
           </div>
 
           <!-- Thank you message -->
-          <div class="flex justify-center mt-[14.5rem] mb-[calc(10rem+5rem)]">
+          <div class="flex justify-center my-[10rem]">
             <QuoteCard :text="$mt('quotes.thankyou')" :doGlow="false" class="strong:inline-block strong:text-glow-2 strong:text-white/[0.3]"/>
           </div>
           <!-- <CardHeader titleKey="user-feedback.card-header.title" :hideVideoHint="true" subtitleKey="" class="w-full"/> -->
@@ -156,7 +159,7 @@ import { getUsableQuotes } from '~/utils/quotes';
 const quotes = getUsableQuotes()
 
 /* Import Other */
-import { everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax } from "~/utils/util";
+import { everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation } from "~/utils/util";
 const $mt = useMT()
 
 /* Expose methods */
@@ -188,6 +191,8 @@ const backgroundContainer     = ref<HTMLElement|null>(null)
 const colorSplash1            = ref<HTMLElement|null>(null)
 const colorSplash2            = ref<HTMLElement|null>(null)
 const colorSplashCenter       = ref<HTMLElement|null>(null)
+const dancer1                 = ref<HTMLElement|null>(null)
+const dancer2                 = ref<HTMLElement|null>(null)
 const backgroundDiv           = ref<HTMLElement|null>(null)
 const taglineContainer        = ref<HTMLElement|null>(null)
 const tagline                 = ref<HTMLElement|null>(null)
@@ -199,8 +204,8 @@ const quoteExpandButton       = ref<HTMLElement|null>(null)
 
 /* Constants */
 
-const initialTranslateY = '-25rem'/* '-3.5rem' */
-const initialTranslateYTW = 'translate-y-[-25rem]'
+const initialTranslateY = '-10rem'/* '-3.5rem' */
+const initialTranslateYTW = 'translate-y-[-10rem]'
 const initialNameScale = 0.8
 const initialNameScaleTW = 'scale-[0.8]'
 
@@ -339,17 +344,18 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
       Notes: 
       - I thought doing this first might help prevent forced reflows, but doesn't seem to work. But generally ChatGPT advised me to do all DOM reads in a batch and before writes if possible for optimization. See browser rendering cycle and stuff (yeah I know this isn't helpful)*/
   var zoomScale = 450.0 * window.innerHeight / 970.0
-  var zoomTranslateY = zoomScale * -5.55 * remInPx()
+  var zoomTranslateY = zoomScale * -5.59 * remInPx()
   const taglineDistanceToOffscreen = tagline.value!.offsetTop + tagline.value!.offsetHeight
   const quotesDistanceToTagline = outerContainer.value!.offsetHeight/2 - tagline.value!.offsetHeight/2
 
-  var zoomDistance = 3000.0
-  
-  const taglineDistance = 1000.0
-  const quotesDistance = quoteScrollingContainer.value!.scrollHeight - quoteScrollingContainer.value!.offsetHeight
+  // Define length (in scroll-distance) of the main events of the animation
+  var zoomDistance = 2000.0
+  const taglineDistance = 1000.0 // Distance that the tagline takes to fade in
+  const quotesDistance = quoteScrollingContainer.value!.scrollHeight - quoteScrollingContainer.value!.offsetHeight // Distance that the quotes are scrolling for
 
-  const taglineShift = -1000.0
-  const quotesShift = 666.0
+  // Define Offset from the start of one main event of the animation to the end of the previous main event
+  const taglineShift = -zoomDistance * (0.33) // Offset between zoomStop and taglineStart
+  const quotesShift = 666.0                   // Offset between taglineStop and quotesStart
 
   /* Override animation params for reduceMotion */
 
@@ -544,11 +550,11 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 }
 
 .color-splash-dance1 {
-  animation: splash-dance1 40s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: splash-dance1 60s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   animation-direction: alternate;
 }
 .color-splash-dance2 {
-  animation: splash-dance2 40s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: splash-dance2 60s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   animation-direction: alternate;
 }
 
@@ -556,7 +562,8 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   
   0%, 100% {
     transform: translate(0, 0);
-    animation-timing-function: cubic-bezier(0.1, 0, 0.6, 1); /* <-- Start faster, so visitor sees the cool effects */
+    /* animation-timing-function: cubic-bezier(0.1, 0, 0.6, 1); */
+    /* ^^^ Start faster, so visitor sees the cool effects */
   }
   20% {
     transform: translate(90%, 50%);
@@ -578,7 +585,8 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   0%, 100% {
     transform: translate(0, 0);
-    animation-timing-function: cubic-bezier(0.1, 0, 0.6, 1); /* <-- Start faster, so visitor sees the cool effects */
+    /* animation-timing-function: cubic-bezier(0.1, 0, 0.6, 1); */
+    /* ^^^ Start faster, so visitor sees the cool effects */
   }
   20% {
     transform: translate(-90%, -50%);

@@ -54,41 +54,67 @@ Notes:
 
 @layer components {
 
+
+  .button-glow-2 {
+    --extra-filters: blur(12px) hue-rotate(00deg);
+    @apply bg-white/[0.1] glow-2;
+  }
   .text-glow-2 {
 
     /* Notes:
         - When using this on a <span> or <strong> it works when you set `inline-block` */
 
+    --extra-filters: ;
     mask: linear-gradient(black, black) text;
-    /* @apply text-white/[0.3]; backdrop-filter: contrast(0.85) saturate(10.5) brightness(2.2) hue-rotate(10deg); */
+    @apply text-white/[0.3] glow-2;
+  }
+  .glow-2 {
+    /* backdrop-filter: contrast(0.85) saturate(10.5) brightness(2.2) hue-rotate(10deg); */
 
     /* vvv Attempt at making it look better (failed) */
 
     /* vvv Lower contrast and lower brightness keeps highlights the same while making unlit text a bit ligher */
-    /* @apply text-white/[0.3]; backdrop-filter: contrast(0.75) saturate(10.5) brightness(1.9) hue-rotate(10deg);  */
+    /* backdrop-filter: contrast(0.75) saturate(10.5) brightness(1.9) hue-rotate(10deg);  */
 
     /* vvv Lower brightness until unlit is og lightness again, and highlights are less blown out */
-    @apply text-white/[0.3]; 
-    @apply glow-2;
+    backdrop-filter: contrast(0.75) saturate(10.5) brightness(1.7) hue-rotate(10deg) var(--extra-filters);
 
     /* vvv Lower dynamic range even more */
-    /* @apply text-white/[0.3]; backdrop-filter: contrast(0.66) saturate(10.5) brightness(1.4) hue-rotate(10deg); */
+    /* backdrop-filter: contrast(0.66) saturate(10.5) brightness(1.4) hue-rotate(10deg); */
 
     /* vvv Lower dynamic range evennnn more */
-    /* @apply text-white/[0.3]; backdrop-filter: contrast(0.5) saturate(10.5) brightness(1.4) hue-rotate(10deg); */
-  }
-  .glow-2 {
-    backdrop-filter: contrast(0.75) saturate(10.5) brightness(1.7) hue-rotate(10deg);
+    /* backdrop-filter: contrast(0.5) saturate(10.5) brightness(1.4) hue-rotate(10deg); */
   }
 
   .text-glow {
-
     mask: linear-gradient(black, black) text;
+    /* @apply text-white/[0.5] glow-2; */
+    @apply text-[hsla(0,0%,100%,0.3)] glow;
+  }
+  .glow {
+
+    /* Note worked on this for long time for tagline background, but couldn't make it look better than glow-2. So just using that, with different text opacities. */
+
+    --con1:   0.85;  /* 0.85 */;
+    --sat:    10.4; /* 10.4 */;
+    --con2:   1; /* 1.0  */;
+    --bri:    2.2;  /* 2.2  */;
+    --hue:    0deg;
+    --sat2:   1;
+    
+    --bri-squash: 1;
+    --sat-squash: 1;
+
+    backdrop-filter: contrast(var(--con1)) saturate(var(--sat)) contrast(var(--con2)) brightness(var(--bri)) hue-rotate(var(--hue)) saturate(var(--sat2))
+          brightness(var(--bri-squash)) brightness(calc(1/var(--bri-squash)))
+          saturate(var(--sat-squash)) saturate(calc(1/var(--sat-squash)));
+
+    /* vvv History */
 
     /* @apply text-white/[0.3] backdrop-saturate-[4.0] backdrop-brightness-[2.3] backdrop-contrast-[0.3] bg-blend-normal filter saturate-[1.5]; */
     /* @apply text-white/[0.3] backdrop-saturate-[4.4] backdrop-brightness-[2.3] backdrop-contrast-[1] bg-blend-normal filter saturate-[1.2]; */
     /* vvv I like this one */
-    @apply text-white/[0.3] backdrop-contrast-[0.85] backdrop-saturate-[10.4] backdrop-brightness-[2.2];
+    /* @apply backdrop-contrast-[0.85] backdrop-saturate-[10.4] backdrop-brightness-[2.2]; */
     /* @apply text-white/[0.3] backdrop-contrast-[0.85] backdrop-saturate-[10.4] backdrop-brightness-[2.2] hue-rotate-[20deg]; */
     /* @apply text-white/[0.3] backdrop-contrast-[1.75] backdrop-saturate-[13.4] backdrop-brightness-[2.2] filter brightness-[0.9]; */
     /* @apply text-white/[0.15]; backdrop-filter: brightness(1) saturate(4) brightness(2) contrast(0.99) brightness(1); */
@@ -99,7 +125,10 @@ Notes:
     /* vvv Like this one */
     /* @apply text-white/[0.3]; backdrop-filter: brightness(4.0) saturate(4.0); filter: hue-rotate(40deg); */
     /* @apply text-white/[0.3]; backdrop-filter: brightness(4.0) saturate(4.0); filter: hue-rotate(55deg) saturate(0.7); */
+
   }
+
+  
 
   .btn { /* This is from the tutorial - TODO: Remove */
     @apply bg-[#12b489] text-white px-3 py-2 rounded-md text-sm;

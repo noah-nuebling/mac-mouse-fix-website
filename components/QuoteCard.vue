@@ -11,27 +11,26 @@
   -->
   <div 
   ref="thisCard"
-  :class="['text-[0.90rem] h-fit col-span-auto group shadow-none rounded-[1.8em] bg-white/[0.04] border-[1px] border-neutral-100/[0.15] relative', 
+  :class="['text-[0.90rem] h-fit col-span-auto group shadow-none rounded-[1.8em] border-[1px] border-neutral-100/[0.15] relative', 
           sourceIsPublic ? 'cursor-pointer' : 'cursor-default',
           $attrs.class]"
   @click="openLink">
     
     <!-- Background
           Need to make separate background container because chrome doesn't support nested backdrop filters for some reason -->
-    <div class="absolute inset-0 bg-white/[0.00] backdrop-saturate-[1.15] backdrop-brightness-[1.00] backdrop-blur-[1rem] z-[-10] rounded-[inherit]">
+    <div class="absolute inset-0 bg-white/[0.04] backdrop-saturate-[1.15] backdrop-brightness-[1.00] backdrop-blur-[1rem] z-[-10] rounded-[inherit]">
 
     </div>
 
     <!-- Quote -->
     <div ref="quoteElement" class="flex flex-row items-start justify-center h-fit mx-[3em] my-[5.5em]">
-      <!-- <p v-if="quote" class="text-white/[0.3] font-[650] text-[3.75em] translate-y-[-0.375em] ml-[-0.05em] mr-[0.125em] mb-[-99rem]">&#8220</p> -->
-      <p v-if="quote" class="absolute top-[0rem] left-[1rem] text-white/[0.3] font-[700] text-[3.85em]">&#8220</p>
-      <blockquote :class="['text-center text-[1.5em] whitespace-pre-wrap max-w-[24em]', !doGlow ? 'text-white/[0.75]' : 'text-glow-2 text-white/[0.75]']" v-html="quote ? uiStrings!.quote : text!"/>
+      <p v-if="quote" class="font-[700] text-[3.85em] absolute top-[0rem] left-[1rem] text-white/[0.3] ">&#8220</p>
+      <blockquote :class="['whitespace-pre-wrap max-w-[24em] text-center text-[1.6em] font-[400]', !doGlow ? 'text-white/[0.75]' : 'text-glow-2 text-white/[0.75]']" v-html="quote ? uiStrings!.quote : text!"/>
     </div>
     <!-- Quote Source -->
-    <div v-if="quote" class="flex justify-center mt-[-1.65em] mb-[0.6em] strong:font-[600] strong:text-glow-2 strong:inline-block strong:text-white/[0.3]">
+    <div v-if="quote" class="flex justify-center mt-[-2.05em] mb-[0.6em] strong:font-[600] strong:text-glow-2 strong:inline-block strong:text-white/[0.3] text-white/[0.5] font-[300]">
       <a :href="sourceIsPublic ? quote?.link : ''" :class="['relative max-w-fit block pointer-events-none', sourceIsPublic ? 'cool-hover-underlinexxx' : '']">
-        <p class="text-[1.05em] font-[300] text-center text-white/[0.5] w-fit">
+        <p class="text-[1.15em] text-center w-fit">
           <span v-html="uiStrings!.source" class=""></span>
         </p>
       </a>
@@ -58,7 +57,7 @@ var props = defineProps({
   text: String,
   doGlow: {
     type: Boolean,
-    default: true,
+    default: false,
   }
 })
 

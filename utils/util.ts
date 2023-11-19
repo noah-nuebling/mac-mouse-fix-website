@@ -1,6 +1,15 @@
 import { request } from "https"
 
-export { doAfterRenderrr, doAfterRender, doBeforeRender, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax }
+export { doAfterRenderrr, doAfterRender, doBeforeRender, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation }
+
+/* Reset animations
+    Src: https://stackoverflow.com/a/45036752/10601702 */
+
+function resetCSSAnimation(el: HTMLElement) {
+  el.style.animation = 'none';
+  el.offsetHeight; /* trigger reflow */
+  el.style.animation = ''; 
+}
 
 /* vh and vw 
     src: https://stackoverflow.com/a/44109531 */

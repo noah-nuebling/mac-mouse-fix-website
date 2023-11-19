@@ -330,7 +330,7 @@ if (props.doesExpand) {
         //  We calculated targetTop such that the x center of the card stays in the same position after expanding
         const computedH = card.value.offsetHeight
         const heightIncrease = computedH - originHeight
-        targetTop = /* `${originTop - heightIncrease/2.0}px` */ `${ originTop-(2.5*12) }px`
+        targetTop = /* `${originTop - heightIncrease/2.0}px` */ `${ originTop-(2*remInPx()) }px`
 
         // Set position and stuff
         card.value.style.marginLeft = targetMarginLeft
@@ -443,8 +443,9 @@ if (props.doesExpand) {
       const curveForWidth    = rawCurveFromAnimationCurve({ outputRange: { start: originWidth,  end: calcWidth },    ease: easeForSize })
 
       // Calculate animation curves for top/left of the element
+      //  Edit: Just using the previous centerCurver eases now because we're anchoring our animation at the top, not the center
 
-      const curveForTop: Curve = combineCurves(curveForCenterY, curveForHeight, (centerY, height) => centerY - height/2.0)
+      const curveForTop: Curve =  rawCurveFromAnimationCurve({ outputRange: { start: originLeft, end: calcLeft }, ease: easeForCenter }) // combineCurves(curveForCenterY, curveForHeight, (centerY, height) => centerY - height/2.0)
       const curveForLeft: Curve = combineCurves(curveForCenterX, curveForWidth,  (centerX, width) => centerX - width/2.0)
 
       // Find find animations for translate and scale equivalent to the position and size animations defined above
