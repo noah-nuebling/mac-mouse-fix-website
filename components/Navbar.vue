@@ -9,7 +9,7 @@
         <li><NuxtLink :to="localePath('/')" class="">{{ $t('navbar.overview') }}</NuxtLink></li> <!-- NuxtLink dynamically generates the page instead of requesting prerendered page from the server -->
         <!-- <li><NuxtLink to="/" class="">More</NuxtLink></li> -->
         <li>
-          <NuxtLink :to="localePath('about')" class="">{{ $mt('navbar.github') }} <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', navbarHasDarkAppearance ? 'invert' : '']"></NuxtLink>
+          <NuxtLink :to="localePath('')" class="">{{ $mt('navbar.github') }} <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', navbarHasDarkAppearance ? 'invert' : '']"></NuxtLink>
         </li>
 
         <li class="my-[-10rem]"><DownloadButton class="bg-blue-500 rounded-full text-white ml-[0.3rem] px-[0.85em] py-[0.3em] text-[1.0rem] translate-y-[-0.05em]"/></li>

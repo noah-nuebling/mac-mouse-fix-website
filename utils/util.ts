@@ -15,25 +15,37 @@ function resetCSSAnimation(el: HTMLElement) {
     src: https://stackoverflow.com/a/44109531 */
 
 function vh() {
+  assertClient()
   var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
   return h/100;
 }
 
 function vw() {
+  assertClient()
   var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
   return w/100;
 }
 
 function vmin() {
+  assertClient()
   return Math.min(vh(), vw());
 }
 
 function vmax() {
+  assertClient()
   return Math.max(vh(), vw());
 }
 
 function remInPx() {
+  assertClient()
   return parseFloat(getComputedStyle(document.documentElement).fontSize);
+}
+
+function assertClient() {
+  if (!process.client) {
+    const stackTrace = (new Error).stack
+    throw new Error(`MMFError: A function was called from the server, but it is client-only.`)
+  }
 }
 
 function prefersReducedMotion(): boolean {

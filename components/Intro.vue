@@ -225,7 +225,7 @@ watch(quotesAreExpanded, (newValue) => {
 
 /* Debug */
 
-console.log(`Window dims: ${ vw() * 100 } x ${ vh() * 10095 }`)
+// console.log(`Window dims: ${ vw() * 100 } x ${ vh() * 10095 }`)
 
 /* Wait for mount */
 
