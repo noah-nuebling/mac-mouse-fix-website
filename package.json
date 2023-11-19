@@ -4,8 +4,10 @@
   "type": "module",
   "_comment0": "Some error when adding i18n told me to add type: module. But that didn't remove the error",
   "_comment1": "TODO: Change i18n version from next to ^8.0.0 once there's a stable v8 release. We used next so it would update through rc versions.",
-  "_comments_on_scripts": ["1. Calling it 'upload', bc 'deploy' seems to be reserved in pnpm",
-                            "2. To test deployment version, run generate, then preview."],
+  "_comments_on_scripts": [
+    "1. Calling it 'upload', bc 'deploy' seems to be reserved in pnpm",
+    "2. To test deployment version, run generate, then preview."
+  ],
   "scripts": {
     "dev": "nuxt dev",
     "upload": "./scripts/deploy.sh",
@@ -16,14 +18,15 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/i18n": "next",
-    "@nuxtjs/tailwindcss": "^6.9.4",
-    "@types/node": "^18.18.9",
+    "@nuxtjs/tailwindcss": "^6.9.5",
+    "@types/node": "^18.18.10",
     "nuxt": "^3.8.1"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
     "@types/markdown-it": "^13.0.6",
     "assert": "^2.1.0",
+    "bezier-easing": "^2.1.0",
     "gsap": "^3.12.2",
     "markdown-it": "^13.0.2"
   }
