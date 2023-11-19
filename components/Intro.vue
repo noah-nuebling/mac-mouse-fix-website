@@ -68,7 +68,7 @@
     <!-- Tagline -->
 
     <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-[20] ">
-      <p ref="tagline" class="font-[500] text-[2.75rem] text-center opacity-0 text-glow-2 text-[hsla(0,0%,100%,0.7)]" v-html="$mt('intro.big-tagline')"></p>
+      <p ref="tagline" class="font-[500] text-[2.75rem] text-center opacity-0 text-glow-2 safari:safari-text-glow-2 text-[hsla(0,0%,100%,0.7)] safari:text-[hsla(0,0%,100%,0.77)]" v-html="$mt('intro.big-tagline')"></p>
     </div>
 
     <!-- Quote cards -->
@@ -495,7 +495,8 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   const taglineOutDurationTarget = taglineDistanceToOffscreen * 1.3
   const taglineOutDuration = Math.min(taglineOutDurationTarget, quotesDistance - taglineOutShift) // Should be taglineDistanceToOffscreen * 1.3, but capped so it doesn't go on until after quotesStop
   const f = taglineOutDuration/taglineOutDurationTarget
-  tlScroll.fromTo(tagline.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: `${ -(taglineDistanceToOffscreen * f) }px`, duration: taglineOutDuration, ease: 'none' }, taglineOutStart)
+  const taglineTranslateY = `${ -(taglineDistanceToOffscreen * f) }px`
+  tlScroll.fromTo(tagline.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: taglineTranslateY, duration: taglineOutDuration, ease: 'none' }, taglineOutStart)
 
   /* Restore scroll position of quotes and viewport
       Notes:   

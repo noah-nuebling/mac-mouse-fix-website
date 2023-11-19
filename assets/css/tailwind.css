@@ -59,10 +59,20 @@ Notes:
     --extra-filters: blur(12px) hue-rotate(00deg);
     @apply bg-white/[0.1] glow-2;
   }
+  .safari-text-glow-2 {
+
+    /* Notes:
+        - We designed the base style for Chrome, but in Safari the saturation, colors, and brightness seem a bit different on the backdrop filters.  */
+
+    mask: linear-gradient(black, black) text;
+    @apply text-white/[0.3];
+    backdrop-filter: contrast(1.0) saturate(3) brightness(2.5) hue-rotate(10deg);
+  }
   .text-glow-2 {
 
     /* Notes:
-        - When using this on a <span> or <strong> it works when you set `inline-block` */
+        - When using this on a <span> or <strong> it works when you set `inline-block` 
+        - This is primarily made for the little glowing accented names in the quote cards, but currently also used for other stuff, usually with adjusted text opacity, which makes the glow weaker. */
 
     --extra-filters: ;
     mask: linear-gradient(black, black) text;

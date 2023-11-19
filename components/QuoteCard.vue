@@ -18,7 +18,7 @@
     
     <!-- Background
           Need to make separate background container because chrome doesn't support nested backdrop filters for some reason -->
-    <div class="absolute inset-0 bg-white/[0.04] backdrop-saturate-[1.15] backdrop-brightness-[1.00] backdrop-blur-[1rem] z-[-10] rounded-[inherit]">
+    <div class="absolute inset-0 bg-white/[0.04] backdrop-saturate-[1.15] safari:backdrop-saturate-[1.1] backdrop-brightness-[1.00] backdrop-blur-[1rem] z-[-10] rounded-[inherit]">
 
     </div>
 
@@ -28,7 +28,7 @@
       <blockquote :class="['whitespace-pre-wrap max-w-[24em] text-center text-[1.6em] font-[400]', !doGlow ? 'text-white/[0.75]' : 'text-glow-2 text-white/[0.75]']" v-html="quote ? uiStrings!.quote : text!"/>
     </div>
     <!-- Quote Source -->
-    <div v-if="quote" class="flex justify-center mt-[-2.05em] mb-[0.6em] strong:font-[600] strong:text-glow-2 strong:inline-block strong:text-white/[0.3] text-white/[0.5] font-[300]">
+    <div v-if="quote" class="flex justify-center mt-[-2.05em] mb-[0.6em] strong:font-[600] safari:strong:text-glow-2 strong:text-glow-2 strong:inline-block strong:text-white/[0.3] text-white/[0.5] font-[300]">
       <a :href="sourceIsPublic ? quote?.link : ''" :class="['relative max-w-fit block pointer-events-none', sourceIsPublic ? 'cool-hover-underlinexxx' : '']">
         <p class="text-[1.15em] text-center w-fit">
           <span v-html="uiStrings!.source" class=""></span>

@@ -4,6 +4,7 @@
 // - Tailwind size naming conventions: xs, sm, md(/base/DEFAULT), lg, xl, 2xl, 3xl, ...
 
 import plugin from 'tailwindcss/plugin'
+/** @type {import('tailwindcss').Config} */ /* Not sure what this is */
 
 export default {
   content: [
@@ -128,10 +129,21 @@ export default {
 
       const options = {}
 
-      matchVariant('ch', (value, extra) => {
+      matchVariant('ch', (value, { modifier, container }) => {
         const v = value.replaceAll('_', ' ')
         return `& ${ v }`
       }, options)
+    }),
+    plugin(function ({ addVariant }) {
+
+      /* Variant for safari and chrome-specific style
+        Notes:
+          - Introducing this because backdrop-filter colors look pretty different between chrome and safari
+          - Use like `safari:color-blue-500` to apply that style only on Safari` */
+
+      addVariant('safari',    `.safari &`);
+      addVariant('chromium',  `.chromium &`);
+      addVariant('firefox',   `.firefox &`);
     }),
 
     plugin(function ({ addVariant }) {
