@@ -4,7 +4,7 @@
         Notes: 
         - Setting z negative prevents scrolling in the qutoes. Not sure why. -->
 
-  <div ref="outerContainer" class="relative z-10">
+  <div ref="outerContainer" class="relative z-0">
 
     <!-- Initial Content -->
 
@@ -25,12 +25,12 @@
 
     <!-- Background -->
 
-    <div ref="backgroundContainer" class="bg-transparent absolute w-[100vw] h-[calc(100vh)] top-[0] bottom-[0] left-[50%] translate-x-[-50%] z-[5]">
+    <div ref="backgroundContainer" class=" absolute w-[100vw] h-[calc(100vh)] top-[0] bottom-[0] left-[50%] translate-x-[-50%] z-[5]">
       <div ref="backgroundDiv" class="absolute inset-0 top-[-30rem] -z-20 bg-[hsl(0,0%,0%)] opacity-0"></div>
     </div>
 
     <!-- Splash container -->
-    <div class="absolute inset-0 w-full h-full overflow-y-clip z-[10]">
+    <div class="absolute w-[100vw] h-full top-0 left-[50%] translate-x-[-50%] overflow-clip z-[10]">
 
       <!-- Dark Center splash -->
       <div :class="['hidden absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
@@ -59,10 +59,9 @@
           </div>
         </div>
       </div>
+      <!-- Bottom-right splash (light) -->
+      <img :src="colorSplashImagePath" alt="" :class="['f-w-[calc((0.5*185vh)+(0.5*185*9.75px))] absolute z-[10] bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
     </div>
-
-    <!-- Bottom-right splash (light) -->
-    <img :src="colorSplashImagePath" alt="" :class="['f-w-[calc((0.5*185vh)+(0.5*185*9.75px))] absolute z-[10] bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
 
 
 
