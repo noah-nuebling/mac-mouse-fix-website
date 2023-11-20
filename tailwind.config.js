@@ -65,7 +65,7 @@ export default {
           - BlinkMacSystemFont is for Chrome I think, so probably not necessary
           - Info on -apple-system-xxx and system-ui fonts: 1. https://furbo.org/2018/03/28/system-fonts-in-css/ 2. https://stackoverflow.com/a/32660790 
           - When -apple-system is used it automatically seems to switch to SF Display at a certain size. Maybe even dynamically interpolating between them. I think size was like 20px. See this WWDC talk at around 10:00 min: https://developer.apple.com/videos/play/wwdc2020/10175/
-          - Update: Did some more testing, `-apple-system` and `BlinkMacSystemFont` are enough to get a system font that automatically switches between SF Pro Text and Display. That makes 
+          - Update: Did some more testing, `-apple-system` and `BlinkMacSystemFont` are enough to get a system font that automatically switches between SF Pro Text and Display. That makes it seemingly unnecessary to use all the other fonts. But why does the apple website use SF Pro Display and so on fonts? -- I think it's because they are shipping the fonts with the website so they are also rendering sf fonts on non-apple devices?
             - TODO: Remove "SF Pro Display", "SF Pro Icons", and remove separate `display` and `body` font families.
       */
 
@@ -83,7 +83,7 @@ export default {
 
     boxShadow: {
       
-      /* vvv From Feedback Assistant */
+      /* vvv From MMF Feedback Assistant */
       'sm-inset': '0px 0.5px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 8px 0 rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.30)', 
       'md-inset': '0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 8px 32px 0 rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.30)',
       
@@ -122,18 +122,6 @@ export default {
 
   plugins: [
 
-    plugin(function ({ matchVariant }) {
-
-      /* Variant for styling children with a certain selector
-        Use like `ch-[.some-class]:color-blue-500` to style all children with class `.some-class` */
-
-      const options = {}
-
-      matchVariant('ch', (value, { modifier, container }) => {
-        const v = value.replaceAll('_', ' ')
-        return `& ${ v }`
-      }, options)
-    }),
     plugin(function ({ addVariant }) {
 
       /* Variant for safari and chrome-specific style
@@ -144,6 +132,18 @@ export default {
       addVariant('safari',    `.safari &`);
       addVariant('chromium',  `.chromium &`);
       addVariant('firefox',   `.firefox &`);
+    }),
+    plugin(function ({ matchVariant }) {
+
+      /* Variant for styling children with a certain selector
+        Use like `ch-[.some-class]:color-blue-500` to style all children with class `.some-class`. If your child selector has spaces, you can use _ instead.*/
+
+      const options = {}
+
+      matchVariant('ch', (value, { modifier, container }) => {
+        const v = value.replaceAll('_', ' ')
+        return `& ${ v }`
+      }, options)
     }),
 
     plugin(function ({ addVariant }) {

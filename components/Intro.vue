@@ -68,7 +68,7 @@
     <!-- Tagline -->
 
     <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-[20] ">
-      <p ref="tagline" class="font-[500] text-[2.75rem] text-center opacity-0 text-glow-2 safari:safari-text-glow-2 text-[hsla(0,0%,100%,0.7)] safari:text-[hsla(0,0%,100%,0.77)]" v-html="$mt('intro.big-tagline')"></p>
+      <p ref="tagline" class="font-[500] text-[2.75rem] text-center opacity-0 text-glow-2 safari:safari-text-glow-2 text-[hsla(0,0%,100%,0.86)] safari:text-[hsla(0,0%,100%,0.93)]" v-html="$mt('intro.big-tagline')"></p>
     </div>
 
     <!-- Quote cards -->
