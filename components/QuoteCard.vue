@@ -11,24 +11,25 @@
   -->
   <div 
   ref="thisCard"
-  :class="['text-[0.90rem] h-fit col-span-auto group shadow-none rounded-[1.8em] border-[1px] border-neutral-100/[0.15] relative', 
+  :class="['text-[0.90rem] h-fit col-span-auto group shadow-none rounded-[1.8em] border-[1px] border-neutral-100/[0.175] relative', 
           sourceIsPublic ? 'cursor-pointer' : 'cursor-default',
           $attrs.class]"
   @click="openLink">
     
     <!-- Background
-          Need to make separate background container because chrome doesn't support nested backdrop filters for some reason -->
-    <div class="absolute inset-0 bg-white/[0.04] backdrop-saturate-[1.15] safari:backdrop-saturate-[1.1] backdrop-brightness-[1.00] backdrop-blur-[1rem] z-[-10] rounded-[inherit]">
+          - Need to make separate background container because chrome doesn't support nested backdrop filters for some reason 
+          - Edit: I'm not sure the backdrop filters work under Chrome atm. I think if any parent has non-1.0 opacity or a filter that disables the filters here. But it's okay, this looks fine.-->
+    <div class="absolute inset-0 bg-white/[0.06] backdrop-saturate-[1.0] safari:backdrop-saturate-[1.05] backdrop-brightness-[1.00] backdrop-blur-[1rem] z-[-10] rounded-[inherit]">
 
     </div>
 
     <!-- Quote -->
     <div ref="quoteElement" class="flex flex-row items-start justify-center h-fit mx-[3em] my-[5.5em]">
-      <p v-if="quote" class="font-[700] text-[3.85em] absolute top-[0rem] left-[1rem] text-white/[0.3] ">&#8220</p>
+      <p v-if="quote" class="font-[700] text-[3.85em] absolute top-[0rem] left-[1rem] text-white/[0.375] ">&#8220</p>
       <blockquote :class="['whitespace-pre-wrap max-w-[24em] text-center text-[1.6em] font-[400]', !doGlow ? 'text-white/[0.90]' : 'text-glow-2 text-white/[0.90]']" v-html="quote ? uiStrings!.quote : text!"/>
     </div>
     <!-- Quote Source -->
-    <div v-if="quote" class="flex justify-center mt-[-2.05em] mb-[0.6em] strong:font-[600] safari:strong:text-glow-2 strong:text-glow-2 strong:inline-block strong:text-white/[0.3] text-white/[0.5] font-[300]">
+    <div v-if="quote" class="flex justify-center mt-[-2.05em] mb-[0.6em] strong:font-[600] safari:strong:safari-text-glow-2 strong:text-glow-2 strong:inline-block strong:text-white/[0.3] text-white/[0.5] font-[400]">
       <a :href="sourceIsPublic ? quote?.link : ''" :class="['relative max-w-fit block pointer-events-none', sourceIsPublic ? 'cool-hover-underlinexxx' : '']">
         <p class="text-[1.15em] text-center w-fit">
           <span v-html="uiStrings!.source" class=""></span>

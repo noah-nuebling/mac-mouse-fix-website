@@ -43,7 +43,7 @@
       <div ref="dancer1" :class="['absolute inset-0 z-10 color-splash-dance1', splashDance ? '' : 'paused']">
         <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
           <div ref="colorSplash1" class="absolute inset-0 opacity-1 ">
-            <img :src="colorSplashDark1ImagePath" alt=""  :class="['f-w-[calc((0.5*200vh)+(0.5*200*9.75px))] absolute top-[0] left-[calc(50%-0.5*1920px)] translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
+            <img :src="colorSplashDark1ImagePath" alt=""  :class="['f-w-[calc((0.5*200vh)+(0.5*200*9.75px))] absolute top-[0] left-[calc(50%-0.5*1920px)]       translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] filter brightness-[1.0] transition-[opacity] duration-[1000ms] ease-linear ', navbarHasDarkAppearance ? '' : 'opacity-0']">
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@
       <div ref="dancer2" :class="['absolute inset-0 z-10 color-splash-dance2', splashDance ? '' : 'paused']">
         <div :class="['absolute inset-0 color-splash-pulse2', splashDance ? '' : 'paused']">
           <div ref="colorSplash2" class="absolute inset-0 opacity-1">
-            <img :src="colorSplashDark2ImagePath" alt=""  :class="['f-w-[calc((0.5*220vh)+(0.5*220*9.75px))] absolute bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear svg-filter-[splash-noisee]', navbarHasDarkAppearance ? '' : 'opacity-0']">
+            <img :src="colorSplashDark2ImagePath" alt=""  :class="['f-w-[calc((0.5*220vh)+(0.5*220*9.75px))] absolute bottom-[0] right-[calc(50%-0.5*1920px)]   translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] filter brightness-[1.0] transition-[opacity] duration-[1000ms] ease-linear ', navbarHasDarkAppearance ? '' : 'opacity-0']">
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@
         <div class="absolute inset-0 bg-gradient-to-b from-black/0 via-black/[0.1] via-20% to-black/[0.7]"></div>
         <div ref="quoteExpandButton" class="text-[1.1rem] relative w-fit h-fit py-[0.3em] px-[0.75em] m-[2.5em] shadow-sm shadow-black/[0.0] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
           <div class="absolute inset-0 bg-white/[0.1] backdrop-blur-[1rem] backdrop-saturate-[1.5] rounded-full border border-white/[0.2] z-10"/>
-          <p class="text-[1em] text-white/[0.7] font-[500] text-center relative z-20" v-html="!quotesAreExpanded ? $t('quotes.see-more') : $t('quotes.see-less')"></p>
+          <p class="text-[1em] text-white/[0.85] font-[500] text-center relative z-20" v-html="!quotesAreExpanded ? $t('quotes.see-more') : $t('quotes.see-less')"></p>
         </div>
       </div>
 

@@ -65,8 +65,8 @@ Notes:
         - We designed the base style for Chrome, but in Safari the saturation, colors, and brightness seem a bit different on the backdrop filters.  */
 
     mask: linear-gradient(black, black) text;
-    @apply text-white/[0.3];
-    backdrop-filter: contrast(1.0) saturate(51.9) brightness(2.5) hue-rotate(10deg);
+    @apply text-white/[0.5];
+    backdrop-filter: contrast(0.7) saturate(36.1) brightness(1.4) hue-rotate(10deg);
   }
   .text-glow-2 {
 
