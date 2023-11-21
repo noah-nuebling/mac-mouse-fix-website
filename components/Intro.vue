@@ -10,7 +10,8 @@
 
     <div class="flex items-center justify-center group w-[100%] h-[calc(100vh-0rem)] relative z-[-20]">
       <div class="h-fit w-fit relative translate-y-[-1.5rem]">
-        <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center -z-20', false ? initialTranslateYTW : '' ]"> 
+        <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center -z-20', 
+                                            'xs:origin-[50%_calc(50%_+_4.1rem)] sm:origin-[50%_calc(50%_+_4.925rem)] origin-[50%_calc(50%_+_5.55rem)]', false ? initialTranslateYTW : '' ]"> 
           <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['xs:h-[13rem] sm:h-[15rem] h-[16.5rem] mt-[-2rem] mb-[3rem] opacity-1']">
           <h1 ref="mmfName" :class="['font-[700] xs:text-[3.75rem] sm:text-[4.5rem] text-[5.75rem] text-[hsl(0,0%,10%)] mb-[-1rem] tracking-[-0.01em]', false ? initialNameScaleTW : '', playLoadingAnimation && false ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
           <p ref="introTagline" :class="['xs:text-[1.0rem] text-[1.1rem] xs:tracking-[-0.01rem] tracking-[0.01em] text-black mb-[2.25rem] opacity-1']">{{ $t('intro.tagline') }}</p>
@@ -343,12 +344,10 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   /* Take measurements for new animation 
       Notes: 
       - I thought doing this first might help prevent forced reflows, but doesn't seem to work. But generally ChatGPT advised me to do all DOM reads in a batch and before writes if possible for optimization. See browser rendering cycle and stuff (yeah I know this isn't helpful)
-      - Currently, 200 zoomScale is enough on Safari but on Chrome we need 250. I think making zoomScale higher might make performance worse on Safari.
+      - Currently, 200 zoomScale is enough on Safari but on Chrome we need 250. I think making zoomScale higher might make performance worse on Safari. Edit: Now 230 is enough on Chrome. Idk why.
     */
-  var zoomScale = 250.0 * window.innerHeight / constants.base.height
   const s = currentSize()
-  var zoomTranslateY = (s == ResponsiveSize.xs ? -4.075 : s == ResponsiveSize.sm ? -4.95 : -5.52)
-                        * remInPx() * zoomScale
+  var zoomScale = (s == ResponsiveSize.xs ? 210 : s == ResponsiveSize.sm ? 220 : 230.0) * window.innerHeight / constants.base.height
 
   const taglineDistanceToOffscreen = tagline.value!.offsetTop + tagline.value!.offsetHeight
   const quotesDistanceToTagline = outerContainer.value!.offsetHeight/2 - tagline.value!.offsetHeight/2
@@ -364,9 +363,8 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   /* Override animation params for reduceMotion */
 
-  if (prefersReducedMotion()) {
+  if (prefersReducedMotion() || currentSize() <= 0) {
     zoomScale = 1.15
-    zoomTranslateY = 0
     zoomDistance = -taglineShift
   }
 
@@ -445,8 +443,10 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   //  - When we just reduce the scaling factor a little it improves. On the apple website the text is larger to begin with, so the scaling factor is smaller, than currently on this site. Reducing scaling factor is so far the only thing I found that removes framedrops.
   //  - Here's the old solution: tlScroll.fromTo(innerContent.value, { scale: 1, translateY: 0 }, { scale: zoomScale, translateY: `${zoomScale * -4.55}rem`, ease: linearScalingEase(zoomScale), duration: zoomDistance }, zoomStart)
   tlScroll.addLabel("zoom")
-  const zoomMatrix = `matrix(${ zoomScale }, 0, 0, ${ zoomScale }, 0, ${ zoomTranslateY })`
-  tlScroll.fromTo(innerContent.value, {  transform: 'matrix(1, 0, 0, 1, 0, 0)' }, { transform: zoomMatrix, ease: linearScalingEase(zoomScale), duration: zoomDistance }, zoomStart)
+  // const zoomMatrix = `matrix(${ zoomScale }, 0, 0, ${ zoomScale }, 0, ${ zoomTranslateY })`
+  // tlScroll.fromTo(innerContent.value, {  transform: 'matrix(1, 0, 0, 1, 0, 0)' }, { transform: zoomMatrix, ease: linearScalingEase(zoomScale), duration: zoomDistance }, zoomStart)
+  tlScroll.fromTo(innerContent.value, { scale: 1.0, translateY: 0.0 }, { scale: zoomScale, translateY: 0.0, ease: linearScalingEase(zoomScale), duration: zoomDistance, force3D: false }, zoomStart)
+  // tlScroll.set(taglineContainer.value, { backgroundColor: 'green' }, zoomStop)
 
   // Add fade-out to chevron
   tlScroll.fromTo(chevronDown.value, { opacity: 1, translateY: 0 }, { opacity: 0, translateY: '-0rem', duration: zoomDistance/20 }, zoomStart)

@@ -2,14 +2,7 @@
 
 export function useResponsive() {
 
-  enum ResponsiveSize {
-    none,
-    xl,
-    lg,
-    md,
-    sm,
-    xs
-  }
+
   const breakpoints =  {
     // Screenwidth where responsive layout changes.
     // ! Keep this in sync with tailwind.config.js
@@ -17,6 +10,14 @@ export function useResponsive() {
     md: 1068,
     sm: 734,
     xs: 375,
+  }
+  enum ResponsiveSize {
+    none = -1,
+    xl = Number.MAX_VALUE,
+    lg = breakpoints.lg,
+    md = breakpoints.md,
+    sm = breakpoints.sm,
+    xs = breakpoints.xs
   }
 
   function currentSize() {
