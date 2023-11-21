@@ -14,7 +14,7 @@
     </div>
 
     <!-- Body -->
-    <div class="section-body mx-[1rem] flex justify-center items-center mb-[50vh]">
+    <div class="section-body mx-[1.5rem] flex justify-center items-center mb-[50vh]">
       <p v-if="bodyKey" v-html="$mt(bodyKey!)" class="fadeee text-center max-w-[30em] whitespace-pre-wrap sm:text-[1.4rem] text-[1.8rem] text-black/[0.9] strong:text-gradient-to-l font-[400] strong:font-[500] leading-[1.4] tracking-[-0.005rem]"></p>
     </div>
   </div>

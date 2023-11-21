@@ -11,9 +11,9 @@
     <div class="flex items-center justify-center group w-[100%] h-[calc(100vh-0rem)] relative z-[-20]">
       <div class="h-fit w-fit relative translate-y-[-1.5rem]">
         <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center -z-20', false ? initialTranslateYTW : '' ]"> 
-          <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['h-[16.5rem] mt-[-2rem] mb-[3rem] opacity-1']">
-          <h1 ref="mmfName" :class="['font-[700] text-[5.75rem] text-[hsl(0,0%,10%)] mb-[-1rem] tracking-[-0.01em]', false ? initialNameScaleTW : '', playLoadingAnimation && false ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
-          <p ref="introTagline" :class="['text-[1.1rem] text-black mb-[2.25rem] opacity-1 tracking-[0.01em]']">{{ $t('intro.tagline') }}</p>
+          <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['xs:h-[13rem] sm:h-[15rem] h-[16.5rem] mt-[-2rem] mb-[3rem] opacity-1']">
+          <h1 ref="mmfName" :class="['font-[700] xs:text-[3.75rem] sm:text-[4.5rem] text-[5.75rem] text-[hsl(0,0%,10%)] mb-[-1rem] tracking-[-0.01em]', false ? initialNameScaleTW : '', playLoadingAnimation && false ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
+          <p ref="introTagline" :class="['xs:text-[1.0rem] text-[1.1rem] xs:tracking-[-0.01rem] tracking-[0.01em] text-black mb-[2.25rem] opacity-1']">{{ $t('intro.tagline') }}</p>
           <DownloadButton ref="downloadButton" class="bg-blue-500 rounded-full text-white px-[0.85em] py-[0.3em] text-[1.2rem] tracking-[0.0em] opacity-1"></DownloadButton>
         </div>
       </div>
@@ -68,7 +68,7 @@
     <!-- Tagline -->
 
     <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-[20] ">
-      <p ref="tagline" class="font-[500] text-[2.75rem] text-center opacity-0 text-glow-2 safari:safari-text-glow-2 text-[hsla(0,0%,100%,0.86)] safari:text-[hsla(0,0%,100%,0.93)]" v-html="$mt('intro.big-tagline')"></p>
+      <p ref="tagline" class="font-[500] sm:text-[1.75rem] md:text-[2.25rem] text-[2.75rem] text-center mx-[1rem] opacity-0 text-glow-2 safari:safari-text-glow-2 text-[hsla(0,0%,100%,0.86)] safari:text-[hsla(0,0%,100%,0.93)]" v-html="$mt('intro.big-tagline')"></p>
     </div>
 
     <!-- Quote cards -->
@@ -94,9 +94,9 @@
           <!-- User Quotes -->
 
           <!-- Small Layout -->
-          <div class="sm:flex hidden flex-row py-0 mx-[1rem] justify-center">
+          <div class="sm:flex hidden flex-row py-0 mx-[1.5rem] justify-center">
             <!-- First row -->
-            <div class="flex flex-col gap-[4.5rem] m-[0] items-stretch">
+            <div class="flex flex-col gap-[3.5rem] m-[0] items-stretch">
               <QuoteCard v-for="q in quotes" :quote="q" class=""/>
             </div>
           </div>
@@ -114,7 +114,7 @@
           </div>
 
           <!-- Thank you message -->
-          <div class="flex justify-center my-[10rem]">
+          <div class="flex justify-center my-[10rem] mx-[1.5rem]">
             <QuoteCard :text="$mt('quotes.thankyou')" :doGlow="false" class="strong:inline-block strong:text-glow-2 strong:text-white/[0.3]"/>
           </div>
           <!-- <CardHeader titleKey="user-feedback.card-header.title" :hideVideoHint="true" subtitleKey="" class="w-full"/> -->
@@ -159,6 +159,7 @@ const quotes = getUsableQuotes()
 /* Import Other */
 import { everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation } from "~/utils/util";
 const constants = useConstants()
+const { currentSize, ResponsiveSize } = useResponsive()
 const $mt = useMT()
 
 /* Expose methods */
@@ -345,7 +346,10 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
       - Currently, 200 zoomScale is enough on Safari but on Chrome we need 250. I think making zoomScale higher might make performance worse on Safari.
     */
   var zoomScale = 250.0 * window.innerHeight / constants.base.height
-  var zoomTranslateY = zoomScale * -5.52 * remInPx()
+  const s = currentSize()
+  var zoomTranslateY = (s == ResponsiveSize.xs ? -4.075 : s == ResponsiveSize.sm ? -4.95 : -5.52)
+                        * remInPx() * zoomScale
+
   const taglineDistanceToOffscreen = tagline.value!.offsetTop + tagline.value!.offsetHeight
   const quotesDistanceToTagline = outerContainer.value!.offsetHeight/2 - tagline.value!.offsetHeight/2
 

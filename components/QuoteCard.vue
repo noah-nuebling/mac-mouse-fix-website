@@ -11,7 +11,7 @@
   -->
   <div 
   ref="thisCard"
-  :class="['text-[0.90rem] h-fit col-span-auto group shadow-none rounded-[1.8em] border-[1px] border-neutral-100/[0.175] relative', 
+  :class="['sm:text-[0.8rem] text-[0.90rem] h-fit col-span-auto group shadow-none rounded-[1.8em] border-[1px] border-neutral-100/[0.175] relative', 
           sourceIsPublic ? 'cursor-pointer' : 'cursor-default',
           $attrs.class]"
   @click="openLink">

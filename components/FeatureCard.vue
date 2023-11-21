@@ -86,6 +86,7 @@ import { prefersReducedMotion } from "~/utils/util";
 import tailwindConfig from "~/tailwind.config";
 import resolveConfig from 'tailwindcss/resolveConfig'
 const constants = useConstants()
+const { currentSize, ResponsiveSize } = useResponsive()
 
 // Import BezierEasing
 //  Notes: 
@@ -438,7 +439,7 @@ if (props.doesExpand) {
       // - dur: 0.6, sizeCurve: $Power3.easeOut, centerCurve: $Power4.easeOut
       
       const shrinks = originWidth > calcWidth || originHeight > calcHeight
-      const useSimpleAnimations = prefersReducedMotion() || shrinks || window.innerWidth <= constants.breakpoints.xs
+      const useSimpleAnimations = prefersReducedMotion() || shrinks || currentSize == ResponsiveSize.cx
 
       const dur = 0.6
       const easeForSize = $Power3.easeOut
@@ -723,7 +724,7 @@ if (props.doesExpand) {
       const simpleFadeDur = simpleDur * 0.35
       
       const grows = currentWidth < targetWidth || currentHeight < targetHeight
-      const useSimpleAnimations = prefersReducedMotion() || grows || window.innerWidth <= constants.breakpoints.xs
+      const useSimpleAnimations = prefersReducedMotion() || grows || currentSize() == ResponsiveSize.xs
 
       // Create base curves
 
