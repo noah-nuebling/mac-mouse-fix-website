@@ -68,6 +68,8 @@ const expandingContainer = ref<HTMLElement | null>(null)
 
 watch(isExpanded, (newIsExpanded) => {
 
+  // Css transitions don't work with fit-content, so we're measuring the 'fit-content' size in js and then setting the fitting size in px. That way the css transitions work.
+
   if (newIsExpanded) {
     expandingContainer.value!.style.height = 'fit-content'
     const calcHeight = expandingContainer.value?.offsetHeight
