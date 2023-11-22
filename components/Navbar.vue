@@ -36,7 +36,7 @@
   </nav>
 
   <!-- Expanded mobile nav links -->
-  <div ref="expandingContainer" :class="['transition-[height] duration-[0.5s] overflow-clip h-0', isExpanded ? '' : '']">
+  <div ref="expandingContainer" :class="['overflow-clip h-0 transition-[height] duration-[0.5s]', currentSize <= ResponsiveSize.sm ? '' : 'hidden', isExpanded ? '' : '']">
     <div :class="['sm:flex hidden flex-col items-left gap-[1rem] mx-[3rem] text-[1.1rem] font-[400] tracking-[-0.01em] pb-[1rem]']">
       <hr :class="['border-t-[1px] ', navbarHasDarkAppearance ? 'border-white/[0.15]' : 'border-black/[0.1]']">
       <NuxtLink class="" :to="localePath('/')" >{{ $t('navbar.overview') }}</NuxtLink>
@@ -53,6 +53,7 @@
 import burgerImagePath from "../assets/img/line.3.horizontal@8x.png"
 import chevronImagePath from "../assets/img/chevron.down@8x.png"
 
+const { currentSize, ResponsiveSize } = useResponsive()
 const $mt = useMT()
 import { useGlobalStore } from "~/store/global";
 import externalLinkImagePath from "../assets/img/arrow.up.right.square@8x.png"
@@ -79,6 +80,12 @@ watch(isExpanded, (newIsExpanded) => {
     })
   } else {
     expandingContainer.value!.style.height = '0'
+  }
+})
+watch(currentSize, (newValue) => {
+
+  if (newValue > ResponsiveSize.sm) {
+    isExpanded.value = false
   }
 })
 

@@ -2,6 +2,8 @@
 
   Custom directive for monitoring clicks outside of an element.
 
+  You can specify an onEvent callback, a `condition` for when the click monitoring should be active, and a `blockEvents` bool which prevents outside-clicks from doing anything besides triggering the onEvent callback/
+
   Usage example:
   ```
   <div v-on-click-outside="{ onEvent: () => { <<some actions>> }, condition: <<some (reactive) boolean>>, blockEvents: <<some boolean>> }">
@@ -80,7 +82,7 @@ function addListener(el, callback, doBlockEvents) {
   el.MMFClickOutsideEvent = clickOutsideEvent
 
   // Start listening
-  //  Notes: - Setting the last param to true, makes the listener intercept during the event 'capturing' phase, instead of the 'bubbling' phase. This makes this event listener be installed *before* vue @click listeners, which makes the `doBlock` option work better.
+  //  Notes: - Setting the last param to true, makes the listener intercept during the event 'capturing' phase, instead of the 'bubbling' phase. This makes this event listener be installed *before* vue @click listeners, which makes the `doBlock` option work better for our usecases, because we want to block @click listeners.
   document.addEventListener('click', el.MMFClickOutsideEvent, true)
 }
 

@@ -948,7 +948,7 @@ if (props.doesExpand) {
 
   function animationComplexity(collapsedWidth: number, expandedWidth: number, collapsedHeight: number, expandedHeight: number) {
     const shrinksInAnyDimension = expandedWidth < collapsedWidth || expandedHeight < collapsedHeight
-    const useSuperSimpleAnimations = $isMobile() && currentSize() <= ResponsiveSize.sm // Same as useSimpleAnimations, but also omit y position -> so only animate fade -> hopefully more efficient for mobile
+    const useSuperSimpleAnimations = $isMobile() && currentSize.value <= ResponsiveSize.sm // Same as useSimpleAnimations, but also omit y position -> so only animate fade -> hopefully more efficient for mobile
     const useSimpleAnimations = prefersReducedMotion() || shrinksInAnyDimension || useSuperSimpleAnimations // Omit size and x position animations
 
     return { useSuperSimpleAnimations, useSimpleAnimations }

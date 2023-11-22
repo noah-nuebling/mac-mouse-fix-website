@@ -346,7 +346,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
       - I thought doing this first might help prevent forced reflows, but doesn't seem to work. But generally ChatGPT advised me to do all DOM reads in a batch and before writes if possible for optimization. See browser rendering cycle and stuff (yeah I know this isn't helpful)
       - Currently, 200 zoomScale is enough on Safari but on Chrome we need 250. I think making zoomScale higher might make performance worse on Safari. Edit: Now 230 is enough on Chrome. Idk why.
     */
-  const s = currentSize()
+  const s = currentSize.value
   var zoomScale = (s == ResponsiveSize.xs ? 210 : s == ResponsiveSize.sm ? 220 : 230.0) * window.innerHeight / constants.base.height
 
   const taglineDistanceToOffscreen = tagline.value!.offsetTop + tagline.value!.offsetHeight
@@ -363,7 +363,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   /* Override animation params for reduceMotion */
 
-  if (prefersReducedMotion() || ($isMobile() && currentSize() <= ResponsiveSize.sm)) {
+  if (prefersReducedMotion() || ($isMobile() && currentSize.value <= ResponsiveSize.sm)) {
     zoomScale = 1.15
     zoomDistance = -taglineShift
   }

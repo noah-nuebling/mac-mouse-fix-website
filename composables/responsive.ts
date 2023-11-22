@@ -1,5 +1,4 @@
 
-
 export function useResponsive() {
 
 
@@ -20,9 +19,11 @@ export function useResponsive() {
     xs = breakpoints.xs
   }
 
-  function currentSize() {
+  var currentSize = ref<ResponsiveSize>(ResponsiveSize.none)
 
-    if (!process.client) { return ResponsiveSize.none }
+  function updateSize() {
+
+    if (!process.client) { return }
     
     var result: ResponsiveSize
     const w = window.innerWidth
@@ -32,8 +33,15 @@ export function useResponsive() {
     else if (w <= breakpoints.lg) { result = ResponsiveSize.lg }
     else { result = ResponsiveSize.xl }
 
-    return result
+    currentSize.value = result
   }
+
+  onMounted(() => {
+    window.addEventListener('resize', updateSize)
+  })
+  onUnmounted(() => {
+    window.removeEventListener('resize', updateSize)
+  })
 
 
   return { ResponsiveSize, currentSize }
