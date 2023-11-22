@@ -1,13 +1,18 @@
-<!-- "default.vue" is a magic layout name. The template will automatically be wrapped around all pages. -->
+<!-- "default.vue" is a magic layout name. The template will automatically be wrapped around all pages. 
+
+  Notes:
+  - 320px (min width of the page content) is the width of an iPhone 5. Our lowest breakpoint is 375px, which is iPhone 6 width. The other min and max width's are either by eye or stolen from Apple websites.
+
+-->
 
 <template>
   <div class="">
 
     <!-- NavBar -->
-    <Navbar class="max-w-[1200px]"/>
+    <Navbar class="max-w-[960px]"/>
 
     <!-- Output page content -->
-    <div class="min-w-[320px] max-w-[1560px] mx-auto pt-[0rem]"><slot /></div> <!-- page templates will be inserted here (about.vue, index.vue, etc) -->
+    <div class="min-w-[320px] max-w-[1780px] mx-auto pt-[0rem]"><slot /></div> <!-- page templates will be inserted here (about.vue, index.vue, etc) -->
 
 
     <!-- Bottom Nav -->

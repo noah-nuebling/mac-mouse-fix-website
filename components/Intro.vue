@@ -26,12 +26,12 @@
 
     <!-- Background -->
 
-    <div ref="backgroundContainer" class=" absolute w-[100vw] h-[calc(100vh)] top-[0] bottom-[0] left-[50%] translate-x-[-50%] z-[5]">
+    <div ref="backgroundContainer" class=" absolute w-[100vw] h-[calc(100vh)] top-[0] bottom-[0] left-[50%] translate-x-[-50%] z-[5] pointer-events-none">
       <div ref="backgroundDiv" class="absolute inset-0 top-[-30rem] -z-20 bg-[hsl(0,0%,0%)] opacity-0"></div>
     </div>
 
     <!-- Splash container -->
-    <div class="absolute w-[100vw] h-full top-0 left-[50%] translate-x-[-50%] overflow-clip z-[10]">
+    <div class="absolute w-[100vw] h-full top-0 left-[50%] translate-x-[-50%] overflow-clip z-[10] pointer-events-none">
 
       <!-- Dark Center splash -->
       <div :class="['hidden absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
@@ -68,7 +68,7 @@
 
     <!-- Tagline -->
 
-    <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-[20] ">
+    <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-[20] pointer-events-none">
       <p ref="tagline" class="font-[500] sm:text-[1.75rem] md:text-[2.25rem] text-[2.75rem] text-center mx-[1rem] opacity-0 text-glow-2 safari:safari-text-glow-2 text-[hsla(0,0%,100%,0.86)] safari:text-[hsla(0,0%,100%,0.93)]" v-html="$mt('intro.big-tagline')"></p>
     </div>
 

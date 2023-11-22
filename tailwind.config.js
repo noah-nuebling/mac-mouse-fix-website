@@ -154,6 +154,24 @@ export default {
       addVariant('strong', '& strong')
     }),
 
+
+    plugin(function ({ matchUtilities }) {
+
+      /* Set width and height together utility
+          Use like `wh-[30rem]` */
+      const newUtilities = {
+        'wh': (value) => {
+          value = value.replaceAll('_', ' ')
+          return {
+            'width': value,
+            'height': value
+          }
+        },
+      }
+      const options = { }
+      matchUtilities(newUtilities, options);
+    }),
+
     plugin(function ({ matchUtilities }) {
 
       /* Force size utility

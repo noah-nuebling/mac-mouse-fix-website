@@ -1,31 +1,57 @@
+<!-- 
+  
+  Notes:
+  - NuxtLink dynamically generates the page instead of requesting prerendered page from the server 
+
+-->
+
 <template>
-  <header :class="['fixed left-0 right-0 header-shadow backdrop-blur-[20px] backdrop-saturate-[1.8] z-50 transition-colors duration-[0.5s] !max-w-full', navbarHasDarkAppearance ? 'bg-neutral-950/80 text-white/[0.85]' : 'bg-neutral-50/80 text-black/[0.85]']">
-    <nav :class="['py-[0.4rem] text-[1rem] font-[400] flex justify-between items-center relative left-[50%] translate-x-[-50%]', $attrs.class]">
+  <header :class="['fixed left-0 right-0 header-shadow backdrop-blur-[20px] backdrop-saturate-[1.8] z-50 transition-colors duration-[0.5s] !max-w-full', navbarHasDarkAppearance ? 'bg-neutral-950/80 text-white/[0.85]' : 'bg-neutral-50/80 text-black/[0.85]']"
+    v-on-click-outside="{ onEvent: () => isExpanded = false, condition: isExpanded, blockEvents: true }"
+  >
+    <nav :class="['py-[0.4rem] px-[2rem] text-[1rem] font-[400] flex justify-between items-center relative left-[50%] translate-x-[-50%]', $attrs.class]">
       
-      <NuxtLink :to="localePath('/')" class="font-display mx-[2rem] font-[600] text-[1.75rem] tracking-[-0.00em] leading-[1.15em]">Mac Mouse Fix</NuxtLink>
+      <!-- Left-aligned -->
+      <div class="flex flex-row items-center">
+        <!-- <div class=" relative wh-[2.6rem] translate-y-[-0.025rem] mr-[2rem]">
+          <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['absolute inset-0 w-full h-full scale-[1.2]']">
+        </div> -->
+        <NuxtLink  :to="localePath('/')" class="mmf-name font-display font-[600] sm:text-[1.75rem] text-[1.75rem] tracking-[-0.00em] leading-[1.15em]">Mac Mouse Fix</NuxtLink>
+      </div>
 
-      <ul class="flex gap-[2rem] mx-[2rem] font-[400] my-[1.0rem] items-center h-fit tracking-[-0.01em]">
+      <!-- Right-aligned -->
+      <div class="flex sm:gap-[0rem] gap-[2rem] font-[400] my-[0.7rem] items-center h-fit tracking-[-0.01em]">
 
-        <li><NuxtLink :to="localePath('/')" class="">{{ $t('navbar.overview') }}</NuxtLink></li> <!-- NuxtLink dynamically generates the page instead of requesting prerendered page from the server -->
-        <!-- <li><NuxtLink to="/" class="">More</NuxtLink></li> -->
-        <li>
-          <NuxtLink :to="localePath('')" class="">{{ $mt('navbar.github') }} <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', navbarHasDarkAppearance ? 'invert' : '']"></NuxtLink>
-        </li>
+        <div class="px-[1.25rem] py-[1.5rem] my-[-1.5rem] sm:block hidden" @click="isExpanded = !isExpanded">
+          <img :src="chevronImagePath" alt="" :class="['w-[1.15rem] transition-[transform,filter] duration-[0.5s]', navbarHasDarkAppearance ? 'invert' : '']" :style="{ transform: `rotateZ(${ isExpanded ? 180.0001 : 0 }deg) translateY(0.1rem)`, transformOrigin: '50% 60%' }">
+        </div>
 
-        <li class="my-[-10rem]"><DownloadButton class="bg-blue-500 rounded-full text-white ml-[0.3rem] px-[0.85em] py-[0.3em] text-[1.0rem] translate-y-[-0.05em]"/></li>
-      
-        <!-- 
-        <li><NuxtLink to="/products/abc" class="btn">abc prod</NuxtLink></li>
-        <li><NuxtLink to="/">Home</NuxtLink></li> 
-        <li><NuxtLink to="/about">About</NuxtLink></li>
-        <li><NuxtLink to="/products" class="btn">Products</NuxtLink></li> 
-      -->
-      </ul>
-    </nav>
-  </header>
+
+        <NuxtLink :to="localePath('/')" class="sm:hidden">{{ $t('navbar.overview') }}</NuxtLink>
+        <a href="https://github.com/noah-nuebling/mac-mouse-fix" class="sm:hidden">{{ $mt('navbar.github') }} <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', navbarHasDarkAppearance ? 'invert' : '']"></a>
+
+        <DownloadButton class="my-[0rem] bg-blue-500 rounded-full text-white ml-[0.3rem] px-[0.85em] py-[0.3em] text-[1.0rem] sm:translate-y-[0.15em] translate-y-[-0.05em]"/>
+    </div>
+    
+  </nav>
+
+  <!-- Expanded mobile nav links -->
+  <div ref="expandingContainer" :class="['transition-[height] duration-[0.5s] overflow-clip h-0', isExpanded ? '' : '']">
+    <div :class="['sm:flex hidden flex-col items-left gap-[1rem] mx-[3rem] text-[1.1rem] font-[400] tracking-[-0.01em] pb-[1rem]']">
+      <hr :class="['border-t-[1px] ', navbarHasDarkAppearance ? 'border-white/[0.15]' : 'border-black/[0.1]']">
+      <NuxtLink class="" :to="localePath('/')" >{{ $t('navbar.overview') }}</NuxtLink>
+      <hr :class="['border-t-[1px] ', navbarHasDarkAppearance ? 'border-white/[0.15]' : 'border-black/[0.1]']">
+      <a class="" href="https://github.com/noah-nuebling/mac-mouse-fix" >{{ $mt('navbar.github') }} <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', navbarHasDarkAppearance ? 'invert' : '']"></a>
+    </div>
+  </div>
+</header>
 </template>
 
 <script setup lang="ts">
+
+// import mmfIconImagePath from "../assets/img/mmf-icon.png"
+import burgerImagePath from "../assets/img/line.3.horizontal@8x.png"
+import chevronImagePath from "../assets/img/chevron.down@8x.png"
 
 const $mt = useMT()
 import { useGlobalStore } from "~/store/global";
@@ -37,14 +63,34 @@ const { navbarHasDarkAppearance } = storeToRefs(globalState)
 
 const localePath = useLocalePath()
 
+const isExpanded = ref(false)
+const expandingContainer = ref<HTMLElement | null>(null)
+
+watch(isExpanded, (newIsExpanded) => {
+
+  if (newIsExpanded) {
+    expandingContainer.value!.style.height = 'fit-content'
+    const calcHeight = expandingContainer.value?.offsetHeight
+    expandingContainer.value!.style.height = '0'
+    doAfterRender(() => {
+      expandingContainer.value!.style.height = `${ calcHeight }px`
+    })
+  } else {
+    expandingContainer.value!.style.height = '0'
+  }
+})
+
 </script>
 
 
 <style scoped lang="postcss">
 
-.router-link-exact-active { /* This class is magically applied to the selected link in the <nav> (and maybe other places?) */
-  opacity: 0.6;
+.router-link-exact-active {
   cursor: default;
+}
+.router-link-exact-active:not(.mmf-name)  { /* This class is magically applied to the selected link in the <nav> (and maybe other places?) */
+  /* color: hsla(0, 0%, 0%, 0.4); */
+  opacity: 0.5;
 }
 
 .header-shadow {
