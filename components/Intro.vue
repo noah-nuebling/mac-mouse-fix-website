@@ -8,7 +8,7 @@
 
     <!-- Initial Content -->
 
-    <div class="flex items-center justify-center group w-[100%] h-[calc(100vh-0rem)] relative z-[-20]">
+    <div class="flex items-center justify-center group w-[100%] h-[calc(100svh-0rem)] relative z-[-20]">
       <div class="h-fit w-fit relative translate-y-[-1.5rem]">
         <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center -z-20', 
                                             'xs:origin-[50%_calc(50%_+_4.1rem)] sm:origin-[50%_calc(50%_+_4.925rem)] origin-[50%_calc(50%_+_5.55rem)]', false ? initialTranslateYTW : '' ]"> 
@@ -139,7 +139,7 @@ console.log(`Locale during Intro.vue setup: ${ locale.value }, browserLocale: ${
 
 /* Import gsap stuff */
 
-const { $gsap, $ScrollTrigger, $customInOutEase } = useNuxtApp()
+const { $gsap, $ScrollTrigger, $customInOutEase, $isMobile } = useNuxtApp()
 import { linearScalingEase } from "../utils/curves"
 
 /* Manually import images 
@@ -363,7 +363,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   /* Override animation params for reduceMotion */
 
-  if (prefersReducedMotion() || currentSize() <= 0) {
+  if (prefersReducedMotion() || ($isMobile() && currentSize() <= ResponsiveSize.sm)) {
     zoomScale = 1.15
     zoomDistance = -taglineShift
   }

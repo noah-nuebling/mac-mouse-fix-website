@@ -28,7 +28,7 @@
         </a>
       </div>
       <!-- Title -->
-      <h3 :class="['card-title text-center sm:text-[1.4rem] text-[1.6rem] leading-[1.3] font-[700] strong:font-[700] sm:mx-[2rem] mx-[3rem]', titleClass]" v-html="$mt(titleKey!)"></h3>
+      <h3 :class="['card-title text-center sm:text-[1.4rem] text-[1.7rem] leading-[1.3] font-[700] strong:font-[700] sm:mx-[2rem] mx-[3rem]', titleClass]" v-html="$mt(titleKey!)"></h3>
     </template>
 
     <template v-slot:default>
@@ -36,7 +36,7 @@
 
         <!-- Body -->
         <div>
-          <p class="card-sm strong:font-[500] sm:text-[1.0rem] text-[1.1rem] font-[400] whitespace-pre-wrap max-w-[30em]" v-html="$mt(bodyKey!)"></p>
+          <p class="card-sm strong:font-[500] sm:text-[1.05rem] text-[1.15rem] font-[400] whitespace-pre-wrap max-w-[30em]" v-html="$mt(bodyKey!)"></p>
         </div>        
 
         <!-- Image -->

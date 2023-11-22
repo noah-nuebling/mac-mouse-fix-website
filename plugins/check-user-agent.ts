@@ -1,9 +1,19 @@
 
 export default defineNuxtPlugin((nuxtApp) => {
-
+  
   if (process.client) {
 
     const userAgent = window.navigator.userAgent.toLowerCase()
+
+    // Check isMobile
+
+    const isMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+
+    if (isMobile) {
+      document.body.classList.add('mobile')
+    }
+
+    // Check browser
 
     const isSafari = userAgent.includes('safari') && !userAgent.includes('chrome')
     const isChromium = userAgent.includes('chrome')
@@ -14,7 +24,16 @@ export default defineNuxtPlugin((nuxtApp) => {
     if (isChromium) classes.push('chromium')
     if (isFirefox) classes.push('firefox')
 
-
     document.body.classList.add(...classes)
+  }
+
+  function isMobile() {
+    return document.body.classList.contains('mobile')
+  }
+
+  return {
+    provide: {
+      isMobile
+    }
   }
 })
