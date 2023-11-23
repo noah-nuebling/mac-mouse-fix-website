@@ -486,7 +486,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     lastQuoteScrollPosition = scrollPosition
 
     // DEBUG
-    console.log(`After onUpdate() - quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }, animationProgress: ${ progress }, height: ${ quoteScrollingContainer.value!.offsetHeight }, scrollHeight: ${ quoteScrollingContainer.value!.scrollHeight }, clientHeight: ${ quoteScrollingContainer.value!.clientHeight }`);
+    // console.log(`After onUpdate() - quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }, animationProgress: ${ progress }, height: ${ quoteScrollingContainer.value!.offsetHeight }, scrollHeight: ${ quoteScrollingContainer.value!.scrollHeight }, clientHeight: ${ quoteScrollingContainer.value!.clientHeight }`);
     
   }}, quotesStart)
   tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, quotesStart )
