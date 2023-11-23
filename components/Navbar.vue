@@ -44,6 +44,8 @@
       <a class="" href="https://github.com/noah-nuebling/mac-mouse-fix" >{{ $mt('navbar.github') }} <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', navbarHasDarkAppearance ? 'invert' : '']"></a>
     </div>
   </div>
+
+  <hr :class="['border-t-[1px] ', navbarHasDarkAppearance ? 'border-white/[0.15]' : 'border-black/[0.0]']">
 </header>
 </template>
 

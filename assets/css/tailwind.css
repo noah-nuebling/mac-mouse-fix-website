@@ -25,9 +25,6 @@ Notes:
     /* Disable vertical scroll - is re-enabled inside Intro.vue */
     overflow-y: clip;
 
-    /* Disable horizontal scroll */
-    @apply overflow-x-clip;
-
     /* Set default font family (Defined in tailwind.config.js) */
     @apply font-body;
 
@@ -37,7 +34,10 @@ Notes:
   }
 
   body {
+    /* Disable horizontal scroll (setting this on the html element doesn't work on mobile) */
+    @apply overflow-x-clip;
 
+    /* Set background */
     @apply bg-neutral-50;
     
     /* zoom: 122%; Like Feedback Assistant */
