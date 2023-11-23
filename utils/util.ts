@@ -92,9 +92,14 @@ function doAfterRender(workload: () => any, additionalDelay: number = 0.0) {
   // If you pass 0 into setTimeout(), the workload will be executed right after the next render
   setTimeout(workload, additionalDelay)
 }
-function doBeforeRender(workload: () => any) {
+function doBeforeRender(workload: () => any, order: number = 1) {
+  if (order > 1) {
+    requestAnimationFrame(() => doBeforeRender(workload, order - 1)) 
+  } else {
+    requestAnimationFrame(workload)
+  }
   // requestAnimationFrame() lets you execute code right before the next render, but after styles and layout have already been calculated for the current frame.
-  requestAnimationFrame(workload)
+  
 }
 
 function doAfterRenderrr(workload: () => any, additionalDelay: number = 0.0) {

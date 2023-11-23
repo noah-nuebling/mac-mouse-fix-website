@@ -160,6 +160,7 @@ import { everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, 
 const constants = useConstants()
 const { currentSize, ResponsiveSize } = useResponsive()
 const $mt = useMT()
+const { onScrollStop } = useScrollCallbacks()
 
 /* Expose methods */
 
@@ -281,13 +282,12 @@ onMounted(() => {
   /* Update scroll animation on window resize */
   window.addEventListener("resize", () => {
 
+    // Recreate intro scroll animation
     // Discussion:
     // - We're only updating the animation, if the height has changed more than `yThreshold`. This is to prevent the animation from being recalculated when the address bar extends/retracts on mobile Safari. ChatGPT said that 100 should work everywhere.
     // - I just tested on an iPhone Pro Max 15 Simulator on 50% website size in landscape and 100 wasn't enough. 200 seems to work though. 
 
     const yThreshold = 200
-
-    window.locationbar
 
     const dx = window.innerWidth - viewportSizeForCurrentAnimation.width
     const dy = window.innerHeight - viewportSizeForCurrentAnimation.height
@@ -297,21 +297,28 @@ onMounted(() => {
     if (Math.abs(dx) > 0 || Math.abs(dy) > yThreshold) {
       debouncedRecreateIntroAnimation()
     }
+
+    // Correct quotes
+    debouncedCorrectQuoteScrollTop()
+
+
   }); // Note: No need to call ScrollTrigger.refresh() here since we're killing and creating new triggers
 })
 
 /* Debug */
 
-// setInterval(() => {
-  // console.log(`Quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }`);
-// })
+setInterval(() => {
+  console.log(`Quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }`);
+}, 500)
 
 /* Functions */
 
 var tlScroll: gsap.core.Timeline | null = null
 var navTrigger: ScrollTrigger | null = null
 
-const debouncedRecreateIntroAnimation = debouncer(() => recreateIntroAnimation(), 0/* 100 */)
+
+const debouncedCorrectQuoteScrollTop = debouncer(() => correctQuoteScrollTop(), 100)
+const debouncedRecreateIntroAnimation = debouncer(() => recreateIntroAnimation(), 100)
 
 function killIntroAnimation(reset: boolean = false) {
   if (tlScroll != null) {
@@ -320,6 +327,36 @@ function killIntroAnimation(reset: boolean = false) {
     tlScroll = null
     navTrigger!.kill(true, false)
   }
+}
+
+var lastQuoteScrollPosition = 0
+
+function correctQuoteScrollTop() {
+
+  // Set quote scrolling position
+  // For some reason iOS the scrollTop of the quotesScrollingContainer after the scroll that triggers locationbar expands/unexpands. It also resets CSS animation, but that's okay.
+
+  onScrollStop(() => {
+    if (quoteScrollingContainer.value) {
+      inner()
+    }
+  })
+
+  function inner(attempt: number = 1) {
+    const maxAttempts = 500
+
+    if (quoteScrollingContainer.value /* && lastQuoteScrollPosition != 0 */ && attempt <= maxAttempts) {
+      if (quoteScrollingContainer.value.scrollTop === 0) {
+        quoteScrollingContainer.value.scrollTop = lastQuoteScrollPosition
+        console.log(`set quote scrolling pos to last: ${ lastQuoteScrollPosition } on attempt ${ attempt }`);
+      } else {
+        requestAnimationFrame(() => inner(attempt + 1))
+      }
+    } else {
+      console.log(`Didn't correct quote scroll top after ${ attempt } attempts`);
+    }
+  }
+
 }
 function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDistance: number = 0.0) {
 
@@ -471,7 +508,6 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   tlScroll.fromTo(innerContent.value!, { scale: zoomScale, autoAlpha: 1 }, { scale: zoomScale, autoAlpha: 0, duration: 0 }, bgStop) /* Setting the scale back to 1 here seem to slow thigns down */
 
   // Add quotes
-  var lastQuoteScrollPosition = 0
   var isTicking = false
   tlScroll.to({}, { duration: quotesDistance, onUpdate: function() { 
 
@@ -480,9 +516,13 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
       const progress = this.progress()
       const scrollPosition = intervalScale(progress, unitInterval, { start: 0, end: quotesDistance })
 
+      // DEBUG
+      // console.log(`After onUpdate() - quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }, animationProgress: ${ progress }, height: ${ quoteScrollingContainer.value!.offsetHeight }, scrollHeight: ${ quoteScrollingContainer.value!.scrollHeight }, clientHeight: ${ quoteScrollingContainer.value!.clientHeight }`);
+
       doBeforeRender(() => {
         if (quoteScrollingContainer.value != null) { // Prevent some errors when we switch language, maybe at other times too
           quoteScrollingContainer.value!.scrollTop = scrollPosition
+          // console.log(`Setting quote scrollPos to ${ scrollPosition }`);
         }
         isTicking = false
       })
@@ -492,8 +532,6 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     }
     // innerQuoteContainer.value!.style.transform = `translateY(${ -scrollPosition }px)`
 
-    // DEBUG
-    // console.log(`After onUpdate() - quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }, animationProgress: ${ progress }, height: ${ quoteScrollingContainer.value!.offsetHeight }, scrollHeight: ${ quoteScrollingContainer.value!.scrollHeight }, clientHeight: ${ quoteScrollingContainer.value!.clientHeight }`);
     
   }}, quotesStart)
   tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, quotesStart )
@@ -534,6 +572,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   }
   
   requestAnimationFrame(() => {
+    // console.log(`RESTORING scrollTop: ${ lastQuoteScrollPosition }`)
     quoteScrollingContainer.value!.scrollTop = lastQuoteScrollPosition
   })
 
