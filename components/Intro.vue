@@ -4,7 +4,7 @@
         Notes: 
         - Setting z negative prevents scrolling in the qutoes. Not sure why. -->
 
-  <div ref="outerContainer" class="relative z-0 h-[100vh] border">
+  <div ref="outerContainer" class="relative z-0 h-[calc(100vh+0rem)]">
 
     <!-- Initial Content -->
 
@@ -26,7 +26,7 @@
 
     <!-- Background -->
 
-    <div ref="backgroundContainer" class=" absolute w-[100vw] h-[calc(100vh)] top-[0] bottom-[0] left-[50%] translate-x-[-50%] z-[5] pointer-events-none">
+    <div ref="backgroundContainer" class="absolute w-[100vw] h-full top-[0] bottom-[0] left-[50%] translate-x-[-50%] z-[5] pointer-events-none">
       <div ref="backgroundDiv" class="absolute inset-0 top-[-30rem] -z-20 bg-[hsl(0,0%,0%)] opacity-0"></div>
     </div>
 
@@ -90,7 +90,7 @@
 
         <div class="h-[100%]"></div>
 
-        <div :class="['relative h-max mx-auto z-30 overflow-y-clip flex flex-col items-center pb-[7.2rem]', !quotesAreExpanded ? 'sm:max-h-[calc(200vh+2.5rem)] max-h-[calc(100vh+2.5rem)]' : 'max-h-[fit-content]']">
+        <div ref="innerQuoteContainer" :class="['relative h-max mx-auto z-30 overflow-y-clip flex flex-col items-center pb-[7.2rem]', !quotesAreExpanded ? 'sm:max-h-[calc(200vh+2.5rem)] max-h-[calc(100vh+2.5rem)]' : 'max-h-[fit-content]']">
         
           <!-- User Quotes -->
 
@@ -200,6 +200,7 @@ const tagline                 = ref<HTMLElement|null>(null)
 const quoteContainer          = ref<HTMLElement|null>(null)
 const quoteBottom             = ref<HTMLElement|null>(null)
 const quoteScrollingContainer = ref<HTMLElement|null>(null)
+const innerQuoteContainer     = ref<HTMLElement|null>(null)
 const quoteExpandButton       = ref<HTMLElement|null>(null)
 
 
@@ -258,7 +259,7 @@ onMounted(() => {
   ease = $customInOutEase
   duration = 1.0
 
-  tlIntro.fromTo(chevronDown.value!, { opacity: 0, translateY: initialTranslateY }, { opacity: 1, translateY: 0, ease: ease }, 0)
+  tlIntro.fromTo(chevronDown.value!, { autoAlpha: 0, translateY: initialTranslateY }, { autoAlpha: 1, translateY: 0, ease: ease }, 0)
 
   tlIntro.duration(duration)
   doAfterRender(() => tlIntro.play(), 0.0)
@@ -292,6 +293,8 @@ onMounted(() => {
 
     const dx = window.innerWidth - viewportSizeForCurrentAnimation.width
     const dy = window.innerHeight - viewportSizeForCurrentAnimation.height
+
+    console.log(`Window size delta - dx: ${ dx }, dy: ${ dy }`)
 
     if (Math.abs(dx) > 0 || Math.abs(dy) > yThreshold) {
       debouncedRecreateIntroAnimation()
@@ -352,20 +355,27 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   const taglineDistanceToOffscreen = tagline.value!.offsetTop + tagline.value!.offsetHeight
   const quotesDistanceToTagline = outerContainer.value!.offsetHeight/2 - tagline.value!.offsetHeight/2
 
-  // Define length (in scroll-distance) of the main events of the animation
+  /* 
+    Define length (in scroll-distance) of the main events of the animation 
+  */
+
   var zoomDistance = 2000.0
   const taglineDistance = 1000.0 // Distance that the tagline takes to fade in
   const quotesDistance = quoteScrollingContainer.value!.scrollHeight - quoteScrollingContainer.value!.offsetHeight // Distance that the quotes are scrolling for
 
   // Define Offset from the start of one main event of the animation to the end of the previous main event
-  const taglineShift = -(zoomDistance * 0.25) // Offset between zoomStop and taglineStart
-  const quotesShift = 666.0                   // Offset between taglineStop and quotesStart
+  var taglineShift = -(zoomDistance * 0.25) // Offset between zoomStop and taglineStart
+  var quotesShift = 0.0                   // Offset between taglineStop and quotesStart
 
   /* Override animation params for reduceMotion */
 
-  if (prefersReducedMotion() || ($isMobile() && currentSize.value <= ResponsiveSize.sm)) {
+  const useOptimizedAnimations = $isMobile() && currentSize.value <= ResponsiveSize.sm
+
+  if (prefersReducedMotion() || useOptimizedAnimations) {
     zoomScale = 1.15
-    zoomDistance = -taglineShift
+    zoomDistance = 500
+    taglineShift = -zoomDistance
+    quotesShift = 350
   }
 
   /* Calculate anchorpoints */
@@ -449,18 +459,18 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   // tlScroll.set(taglineContainer.value, { backgroundColor: 'green' }, zoomStop)
 
   // Add fade-out to chevron
-  tlScroll.fromTo(chevronDown.value, { opacity: 1, translateY: 0 }, { opacity: 0, translateY: '-0rem', duration: zoomDistance/20 }, zoomStart)
+  tlScroll.fromTo(chevronDown.value, { autoAlpha: 1, translateY: 0 }, { autoAlpha: 0, translateY: '-0rem', duration: zoomDistance/20 }, zoomStart)
 
   // Add tagline fadein animation to tl
-  tlScroll.fromTo(tagline.value, { opacity: 0 }, { opacity: 1, duration: taglineDistance }, taglineStart)
+  tlScroll.fromTo(tagline.value, { autoAlpha: 0 }, { autoAlpha: 1, duration: taglineDistance }, taglineStart)
 
   // Fade in background, start splash dance, and reset zoom on inner content
   const bgStart = zoomStop-600
   const bgDistance = 1000
   const bgStop = bgStart + bgDistance
-  tlScroll.fromTo(backgroundDiv.value!, { opacity: 0 }, { opacity: 1, duration: bgDistance }, bgStart)
-  tlScroll.set({}, { onComplete: () => { splashDance.value = !prefersReducedMotion() }, onReverseComplete: () => { splashDance.value = false } }, bgStart-300)
-  tlScroll.fromTo(innerContent.value!, { scale: zoomScale }, { scale: 1, duration: 0 }, bgStop)
+  tlScroll.fromTo(backgroundDiv.value!, { autoAlpha: 0 }, { autoAlpha: 1, duration: bgDistance }, bgStart)
+  tlScroll.set({}, { onComplete: () => { splashDance.value = (!prefersReducedMotion() && !useOptimizedAnimations) }, onReverseComplete: () => { splashDance.value = false } }, bgStart-300)
+  tlScroll.fromTo(innerContent.value!, { scale: zoomScale, autoAlpha: 1 }, { scale: zoomScale, autoAlpha: 0, duration: 0 }, bgStop) /* Setting the scale back to 1 here seem to slow thigns down */
 
   // Add quotes
   var lastQuoteScrollPosition = 0
@@ -471,11 +481,12 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     if (quoteScrollingContainer.value != null) { // Prevent some errors when we switch language, maybe at other times too
       quoteScrollingContainer.value!.scrollTop = scrollPosition
     }
+    // innerQuoteContainer.value!.style.transform = `translateY(${ -scrollPosition }px)`
 
     lastQuoteScrollPosition = scrollPosition
 
     // DEBUG
-    // console.log(`After onUpdate() - quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }, animationProgress: ${ progress }, height: ${ quoteScrollingContainer.value!.offsetHeight }, scrollHeight: ${ quoteScrollingContainer.value!.scrollHeight }, clientHeight: ${ quoteScrollingContainer.value!.clientHeight }`);
+    console.log(`After onUpdate() - quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }, animationProgress: ${ progress }, height: ${ quoteScrollingContainer.value!.offsetHeight }, scrollHeight: ${ quoteScrollingContainer.value!.scrollHeight }, clientHeight: ${ quoteScrollingContainer.value!.clientHeight }`);
     
   }}, quotesStart)
   tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, quotesStart )
@@ -491,7 +502,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   const quoteExpandInShift = 500
   const quoteExpandInStart = quotesStart + quoteExpandInShift
   const quoteExpandInDuration = Math.min(200, quotesDistance - quoteExpandInShift) // Should be 200, but capped so it doesn't go on until after quotesStop
-  tlScroll.fromTo(quoteBottom.value!, { opacity: 0 }, { opacity: 1, duration: quoteExpandInDuration }, quoteExpandInStart)
+  tlScroll.fromTo(quoteBottom.value!, { autoAlpha: 0 }, { autoAlpha: 1, duration: quoteExpandInDuration }, quoteExpandInStart)
 
   // Tagline fade-out
   const taglineOutShift = quotesDistanceToTagline - 50*vh()
@@ -500,7 +511,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   const taglineOutDuration = Math.min(taglineOutDurationTarget, quotesDistance - taglineOutShift) // Should be taglineDistanceToOffscreen * 1.3, but capped so it doesn't go on until after quotesStop
   const f = taglineOutDuration/taglineOutDurationTarget
   const taglineTranslateY = `${ -(taglineDistanceToOffscreen * f) }px`
-  tlScroll.fromTo(tagline.value, { opacity: 1, translateY: '0'}, { opacity: 0, translateY: taglineTranslateY, duration: taglineOutDuration, ease: 'none' }, taglineOutStart)
+  tlScroll.fromTo(tagline.value, { autoAlpha: 1, translateY: '0'}, { autoAlpha: 0, translateY: taglineTranslateY, duration: taglineOutDuration, ease: 'none' }, taglineOutStart)
 
   /* Restore scroll position of quotes and viewport
       Notes:   

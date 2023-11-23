@@ -5,6 +5,7 @@
 // Why are we passing in $pinia to useGlobalStore()?
 
 import { useGlobalStore } from "~/store/global";
+import { defineNuxtPlugin } from "nuxt/app"
 
 export default defineNuxtPlugin(nuxtApp => {
   const { $pinia } = nuxtApp

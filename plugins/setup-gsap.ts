@@ -8,6 +8,7 @@ import { gsap } from 'gsap'
 import { Power0, Power1, Power2, Power3, Power4 } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { CustomEase } from 'gsap/CustomEase'
+import { defineNuxtPlugin } from "nuxt/app"
 
 export default defineNuxtPlugin(nuxtApp => {
   gsap.registerPlugin(ScrollTrigger, CustomEase)

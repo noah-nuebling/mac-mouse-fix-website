@@ -7,11 +7,11 @@ Notes:
 
 export default defineNuxtConfig({
 
-  hooks: {  
-    ge: (page) => {
-      console.log('Generating page:', page.route, 'Locale:', page.locale);
-    },
-  },
+  // hooks: {  
+  //   ge: (page) => {
+  //     console.log('Generating page:', page.route, 'Locale:', page.locale);
+  //   },
+  // },
   
   // Make the site static. See https://stackoverflow.com/questions/74070241/what-is-the-difference-between-ssrfalse-vs-targetstatic-in-nuxtjs
   // target: 'static', // Only on nuxt 2 I think. On nuxt 3 you use the generate script

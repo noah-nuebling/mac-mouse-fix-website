@@ -2,7 +2,7 @@
 // See: https://github.com/nuxt-community/markdownit-module/issues/47#issuecomment-1453684664
 
 import md from 'markdown-it'
-import { render } from 'nuxt/dist/app/compat/capi'
+import { defineNuxtPlugin } from "nuxt/app"
 
 export default defineNuxtPlugin(nuxtApp => {
 

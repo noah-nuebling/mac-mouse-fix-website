@@ -36,6 +36,8 @@ export function useResponsive() {
     currentSize.value = result
   }
 
+  updateSize()
+
   onMounted(() => {
     window.addEventListener('resize', updateSize)
   })
