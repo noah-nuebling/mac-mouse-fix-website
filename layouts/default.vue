@@ -35,6 +35,8 @@
     
     Notes on tint-blue:
     - #3b82f6 is blue-500 from tailwind
+    - We wanted to use this to tint the play button on the Feature cards, but for some reason it just doesn't work.
+
 
     Notes on noise filter from ChatGPT: 
     - Apply in css like: `filter: url('#noise-filter');` or in tailwind with `svg-filter-[noise-filter]`
@@ -44,8 +46,16 @@
     -> So the best we can come up with is applying noise in css directly.
   -->
 
-  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="hidden filter-defs">
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="hidden w-0 h-0 filter-defs">
     <defs>
+
+      <filter id="tint-green" x="0" y="0" width="100%" height="100%"
+              color-interpolation-filters="sRGB">
+        <feFlood flood-color="#3a0339" result="flood"/>
+        <feComposite in="flood" in2="SourceAlpha" operator="in" result="flood_alpha"/>
+        <feBlend mode="exclusion" in="flood_alpha" in2="SourceGraphic"/>
+      </filter>
+
       <filter id="tint-blue">
         <feFlood flood-color="#3b82f6" flood-opacity="1.0" result="flood" />
         <feComposite in="flood" in2="SourceGraphic" operator="in" result="composite" />
@@ -114,4 +124,7 @@ function handleLocaleSelect(event: Event) {
 </script>
 
 <style scoped>
+
+
+
 </style>

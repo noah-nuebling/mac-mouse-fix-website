@@ -86,7 +86,7 @@
 
       <SectionHeader class="gradient-violet" title-accent-class="text-gradient-to-l filter brightness-[1.06]" title-key="scrolling.title" title-accent-key="scrolling.title.accent" body-key="scrolling.body" />
       
-      <CardContainer title-key="scroll-smoothness.header" class="gradient-violet strong:filter ch-[.card-sm_strong]:brightness-[0.93] mb-[5rem]">
+      <CardContainer title-key="scroll-smoothness.header" class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] mb-[5rem]">
         <div class="w-fit relative left-[50%] translate-x-[-50%]">
           <div class="absolute inset-0 -z-10 pointer-events-none">
             <img :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] absolute left-[25%] top-[40%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]">
@@ -99,7 +99,7 @@
         </div>
       </CardContainer>
     
-      <CardContainer title-key="scroll-feature.header"    class="gradient-violet strong:filter ch-[.card-sm_strong]:brightness-[0.93] ">
+      <CardContainer title-key="scroll-feature.header"    class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] ">
         <div class="w-fit relative left-[50%] translate-x-[-50%]">
           <div class="absolute inset-0 -z-10 pointer-events-none">
             <img :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] scale-[1] absolute left-[66%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]">
@@ -119,7 +119,7 @@
 
       <SectionHeader class="gradient-red strong:filter strong:brightness-[1.0]" title-accent-class="italic" title-accent2-class="text-gradient-to-l filter brightness-[1.12] hue-rotate-[-0deg]" title-key="remap-engine.title" title-accent-key="remap-engine.title.accent" title-accent2-key="remap-engine.title.accent2" body-key="remap-engine.body" />
 
-      <CardContainer class="gradient-red ch-[.card-title_strong]:brightness-[1.0] strong:brightness-[0.95]">
+      <CardContainer class="gradient-red var-[accent-rotate=170deg] ch-[.card-title_strong]:brightness-[1.0] strong:brightness-[0.95]">
         <div class="flex justify-center">
           <div class="w-fit relative">
             <div class="absolute inset-0 -z-10 pointer-events-none">
@@ -139,7 +139,7 @@
       <SectionHeader class="gradient-green strong:filter strong:brightness-[1.15]" title-accent2-class="text-gradient-to-l gradient-green filter brightness-[1.35]" title-key="good-software.title" title-accent2-key="good-software.title.accent2" body-key="good-software.body" />
       
       <CardContainer title-key="good-software.header" 
-        class="gradient-green strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] "             title-class=" strong:filter strong:brightness-[1.2]">
+        class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] "             title-class=" strong:filter strong:brightness-[1.2]">
 
         <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
           <div class="absolute inset-0 -z-10 pointer-events-none">
@@ -153,7 +153,7 @@
       </CardContainer>
 
       <CardContainer  title-key="price.header"        
-        class="gradient-green strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] mt-[5rem]"   title-class=" strong:filter strong:brightness-[1.2]">
+        class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] mt-[5rem]"   title-class=" strong:filter strong:brightness-[1.2]">
 
         <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
           <div class="absolute inset-0 -z-10 pointer-events-none">

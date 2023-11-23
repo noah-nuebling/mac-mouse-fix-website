@@ -20,11 +20,18 @@
       <div :class="['', videoPath ? 'h-[3.0rem]' : 'h-[2.75rem]']"></div>
       <!-- Expand button -->
       <div v-if="videoPath" class="absolute h-fit mt-[1.4rem] left-[50%] translate-x-[-50%]">
-        <a class="card-sm w-full text-center sm:text-[1.0rem] text-[1.0rem] font-[400] text-gradient-to-l cool-hover-underline">
-          <span :class="['', isExpanded ? '' : 'opacity-0 absolute border']">
-            <span v-html="$mt('feature-card.unexpand-button')"></span> <span class="inline-space-[8] hidden"/> <img src="~/assets/img/play.circle@2x.png" alt="Play Video Icon" class="ml-[0px] inline h-[1.16rem] align-[-2.6px] svg-filter-[tint-blue] hidden">
+        <a class="card-sm w-full text-center sm:text-[1.0rem] text-[1.0rem] font-[400] text-gradient-to-l cool-hover-underline ">
+          <!-- Expand -->
+          <!-- Note: The play.circle and stop.circle images have blue-500 color. we use the --accent-rotate var to change the color. -->
+          <span :class="['', isExpanded ? 'opacity-0 absolute' : '']">
+            <span class="inline-block" v-html="$mt(expandButtonKey ? expandButtonKey : 'feature-card.expand-button') + ''"></span>
+            <span class="inline-space-[0]"/><img src="~/assets/img/play.circle-blue@8x.png" alt="" class="ml-[0.4em] translate-x-[0em] inline wh-[1.00em] align-[-0.2em] filter hue-rotate-[var(--accent-rotate)]">
           </span>
-          <span :class="['', isExpanded ? 'opacity-0 absolute' : '']" v-html="$mt(expandButtonKey ? expandButtonKey : 'feature-card.expand-button') + ' 􀊕'"></span>
+          <!-- Unexpand -->
+          <span :class="['', isExpanded ? '' : 'opacity-0 absolute']">
+            <span v-html="$mt('feature-card.unexpand-button')"></span>                                                        
+            <span class="inline-space-[0]"/><img src="~/assets/img/stop.circle-blue@8x.png" alt="" class="ml-[0.4em] translate-x-[0em] inline wh-[1.00em] align-[-0.2em] filter hue-rotate-[var(--accent-rotate)]">
+          </span>
         </a>
       </div>
       <!-- Title -->
@@ -71,6 +78,7 @@
     <!-- <template v-slot:bottom>
     </template> -->
   </FeatureCard>
+
 
 </template>
 

@@ -154,6 +154,22 @@ export default {
       addVariant('strong', '& strong')
     }),
 
+    plugin(function ({ matchUtilities }) {
+
+      /* Set variable utiltiy
+          Use like `var-[accent-margin=30rem]` and then in a child `m-[var(--accent-margin)]`*/
+      const newUtilities = {
+        'var': (value) => {
+          var [varName, varValue] = value.split('=', 2)
+          varValue = varValue.replaceAll('_', ' ')
+          return {
+            [`--${ varName }`]: varValue,
+          }
+        },
+      }
+      const options = { }
+      matchUtilities(newUtilities, options);
+    }),
 
     plugin(function ({ matchUtilities }) {
 
