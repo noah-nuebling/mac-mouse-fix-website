@@ -30,7 +30,10 @@ export default defineNuxtPlugin((nuxtApp) => {
   }
 
   function isMobile() {
-    return document.body.classList.contains('mobile')
+    if (process.client) {
+      return document.body.classList.contains('mobile')
+    }
+    return false
   }
 
   return {

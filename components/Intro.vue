@@ -4,7 +4,7 @@
         Notes: 
         - Setting z negative prevents scrolling in the qutoes. Not sure why. -->
 
-  <div ref="outerContainer" class="relative z-0">
+  <div ref="outerContainer" class="relative z-0 h-[100vh] border">
 
     <!-- Initial Content -->
 

@@ -18,8 +18,10 @@
     
     <!-- Background
           - Need to make separate background container because chrome doesn't support nested backdrop filters for some reason 
-          - Edit: I'm not sure the backdrop filters work under Chrome atm. I think if any parent has non-1.0 opacity or a filter that disables the filters here. But it's okay, this looks fine.-->
-    <div class="absolute inset-0 bg-white/[0.06] backdrop-saturate-[1.0] safari:backdrop-saturate-[1.05] backdrop-brightness-[1.00] backdrop-blur-[1rem] z-[-10] rounded-[inherit]">
+          - Edit: I'm not sure the backdrop filters work under Chrome atm. I think if any parent has non-1.0 opacity or a filter that disables the filters here. But it's okay, this looks fine.
+          - We only enable backdrop blur on non-mobile to hopefully optimize.
+    -->
+    <div :class="['absolute inset-0 bg-white/[0.06] backdrop-saturate-[1.0] safari:backdrop-saturate-[1.05] backdrop-brightness-[1.00] z-[-10] rounded-[inherit]', $isMobile() && false ? '' : 'backdrop-blur-[1rem]']">
 
     </div>
 
@@ -42,6 +44,7 @@
 <script setup lang="ts">
 
 // Imports
+const { $isMobile } = useNuxtApp()
 const $mt = useMT()
 import { type QuoteData, getUIStrings, quoteSourceIsPublic } from '~/utils/quotes';
 // const { $gsap, $ScrollTrigger } = useNuxtApp()
