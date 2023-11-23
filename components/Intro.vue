@@ -64,12 +64,10 @@
       <img :src="colorSplashImagePath" alt="" :class="['f-w-[calc((0.5*185vh)+(0.5*185*9.75px))] absolute z-[10] bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
     </div>
 
-
-
-    <!-- Tagline -->
+    <!-- Big Tagline -->
 
     <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-[20] pointer-events-none">
-      <p ref="tagline" class="font-[500] sm:text-[1.75rem] md:text-[2.25rem] text-[2.75rem] text-center mx-[1rem] opacity-0 text-glow-2 safari:safari-text-glow-2 text-[hsla(0,0%,100%,0.86)] safari:text-[hsla(0,0%,100%,0.93)]" v-html="$mt('intro.big-tagline')"></p>
+      <p ref="tagline" class="font-[500] sm:text-[1.75rem] md:text-[2.25rem] text-[2.75rem] text-center mx-[1.5rem] opacity-0 text-glow-2 safari:safari-text-glow-2 text-[hsla(0,0%,100%,0.86)] safari:text-[hsla(0,0%,100%,0.93)]" v-html="$mt('intro.big-tagline')"></p>
     </div>
 
     <!-- Quote cards -->
@@ -474,16 +472,25 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   // Add quotes
   var lastQuoteScrollPosition = 0
+  var isTicking = false
   tlScroll.to({}, { duration: quotesDistance, onUpdate: function() { 
 
-    const progress = this.progress()
-    const scrollPosition = intervalScale(progress, unitInterval, { start: 0, end: quotesDistance })
-    if (quoteScrollingContainer.value != null) { // Prevent some errors when we switch language, maybe at other times too
-      quoteScrollingContainer.value!.scrollTop = scrollPosition
+    if (!isTicking) { // Check isTicking for optimization
+      
+      const progress = this.progress()
+      const scrollPosition = intervalScale(progress, unitInterval, { start: 0, end: quotesDistance })
+
+      doBeforeRender(() => {
+        if (quoteScrollingContainer.value != null) { // Prevent some errors when we switch language, maybe at other times too
+          quoteScrollingContainer.value!.scrollTop = scrollPosition
+        }
+        isTicking = false
+      })
+      isTicking = true
+
+      lastQuoteScrollPosition = scrollPosition
     }
     // innerQuoteContainer.value!.style.transform = `translateY(${ -scrollPosition }px)`
-
-    lastQuoteScrollPosition = scrollPosition
 
     // DEBUG
     // console.log(`After onUpdate() - quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }, animationProgress: ${ progress }, height: ${ quoteScrollingContainer.value!.offsetHeight }, scrollHeight: ${ quoteScrollingContainer.value!.scrollHeight }, clientHeight: ${ quoteScrollingContainer.value!.clientHeight }`);
