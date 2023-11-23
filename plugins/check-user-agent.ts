@@ -1,4 +1,6 @@
 
+import { defineNuxtPlugin } from "nuxt/app";
+
 export default defineNuxtPlugin((nuxtApp) => {
   
   if (process.client) {

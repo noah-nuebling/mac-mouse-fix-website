@@ -303,7 +303,7 @@ if (props.doesExpand) {
 
       // var targetBorderRadius = ''
       // var targetBorderWidth = ''
-      const targetShadow = tw.theme.boxShadow["md-raised"]
+      const targetShadow = tw.theme!.boxShadow!["md-raised"]
 
       var calcScale = 0
       var calcWidth = 0

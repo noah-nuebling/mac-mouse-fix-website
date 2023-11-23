@@ -64,7 +64,7 @@ function parseBinding(binding) {
 function addListener(el, callback, doBlockEvents) {
 
   // Create function with logic: If clicked element is not el or el's child, then invoke the provided callback
-  const clickOutsideEvent = function(event: Event) {
+  const clickOutsideEvent = function(event) {
 
     if (el !== event.target && !el.contains(event.target)) {
 
