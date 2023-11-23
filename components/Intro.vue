@@ -469,7 +469,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   const bgDistance = 1000
   const bgStop = bgStart + bgDistance
   tlScroll.fromTo(backgroundDiv.value!, { autoAlpha: 0 }, { autoAlpha: 1, duration: bgDistance }, bgStart)
-  tlScroll.set({}, { onComplete: () => { splashDance.value = (!prefersReducedMotion() && !useOptimizedAnimations) }, onReverseComplete: () => { splashDance.value = false } }, bgStart-300)
+  tlScroll.set({}, { onComplete: () => { splashDance.value = (!prefersReducedMotion()) }, onReverseComplete: () => { splashDance.value = false } }, bgStart-300)
   tlScroll.fromTo(innerContent.value!, { scale: zoomScale, autoAlpha: 1 }, { scale: zoomScale, autoAlpha: 0, duration: 0 }, bgStop) /* Setting the scale back to 1 here seem to slow thigns down */
 
   // Add quotes
