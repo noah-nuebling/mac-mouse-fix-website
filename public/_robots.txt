@@ -1,0 +1,5 @@
+
+# _robots.txt is processed (merged with rules from nuxt.config.ts I think) by nuxt-simple-robots to create robots.txt
+
+User-agent: *
+Allow: *

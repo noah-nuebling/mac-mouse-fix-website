@@ -5,7 +5,30 @@ Notes:
 - Not sure if `fallbackLocale` element is necessary since we already specify `defaultLocale` in nuxt.config.js
 */
 
+import { CANONICAL_URL, GITHUB_SUB_URL } from "./utils/constants" 
+
 export default defineNuxtConfig({
+
+  router: {
+    options: {
+
+    }
+  },
+  app: {
+    baseURL: GITHUB_SUB_URL,
+    head: {
+      title: 'Mac Mouse Fix',
+      meta: [
+        { name: 'description', content: 'Make Your $10 Mouse Better Than an Apple Trackpad' }
+      ],
+      link: [
+        // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }
+      ]
+    }
+  },
+  nitro: {
+    // plugins: ['~/server/plugins/sitemaps.ts'],
+  },
 
   // hooks: {  
   //   ge: (page) => {
@@ -17,7 +40,24 @@ export default defineNuxtConfig({
   // target: 'static', // Only on nuxt 2 I think. On nuxt 3 you use the generate script
   ssr: true,
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/i18n'],
+  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/i18n', 'nuxt-simple-robots', 'nuxt-simple-sitemap'],
+
+  site: {
+    url: CANONICAL_URL, 
+    indexable: true, // Makes nuxt-simple-robots allow indexing even for non-production env - I think only helpful for debugging.
+  },
+  routeRules: {
+    '/activate': { index: false/* , robots: 'index, follow' */ },
+    '/thankyou': { index: false },
+  },
+  robots: {
+    enabled: true,
+  },
+  sitemap: {
+    enabled: true,
+    xsl: false,
+  },
+
   // markdownit: {
   //   // runtime: true // Support `$md()`
   //   // preset: 'default',
@@ -44,17 +84,5 @@ export default defineNuxtConfig({
       redirectOn: 'no prefix', // 'root' is allegedly better than 'no prefix' for SEO or sth
     },
   },
-  app: {
-    // baseURL: process.env.NODE_ENV === 'development' ? '/' : 'mac-mouse-fix-website-nuxt', // Usnig gh-pages dev dependency instead
-    baseURL: '/mac-mouse-fix-website-nuxt',
-    head: {
-      title: 'Nuxt Dojo (meta tag)',
-      meta: [
-        { name: 'description', content: 'Everything about Nuxt 3' }
-      ],
-      link: [
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }
-      ]
-    }
-  }
+
 })
