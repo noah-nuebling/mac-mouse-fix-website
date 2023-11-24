@@ -14,9 +14,9 @@ cd .output/public
 # Enable `!(pattern)` syntax
 shopt -s extglob
 
-# Move everything into subfolder
-mkdir mac-mouse-fix-website-nuxt
-mv !(mac-mouse-fix-website-nuxt) mac-mouse-fix-website-nuxt/
+# Move everything into subfolder, Edit: We're instead removing the subURL.
+# mkdir mac-mouse-fix-website-nuxt
+# mv !(mac-mouse-fix-website-nuxt) mac-mouse-fix-website-nuxt/
 
 # Serve
 pnpm preview

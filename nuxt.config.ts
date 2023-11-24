@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     }
   },
   app: {
-    baseURL: GITHUB_SUB_URL,
+    baseURL: '/', // GITHUB_SUB_URL,
     head: {
       title: 'Mac Mouse Fix',
       meta: [
