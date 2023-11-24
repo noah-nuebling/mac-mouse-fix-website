@@ -6,19 +6,19 @@ export { doAfterRenderrr, doAfterRender, doBeforeRender, everyNth, debouncer, wa
 /* Get/set properties in a batch */
 
 function getProps(obj: Object, props: string[]) {
-  var result: any[] = []
+
+  var result: { [key: string]: any } = {}
+
   for (const prop of props) {
-    result.push(obj[prop])
+    result[prop] = obj[prop]
   }
   return result
 }
 
-function setProps(obj: Object, props: string[], values: any[]) {
-  
-  console.assert(props.length === values.length)
+function setProps(obj: Object, props: { [key: string]: any }) {
 
-  for (var i = 0; i < props.length; i++) {
-    obj[props[i]] = values[i]
+  for (const key in props) {
+    obj[key] = props[key]
   }
 }
 

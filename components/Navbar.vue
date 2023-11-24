@@ -6,7 +6,7 @@
 -->
 
 <template>
-  <header ref="root" :class="['fixed left-0 right-0 header-shadow backdrop-blur-[20px] backdrop-saturate-[1.8] z-50 transition-colors duration-[1s] !max-w-full', navbarHasDarkAppearance ? 'bg-neutral-950/80 text-white/[0.85]' : 'bg-neutral-50/80 text-black/[0.85]']"
+  <header ref="root" :class="['fixed left-0 right-0 header-shadow backdrop-blur-[20px] backdrop-saturate-[1.8] z-50 transition-[color,background-color,border-color,text-decoration-color,fill,stroke] duration-[1s] !max-w-full', navbarHasDarkAppearance ? 'bg-neutral-950/80 text-white/[0.85]' : 'bg-neutral-50/80 text-black/[0.85]']"
     v-on-click-outside="{ onEvent: () => isExpanded = false, condition: isExpanded, blockEvents: true }"
   >
     <nav :class="['py-[0.4rem] px-[2rem] text-[1rem] font-[400] flex justify-between items-center relative left-[50%] translate-x-[-50%]', $attrs.class]">
@@ -79,17 +79,29 @@ watch(isExpanded, (newIsExpanded) => {
 
   if (newIsExpanded) {
 
-    // Copy transition params to root
-    //  - We're transitioning transform on root in order to force updates root element's backdrop filter during animation. - Otherwise the backdrop filter only updates after the transition and it looks jank.
-    //  - What we're doing here is overriding the transition params on the root element with the transition params on the expanding container.
-    const ogRootValues = getProps(window.getComputedStyle(root.value!), propsForRoot)
-    const containerValues = getProps(window.getComputedStyle(expandingContainer.value!), propsForRoot)
-    setProps(root.value!.style, propsForRoot, containerValues)
+
 
     // Measure expanded size
     expandingContainer.value!.style.height = 'fit-content'
     const calcHeight = expandingContainer.value?.offsetHeight
     expandingContainer.value!.style.height = '0'
+
+    // Copy transition params to root
+    //  - We're transitioning the `transform` on the root element in order to force update the root element's backdrop filter during animation. - Otherwise the backdrop filter only updates after the transition and it looks jank. 
+    //  - What we're doing here is overriding the transition params on the root element with the transition params on the expanding container, so 
+    
+    // Store current root style
+    const ogRootProps = getProps(window.getComputedStyle(root.value!),                  ['transitionProperty', 'transitionDuration', 'transitionDelay', 'transitionTimingFunction'])
+
+    // Copy over animation style from container ->
+    const containerProps = getProps(window.getComputedStyle(expandingContainer.value!), ['transitionDuration', 'transitionDelay', 'transitionTimingFunction'])
+    setProps(root.value!.style, containerProps)
+
+    // Tell root to animate transform
+    root.value!.style.transitionProperty = 'transform'
+
+    // Get duration
+    const duration = parseFloat(containerProps.transitionDuration)
 
     doAfterRender(() => {
 
@@ -97,22 +109,34 @@ watch(isExpanded, (newIsExpanded) => {
       expandingContainer.value!.style.height = `${ calcHeight }px`
       root.value!.style.transform = `rotate(0.01deg)`
 
-      // Restore transition params on root
-      setProps(root.value!.style, propsForRoot, ogRootValues)
+      // Restore root style after animation
+      setTimeout(() => {
+        setProps(root.value!.style, ogRootProps)
+      }, 1000 * duration)
     })
   } else {
 
-    // Copy transition params to root
-    const ogRootValues = getProps(window.getComputedStyle(root.value!), propsForRoot)
-    const containerValues = getProps(window.getComputedStyle(expandingContainer.value!), propsForRoot)
-    setProps(root.value!.style, propsForRoot, containerValues)
+    // Store current root style
+    const ogRootProps = getProps(window.getComputedStyle(root.value!),                  ['transitionProperty', 'transitionDuration', 'transitionDelay', 'transitionTimingFunction'])
+
+    // Copy over animation style from container -> root
+    const containerProps = getProps(window.getComputedStyle(expandingContainer.value!), ['transitionDuration', 'transitionDelay', 'transitionTimingFunction'])
+    setProps(root.value!.style, containerProps)
+
+    // Tell root to animate transform
+    root.value!.style.transitionProperty = 'transform'
+
+    // Get duration
+    const duration = parseFloat(containerProps.transitionDuration)
 
     // Start animation
     expandingContainer.value!.style.height = '0'
     root.value!.style.transform = `rotate(0deg)`
 
-    // Restore transition params on root
-    setProps(root.value!.style, propsForRoot, ogRootValues)
+    // Restore root style after animation
+    setTimeout(() => {
+      setProps(root.value!.style, ogRootProps)
+    }, 1000 * duration)
   }
 })
 
