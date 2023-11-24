@@ -120,15 +120,15 @@
       <SectionHeader class="gradient-red strong:filter strong:brightness-[1.0]" title-accent-class="italic" title-accent2-class="text-gradient-to-l filter brightness-[1.12] hue-rotate-[-0deg]" title-key="remap-engine.title" title-accent-key="remap-engine.title.accent" title-accent2-key="remap-engine.title.accent2" body-key="remap-engine.body" />
 
       <CardContainer class="gradient-red var-[accent-rotate=170deg] ch-[.card-title_strong]:brightness-[1.0] strong:brightness-[0.95]">
-        <div class="flex justify-center">
-          <div class="w-fit relative">
+        <div class="relative">
+          <div class="relative max-w-[70rem] left-[50%] translate-x-[-50%]">
             <div class="absolute inset-0 -z-10 pointer-events-none">
                 <img :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[75%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]">
                 <img :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]">
             </div>
-            <div ref="actionTableCardsSection" class="max-w-[1000px] flex flex-col items-center gap-[5rem] w-fit py-[4.5rem]">
-              <NormalFeatureCard titleKey="customization-feature.action-table.title" bodyKey="customization-feature.action-table.body" :videoPath="remapDemoVideoPath"              title-class="!font-[600]" class="" backgroundFilterClass="backdrop-blur-2xl" :image-path="actionTableImagePath" image-class="mx-[-10rem] w-[80rem] mt-1 mb-[-245px] translate-x-[20rem]"/>
-              <NormalFeatureCard titleKey="customization-feature.keyboard-shortcuts.title" bodyKey="customization-feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath"  title-class="!font-[600]" class="w-full" backgroundFilterClass="backdrop-blur-2xl" expand-button-key="customization-feature.keyboard-shortcuts.expand-button"/>
+            <div ref="actionTableCardsSection" class="flex flex-col items-center gap-[5rem] py-[4.5rem]">
+              <NormalFeatureCard titleKey="customization-feature.action-table.title" bodyKey="customization-feature.action-table.body" :videoPath="remapDemoVideoPath"              title-class="!font-[600]" class="w-full"        content-class="max-w-[50rem]" :image-path="actionTableImagePath" image-class="w-[205%] mt-[2rem] mr-[calc(-97%)] mb-[-35%] translate-x-[0rem]"/>
+              <NormalFeatureCard titleKey="customization-feature.keyboard-shortcuts.title" bodyKey="customization-feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath"  title-class="!font-[600]" class="w-full" expand-button-key="customization-feature.keyboard-shortcuts.expand-button"/>
             </div>
           </div>
         </div>
@@ -247,9 +247,17 @@ const priceCardsSection2 = ref<HTMLElement | null>(null)
 /* Other vars */
 const sectionToTimelineMap = new Map<Ref<HTMLElement | null>, gsap.core.Timeline>()
 var fadeTimelines: Array<gsap.core.Timeline> = []
-const cardsSections = [trackpadCardsSection1, trackpadCardsSection2, scrollingCardsSection1, scrollingCardsSection2, actionTableCardsSection, priceCardsSection1, priceCardsSection2]
+var parallaxElements = [trackpadCardsSection1, trackpadCardsSection2, scrollingCardsSection1, scrollingCardsSection2, actionTableCardsSection, priceCardsSection1, priceCardsSection2]
+
 
 onMounted(() => {
+
+  // Add parallaxElements
+  //  Currently unused
+  //  Not sure this is the best place to put this
+  for (const element of Array.from(document.getElementsByClassName('parallax'))) {
+    parallaxElements.push(ref(element as HTMLElement)) 
+  } 
 
   watch(introAnimationId, (newValue) => {
 
@@ -264,7 +272,7 @@ onMounted(() => {
       // Discussion: In theory, we only have to refresh the scroll triggers when the intro animation updates (and changes height), but when we tried to refresh the scrollTriggers there was always a flicker or it didn't work at all. We tried doAfterRender() doBeforeRender() and gsap.ticker.add(..., true, false). So instead we're just completely recreating the animations every time now. That prevents the flicker. 
       //              -> Update! maybe setting invalidateOnRefresh on the scrollTriggers would prevent us from having to recreate the animations everytime
       $gsap.ticker.add(() => {
-        for (const section of cardsSections) {
+        for (const section of parallaxElements) {
           const tl = sectionToTimelineMap.get(section)
           if (tl != null) {
             tl.scrollTrigger!.refresh()
@@ -276,7 +284,7 @@ onMounted(() => {
 
     /* Delete existing animations */
 
-    for (const section of cardsSections) {
+    for (const section of parallaxElements) {
       const tl = sectionToTimelineMap.get(section)
       if (tl != null) {
         killScrollTriggerAnimation(tl)
@@ -292,11 +300,11 @@ onMounted(() => {
     /* Respect reduce motion */
     if (prefersReducedMotion()) { return }
 
-    /* Create scroll-linked parallax animations for cardsSections */
+    /* Create scroll-linked parallax animations for parallaxElements */
     
-    const cardsOffset = '4rem'
+    const parallaxOffset = '4rem'
 
-    for (const section of cardsSections) {
+    for (const section of parallaxElements) {
 
       const tlTrack = $gsap.timeline({ scrollTrigger: {
         trigger: section.value!,
@@ -307,7 +315,7 @@ onMounted(() => {
         markers: false, // Debug
       }})
 
-      tlTrack.fromTo(section.value!,  { translateY: cardsOffset }, { translateY: '-' + cardsOffset, duration: 1, ease: 'linear' }, 0)
+      tlTrack.fromTo(section.value!,  { translateY: parallaxOffset }, { translateY: '-' + parallaxOffset, duration: 1, ease: 'linear' }, 0)
 
       sectionToTimelineMap.set(section, tlTrack)
     }

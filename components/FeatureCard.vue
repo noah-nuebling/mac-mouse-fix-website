@@ -27,7 +27,7 @@
       <!-- Border Container -->
       <div
         ref="borderContainer"
-        :class="['overflow-clip h-full rounded-[inherit]', $props.borderClass]">
+        :class="['flex justify-center overflow-clip h-full rounded-[inherit]', $props.borderClass]">
 
           <!-- Content Container -->
         <div
