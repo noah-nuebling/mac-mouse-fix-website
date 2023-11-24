@@ -15,11 +15,12 @@
 
     <!-- Debug Buttons -->
 
-    <div class="hidden items-end justify-center fixed left-0 top-0 w-full h-[10rem] z-50">
-      <div class="bg-red-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="$refs.intro.killIntroAnimation()">
+    <div class="items-end justify-center fixed left-0 top-0 w-full h-[10rem] z-50">
+      This is a work in progress. Visit <a href="mousefix.org" style="color:blue">mousefix.org</a>
+      <div class="hidden bg-red-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="$refs.intro.killIntroAnimation()">
         <p class="text-white text-center">Kill Intro</p>
       </div>
-      <div class="bg-green-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="$refs.intro.recreateIntroAnimation()">
+      <div class="hidden bg-green-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="$refs.intro.recreateIntroAnimation()">
         <p class="text-white text-center">Reload Intro</p>
       </div>
     </div>
