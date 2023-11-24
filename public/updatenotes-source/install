@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Adjust this if the mac-mouse-fix-website project moves
+cd updatenotes-source
+updateNotesSourcePath='.'
+mmfWebsiteSourcePath='..'
+# These paths are hardcoded in MMF and shouldn't be changed
+zipSrc1="${updateNotesSourcePath}/updatenotes" # Result of unzippig must be a folder name 'updatenotes'
+zipDst1="${mmfWebsiteSourcePath}/maindownload/updatenotes.zip"
+zipSrc2="${updateNotesSourcePath}/updatenotes-app" # Result of unzippig must be a folder name 'updatenotes'
+zipDst2="${mmfWebsiteSourcePath}/maindownload-app/updatenotes-app.zip"
+
+zip -r "${zipDst1}" "${zipSrc1}"
+zip -r "${zipDst2}" "${zipSrc2}"

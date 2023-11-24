@@ -1,0 +1,9 @@
+# Group 1
+User-agent: Googlebot
+Allow: /
+Allow: /about/
+Disallow: /thankyou/
+Disallow: /activate/
+
+
+Sitemap: https://mousefix.org/sitemap.xml
