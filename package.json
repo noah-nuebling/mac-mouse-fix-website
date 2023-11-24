@@ -18,13 +18,15 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/i18n": "next",
-    "@nuxtjs/tailwindcss": "^6.9.5",
-    "@types/node": "^18.18.10",
-    "nuxt": "^3.8.1"
+    "@nuxtjs/tailwindcss": "^6.10.1",
+    "@types/node": "^18.18.13",
+    "nuxt": "^3.8.2",
+    "nuxt-simple-robots": "^3.1.9",
+    "nuxt-simple-sitemap": "^4.1.6"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
-    "@types/markdown-it": "^13.0.6",
+    "@types/markdown-it": "^13.0.7",
     "assert": "^2.1.0",
     "gsap": "^3.12.2",
     "markdown-it": "^13.0.2"
