@@ -1,6 +1,26 @@
 import { request } from "https"
 
-export { doAfterRenderrr, doAfterRender, doBeforeRender, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation }
+export { doAfterRenderrr, doAfterRender, doBeforeRender, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps }
+
+
+/* Get/set properties in a batch */
+
+function getProps(obj: Object, props: string[]) {
+  var result: any[] = []
+  for (const prop of props) {
+    result.push(obj[prop])
+  }
+  return result
+}
+
+function setProps(obj: Object, props: string[], values: any[]) {
+  
+  console.assert(props.length === values.length)
+
+  for (var i = 0; i < props.length; i++) {
+    obj[props[i]] = values[i]
+  }
+}
 
 /* Reset animations
     Src: https://stackoverflow.com/a/45036752/10601702 */

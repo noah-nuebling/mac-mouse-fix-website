@@ -6,7 +6,7 @@
 -->
 
 <template>
-  <header :class="['fixed left-0 right-0 header-shadow backdrop-blur-[20px] backdrop-saturate-[1.8] z-50 transition-colors duration-[0.5s] !max-w-full', navbarHasDarkAppearance ? 'bg-neutral-950/80 text-white/[0.85]' : 'bg-neutral-50/80 text-black/[0.85]']"
+  <header ref="root" :class="['fixed left-0 right-0 header-shadow backdrop-blur-[20px] backdrop-saturate-[1.8] z-50 transition-colors duration-[1s] !max-w-full', navbarHasDarkAppearance ? 'bg-neutral-950/80 text-white/[0.85]' : 'bg-neutral-50/80 text-black/[0.85]']"
     v-on-click-outside="{ onEvent: () => isExpanded = false, condition: isExpanded, blockEvents: true }"
   >
     <nav :class="['py-[0.4rem] px-[2rem] text-[1rem] font-[400] flex justify-between items-center relative left-[50%] translate-x-[-50%]', $attrs.class]">
@@ -57,6 +57,7 @@ import chevronImagePath from "../assets/img/chevron.down@8x.png"
 
 const { currentSize, ResponsiveSize } = useResponsive()
 const $mt = useMT()
+import { getProps, setProps } from '~/utils/util'
 import { useGlobalStore } from "~/store/global";
 import externalLinkImagePath from "../assets/img/arrow.up.right.square@8x.png"
 import { storeToRefs } from "pinia";
@@ -68,22 +69,53 @@ const localePath = useLocalePath()
 
 const isExpanded = ref(false)
 const expandingContainer = ref<HTMLElement | null>(null)
+const root = ref<HTMLElement | null>(null)
 
 watch(isExpanded, (newIsExpanded) => {
 
   // Css transitions don't work with fit-content, so we're measuring the 'fit-content' size in js and then setting the fitting size in px. That way the css transitions work.
 
+  const propsForRoot = ['transitionProperty', 'transitionDuration', 'transitionDelay', 'transitionTimingFunction']
+
   if (newIsExpanded) {
+
+    // Copy transition params to root
+    //  - We're transitioning transform on root in order to force updates root element's backdrop filter during animation. - Otherwise the backdrop filter only updates after the transition and it looks jank.
+    //  - What we're doing here is overriding the transition params on the root element with the transition params on the expanding container.
+    const ogRootValues = getProps(window.getComputedStyle(root.value!), propsForRoot)
+    const containerValues = getProps(window.getComputedStyle(expandingContainer.value!), propsForRoot)
+    setProps(root.value!.style, propsForRoot, containerValues)
+
+    // Measure expanded size
     expandingContainer.value!.style.height = 'fit-content'
     const calcHeight = expandingContainer.value?.offsetHeight
     expandingContainer.value!.style.height = '0'
+
     doAfterRender(() => {
+
+      // Start animation
       expandingContainer.value!.style.height = `${ calcHeight }px`
+      root.value!.style.transform = `rotate(0.01deg)`
+
+      // Restore transition params on root
+      setProps(root.value!.style, propsForRoot, ogRootValues)
     })
   } else {
+
+    // Copy transition params to root
+    const ogRootValues = getProps(window.getComputedStyle(root.value!), propsForRoot)
+    const containerValues = getProps(window.getComputedStyle(expandingContainer.value!), propsForRoot)
+    setProps(root.value!.style, propsForRoot, containerValues)
+
+    // Start animation
     expandingContainer.value!.style.height = '0'
+    root.value!.style.transform = `rotate(0deg)`
+
+    // Restore transition params on root
+    setProps(root.value!.style, propsForRoot, ogRootValues)
   }
 })
+
 watch(currentSize, (newValue) => {
 
   if (newValue > ResponsiveSize.sm) {

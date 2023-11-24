@@ -307,9 +307,9 @@ onMounted(() => {
 
 /* Debug */
 
-setInterval(() => {
-  console.log(`Quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }`);
-}, 500)
+// setInterval(() => {
+//   console.log(`Quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }`);
+// }, 500)
 
 /* Functions */
 
