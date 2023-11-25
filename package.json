@@ -9,10 +9,9 @@
     "2. To test deployment version, run `generate`, then follow instructions in terminal to serve locally."
   ],
   "scripts": {
-
-    "upload":   "./scripts/deploy.sh",
+    "upload": "./scripts/deploy.sh",
     "generate": "node ./scripts/copy-licenseinfo.cjs && nuxt generate",
-    "dev":      "node ./scripts/copy-licenseinfo.cjs && nuxt dev"
+    "dev": "node ./scripts/copy-licenseinfo.cjs && nuxt dev"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -21,8 +20,7 @@
     "@types/node": "^18.18.13",
     "nuxt": "^3.8.2",
     "nuxt-simple-robots": "^3.1.9",
-    "nuxt-simple-sitemap": "^4.1.6",
-    "vite-plugin-static-copy": "^1.0.0"
+    "nuxt-simple-sitemap": "^4.1.6"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",

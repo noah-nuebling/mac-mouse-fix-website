@@ -1,5 +1,4 @@
-
-
+// Note: This tried to solve problem with nuxt-simple-sitemap sitemap generation when we tried to serve both at the server root on macmousefix.com and under the `mac-mouse-fix-website-nuxt` subfolder on github pages. I don't think this is necessary anymore since github pages just redirects to macmousefix.com now.
 
 import { defineNitroPlugin } from 'nitropack/runtime/plugin'
 import { CANONICAL_URL, GITHUB_SUB_URL } from "~/utils/constants"

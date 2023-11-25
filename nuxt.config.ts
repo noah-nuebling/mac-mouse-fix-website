@@ -6,15 +6,15 @@ Notes:
 */
 
 import { CANONICAL_URL, GITHUB_SUB_URL } from "./utils/constants" 
-import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineNuxtConfig({
 
-  router: {
-    options: {
+  // Make the site static. See https://stackoverflow.com/questions/74070241/what-is-the-difference-between-ssrfalse-vs-targetstatic-in-nuxtjs
+  // target: 'static', // Only on nuxt 2 I think. On nuxt 3 you use the generate script
+  ssr: true,
+  devtools: { enabled: true },
+  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/i18n', 'nuxt-simple-robots', 'nuxt-simple-sitemap'],
 
-    }
-  },
   app: {
     baseURL: '/', // GITHUB_SUB_URL,
     head: {
@@ -27,36 +27,22 @@ export default defineNuxtConfig({
       ]
     }
   },
+  
+
+
   nitro: {
-    // plugins: ['~/server/plugins/sitemaps.ts'],
   },
   vite: {
     plugins: [
-      viteStaticCopy({
-        targets: [
-          { src: 'assets/licenseinfo/config.json', dest: 'licenseinfo' }
-        ],
-        structured: true,
-        
-      })
     ]
   },
-
-  // hooks: {  
-  //   ge: (page) => {
-  //     console.log('Generating page:', page.route, 'Locale:', page.locale);
-  //   },
-  // },
-  
-  // Make the site static. See https://stackoverflow.com/questions/74070241/what-is-the-difference-between-ssrfalse-vs-targetstatic-in-nuxtjs
-  // target: 'static', // Only on nuxt 2 I think. On nuxt 3 you use the generate script
-  ssr: true,
-  devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/i18n', 'nuxt-simple-robots', 'nuxt-simple-sitemap'],
-
   site: {
     url: CANONICAL_URL, 
     indexable: true, // Makes nuxt-simple-robots allow indexing even for non-production env - I think only helpful for debugging.
+  },
+  router: {
+    options: {
+    }
   },
   routeRules: {
     '/activate': { index: false/* , robots: 'index, follow' */ },
@@ -68,15 +54,7 @@ export default defineNuxtConfig({
   sitemap: {
     enabled: true,
     xsl: false,
-  },
-
-  // markdownit: {
-  //   // runtime: true // Support `$md()`
-  //   // preset: 'default',
-  //   // linkify: true,
-  //   // breaks: true, 
-  // },
-  
+  },  
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     configPath: '~~/tailwind.config.js'
