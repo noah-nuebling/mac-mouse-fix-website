@@ -29,8 +29,9 @@
    
     <Intro ref="intro"/>
 
-    <!-- Post-intro -->
-    <!-- Initialize this to low opacity, to hide that scroll position changes twice - once to restore scroll position and another time after intro animation has loaded. -->
+    <!-- Post-intro --> 
+    <!-- Initialize this to low opacity, to hide that scroll position changes twice - once to restore scroll position and another time after intro animation has loaded. 
+            Edit: We're now delaying when the scroll position is set inside app/router.options.ts, so in most cases we don't need this. But there is one case: When we open a new tab in Chrome and then go to a hash link. In that case chrome goes to the hashlink immediately, and then a moment later, after the introAnimation as loaded, the vue router sets the proper scroll position. And if we don't hide the afterIntro content during this it looks janky -->
 
     <div ref="afterIntro" class="opacity-[0.0]"> 
 
@@ -38,7 +39,7 @@
       
       <div class="relative">
         <!-- Section head -->
-        <SectionHeader id="trackpad" class="strong:gradient-blue strong:filter strong:brightness-[1.0]" title-accent-class="text-gradient-to-l gradient-blue brightness-[1.43] filter hue-rotate-[0deg]" title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" body-key="trackpad-features.body" />
+        <SectionHeader id="trackpad" class=" strong:gradient-blue strong:filter strong:brightness-[1.0]" title-accent-class="text-gradient-to-l gradient-blue brightness-[1.43] filter hue-rotate-[0deg]" title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" body-key="trackpad-features.body" />
         <!-- Color splash -->
         <div class="hidden absolute top-0 bottom-0 left-[50%] translate-x-[-50%] w-[100vw]">
           <img :src="colorSplashImagePath" alt="" class="f-w-[100rem] relative left-[-15rem] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.7] filter hue-rotate-[0deg]">
@@ -295,7 +296,7 @@ onMounted(() => {
 
     if (newValue == 0) { return }
 
-    afterIntro.value!.style.opacity = '1.0'
+    afterIntro.value!.style.opacity = '1.0' 
 
     if (false /* newValue > 1 */) {
       // Refresh scrollTriggers
