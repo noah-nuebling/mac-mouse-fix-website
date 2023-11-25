@@ -42,9 +42,7 @@ export default defineNuxtConfig({
   },
   router: {
     options: {
-      // scrollBehaviour: {
-
-      // }
+      hashMode: false, // Disable hashmode so we can properly control the hash stuff in app/router.options.ts
     },
   },
   routeRules: {

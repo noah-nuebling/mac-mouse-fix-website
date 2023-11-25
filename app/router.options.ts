@@ -19,7 +19,7 @@ import { type RouterConfig } from "@nuxt/schema"
 import { storeToRefs } from "pinia"
 
 // Constants
-const hashOffset = -70 // Chosen so that the headline is *centered* on the screen when we link to sections of the website with #. !REMEMBER: Update this when the layout of the section headers changes
+const hashOffset = -70 // Chosen so that the headline is *centered* on the screen when we link to sections of the website with #. !REMEMBER: Update this when the layout of the section headers changes.
 const scrollBehavior = 'instant' // Whether to animate the scroll
 
 // Main

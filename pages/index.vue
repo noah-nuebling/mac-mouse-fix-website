@@ -31,7 +31,7 @@
 
     <!-- Post-intro --> 
     <!-- Initialize this to low opacity, to hide that scroll position changes twice - once to restore scroll position and another time after intro animation has loaded. 
-            Edit: We're now delaying when the scroll position is set inside app/router.options.ts, so in most cases we don't need this. But there is one case: When we open a new tab in Chrome and then go to a hash link. In that case chrome goes to the hashlink immediately, and then a moment later, after the introAnimation as loaded, the vue router sets the proper scroll position. And if we don't hide the afterIntro content during this it looks janky -->
+            Edit: We're now delaying when the scroll position is set inside app/router.options.ts, so in most cases we don't need this. But there is one case: When we open a new tab in Chrome and then go to a hash link. In that case chrome goes to the hashlink immediately, and then a moment later, after the introAnimation as loaded, the vue router sets the proper scroll position. And if we don't hide the afterIntro content during this it looks janky Edit: In Safari on first page load the position never corrects to the proper one. Edit: By setting hashMode to false in the nuxt routerconfig, now it works I think. -->
 
     <div ref="afterIntro" class="opacity-[0.0]"> 
 
