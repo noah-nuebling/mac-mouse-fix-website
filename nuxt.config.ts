@@ -42,7 +42,10 @@ export default defineNuxtConfig({
   },
   router: {
     options: {
-    }
+      // scrollBehaviour: {
+
+      // }
+    },
   },
   routeRules: {
     '/activate': { index: false/* , robots: 'index, follow' */ },
