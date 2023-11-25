@@ -161,9 +161,9 @@
               <img :src="colorSplashImagePath" alt="" class="f-w-[150rem] f-h-[75rem] absolute left-[75%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8] filter invert hue-rotate-[125deg]">
           </div>
           <div ref="priceCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem]">
-            <NormalFeatureCard titleKey="free-days.title"      bodyKey="free-days.body"       class=""/>
-            <NormalFeatureCard titleKey="price.title"          bodyKey="price.body"           class=""/>
-            <NormalFeatureCard titleKey="alternatives.title"   bodyKey="alternatives.body"    class=""/>
+            <NormalFeatureCard titleKey="free-days.title"       bodyKey="free-days.body"        :dynamic="dynamicUIStrings" class=""/>
+            <NormalFeatureCard titleKey="price.title"           bodyKey="price.body"            :dynamic="dynamicUIStrings" class=""/>
+            <NormalFeatureCard titleKey="alternatives.title"    bodyKey="alternatives.body"     :dynamic="dynamicUIStrings" class=""/>
           </div>
         </div>
       </CardContainer>
@@ -178,6 +178,40 @@
 </template>
 
 <script setup lang="ts">
+
+/* Import licenseConfig */
+
+var licenseConfig = ref<unknown>(null)
+var { data: licenseConfig } = await useAsyncData('licenseConfig', async () => {
+  var a = await $fetch('/public/licenseinfo/config.json')
+  var result = await $fetch('/licenseinfo/config.json')
+  result = JSON.parse(result)
+  return result
+}, { 
+  server: true 
+})
+
+const price = (() => {
+  var result = licenseConfig.value["price"]
+  result = parseInt(result) / 100
+  return result
+})()
+const trialDays = (() => {
+  var result = licenseConfig.value["trialDays"]
+  return result
+})()
+const priceFactor = (() => {
+  var result = Math.round(99.99 / price)
+  return result
+})()
+
+const dynamicUIStrings = !licenseConfig.value ? null : {
+  price: price,
+  trialDays: trialDays,
+  priceFactor: priceFactor
+}
+
+console.log(`licenseConfig: ${ licenseConfig }`)
 
 /* Import plugin stuff */
 
