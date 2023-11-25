@@ -6,6 +6,7 @@ Notes:
 */
 
 import { CANONICAL_URL, GITHUB_SUB_URL } from "./utils/constants" 
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineNuxtConfig({
 
@@ -28,6 +29,17 @@ export default defineNuxtConfig({
   },
   nitro: {
     // plugins: ['~/server/plugins/sitemaps.ts'],
+  },
+  vite: {
+    plugins: [
+      viteStaticCopy({
+        targets: [
+          { src: 'assets/licenseinfo/config.json', dest: 'licenseinfo' }
+        ],
+        structured: true,
+        
+      })
+    ]
   },
 
   // hooks: {  

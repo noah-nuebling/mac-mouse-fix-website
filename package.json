@@ -6,14 +6,13 @@
   "_comment1": "TODO: Change i18n version from next to ^8.0.0 once there's a stable v8 release. We used next so it would update through rc versions.",
   "_comments_on_scripts": [
     "1. Calling it 'upload', bc 'deploy' seems to be reserved in pnpm",
-    "2. To test deployment version, run generate, then preview."
+    "2. To test deployment version, run `generate`, then follow instructions in terminal to serve locally."
   ],
   "scripts": {
-    "dev": "nuxt dev",
-    "upload": "./scripts/deploy.sh",
-    "test": "./scripts/test.sh",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview"
+
+    "upload":   "./scripts/deploy.sh",
+    "generate": "node ./scripts/copy-licenseinfo.cjs && nuxt generate",
+    "dev":      "node ./scripts/copy-licenseinfo.cjs && nuxt dev"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
@@ -22,7 +21,8 @@
     "@types/node": "^18.18.13",
     "nuxt": "^3.8.2",
     "nuxt-simple-robots": "^3.1.9",
-    "nuxt-simple-sitemap": "^4.1.6"
+    "nuxt-simple-sitemap": "^4.1.6",
+    "vite-plugin-static-copy": "^1.0.0"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",

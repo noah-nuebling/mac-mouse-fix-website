@@ -181,31 +181,26 @@
 
 /* Import licenseConfig */
 
-var licenseConfig = ref<unknown>(null)
-var { data: licenseConfig } = await useAsyncData('licenseConfig', async () => {
-  var a = await $fetch('/public/licenseinfo/config.json')
-  var result = await $fetch('/licenseinfo/config.json')
-  result = JSON.parse(result)
-  return result
-}, { 
-  server: true 
-})
+import licenseConfig from "~/assets/licenseinfo/config.json"
+
+
+const MXMasterPrice = 99.99 // Update this when you change the listed products
 
 const price = (() => {
-  var result = licenseConfig.value["price"]
+  var result = licenseConfig["price"]
   result = parseInt(result) / 100
   return result
 })()
 const trialDays = (() => {
-  var result = licenseConfig.value["trialDays"]
+  var result = licenseConfig["trialDays"]
   return result
 })()
 const priceFactor = (() => {
-  var result = Math.round(99.99 / price)
+  var result = Math.round(MXMasterPrice / price)
   return result
 })()
 
-const dynamicUIStrings = !licenseConfig.value ? null : {
+const dynamicUIStrings = {
   price: price,
   trialDays: trialDays,
   priceFactor: priceFactor
