@@ -16,7 +16,7 @@
     <!-- Debug Buttons -->
 
     <div class="items-end justify-center fixed left-0 top-0 w-full h-[10rem] z-50">
-      This is a work in progress. Visit <a href="mousefix.org" style="color:blue">mousefix.org</a>
+      This is a work in progress. Visit <a href="https://mousefix.org" style="color:blue">mousefix.org</a>
       <div class="hidden bg-red-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="$refs.intro.killIntroAnimation()">
         <p class="text-white text-center">Kill Intro</p>
       </div>
