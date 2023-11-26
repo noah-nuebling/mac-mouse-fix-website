@@ -9,6 +9,14 @@ See example of apple website with card with play button [here](assets/notes/appl
 Expanding card code example: https://greensock.com/forums/topic/21050-expanding-card-on-click/
 
 
+--- 
+
+## Optimization
+
+- Videos: We're doing this trick where we set the video's src to '' and then load them to clear them from the ram after the user closes a feature card. Otherwise all the videos make the browsers crash after opening a few feature cards. Videos seem to be loaded by the browser on-demand as the user plays them, so we don't need further optimization there. But it's probably good to export the videos in a compressed, web-friendly format.
+- Images: We're (currently trying to) using @nuxt/img to compress the images automatically. Currently, the 4 large images that we have on the site (MMF Icon, Action Table Image, and three "color splash" images) make up the vast majority of the data transferred on load - which is currently about 15 or 20 MB (youtube and reddit both have sub 5 MB). So if we compress those images, the payload size should be ok.
+- Loading times: After the initial load, we need to wait for page hydration, so that the intro animation works, before we enable scrolling. This currently takes like a second and is about as fast as the youtube homepage. I think it's ok.
+
 ---
 
 ## Content

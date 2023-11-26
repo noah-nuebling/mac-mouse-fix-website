@@ -235,7 +235,10 @@ import { type Ref } from 'vue'
 import { linearFadingEase } from '~/utils/curves'
 
 /* Manually import video assets
-    Note I feel like this is way too cumbersome. We know in advance which videos to import anyways (so we don't need 'dynamic' imports which should make it even easier) so why do we have to manually import in code? It should automatically import the static assets we use.
+    Notes on manually importing assets:
+    - We're manually importing the assets, because we need to store them in vars and pass them to children. When using a plaintext URL instead of a variable for the img tag's src, then nuxt seems to import that automatially. 
+      - According to https://stackoverflow.com/a/75012154, we also don't need to manually import images for <NuxtImg>, but I haven't tested that so far.
+    - I feel like this is way too cumbersome. oad We know in advance which videos to import anyways (so we don't need 'dynamic' imports which should make it even easier) so why do we have to manually import in code? It should automatically import the static assets we use.
     Also See: https://stackoverflow.com/questions/75218697/nuxt-dynamic-image-require-is-not-defined
 */
 import remapDemoVideoPath from '../assets/video/remap_demo_old.mp4'

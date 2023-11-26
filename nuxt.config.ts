@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   // target: 'static', // Only on nuxt 2 I think. On nuxt 3 you use the generate script
   ssr: true,
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/i18n', 'nuxt-simple-robots', 'nuxt-simple-sitemap'],
+  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/image', 'nuxt-simple-robots', 'nuxt-simple-sitemap'],
 
   app: {
     baseURL: '/', // GITHUB_SUB_URL,
@@ -28,8 +28,6 @@ export default defineNuxtConfig({
     }
   },
   
-
-
   nitro: {
   },
   vite: {
@@ -75,5 +73,8 @@ export default defineNuxtConfig({
       redirectOn: 'no prefix', // 'root' is allegedly better than 'no prefix' for SEO or sth
     },
   },
+  image: { // Mostly default overrides for @nuxt/image which can also be directly set on <NuxtImg> or <NuxtPicture>
+    domains: [] // List of external domains whose images should be optimized by @nuxt/image (I think)
+  }
 
 })
