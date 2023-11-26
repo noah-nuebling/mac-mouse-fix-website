@@ -8,7 +8,7 @@
 
     <!-- Initial Content -->
 
-    <div class="flex items-center justify-center group w-[100%] h-[calc(100svh-0rem)] relative z-[-20]">
+    <div class="flex items-center justify-center group w-[100%] h-[100svh] relative z-[-20]">
       <div class="h-fit w-fit relative translate-y-[-1.5rem]">
         <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center -z-20', 
                                             'xs:origin-[50%_calc(50%_+_4.1rem)] sm:origin-[50%_calc(50%_+_4.925rem)] origin-[50%_calc(50%_+_5.55rem)]', false ? initialTranslateYTW : '' ]"> 
@@ -505,7 +505,8 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   const bgStop = bgStart + bgDistance
   tlScroll.fromTo(backgroundDiv.value!, { autoAlpha: 0 }, { autoAlpha: 1, duration: bgDistance }, bgStart)
   tlScroll.set({}, { onComplete: () => { splashDance.value = (!prefersReducedMotion()) }, onReverseComplete: () => { splashDance.value = false } }, bgStart-300)
-  tlScroll.fromTo(innerContent.value!, { scale: zoomScale, autoAlpha: 1 }, { scale: zoomScale, autoAlpha: 0, duration: 0 }, bgStop) /* Setting the scale back to 1 here seem to slow thigns down */
+  tlScroll.fromTo(innerContent.value!, { scale: zoomScale, autoAlpha: 1 }, { scale: zoomScale, autoAlpha: 0, duration: 0 }, bgStop) /* Setting the scale back to 1 here seem to slow things down, but if we don't reset the scale at some point, then the site becomes superrrr long. Maybe we should reset it at some point where there's no other heavy animations? Or set disabled rendering (by setting `display: none`) instead of resetting scale? Edit: Setting `display: none` */
+  tlScroll.to(innerContent.value!, { display: "none", duration: 0 }, bgStop)
 
   // Add quotes
   var isTicking = false
