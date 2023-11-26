@@ -7,7 +7,7 @@
  -->
 
 <template>
-  <div ref="rootElement" class="strong:box-decoration-clone">
+  <div ref="rootElement" class="strong:box-decoration-clone"> <!-- Shouldn't this global styling be in tailwind.css? -->
 
     <!-- Debug Stuff -->
 
@@ -296,7 +296,9 @@ onMounted(() => {
 
     if (newValue == 0) { return }
 
-    afterIntro.value!.style.opacity = '1.0' 
+    afterIntro.value!.style.opacity = '1.0'
+
+    document.documentElement.style.overflowY = 'scroll'
 
     if (false /* newValue > 1 */) {
       // Refresh scrollTriggers
@@ -396,5 +398,9 @@ function killScrollTriggerAnimation(tl: gsap.core.Timeline | undefined | null, r
 </script>
 
 <style lang="postcss" scoped>
+
+html {
+ 
+}
 
 </style>

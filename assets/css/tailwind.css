@@ -22,7 +22,8 @@ Notes:
 
     @apply sm:text-[12px] text-[12px];
 
-    /* Disable vertical scroll - is re-enabled inside Intro.vue */
+    /* Disable vertical scroll - is re-enabled in js after hydration in index.html
+      Note: Tried to put this inside index.html where I think it belongs but dindn't work there for some reason. */
     overflow-y: clip;
 
     /* Set default font family (Defined in tailwind.config.js) */

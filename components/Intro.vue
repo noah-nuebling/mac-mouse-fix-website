@@ -205,6 +205,7 @@ const quoteExpandButton       = ref<HTMLElement|null>(null)
 
 /* Constants */
 
+/* All this `initial` stuff was for the loading animation and subsequent intro transition where there was a little animation once the hydration completed. But it's currently unused. TODO: Remove */
 const initialTranslateY = '-10rem'/* '-3.5rem' */
 const initialTranslateYTW = 'translate-y-[-10rem]'
 const initialNameScale = 0.8
@@ -276,7 +277,6 @@ onMounted(() => {
   /* Create scroll animation, then enable vertical scrolling */
   doAfterRender(() => {
     recreateIntroAnimation()
-    document.documentElement.style.overflowY = 'scroll'
   }, duration*1000)
   
   /* Update scroll animation on window resize */
