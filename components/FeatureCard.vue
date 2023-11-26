@@ -198,10 +198,8 @@ onUnmounted(() => {
 
 if (props.doesExpand) {
 
-  // unloadVideos(card.value!)
-
   // React to isExpanded change
-  watch(isExpanded, (shouldExpand) => {    
+  watch(isExpanded, async (shouldExpand) => {    
 
     // Kill current animations
     // Not totally sure if this is appropriate here. I think it prevents the onComplete method from being called when the card is unexpanded during the expand animation, which would lead to the zIndex getting messed up.
@@ -215,18 +213,12 @@ if (props.doesExpand) {
     // Animate and stuff
     if (shouldExpand) {
 
-      // loadVideos(card.value!)
-
       ///
       /// >>> Expand <<<
       ///
 
       // Set cursor
       // card.value!.style.cursor = 'auto'
-
-      // Load video
-      //  Don't need to do this. We immediately reload the video after unloading which loads the thumbnail without loading the whole video
-      // loadVideos(card.value!)
 
       // Create backdrop
       // Notes: We used the backdrop only to monitor clicks outside the card. But this broke when we made everything look Apple-y. So we're just using v-click-outside instead.
@@ -287,6 +279,21 @@ if (props.doesExpand) {
       //  (Because later code will set position = absolute so we need to reset that)
       //  TODO: Check if this is still necessary with transform-based animations
       expandedCardContent.value!.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
+
+      // Load video
+      //  Need to load lazily otherwise Safari loads every single video on page load
+
+      if (!videosAreLoaded(card.value!)) {
+
+        loadVideos(card.value!, true)
+
+        // Wait until video has loaded
+        await new Promise((resolve) => {         
+          video!.addEventListener(/* 'loadedmetadata' */'loadeddata', () => {
+            resolve(null)
+          }, { once: true })
+        })
+      }
 
       // Determine target styling of card
       // Notes:
@@ -671,9 +678,9 @@ if (props.doesExpand) {
           video.currentTime = 0.0
         }
 
-        // Free video from memory
+        // Free video from memory by unloading it and loading it again
+        //   Note: If we only unload here, the layout breaks upon re-expanding the card in Safari for some reason.
         freeVideos(card.value!)
-        // unloadVideos(card.value!)
       }
 
       // TESTING (We'll animate these later)
@@ -895,23 +902,33 @@ if (props.doesExpand) {
 
   }
 
-  function freeVideos(element: HTMLElement) {
+  function videosAreLoaded(element: HTMLElement) {
+    
+    const videos = findChildren(element, (child) =>  child.tagName == 'VIDEO') as HTMLVideoElement[]
 
-    // Free videos inside `element` from memory
-    // Notes:
-    // - See https://stackoverflow.com/questions/47445281/how-to-go-about-freeing-an-html5-video-from-memory
-    // - If we don't do this iOS Safari starts crashing after opening a few cards, because they take up a lot of ram
-
-    unloadVideos(element)
-
-    setTimeout(() => {
-
-      loadVideos(element, true)
-
-    }, 0.0)
+    for (const video of videos) {
+      if (video.currentSrc != '') { return true } // Not sure if we should use currentSrc or src
+    }
+    return false
   }
 
-  function unloadVideos(element: HTMLElement) {
+  function freeVideos(element: HTMLElement) {
+
+  // Free videos inside `element` from memory
+  // Notes:
+  // - See https://stackoverflow.com/questions/47445281/how-to-go-about-freeing-an-html5-video-from-memory
+  // - If we don't do this iOS Safari starts crashing after opening a few cards, because they take up a lot of ram
+
+  unloadVideos(element)
+
+  setTimeout(() => {
+    
+    loadVideos(element, true)
+    
+  }, 0.0)
+  }
+
+function unloadVideos(element: HTMLElement) {
     
     const videos = findChildren(element, (child) =>  child.tagName == 'VIDEO') as HTMLVideoElement[]
     
@@ -929,7 +946,7 @@ if (props.doesExpand) {
 
     for (const video of videos) {
 
-      const src = props.videoPath//video.dataset['src']
+      const src = props.videoPath //video.dataset['src']
 
       if (src != undefined) {
 

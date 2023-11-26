@@ -73,7 +73,7 @@
         -->
 
         <video id="vid1" preload="auto" playsinline autoplay muted alt="Remap Demo" class="object-cover w-full h-full bg-black">
-          <source type="video/mp4" :src="videoPath">
+          <source type="video/mp4" :src="''">
         </video>
       </div>
     </template>
