@@ -24,7 +24,7 @@
       - I can't seem to give this a blue accent under the arrow like the native system buttons. This should be default look for <select> buttons. See https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select. But the current look is good enough for Chrome and Safari.
       -->
 
-      <select ref="localePicker" @change="handleLocaleSelect" class="rounded-[50vh] outline outline-1 outline-slate-500/20"> 
+      <select ref="localePicker" @change="handleLocaleSelect" class="cool-locale-picker"> 
         <option v-for="$loc in $i18n.locales" :value="$loc.code"> {{ $loc.name }}</option> 
       </select> 
     </div>
@@ -123,8 +123,16 @@ function handleLocaleSelect(event: Event) {
   
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 
+.cool-locale-picker {
 
+  /* This button looks weirdddd on macOS Safari. Idk why. `appearance: button` seems to render <select> elements nicely in a codepen, but here's it renders this weird iOS 6 button. 
+    The rounded and outline stuff applies on Chrome. Not sure what happens on mobile Safari, but it looks okay. */
+
+  -webkit-appearance: button !important;
+  appearance: button !important;
+  @apply rounded-full outline outline-1 outline-slate-500/20;
+}
 
 </style>
