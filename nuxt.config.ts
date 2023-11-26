@@ -74,7 +74,12 @@ export default defineNuxtConfig({
     },
   },
   image: { // Mostly default overrides for @nuxt/image which can also be directly set on <NuxtImg> or <NuxtPicture>
-    domains: [] // List of external domains whose images should be optimized by @nuxt/image (I think)
+    domains: [], // List of external domains whose images should be optimized by @nuxt/image (I think)
+    dir: "assets/img", // The default is `public`, and the @nuxt/img docs suggest that only public works in some places. But assets/img also works? Weird. See: Notes.md -> Optimization 
+    format: ['webp'], // Default image format. Setting to webp, all our current images are still pngs. See this thread: https://github.com/nuxt/image/issues/933. There they say that their images are actually webp, but the file extension is png. But for us they seem to be real pngs. 
+    densities: [1, 2], // This doesn't seem to work. Default is [1, 2] but It only creates images at 2x not at 1x scale. The resulting <img> has a srcset with 2 images but they are both the same. Also since all apple devices are retina, we decided to only use 2x. Edit: I think omitting 1x leads to more bugs.....
+    quality: 100,
+    
   }
 
 })

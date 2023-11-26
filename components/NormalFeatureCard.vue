@@ -49,7 +49,7 @@
 
         <!-- Image -->
         <div v-if="imagePath" :class="[imageClass]">
-          <img :src="imagePath" class="" alt="">
+          <NuxtImg :src="imagePath" :sizes="imageScalingSizes" class="" alt=""/>
         </div>
 
       </div>
@@ -100,6 +100,7 @@ var props = defineProps({
   bodyKey: String,
   dynamic: Object,
   imagePath: String,
+  imageScalingSizes: String, // The intended size which NuxtImg uses for scaling the image down for optimization
   imageClass: String,
   videoPath: String,
   expandButtonKey: String,

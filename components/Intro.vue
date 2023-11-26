@@ -12,7 +12,7 @@
       <div class="h-fit w-fit relative translate-y-[-1.5rem]">
         <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center -z-20', 
                                             'xs:origin-[50%_calc(50%_+_4.1rem)] sm:origin-[50%_calc(50%_+_4.925rem)] origin-[50%_calc(50%_+_5.55rem)]', false ? initialTranslateYTW : '' ]"> 
-          <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['xs:h-[13rem] sm:h-[15rem] h-[16.5rem] mt-[-2rem] mb-[3rem] opacity-1']">
+          <NuxtImg ref="mmfIcon" :src="mmfIconImagePath" sizes="225px" alt="Mac Mouse Fix Icon" :class="['xs:h-[13rem] sm:h-[15rem] h-[16.5rem] mt-[-2rem] mb-[3rem] opacity-1']"/>
           <h1 ref="mmfName" :class="['font-[700] xs:text-[3.75rem] sm:text-[4.5rem] text-[5.75rem] text-[hsl(0,0%,10%)] mb-[-1rem] tracking-[-0.01em]', false ? initialNameScaleTW : '', playLoadingAnimation && false ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
           <p ref="introTagline" :class="['xs:text-[1.0rem] text-[1.1rem] xs:tracking-[-0.01rem] tracking-[0.01em] text-black mb-[2.25rem] opacity-1']">{{ $t('intro.tagline') }}</p>
           <DownloadButton ref="downloadButton" class="bg-blue-500 rounded-full text-white px-[0.85em] py-[0.3em] text-[1.2rem] tracking-[0.0em] opacity-1"></DownloadButton>
@@ -20,7 +20,7 @@
       </div>
 
       <div ref="chevronDown" class="absolute left-0 right-0 bottom-0 h-fit flex justify-center opacity-0 z-[-10]">
-        <img :src="chevronImagePath" alt="" class="w-[2rem] m-[3rem] opacity-[0.85]">
+        <img :src="chevronImagePath" alt="" class="w-[2rem] m-[3rem] opacity-[0.85]"/>
       </div>
     </div>
 
@@ -34,34 +34,34 @@
     <div class="absolute w-[100vw] h-full top-0 left-[50%] translate-x-[-50%] overflow-clip z-[10] pointer-events-none">
 
       <!-- Dark Center splash -->
-      <div :class="['hidden absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
+      <!-- <div :class="['hidden absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
         <div ref="colorSplashCenter" class="absolute inset-0">
-          <img :src="colorSplashDark2ImagePath" alt=""  :class="['w-[80rem] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] scale-[1.5] opacity-[0.2]']">
+          <NuxtImg :src="colorSplashDark2ImagePath" alt=""  :class="['w-[80rem] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] scale-[1.5] opacity-[0.2]']"/>
         </div>
-      </div>
+      </div> -->
 
       <!-- Top-left splash (dark) -->
       <div ref="dancer1" :class="['absolute inset-0 z-10 color-splash-dance1', splashDance ? '' : 'paused']">
         <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
           <div ref="colorSplash1" class="absolute inset-0 opacity-1 ">
-            <img :src="colorSplashDark1ImagePath" alt=""  :class="['f-w-[calc((0.5*200vh)+(0.5*200*9.75px))] absolute top-[0] left-[calc(50%-0.5*1920px)]       translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] filter brightness-[1.0] transition-[opacity] duration-[1000ms] ease-linear ', navbarHasDarkAppearance ? '' : 'opacity-0']">
+            <NuxtImg :src="colorSplashDark1ImagePath" alt="" :class="['f-w-[calc((0.5*200vh)+(0.5*200*9.75px))] absolute top-[0] left-[calc(50%-0.5*1920px)]       translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] filter brightness-[1.0] transition-[opacity] duration-[1000ms] ease-linear ', navbarHasDarkAppearance ? '' : 'opacity-0']"/>
           </div>
         </div>
       </div>
 
       <!-- Top-left splash (light) -->
-      <img :src="colorSplashImagePath" alt="" :class="['f-w-[calc((0.5*235vh)+(0.5*235*9.75px))] absolute z-[10] top-[0] left-[calc(50%-0.5*1920px)] translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
+      <NuxtImg :src="colorSplashImagePath" alt=""            :class="['f-w-[calc((0.5*235vh)+(0.5*235*9.75px))] absolute z-[10] top-[0] left-[calc(50%-0.5*1920px)] translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']"/>
 
       <!-- Bottom-right splash (dark) -->
       <div ref="dancer2" :class="['absolute inset-0 z-10 color-splash-dance2', splashDance ? '' : 'paused']">
         <div :class="['absolute inset-0 color-splash-pulse2', splashDance ? '' : 'paused']">
           <div ref="colorSplash2" class="absolute inset-0 opacity-1">
-            <img :src="colorSplashDark2ImagePath" alt=""  :class="['f-w-[calc((0.5*220vh)+(0.5*220*9.75px))] absolute bottom-[0] right-[calc(50%-0.5*1920px)]   translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] filter brightness-[1.0] transition-[opacity] duration-[1000ms] ease-linear ', navbarHasDarkAppearance ? '' : 'opacity-0']">
+            <NuxtImg :src="colorSplashDark2ImagePath" alt="" :class="['f-w-[calc((0.5*220vh)+(0.5*220*9.75px))] absolute bottom-[0] right-[calc(50%-0.5*1920px)]   translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] filter brightness-[1.0] transition-[opacity] duration-[1000ms] ease-linear ', navbarHasDarkAppearance ? '' : 'opacity-0']"/>
           </div>
         </div>
       </div>
       <!-- Bottom-right splash (light) -->
-      <img :src="colorSplashImagePath" alt="" :class="['f-w-[calc((0.5*185vh)+(0.5*185*9.75px))] absolute z-[10] bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']">
+      <NuxtImg :src="colorSplashImagePath" alt=""            :class="['f-w-[calc((0.5*185vh)+(0.5*185*9.75px))] absolute z-[10] bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']"/>
     </div>
 
     <!-- Big Tagline -->
@@ -143,10 +143,10 @@ import { linearScalingEase } from "../utils/curves"
 /* Manually import images 
   (Not totally sure if necessary)
 */
-import mmfIconImagePath from "../assets/img/mmf-icon.png"
-import colorSplashImagePath from "../assets/img/color-splash.png"
-import colorSplashDark1ImagePath from "../assets/img/color-splash-dark-1.png"
-import colorSplashDark2ImagePath from "../assets/img/color-splash-dark-2.png"
+const mmfIconImagePath = "/mmf-icon.png"
+const colorSplashImagePath = "/color-splash.png"
+const colorSplashDark1ImagePath = "/color-splash-dark-1.png"
+const colorSplashDark2ImagePath = "/color-splash-dark-2.png"
 import chevronImagePath from "../assets/img/chevron.down@8x.png"
 import speechBubbleImagePath from '../assets/img/text.bubble@8x.png'
 

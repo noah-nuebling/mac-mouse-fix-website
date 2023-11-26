@@ -42,7 +42,7 @@
         <SectionHeader id="trackpad" class=" strong:gradient-blue strong:filter strong:brightness-[1.0]" title-accent-class="text-gradient-to-l gradient-blue brightness-[1.43] filter hue-rotate-[0deg]" title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" body-key="trackpad-features.body" />
         <!-- Color splash -->
         <div class="hidden absolute top-0 bottom-0 left-[50%] translate-x-[-50%] w-[100vw]">
-          <img :src="colorSplashImagePath" alt="" class="f-w-[100rem] relative left-[-15rem] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.7] filter hue-rotate-[0deg]">
+          <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[100rem] relative left-[-15rem] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.7] filter hue-rotate-[0deg]"/>
         </div>
       </div>
 
@@ -51,8 +51,8 @@
         <div class="w-full flex justify-center">
           <div class="relative flex flex-col items-center w-fit">
             <div class="absolute inset-0 -z-10 pointer-events-none">
-              <img ref="trackpadSplash1" :src="colorSplashImagePath" alt="" class="f-w-[110rem] absolute left-[75%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]">
-              <img ref="trackpadSplash2" :src="colorSplashImagePath" alt="" class="f-w-[110rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]">
+              <NuxtImg :src="colorSplashImagePath" ref="trackpadSplash1" alt="" class="f-w-[110rem] absolute left-[75%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]"/>
+              <NuxtImg :src="colorSplashImagePath" ref="trackpadSplash2" alt="" class="f-w-[110rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8]"/>
             </div>
 
             <!-- <hr ref="trackpadRule" class="mb-[2.25rem] mx-[12px] border-neutral-950/[0.066]"> -->
@@ -91,7 +91,7 @@
       <CardContainer title-key="scroll-smoothness.header" class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] mb-[5rem]">
         <div class="w-fit relative left-[50%] translate-x-[-50%]">
           <div class="absolute inset-0 -z-10 pointer-events-none">
-            <img :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] absolute left-[25%] top-[40%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]">
+            <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] absolute left-[25%] top-[40%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]"/>
           </div>
           <div ref="scrollingCardsSection1" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] my-[0] w-fit">
             <NormalFeatureCard titleKey="scroll-smoothness.high.title"           bodyKey="scroll-smoothness.high.body"        :videoPath="remapDemoVideoPath"       title-class="" class=""/>
@@ -104,7 +104,7 @@
       <CardContainer title-key="scroll-feature.header"    class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] ">
         <div class="w-fit relative left-[50%] translate-x-[-50%]">
           <div class="absolute inset-0 -z-10 pointer-events-none">
-            <img :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] scale-[1] absolute left-[66%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]">
+            <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] scale-[1] absolute left-[66%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]"/>
           </div>
           <div ref="scrollingCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] my-[0] w-fit">
             <NormalFeatureCard titleKey="scroll-feature.reverse.title"        bodyKey="scroll-feature.reverse.body"            class=""/>
@@ -125,11 +125,11 @@
         <div class="relative">
           <div class="relative max-w-[70rem] left-[50%] translate-x-[-50%]">
             <div class="absolute inset-0 -z-10 pointer-events-none">
-                <img :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[75%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]">
-                <img :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]">
+                <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[75%] top-[25%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]"/>
+                <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]"/>
             </div>
             <div ref="actionTableCardsSection" class="flex flex-col items-center gap-[5rem] py-[4.5rem]">
-              <NormalFeatureCard titleKey="customization-feature.action-table.title" bodyKey="customization-feature.action-table.body" :videoPath="remapDemoVideoPath"              title-class="!font-[600]" class="w-full"        content-class="max-w-[50rem]" :image-path="actionTableImagePath" image-class="w-[205%] mt-[2rem] mr-[calc(-97%)] mb-[-35%] translate-x-[0rem]"/>
+              <NormalFeatureCard titleKey="customization-feature.action-table.title" bodyKey="customization-feature.action-table.body" :videoPath="remapDemoVideoPath"              title-class="!font-[600]" class="w-full"        content-class="max-w-[50rem]" :image-path="actionTableImagePath" image-scaling-sizes="" image-class="w-[205%] mt-[2rem] mr-[calc(-97%)] mb-[-35%] translate-x-[0rem]"/>
               <NormalFeatureCard titleKey="customization-feature.keyboard-shortcuts.title" bodyKey="customization-feature.keyboard-shortcuts.body" :videoPath="remapDemoVideoPath"  title-class="!font-[600]" class="w-full" expand-button-key="customization-feature.keyboard-shortcuts.expand-button"/>
             </div>
           </div>
@@ -145,7 +145,7 @@
 
         <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
           <div class="absolute inset-0 -z-10 pointer-events-none">
-            <img :src="colorSplashImagePath" alt="" class="f-h-[50rem] f-w-[100rem] absolute left-[33%] top-[33%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8] filter invert hue-rotate-[125deg]">
+            <NuxtImg :src="colorSplashImagePath" alt="" class="f-h-[50rem] f-w-[100rem] absolute left-[33%] top-[33%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8] filter invert hue-rotate-[125deg]"/>
           </div>
           <div ref="priceCardsSection1" class=" grid grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] relative">
             <NormalFeatureCard titleKey="unobtrusive-lightweight.title"          bodyKey="unobtrusive-lightweight.body"     class=""/>
@@ -159,7 +159,7 @@
 
         <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
           <div class="absolute inset-0 -z-10 pointer-events-none">
-              <img :src="colorSplashImagePath" alt="" class="f-w-[150rem] f-h-[75rem] absolute left-[75%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8] filter invert hue-rotate-[125deg]">
+              <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[150rem] f-h-[75rem] absolute left-[75%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8] filter invert hue-rotate-[125deg]"/>
           </div>
           <div ref="priceCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem]">
             <NormalFeatureCard titleKey="free-days.title"       bodyKey="free-days.body"        :dynamic="dynamicUIStrings" class=""/>
@@ -245,14 +245,8 @@ import remapDemoVideoPath from '../assets/video/remap_demo_old.mp4'
 
 /* Manually import image assets */
 
-import trackpadImagePath from '../assets/img/rectangle.and.hand.point.up.left.filled@8x.png'
-import sparkleArrowsImagePath from '../assets/img/arrow.up.and.down.and.sparkles@8x.png'
-// import gearArrowsImagePath from '../assets/img/arrow.gear.png'
-// import arrowsInGearImagePath from '../assets/img/arrow.in.gear.png'
-import arrowsImagePath from '../assets/img/arrow.up.and.down@8x.png'
-import gearImagePath from '../assets/img/gearshape@8x.png'
-import actionTableImagePath from '../assets/img/mmf-on-studio-display-4.png'
-import colorSplashImagePath from '../assets/img/color-splash.png'
+const actionTableImagePath = '/mmf-on-studio-display-4.png'
+const colorSplashImagePath = '/color-splash.png'
 
 /* Get global store */
 import { useGlobalStore } from '~/store/global';
