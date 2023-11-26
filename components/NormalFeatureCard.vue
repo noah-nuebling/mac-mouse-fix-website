@@ -11,6 +11,7 @@
     :contentClass="contentClass"
     :backgroundFilterClass="backgroundFilterClass"
     :doesExpand="videoPath ? true : false"
+    :videoPath="videoPath"
     
 
     @click="$refs.thisCard.toggleExpand()">
@@ -72,7 +73,7 @@
         -->
 
         <video id="vid1" preload="auto" playsinline autoplay muted alt="Remap Demo" class="object-cover w-full h-full bg-black">
-          <source :src="videoPath" type="video/mp4">
+          <source type="video/mp4" :src="videoPath">
         </video>
       </div>
     </template>

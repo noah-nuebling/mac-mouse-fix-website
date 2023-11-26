@@ -108,6 +108,7 @@ var props = defineProps({
   backgroundFilterClass: String,
   contentClass: String,
   doesExpand: Boolean,
+  videoPath: String,
 })
 
 //
@@ -188,12 +189,16 @@ onUnmounted(() => {
   }
 });
 
+
+
 // Don't do stuff if !doesExpand
 // Discussion: 
 // - First, we were trying to wrap this code in a function so that we can early return. But we can't do certain stuff inside functions like access `this` or call stuff like defineExpose, afaiu, so we're just wrapping everything inside a huge if-statement
 // - Edit: Can't call defineExpose from inside if-statement, either, so we doing the if-statement all the way down here
 
 if (props.doesExpand) {
+
+  // unloadVideos(card.value!)
 
   // React to isExpanded change
   watch(isExpanded, (shouldExpand) => {    
@@ -209,6 +214,8 @@ if (props.doesExpand) {
 
     // Animate and stuff
     if (shouldExpand) {
+
+      // loadVideos(card.value!)
 
       ///
       /// >>> Expand <<<
@@ -664,8 +671,9 @@ if (props.doesExpand) {
           video.currentTime = 0.0
         }
 
-        // Unload video
-        unloadVideos(card.value!)
+        // Free video from memory
+        freeVideos(card.value!)
+        // unloadVideos(card.value!)
       }
 
       // TESTING (We'll animate these later)
@@ -887,45 +895,55 @@ if (props.doesExpand) {
 
   }
 
-  function unloadVideos(element: HTMLElement) {
+  function freeVideos(element: HTMLElement) {
 
     // Free videos inside `element` from memory
     // Notes:
     // - See https://stackoverflow.com/questions/47445281/how-to-go-about-freeing-an-html5-video-from-memory
     // - If we don't do this iOS Safari starts crashing after opening a few cards, because they take up a lot of ram
 
-    const videos = findChildren(element, (child) =>  child.tagName == 'VIDEO') as HTMLVideoElement[]
+    unloadVideos(element)
 
+    setTimeout(() => {
+
+      loadVideos(element, true)
+
+    }, 0.0)
+  }
+
+  function unloadVideos(element: HTMLElement) {
+    
+    const videos = findChildren(element, (child) =>  child.tagName == 'VIDEO') as HTMLVideoElement[]
+    
     for (const video of videos) {
-      const src = video.currentSrc // Not sure why we have to use currentSrc (instead of src) here
-      video.dataset['src'] = src
+      // const src = video.currentSrc // Not sure why we have to use currentSrc (instead of src) here
+      // video.dataset['src'] = src
       video.src = ''
       video.load()
-
-      // This might help load thumbnails on iOS when we reopen cards
-      // Edit: Doesn't work, just creates memory overloads again. videos just keep playing on iOS it seems. Should test again, no time now.
-      // TODO: Test this again ^^^
-      
-      setTimeout(() => {
-        video.pause()
-        video.currentTime = 0
-        video.src = src
-        video.load()
-        video.pause()
-        console.log(`videoData: preload: ${ video.preload }, currentSrc: ${ video.currentSrc }, currentTime: ${ video.currentTime }, isPaused: ${ video.paused }`)
-      }, 0.0)
-
     }
   }
-  function loadVideos(element: HTMLElement) {
 
+  function loadVideos(element: HTMLElement, doPausingStuff = false) {
+    
     const videos = findChildren(element, (child) =>  child.tagName == 'VIDEO') as HTMLVideoElement[]
 
     for (const video of videos) {
-      const src = video.dataset['src']
+
+      const src = props.videoPath//video.dataset['src']
+
       if (src != undefined) {
+
+        if (doPausingStuff) {
+          video.pause()
+          video.currentTime = 0
+        }
+
         video.src = src
         video.load()
+
+        if (doPausingStuff) {
+          video.pause()
+        }
       }
     }
   }
@@ -947,6 +965,7 @@ if (props.doesExpand) {
   }
 
   function animationComplexity(collapsedWidth: number, expandedWidth: number, collapsedHeight: number, expandedHeight: number) {
+
     const shrinksInAnyDimension = expandedWidth < collapsedWidth || expandedHeight < collapsedHeight
     const useSuperSimpleAnimations = $isMobile() && currentSize.value <= ResponsiveSize.sm // Same as useSimpleAnimations, but also omit y position -> so only animate fade -> hopefully more efficient for mobile
     const useSimpleAnimations = prefersReducedMotion() || shrinksInAnyDimension || useSuperSimpleAnimations // Omit size and x position animations
