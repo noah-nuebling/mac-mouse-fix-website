@@ -133,6 +133,22 @@ export default {
       addVariant('chromium',  `.chromium &`);
       addVariant('firefox',   `.firefox &`);
     }),
+
+    plugin(function ({ matchVariant }) {
+
+      /* Variant for styling self if a parent has a certain class
+        Use like `par-[.some-class]:color-blue-500`
+        (There are probably more usecases for this that I don't understand, yet.)
+      */
+
+      const options = {}
+
+      matchVariant('par', (value, { modifier, container }) => {
+        const v = value.replaceAll('_', ' ')
+        return `${ v } &`
+      }, options)
+    }),
+
     plugin(function ({ matchVariant }) {
 
       /* Variant for styling children with a certain selector

@@ -16,7 +16,7 @@
 <template>
   <div
     ref="card"
-    :class="['overflow-clip relative will-change-[transform,opacity] ', $props.class, doesExpand ? 'cursor-pointer' : '']"
+    :class="['overflow-clip relative will-change-[transform,opacity] isNotExpanded', $props.class, doesExpand ? 'cursor-pointer' : '']"
     v-on-click-outside="{ onEvent: () => { isExpanded = false }, condition: isExpanded, blockEvents: true }">
 
     <!-- Background Filter Container -->
@@ -159,6 +159,26 @@ defineExpose({
   isAnimationExpanded,
 })
 
+// React to expanded state changes
+
+watch(isExpanded, () => {
+  if (isExpanded.value) {
+    // card.value?.classList.add('isExpanded')
+    // card.value?.classList.remove('isNotExpanded')
+  } else {
+
+  }
+})
+
+watch(isAnimationExpanded, () => {
+  if (isAnimationExpanded.value) {
+
+  } else {
+    // card.value?.classList.add('isNotExpanded')
+    // card.value?.classList.remove('isExpanded')
+  }
+})
+
 // Additional setup after mount
 onMounted(() => {
 
@@ -198,8 +218,8 @@ onUnmounted(() => {
 
 if (props.doesExpand) {
 
-  // React to isExpanded change
-  watch(isExpanded, async (shouldExpand) => {    
+  // Do the main expand / unexpand animations
+  watch(isExpanded, async (shouldExpand) => { 
 
     // Kill current animations
     // Not totally sure if this is appropriate here. I think it prevents the onComplete method from being called when the card is unexpanded during the expand animation, which would lead to the zIndex getting messed up.
@@ -270,6 +290,10 @@ if (props.doesExpand) {
 
       // Replace the card with the placeholder
       card.value?.replaceWith(cardPlaceholder)
+
+      // Set css flags
+      card.value?.classList.add('isExpanded')
+      card.value?.classList.remove('isNotExpanded')
 
       // Place the expanded content in the card, hide the default content
       defaultCardContent.value!.style.display = 'none'
@@ -416,7 +440,7 @@ if (props.doesExpand) {
 
         // Update state
         isAnimationExpanded.value = true
-
+        
         // Play video, once expand animation finishes
         if (isExpanded.value! == true && video != null && video.src != null) {
           video.play()
@@ -607,7 +631,7 @@ if (props.doesExpand) {
       // 
       //  >>> Unexpand <<<
       //
-      
+
       // Remove backdrop from layout
       // $store.backdrop?.remove()
 
@@ -627,6 +651,10 @@ if (props.doesExpand) {
 
         // Update state
         isAnimationExpanded.value = false
+        
+        // Set css flags
+        card.value?.classList.add('isNotExpanded')
+        card.value?.classList.remove('isExpanded')
 
         // 
         // Restore unexpanded state of card
