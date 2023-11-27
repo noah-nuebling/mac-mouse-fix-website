@@ -31,6 +31,7 @@ export default defineNuxtConfig({
   nitro: {
   },
   vite: {
+    assetsInclude: "**/*.mov",
     plugins: [
     ]
   },

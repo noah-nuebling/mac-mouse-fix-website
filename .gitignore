@@ -21,3 +21,7 @@ logs
 .env
 .env.*
 !.env.example
+
+# Python venv
+env
+venv
