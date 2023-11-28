@@ -24,7 +24,7 @@ This Python script allows for recording and playback of macOS system events usin
 
 
   ```bash
-  python3 script.py record output_file.json [--verbose]
+  python3 script.py record output_file [--verbose]
   ```
   - Add the `--verbose` flag to print each recorded event type.
 
@@ -33,7 +33,7 @@ This Python script allows for recording and playback of macOS system events usin
 #### Playback Events:
 
   ```bash
-  python3 script.py playback input_file.json [start_time] [end_time] [--verbose]
+  python3 script.py playback input_file [start_time] [end_time] [--verbose]
   ```
   - Use the `--verbose` flag to print each event type being played back.
 
