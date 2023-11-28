@@ -27,7 +27,7 @@ export default {
 
   'trackpad-features.title': "Macs sind am besten\nMit einem {accent},\nOder?",
   'trackpad-features.title.accent': "Trackpad",
-  'trackpad-features.body': 'Jetzt nicht mehr! Mac Mouse Fix bringt alle Funktionen eines Apple Trackpads - und mehr - auf deine **ergonomische** und **präzise** Drittanbieter-Maus. Und alle Interaktionen fühlen sich genauso **ausgefeilt** und **geschmeidig** an wie auf dem Trackpad.',
+  'trackpad-features.body': 'Jetzt nicht mehr! Mac Mouse Fix bringt alle Funktionen eines Apple Trackpads - und mehr - auf **ergonomische** und **präzise** Drittanbieter-Mäuse. Und alle Interaktionen fühlen sich genauso **ausgefeilt** und **geschmeidig** an wie auf einem Trackpad.',
 
   'trackpad-features.header': '**Trackpad-Gesten** die Mac Mouse Fix auf deine Maus bringt',
 
@@ -71,7 +71,7 @@ export default {
   'scrolling.title': "{accent}.\nButterweich.",
   'scrolling.title.accent': "Scrollen",
   
-  'scrolling.body': "Mit Mac Mouse Fix fühlt sich Scrollen auf deiner Maus so **flüssig** und **geschmeidig** an wie auf einem Apple Trackpad oder so **konsistent** und **präzise** wie unter Windows.",
+  'scrolling.body': "Das Scrollen mit einer Drittanbieter-Maus unter macOS kann sich **holprig** und **schwer kontrollierbar** anfühlen. Erlebe einen **ausgefeilten**, **schwungbasierten** Scroll-Algorithmus, der die Navigation deines Computers **mühelos** und **natürlich** macht.",
   
   'scroll-smoothness.header': 'Wähle eine **Scroll-Flüssigkeit**',
   
