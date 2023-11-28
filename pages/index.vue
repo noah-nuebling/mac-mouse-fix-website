@@ -245,7 +245,7 @@ import remapDemoVideoPath from '../assets/video/remap_demo_old.mp4'
 
 /* Manually import image assets */
 
-const actionTableImagePath = '/mmf-on-studio-display-4.png'
+const actionTableImagePath = '/mmf-on-studio-display-5.png'
 const colorSplashImagePath = '/color-splash.png'
 
 /* Get global store */
