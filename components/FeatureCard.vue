@@ -783,7 +783,7 @@ if (props.doesExpand) {
       const curveForTop = useSuperSimpleAnimations ? null : rawCurveFromAnimationCurve({ outputRange: { start: currentTop, end: targetTop }, ease: easeForPosition }) // combineCurves(curveForCenterY, curveForHeight, (centerY, height) => centerY - height/2.0) <-- not using this bc anchoring card at the top now
       const curveForLeft = useSimpleAnimations ? null : combineCurves(curveForCenterX!, curveForWidth!, (centerX, width) => centerX - width/2.0)
       
-      // Find find animations for translate and scale equivalent to the position and size animations defined above
+      // Find animations for translate and scale equivalent to the position and size animations defined above
       
       const curveForTranslateX  = useSimpleAnimations ? null : transfromCurve(curveForLeft!,      (v) => v - curveForLeft!(0.0) )
       const curveForTranslateY  = useSuperSimpleAnimations ? null : transfromCurve(curveForTop!,  (v) => v - curveForTop!(0.0) )

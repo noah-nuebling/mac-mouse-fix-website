@@ -71,7 +71,7 @@ export default {
   'scrolling.title': "{accent}.\nButterweich.",
   'scrolling.title.accent': "Scrollen",
   
-  'scrolling.body': "Das Scrollen mit einer Drittanbieter-Maus unter macOS kann sich **holprig** und **schwer kontrollierbar** anfühlen. Erlebe einen **ausgefeilten**, **schwungbasierten** Scroll-Algorithmus, der die Navigation deines Computers **mühelos** und **natürlich** macht.",
+  'scrolling.body': "Das Scrollen mit einer Drittanbieter-Maus unter macOS kann sich **holprig** und **schwer kontrollierbar** anfühlen.\n\nErlebe einen **ausgefeilten**, **schwungbasierten** Scroll-Algorithmus, der die Navigation deines Computers **mühelos** und **natürlich** macht.",
   
   'scroll-smoothness.header': 'Wähle eine **Scroll-Flüssigkeit**',
   

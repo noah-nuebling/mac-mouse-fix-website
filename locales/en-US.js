@@ -91,7 +91,7 @@ export default {
   'scrolling.title': "{accent}.\nSmooth As Butter.",
   'scrolling.title.accent': "Scrolling",
 
-  'scrolling.body': "Scrolling with a third-party mouse on macOS can feel **stuttery** and **hard to control**. Experience a **refined**, **momentum-based** scrolling algorithm, that makes navigating your computer **effortless** and **natural**.",
+  'scrolling.body': "Scrolling with a third-party mouse on macOS can feel **stuttery** and **hard to control**.\n\nExperience a **refined**, **momentum-based** scrolling algorithm, that makes navigating your computer **effortless** and **natural**.",
 
   'scroll-smoothness.header': 'Choose a **Scrolling Smoothness** ...',
 

@@ -31,7 +31,7 @@
       <blockquote :class="['whitespace-pre-wrap max-w-[24em] text-center text-[1.6em] font-[400]', !doGlow ? 'text-white/[0.90]' : 'text-glow-2 text-white/[0.90]']" v-html="quote ? uiStrings!.quote : text!"/>
     </div>
     <!-- Quote Source -->
-    <div v-if="quote" class="flex justify-center mt-[-2.05em] mb-[0.6em] strong:font-[600] safari:strong:safari-text-glow-2 strong:text-glow-2 strong:inline-block strong:text-white/[0.3] text-white/[0.5] font-[400]">
+    <div v-if="quote" class="flex justify-center mt-[-2.05em] mb-[0.6em] mx-[1em] strong:font-[600] safari:strong:safari-text-glow-2 strong:text-glow-2 strong:inline-block strong:text-white/[0.3] text-white/[0.5] font-[400]">
       <a :href="sourceIsPublic ? quote?.link : ''" :class="['relative max-w-fit block pointer-events-none', sourceIsPublic ? 'cool-hover-underlinexxx' : '']">
         <p class="text-[1.15em] text-center w-fit">
           <span v-html="uiStrings!.source" class=""></span>
