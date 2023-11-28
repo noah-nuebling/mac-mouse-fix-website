@@ -71,27 +71,27 @@ export default {
   'scrolling.title': "{accent}.\nButterweich.",
   'scrolling.title.accent': "Scrollen",
   
-  'scrolling.body': "Das Scrollen mit einer Drittanbieter-Maus unter macOS kann sich **holprig** und **schwer kontrollierbar** anfühlen.\n\nErlebe einen **ausgefeilten**, **schwungbasierten** Scroll-Algorithmus, der die Navigation deines Computers **mühelos** und **natürlich** macht.",
+  'scrolling.body': "Das Scrollen mit einer Drittanbieter-Maus unter macOS kann sich **holprig** und **schwer kontrollierbar** anfühlen. Mac Mouse Fix löst dieses Problem! Erlebe einen **ausgefeilten**, **schwungbasierten** Scroll-Algorithmus, der die Navigation deines Computers **mühelos** und **natürlich** macht.",
   
-  'scroll-smoothness.header': 'Wähle eine **Scroll-Flüssigkeit**',
+  'scroll-smoothness.header': 'Wähle eine **Scroll-Flüssigkeit** ...',
   
   'scroll-smoothness.high.title': 'Flüssigkeit: **Hoch**',
-  'scroll-smoothness.high.body': "Die Option für hohe Flüssigkeit in Mac Mouse Fix emuliert präzise das **flüssige Scrollen eines Trackpads**, einschließlich Details wie dem subtilen Aufprall am Ende einer Seite. Mit dieser Option kannst du auch sehr leicht weite Strecken Scrollen.",
+  'scroll-smoothness.high.body': "Mit *Flüssigkeit: Hoch*, fühlt sich das Scrollen **unglaublich flüssig** an - **genau wie bei einem Trackpad**. Details wie der dezente Rückprall am Ende einer Seite sorgen für ein hochdynamisches und angenehmes Gefühl. Trotzdem ist das Scrollen super reaktionsschnell und leicht zu steuern. Mit dieser Option kannst du auch sehr leicht weite Strecken zurücklegen.",
   
   'scroll-smoothness.regular.title': 'Flüssigkeit: **Regulär**',
-  'scroll-smoothness.regular.body': "Wähle reguläre Flüssigkeit für **flotteres Scrollen**, das weniger geschmeidig ist als auf einem Trackpad, aber dennoch ein großartiges, raffiniertes Scrollgefühl mit physikbasierten Animationen bietet.\n\nEs fühlt sich ähnlich an wie das Scrollen in Chrome oder modernen Windows-Apps. Nur etwas besser.",
+  'scroll-smoothness.regular.body': "Wähle *Flüssigkeit: Regulär* für **hochreaktives** Scrollen, das sich anfühlt, **als würdest du die Seite direkt mit dem Finger schieben**. Die kurzen, schwungbasierten Animationen bieten ein raffiniertes Scroll-Gefühl.\n\nDiese Option fühlt sich ähnlich an wie das Scrollen in Chrome oder modernen Windows-Apps.",
   
   'scroll-smoothness.off.title': 'Flüssigkeit: **Aus**',
-  'scroll-smoothness.off.body': "Mit dieser Option funktioniert das Scrollen wie gewohnt unter macOS - ohne jede Animation oder Glättung. Aber mit einem entscheidenden Unterschied: In Apps wie Finder **scrollt eine Raste des Scrollrads** eine **festgelegte Anzahl von *Zeilen***, statt nur ein paar Pixel. Das macht die Navigation konsistenter und angenehmer.\n\nSo funktioniert das Scrollen auch in den meisten Apps auf Windows und Linux, sowie in älteren macOS-Versionen.",
+  'scroll-smoothness.off.body': "Mit *Flüssigkeit: Aus* funktioniert das Scrollen wie gewohnt unter macOS - **ohne jede Animation** oder Glättung. Aber mit einem entscheidenden Unterschied: **Eine Raste des Scrollrads** scrollt eine **festgelegte Anzahl von *Zeilen***, statt nur ein paar Pixel. Das macht die Navigation konsistenter und angenehmer.\n\nSo funktioniert das Scrollen auch in den meisten Apps auf Windows und Linux, sowie in älteren macOS-Versionen.",
   
-  'scroll-feature.header': 'Andere großartige **Scroll-Funktionen**',
+  'scroll-feature.header': '... Und **Mehr**',
 
-  'scroll-feature.reverse.title':       'Richtung des Scrollens umkehren',
-  'scroll-feature.reverse.body':        "Mit Mac Mouse Fix kannst du die Scrollrichtung deiner Maus ändern - unabhängig von deinem Trackpad oder deiner Magic Mouse.",
+  'scroll-feature.reverse.title':       'Scrollrichtung umkehren',
+  'scroll-feature.reverse.body':        "Mit Mac Mouse Fix kannst du die **Scrollrichtung** deiner Maus **ändern** - unabhängig von deinem Trackpad oder deiner Magic Mouse.",
   'scroll-feature.modifiers.title':     'Sondertasten',
-  'scroll-feature.modifiers.body':      "Halte beim Scrollen eine Sondertaste auf deinem Keyboard gedrückt, um horizontal zu scrollen, rein- oder rauszuzoomen und mehr.",
+  'scroll-feature.modifiers.body':      "Halte beim Scrollen eine Sondertaste auf deinem Keyboard gedrückt, um **präzise zu scrollen**, **rein- oder rauszuzoomen** und mehr.",
   'scroll-feature.configurable.title':  'Einfach aber flexibel',
-  'scroll-feature.configurable.body':   "Mit nur wenigen Klicks kannst du das Scrollen in Mac Mouse Fix auf viele verschiedene Arten einrichten. Jede von dir gewählte Option wird sich gut anfühlen, ohne dass du herumschrauben musst. Du kannst jede Scroll-Verbesserung von Mac Mouse Fix auch deaktivieren, wenn du die Art und Weise bevorzugst, wie das Scrollen in macOS nativ funktioniert.",
+  'scroll-feature.configurable.body':   "Mit nur wenigen Klicks kannst du das Scrollen in Mac Mouse Fix auf viele verschiedene Arten einrichten. **Jede von dir gewählte Option wird sich gut anfühlen, ohne dass du herumschrauben musst**. Du kannst jede Scroll-Verbesserung von Mac Mouse Fix auch deaktivieren, wenn du die Art und Weise bevorzugst, wie die Dinge in macOS nativ funktioniert.",
 
   // GPT 3
   // 'scrolling.title': "{first}.\nSo geschmeidig wie Butter.",

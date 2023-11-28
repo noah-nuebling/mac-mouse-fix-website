@@ -59,7 +59,7 @@ export default {
   'feature.smart-zoom.title': 'Smart zoom',
   'feature.smart-zoom.body': '**Click button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple trackpad.',
 
-  'trackpad-features.disclaimer': "Note: Mac Mouse Fix can bring these trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These 5 buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't currently recognize all the buttons. Mac Mouse Fix doesn't currently support the Apple Magic Mouse.",
+  'trackpad-features.disclaimer': "Note: Mac Mouse Fix can bring these trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These 5 buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't recognize all the buttons at the moment. Mac Mouse Fix does not currently support the Apple Magic Mouse.",
 
   /* Scrolling */
 
@@ -91,25 +91,25 @@ export default {
   'scrolling.title': "{accent}.\nSmooth As Butter.",
   'scrolling.title.accent': "Scrolling",
 
-  'scrolling.body': "Scrolling with a third-party mouse on macOS can feel **stuttery** and **hard to control**.\n\nExperience a **refined**, **momentum-based** scrolling algorithm, that makes navigating your computer **effortless** and **natural**.",
+  'scrolling.body': "Scrolling with a third-party mouse on macOS can feel **stuttery** and **hard to control**. Mac Mouse Fix solves this problem! Experience a **refined**, **momentum-based** scrolling algorithm that makes navigating your computer **effortless** and **natural**.",
 
   'scroll-smoothness.header': 'Choose a **Scrolling Smoothness** ...',
 
   'scroll-smoothness.high.title': 'Smoothness: **High**',
-  'scroll-smoothness.high.body': "The high smoothness option in Mac Mouse Fix precisely **emulates the fluid scrolling of a trackpad**, including details like the subtle bounce at the end of a page. With this option you can also scroll far distances with ease.",
+  'scroll-smoothness.high.body': "With *Smoothness: High*, scrolling feels **incredibly smooth** - **just like a trackpad**. Details like the subtle bounce at the end of a page make for a highly dynamic and pleasant feel. Despite this, scrolling is super easy to control. With this option, you can also cover large distances with ease.",
   'scroll-smoothness.regular.title': 'Smoothness: **Regular**',
-  'scroll-smoothness.regular.body': "Choose regular smoothness for **more snappy scrolling**, that's less smooth than a trackpad, but still provides a great, refined feel with physics-based animations.\n\nIt feels similar to scrolling in Chrome or modern Windows apps, just a bit nicer.",
+  'scroll-smoothness.regular.body': "Choose *Smoothness: Regular* for **highly responsive** scrolling that **feels like you're directly pushing the page with your finger**. The short, momentum-based animations provide a refined feel.\n\nThis option feels similar to scrolling in Chrome or modern Windows apps.",
   'scroll-smoothness.off.title': 'Smoothness: **Off**',
-  'scroll-smoothness.off.body': "With this option, scrolling works as it normally does under macOS - without any animation or smoothing. But with one key difference: In apps like Finder, **one increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.\n\nThis is how scrolling also works in most apps on Windows and Linux, as well as older macOS versions.",
+  'scroll-smoothness.off.body': "With *Smoothness: Off*, scrolling works as it normally does under macOS - **without any animation** or smoothing. But with one key difference: **One increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.\n\nThis is how scrolling also works in most apps on Windows and Linux, as well as older macOS versions.",
 
   'scroll-feature.header': '... And **More**',
 
-  'scroll-feature.reverse.title':       'Change the **Scrolling Direction**',
-  'scroll-feature.reverse.body':        "Mac Mouse Fix lets you change the scrolling direction of your mouse - independently from your trackpad or Magic Mouse.",
+  'scroll-feature.reverse.title':       'Scrolling direction',
+  'scroll-feature.reverse.body':        "Mac Mouse Fix lets you **change the scrolling direction** of your mouse - independently from your trackpad or Magic Mouse.",
   'scroll-feature.modifiers.title':     'Keyboard modifiers',
-  'scroll-feature.modifiers.body':      "Hold a keyboard modifier while scrolling to scroll horizontally, zoom in or out, and more.",
+  'scroll-feature.modifiers.body':      "Hold a keyboard modifier while scrolling to **scroll precisely**, **zoom in or out**, and more.",
   'scroll-feature.configurable.title':  'Simple yet powerful',
-  'scroll-feature.configurable.body':   "You can set up scrolling in Mac Mouse Fix in many different ways with just a few clicks. All options you choose will feel great without fiddling. Each scrolling enhancement provided by Mac Mouse Fix can also be turned off, if you prefer how things work natively in macOS.",
+  'scroll-feature.configurable.body':   "You can set up scrolling in Mac Mouse Fix in many different ways with just a few clicks. **All options you choose will feel great without fiddling**. Each scrolling enhancement provided by Mac Mouse Fix can also be turned off, if you prefer how things work natively in macOS.",
 
   /* Action Table */
 
