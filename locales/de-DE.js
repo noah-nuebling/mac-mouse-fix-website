@@ -71,15 +71,15 @@ export default {
   'scrolling.title': "{accent}.\nButterweich.",
   'scrolling.title.accent': "Scrollen",
   
-  'scrolling.body': "Das Scrollen mit einer Drittanbieter-Maus unter macOS kann sich **holprig** und **schwer kontrollierbar** anfühlen. Mac Mouse Fix löst dieses Problem! Erlebe einen **ausgefeilten**, **schwungbasierten** Scroll-Algorithmus, der die Navigation deines Computers **mühelos** und **natürlich** macht.",
+  'scrolling.body': "Das Scrollen mit einer Drittanbieter-Maus unter macOS kann sich **holprig** und **schwer kontrollierbar** anfühlen. Jetzt nicht mehr! Erlebe einen **ausgefeilten**, **schwungbasierten** Scroll-Algorithmus, der die Navigation deines Computers **mühelos** und **natürlich** macht.",
   
   'scroll-smoothness.header': 'Wähle eine **Scroll-Flüssigkeit** ...',
   
   'scroll-smoothness.high.title': 'Flüssigkeit: **Hoch**',
-  'scroll-smoothness.high.body': "Mit *Flüssigkeit: Hoch*, fühlt sich das Scrollen **unglaublich flüssig** an - **genau wie bei einem Trackpad**. Details wie der dezente Rückprall am Ende einer Seite sorgen für ein hochdynamisches und angenehmes Gefühl. Trotzdem ist das Scrollen super reaktionsschnell und leicht zu steuern. Mit dieser Option kannst du auch sehr leicht weite Strecken zurücklegen.",
+  'scroll-smoothness.high.body': "Mit *Flüssigkeit: Hoch*, fühlt sich das Scrollen **unglaublich flüssig** an - **genau wie bei einem Trackpad**. Details wie der dezente Rückprall am Ende einer Seite sorgen für ein dynamisches und angenehmes Scroll-Gefühl. Trotzdem ist das Scrollen super reaktionsschnell und leicht zu steuern. Mit dieser Option kannst du auch sehr leicht weite Strecken scrollen.",
   
   'scroll-smoothness.regular.title': 'Flüssigkeit: **Regulär**',
-  'scroll-smoothness.regular.body': "Wähle *Flüssigkeit: Regulär* für **hochreaktives** Scrollen, das sich anfühlt, **als würdest du die Seite direkt mit dem Finger schieben**. Die kurzen, schwungbasierten Animationen bieten ein raffiniertes Scroll-Gefühl.\n\nDiese Option fühlt sich ähnlich an wie das Scrollen in Chrome oder modernen Windows-Apps.",
+  'scroll-smoothness.regular.body': "Wähle *Flüssigkeit: Regulär* für **reaktionsschnelles** Scrollen, das sich anfühlt, **als würdest du die Seite direkt mit dem Finger schieben**. Die kurzen, schwungbasierten Animationen bieten ein raffiniertes Scroll-Gefühl.\n\nDiese Option fühlt sich ähnlich an wie das Scrollen in Chrome oder modernen Windows-Apps.",
   
   'scroll-smoothness.off.title': 'Flüssigkeit: **Aus**',
   'scroll-smoothness.off.body': "Mit *Flüssigkeit: Aus* funktioniert das Scrollen wie gewohnt unter macOS - **ohne jede Animation** oder Glättung. Aber mit einem entscheidenden Unterschied: **Eine Raste des Scrollrads** scrollt eine **festgelegte Anzahl von *Zeilen***, statt nur ein paar Pixel. Das macht die Navigation konsistenter und angenehmer.\n\nSo funktioniert das Scrollen auch in den meisten Apps auf Windows und Linux, sowie in älteren macOS-Versionen.",
@@ -119,13 +119,14 @@ export default {
 
   /* Action Table */
 
-  'remap-engine.title': 'Ungeheuer {accent2}\n- Aber dennoch -\nErstaunlich intuitiv.',
+  'remap-engine.title': 'Gewaltig {accent2}\n{accent} intuitiv.',
+  'remap-engine.title.accent': 'und',
   'remap-engine.title.accent2': 'Flexibel',
-  'remap-engine.body': 'Mit Mouse Fix kannst du unglaublich **leicht** und **intuitiv** ganz genau anpassen, was deine Maus macht.',
+  'remap-engine.body': "**Vielseitige Anpassungsmöglichkeiten** gehen normalerweise mit einer komplexen Benutzeroberfläche einher. Aber, du hast es erraten, nicht bei Mac Mouse Fix! Es lässt dich deine Maus genau so einrichten, wie du willst, und ist dabei **bemerkenswert einfach**.", //"Richte deine Maus **genau** so ein wie du es willst - **In Sekunden**!",//'Mit Mac Mouse Fix kannst du **fast alles tun**, was dein Computer kann. Und deine Maus **in Sekunden** genau so einrichten, wie du es willst.',
 
   'customization-feature.header': "Flexible **Anpassungsmöglichkeiten**",
-  'customization-feature.action-table.title': 'Füge deiner Maus **Eigene Gesten** hinzu',
-  'customization-feature.action-table.body': "Um eine Geste zu deiner Maus hinzuzufügen, fahre **zuerst** mit dem Mauszeiger über das '+' Feld (unten abgebildet). **Als Zweites**, zeige Mac Mouse Fix eine Geste - das kann ein einfacher Tastenklick sein oder eine kompliziertere Eingabe. Weise **schließlich** der Geste eine Aktion zu, zum Beispiel Intelligentes Zoomen. Und das war's!",
+  'customization-feature.action-table.title': 'Füge deiner Maus **Aktionen hinzu**',
+  'customization-feature.action-table.body': "Um deiner Maus eine Aktion hinzuzufügen:\n\n1. **Bewege** den Mauszeiger in das '+' Feld. (Unten abgebildet)\n2. **Klicke** die Maustaste, der du eine Aktion zuweisen möchtest.\nDu kannst auch Doppelklicken, Klicken und Ziehen und mehr!\n3. **Wähle** eine Aktion aus, zum Beispiel Intelligentes Zoomen.\n\nUnd das war's!",
   // 'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
   
   'customization-feature.keyboard-shortcuts.title': "Verwende **Tastaturkurzbefehle** von deiner Maus aus",

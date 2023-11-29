@@ -152,14 +152,28 @@ export default {
     plugin(function ({ matchVariant }) {
 
       /* Variant for styling children with a certain selector
-        Use like `ch-[.some-class]:color-blue-500` to style all children with class `.some-class`. If your child selector has spaces, you can use _ instead.*/
+        Use like `ch-[.some-class]:color-blue-500` to style all children with class `.some-class`. If your child selector has spaces, you can use _ instead.
+      */
 
       const options = {}
 
-      matchVariant('ch', (value, { modifier, container }) => {
-        const v = value.replaceAll('_', ' ')
-        return `& ${ v }`
+      matchVariant('ch', (v, { modifier, container }) => {
+        
+        v = preprocessVariantValue(v);
+        var transform = (x) => `& ${ x }`
+        var result = v.map(transform)
+
+        return result
       }, options)
+    }),
+
+    plugin(function ({ addVariant }) {
+
+      // not-last variant
+      // Use like `not-last:ch-[.some-class]:color-blue-500` to match all children with class `.some-class` that are not the last child.
+      // Use like `ch-[.some-class]:not-last:color-blue-500` to match all children with class `.some-class` if the element that you're setting the tailwind class on is not the last child.
+
+      addVariant('not-last', '&:not(:last-child)')
     }),
 
     plugin(function ({ addVariant }) {
@@ -302,4 +316,17 @@ export default {
       matchUtilities(newUtilities, options)
     }),
   ]
+}
+
+function preprocessVariantValue(v) {
+
+  /*
+  We need to do this so that 
+    - Using comma as in ch-[a,b] works
+    - Using underscores as in ch-[a_b] works
+  */
+
+  v = v.replaceAll('_', ' ');
+  v = v.split(',');
+  return v;
 }

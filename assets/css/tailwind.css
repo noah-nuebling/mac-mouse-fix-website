@@ -42,13 +42,30 @@ Notes:
     @apply bg-neutral-50;
     
     /* zoom: 122%; Like Feedback Assistant */
+
+    
   }
 
   ol {
-    list-style: decimal;
-    list-style-position: inside;
-    text-indent: -1em;
-    padding-left: 1em;
+    --indent: 1.5em;
+    list-style-type: decimal;
+  } 
+  ul {
+    --indent: 1.0em;
+    list-style-type: disc;
+  }
+  ol, ul {
+
+    --wrap-indent: 0em; /* This is different on Chrome vs Safari. To be used with style-position: inside */
+    list-style-position: outside;
+
+    padding-left: calc(var(--indent) + var(--wrap-indent));
+    text-indent: calc(-1 * var(--wrap-indent));
+  }
+  li {
+    /* padding-left: 0em;
+    padding-bottom: 0.2em;
+    line-height: 1.3; */
   }
 }
 

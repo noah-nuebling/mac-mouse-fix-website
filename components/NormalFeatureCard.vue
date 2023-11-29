@@ -44,9 +44,7 @@
       <div class="flex flex-col items-center justify-start h-full sm:m-[2rem] m-[3.0rem] sm:mt-[1.33rem] mt-[2.75rem] ">
 
         <!-- Body -->
-        <div>
-          <p class="card-sm strong:font-[500] sm:text-[1.05rem] text-[1.15rem] font-[400] whitespace-pre-wrap max-w-[30em]" v-html="$mt(bodyKey!, dynamic)"></p>
-        </div>        
+        <div v-html="$mt(bodyKey!, dynamic, false)" class="card-sm strong:font-[500] sm:text-[1.05rem] text-[1.15rem] font-[400] max-w-[30em] not-last:ch-[ol,ul,p]:mb-[1em]"></div>
 
         <!-- Image -->
         <div v-if="imagePath" :class="[imageClass]">

@@ -91,12 +91,12 @@ export default {
   'scrolling.title': "{accent}.\nSmooth As Butter.",
   'scrolling.title.accent': "Scrolling",
 
-  'scrolling.body': "Scrolling with a third-party mouse on macOS can feel **stuttery** and **hard to control**. Mac Mouse Fix solves this problem! Experience a **refined**, **momentum-based** scrolling algorithm that makes navigating your computer **effortless** and **natural**.",
+  'scrolling.body': "Scrolling with a third-party mouse on macOS can feel **stuttery** and **hard to control**. Well, not any more! Experience a **refined**, **momentum-based** scrolling algorithm that makes navigating your computer **effortless** and **natural**.",
 
   'scroll-smoothness.header': 'Choose a **Scrolling Smoothness** ...',
 
   'scroll-smoothness.high.title': 'Smoothness: **High**',
-  'scroll-smoothness.high.body': "With *Smoothness: High*, scrolling feels **incredibly smooth** - **just like a trackpad**. Details like the subtle bounce at the end of a page make for a highly dynamic and pleasant feel. Despite this, scrolling is super easy to control. With this option, you can also cover large distances with ease.",
+  'scroll-smoothness.high.body': "With *Smoothness: High*, scrolling feels **incredibly smooth** - **just like a trackpad**. Details like the subtle bounce at the end of a page make for a dynamic and pleasant feel. Still, scrolling is super responsive and easy to control. With this option, you can also scroll large distances very easily.",
   'scroll-smoothness.regular.title': 'Smoothness: **Regular**',
   'scroll-smoothness.regular.body': "Choose *Smoothness: Regular* for **highly responsive** scrolling that **feels like you're directly pushing the page with your finger**. The short, momentum-based animations provide a refined feel.\n\nThis option feels similar to scrolling in Chrome or modern Windows apps.",
   'scroll-smoothness.off.title': 'Smoothness: **Off**',
@@ -117,6 +117,10 @@ export default {
 
   Discussion:
   - We tried to add a numbered list into the action table body, describing the steps to setup a new gesture. Buttt we couldn't get it to work in a reasonable time. So we're just making it as good as possible in a flowing text.
+  - Problem: It might be nicer to have a shorter text, like the MMF 2 reddit post, and then have the details in the video demo. This would sound better and be easier to read. But I think the little MMF-on-studio-display image is hard to make sense of if you don't have the step-by-step instructions. So we're keeping the step-by-step for now. But it would be better to be closer to MMF 2 Reddit post.
+
+  MMF 2 Reddit Post alternative:
+    Move the pointer into the "+" field, then simply show Mac Mouse Fix the clicks and drags that you want to assign a new Action to.
 
   Alternative action table body:  
     
@@ -131,11 +135,11 @@ export default {
   'remap-engine.title': 'Amazingly {accent2}\n{accent} Intuitive.',
   'remap-engine.title.accent':  'and',
   'remap-engine.title.accent2': 'Flexible',
-  'remap-engine.body': "Customizing how your mouse works in Mac Mouse Fix is **better than in any competing app** - Both when it comes to how **easy** it is, *and* when it comes to the range of **powerful** things you can do. That's amazing isn't it?", // Mac Mouse Fix makes it incredibly **easy and intuitive to precisely customize** what your mouse does.
+  'remap-engine.body': "**Powerful customization options** usually come with a complex user interface. Well, you guessed it, not with Mac Mouse Fix! It lets you set up your mouse exactly the way you want, while being **remarkably simple**.", //"Too often, powerful customization options come with **complex** and **confusing** user interfaces. Well, you guessed it, not Mac Mouse Fix! It lets you set up your mouse **exactly** the way you want - and it's **remarkably easy**!", //"Set up your mouse **exactly** how you want it - In **seconds**!", // "With Mac Mouse Fix you can configure your mouse to do **almost anything** your computer can do - in a vast number of ways. And it takes only **seconds** to set up.", // "With Mac Mouse Fix you can configure your mouse to do **almost anything** - in almost any way. And it takes **seconds** to set up.", //"With Mac Mouse Fix, you can set up your Mouse exactly how you want it - **in seconds**. [[details -- breeze through macOS ]]", //Customizing how your mouse works in Mac Mouse Fix is **better than in any competing app** - Both when it comes to how **easy** it is, *and* when it comes to the range of **powerful** things you can do. That's amazing isn't it? ||| Mac Mouse Fix makes it incredibly **easy and intuitive to precisely customize** what your mouse does.
   
   'customization-feature.header': "Flexible **Customization Options**",
-  'customization-feature.action-table.title': 'Add **Custom Gestures** to your mouse',
-  'customization-feature.action-table.body': "To add an action to your mouse, **First** hover the mouse pointer over the '+' field (shown below). **Second**, show an input to Mac Mouse Fix - this can be a simple button click, hold, or something much more complex. **Finally**, assign an action, such as Smart Zoom, to that input. And that's it!",
+  'customization-feature.action-table.title': '**Add Actions** to your mouse',
+  'customization-feature.action-table.body':  "To add an action to your mouse:\n\n- **Move** the mouse pointer inside the '+'-field. (Shown below)\n- **Click** the mouse button you want to assign an action to.\nYou can also Double Click, Click and Drag, and more!\n- **Choose** an action, such as Smart Zoom.\n\nAnd that's it!", //"Move the pointer into the \"+\" field, then **simply show** Mac Mouse Fix the **clicks, drags, and scrolls** that you want to assign a new Action to. It's incredibly intuitive - *and* flexible. (Click to see it in action.)",
   // 'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
 
   'customization-feature.keyboard-shortcuts.title': "Use **Keyboard Shortcuts** from your mouse",
