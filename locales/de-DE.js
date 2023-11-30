@@ -135,8 +135,31 @@ export default {
 
   /* Good Software & Pricing */
 
-  'good-software.title': "Gute Software.\nGuter {accent2}.",
+  'good-software.title': "Tolle Software.\nToller {accent2}.",
   'good-software.title.accent2': "Preis",
+
+  'good-software.body': "Ich strebe danach, Mac Mouse Fix eine Software zu machen, die **deine Erfahrung respektiert** und bei der du dich **richtig gut fühlst, sie zu installieren**. Ich möchte es so **preiswert wie möglich** anbieten, damit du das Gefühl hast, ein tolles Schnäppchen zu machen und damit es sich jeder leisten kann. Ich hoffe, diesen winzigen Teil der Welt ein bisschen **fantastischer** und netter zu machen!",
+
+
+  'good-software.header': "Tolle **Software** ...",
+
+  'unobtrusive-lightweight.title': "**Unobtrusive** and **lightweight**",
+  'unobtrusive-lightweight.body': "Every detail of Mac Mouse Fix has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Mac Mouse Fix is extremely optimized and consumes no Battery or CPU resources on your computer unless it really has to.",
+  'open-source.title': "Open Source",
+  'open-source.body': "Mac Mouse Fix's source code is available on GitHub. Since anyone can see how it works, you can trust that it is secure and trustworthy. Also, other projects can benefit from its innovations in trackpad simulation and other areas.",
+
+
+  'price.header': "... Toller **Preis**",
+
+  'price.title': "**${ price }** to own",
+  'price.body': "Mac Mouse Fix costs ${ price } to own - forever. There are **no subscriptions or additional costs**, and you can easily pay in few clicks from inside the app with **Apple Pay**, **PayPal**, **Credit card** and more.",
+  
+  'free-days.title':  "Free for **{ trialDays } days**",
+  'free-days.body':   "Mac Mouse Fix is **free for { trialDays } days**. Your free days will only be used up **when you actually use Mac Mouse Fix** - so you can **relax** and get everything out of your free days without pressure to use app before the free days run out.",
+
+  'alternatives.title':  "Better value than **Alternatives**",
+  'alternatives.body':   "Mac Mouse Fix is **{ priceFactor }x cheaper** compared to alternatives like buying a Logitech MX Master ($99.99 MSRP), or an Apple Trackpad ($129.00 MSRP).\n\nAnd that's even though Mac Mouse Fix - even paired with a cheap mouse - offers a far nicer experience compared a MX Master.", // Keep MXMasterPrice in index.vue in sync with this, so that the price factor is correct.
+  'alternatives.mx-master-rant': "The MX Master and other Logitech mice actually has very bad build quality and components compared to its price, and has very bad ergonomics too, at least for my hands. The button placing is very inconvenient, the mouse is way too heavy making it uncomfortable compared to ligher mouse, it's too big, not fitting my hand well, sensor is low quality and inaccurate, lots of input lag on bluetooth, the hardware features it has (gesture button, horizontal wheel, and free-spin) are not well-engineered, and do not feel good or ergonomic to use and their functionality can easily be replaced by Mac Mouse Fix in a better way.",
 
   /* Quotes */
   

@@ -120,13 +120,18 @@ export default {
   - Problem: It might be nicer to have a shorter text, like the MMF 2 reddit post, and then have the details in the video demo. This would sound better and be easier to read. But I think the little MMF-on-studio-display image is hard to make sense of if you don't have the step-by-step instructions. So we're keeping the step-by-step for now.
   - Thought process: We spent a long time on the Section title and body. A LOT of tinkering with the text and then noticing the fundamental idea was flawed. Now our plan is this:
     - The **main goals** we identified for the other section body texts is to:
-      - Create context and understanding. Answer the questions: how does this feature relate to my wants and needs or the wants and needs of other people? Why does this feature exist? What are the thoughts and ideas behind it and its design? - Provide this context and understanding very briefly and at a high level, without going into specifics, because we'll explain specifics later.
-      - Furthermore we want to the text to be easy to read, enthusiastic, and have some emotionally resonant, engaging quality to it.
+      - Create context and understanding. Answer the questions: 
+        - How does this feature relate to my wants and needs or the wants and needs of other people? 
+        - Why does this feature exist in the way it does? What are the thoughts and ideas behind it and its design? 
+        - Provide this context and understanding very briefly and at a high level, without going into specifics, because we'll explain specifics later.
+      - Furthermore we want to the text to be easy to read, enthusiastic, and have some emotionally resonant, engaging quality to it. Possibly 'narrative' elements to create emotional resonance.
       - We also want to convey a sense of simplicity and high quality of Mac Mouse Fix.
     - Based on these goals we want to say sth like: 'MMF lets you do almost anything you can think of with your mouse. And is remarkably easy to use.'
       - Its very brief compared to the other body texts, but that's okay. It fulfills all the goals we have for the text. It's exciting, desirable, emotionally resonant and engaging/inspiring, and communicates the main idea behind the design and how I feel when I use the UI. 
     - We also had this idea of creating this narrative contrast like the other body texts, where we first present a problem and then say 'not with mac mouse fix'. And the problem we meant to talk about was that other software that is very powerful is usually complicated. But we decided that we shouldn't give this idea high priority in the text because it doesn't help us with the goals listed above. It doesn't relate to any want or need of the user and it doesn't create insight or understanding for the feature and its design. What it's adding is basically just a 'flex'. Saying 'look how impressive and MMF is compared to other software' or saying 'isn't it cool how it breaks the expectaion and is both powerful AND intuitive?'. This is a neat thing to highlight to give the user a sense of quality or 'this is cool', but it's not the main thing we want to focus on. So we want to deemphasize this by putting it at the end, and giving it less text or even removing it completely
     - Since we want to de-emphasize the notion of 'powerful AND simple', we think that we might want to change the title, too, since it's heavily focused around that. But I'm not sure, yet "Amazingly Flexible\n*and* Intuitive." is still acceptable and makes sense I think.
+  
+    - !!! Update on ^^^: We wrote the section pretty quickly, this approach really works!! I created a mindmap with the 'goals' described above, and then fleshed it out with concrete ideas that fulfill those goals. Finally we put it into a coherent text and polished it by translating back and forth between German and English and and editing together with ChatGPT. And we arrived at a really great result that I'm super happy with in a reasonable amount of time without endless fiddling and revisions. Awesome!
 
   MMF 2 Reddit Post alternative:
     Move the pointer into the "+" field, then simply show Mac Mouse Fix the clicks and drags that you want to assign a new Action to.
@@ -170,7 +175,7 @@ export default {
 
   'good-software.title': "Great Software.\nGreat {accent2}.",
   'good-software.title.accent2': "Price",
-  'good-software.body': "I strive to make Mac Mouse Fix software that you can **feel great about installing**. Both by doing my best to make a **great piece of software** all around, and by **offering it as cheaply as possible** - so you get amazing **value for your money**.",
+  'good-software.body': "I strive to make Mac Mouse Fix a software that **respects your experience** and that you can **feel great about installing**. I want to offer it **as cheaply as possible**, so you feel like you're getting a great deal and so that everyone can afford it. I hope to make this tiny corner of the world a little more **awesome** and nice!",
 
 
   'good-software.header': "Great **Software** ...",
