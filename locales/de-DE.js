@@ -122,7 +122,7 @@ export default {
   'remap-engine.title': 'Gewaltig {accent2}\n{accent} intuitiv.',
   'remap-engine.title.accent': 'und',
   'remap-engine.title.accent2': 'Flexibel',
-  'remap-engine.body': "**Vielseitige Anpassungsmöglichkeiten** gehen normalerweise mit einer komplexen Benutzeroberfläche einher. Aber, du hast es erraten, nicht bei Mac Mouse Fix! Es lässt dich deine Maus genau so einrichten, wie du willst, und ist dabei **bemerkenswert einfach**.", //"Richte deine Maus **genau** so ein wie du es willst - **In Sekunden**!",//'Mit Mac Mouse Fix kannst du **fast alles tun**, was dein Computer kann. Und deine Maus **in Sekunden** genau so einrichten, wie du es willst.',
+  'remap-engine.body': "Mac Mouse Fix lässt dich **fast alles tun**, was du dir ausdenken kannst – direkt mit deiner Maus! Und trotzdem ist es **bemerkenswert einfach** zu verwenden.", //"Richte deine Maus **genau** so ein wie du es willst - **In Sekunden**!",//'Mit Mac Mouse Fix kannst du **fast alles tun**, was dein Computer kann. Und deine Maus **in Sekunden** genau so einrichten, wie du es willst.',
 
   'customization-feature.header': "Flexible **Anpassungsmöglichkeiten**",
   'customization-feature.action-table.title': 'Füge deiner Maus **Aktionen hinzu**',
