@@ -1,7 +1,20 @@
 import { request } from "https"
 
-export { doAfterRenderrr, doAfterRender, doBeforeRender, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps }
+export { doAfterRenderrr, doAfterRender, doBeforeRender, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo }
 
+/* Pretty rounding */
+
+function roundTo(n: number, rounder: number, decimals: number = Infinity) {
+
+  // Outputs the multiple of `rounder` which is closest to `n`.
+  // Use `decimals` set a max number of digits after the period. This is to combat division errors where you get numbers like 0.500000000000003.
+  // Use like `roundTo(3.326985, 0.5)`  to get 3.5
+  // Use like `roundTo(3.326985, 0.25)` to get 3.25
+  // Use like `roundTo(3.326985, 0.1)` to get 3.3
+  // Use like `roundTo(3.76, 0.5)`       to get 4.0
+
+  return (Math.round(n / rounder)*rounder).toFixed(decimals)
+}
 
 /* Get/set properties in a batch */
 

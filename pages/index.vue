@@ -46,7 +46,7 @@
         </div>
       </div>
 
-      <CardContainer title-key="trackpad-features.header" class="gradient-blue strong:filter ch-[.card-title_strong]:brightness-[1.15]" title-class="strong:filter strong:brightness-[1.2] strong:hue-rotate-[0deg]">
+      <CardContainer title-key="trackpad-features.header" class="gradient-blue strong:filter ch-[.card-title_strong]:brightness-[1.15]" title-class="strong:filter strong:brightness-[1.2] strong:hue-rotate-[0deg]" disclaimer-key="trackpad-features.disclaimer">
 
         <div class="w-full flex justify-center">
           <div class="relative flex flex-col items-center w-fit">
@@ -78,10 +78,6 @@
             </div>
           </div>
         </div>
-        <div class="max-w-[calc(100%-0rem)] relative left-[50%] translate-x-[-50%] sm:px-[1rem] px-[5rem] pt-[calc(5.5rem-0.5rem)] pb-[5.5rem]">
-          <p v-html="$mt('trackpad-features.disclaimer')" class="text-[1.0rem] text-center text-neutral-900/[0.7] whitespace-pre-line"></p>
-        </div>
-
       </CardContainer>
 
       <!-- Scrolling -->
@@ -154,8 +150,8 @@
         </div>
       </CardContainer>
 
-      <CardContainer  title-key="price.header"        
-        class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] mt-[5rem]"   title-class=" strong:filter strong:brightness-[1.2]">
+      <CardContainer  title-key="price.header" disclaimer-key="price.disclaimer" :disclaimer-values="dynamicUIStrings"
+        class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] mt-[5rem]"   title-class="strong:filter strong:brightness-[1.2]">
 
         <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
           <div class="absolute inset-0 -z-10 pointer-events-none">
@@ -169,9 +165,6 @@
               <!-- Download counter was here -->
             </div> 
           </div>
-
-          
-          
         </div>
       </CardContainer>
     </div>
@@ -186,31 +179,28 @@
 
 <script setup lang="ts">
 
-/* Import licenseConfig */
-
+import { roundTo } from "~/utils/util"
 import licenseConfig from "~/assets/licenseinfo/config.json"
 
 
 const MXMasterPrice = 99.99 // Update this when you change the listed products
 
-const price = (() => {
-  var result = licenseConfig["price"]
-  result = parseInt(result) / 100
-  return result
-})()
-const trialDays = (() => {
-  var result = licenseConfig["trialDays"]
-  return result
-})()
-const priceFactor = (() => {
-  var result = Math.round(MXMasterPrice / price)
-  return result
-})()
+const price = licenseConfig["price"] / 100
+const trialDays = licenseConfig["trialDays"]
+const priceFactor = Math.round(MXMasterPrice / price)
+const taxEstimateLow = 0.05
+const taxEstimateHigh = 0.25
+const afterTaxPriceEstimateLow = roundTo(price * (1 + taxEstimateLow), 0.01, 2)
+const afterTaxPriceEstimateHigh = roundTo(price * (1 + taxEstimateHigh), 0.01, 2)
 
 const dynamicUIStrings = {
   price: price,
   trialDays: trialDays,
-  priceFactor: priceFactor
+  priceFactor: priceFactor,
+  taxEstimateLow: taxEstimateLow*100,
+  taxEstimateHigh: taxEstimateHigh*100,
+  afterTaxPriceEstimateLow: afterTaxPriceEstimateLow,
+  afterTaxPriceEstimateHigh: afterTaxPriceEstimateHigh,
 }
 
 console.log(`licenseConfig: ${ licenseConfig }`)

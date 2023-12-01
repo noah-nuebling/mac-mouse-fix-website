@@ -13,6 +13,11 @@
       <slot></slot>
     </div>
 
+    <!-- Disclaimer -->
+    <div v-if="disclaimerKey" class="max-w-[calc(100%-0rem)] relative left-[50%] translate-x-[-50%] sm:px-[1rem] px-[5rem] pt-[calc(5.5rem-0.5rem)] pb-[5.5rem]">
+      <p v-html="$mt(disclaimerKey, disclaimerValues, true)" class="text-[1.0rem] text-center text-neutral-900/[0.7] "></p>
+    </div>
+
   </div>
 </template>
 
@@ -22,7 +27,9 @@ const $mt = useMT()
 
 const props = defineProps({
   titleKey: String,
-  titleClass: String
+  titleClass: String,
+  disclaimerKey: String,
+  disclaimerValues: Object,
 })
 
 </script>
