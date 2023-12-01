@@ -165,7 +165,13 @@
             <NormalFeatureCard titleKey="free-days.title"       bodyKey="free-days.body"        :dynamic="dynamicUIStrings" class=""/>
             <NormalFeatureCard titleKey="price.title"           bodyKey="price.body"            :dynamic="dynamicUIStrings" class=""/>
             <NormalFeatureCard titleKey="alternatives.title"    bodyKey="alternatives.body"     :dynamic="dynamicUIStrings" class=""/>
+            <div class="hidden sm:col-span-1 md:col-span-2 col-span-3 w-full flex justify-center">
+              <!-- Download counter was here -->
+            </div> 
           </div>
+
+          
+          
         </div>
       </CardContainer>
     </div>

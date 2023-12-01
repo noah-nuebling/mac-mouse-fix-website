@@ -263,6 +263,11 @@ export default {
   */
 
 
+  /* Footer */
+
+  'footer.credits': 'Created by **Noah Nuebling**',
+  'footer.thankyou': 'Thank you so much for {dwn} downloads!',
+
   /* Quotes */
 
   'user-feedback.card-header.title':  "**What people say** about Mac Mouse Fix",
