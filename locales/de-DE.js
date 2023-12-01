@@ -160,7 +160,7 @@ export default {
   'alternatives.title':  "Better value than **Alternatives**",
   'alternatives.body':   "Mac Mouse Fix is **{ priceFactor }x cheaper** compared to alternatives like buying a Logitech MX Master ($99.99 MSRP), or an Apple Trackpad ($129.00 MSRP).\n\nAnd that's even though Mac Mouse Fix - even paired with a cheap mouse - offers a far nicer experience compared a MX Master.", // Keep MXMasterPrice in index.vue in sync with this, so that the price factor is correct.
   
-  'price.disclaimer': "* Der Preis von ${ price } ist ohne die lokale Verbrauchssteuer (wie z.B. der Mehrwertsteuer in Europa).\nDer Steuersatz beträgt ungefähr { taxEstimateLow }% - { taxEstimateHigh }%, abhängig von deiner Region, sodass der Endpreis ungefähr zwischen **${ afterTaxPriceEstimateLow } - ${ afterTaxPriceEstimateHigh }** betragen wird.\nLeider ist es mir momentan technisch nicht möglich, deinen lokalen Steuersatz im Anzeigepreis einzubeziehen.",
+  'price.disclaimer': "* Der Preis von **${price}** ist ohne die lokale Verbrauchssteuer (wie z.B. der Mehrwertsteuer in Europa).\nDer Steuersatz beträgt ca. **{taxEstimateLow}%** - **{taxEstimateHigh}%**, abhängig von deiner Region, sodass der Endpreis ca. zwischen **${afterTaxPriceEstimateLow}** - **${afterTaxPriceEstimateHigh}** betragen wird.",
 
   
 
