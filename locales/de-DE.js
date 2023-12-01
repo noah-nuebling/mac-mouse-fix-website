@@ -138,7 +138,7 @@ export default {
   'good-software.title': "Tolle Software.\nToller {accent2}.",
   'good-software.title.accent2': "Preis",
 
-  'good-software.body': "Ich strebe danach, Mac Mouse Fix eine Software zu machen, die **deine Erfahrung respektiert** und bei der du dich **richtig gut fühlst, sie zu installieren**. Ich möchte es so **preiswert wie möglich** anbieten, damit du das Gefühl hast, ein tolles Schnäppchen zu machen und damit es sich jeder leisten kann. Ich hoffe, diesen winzigen Teil der Welt ein bisschen **fantastischer** und netter zu machen!",
+  'good-software.body': "Ich strebe danach, Mac Mouse Fix eine Software zu machen bei der du dich **richtig gut fühlst**, sie zu installieren. Ich möchte es so **preiswert** wie möglich anbieten, damit du das Gefühl hast, ein tolles Schnäppchen zu machen und damit es sich jeder leisten kann. Und letztendlich hoffe ich, diesen winzigen Teil der Welt ein bisschen **fantastischer** und netter zu machen!",
 
 
   'good-software.header': "Tolle **Software** ...",
