@@ -16,11 +16,10 @@
 
 
     <!-- Bottom Nav -->
+    <!-- Notes:
+          - The hex colors used here are based on tailwinds green-500 with slight brightness adjustments using oklch.com
+    -->
     <div class="relative h-[50vh] flex justify-center">
-
-
-  
-      <!-- <hr class="hidden border-t-[1px] border-neutral-950/[0.1] w-[200%] relative left-[50%] translate-x-[-50%]"> -->
       <div class="w-fit h-full flex flex-col justify-center items-center gap-[0.9rem] !text-[1.0rem]">
         
         <!-- Credits -->
@@ -31,7 +30,7 @@
         <div class="whitespace-nowrap overflow-none border-0 py-[0.0rem] px-[0rem] mx-[0rem] rounded-[0.5rem] bg-white/[0] border-neutral-900/[0.9] border-1">
           <i18n-t tag="p" keypath="footer.thankyou" class="inline-block">
             <template #dwn> 
-              <img src="https://img.shields.io/github/downloads/noah-nuebling/mac-mouse-fix/total?label=&color=24c65f&link=https%3A%2F%2Fgithub.com%2Fnoah-nuebling%2Fmac-mouse-fix%2Freleases" class="inline-block mx-[.25em] translate-y-[-0.1em] my-[-99rem] min-w-[34px] brightness-[1]">
+              <img src="https://img.shields.io/github/downloads/noah-nuebling/mac-mouse-fix/total?label=&color=25c65f&link=https%3A%2F%2Fgithub.com%2Fnoah-nuebling%2Fmac-mouse-fix%2Freleases" class="inline-block mx-[.25em] translate-y-[-0.1em] my-[-99rem] min-w-[34px] brightness-[1]">
             </template>
           </i18n-t>
         </div>
@@ -43,7 +42,7 @@
         - I can't seem to give this a blue accent under the arrow like the native system buttons. This should be default look for <select> buttons. See https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select. But the current look is good enough for Chrome and Safari.
         -->
         <div class="text-[1.0em]">
-          <select ref="localePicker" @change="handleLocaleSelect" class="cool-select"> 
+          <select ref="localePicker" @change="handleLocaleSelect" class="cool-select accent-[#00b551]"> 
             <option v-for="$loc in $i18n.locales" :value="$loc.code"> {{ $loc.name }}</option> 
         </select>
 
@@ -165,9 +164,6 @@ function handleLocaleSelect(event: Event) {
   border-width: revert;
   border-style: revert;
   border-color: revert;
-  
-  /* Make it greeen */
-  @apply accent-green-500;
 }
 
 </style>
