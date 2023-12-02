@@ -21,7 +21,7 @@
           - Edit: I'm not sure the backdrop filters work under Chrome atm. I think if any parent has non-1.0 opacity or a filter that disables the filters here. But it's okay, this looks fine.
           - We only enable backdrop blur on non-mobile to hopefully optimize.
     -->
-    <div :class="['absolute inset-0 bg-white/[0.06] backdrop-saturate-[1.0] safari:backdrop-saturate-[1.05] backdrop-brightness-[1.00] z-[-10] rounded-[inherit]', $isMobile() || true ? '' : 'backdrop-blur-[1rem]']">
+    <div :class="['absolute inset-0 bg-white/[0.06] backdrop-saturate-[1.0] safari:backdrop-saturate-[1.05] backdrop-brightness-[1.00] z-[-10] rounded-[inherit]', $isMobile || true ? '' : 'backdrop-blur-[1rem]']">
 
     </div>
 

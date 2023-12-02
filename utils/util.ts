@@ -1,10 +1,108 @@
 import { request } from "https"
 
-export { doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo }
+export { doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo, setResolution, unsetResolution}
+
+type ElementSize = {
+    fontSize: number,
+    width: number,
+    height: number,
+    marginTop: number,
+    marginRight: number,
+    marginBottom: number,
+    marginLeft: number
+}
+
+function unsetResolution(...elements: HTMLElement[]) {
+  
+  for (var element of elements) {
+    if (!element.originalSize) {
+      continue
+    }
+
+    setResolution(1, element)
+
+    element.style.willChange = ''
+    element.style.transform = ''
+    element.style.transformOrigin = ''
+  }
+}
+
+function setResolution(scaleFactor: number, ...elements: HTMLElement[]) {
+
+  // This breaks for fonts with optical sizing. Set `font-optical: none` as a workaround
+
+  for (var element of elements) {
+
+    if (!element) {
+      console.error("Element not found")
+      continue
+    }
+
+    // Check if original size and margin data are already stored
+    if (!element.originalSize) {
+      const computedStyle = getComputedStyle(element)
+      const size: ElementSize = {
+        fontSize: parseFloat(computedStyle.fontSize),
+        width: parseFloat(computedStyle.width), //element.offsetWidth,
+        height: parseFloat(computedStyle.height), //element.offsetHeight,
+        marginTop: parseFloat(computedStyle.marginTop),
+        marginRight: parseFloat(computedStyle.marginRight),
+        marginBottom: parseFloat(computedStyle.marginBottom),
+        marginLeft: parseFloat(computedStyle.marginLeft)
+        // opticalSize: computedStyle.fontVariationSettings
+      };
+      element.originalSize = size
+    }
+
+    // Smooth out font size changes
+    // element.style.transition = 'transform 0.2s ease-out, font-size 0.2s ease-out';
+
+    // Retrieve original sizes and margins
+    const { fontSize, width, height, marginTop, marginRight, marginBottom, marginLeft } = element.originalSize;
+
+    // Get scaled font
+    //  Round font size to px
+    const fontSizeNew = scaleFactor * fontSize //Math.ceil(scaleFactor * fontSize)
+    const fontScale = fontSizeNew / fontSize
+
+    // Calculate the inverse scale factor (for counter-scaling)
+    const inverseScale = 1 / fontScale;
+
+    console.log(`Scale: ${fontScale}, inverse: ${inverseScale}, scaleRaw: ${scaleFactor}, fontBase: ${fontSize}, fontScaled: ${fontSizeNew}`)
+
+    // Apply the increased font size, width, and height based on original size
+    element.style.fontSize = `${fontScale * fontSize}px`;
+    element.style.width = `${fontScale * width}px`;
+    element.style.height = `${fontScale * height}px`;
+
+    // TESTING
+    // element.style.minWidth = `${fontScale * width}px`;
+    // element.style.minHeight = `${fontScale * height}px`;
+
+    // Adjust margins so the overall size stays the same
+    // const marginTopNew = marginTop        - (height * (fontScale - 1) / 2)
+    const marginBottomNew = marginBottom  - (height * (fontScale - 1))
+    // const marginLeftNew = marginLeft      - (width * (fontScale - 1) / 2)
+    const marginRightNew = marginRight    - (width * (fontScale - 1))
+    
+    // element.style.margin = `${marginTopNew}px ${marginRightNew}px ${marginBottomNew}px ${marginLeftNew}px`;
+    element.style.marginBottom = `${marginBottomNew}px`
+    element.style.marginRight = `${marginRightNew}px`
+
+    // Apply the counter-scale transform
+    element.style.transformOrigin = 'top left'
+    element.style.transform = `scale(${inverseScale})`;
+
+    // Render to bitmap
+    element.style.willChange = 'transform';
+
+  }
+}
+
 
 /* Pretty rounding */
 
-function roundTo(n: number, rounder: number, decimals: number = Infinity) {
+function roundTo(n: number, rounder: number, decimals: number = 100) {
 
   // Outputs the multiple of `rounder` which is closest to `n`.
   // Use `decimals` set a max number of digits after the period. This is to combat division errors where you get numbers like 0.500000000000003.
@@ -13,7 +111,13 @@ function roundTo(n: number, rounder: number, decimals: number = Infinity) {
   // Use like `roundTo(3.326985, 0.1)` to get 3.3
   // Use like `roundTo(3.76, 0.5)`       to get 4.0
 
-  return (Math.round(n / rounder)*rounder).toFixed(decimals)
+  const div = n / rounder
+  const round = Math.round(div)
+  const mult = round * rounder
+
+  const result = mult.toFixed(decimals)
+
+  return result
 }
 
 /* Get/set properties in a batch */
@@ -128,6 +232,7 @@ function optimizeOnUpdate(workload: (progress: number) => any) {
   // - Pass this into gsap Tweens' `onUpdate()`, instead of passing `workload` to the tween directly. This way the `workload` will be limited to being executed once per frame.
   // - We made this to improve the QuoteCard scrolling performance under iOS, to great effect!.
   // - Should probably use this whenever we use `onUpdate()`
+  // - this.progress() is some weird gsap magic
 
   var isTicking = false
 

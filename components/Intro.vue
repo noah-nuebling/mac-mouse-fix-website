@@ -10,12 +10,12 @@
 
     <div class="flex items-center justify-center group w-[100%] h-[100svh] relative z-[-20]">
       <div class="h-fit w-fit relative translate-y-[-1.5rem]">
-        <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center -z-20', 
+        <div ref="innerContent" :class="['h-fit w-fit relative flex flex-col items-center justify-center -z-20', 
                                             'xs:origin-[50%_calc(50%_+_4.1rem)] sm:origin-[50%_calc(50%_+_4.925rem)] origin-[50%_calc(50%_+_5.55rem)]', false ? initialTranslateYTW : '' ]"> 
-          <NuxtImg ref="mmfIcon" :src="mmfIconImagePath" sizes="225px" alt="Mac Mouse Fix Icon" :class="['xs:h-[13rem] sm:h-[15rem] h-[16.5rem] mt-[-2rem] mb-[3rem] opacity-1']"/>
-          <h1 ref="mmfName" :class="['font-[`Helvetica`] font-[700] xs:text-[3.75rem] sm:text-[4.5rem] text-[5.75rem] text-[hsl(0,0%,10%)] mb-[-1rem] tracking-[-0.01em]', false ? initialNameScaleTW : '', playLoadingAnimation && false ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
-          <p ref="introTagline" :class="['xs:text-[1.0rem] text-[1.1rem] xs:tracking-[-0.01rem] tracking-[0.01em] text-black mb-[2.25rem] opacity-1']">{{ $t('intro.tagline') }}</p>
-          <DownloadButton ref="downloadButton" class="bg-blue-500 rounded-full text-white px-[0.85em] py-[0.3em] text-[1.2rem] tracking-[0.0em] opacity-1"></DownloadButton>
+          <NuxtImg ref="mmfIcon" :src="mmfIconImagePath" sizes="225px" alt="Mac Mouse Fix Icon" :class="['xs:h-[13rem] sm:h-[15rem] h-[16.5rem] mt-[-2rem] mb-[3rem]']"/>
+          <h1 ref="mmfName" :class="['fontxxx-[Helvetica] font-[700] xs:text-[3.75rem] sm:text-[4.5rem] text-[calc(5.75rem)] text-[hsl(0,0%,10%)] mb-[-1rem] tracking-[-0.01em]', false ? initialNameScaleTW : '', playLoadingAnimation && false ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
+          <p ref="introTagline" :style="{ fontOpticalSizing: 'none'}" :class="['xs:tracking-[0.03em] tracking-[0.05em] whitespace-nowrap w-fit text-center fontxxx-[Helvetica] xs:text-[1.0rem] text-[1.1rem] text-black mb-[2.25rem] opacity-1']">{{ $t('intro.tagline') }}</p>
+          <DownloadButton ref="downloadButton" class="bg-blue-500 rounded-full text-white px-[0.85em] py-[0.3em] text-[1.2rem] tracking-[0.0em]"></DownloadButton>
         </div>
       </div>
 
@@ -67,7 +67,7 @@
     <!-- Big Tagline -->
 
     <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-[20] pointer-events-none">
-      <p ref="tagline" class="font-[500] sm:text-[1.75rem] md:text-[2.25rem] text-[2.75rem] text-center mx-[1.5rem] opacity-0 text-glow-2 safari:safari-text-glow-2 text-[hsla(0,0%,100%,0.86)] safari:text-[hsla(0,0%,100%,0.93)]" v-html="$mt('intro.big-tagline')"></p>
+      <p ref="tagline" class="font-[500] sm:text-[1.75rem] md:text-[2.25rem] text-[2.75rem] text-center mx-[1.5rem] opacity-0 text-glow-2 safari:safari-text-glow-2 text-[hsla(0,0%,100%,0.86)] par-[.safari,.firefox]:text-[hsla(0,0%,100%,0.93)]" v-html="$mt('intro.big-tagline')"></p>
     </div>
 
     <!-- Quote cards -->
@@ -137,7 +137,7 @@ console.log(`Locale during Intro.vue setup: ${ locale.value }, browserLocale: ${
 
 /* Import gsap stuff */
 
-const { $gsap, $ScrollTrigger, $customInOutEase, $isMobile } = useNuxtApp()
+const { $gsap, $ScrollTrigger, $customInOutEase, $isMobile, $isSafari, $isFirefox } = useNuxtApp()
 import { linearScalingEase } from "../utils/curves"
 
 /* Manually import images 
@@ -152,11 +152,11 @@ import speechBubbleImagePath from '../assets/img/text.bubble@8x.png'
 
 /* Import Quote stuff */
 
-import { getUsableQuotes } from '~/utils/quotes';
+import { getUsableQuotes } from '~/utils/Quotes';
 const quotes = getUsableQuotes()
 
 /* Import Other */
-import { everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation } from "~/utils/util";
+import { everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, setResolution } from "~/utils/util";
 const constants = useConstants()
 const { currentSize, ResponsiveSize } = useResponsive()
 const $mt = useMT()
@@ -173,6 +173,7 @@ defineExpose({
 
 import { useGlobalStore } from "~/store/global";
 import { storeToRefs } from "pinia";
+import checkUserAgent from "~/plugins/check-user-agent";
 const global = useGlobalStore()
 const { navbarHasDarkAppearance } = storeToRefs(global)
 
@@ -182,7 +183,7 @@ const { navbarHasDarkAppearance } = storeToRefs(global)
 
 const outerContainer          = ref<HTMLElement|null>(null)
 const innerContent            = ref<HTMLElement|null>(null)
-const mmfIcon                 = ref<HTMLElement|null>(null)
+const mmfIcon                 = ref<NuxtImg|null>(null)
 const mmfName                 = ref<HTMLElement|null>(null)
 const introTagline            = ref<HTMLElement|null>(null)
 const downloadButton          = ref<DownloadButton|null>(null)
@@ -202,6 +203,8 @@ const quoteScrollingContainer = ref<HTMLElement|null>(null)
 const innerQuoteContainer     = ref<HTMLElement|null>(null)
 const quoteExpandButton       = ref<HTMLElement|null>(null)
 
+  // Collect elements
+function initalElementsExceptName() { return [findChild(mmfIcon.value, (child) => child.tagName == "IMG"), introTagline.value, downloadButton.value.rootElement] }
 
 /* Constants */
 
@@ -234,7 +237,8 @@ watch(quotesAreExpanded, (newValue) => {
 
 onMounted(() => {
 
-  console.log(`Download button: ${ downloadButton.value.rootElement.style.opacity }`);
+  /* Adjust gsap lag smoothing for better responsivity - doesn't seem to work (The feature cards set this to their own value) */
+  $gsap.ticker.lagSmoothing(false);
 
   /* Play intro animations */
 
@@ -394,7 +398,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     Define length (in scroll-distance) of the main events of the animation 
   */
 
-  var zoomDistance = 2000.0
+  var zoomDistance = 1500.0
   const taglineDistance = 1000.0 // Distance that the tagline takes to fade in
   const quotesDistance = quoteScrollingContainer.value!.scrollHeight - quoteScrollingContainer.value!.offsetHeight // Distance that the quotes are scrolling for
 
@@ -404,7 +408,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   /* Override animation params for reduceMotion */
 
-  const useOptimizedAnimations = $isMobile() && currentSize.value <= ResponsiveSize.sm
+  const useOptimizedAnimations = $isMobile && currentSize.value <= ResponsiveSize.sm // This might not be necessary anymore since our optimized zoom also works okay on mobile safari.
 
   if (prefersReducedMotion() || useOptimizedAnimations) {
     zoomScale = 1.15
@@ -483,43 +487,127 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   // Add zoom animation to tl
   //  Notes: This has bad performance under Safari
-  //  - will-change makes it better but makes the text blurry. 
-  //  - We're using matrix instead of scale, because Apple MacBook Air website uses matrix for a similar effect and it has better performance. But it doesn't seem to help here. Maybe a tinyyy bit.
-  //  - When we just reduce the scaling factor a little it improves. On the apple website the text is larger to begin with, so the scaling factor is smaller, than currently on this site. Reducing scaling factor is so far the only thing I found that removes framedrops.
-  //  - Here's the old solution: tlScroll.fromTo(innerContent.value, { scale: 1, translateY: 0 }, { scale: zoomScale, translateY: `${zoomScale * -4.55}rem`, ease: linearScalingEase(zoomScale), duration: zoomDistance }, zoomStart)
+  //  - Caching to bitmap makes performance much better but also makes the text blurry. `will-change` is our goto way to force caching to bitmap. But I think setting perspective transform and some other stuff has the same effect.
+  //  - Apple MacBook Air website has similar, scale-into-text effect but it has PERFECT performance. I don't see anything special that they are doing, so no idea why ours is so much slower. They used a matrix while gsap used simple scale transform. Even when specifically passing a matrix to gsap, it used a simple scale transform under the hood. We did our own implementation with onUpdate() and used matrix, but it wasn't faster.
+  //  - When we just reduce the scaling factor a little it improves. But the Apple website uses much greater scaling factor than us without framedrops.
+  //
+  //  Update: We finally found a (pretty elaborate) optimzation that works
+  //  - We made a setResolution() method that makes text larger, then makes the browser cache it to a bitmap at high resolution, and then scales it back down with a transform. We're `setting the resolution` several times at certain points during the zoomAnimation to achieve optimal appearance and performance.
+  //  - We're using this optimization on the mmfName, but this somehow leads to the other elements of the initialContent being bitmapped as well. The become blurry as we scale them up so we're fading them out before it becomes noticable.
+  //  - On Chrome, this optimization makes things a lot slower, without improving visual quality, and on Firefox it had some problems I think, so we're only activating it for Safari.
+
   tlScroll.addLabel("zoom")
 
+  const zoomedElement = innerContent.value!
   const baseMatrix = `matrix( 1, 0, 0, 
                               1, 0, 0)`
   const zoomMatrix = `matrix( ${zoomScale}, 0, 0, 
                               ${zoomScale}, 0, 0)`
   const scaleEase = linearScalingEase(zoomScale)
-  // tlScroll.fromTo(innerContent.value, { transform: baseMatrix }, { transform: zoomMatrix, ease: linearScalingEase(zoomScale), duration: zoomDistance, force3D: false }, zoomStart)
-  // tlScroll.fromTo(innerContent.value, { scale: 1.0, translateY: 0.0 }, { scale: zoomScale, translateY: 0.0, ease: linearScalingEase(zoomScale), duration: zoomDistance, force3D: false }, zoomStart)
-  
 
-  tlScroll.to({}, { onUpdate: optimizeOnUpdate((progress) => {
-    progress = scaleEase(progress)
-    const scale = intervalScale(progress, unitInterval, { start: 1, end: zoomScale })
-    const matrix = `matrix( ${scale}, 0, 0, 
-                            ${scale}, 0, 0)`
-    innerContent.value!.style.transform = matrix
+  const resolutionAdjustedElements = [mmfName.value!/*, introTagline.value!*/]
+
+  // doAfterRender(() => {
+    // zoomedElement.style.backfaceVisibility = 'hidden'
+    // mmfName.value!.style.filter = 'blur(0)'
+    // mmfName.value!.style.textRendering = 'optimizeSpeed'
+    // mmfName.value!.style.willChange = 'transform'
+    // zoomedElement.style.transform = 'translateZ(0)'
+    //   mmfName.value!.style.scale = `1`
+  // }, 2*1000)
+
+  var lastRawZoomStage = -2
+  if ($isSafari && !useOptimizedAnimations) {
+    // setResolution(1.0, ...resolutionAdjustedElements)
+  }
+  tlScroll.to({}, { onUpdate: optimizeOnUpdate((rawProgress) => {
+    
+    const scaler = (rawProgress: number) => intervalScale(scaleEase(rawProgress), unitInterval, { start: 1, end: zoomScale })
+    const scale = scaler(rawProgress)
+    console.log(`rawProgress: ${rawProgress}, scale: ${scale}`)
+
+
+    const transform = `matrix(  ${scale}, 0, 0, ${scale}, 0, 0) ${ false ? 'perspective(1px) translateZ(0)' : '' }` // Using scale() or matrix3d() transform doesn't make it faster.
+    zoomedElement.style.transform = transform
+
+    // Firefox optimization
+
+    if ($isFirefox) {
+      setResolution(5, mmfName.value!) // Setting 2.4 and higher looks better, but setting even higher makes no difference, until it totally breaks at some point. No idea why.
+    }
+
+    // Safari optimization
+    //  See above for discussion
+    //  If we're using optimizied animations, we barely zoom in and this seems to slow things down
+
+    if ($isSafari && !useOptimizedAnimations) {
+      // mmfName.value!.style.textRendering = 'optimizeSpeed' //'optimizeLegibility' //'geometricPrecision' // Not sure what to set this to
+
+      if (rawProgress <= 0.00) {
+        if (lastRawZoomStage != -2) {
+          unsetResolution(...resolutionAdjustedElements)
+          // setResolution(1.0, ...resolutionAdjustedElements)
+          // mmfName.value!.style.color = 'black'
+          lastRawZoomStage = -2
+        }
+      } else if (rawProgress < 0.05) {
+        if (lastRawZoomStage != -1) {
+          unsetResolution(...resolutionAdjustedElements)
+          // setResolution(scaler(0.05), ...resolutionAdjustedElements)
+          // mmfName.value!.style.color = 'black'
+          lastRawZoomStage = -1
+        }
+      } else if (rawProgress < 0.2) {
+        if (lastRawZoomStage != 0) {
+          setResolution(scaler(0.2), ...resolutionAdjustedElements)
+          // mmfName.value!.style.color = 'blue'
+          lastRawZoomStage = 0
+        }
+      } else if (rawProgress < 0.5) {
+        if (lastRawZoomStage != 1) {
+          setResolution(scaler(0.5), ...resolutionAdjustedElements)
+          // mmfName.value!.style.color = 'orange'
+          lastRawZoomStage = 1
+        }
+      } else if (rawProgress < 0.6) {
+        if (lastRawZoomStage != 2) {
+          setResolution(scaler(0.6), ...resolutionAdjustedElements)
+          // mmfName.value!.style.color = 'yellow'
+          lastRawZoomStage = 2
+        }
+      } else if (rawProgress >= 0.6) {
+        if (lastRawZoomStage != 3) {
+          setResolution(scaler(0.7), ...resolutionAdjustedElements)
+          // mmfName.value!.style.color = 'green'
+          lastRawZoomStage = 3
+        }
+      }
+    }
   }), duration: zoomDistance }, zoomStart)
 
+  // Fade out to all elements of initialContent except name
+  //  This is to hide blurryness in Safari which comes from bitmap caching optimizations. Somehow, caching the mmfName to bitmap causes the other initialContent elements to be cached to bitmap as well?
+  if ($isSafari && !useOptimizedAnimations) {
+    const dur = zoomDistance/4
+    tlScroll.fromTo(downloadButton.value.rootElement, { opacity: 1 }, { opacity: 0, duration: dur }, zoomStart)
+    tlScroll.fromTo(mmfIcon.value!.$el,               { opacity: 1 }, { opacity: 0, duration: dur }, zoomStart)
+    tlScroll.fromTo(introTagline.value!,              { opacity: 1 }, { opacity: 0, duration: dur }, zoomStart)
+  }
+
   // Add fade-out to chevron
-  tlScroll.fromTo(chevronDown.value, { autoAlpha: 1, translateY: 0 }, { autoAlpha: 0, translateY: '-0rem', duration: zoomDistance/20 }, zoomStart)
+  tlScroll.fromTo(chevronDown.value, { autoAlpha: 1 }, { autoAlpha: 0, duration: zoomDistance/20 }, zoomStart)
 
   // Add tagline fadein animation to tl
   tlScroll.fromTo(tagline.value, { autoAlpha: 0 }, { autoAlpha: 1, duration: taglineDistance }, taglineStart)
 
   // Fade in background, start splash dance, and reset zoom on inner content
-  const bgStart = zoomStop-600
-  const bgDistance = 1000
+  const bgStart = zoomStop-600 //Math.max(zoomStart, zoomStop-600)
+  const bgDistance = 1000 //Math.max(1000, zoomStop - bgStart)
   const bgStop = bgStart + bgDistance
   tlScroll.fromTo(backgroundDiv.value!, { autoAlpha: 0 }, { autoAlpha: 1, duration: bgDistance }, bgStart)
   tlScroll.set({}, { onComplete: () => { splashDance.value = (!prefersReducedMotion()) }, onReverseComplete: () => { splashDance.value = false } }, bgStart-300)
-  tlScroll.fromTo(innerContent.value!, { scale: zoomScale, autoAlpha: 1 }, { scale: zoomScale, autoAlpha: 0, duration: 0 }, bgStop) /* Setting the scale back to 1 here seem to slow things down, but if we don't reset the scale at some point, then the site becomes superrrr long. Maybe we should reset it at some point where there's no other heavy animations? Or set disabled rendering (by setting `display: none`) instead of resetting scale? Edit: Setting `display: none` */
-  tlScroll.to(innerContent.value!, { display: "none", duration: 0 }, bgStop)
+  tlScroll.fromTo(zoomedElement, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0 }, bgStop) /* Setting the scale back to 1 here seem to slow things down, but if we don't reset the scale at some point, then the site becomes superrrr long. Maybe we should reset it at some point where there's no other heavy animations? Or set disabled rendering (by setting `display: none`) instead of resetting scale? Edit: Setting `display: none` */
+  tlScroll.to(zoomedElement, { display: "none", duration: 0 }, bgStop)
 
   // Add quotes
   

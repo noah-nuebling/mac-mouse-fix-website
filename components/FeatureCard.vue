@@ -95,7 +95,7 @@ const { currentSize, ResponsiveSize } = useResponsive()
 // import BezierEasing from 'bezier-easing'
 
 // Import (is that the right term?) vue/nuxt stuff
-const { $ScrollTrigger, $store, $gsap, $Power0, $Power1, $Power2, $Power3, $Power4, $isMobile } = useNuxtApp()
+const { $ScrollTrigger, $store, $gsap, $Power0, $Power1, $Power2, $Power3, $Power4, $isMobile, $isFirefox, $isSafari } = useNuxtApp()
 const slots = useSlots()
 
 // Import tailwind config
@@ -946,6 +946,11 @@ if (props.doesExpand) {
   // Notes:
   // - See https://stackoverflow.com/questions/47445281/how-to-go-about-freeing-an-html5-video-from-memory
   // - If we don't do this iOS Safari starts crashing after opening a few cards, because they take up a lot of ram
+  // - In Firefox we don't need to do this. If we do it breaks stuff and it seems to garbage collect the videos anyways.
+
+  if ($isFirefox) {
+    return
+  }
 
   unloadVideos(element)
 
@@ -1012,7 +1017,7 @@ function unloadVideos(element: HTMLElement) {
   function animationComplexity(collapsedWidth: number, expandedWidth: number, collapsedHeight: number, expandedHeight: number) {
 
     const shrinksInAnyDimension = expandedWidth < collapsedWidth || expandedHeight < collapsedHeight
-    const useSuperSimpleAnimations = $isMobile() && currentSize.value <= ResponsiveSize.sm // Same as useSimpleAnimations, but also omit y position -> so only animate fade -> hopefully more efficient for mobile
+    const useSuperSimpleAnimations = $isMobile && currentSize.value <= ResponsiveSize.sm // Same as useSimpleAnimations, but also omit y position -> so only animate fade -> hopefully more efficient for mobile
     const useSimpleAnimations = prefersReducedMotion() || shrinksInAnyDimension || useSuperSimpleAnimations // Omit size and x position animations
 
     return { useSuperSimpleAnimations, useSimpleAnimations }

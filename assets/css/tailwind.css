@@ -114,6 +114,11 @@ Notes:
     mask: linear-gradient(black, black) text;
     @apply text-white/[0.3] glow-2;
   }
+  .firefox .text-glow-2 {
+    /* Firefox doesn't support the masking stuff */
+    @apply text-sky-300/[0.8] backdrop-filter-none;
+  }
+
   .glow-2 {
     /* backdrop-filter: contrast(0.85) saturate(10.5) brightness(2.2) hue-rotate(10deg); */
 

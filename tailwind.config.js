@@ -144,8 +144,7 @@ export default {
       const options = {}
 
       matchVariant('par', (value, { modifier, container }) => {
-        const v = value.replaceAll('_', ' ')
-        return `${ v } &`
+        return createVariants(value, (x) => `${ x } &`) 
       }, options)
     }),
 
@@ -157,13 +156,8 @@ export default {
 
       const options = {}
 
-      matchVariant('ch', (v, { modifier, container }) => {
-        
-        v = preprocessVariantValue(v);
-        var transform = (x) => `& ${ x }`
-        var result = v.map(transform)
-
-        return result
+      matchVariant('ch', (value, { modifier, container }) => {
+        return createVariants(value, (x) => `& ${ x }`)
       }, options)
     }),
 
@@ -317,7 +311,11 @@ export default {
     }),
   ]
 }
-
+function createVariants(v, rule) {
+  v = preprocessVariantValue(v)
+  var w = v.map(rule)
+  return w
+}
 function preprocessVariantValue(v) {
 
   /*

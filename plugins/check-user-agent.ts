@@ -29,16 +29,23 @@ export default defineNuxtPlugin((nuxtApp) => {
     document.body.classList.add(...classes)
   }
 
-  function isMobile() {
+  function documentHasClass(className: string) {
     if (process.client) {
-      return document.body.classList.contains('mobile')
+      return document.body.classList.contains(className)
     }
     return false
   }
+  const isMobile = documentHasClass('mobile')
+  const isSafari = documentHasClass('safari')
+  const isChromium = documentHasClass('chromium')
+  const isFirefox = documentHasClass('firefox')
 
   return {
     provide: {
-      isMobile
+      isMobile,
+      isSafari,
+      isChromium,
+      isFirefox
     }
   }
 })
