@@ -22,7 +22,7 @@
       <div :class="['', videoPath ? 'h-[3.0rem]' : 'h-[2.75rem]']"></div>
       <!-- Expand button -->
       <div v-if="videoPath" class="absolute h-fit mt-[1.4rem] left-[50%] translate-x-[-50%]">
-        <a class="card-sm w-full text-center sm:text-[1.0rem] text-[1.0rem] font-[400] text-gradient-to-l cool-hover-underline ">
+        <a class="card-sm w-full text-center sm:text-[1.0rem] text-[1.0rem] font-[400] text-gradient-to-l group-hover:cool-underline ">
           <!-- Expand -->
           <!-- Note: The play.circle and stop.circle images have blue-500 color. we use the --accent-rotate var to change the color. -->
           <span :class="['', isExpanded ? 'opacity-0 absolute' : '']">
@@ -44,7 +44,7 @@
       <div class="flex flex-col items-center justify-start h-full sm:m-[2rem] m-[3.0rem] sm:mt-[1.33rem] mt-[2.75rem] ">
 
         <!-- Body -->
-        <div v-html="$mt(bodyKey!, dynamic, false)" class="card-sm strong:font-[500] sm:text-[1.05rem] text-[1.15rem] font-[400] max-w-[30em] not-last:ch-[ol,ul,p]:mb-[1em]"></div>
+        <div v-html="$mt(bodyKey!, dynamic, false)" class="card-sm strong:font-[500] ch-[a]: sm:text-[1.05rem] text-[1.15rem] font-[400] max-w-[30em] not-last:ch-[ol,ul,p]:mb-[1em]"></div>
 
         <!-- Image -->
         <div v-if="imagePath" :class="[imageClass]">
@@ -115,11 +115,6 @@ var props = defineProps({
   /* Avoid styling here when using tailwind. See https://tailwindcss.com/docs/reusing-styles. */
 
 
-  .group:hover .cool-hover-underline:after {
 
-    /* Custom underline, because normal css underline doesnt work when we apply gradient to text. The tw gradient stops are automatically inherited down the tree. (As are all css vars)*/
-
-    @apply content-[''] absolute left-0 w-full bottom-[2.5px] h-[1px] rounded-[1px] bg-gradient-to-l
-  }
 
 </style>

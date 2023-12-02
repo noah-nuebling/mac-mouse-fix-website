@@ -143,22 +143,22 @@ export default {
 
   'good-software.header': "Tolle **Software** ...",
 
-  'unobtrusive-lightweight.title': "**Unobtrusive** and **lightweight**",
-  'unobtrusive-lightweight.body': "Every detail of Mac Mouse Fix has been considered to give you the best possible experience while feeling like a natural, lightweight extension of your Mac. Mac Mouse Fix is extremely optimized and consumes no Battery or CPU resources on your computer unless it really has to.",
-  'open-source.title': "Open Source",
-  'open-source.body': "Mac Mouse Fix's source code is available on GitHub. Since anyone can see how it works, you can trust that it is secure and trustworthy. Also, other projects can benefit from its innovations in trackpad simulation and other areas.",
-
-
-  'price.header': "... Toller **Preis**",
-
-  'price.title': "**${ price }** to own",
-  'price.body': "Mac Mouse Fix costs ${ price } to own - forever. There are **no subscriptions or additional costs**, and you can easily pay in few clicks from inside the app with **Apple Pay**, **PayPal**, **Credit card** and more.",
+  'unobtrusive-lightweight.title': "Unauffällig. Ressourcenschonend. Schön.",
+  'unobtrusive-lightweight.body': "Jedes Detail von Mac Mouse Fix wurde bedacht und optimiert, um dir das bestmögliche **Erlebnis** zu bieten, und sich dabei wie eine **natürliche** Erweiterung deines Macs anzufühlen. Etliche Stunden Arbeit sind eingeflossen damit Mac Mouse Fix nicht mehr **Batterie** oder **Speicher** verwendet, als es wirklich muss. Das Ziel ist, dass du Mac Mouse Fix überhaupt nicht auf deinem Computer bemerkst - Außer natürlich, wenn du deine Maus benutzt.",
   
-  'free-days.title':  "Free for **{ trialDays } days**",
-  'free-days.body':   "Mac Mouse Fix is **free for { trialDays } days**. Your free days will only be used up **when you actually use Mac Mouse Fix** - so you can **relax** and get everything out of your free days without pressure to use app before the free days run out.",
-
-  'alternatives.title':  "Better value than **Alternatives**",
-  'alternatives.body':   "Mac Mouse Fix is **{ priceFactor }x cheaper** compared to alternatives like buying a Logitech MX Master ($99.99 MSRP), or an Apple Trackpad ($129.00 MSRP).\n\nAnd that's even though Mac Mouse Fix - even paired with a cheap mouse - offers a far nicer experience compared a MX Master.", // Keep MXMasterPrice in index.vue in sync with this, so that the price factor is correct.
+  'open-source.title': "Open-Source",
+  'open-source.body': "Der Quellcode von Mac Mouse Fix ist auf GitHub verfügbar, sodass jeder genau sehen kann, wie es funktioniert. Das hilft bei der Entwicklung, und es bedeutet, du kannst dir gewiss sein, dass Mac Mouse Fix **sicher** und **vertrauenswürdig** ist, und im Hintergrund nichts tut - Außer dein Mauserlebnis auf die nächste Stufe zu heben!", //Außerdem hilft es dabei, Mac Mouse Fix in verschiedene Sprachen zu übersetzen, die Software-Qualität zu verbessern, und mehr.",
+  
+  'price.header': "... Toller **Preis**",
+  
+  'price.title': "**${ price }** für die volle Lizenz",
+  'price.body': "Mac Mouse Fix kostet ${ price } für die volle Lizenz - für immer. Es gibt **keine Abonnements oder zusätzliche Zahlungen**, und du kannst ganz einfach mit wenigen Klicks innerhalb der App mit **Apple Pay**, **PayPal**, **Kreditkarte** und mehr bezahlen.",
+  
+  'free-days.title': "**{ trialDays } Tage** kostenlos",
+  'free-days.body': "Mac Mouse Fix ist **{ trialDays } Tage kostenlos**. Deine kostenlosen Tage werden nur verbraucht, **wenn du Mac Mouse Fix tatsächlich benutzt** - so kannst du dich **entspannen** und alles aus deinen freien Tagen herausholen, ohne Druck, die App zu benutzen, bevor die kostenlosen Tage ablaufen.",
+  
+  'alternatives.title': "Preiswerter als Alternativen",
+  'alternatives.body': "Mac Mouse Fix ist **{ priceFactor }x preiswerter** im Vergleich zu Alternativen wie dem Kauf einer Logitech MX Master (99,99 $ UVP) oder eines Apple Trackpads (129,00 $ UVP).\n\nUnd das, obwohl Mac Mouse Fix - selbst in Kombination mit einer günstigen Maus - ein weit besseres Erlebnis bietet als eine MX Master.",
   
   'price.disclaimer': "Hinweis: Der Preis von **${price}** ist ohne die lokale Verbrauchssteuer, die in deiner Region gezahlt werden muss.\n(Wie z.B. der Mehrwertsteuer in Europa oder der Sales Tax in den USA)",
 

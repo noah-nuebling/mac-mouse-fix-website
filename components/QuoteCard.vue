@@ -102,8 +102,4 @@ onMounted(() => {
 
   /* Avoid styling here when using tailwind. See https://tailwindcss.com/docs/reusing-styles. */
 
-  .group:hover .cool-hover-underline:after {
-    @apply content-[''] absolute left-0 w-full bottom-[2.5px] h-[1px] rounded-[1px] bg-[hsla(0,0%,100%,0.5)] bg-blend-overlay;
-  }
-
 </style>
