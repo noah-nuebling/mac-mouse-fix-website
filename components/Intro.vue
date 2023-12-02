@@ -13,7 +13,7 @@
         <div ref="innerContent" :class="['h-[100%] w-[100%] relative flex flex-col items-center justify-center -z-20', 
                                             'xs:origin-[50%_calc(50%_+_4.1rem)] sm:origin-[50%_calc(50%_+_4.925rem)] origin-[50%_calc(50%_+_5.55rem)]', false ? initialTranslateYTW : '' ]"> 
           <NuxtImg ref="mmfIcon" :src="mmfIconImagePath" sizes="225px" alt="Mac Mouse Fix Icon" :class="['xs:h-[13rem] sm:h-[15rem] h-[16.5rem] mt-[-2rem] mb-[3rem] opacity-1']"/>
-          <h1 ref="mmfName" :class="['font-[700] xs:text-[3.75rem] sm:text-[4.5rem] text-[5.75rem] text-[hsl(0,0%,10%)] mb-[-1rem] tracking-[-0.01em]', false ? initialNameScaleTW : '', playLoadingAnimation && false ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
+          <h1 ref="mmfName" :class="['font-[`Helvetica`] font-[700] xs:text-[3.75rem] sm:text-[4.5rem] text-[5.75rem] text-[hsl(0,0%,10%)] mb-[-1rem] tracking-[-0.01em]', false ? initialNameScaleTW : '', playLoadingAnimation && false ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
           <p ref="introTagline" :class="['xs:text-[1.0rem] text-[1.1rem] xs:tracking-[-0.01rem] tracking-[0.01em] text-black mb-[2.25rem] opacity-1']">{{ $t('intro.tagline') }}</p>
           <DownloadButton ref="downloadButton" class="bg-blue-500 rounded-full text-white px-[0.85em] py-[0.3em] text-[1.2rem] tracking-[0.0em] opacity-1"></DownloadButton>
         </div>
@@ -488,10 +488,23 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   //  - When we just reduce the scaling factor a little it improves. On the apple website the text is larger to begin with, so the scaling factor is smaller, than currently on this site. Reducing scaling factor is so far the only thing I found that removes framedrops.
   //  - Here's the old solution: tlScroll.fromTo(innerContent.value, { scale: 1, translateY: 0 }, { scale: zoomScale, translateY: `${zoomScale * -4.55}rem`, ease: linearScalingEase(zoomScale), duration: zoomDistance }, zoomStart)
   tlScroll.addLabel("zoom")
-  // const zoomMatrix = `matrix(${ zoomScale }, 0, 0, ${ zoomScale }, 0, ${ zoomTranslateY })`
-  // tlScroll.fromTo(innerContent.value, {  transform: 'matrix(1, 0, 0, 1, 0, 0)' }, { transform: zoomMatrix, ease: linearScalingEase(zoomScale), duration: zoomDistance }, zoomStart)
-  tlScroll.fromTo(innerContent.value, { scale: 1.0, translateY: 0.0 }, { scale: zoomScale, translateY: 0.0, ease: linearScalingEase(zoomScale), duration: zoomDistance, force3D: false }, zoomStart)
-  // tlScroll.set(taglineContainer.value, { backgroundColor: 'green' }, zoomStop)
+
+  const baseMatrix = `matrix( 1, 0, 0, 
+                              1, 0, 0)`
+  const zoomMatrix = `matrix( ${zoomScale}, 0, 0, 
+                              ${zoomScale}, 0, 0)`
+  const scaleEase = linearScalingEase(zoomScale)
+  // tlScroll.fromTo(innerContent.value, { transform: baseMatrix }, { transform: zoomMatrix, ease: linearScalingEase(zoomScale), duration: zoomDistance, force3D: false }, zoomStart)
+  // tlScroll.fromTo(innerContent.value, { scale: 1.0, translateY: 0.0 }, { scale: zoomScale, translateY: 0.0, ease: linearScalingEase(zoomScale), duration: zoomDistance, force3D: false }, zoomStart)
+  
+
+  tlScroll.to({}, { onUpdate: optimizeOnUpdate((progress) => {
+    progress = scaleEase(progress)
+    const scale = intervalScale(progress, unitInterval, { start: 1, end: zoomScale })
+    const matrix = `matrix( ${scale}, 0, 0, 
+                            ${scale}, 0, 0)`
+    innerContent.value!.style.transform = matrix
+  }), duration: zoomDistance }, zoomStart)
 
   // Add fade-out to chevron
   tlScroll.fromTo(chevronDown.value, { autoAlpha: 1, translateY: 0 }, { autoAlpha: 0, translateY: '-0rem', duration: zoomDistance/20 }, zoomStart)
@@ -509,32 +522,19 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   tlScroll.to(innerContent.value!, { display: "none", duration: 0 }, bgStop)
 
   // Add quotes
-  var isTicking = false
-  tlScroll.to({}, { duration: quotesDistance, onUpdate: function() { 
+  
+  tlScroll.to({}, {onUpdate: optimizeOnUpdate((progress) => {
 
-    if (!isTicking) { // Check isTicking for optimization
-      
-      const progress = this.progress()
-      const scrollPosition = intervalScale(progress, unitInterval, { start: 0, end: quotesDistance })
+        const scrollPosition = intervalScale(progress, unitInterval, { start: 0, end: quotesDistance })
 
-      // DEBUG
-      // console.log(`After onUpdate() - quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }, animationProgress: ${ progress }, height: ${ quoteScrollingContainer.value!.offsetHeight }, scrollHeight: ${ quoteScrollingContainer.value!.scrollHeight }, clientHeight: ${ quoteScrollingContainer.value!.clientHeight }`);
-
-      doBeforeRender(() => {
         if (quoteScrollingContainer.value != null) { // Prevent some errors when we switch language, maybe at other times too
           quoteScrollingContainer.value!.scrollTop = scrollPosition
           // console.log(`Setting quote scrollPos to ${ scrollPosition }`);
         }
-        isTicking = false
-      })
-      isTicking = true
+        lastQuoteScrollPosition = scrollPosition
 
-      lastQuoteScrollPosition = scrollPosition
-    }
-    // innerQuoteContainer.value!.style.transform = `translateY(${ -scrollPosition }px)`
+  }), duration: quotesDistance }, quotesStart)
 
-    
-  }}, quotesStart)
   tlScroll.set(quoteContainer.value!, { visibility: 'visible' }, quotesStart )
   // tlScroll.fromTo(quoteBottom.value!, { opacity: 0 }, { opacity: 1, duration: Math.min(400, quotesDistance) }, quotesStart )
 

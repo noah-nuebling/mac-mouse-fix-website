@@ -1,6 +1,6 @@
 import { request } from "https"
 
-export { doAfterRenderrr, doAfterRender, doBeforeRender, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo }
+export { doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo }
 
 /* Pretty rounding */
 
@@ -116,6 +116,30 @@ function everyNth(n: number, startIndex: number, array: any[]): any[] {
     result.push(v)
 
     index += n
+  }
+
+  return result
+}
+
+// Gsap optimize
+
+function optimizeOnUpdate(workload: (progress: number) => any) { 
+
+  // - Pass this into gsap Tweens' `onUpdate()`, instead of passing `workload` to the tween directly. This way the `workload` will be limited to being executed once per frame.
+  // - We made this to improve the QuoteCard scrolling performance under iOS, to great effect!.
+  // - Should probably use this whenever we use `onUpdate()`
+
+  var isTicking = false
+
+  const result = function() {
+    if (!isTicking) {
+      doBeforeRender(() => {
+        const progress = this.progress()
+        workload(progress)
+        isTicking = false
+      })
+      isTicking = true
+    }
   }
 
   return result
