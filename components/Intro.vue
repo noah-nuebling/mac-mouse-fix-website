@@ -604,8 +604,12 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   const bgStop = bgStart + bgDistance
   tlScroll.fromTo(backgroundDiv.value!, { autoAlpha: 0 }, { autoAlpha: 1, duration: bgDistance }, bgStart)
   tlScroll.set({}, { onComplete: () => { splashDance.value = (!prefersReducedMotion()) }, onReverseComplete: () => { splashDance.value = false } }, bgStart-300)
-  tlScroll.fromTo(zoomedElement, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0 }, bgStop) /* Setting the scale back to 1 here seem to slow things down, but if we don't reset the scale at some point, then the site becomes superrrr long. Maybe we should reset it at some point where there's no other heavy animations? Or set disabled rendering (by setting `display: none`) instead of resetting scale? Edit: Setting `display: none` */
-  // tlScroll.to(zoomedElement, { display: "none", duration: 0 }, bgStop) /* This triggers too early and looks unpolished. Dont' know why. Tried tween.set() and tween.to() */
+  tlScroll.fromTo(zoomedElement, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0 }, bgStop)
+  if (!useOptimizedAnimations) {
+    /* Setting the scale back to 1 here seem to slow things down, but if we don't reset the scale at some point, then the site becomes superrrr long. Maybe we should reset it at some point where there's no other heavy animations? Or set disabled rendering (by setting `display: none`) instead of resetting scale? Edit: Setting `display: none`
+        Update: This triggers too early and looks unpolished on mobile. Dont' know why. Tried tween.set() and tween.to() */
+    tlScroll.to(zoomedElement, { display: "none", duration: 0 }, bgStop)
+  }
 
   // Add quotes
   
