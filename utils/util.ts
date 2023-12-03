@@ -21,7 +21,7 @@ function unsetResolution(...elements: HTMLElement[]) {
     setProps(element.style, element.originalStyle)
 
     // Delete stored size and style
-    //  We do this so when the mmfName's size changes due to responsive stuff, we're not forever stuck with the initial `originalSize`. 
+    //  We do this so in Intro.vue, when the mmfName's size changes due to responsive stuff, we're not forever stuck with the initial `originalSize`. 
     //  It might be nice to have a dedicated method for updating the size of an element which setResolution() has been called on, but for now, this hacky stuff is good enough
 
     element.originalStyle = null
@@ -31,7 +31,12 @@ function unsetResolution(...elements: HTMLElement[]) {
 
 function setResolution(scaleFactor: number, ...elements: HTMLElement[]) {
 
-  // This breaks for fonts with optical sizing. Set `font-optical: none` as a workaround
+  // Makes each of the `elements` be cached to a bitmap by the browser (or at least Safari) at `scaleFactor` times the current resolution. 
+  //    That way, then you scale up the element to `scaleFactor` it still looks sharp, but since it's cached to a bitmap, the performance is better.
+  // Notes: 
+  // - We use this to make the zoom-into-text animation from Intro.vue work much faster on Safari. Chrome doesn't need this to look and perform super well. On Firefox I'm not sure what this does.
+  // - This works by setting the actual size of the element to be `scaleFactor` times larger than the original size, then adjusting the margins to not affect the layout, and then scaling the element back down with the `scale` css style, and then setting `will-change: transform` style which forces the element to be rendered to a bitmap.
+  // - This breaks for fonts with optical sizing, because those fonts change proportions as we change their font-size. Apple's San Francisco has optical sizing. You can set `font-optical: none` as a workaround.
 
   for (var element of elements) {
 

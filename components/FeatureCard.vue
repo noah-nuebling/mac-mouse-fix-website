@@ -16,7 +16,7 @@
 <template>
   <div
     ref="card"
-    :class="['overflow-clip relative will-change-[transform,opacity] isNotExpanded', $props.class, doesExpand ? 'cursor-pointer' : '']"
+    :class="['overflow-clip relative isNotExpanded', $props.class, doesExpand ? 'cursor-pointer will-change-[transform,opacity]' : '']"
     v-on-click-outside="{ onEvent: () => { isExpanded = false }, condition: isExpanded, blockEvents: true }">
 
     <!-- Background Filter Container -->
@@ -33,7 +33,7 @@
         <div
           id="contentContainer"
           ref="contentContainer"
-          :class="['h-full flex flex-col will-change-[transform,opacity]', $props.contentClass]">
+          :class="['h-full flex flex-col', doesExpand ? 'will-change-[transform,opacity]' : '', $props.contentClass]">
 
           <!-- Minimize hint -->
           <!-- <div 

@@ -215,8 +215,7 @@ const dynamicUIStrings = {
 console.log(`licenseConfig: ${ licenseConfig }`)
 
 /* Import plugin stuff */
-
-// const { md } = useNuxtApp()
+const { $gsap, $ScrollTrigger, $isFirefox } = useNuxtApp()
 
 /* Import i18n stuff
     Note: Why can't we use $i18n in ts like we do in html? */
@@ -224,9 +223,6 @@ console.log(`licenseConfig: ${ licenseConfig }`)
 const { setLocale, locale, defaultLocale } = useI18n() 
 const $mt = useMT()
 // import { $mt } from '~/utils/markdownTranslate'
-
-/* Import gsap stuff */
-const { $gsap, $ScrollTrigger } = useNuxtApp()
 
 /* Import quote stuff */
 
@@ -280,7 +276,10 @@ const priceCardsSection2 = ref<HTMLElement | null>(null)
 /* Other vars */
 const sectionToTimelineMap = new Map<Ref<HTMLElement | null>, gsap.core.Timeline>()
 var fadeTimelines: Array<gsap.core.Timeline> = []
-var parallaxElements = [trackpadCardsSection1, trackpadCardsSection2, scrollingCardsSection1, scrollingCardsSection2, actionTableCardsSection, priceCardsSection1, priceCardsSection2]
+
+// Declare Elements that should get parallax effect
+//  Don't do this on Firefox, because the framerate is super low when the Feature Cards are in view. Not sure if disabling parallax helps noticably.
+var parallaxElements = $isFirefox ? [] : [trackpadCardsSection1, trackpadCardsSection2, scrollingCardsSection1, scrollingCardsSection2, actionTableCardsSection, priceCardsSection1, priceCardsSection2]
 
 
 onMounted(() => {

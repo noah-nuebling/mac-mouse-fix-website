@@ -340,6 +340,8 @@ function correctQuoteScrollTop() {
   // Set quote scrolling position
   // For some reason iOS the scrollTop of the quotesScrollingContainer after the scroll that triggers locationbar expands/unexpands. It also resets CSS animation, but that's okay.
 
+  if (!($isMobile && $isSafari)) { return }
+
   onScrollStop(() => {
     if (quoteScrollingContainer.value) {
       inner()
