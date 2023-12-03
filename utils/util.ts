@@ -2,28 +2,30 @@ import { request } from "https"
 
 export { doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo, setResolution, unsetResolution}
 
-type ElementSize = {
-    fontSize: number,
-    width: number,
-    height: number,
-    marginTop: number,
-    marginRight: number,
-    marginBottom: number,
-    marginLeft: number
+type ElementSize<T = number | string> = {
+    fontSize: T,
+    width: T,
+    height: T
+    marginTop: T,
+    marginRight: T,
+    marginBottom: T,
+    marginLeft: T,
+    // opticalSize: 
 }
 
 function unsetResolution(...elements: HTMLElement[]) {
   
   for (var element of elements) {
-    if (!element.originalSize) {
-      continue
-    }
 
-    setResolution(1, element)
+    if (!element.originalStyle) { continue }
+    setProps(element.style, element.originalStyle)
 
-    element.style.willChange = ''
-    element.style.transform = ''
-    element.style.transformOrigin = ''
+    // Delete stored size and style
+    //  We do this so when the mmfName's size changes due to responsive stuff, we're not forever stuck with the initial `originalSize`. 
+    //  It might be nice to have a dedicated method for updating the size of an element which setResolution() has been called on, but for now, this hacky stuff is good enough
+
+    element.originalStyle = null
+    element.originalSize = null
   }
 }
 
@@ -38,20 +40,23 @@ function setResolution(scaleFactor: number, ...elements: HTMLElement[]) {
       continue
     }
 
+    // TEST
+    // console.error(`ahhhh`)
+
     // Check if original size and margin data are already stored
+
     if (!element.originalSize) {
+
+      // Store style for unsetResolution()
+      const style = getProps(element.style,          ['fontSize', 'width', 'height', 'marginTop', 'marginRight', 'marginBottom', 'marginLeft', 'willChange', 'transform', 'transformOrigin'])
+      element.originalStyle = style
+
+      // Store computed size for computations
       const computedStyle = getComputedStyle(element)
-      const size: ElementSize = {
-        fontSize: parseFloat(computedStyle.fontSize),
-        width: parseFloat(computedStyle.width), //element.offsetWidth,
-        height: parseFloat(computedStyle.height), //element.offsetHeight,
-        marginTop: parseFloat(computedStyle.marginTop),
-        marginRight: parseFloat(computedStyle.marginRight),
-        marginBottom: parseFloat(computedStyle.marginBottom),
-        marginLeft: parseFloat(computedStyle.marginLeft)
-        // opticalSize: computedStyle.fontVariationSettings
-      };
+      const size = getProps(computedStyle,           ['fontSize', 'width', 'height', 'marginTop', 'marginRight', 'marginBottom', 'marginLeft'])
+      transformValues(size, (x) => parseFloat(x))
       element.originalSize = size
+
     }
 
     // Smooth out font size changes
@@ -75,10 +80,6 @@ function setResolution(scaleFactor: number, ...elements: HTMLElement[]) {
     element.style.width = `${fontScale * width}px`;
     element.style.height = `${fontScale * height}px`;
 
-    // TESTING
-    // element.style.minWidth = `${fontScale * width}px`;
-    // element.style.minHeight = `${fontScale * height}px`;
-
     // Adjust margins so the overall size stays the same
     // const marginTopNew = marginTop        - (height * (fontScale - 1) / 2)
     const marginBottomNew = marginBottom  - (height * (fontScale - 1))
@@ -99,7 +100,6 @@ function setResolution(scaleFactor: number, ...elements: HTMLElement[]) {
   }
 }
 
-
 /* Pretty rounding */
 
 function roundTo(n: number, rounder: number, decimals: number = 100) {
@@ -118,6 +118,20 @@ function roundTo(n: number, rounder: number, decimals: number = 100) {
   const result = mult.toFixed(decimals)
 
   return result
+}
+
+/* Map for Object */
+
+function transformValues(obj: Object, fn: (value: any) => any) {
+
+  // Like map but for object values. 
+  //  This is mutating and doesn't return anything. That's why we called it `transform`
+
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      obj[key] = fn(obj[key])
+    }
+  }
 }
 
 /* Get/set properties in a batch */

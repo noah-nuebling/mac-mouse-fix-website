@@ -524,8 +524,6 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     
     const scaler = (rawProgress: number) => intervalScale(scaleEase(rawProgress), unitInterval, { start: 1, end: zoomScale })
     const scale = scaler(rawProgress)
-    console.log(`rawProgress: ${rawProgress}, scale: ${scale}`)
-
 
     const transform = `matrix(  ${scale}, 0, 0, ${scale}, 0, 0) ${ false ? 'perspective(1px) translateZ(0)' : '' }` // Using scale() or matrix3d() transform doesn't make it faster.
     zoomedElement.style.transform = transform
@@ -587,7 +585,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   // Fade out to all elements of initialContent except name
   //  This is to hide blurryness in Safari which comes from bitmap caching optimizations. Somehow, caching the mmfName to bitmap causes the other initialContent elements to be cached to bitmap as well?
-  if (true || $isSafari && !useOptimizedAnimations) {
+  if ((true || $isSafari) && !useOptimizedAnimations) {
     const dur = zoomDistance/4
     tlScroll.fromTo(downloadButton.value.rootElement, { opacity: 1 }, { opacity: 0, duration: dur }, zoomStart)
     tlScroll.fromTo(mmfIcon.value!.$el,               { opacity: 1 }, { opacity: 0, duration: dur }, zoomStart)
@@ -607,7 +605,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   tlScroll.fromTo(backgroundDiv.value!, { autoAlpha: 0 }, { autoAlpha: 1, duration: bgDistance }, bgStart)
   tlScroll.set({}, { onComplete: () => { splashDance.value = (!prefersReducedMotion()) }, onReverseComplete: () => { splashDance.value = false } }, bgStart-300)
   tlScroll.fromTo(zoomedElement, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0 }, bgStop) /* Setting the scale back to 1 here seem to slow things down, but if we don't reset the scale at some point, then the site becomes superrrr long. Maybe we should reset it at some point where there's no other heavy animations? Or set disabled rendering (by setting `display: none`) instead of resetting scale? Edit: Setting `display: none` */
-  tlScroll.to(zoomedElement, { display: "none", duration: 0 }, bgStop)
+  // tlScroll.to(zoomedElement, { display: "none", duration: 0 }, bgStop) /* This triggers too early and looks unpolished. Dont' know why. Tried tween.set() and tween.to() */
 
   // Add quotes
   
@@ -667,6 +665,24 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   // Signal globally
   global.introAnimationId += 1
+
+  // DEBUG
+
+
+  console.log(`
+    zoomStart: ${            zoomStart}
+    zoomStop: ${             zoomStart + zoomDistance}
+    taglineStart: ${         taglineStart}
+    taglineStop: ${          taglineStart + taglineDistance}
+    quotesStart: ${          quotesStart}
+    quotesStop: ${           quotesStart + quotesDistance}
+    bgStart: ${              bgStart}
+    bgStop: ${               bgStart + bgDistance}
+    quoteExpandInStart: ${   quoteExpandInStart}
+    quoteExpandInStop: ${    quoteExpandInStart + quoteExpandInDuration}
+    taglineOutStart: ${      taglineOutStart}
+    taglineOutStop: ${       taglineOutStart + taglineOutDuration}
+  `)
 
   // Recalculate all scrollTriggers (This scrolltrigger doesn't need to be recalculcated, because it was just recreated, but all the ones further down the page need to be recalculated)
   // doAfterRender(() => {
