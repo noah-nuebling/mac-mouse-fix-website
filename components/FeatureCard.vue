@@ -309,14 +309,36 @@ if (props.doesExpand) {
 
       if (!videosAreLoaded(card.value!)) {
 
+        // Load video and wait
+        // - We have very rudimentary loading animation and interruption handling. Not pretty, and surely has many race condition but prevents things from breaking too easily on very slow connection.
+        
+        // Start loading animation
+        placeholderContentContainer!.classList.add('animate-pulse')
+
+        // Start loading
         loadVideos(card.value!, true)
 
-        // Wait until video has loaded
-        await new Promise((resolve) => {         
+        // Wait
+        const interrupted = await new Promise((resolve) => {         
+          
+          // Stop waiting on load
           video!.addEventListener(/* 'loadedmetadata' */'loadeddata', () => {
-            resolve(null)
+            resolve(false)
           }, { once: true })
+
+          // Stop waiting on interrupt
+          watch(isExpanded, () => {
+            if (isExpanded.value == false) {
+              resolve(true)
+            }
+          })
         })
+
+        // Stop loading animation
+        placeholderContentContainer!.classList.remove('animate-pulse')
+
+        // Handle interrupt
+        if (interrupted) { return }
       }
 
       // Determine target styling of card
