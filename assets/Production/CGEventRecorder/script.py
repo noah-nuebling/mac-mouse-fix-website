@@ -192,8 +192,8 @@ if __name__ == "__main__":
     elif mode == "playback":
         set_nice(15)
         input_file = sys.argv[2]
-        start_percent = float(sys.argv[3]) if len(sys.argv) > 3 else 0
-        end_percent = float(sys.argv[4]) if len(sys.argv) > 4 else None
-        playback_events(input_file, verbose, start_percent, end_percent)
+        start_time = float(sys.argv[3]) if len(sys.argv) > 3 else 0
+        end_time = float(sys.argv[4]) if len(sys.argv) > 4 else None
+        playback_events(input_file, verbose, start_time, end_time)
     else:
         print("Invalid mode. Use 'record' or 'playback'.")
