@@ -587,7 +587,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   // Fade out to all elements of initialContent except name
   //  This is to hide blurryness in Safari which comes from bitmap caching optimizations. Somehow, caching the mmfName to bitmap causes the other initialContent elements to be cached to bitmap as well?
-  if ($isSafari && !useOptimizedAnimations) {
+  if (true || $isSafari && !useOptimizedAnimations) {
     const dur = zoomDistance/4
     tlScroll.fromTo(downloadButton.value.rootElement, { opacity: 1 }, { opacity: 0, duration: dur }, zoomStart)
     tlScroll.fromTo(mmfIcon.value!.$el,               { opacity: 1 }, { opacity: 0, duration: dur }, zoomStart)
