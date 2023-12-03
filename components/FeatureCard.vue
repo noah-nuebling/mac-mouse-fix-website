@@ -36,12 +36,12 @@
           :class="['h-full flex flex-col will-change-[transform,opacity]', $props.contentClass]">
 
           <!-- Minimize hint -->
-          <div 
+          <!-- <div 
             ref="minimizeHint"
             class="hidden justify-center items-center absolute inset-0 bg-white/70 backdrop-blur-xl z-[10] invisible opacity-0 transition-opacity duration-[0.5s]">
             
             <p class="text-blue-500/90 font-[600] text-center text-[1.6rem] group-hover:underline">{{ $t('feature-card.minimize-hint') }}</p>
-          </div>
+          </div> -->
 
           <!-- Top -->
           <div ref="topCardContent" class="flex flex-col">
@@ -141,7 +141,7 @@ const defaultCardContent: Ref<HTMLElement | null> = ref(null)
 const expandedCardContent: Ref<HTMLElement | null> = ref(null)
 const bottomCardContent: Ref<HTMLElement | null> = ref(null)
 
-var minimizeHint: Ref<HTMLDivElement | null> = ref(null)
+// var minimizeHint: Ref<HTMLDivElement | null> = ref(null)
 
 var video: HTMLVideoElement | null = null
 
@@ -195,8 +195,8 @@ onMounted(() => {
     video.addEventListener('ended', () => {
 
       // Show minimizeHint
-      minimizeHint.value!.style.visibility = 'visible'
-      minimizeHint.value!.style.opacity = '1.0'
+      // minimizeHint.value!.style.visibility = 'visible'
+      // minimizeHint.value!.style.opacity = '1.0'
       
     }, false)
   }  
@@ -218,17 +218,19 @@ onUnmounted(() => {
 
 if (props.doesExpand) {
 
+
+
   // Do the main expand / unexpand animations
   watch(isExpanded, async (shouldExpand) => { 
+
+    // DEBUG
+    console.log(`shouldExpand: ${shouldExpand}`)
 
     // Kill current animations
     // Not totally sure if this is appropriate here. I think it prevents the onComplete method from being called when the card is unexpanded during the expand animation, which would lead to the zIndex getting messed up.
     if (animationContext) {
       animationContext.kill()
     }
-
-    // DEBUG
-    console.log(`Set card cursor to: ${ card.value!.style.cursor }`)
 
     // Animate and stuff
     if (shouldExpand) {
@@ -321,17 +323,19 @@ if (props.doesExpand) {
         // Wait
         const interrupted = await new Promise((resolve) => {         
           
+          // Stop waiting on interrupt
+          const unwatchInterrupt = watch(isExpanded, () => {
+            if (isExpanded.value == false) {
+              resolve(true)
+              unwatchInterrupt()
+            }
+          }, { })
+
           // Stop waiting on load
           video!.addEventListener(/* 'loadedmetadata' */'loadeddata', () => {
             resolve(false)
+            unwatchInterrupt()
           }, { once: true })
-
-          // Stop waiting on interrupt
-          watch(isExpanded, () => {
-            if (isExpanded.value == false) {
-              resolve(true)
-            }
-          })
         })
 
         // Stop loading animation
@@ -683,8 +687,8 @@ if (props.doesExpand) {
         //
 
         // Hide minimizeHint
-        minimizeHint.value!.style.visibility = 'hidden'
-        minimizeHint.value!.style.opacity = '0.0'
+        // minimizeHint.value!.style.visibility = 'hidden'
+        // minimizeHint.value!.style.opacity = '0.0'
 
         // Replace card styling with placeholder styling
         // Notes: 
