@@ -32,7 +32,7 @@
           <!-- Unexpand -->
           <span :class="['', isExpanded ? '' : 'opacity-0 absolute']">
             <span v-html="$mt('feature-card.unexpand-button')"></span>                                                        
-            <span class="inline-space-[0]"/><img src="~/assets/img/stop.circle-blue@8x.png" alt="" class="ml-[0.4em] translate-x-[0em] inline wh-[1.00em] align-[-0.2em] filter hue-rotate-[var(--accent-rotate)]">
+            <span class="inline-space-[0]"/><img src="~/assets/img/pause.circle-blue@8x.png" alt="" class="ml-[0.4em] translate-x-[0em] inline wh-[1.00em] align-[-0.2em] filter hue-rotate-[var(--accent-rotate)]">
           </span>
         </a>
       </div>
