@@ -183,16 +183,16 @@ export default {
   'unobtrusive-lightweight.title': "Unobtrusive. Lightweight. Beautiful.",
   'unobtrusive-lightweight.body': "Every detail of Mac Mouse Fix has been considered and optimized to give you the best possible **experience** while feeling like a **natural** extension of your Mac. I've invested countless hours to make sure that Mac Mouse Fix uses no more **battery** or **memory** than absolutely necessary. The goal is that you won't even notice Mac Mouse Fix on your computer - except of course, when using your mouse.",
   'open-source.title': "Open source",
-  'open-source.body': "Mac Mouse Fix's source code is available on GitHub, so everyone can see exactly how it works. This helps with the development, and it means you can be sure that Mac Mouse Fix is **secure** and **trustworthy**, and doesn't do anything when it runs in the background - except bringing your mouse experience to the next level!", //Also, other awesome projects can benefit from Mac Mouse Fix' innovations in trackpad simulation and other areas.",
+  'open-source.body': "Mac Mouse Fix's source code is available on GitHub, so everyone can see exactly how it works. This helps with the development, and it means you can be sure that Mac Mouse Fix is **secure** and **trustworthy**, that it protects your **privacy**, and that it doesn't do anything when it runs in the background - except bringing your mouse experience to the next level!", //Also, other awesome projects can benefit from Mac Mouse Fix' innovations in trackpad simulation and other areas.",
 
 
   'price.header': "... Great **Price**",
 
   'price.title': "**${ price }** to own",
-  'price.body': "Mac Mouse Fix costs ${ price } to own - forever. There are **no subscriptions or additional payments**, and you can easily pay in few clicks from inside the app with **Apple Pay**, **PayPal**, **Credit card** and more.",
+  'price.body': "Mac Mouse Fix costs ${ price } to own. That's it. There are **no subscriptions or additional payments**. I made sure the checkout experience is as nice and quick as possible. You can even pay with **Apple Pay**!\n\nTo buy the app, click the button in the app, or click [here](https://noahnuebling.gumroad.com/l/mmfinappusd).",
   
   'free-days.title':  "Free for **{ trialDays } Days**",
-  'free-days.body':   "Mac Mouse Fix is **free for { trialDays } days**. Your free days will only be used up **when you actually use Mac Mouse Fix** - so you can **relax** and get everything out of your free days without pressure to use app before the free days run out.",
+  'free-days.body':   "Mac Mouse Fix is free for **{ trialDays } days**. Your free days are only used up **when you actually use the app**. So you can get the most out of your free days - without any stress.",
 
   'alternatives.title':  "Better value than alternatives",
   'alternatives.body':   "Mac Mouse Fix is **{ priceFactor }x cheaper** compared to alternatives like buying a Logitech MX Master ($99.99 MSRP), or an Apple Trackpad ($129.00 MSRP).\n\nAnd that's even though Mac Mouse Fix - even paired with a cheap mouse - offers a far nicer experience compared a MX Master.", // Keep MXMasterPrice in index.vue in sync with this, so that the price factor is correct.

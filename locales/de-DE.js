@@ -147,15 +147,15 @@ export default {
   'unobtrusive-lightweight.body': "Jedes Detail von Mac Mouse Fix wurde bedacht und optimiert, um dir das bestmögliche **Erlebnis** zu bieten, und sich dabei wie eine **natürliche** Erweiterung deines Macs anzufühlen. Etliche Stunden Arbeit sind eingeflossen damit Mac Mouse Fix nicht mehr **Batterie** oder **Speicher** verwendet, als es wirklich muss. Das Ziel ist, dass du Mac Mouse Fix überhaupt nicht auf deinem Computer bemerkst - Außer natürlich, wenn du deine Maus benutzt.",
   
   'open-source.title': "Open-Source",
-  'open-source.body': "Der Quellcode von Mac Mouse Fix ist auf GitHub verfügbar, sodass jeder genau sehen kann, wie es funktioniert. Das hilft bei der Entwicklung, und es bedeutet, du kannst dir gewiss sein, dass Mac Mouse Fix **sicher** und **vertrauenswürdig** ist, und im Hintergrund nichts tut - Außer dein Mauserlebnis auf die nächste Stufe zu heben!", //Außerdem hilft es dabei, Mac Mouse Fix in verschiedene Sprachen zu übersetzen, die Software-Qualität zu verbessern, und mehr.",
+  'open-source.body': "Der Quellcode von Mac Mouse Fix ist auf GitHub verfügbar, sodass jeder genau sehen kann, wie es funktioniert. Das hilft bei der Entwicklung, und es bedeutet, du kannst dir gewiss sein, dass Mac Mouse Fix **sicher** und **vertrauenswürdig** ist, dass es deine **Privatsphäre** beschützt, und dass es im Hintergrund nichts tut - Außer dein Mauserlebnis auf die nächste Stufe zu heben!", //Außerdem hilft es dabei, Mac Mouse Fix in verschiedene Sprachen zu übersetzen, die Software-Qualität zu verbessern, und mehr.",
   
   'price.header': "... Toller **Preis**",
   
-  'price.title': "**${ price }** für die volle Lizenz",
-  'price.body': "Mac Mouse Fix kostet ${ price } für die volle Lizenz - für immer. Es gibt **keine Abonnements oder zusätzliche Zahlungen**, und du kannst ganz einfach mit wenigen Klicks innerhalb der App mit **Apple Pay**, **PayPal**, **Kreditkarte** und mehr bezahlen.",
+  'price.title': "**${ price }** zum Besitzen",
+  'price.body': "Mac Mouse Fix kostet ${ price } zum Besitzen. Es gibt **keine Abonnements oder zusätzlichen Zahlungen**. Ich habe darauf geachtet, dass die Kauferfahrung so angenehm und schnell wie möglich ist. Du kannst sogar mit **Apple Pay** bezahlen!\n\nUm die App zu kaufen, klicke den Knopf in der App, oder klicke [hier](https://noahnuebling.gumroad.com/l/mmfinappusd).",
   
   'free-days.title': "**{ trialDays } Tage** kostenlos",
-  'free-days.body': "Mac Mouse Fix ist **{ trialDays } Tage kostenlos**. Deine kostenlosen Tage werden nur verbraucht, **wenn du Mac Mouse Fix tatsächlich benutzt** - so kannst du dich **entspannen** und alles aus deinen freien Tagen herausholen, ohne Druck, die App zu benutzen, bevor die kostenlosen Tage ablaufen.",
+  'free-days.body': "Mac Mouse Fix ist **{ trialDays } Tage lang kostenlos**. Deine kostenlosen Tage werden nur verbraucht, **wenn du die App tatsächlich benutzt**. So kannst du alles aus deinen kostenlosen Tagen herausholen - Ganz ohne Stress.",
   
   'alternatives.title': "Preiswerter als Alternativen",
   'alternatives.body': "Mac Mouse Fix ist **{ priceFactor }x preiswerter** im Vergleich zu Alternativen wie dem Kauf einer Logitech MX Master (99,99 $ UVP) oder eines Apple Trackpads (129,00 $ UVP).\n\nUnd das, obwohl Mac Mouse Fix - selbst in Kombination mit einer günstigen Maus - ein weit besseres Erlebnis bietet als eine MX Master.",

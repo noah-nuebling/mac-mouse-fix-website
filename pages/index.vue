@@ -140,7 +140,7 @@
 
       <!-- Price / Good Software -->
 
-      <div class="strong:text-gradient-to-l ch-[a]:text-blue-500">
+      <div class="strong:text-gradient-to-l ch-[a]:text-green-600 ch-[a]:font-[500]">
         <SectionHeader id="price" class="gradient-green strong:filter strong:brightness-[1.15]" title-accent2-class="text-gradient-to-l gradient-green filter brightness-[1.35]" title-key="good-software.title" title-accent2-key="good-software.title.accent2" body-key="good-software.body" />
         
         <CardContainer title-key="good-software.header" 
