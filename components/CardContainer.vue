@@ -1,6 +1,6 @@
 <template>
 
-  <div class="shadow-sm shadow-black/[0.0] border-0 border-neutral-900/[0.15] bg-neutral-900/[0.015] sm:rounded-[2rem] rounded-[4rem] relative sm:px-[0.5rem] px-[2.5rem] xs:mx-0 mx-[2.5rem]">
+  <div class="shadow-sm shadow-black/[0.0] border-neutral-900/[0.15] bg-neutral-900/[0.015] sm:rounded-[2rem] rounded-[4rem] relative sm:px-[0.5rem] px-[2.5rem] xs:mx-0 mx-[2.5rem]">
     
     <!-- Title -->
     <div v-if="titleKey" :class="['relative sm:pt-[5.5rem] sm:pb-[calc(5.5rem-3rem)] pt-[7rem] pb-[calc(7rem-1.5rem)] mx-[1rem] mb-[0.25rem] ', titleClass]">
@@ -14,8 +14,8 @@
     </div>
 
     <!-- Disclaimer -->
-    <div v-if="disclaimerKey" class="max-w-[calc(100%-0rem)] relative left-[50%] translate-x-[-50%] sm:px-[1rem] px-[5rem] pt-[calc(5.5rem-0.5rem)] pb-[5.5rem]">
-      <p v-html="$mt(disclaimerKey, disclaimerValues, true)" class="text-[1.0rem] text-center text-neutral-900/[0.7] "></p>
+    <div v-if="disclaimerKey" :id="disclaimerKey" class="w-[100%] relative sm:px-[1rem] px-[5rem] pt-[calc(5.5rem-0.5rem)] pb-[5.5rem] flex justify-center">
+      <p v-html="$mt(disclaimerKey, disclaimerValues, true)" class="max-w-[50em] text-[1.0rem] text-center text-neutral-900/[0.7]"></p>
     </div>
 
   </div>

@@ -157,7 +157,7 @@
           </div>
         </CardContainer>
 
-        <CardContainer  title-key="price.header" disclaimer-key="price.disclaimer" :disclaimer-values="dynamicUIStrings"
+        <CardContainer title-key="price.header" disclaimer-key="price.disclaimer" :disclaimer-values="dynamicUIStrings"
           class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] mt-[5rem]"   title-class="strong:filter strong:brightness-[1.2]">
 
           <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">

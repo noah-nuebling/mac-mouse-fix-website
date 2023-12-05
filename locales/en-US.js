@@ -189,15 +189,17 @@ export default {
   'price.header': "... Great **Price**",
 
   'price.title': "**${ price }** to own",
-  'price.body': "Mac Mouse Fix costs ${ price } to own. That's it. There are **no subscriptions or additional payments**. I made sure the checkout experience is as nice and quick as possible. You can even pay with **Apple Pay**!\n\nTo buy the app, click the button in the app, or click [here](https://noahnuebling.gumroad.com/l/mmfinappusd).",
+  'price.body': "Mac Mouse Fix costs ${ price } ([+ taxes](#price.disclaimer)) to own, and that's it. There are **no subscriptions or additional payments**. I made sure the checkout experience is as nice and quick as possible, and you can even pay with **Apple Pay**!\n\nTo buy the app, click the button in the app, or click [here](https://noahnuebling.gumroad.com/l/mmfinappusd).",
   
   'free-days.title':  "Free for **{ trialDays } Days**",
-  'free-days.body':   "Mac Mouse Fix is free for **{ trialDays } days**. Your free days are only used up **when you actually use the app**. So you can get the most out of your free days - without any stress.",
+  'free-days.body':   "Mac Mouse Fix is free for **{ trialDays } days**. Your free days are only used up **when you actually use the app**. That way you can get the most out of your free days - without any stress.",
 
   'alternatives.title':  "Better value than alternatives",
   'alternatives.body':   "Mac Mouse Fix is **{ priceFactor }x cheaper** compared to alternatives like buying a Logitech MX Master ($99.99 MSRP), or an Apple Trackpad ($129.00 MSRP).\n\nAnd that's even though Mac Mouse Fix - even paired with a cheap mouse - offers a far nicer experience compared a MX Master.", // Keep MXMasterPrice in index.vue in sync with this, so that the price factor is correct.
   
-  'price.disclaimer': "Note: The price of **${price}** does not include the consumption tax that has to be paid in your region.\n(Such as sales tax in the US or VAT in Europe)", 
+  'price.disclaimer': "Note on taxes: The price of **${price}** does not include consumption taxes, which must be paid in most regions. For example, Sales Tax in the US, or VAT in Europe. The tax will be added to the price at the time of purchase, depending on your location. I would really like to include the tax in the price - to make the buying experience simpler and clearer. But this is currently not feasible due to limitations with the sales platform Gumroad.com. I hope the price still feels very fair and cheap. To see your final price, visit the [checkout page](https://app.gumroad.com/checkout?wanted=true).",
+                    //"Note: The price of **${price}** does not include the local consumption tax, which must be paid in most regions.\nFor example, the Sales Tax in the USA, or VAT in Europe. The tax will be added to the price at the time of purchase, depending on your location.",
+                    //"Note: The price of **${price}** does not include the consumption tax that has to be paid in your region.\n(Such as sales tax in the US or VAT in Europe)", 
                     // Note: The price of **${price}** does not include consumption tax, which will be added according to the tax laws in your region. This may include taxes like sales tax in the US or VAT in Europe.
   
   'alternatives.mx-master-rant': "The MX Master and other Logitech mice actually has very bad build quality and components compared to its price, and has very bad ergonomics too, at least for my hands. The button placing is very inconvenient, the mouse is way too heavy making it uncomfortable compared to ligher mouse, it's too big, not fitting my hand well, sensor is low quality and inaccurate, lots of input lag on bluetooth, the hardware features it has (gesture button, horizontal wheel, and free-spin) are not well-engineered, and do not feel good or ergonomic to use and their functionality can easily be replaced by Mac Mouse Fix in a better way.",
