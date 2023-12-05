@@ -8,4 +8,8 @@ export default defineI18nConfig(() => ({
   fallbackLocale: 'en-US',
   fallbackWarn: false, // Consider enabling for translators after debugging, where these are annoying Edit: it still warns about missing keys, so this option is kinda pointless...
   
+  
+  warnHtmlMessage: false, // Allow HTML in localization files (doesn't work)
+  warnHtmlInMessage: 'off'
+  
 }))

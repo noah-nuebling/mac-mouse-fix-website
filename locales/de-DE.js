@@ -160,7 +160,7 @@ export default {
   'alternatives.title': "Preiswerter als Alternativen",
   'alternatives.body': "Mac Mouse Fix ist **{ priceFactor }x preiswerter** im Vergleich zu Alternativen wie dem Kauf einer Logitech MX Master (99,99 $ UVP) oder eines Apple Trackpads (129,00 $ UVP).\n\nUnd das, obwohl Mac Mouse Fix - selbst in Kombination mit einer günstigen Maus - ein weit besseres Erlebnis bietet als eine MX Master.",
   
-  'price.disclaimer': "Hinweis zu Steuern: Der Preis von **${price}** ist ohne die lokale Verbrauchssteuer, die in den meisten Regionen gezahlt werden muss. Wie z.B. der Mehrwertsteuer in Europa oder der Sales Tax in den USA. Die Steuer wird beim Kauf, abhängig von deinem Aufenthaltsort, zum Preis dazuaddiert. Ich würde die Steuer wirklich gerne im Preis enthalten - damit die Kauferfahrung einfacher und klarer ist. Aber das ist momentan nicht praktikabel wegen Einschränkungen bei der Verkaufsplatform Gumroad.com. Ich hoffe der Preis fühlt sich trotzdem sehr fair und billig an. Um den endgültigen Preis zu sehen, besuche die [Kassenseite](https://app.gumroad.com/checkout?wanted=true).",
+  'price.disclaimer': "Hinweis zu Steuern: Der Preis von **${price}** ist ohne lokale Steuern, die eventuell in deiner Regionen gezahlt werden müssen. Um den Gesamtpreis zu sehen, besuche die [Kassenseite](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true). Ich würde die Steuer wirklich gerne im Preis enthalten - damit die Kauferfahrung einfacher und klarer ist. Aber das ist momentan nicht praktikabel wegen Einschränkungen bei der Verkaufsplatform Gumroad.com. Ich hoffe der Preis fühlt sich trotzdem sehr fair und günstig an. ",
 
   
 

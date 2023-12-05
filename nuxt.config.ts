@@ -67,6 +67,9 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'en-US',
     vueI18n: './i18n.config.ts',
+    compilation: {
+      strictMessage: false, // Allow HTML in localization files.
+    },
     strategy: 'prefix_except_default', //'prefix',
     detectBrowserLanguage: { /* Not sure what we're doing here */
       useCookie: true, // If true, non-english users will only be redirected the first time IIUC - only set false for testing

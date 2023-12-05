@@ -1,5 +1,4 @@
 
-
 export function useCoolI18n() {
 
   const i18n = useI18n()
