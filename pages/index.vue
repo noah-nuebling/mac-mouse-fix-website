@@ -192,11 +192,13 @@ import { roundTo } from "~/utils/util"
 import licenseConfig from "~/assets/licenseinfo/config.json"
 
 
-const MXMasterPrice = 99.99 // Update this when you change the listed products
+const MXMasterPrice = 99.99
+const trackpadPrice = 129.00 
 
 const price = licenseConfig["price"] / 100
 const trialDays = licenseConfig["trialDays"]
-const priceFactor = Math.round(MXMasterPrice / price)
+const priceFactorMXMaster = Math.round(MXMasterPrice / price)
+const priceFactorTrackpad = Math.round(trackpadPrice / price)
 const taxEstimateLow = 0.05
 const taxEstimateHigh = 0.25
 const afterTaxPriceEstimateLow = roundTo(price * (1 + taxEstimateLow), 0.01, 2)
@@ -205,7 +207,8 @@ const afterTaxPriceEstimateHigh = roundTo(price * (1 + taxEstimateHigh), 0.01, 2
 const dynamicUIStrings = {
   price: price,
   trialDays: trialDays,
-  priceFactor: priceFactor,
+  priceFactorMXMaster: priceFactorMXMaster,
+  priceFactorTrackpad: priceFactorTrackpad,
   taxEstimateLow: taxEstimateLow*100,
   taxEstimateHigh: taxEstimateHigh*100,
   afterTaxPriceEstimateLow: afterTaxPriceEstimateLow,
