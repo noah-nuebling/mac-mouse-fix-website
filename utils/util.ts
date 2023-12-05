@@ -107,7 +107,7 @@ function setResolution(scaleFactor: number, ...elements: HTMLElement[]) {
 
 /* Pretty rounding */
 
-function roundTo(n: number, rounder: number, decimals: number = 100) {
+function roundTo(n: number, rounder: number, decimals: number = 100, roundingFn = Math.round) {
 
   // Outputs the multiple of `rounder` which is closest to `n`.
   // Use `decimals` set a max number of digits after the period. This is to combat division errors where you get numbers like 0.500000000000003.
@@ -117,7 +117,7 @@ function roundTo(n: number, rounder: number, decimals: number = 100) {
   // Use like `roundTo(3.76, 0.5)`       to get 4.0
 
   const div = n / rounder
-  const round = Math.round(div)
+  var round = roundingFn(div)  
   const mult = round * rounder
 
   const result = mult.toFixed(decimals)

@@ -157,8 +157,8 @@ export default {
   'free-days.title': "**{ trialDays } Tage** kostenlos",
   'free-days.body': "Mac Mouse Fix ist **{ trialDays } Tage lang kostenlos**. Deine kostenlosen Tage werden nur verbraucht, **wenn du die App tatsächlich benutzt**. So kannst du alles aus deinen kostenlosen Tagen herausholen - Ganz ohne Stress.",
   
-  'alternatives.title': "Preiswerter als die Alternativen",
-  'alternatives.body': "Mac Mouse Fix ist **{ priceFactor }x preiswerter** im Vergleich zu Alternativen wie dem Kauf einer Logitech MX Master (99,99 $ UVP) oder eines Apple Trackpads (129,00 $ UVP).\n\nUnd das, obwohl Mac Mouse Fix - selbst in Kombination mit einer günstigen Maus - ein weit besseres Erlebnis bietet als eine MX Master.",
+  'alternatives.title': "Preiswerter als die **Alternativen**",
+  'alternatives.body': "Mac Mouse Fix macht deine $10 Maus besser als eine Logitech MX Master Maus oder ein Apple Trackpad. (Diese gelten als einige der besten Eingabegeräte für Macs.)\n\nUnd trotzdem ist Mac Mouse Fix **{priceFactorMXMaster}x** günstiger als eine MX Master und **{priceFactorTrackpad}x** günstiger als ein Trackpad!",
   
   'price.disclaimer': "Hinweis zu Steuern: Der Preis von **${price}** ist ohne lokale Steuern, die eventuell in deiner Regionen gezahlt werden müssen. Um den Gesamtpreis zu sehen, besuche die [Kassenseite](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true). Ich würde die Steuer wirklich gerne im Preis enthalten - damit die Kauferfahrung einfacher und klarer ist. Aber das ist momentan nicht praktikabel wegen Einschränkungen bei der Verkaufsplatform Gumroad.com. Ich hoffe der Preis fühlt sich trotzdem sehr fair und günstig an. ",
 

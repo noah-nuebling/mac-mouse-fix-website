@@ -197,12 +197,12 @@ const trackpadPrice = 129.00
 
 const price = licenseConfig["price"] / 100
 const trialDays = licenseConfig["trialDays"]
-const priceFactorMXMaster = Math.round(MXMasterPrice / price)
-const priceFactorTrackpad = Math.round(trackpadPrice / price)
+const priceFactorMXMaster = roundTo(MXMasterPrice / price, 5, 0, Math.floor)
+const priceFactorTrackpad = roundTo(trackpadPrice / price, 5, 0, Math.floor)
 const taxEstimateLow = 0.05
 const taxEstimateHigh = 0.25
-const afterTaxPriceEstimateLow = roundTo(price * (1 + taxEstimateLow), 0.01, 2)
-const afterTaxPriceEstimateHigh = roundTo(price * (1 + taxEstimateHigh), 0.01, 2)
+const afterTaxPriceEstimateLow = roundTo(price * (1 + taxEstimateLow), 0.01, 2, Math.round)
+const afterTaxPriceEstimateHigh = roundTo(price * (1 + taxEstimateHigh), 0.01, 2, Math.round)
 
 const dynamicUIStrings = {
   price: price,

@@ -11,6 +11,12 @@ Expanding card code example: https://greensock.com/forums/topic/21050-expanding-
 
 --- 
 
+## Pricing (Not sure this belongs here)
+
+- These guys sell books and say that 1.99 is a less common and worse price than 2.99. https://www.kdpcommunity.com/s/question/0D5f400000FHOPbCAP/dropping-price-from-299-to-199-effective?language=en_US
+- I feel like 1.99 is weird now. I think I picked it as the lowest price that I could likely sustain myself with. But I think 1, 3, 5, 10 feel much better as price points.
+- Magnet price history: https://appsliced.co/app?n=window-magnet
+
 ## Optimization
 
 - **Videos**: We're doing this trick where we set the video's src to '' and then load them to clear them from the ram after the user closes a feature card. Otherwise all the videos make the browsers crash after opening a few feature cards. Videos seem to be loaded by the browser on-demand as the user plays them, so we don't need further optimization there. But it's probably good to export the videos in a compressed, web-friendly format.
