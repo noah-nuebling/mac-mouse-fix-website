@@ -17,7 +17,7 @@
   <div
     ref="card"
     :class="['overflow-clip relative isNotExpanded', $props.class, doesExpand ? 'cursor-pointer will-change-[transform,opacity]' : '']"
-    v-on-click-outside="{ onEvent: () => { isExpanded = false }, condition: isExpanded, blockEvents: true }">
+    v-on-click-outside="{ onEvent: () => { isExpanded = false }, condition: (isExpanded && doesExpand), blockEvents: true }">
 
     <!-- Background Filter Container -->
     <div 
