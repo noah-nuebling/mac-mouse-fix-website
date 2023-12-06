@@ -138,13 +138,13 @@ export default {
   'good-software.title': "Tolle Software.\nToller {accent2}.",
   'good-software.title.accent2': "Preis",
 
-  'good-software.body': "Ich strebe danach, Mac Mouse Fix eine Software zu machen bei der du dich **richtig gut fühlst**, sie zu installieren. Ich möchte es so **preiswert** wie möglich anbieten, damit du das Gefühl hast, ein tolles Schnäppchen zu machen und damit es sich jeder leisten kann. Und letztendlich hoffe ich, diesen winzigen Teil der Welt ein bisschen **fantastischer** und netter zu machen!",
+  'good-software.body': "Ich strebe danach, Mac Mouse Fix zu einer Software zu machen bei der du dich **richtig gut fühlst**, sie zu installieren. Ich möchte es so **preiswert** wie möglich anbieten, damit du das Gefühl hast, ein tolles Schnäppchen zu machen und damit es sich jeder leisten kann. Und letztendlich hoffe ich, diesen winzigen Teil der Welt ein bisschen **fantastischer** und netter zu machen!",
 
 
   'good-software.header': "Tolle **Software** ...",
 
   'unobtrusive-lightweight.title': "Unauffällig. Ressourcenschonend. Schön.",
-  'unobtrusive-lightweight.body': "Jedes Detail von Mac Mouse Fix wurde bedacht und optimiert, um dir das bestmögliche **Erlebnis** zu bieten, und sich dabei wie eine **natürliche** Erweiterung deines Macs anzufühlen. Etliche Stunden Arbeit sind eingeflossen damit Mac Mouse Fix nicht mehr **Batterie** oder **Speicher** verwendet, als es wirklich muss. Das Ziel ist, dass du Mac Mouse Fix überhaupt nicht auf deinem Computer bemerkst - Außer natürlich, wenn du deine Maus benutzt.",
+  'unobtrusive-lightweight.body': "Jedes Detail von Mac Mouse Fix wurde bedacht und optimiert, um dir das bestmögliche Erlebnis zu bieten, und sich dabei wie eine **natürliche Erweiterung deines Macs** anzufühlen. Etliche Stunden Arbeit sind eingeflossen damit Mac Mouse Fix **nicht mehr Batterie oder Speicher verwendet, als es wirklich muss**. Das Ziel ist, dass du Mac Mouse Fix überhaupt nicht auf deinem Computer bemerkst - Außer natürlich, wenn du deine Maus benutzt.",
   
   'open-source.title': "Open-Source",
   'open-source.body': "Der Quellcode von Mac Mouse Fix ist auf GitHub verfügbar, sodass jeder genau sehen kann, wie es funktioniert. Das hilft bei der Entwicklung, und es bedeutet, du kannst dir gewiss sein, dass Mac Mouse Fix **sicher** und **vertrauenswürdig** ist, dass es deine **Privatsphäre** beschützt, und dass es im Hintergrund nichts tut - Außer dein Mauserlebnis auf die nächste Stufe zu heben!", //Außerdem hilft es dabei, Mac Mouse Fix in verschiedene Sprachen zu übersetzen, die Software-Qualität zu verbessern, und mehr.",
@@ -152,15 +152,15 @@ export default {
   'price.header': "... Toller **Preis**",
   
   'price.title': "**${ price }** zum Besitzen",
-  'price.body': "Mac Mouse Fix kostet ${ price } ([+ Steuern](#price.disclaimer)) zum Besitzen, und das war's.  Es gibt **keine Abonnements oder zusätzlichen Zahlungen**. Ich habe darauf geachtet, dass die Kauferfahrung so angenehm und schnell wie möglich ist, und du kannst sogar mit **Apple Pay** bezahlen!\n\nUm die App zu kaufen, klicke den Button in der App, oder klicke [hier](https://noahnuebling.gumroad.com/l/mmfinappusd).",
+  'price.body': "Mac Mouse Fix kostet ${ price } ([+ Steuern](#price.disclaimer)) zum Besitzen - und das war's.  Es gibt keine Abonnements oder zusätzlichen Zahlungen. Ich habe darauf geachtet, dass die Kauferfahrung so **angenehm** und **schnell** wie möglich ist, und du kannst sogar mit **Apple Pay** bezahlen!\n\nUm die App zu kaufen, klicke den Button in der App, oder klicke [hier](https://noahnuebling.gumroad.com/l/mmfinappusd::newTab).",
   
   'free-days.title': "**{ trialDays } Tage** kostenlos",
-  'free-days.body': "Mac Mouse Fix ist **{ trialDays } Tage lang kostenlos**. Deine kostenlosen Tage werden nur verbraucht, **wenn du die App tatsächlich benutzt**. So kannst du alles aus deinen kostenlosen Tagen herausholen - Ganz ohne Stress.",
+  'free-days.body': "Mac Mouse Fix ist { trialDays } Tage lang kostenlos. Deine **kostenlosen Tage werden nur verbraucht, wenn du die App tatsächlich benutzt**. So kannst du alles aus deinen kostenlosen Tagen herausholen - Ganz ohne Stress.",
   
   'alternatives.title': "Preiswerter als die **Alternativen**",
-  'alternatives.body': "Mac Mouse Fix macht deine $10 Maus besser als eine Logitech MX Master Maus oder ein Apple Trackpad. (Diese gelten als einige der besten Eingabegeräte für Macs.)\n\nUnd trotzdem ist Mac Mouse Fix **{priceFactorMXMaster}x** günstiger als eine MX Master und **{priceFactorTrackpad}x** günstiger als ein Trackpad!",
+  'alternatives.body': "Mac Mouse Fix macht deine $10 Maus besser als eine Logitech MX Master Maus oder ein Apple Trackpad. (Diese gelten als einige der besten Eingabegeräte für Macs.)\n\nUnd trotzdem ist Mac Mouse Fix [**{priceFactorMXMaster}x**](https://www.logitech.com/en-us/products/mice/mx-master-3s::newTab) günstiger als eine MX Master und [**{priceFactorTrackpad}x**](https://www.apple.com/us/shop/mac/accessories/mice-keyboards::newTab) günstiger als ein Trackpad!",
   
-  'price.disclaimer': "Hinweis zu Steuern: Der Preis von **${price}** ist ohne lokale Steuern, die eventuell in deiner Regionen gezahlt werden müssen. Um den Gesamtpreis zu sehen, besuche die [Kassenseite](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true). Ich würde die Steuer wirklich gerne im Preis enthalten - damit die Kauferfahrung einfacher und klarer ist. Aber das ist momentan nicht praktikabel wegen Einschränkungen bei der Verkaufsplatform Gumroad.com. Ich hoffe der Preis fühlt sich trotzdem sehr fair und günstig an. ",
+  'price.disclaimer': "Hinweis zu Steuern: Der Preis von **${price}** ist ohne lokale Steuern, die eventuell in deiner Regionen gezahlt werden müssen. Um den Gesamtpreis zu sehen, besuche die [Kassenseite](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). Ich würde die Steuer wirklich gerne im Preis enthalten - damit die Kauferfahrung einfacher und klarer ist. Aber das ist momentan nicht praktikabel wegen Einschränkungen bei der Verkaufsplatform Gumroad.com. Ich hoffe der Preis fühlt sich trotzdem sehr fair und günstig an. ",
 
   
 
