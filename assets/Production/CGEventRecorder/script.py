@@ -5,7 +5,7 @@ import json
 import os
 import objc
 import zlib
-from Quartz import CGEventTapCreate, CGEventTapEnable, kCGSessionEventTap, kCGHIDEventTap, kCGHeadInsertEventTap, kCGEventTapOptionDefault, CGEventGetIntegerValueField, kCGKeyboardEventKeycode
+from Quartz import CGEventTapCreate, CGEventTapEnable, kCGSessionEventTap, kCGHIDEventTap, kCGHeadInsertEventTap, kCGEventTapOptionDefault, CGEventGetIntegerValueField, kCGKeyboardEventKeycode, CGEventGetFlags, kCGEventFlagMaskCommand
 from Quartz import CGEventCreateFromData, CGEventCreateData, kCGEventNull, CFMachPortCreateRunLoopSource, CFRunLoopAddSource, CFRunLoopRun, CFRunLoopStop, CFRunLoopGetCurrent, CGEventPost
 from Quartz.CoreGraphics import kCGEventKeyDown, kCGEventKeyUp, kCGEventMaskForAllEvents
 from CoreFoundation import kCFRunLoopCommonModes
@@ -31,7 +31,7 @@ def record_events(output_file, verbose):
   
     def callback(proxy, type, event, refcon):
       
-        if type == kCGEventKeyDown and CGEventGetIntegerValueField(event, kCGKeyboardEventKeycode) == kVK_Escape:
+        if type == kCGEventKeyDown and CGEventGetIntegerValueField(event, kCGKeyboardEventKeycode) == kVK_Escape and CGEventGetFlags(event) & kCGEventFlagMaskCommand != 0:
             CFRunLoopStop(CFRunLoopGetCurrent())
           
         elif type != kCGEventNull:
@@ -49,7 +49,7 @@ def record_events(output_file, verbose):
                 
         return event
 
-    print("Recording started. Press esc to stop.")
+    print("Recording started. Press ⌘-esc to stop.")
     recorded_events = []
     event_tap = CGEventTapCreate(tapLocation, kCGHeadInsertEventTap, kCGEventTapOptionDefault, eventMask, callback, None)
     if not event_tap:
