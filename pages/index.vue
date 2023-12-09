@@ -72,11 +72,11 @@
               </div>
 
               <div ref="trackpadCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] relative z-[9]">
-                <NormalFeatureCard titleKey="feature.zoom.title"                bodyKey="feature.zoom.body"             :videoPath="''"       class=""/>
+                <NormalFeatureCard titleKey="feature.zoom.title"                bodyKey="feature.zoom.body"             :videoPath="zoomDemoPath"       class=""/>
                 <NormalFeatureCard titleKey="feature.pages.title"               bodyKey="feature.pages.body"            :videoPath="backAndForwardDemoPath"       class=""/>
                 <NormalFeatureCard titleKey="feature.mail-actions.title"        bodyKey="feature.mail-actions.body"     :videoPath="deleteMailsDemoPath"       class=""/>
-                <NormalFeatureCard titleKey="feature.free-scroll.title"         bodyKey="feature.free-scroll.body"      :videoPath="''"       class=""/>
-                <NormalFeatureCard titleKey="feature.smart-zoom.title"          bodyKey="feature.smart-zoom.body"       :videoPath="''"       class=""/>
+                <NormalFeatureCard titleKey="feature.free-scroll.title"         bodyKey="feature.free-scroll.body"      :videoPath="threeSixtyScrollDemoPath"       class=""/>
+                <NormalFeatureCard titleKey="feature.smart-zoom.title"          bodyKey="feature.smart-zoom.body"       :videoPath="smartZoomDemoPath"       class=""/>
               </div>
             </div>
           </div>
@@ -93,9 +93,9 @@
               <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] absolute left-[25%] top-[40%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]"/>
             </div>
             <div ref="scrollingCardsSection1" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] my-[0] w-fit">
-              <NormalFeatureCard titleKey="scroll-smoothness.high.title"           bodyKey="scroll-smoothness.high.body"        :videoPath="''"       title-class="" class=""/>
-              <NormalFeatureCard titleKey="scroll-smoothness.regular.title"        bodyKey="scroll-smoothness.regular.body"     :videoPath="''"       title-class="" class=""/>
-              <NormalFeatureCard titleKey="scroll-smoothness.off.title"            bodyKey="scroll-smoothness.off.body"         :videoPath="''"       title-class="" class=""/>
+              <NormalFeatureCard titleKey="scroll-smoothness.high.title"           bodyKey="scroll-smoothness.high.body"        :videoPath="smoothnessHighDemoPath"       title-class="" class=""/>
+              <NormalFeatureCard titleKey="scroll-smoothness.regular.title"        bodyKey="scroll-smoothness.regular.body"     :videoPath="smoothnessRegularDemoPath"       title-class="" class=""/>
+              <NormalFeatureCard titleKey="scroll-smoothness.off.title"            bodyKey="scroll-smoothness.off.body"         :videoPath="smoothnessOffDemoPath"       title-class="" class=""/>
             </div>
           </div>
         </CardContainer>
@@ -130,8 +130,8 @@
                   <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]"/>
               </div>
               <div ref="actionTableCardsSection" class="flex flex-col items-center gap-[5rem] py-[4.5rem]">
-                <NormalFeatureCard titleKey="customization-feature.action-table.title" bodyKey="customization-feature.action-table.body" :videoPath="remapDemoPath"              title-class="!font-[600]" class="w-full"        content-class="par-[.isNotExpanded]:max-w-[50rem]" :image-path="actionTableImagePath" image-scaling-sizes="" image-class="w-[205%] sm:mt-[1rem] mt-[2rem] mr-[calc(-107%)] mb-[-35%] translate-x-[0rem]"/>
-                <NormalFeatureCard titleKey="customization-feature.keyboard-shortcuts.title" bodyKey="customization-feature.keyboard-shortcuts.body" :videoPath="remapDemoPath"  title-class="!font-[600]" class="w-full" expand-button-key="customization-feature.keyboard-shortcuts.expand-button"/>
+                <NormalFeatureCard titleKey="customization-feature.action-table.title" bodyKey="customization-feature.action-table.body" :videoPath="actionTableDemoPath"              title-class="!font-[600]" class="w-full"        content-class="par-[.isNotExpanded]:max-w-[50rem]" :image-path="actionTableImagePath" image-scaling-sizes="" image-class="w-[205%] sm:mt-[1rem] mt-[2rem] mr-[calc(-107%)] mb-[-35%] translate-x-[0rem]"/>
+                <NormalFeatureCard titleKey="customization-feature.keyboard-shortcuts.title" bodyKey="customization-feature.keyboard-shortcuts.body" :videoPath="keyboardShortcutDemoPath"  title-class="!font-[600]" class="w-full" expand-button-key="customization-feature.keyboard-shortcuts.expand-button"/>
               </div>
             </div>
           </div>
@@ -245,14 +245,27 @@ import { linearFadingEase } from '~/utils/curves'
     - I feel like this is way too cumbersome. oad We know in advance which videos to import anyways (so we don't need 'dynamic' imports which should make it even easier) so why do we have to manually import in code? It should automatically import the static assets we use.
     Also See: https://stackoverflow.com/questions/75218697/nuxt-dynamic-image-require-is-not-defined
 */
+
+import threeSixtyScrollDemoPath from '../assets/video/demos/360-scroll.mp4'
+import actionTableDemoPath from '../assets/video/demos/action-table.mp4'
+
 import appExposeDemoPath from '../assets/video/demos/app-expose.mp4'
 import backAndForwardDemoPath from '../assets/video/demos/back-and-forward.mp4'
 import deleteMailsDemoPath from '../assets/video/demos/delete-mails.mp4'
+
+import keyboardShortcutDemoPath from '../assets/video/demos/keyboard-shortcut.mp4'
+
 import launchpadDemoPath from '../assets/video/demos/launchpad.mp4'
 import lookupDemoPath from '../assets/video/demos/lookup.mp4'
 import missionControlDemoPath from '../assets/video/demos/mission-control.mp4'
 import moveDesktopsDemoPath from '../assets/video/demos/move-desktops.mp4'
 import showDesktopDemoPath from '../assets/video/demos/show-desktop.mp4'
+
+import smartZoomDemoPath from '../assets/video/demos/smart-zoom.mp4'
+import smoothnessHighDemoPath from '../assets/video/demos/smoothness-high.mp4'
+import smoothnessOffDemoPath from '../assets/video/demos/smoothness-off.mp4'
+import smoothnessRegularDemoPath from '../assets/video/demos/smoothness-regular.mp4'
+import zoomDemoPath from '../assets/video/demos/zoom.mp4'
 
 /* Manually import image assets */
 
