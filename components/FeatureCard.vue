@@ -83,7 +83,6 @@
   
 import { type AnimationCurve, type Curve, transfromCurve, combineCurves } from "~/utils/animationCurveTransform";
 import { prefersReducedMotion } from "~/utils/util";
-import { offsetBetween, findChild, findChildren } from "~/utils/nodes"
 import tailwindConfig from "~/tailwind.config";
 import resolveConfig from 'tailwindcss/resolveConfig'
 import { useGlobalStore } from "~/store/global";
@@ -267,9 +266,6 @@ if (props.doesExpand) {
 
       // Get current card size and position relative to nearest positioned ancestor
       // See https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements
-      const originOffsetParent = card.value!.offsetParent
-      const parentToBodyOffset = offsetBetween(originOffsetParent, document.body)
-      
       const originWidth = card.value!.offsetWidth
       const originHeight = card.value!.offsetHeight
       
@@ -368,11 +364,8 @@ if (props.doesExpand) {
 
       const targetMarginLeft = 'auto'
       const targetMarginRight = 'auto'
-      var targetLeftPx = 0
-      var targetRightPx = 0
-      var targetTopPx = null
-      var targetLeft = '0'
-      var targetRight = '0'
+      const targetLeft = '0'
+      const targetRight = '0'
       var targetTop = ''
 
       // var targetBorderRadius = ''
@@ -409,23 +402,20 @@ if (props.doesExpand) {
         backgroundFilterContainer.value!.style.height = 'fit-content'
 
         // Place in document
-        // cardPlaceholder?.offsetParent?.appendChild(card.value)
-        document.body.appendChild(card.value)
+        cardPlaceholder?.offsetParent?.appendChild(card.value)
 
         // Calculate target style
         //  We calculated targetTop such that the x center of the card stays in the same position after expanding
         const computedH = card.value.offsetHeight
         const heightIncrease = computedH - originHeight
-        
-        targetTopPx = /* originTop - heightIncrease/2.0 */ originTop-(1*remInPx())
-        targetTop = targetTopPx + 'px'
+        targetTop = /* `${originTop - heightIncrease/2.0}px` */ `${ originTop-(1*remInPx()) }px`
 
         // Set position and stuff
-        card.value.style.marginLeft   = targetMarginLeft
-        card.value.style.marginRight  = targetMarginRight
-        card.value.style.left   = (targetLeftPx + parentToBodyOffset.left) + 'px'
-        card.value.style.right  = (targetRightPx + parentToBodyOffset.right) + 'px'
-        card.value.style.top    = (targetTopPx + parentToBodyOffset.top) + 'px'
+        card.value.style.marginLeft = targetMarginLeft
+        card.value.style.marginRight = targetMarginRight
+        card.value.style.left = targetLeft
+        card.value.style.right = targetRight
+        card.value.style.top = targetTop
 
         // Increase shadow
         card.value.style.boxShadow = targetShadow
@@ -434,10 +424,10 @@ if (props.doesExpand) {
         // return
 
         // Measure computed size, position and scale
-        calcWidth = card.value.offsetWidth   
-        calcHeight = card.value.offsetHeight 
-        calcTop = card.value.offsetTop - parentToBodyOffset.top
-        calcLeft = card.value.offsetLeft - parentToBodyOffset.left
+        calcWidth = card.value.offsetWidth
+        calcHeight = card.value.offsetHeight
+        calcTop = card.value.offsetTop
+        calcLeft = card.value.offsetLeft
         calcCenterX = calcLeft + calcWidth/2.0
         calcCenterY = calcTop + calcHeight/2.0
         calcScale = ((calcWidth / originWidth) + (calcHeight / originHeight)) / 2.0
@@ -576,9 +566,6 @@ if (props.doesExpand) {
       const curveForInverseScaleX     = useSimpleAnimations ? null : transfromCurve(curveForScaleX!,     (v) => v / scaleX!)
       const curveForInverseScaleY     = useSimpleAnimations ? null : transfromCurve(curveForScaleY!,     (v) => v / scaleY!)
 
-      const curveForCardTranslateX    = useSimpleAnimations       ? null : transfromCurve(curveForInverseTranslateX!, (v) => v + 0 /* parentToBodyOffset.offsetLeft */)
-      const curveForCardTranslateY    = useSuperSimpleAnimations  ? null : transfromCurve(curveForInverseTranslateY!, (v) => v + 0 /* parentToBodyOffset.offsetTop */)
-
       // Calculate transforms for card-content
       
       // Counter scaling cancels out the card scaling to prevent content from stretching
@@ -664,8 +651,8 @@ if (props.doesExpand) {
       if (!useSimpleAnimations) addAnimationToTimeline(tl, cardPlaceholder, 'x', animationCurveFromRawCurve(curveForTranslateX!), useSimpleAnimations ? simpleDur : dur)
 
       // Animate position-related styling on card
-      if (!useSuperSimpleAnimations) { addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForCardTranslateY!), useSimpleAnimations ? simpleDur : dur) }
-      if (!useSimpleAnimations) addAnimationToTimeline(tl, card.value!, 'x', animationCurveFromRawCurve(curveForCardTranslateX!), useSimpleAnimations ? simpleDur : dur)
+      if (!useSuperSimpleAnimations) { addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForInverseTranslateY), useSimpleAnimations ? simpleDur : dur) }
+      if (!useSimpleAnimations) addAnimationToTimeline(tl, card.value!, 'x', animationCurveFromRawCurve(curveForInverseTranslateX!), useSimpleAnimations ? simpleDur : dur)
 
       // Fade out placeholder
       // Notes:

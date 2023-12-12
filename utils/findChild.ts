@@ -1,39 +1,6 @@
 
-export { findChild, findChildren, offsetBetween }
-
-function offsetBetween(child: HTMLElement, parent: HTMLElement) {
-
-  var top = 0
-  var left = 0
-  var right = 0
-  var bottom = 0
-
-  // var node = child
-
-  // while (true) {
-
-  //   offsetTop += node.offsetTop
-  //   offsetLeft += node.offsetLeft
-  //   offsetRight += node.offsetParent.
-  //   node = node.offsetParent as HTMLElement // Why is this cast necessary? Hacks.
-
-  //   if (node == null) { 
-  //     console.assert(`Trying to get offset between element A: ${child} and B: ${parent}, but B is not part of the offsetParents/grandparents of A.`)
-  //     break
-  //   }
-  //   if (node == parent) { break }
-  // }
-
-  const rChild = child.getBoundingClientRect()
-  const rParent = parent.getBoundingClientRect()
-  top     = rChild.top      - rParent.top
-  left    = rChild.left     - rParent.left
-  right   = rParent.right   - rChild.right  
-  bottom  = rParent.bottom  - rChild.bottom
-
-  return { top: top, left: left, right: right, bottom: bottom }
-
-}
+export default findChild
+export { findChildren }
 
 function findChildren(node: Node, condition: (child: Node) => boolean): Array<Node> {
 
