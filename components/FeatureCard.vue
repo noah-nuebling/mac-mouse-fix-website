@@ -85,8 +85,10 @@ import { type AnimationCurve, type Curve, transfromCurve, combineCurves } from "
 import { prefersReducedMotion } from "~/utils/util";
 import tailwindConfig from "~/tailwind.config";
 import resolveConfig from 'tailwindcss/resolveConfig'
+import { useGlobalStore } from "~/store/global";
 const constants = useConstants()
 const { currentSize, ResponsiveSize } = useResponsive()
+const globalStore = useGlobalStore()
 
 // Import BezierEasing
 //  Notes: 
@@ -350,11 +352,12 @@ if (props.doesExpand) {
       // - How to center absolutely positioned element: https://stackoverflow.com/questions/1776915/how-can-i-center-an-absolutely-positioned-element-in-a-div
       // - Ideally we wanna set the width relative to the grid width, because we don't want the expanded card to spill out of the grid so you still can see context which should make the interaction feel lighter. Currently, the percent-based sizes aren't relative to the grid, and there are some sizes where the expanded card spills out from the grid. Maybe we can fix this by inserting the expanded card into the container element which determines the grid width (and the width of the document as a whole.). But we'd have to position that element so it's the nearest positioned ancestor aka the '.offsetParent' and idk if that could lead to other problems?
       // - Our width style with the min() and max() functions is *very* confusing to read. Maybe it would be better to use tailwind with media queries? But mixing tailwind classes with setting style directly through js seems like a bad idea. Idk how you could assign media queried' css through js. So this is the best solution I can come up with for now.
+      //  - Update: We simplified things and are just making the card pretty much as big as possible as long as it fits the screen.
       // - TODO: Add border radius, border width and shadow changes here.
 
       const targetLayout = 'absolute'
 
-      const targetWidth = `min(max(66%, ${700}px), 100%, 800px, 110vh)`
+      const targetWidth = `130vh` //`min(max(66%, ${700}px), 100%, 800px, 110vh)`
       const targetMaxWidth = '100%'
       const targetHeight = 'fit-content'
       const targetMaxHeight = 'auto'
@@ -587,17 +590,33 @@ if (props.doesExpand) {
       var curveForPlaceholderContentScaleY = useSimpleAnimations ? null : curveForPlaceholderCounterScaleY
 
       // 
-      // Scroll card into center of screen
-      //
-
-      const cardViewPortOffset = card.value!.getBoundingClientRect();
-      const cardCenter = cardViewPortOffset.top + cardViewPortOffset.height/2.0
+      // Scroll card into center of screen - if the expanded card would not be fully on-screen without scrolling.
+      // 
+      
+      // Notes: I can't manage to center the card properly. But it's okay.
+      
       const viewportHeight = window.innerHeight
-      const viewportCenter = viewportHeight/2.0
-      const cardCenterOffset = cardCenter - viewportCenter
-      if (Math.abs(cardCenterOffset) / (viewportHeight/2.0) > 0.4) {
+      const navbarHeight = globalStore.navbarHeight
+      const cardViewPortRect = card.value!.getBoundingClientRect();
+      const cardHeight = calcHeight // cardViewPortRect.height
+      const cardViewPortTop = cardViewPortRect.top
+      const cardViewPortBottom = viewportHeight - cardViewPortRect.bottom
+      const cardViewPortTopMax = 0.0 + (navbarHeight)
+      const cardViewPortBottomMax = 0.0
+      const cardViewportTopTarget =  Math.max(cardViewPortTop, cardViewPortTopMax)
+      const cardViewportBottomTarget = Math.max(cardViewPortBottom, cardViewPortBottomMax)
+
+      if (cardViewportTopTarget != cardViewPortTop || cardViewportBottomTarget != cardViewPortBottom) {
+
+        const viewportCenter  = ((viewportHeight - navbarHeight)/2) + navbarHeight
+        const cardCenter      = cardViewPortTop + (cardHeight/2)
+        
+        // console.log(`viewPortCenter: ${viewportCenter}, viewportHeight: ${viewportHeight}, navbarHeight: ${navbarHeight} ||| cardCenter: ${cardCenter}, cardViewPortRect.top: ${cardViewPortRect.top}], cardViewPortRect.height: ${cardViewPortRect.height}, cardHeight: ${cardHeight}`)
+
+        const documentScrollTopTarget = document.documentElement.scrollTop + (cardCenter - viewportCenter)
+        
         tl.to(document.documentElement, {
-          scrollTop: document.documentElement.scrollTop + cardCenterOffset,
+          scrollTop: documentScrollTopTarget,
           duration: 0.3,
           ease: $Power1.easeOut,
         })

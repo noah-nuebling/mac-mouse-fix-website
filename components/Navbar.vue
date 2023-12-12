@@ -55,6 +55,7 @@
 import burgerImagePath from "../assets/img/line.3.horizontal@8x.png"
 import chevronImagePath from "../assets/img/chevron.down@8x.png"
 
+
 const { currentSize, ResponsiveSize } = useResponsive()
 const $mt = useMT()
 import { getProps, setProps } from '~/utils/util'
@@ -63,7 +64,7 @@ import externalLinkImagePath from "../assets/img/arrow.up.right.square@8x.png"
 import { storeToRefs } from "pinia";
 
 const globalState = useGlobalStore()
-const { navbarHasDarkAppearance } = storeToRefs(globalState)
+const { navbarHasDarkAppearance, navbarHeight } = storeToRefs(globalState)
 
 const localePath = useLocalePath()
 
@@ -71,11 +72,18 @@ const isExpanded = ref(false)
 const expandingContainer = ref<HTMLElement | null>(null)
 const root = ref<HTMLElement | null>(null)
 
-watch(isExpanded, (newIsExpanded) => {
+onMounted(() => {
+
+  // Update navbar height (not sure if good place/method to do this)
+  navbarHeight.value = root.value!.offsetHeight
+})
+
+
+watch(isExpanded, (shouldExpand) => {
 
   // Css transitions don't work with fit-content, so we're measuring the 'fit-content' size in js and then setting the fitting size in px. That way the css transitions work.
 
-  if (newIsExpanded) {
+  if (shouldExpand) {
 
     // Measure expanded size
     expandingContainer.value!.style.height = 'fit-content'
@@ -93,6 +101,9 @@ watch(isExpanded, (newIsExpanded) => {
     // Start animation
     expandingContainer.value!.style.height = '0'
     root.value!.style.transform = `rotate(0deg)`
+
+    // Update navbar height (not sure if good place/method to do this)
+    navbarHeight.value = root.value!.offsetHeight
   }
 })
 
@@ -101,7 +112,12 @@ watch(currentSize, (newValue) => {
   if (newValue > ResponsiveSize.sm) {
     isExpanded.value = false
   }
+
+  // Update navbar height (not sure if good place/method to do this)
+  navbarHeight.value = root.value!.offsetHeight
 })
+
+
 
 </script>
 
