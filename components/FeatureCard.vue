@@ -181,9 +181,14 @@ watch(isAnimationExpanded, () => {
   }
 })
 
+// Close card if window resizes
+//  This is because in the commit after c4f450bd015ba22ddbebb56ea0553e9e5c16e83c we changed the sizing logic so that the cards can grow wider than their positioned parent, but that also made it so the cards don't stay centered if the window resizes after they expanded. There might be a nicer solution but this is the only thing I have time for at the moment.
+const onWindowResize = () => {
+  isExpanded.value = false
+}
+
 // Additional setup after mount
 onMounted(() => {
-
   // Get reference to video
   video = findChild(card.value!, (child) => child.tagName == 'VIDEO') as HTMLVideoElement
 
@@ -201,7 +206,9 @@ onMounted(() => {
       // minimizeHint.value!.style.opacity = '1.0'
       
     }, false)
-  }  
+  }
+
+  window.addEventListener("resize", onWindowResize)
 })
 
 // Cleanup after unmount
@@ -209,6 +216,7 @@ onUnmounted(() => {
   if (animationContext != null) {
     animationContext.revert() /* Clean up animation memory stuff or sth */
   }
+  window.removeEventListener("resize", onWindowResize)
 });
 
 
@@ -358,14 +366,14 @@ if (props.doesExpand) {
       const targetLayout = 'absolute'
 
       const targetWidth = `130vh` //`min(max(66%, ${700}px), 100%, 800px, 110vh)`
-      const targetMaxWidth = '100%'
+      const targetMaxWidth = 'max(100%, 90vw)'
       const targetHeight = 'fit-content'
       const targetMaxHeight = 'auto'
 
-      const targetMarginLeft = 'auto'
-      const targetMarginRight = 'auto'
-      const targetLeft = '0'
-      const targetRight = '0'
+      const targetMarginLeft = ''
+      const targetMarginRight = ''
+      var targetLeft = '0'
+      const targetRight = ''
       var targetTop = ''
 
       // var targetBorderRadius = ''
@@ -409,6 +417,9 @@ if (props.doesExpand) {
         const computedH = card.value.offsetHeight
         const heightIncrease = computedH - originHeight
         targetTop = /* `${originTop - heightIncrease/2.0}px` */ `${ originTop-(1*remInPx()) }px`
+
+        // Calculate left so that the card is centered
+        targetLeft = (cardPlaceholder!.offsetParent!.clientWidth/2 - card.value.offsetWidth/2) + 'px'
 
         // Set position and stuff
         card.value.style.marginLeft = targetMarginLeft
