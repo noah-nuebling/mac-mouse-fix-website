@@ -12,8 +12,8 @@ export default {
 
   /* Intro */
 
-  'intro.tagline': 'Mache deine $10 Maus besser als ein Apple Trackpad',
-  'intro.big-tagline': 'Mache deine $10 Maus besser als ein Apple Trackpad',
+  'intro.tagline': 'Mach deine $10 Maus besser als ein Apple Trackpad!',
+  'intro.big-tagline': 'Mach deine $10 Maus besser als ein Apple Trackpad!',
 
   /* Feature Cards */
 

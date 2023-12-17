@@ -13,8 +13,8 @@ export default {
 
   /* Intro */
 
-  'intro.tagline': 'Make Your $10 Mouse Better Than an Apple Trackpad',
-  'intro.big-tagline': 'Make Your $10 Mouse Better Than an Apple Trackpad',
+  'intro.tagline': 'Make Your $10 Mouse Better Than an Apple Trackpad!',
+  'intro.big-tagline': 'Make Your $10 Mouse Better Than an Apple Trackpad!',
 
   /* Feature Cards */
 
