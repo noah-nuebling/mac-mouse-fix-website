@@ -420,7 +420,7 @@ const quotes: QuoteData[] = [
     source: QuoteSource.PayPalDonation,
     link: 'message:<221C5A7A-5754-4B3E-A74A-04EC3694772E@gmail.com>',
     permission: PermissionToShare.Requested,
-    weight: 130,
+    weight: 142.5,
   },
   {
     quote: "It's exact what I was looking for to make non-Apple-Mice work like I want ",
