@@ -239,4 +239,6 @@ export default {
   'quotes.45': "Ein schönes Stück freier Software. Danke für deinen Beitrag zur Open-Source-Sache.",
   'quotes.46': "Danke für diese App, ich verstehe nicht, warum Apple das nicht zum Standard gemacht hat, es ist super intuitiv, Gesten mit dem Mittelklick zu machen.",
   'quotes.47': "Ich habe lange nach einer ähnlichen App gesucht und endlich diese hier gefunden, super 👍.",
+  'quotes.48': "Du hast meine Superlight besser gemacht als eine MX Master.",
+  'quotes.49': "Diese App ist so verdammt gut."
 };s

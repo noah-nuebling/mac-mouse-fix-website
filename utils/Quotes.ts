@@ -17,6 +17,7 @@ enum QuoteSource {
 }
 enum PermissionToShare {
   None,
+  Unrequested,
   Requested,
   Denied,
   Granted,
@@ -83,7 +84,7 @@ function getUIStrings(quote: QuoteData) {
 function getUsableQuotes(): QuoteData[] {
 
   var result: QuoteData[] = quotes
-                              .filter((quote) => quote.permission != PermissionToShare.Denied)
+                              .filter((quote) => quote.permission != PermissionToShare.Denied && quote.permission != PermissionToShare.Unrequested)
                               .toSorted((a: QuoteData, b: QuoteData) => b.weight - a.weight)
   return result
 }
@@ -572,6 +573,27 @@ const quotes: QuoteData[] = [
     permission: PermissionToShare.None,
     weight: 0,
   },
+  {
+    quote: "You've made my superlight better than an mx master.", // TODO: Translate and request this one
+    quoteKey: "quotes.48",
+    originalLanguage: 'en',
+    name: "Brendon Janku",
+    source: QuoteSource.Email,
+    link: 'message:<CAMbYH-qmh-ib65wqiFVJW8CpmvJTqHZSG_YwoySc5cnvKSSO-w@mail.gmail.com>',
+    permission: PermissionToShare.Unrequested,
+    weight: 0,
+  },
+  {
+    quote: "This app is so f*cking good", // TODO: Translate and request this one
+    quoteKey: "quotes.49",
+    originalLanguage: 'en',
+    name: "Brendon Janku",
+    source: QuoteSource.Email,
+    link: 'message:<CAMbYH-qmh-ib65wqiFVJW8CpmvJTqHZSG_YwoySc5cnvKSSO-w@mail.gmail.com>',
+    permission: PermissionToShare.Unrequested,
+    weight: 0,
+  },
+  
 ]
 
 /*

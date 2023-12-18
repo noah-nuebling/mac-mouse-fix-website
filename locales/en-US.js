@@ -351,6 +351,8 @@ export default {
   'quotes.45': "",
   'quotes.46': "",
   'quotes.47': "I've been searching for a similar app for a long time, and finally found this one, thumbs up 👍.", 
+  'quotes.48': "",
+  'quotes.49': ""
 
 
 };
