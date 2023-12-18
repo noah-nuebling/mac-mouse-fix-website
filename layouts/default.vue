@@ -6,6 +6,8 @@
 -->
 
 <template>
+  <meta name="server-locale" :content="$i18n.locale">
+
   <div class="">
 
     <!-- NavBar -->
