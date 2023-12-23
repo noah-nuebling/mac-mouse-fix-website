@@ -24,7 +24,8 @@ export default defineNuxtConfig({
       ],
       link: [
         // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' }, // Normal favicon definition
+        { rel: 'apple-touch-icon', href: '/favicon.png' } // This is for Safari favorites and iOS homescreen IIRC. Adding `type: 'image/png'` here broke it I think.
       ]
     }
   },
