@@ -5,6 +5,8 @@ To deploy: `pnpm upload`
 
 See [Notes.md](Notes.md)
 
+Old MMF website is at https://github.com/noah-nuebling/mac-mouse-fix-website-old
+
 Not sure if vvv below vvv is relevant
 
 ---
