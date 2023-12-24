@@ -527,7 +527,7 @@ const quotes: QuoteData[] = [
     quote: "Thanks for your awesome app its just wonderful :).",
     quoteKey: "quotes.43",
     originalLanguage: 'en',
-    name: "Marvin Pärli",
+    name: "Marvin P.",
     source: QuoteSource.PayPalDonation,
     link: 'message:<9C61D7F1-CABE-4851-8F29-AE04AF932140@icloud.com>',
     permission: PermissionToShare.Requested,
