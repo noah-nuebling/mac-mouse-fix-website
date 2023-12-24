@@ -64,6 +64,8 @@ export default defineNuxtConfig({
   i18n: {
     langDir: './locales/',
     locales: [
+      // Note for translators: When you add your language here, you'll have to choose a language ID for your language such as `en-US` for American English or `de-DE` for German. 
+      //  Choose the same language ID that's used in the MMF Xcode project or find a language ID using this Apple documentation: https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html
       { code: 'en-US', iso: 'en-US', name: '🇬🇧 English', file: 'en-US.js', dir: 'ltr' },
       { code: 'de-DE', iso: 'de-DE', name: '🇩🇪 Deutsch', file: 'de-DE.js', dir: 'ltr' },
     ],
