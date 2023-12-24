@@ -365,8 +365,8 @@ if (props.doesExpand) {
 
       const targetLayout = 'absolute'
 
-      const targetWidth = `min(130vh, ${130*remInPx()}px)` //`min(max(66%, ${700}px), 100%, 800px, 110vh)`
-      const targetMaxWidth = 'max(100%, 90vw)'
+      const targetWidth = `${70*remInPx()}px` //`min(max(66%, ${700}px), 100%, 800px, 110vh)`
+      const targetMaxWidth = 'min(max(100%, 90vw), 130vh)'
       const targetHeight = 'fit-content'
       const targetMaxHeight = 'auto'
 

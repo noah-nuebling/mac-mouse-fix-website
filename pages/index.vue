@@ -59,12 +59,12 @@
 
               <!-- <hr ref="trackpadRule" class="mb-[2.25rem] mx-[12px] border-neutral-950/[0.066]"> -->
               <div ref="trackpadCardsSection1" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] relative z-[10]">
-                <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="lookupDemoPath"       class="w-fit"/>
+                <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="lookupDemoPath"               class="w-fit"/>
                 <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="missionControlDemoPath"       class="w-fit"/>
-                <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="moveDesktopsDemoPath"       class="w-fit"/>
-                <NormalFeatureCard titleKey="feature.app-expose.title"          bodyKey="feature.app-expose.body"       :videoPath="appExposeDemoPath"       class="w-fit"/>
-                <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="showDesktopDemoPath"       class="w-fit"/>
-                <NormalFeatureCard titleKey="feature.launchpad.title"           bodyKey="feature.launchpad.body"        :videoPath="launchpadDemoPath"       class="w-fit"/>
+                <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="moveDesktopsDemoPath"         class="w-fit"/>
+                <NormalFeatureCard titleKey="feature.app-expose.title"          bodyKey="feature.app-expose.body"       :videoPath="appExposeDemoPath"            class="w-fit"/>
+                <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="showDesktopDemoPath"          class="w-fit"/>
+                <NormalFeatureCard titleKey="feature.launchpad.title"           bodyKey="feature.launchpad.body"        :videoPath="launchpadDemoPath"            class="w-fit"/>
               </div>
 
               <div class="w-full">

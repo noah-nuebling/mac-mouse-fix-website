@@ -7,6 +7,7 @@ When editing config.json:
   - ! Don't add a comma after the last element in an object
 - When you change `price` also change the price on **Gumroad/Paddle/...**
 - When you update `price` or `trialDays` then also update **GitHub** release notes which contain them. Don't forget to re-generate the in-app update notes which are generated from the gh release notes.
+  - Update: We mention that prices might change in the release notes, so it's okay.
 
 Countries:
 - Countries are specified by BCP 47 Region Identifiers. For example "IN" for India. Also see ([BCP 47 Search](https://www.techonthenet.com/js/language_tags.php) and [OSX Language ID Documentation](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html))
