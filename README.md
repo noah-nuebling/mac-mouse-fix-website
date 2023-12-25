@@ -1,76 +1,12 @@
 
+To install pnpm using Homebrew: `brew install pnpm`\
 To install dependencies: `pnpm install`\
-To test: `pnpm dev --open`\
+To test: `pnpm dev`\
 To deploy: `pnpm upload`
-
-See [Notes.md](Notes.md)
 
 Old MMF website is at https://github.com/noah-nuebling/mac-mouse-fix-website-old
 
-Not sure if vvv below vvv is relevant
-
----
-
-# Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Also see:
+- See [Notes.md](Notes.md)
+- [Nuxt 3 intro docs](https://nuxt.com/docs/getting-started/introduction)
+- [Nuxt 3 deployment docs](https://nuxt.com/docs/getting-started/deployment)
