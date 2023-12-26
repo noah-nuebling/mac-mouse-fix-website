@@ -160,7 +160,7 @@ export default {
   'alternatives.title': "Preiswerter als die **Alternativen**",
   'alternatives.body': "Mac Mouse Fix macht deine $10 Maus besser als eine Logitech MX Master Maus oder ein Apple Trackpad. (Diese gelten als einige der besten Eingabegeräte für Macs.)\n\nUnd trotzdem ist Mac Mouse Fix [**{priceFactorMXMaster}x**](https://www.logitech.com/en-us/products/mice/mx-master-3s::newTab) günstiger als eine MX Master und [**{priceFactorTrackpad}x**](https://www.apple.com/us/shop/mac/accessories/mice-keyboards::newTab) günstiger als ein Trackpad!",
   
-  'price.disclaimer': "Hinweis zu Steuern: Der Preis von **${price}** ist ohne lokale Steuern, die eventuell in deiner Regionen gezahlt werden müssen. Um den Gesamtpreis zu sehen, besuche die [Kassenseite](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). Ich würde die Steuer wirklich gerne im Preis enthalten - damit die Kauferfahrung einfacher und klarer ist. Aber das ist momentan nicht praktikabel wegen Einschränkungen bei der Verkaufsplattform Gumroad.com. Ich hoffe der Preis fühlt sich trotzdem sehr fair und günstig an. ",
+  'price.disclaimer': "Hinweis zu Steuern: Der Preis von **${price}** ist ohne lokale Steuern, die eventuell in deiner Region gezahlt werden müssen. Um den Gesamtpreis zu sehen, besuche die [Kassenseite](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). Ich würde die Steuer wirklich gerne im Preis enthalten - damit die Kauferfahrung einfacher und klarer ist. Aber das ist momentan nicht praktikabel wegen Einschränkungen bei der Verkaufsplattform Gumroad.com. Ich hoffe der Preis fühlt sich trotzdem sehr fair und günstig an. ",
 
   
 
