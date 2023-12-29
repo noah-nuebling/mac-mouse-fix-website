@@ -10,4 +10,5 @@ Base file at:
 Translations at:
 `locales/*.js`
 
+(Don't use `.ts` as file extension)\
 See the output of the script in the comment at: https://github.com/noah-nuebling/mac-mouse-fix/discussions/731
