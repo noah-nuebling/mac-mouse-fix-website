@@ -26,22 +26,22 @@ export default {
   /* Trackpad Features */
 
   'trackpad-features.title': "Macs sind am besten\nMit einem {accent},\nOder?",
-  'trackpad-features.title.accent': "Trackpad",
+  'trackpad-features.title.accent': "Trackpad", // !IS_OK
   'trackpad-features.body': 'Jetzt nicht mehr! Mac Mouse Fix bringt alle Funktionen eines Apple Trackpads - und mehr - auf **ergonomische** und **präzise** Drittanbieter-Mäuse. Und alle Interaktionen fühlen sich genauso **ausgefeilt** und **geschmeidig** an wie auf einem Trackpad.',
 
   'trackpad-features.header': '**Trackpad-Gesten** die Mac Mouse Fix auf deine Maus bringt',
 
   'feature.lookup.title': 'Quick Look und Nachschlagen',
   'feature.lookup.body': '**Klicke Taste 4** auf deiner Maus, um ein Wort im Wörterbuch nachzuschlagen, einen schnellen Blick auf Webseiten in Safari oder Dateien im Finder zu werfen, und mehr.\n\nEs funktioniert genauso wie das Tippen mit 3 Fingern oder ein kräftiger Klick auf einem Apple Trackpad.',
-  'feature.mission-control.title': 'Mission Control',
+  'feature.mission-control.title': 'Mission Control', // !IS_OK
   'feature.mission-control.body': 'Halte **Taste 4** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach oben**, um eine Übersicht über deine geöffneten Fenster, Apps und Schreibtische anzuzeigen.\n\nEs funktioniert genauso wie das Streichen nach oben mit vier Fingern auf einem Apple Trackpad.',
   'feature.spaces.title': 'Zwischen Schreibtischen wechseln',
   'feature.spaces.body': 'Halte **Taste 4** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach links** oder **nach rechts**, um zwischen Schreibtischen und Vollbild-Apps zu wechseln.\n\nEs funktioniert genauso wie das Streichen nach links oder rechts mit vier Fingern auf einem Apple Trackpad.',
-  'feature.app-expose.title': 'App Exposé',
+  'feature.app-expose.title': 'App Exposé', // !IS_OK
   'feature.app-expose.body': "Halte **Taste 4** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach unten**, um alle Fenster der App anzuzeigen, die du verwendest.\n\nEs funktioniert genauso wie das Streichen nach unten mit vier Fingern auf einem Apple Trackpad.",
   'feature.show-desktop.title': 'Schreibtisch anzeigen',
   'feature.show-desktop.body': 'Halte **Taste 4** auf deiner Maus gedrückt und **scrolle nach oben**, um deinen Schreibtisch anzuzeigen.\n\nEs funktioniert genauso wie das Auseinanderziehen von Daumen und drei Fingern auf einem Apple Trackpad.',
-  'feature.launchpad.title': 'Launchpad',
+  'feature.launchpad.title': 'Launchpad', // !IS_OK
   'feature.launchpad.body': 'Halte **Taste 4** auf deiner Maus gedrückt und **scrolle nach unten**, um Launchpad anzuzeigen.\n\nEs funktioniert genauso wie das Zusammenziehen von Daumen und drei Fingern auf einem Apple Trackpad.',
 
   'feature.zoom.title': 'Vergrößern und verkleinern',
@@ -185,7 +185,7 @@ export default {
   'quote-source.youtubeComment':  "**{ name }** in einem YouTube-Kommentar",
 
   'quotes.translation-disclaimer.en': "Übersetzt aus dem Englischen",
-  'quotes.translation-disclaimer.de': "", // Leave current language blank
+  'quotes.translation-disclaimer.de': "", // !IS_OK || Leave current language blank
   'quotes.translation-disclaimer.zh': "Übersetzt aus dem Chinesischen",
 
   // vvv Find original quotes in quotes.ts

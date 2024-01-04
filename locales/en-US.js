@@ -25,8 +25,15 @@ export default {
   //'card-header.video-hint': 'Click any card for a *Video Demo*',
 
   /* Trackpad Features */
+
   /*
-  See https://support.apple.com/en-us/102482 for Terminology reference
+    Notes: 
+    - Terminology
+      - Main reference: https://support.apple.com/en-us/102482
+      - app-expose terminology
+        - It's called "App Exposé" in Trackpad settings "Application Windows" in other places in the settings, and there's an Apple Help articale that speaks of "App Windows"
+          - Here's the help article: https://support.apple.com/en-US/guide/mac-help/mchlp2469/mac
+        - In MMF we opted for "Application Windows", but since we're comparing with the Trackpad here, we used App Exposé, just like Trackpad Settings.
   */
 
 
