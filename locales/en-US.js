@@ -2,8 +2,8 @@ export default {
   
   /* Test */
 
-  'test-stuff': "en-us stuff",
-  'test.80-chars-roman': 'These are some amazing characters, very nice characters in deed. 80 of em in nu.',
+  //'test-stuff': "en-us stuff",
+  //'test.80-chars-roman': 'These are some amazing characters, very nice characters in deed. 80 of em in nu.',
 
   /* Navbar */
 
@@ -22,7 +22,7 @@ export default {
   'feature-card.unexpand-button': 'Close Video',
   // 'feature-card.minimize-hint': 'Minimize 􀜪',
 
-  'card-header.video-hint': 'Click any card for a *Video Demo*',
+  //'card-header.video-hint': 'Click any card for a *Video Demo*',
 
   /* Trackpad Features */
   /*
@@ -279,14 +279,14 @@ export default {
 
   /* Quotes */
 
-  'user-feedback.card-header.title':  "**What people say** about Mac Mouse Fix",
-  'user-feedback.card-header.sub':    "Thanks to anyone sharing feedback! :)",
+  //'user-feedback.card-header.title':  "**What people say** about Mac Mouse Fix",
+  //'user-feedback.card-header.sub':    "Thanks to anyone sharing feedback! :)",
 
   'quotes.see-more': 'See More',
   'quotes.see-less': 'See Less',
 
   'quotes.thankyou': '**Thank you**\nto everyone who shared their appreciation and thoughts! Also to those who aren\'t listed here. Reading such messages always motivates me and makes me a little happier. **:)**',
-  'quotes.thankyou.source': '**Noah Nuebling**, creator of Mac Mouse Fix',
+  //'quotes.thankyou.source': '**Noah Nuebling**, creator of Mac Mouse Fix',
 
   'quote-source.email':           "**{ name }** in an email",
   'quote-source.payPalDonation':  "**{ name }** in a PayPal donation message",

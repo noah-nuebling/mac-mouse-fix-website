@@ -2,7 +2,7 @@ export default {
 
   /* Test */
 
-  'test-stuff': "de-de3 stuff",
+  // 'test-stuff': "de-de3 stuff",
 
   /* Navbar */
 
@@ -20,8 +20,8 @@ export default {
   'feature-card.expand-button': 'In Aktion sehen',
   'feature-card.unexpand-button': 'Video schließen',
 
-  'video-card-hint.0': 'Klicke eine beliebige Karte für eine',
-  'video-card-hint.1': '*Video-Demo*',
+  // 'video-card-hint.0': 'Klicke eine beliebige Karte für eine',
+  // 'video-card-hint.1': '*Video-Demo*',
 
   /* Trackpad Features */
 
