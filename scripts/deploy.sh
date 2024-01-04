@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
-# Copied from MMF Feedback Assistant and copied that from From Vue deployment tutorial
+# Notes:
+# - This is copied and adapted from MMF Feedback Assistant which itself was copied from Vue deployment tutorial
 
 # Abort on errors
 set -e
@@ -11,17 +12,11 @@ pnpm generate
 # Navigate into the build output directory
 cd .output/public
 
-# if you are deploying to a custom domain
-# echo 'www.example.com' > CNAME
-
 git init
 git add -A
 git commit -m 'deploy'
 
-# if you are deploying to https://<USERNAME>.github.io
-# git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
-
-# if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:noah-nuebling/mac-mouse-fix-website-nuxt.git master:gh-pages
+# Upload to gh-pages branch
+git push -f git@github.com:noah-nuebling/mac-mouse-fix-website-nuxt.git HEAD:gh-pages
 
 cd -
