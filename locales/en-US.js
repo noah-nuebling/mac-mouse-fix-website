@@ -66,7 +66,7 @@ export default {
   'feature.smart-zoom.title': 'Smart zoom',
   'feature.smart-zoom.body': '**Click button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple trackpad.',
 
-  'trackpad-features.disclaimer': "Note: Mac Mouse Fix can bring these trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These 5 buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't recognize all the buttons at the moment. Mac Mouse Fix does not currently support the Apple Magic Mouse.",
+  'trackpad-features.disclaimer': "Note: Mac Mouse Fix can bring these trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These 5 buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't recognize all the buttons at the moment. Mac Mouse Fix does not currently support the Apple Magic Mouse.", // Note: Maybe we should have information about all these caveats on a more info page, instead of here.
 
   /* Scrolling */
 
@@ -292,7 +292,7 @@ export default {
   'quotes.see-more': 'See More',
   'quotes.see-less': 'See Less',
 
-  'quotes.thankyou': '**Thank you**\nto everyone who shared their appreciation and thoughts! Also to those who aren\'t listed here. Reading such messages always motivates me and makes me a little happier. **:)**',
+  'quotes.thankyou': '**Thank you** to everyone who shared their appreciation and thoughts! Also to those who aren\'t listed here. Reading such messages always motivates me and makes me a little happier. **:)**',
   //'quotes.thankyou.source': '**Noah Nuebling**, creator of Mac Mouse Fix',
 
   'quote-source.email':           "**{ name }** in an email",

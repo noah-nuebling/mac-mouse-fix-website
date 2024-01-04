@@ -46,7 +46,7 @@ export default {
 
   'feature.zoom.title': 'Vergrößern und verkleinern',
   'feature.zoom.body': 'Halte **Taste 5** auf deiner Maus gedrückt und **scrolle nach oben** oder **nach unten**, um den Inhalt in Apps wie Safari oder Vorschau zu vergrößern oder zu verkleinern.\n\nEs funktioniert genauso wie das Auf- oder Zusammenziehen mit zwei Fingern auf einem Apple Trackpad.',
-  'feature.pages.title': 'Vorwärts und zurück gehen',
+  'feature.pages.title': 'Vorwärts und zurück gehen', // !IS_OK
   'feature.pages.body': 'Halte **Taste 5** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach links** oder **nach rechts**, um die vorherige oder nächste Seite in Apps wie Safari anzuzeigen.\n\nEs funktioniert genauso wie das Streichen nach links oder rechts mit zwei Fingern auf einem Apple Trackpad.',
   'feature.mail-actions.title': 'E-Mails schnell löschen und mehr',
   'feature.mail-actions.body': 'Halte **Taste 5** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach links** oder **nach rechts**, um Nachrichten in Mail zu löschen, schnell auf eine iMessage zu antworten und mehr.\n\nJede Geste, die du in einer App durch Streichen auf einem Apple Trackpad ausführen kannst, funktioniert genauso gut mit Mac Mouse Fix.',
@@ -55,7 +55,7 @@ export default {
   'feature.smart-zoom.title': 'Intelligentes Zoomen',
   'feature.smart-zoom.body': '**Klicke Taste 5** auf deiner Maus, um eine Webseite oder ein PDF zu vergrößern oder zu verkleinern.\n\nEs funktioniert genauso wie das Doppeltippen mit zwei Fingern auf einem Apple Trackpad.',
 
-  'trackpad-features.disclaimer': "Hinweis: Mac Mouse Fix kann diese Trackpad-Funktionen nur dann in der hier beschriebenen Weise auf deine Maus bringen, wenn deine Maus mindestens 5 Tasten hat. Diese 5 Tasten sind typischerweise Linksklick, Rechtsklick, Mausrad-Klick und 2 Seitentasten. Wenn deine Maus weniger als 5 Tasten hat, bietet Mac Mouse Fix immer noch viele Funktionen und ein gutes Erlebnis, aber einige Funktionen sind weniger leicht zugänglich im Vergleich zu einer 5-Tasten-Maus. Bei bestimmten Mäusen, die für die Verwendung mit hauseigenen Treibern wie Logitech Options entwickelt wurden, kann Mac Mouse Fix derzeit nicht alle Tasten erkennen. Mac Mouse Fix unterstützt die Apple Magic Mouse derzeit nicht.",
+  'trackpad-features.disclaimer': "Hinweis: Mac Mouse Fix kann diese Trackpad-Funktionen nur dann in der hier beschriebenen Weise auf deine Maus bringen, wenn deine Maus mindestens 5 Tasten hat. Diese 5 Tasten sind typischerweise Linksklick, Rechtsklick, Mausrad-Klick und 2 Seitentasten. Wenn deine Maus weniger als 5 Tasten hat, bietet Mac Mouse Fix immer noch viele Funktionen und ein gutes Erlebnis, aber einige Funktionen sind weniger leicht zugänglich im Vergleich zu einer 5-Tasten-Maus. Bei bestimmten Mäusen, die für die Verwendung mit hauseigenen Treibern wie Logitech Options entwickelt wurden, kann Mac Mouse Fix derzeit nicht alle Tasten erkennen. Mac Mouse Fix unterstützt die Apple Magic Mouse derzeit nicht.", // !IS_OK
 
   /* Scrolling */
 
@@ -126,7 +126,7 @@ export default {
 
   'customization-feature.header': "Flexible **Anpassungsmöglichkeiten**",
   'customization-feature.action-table.title': 'Füge deiner Maus **Aktionen hinzu**',
-  'customization-feature.action-table.body': "Um deiner Maus eine Aktion hinzuzufügen:\n\n1. **Bewege** den Mauszeiger in das '+' Feld. (Unten abgebildet)\n2. **Klicke** die Maustaste, der du eine Aktion zuweisen möchtest.\nDu kannst auch Doppelklicken, Klicken und Ziehen und mehr!\n3. **Wähle** eine Aktion aus, zum Beispiel Intelligentes Zoomen.\n\nUnd das war's!",
+  'customization-feature.action-table.body': "Um deiner Maus eine Aktion hinzuzufügen:\n\n1. **Bewege** den Mauszeiger in das '+' Feld. (Unten abgebildet)\n2. **Klicke** die Maustaste, der du eine Aktion zuweisen möchtest.\nDu kannst auch Doppelklicken, Klicken und Ziehen und mehr!\n3. **Wähle** eine Aktion aus, zum Beispiel Intelligentes Zoomen.\n\nUnd das war's!", // !IS_OK
   // 'feature.action-table.expand-button': "See How to Add Gestures to Your Mouse",
   
   'customization-feature.keyboard-shortcuts.title': "Verwende **Tastaturkurzbefehle** von deiner Maus aus",
@@ -147,7 +147,7 @@ export default {
   'unobtrusive-lightweight.body': "Jedes Detail von Mac Mouse Fix wurde bedacht und optimiert, um dir das bestmögliche Erlebnis zu bieten, und sich dabei wie eine **natürliche Erweiterung deines Macs** anzufühlen. Etliche Stunden Arbeit sind eingeflossen damit Mac Mouse Fix **nicht mehr Batterie oder Speicher verwendet, als es wirklich muss**. Das Ziel ist, dass du Mac Mouse Fix überhaupt nicht auf deinem Computer bemerkst - Außer natürlich, wenn du deine Maus benutzt.",
   
   'open-source.title': "Open-Source",
-  'open-source.body': "Der Quellcode von Mac Mouse Fix ist auf GitHub verfügbar, sodass jeder genau sehen kann, wie es funktioniert. Das hilft bei der Entwicklung, und es bedeutet, du kannst dir gewiss sein, dass Mac Mouse Fix **sicher** und **vertrauenswürdig** ist, dass es deine **Privatsphäre** beschützt, und dass es im Hintergrund nichts tut - Außer dein Mauserlebnis auf die nächste Stufe zu heben!", //Außerdem hilft es dabei, Mac Mouse Fix in verschiedene Sprachen zu übersetzen, die Software-Qualität zu verbessern, und mehr.",
+  'open-source.body': "Der Quellcode von Mac Mouse Fix ist auf GitHub verfügbar, sodass jeder genau sehen kann, wie es funktioniert. Das hilft bei der Entwicklung, und es bedeutet, du kannst dir gewiss sein, dass Mac Mouse Fix **sicher** und **vertrauenswürdig** ist, dass es deine **Privatsphäre** beschützt, und dass es im Hintergrund nichts tut - Außer dein Mauserlebnis auf die nächste Stufe zu heben!", // !IS_OK //Außerdem hilft es dabei, Mac Mouse Fix in verschiedene Sprachen zu übersetzen, die Software-Qualität zu verbessern, und mehr.",
   
   'price.header': "... Toller **Preis**",
   
@@ -174,7 +174,7 @@ export default {
   'quotes.see-more': 'Mehr sehen',
   'quotes.see-less': 'Weniger sehen',
 
-  'quotes.thankyou': '**Dankeschön** an alle, die ihre Wertschätzung und Gedanken geteilt haben! Auch an die, die hier nicht aufgeführt sind. Solche Nachrichten zu lesen motiviert mich immer und macht mich ein bisschen glücklicher. :)',
+  'quotes.thankyou': '**Dankeschön** an alle, die ihre Wertschätzung und Gedanken geteilt haben! Auch an die, die hier nicht aufgeführt sind. Solche Nachrichten zu lesen motiviert mich immer und macht mich ein bisschen glücklicher. :)', // !IS_OK
 
   'quote-source.email':           "**{ name }** in einer E-Mail",
   'quote-source.payPalDonation':  "**{ name }** in einer PayPal-Spendennachricht",
