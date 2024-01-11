@@ -3,7 +3,6 @@
   "private": true,
   "type": "module",
   "_comment0": "Some error when adding i18n told me to add type: module. But that didn't remove the error",
-  "_comment1": "TODO: Change i18n version from next to ^8.0.0 once there's a stable v8 release. We used next so it would update through rc versions.",
   "_comments_on_scripts": [
     "1. Calling it 'upload', bc 'deploy' seems to be reserved in pnpm",
     "2. To test deployment version, run `generate`, then follow instructions in terminal to serve locally."
@@ -15,7 +14,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@nuxtjs/i18n": "next",
+    "@nuxtjs/i18n": "^8.0.0",
     "@nuxtjs/tailwindcss": "^6.10.4",
     "@types/node": "^18.19.6",
     "nuxt": "^3.9.1",

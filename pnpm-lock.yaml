@@ -29,7 +29,7 @@ devDependencies:
     specifier: latest
     version: 1.0.8(nuxt@3.9.1)(rollup@4.9.4)(vite@5.0.11)
   '@nuxtjs/i18n':
-    specifier: next
+    specifier: ^8.0.0
     version: 8.0.0(rollup@4.9.4)(vue@3.4.10)
   '@nuxtjs/tailwindcss':
     specifier: ^6.10.4
