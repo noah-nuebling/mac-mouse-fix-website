@@ -22,6 +22,7 @@
     "nuxt-simple-sitemap": "^4.4.1"
   },
   "dependencies": {
+    "@nuxt/content": "^2.10.0",
     "@nuxt/image": "^1.2.0",
     "@pinia/nuxt": "^0.4.11",
     "@types/markdown-it": "^13.0.7",
