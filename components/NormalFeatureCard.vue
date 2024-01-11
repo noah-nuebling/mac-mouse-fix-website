@@ -87,7 +87,7 @@
 // import { $mt, $mto } from '~/utils/markdownTranslate';
 const $mt = useMT()
 import type { FeatureCard } from '#build/components';
-import remapDemoVideo from '@/assets/video/remap_demo_old.mp4';
+// import remapDemoVideo from '@/assets/video/remap_demo_old.mp4';
 
 
 const thisCard = ref<InstanceType<typeof FeatureCard> | null>(null)
