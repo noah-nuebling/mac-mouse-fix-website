@@ -90,29 +90,40 @@ Notes:
 
 @layer components {
 
+  .mask-text {
+    /* This seems to be the only way to clip backdrop-filer to text */
+    mask: linear-gradient(black, black) text;
+  }
+  .chromium .mask-text {
+    /* When I developed the website in late 2023 there were no issues but in early 2024 the shorthand syntax stopped working in Chromium. So we're using this. */
+    mask-image: linear-gradient(black, black);
+    mask-clip: text;
+  }
 
   .button-glow-2 {
     --extra-filters: blur(12px) hue-rotate(00deg);
     @apply bg-white/[0.1] glow-2;
   }
-  .safari-text-glow-2 {
-
-    /* Notes:
-        - We designed the base style for Chrome, but in Safari the saturation, colors, and brightness seem a bit different on the backdrop filters.  */
-
-    mask: linear-gradient(black, black) text;
-    @apply text-white/[0.5];
-    backdrop-filter: contrast(0.7) saturate(36.1) brightness(1.4) hue-rotate(10deg);
-  }
   .text-glow-2 {
 
     /* Notes:
+        - This base implementation was made for Chromium
         - When using this on a <span> or <strong> it works when you set `inline-block` 
-        - This is primarily made for the little glowing accented names in the quote cards, but currently also used for other stuff, usually with adjusted text opacity, which makes the glow weaker. */
+        - This is primarily made for the little glowing accented names in the quote cards, but currently also used for other stuff, usually with adjusted text opacity, which makes the glow weaker. 
+      */
 
     --extra-filters: ;
-    mask: linear-gradient(black, black) text;
-    @apply text-white/[0.3] glow-2;
+    @apply text-white/[0.3] glow-2 mask-text;
+  }
+
+  .safari .text-glow-2 {
+
+    /* Notes:
+        - We designed the base style for Chrome, but in Safari the saturation, colors, and brightness seem a bit different on the backdrop filters.  
+        - Currently, I think the default, non-safari text-glow-2 class is fully overridden by this. So Only this class should affect the look under Safari.
+    */
+    @apply text-white/[0.5] mask-text;
+    backdrop-filter: contrast(0.7) saturate(36.1) brightness(1.4) hue-rotate(10deg);
   }
   .firefox .text-glow-2 {
     /* Firefox doesn't support the masking stuff */
