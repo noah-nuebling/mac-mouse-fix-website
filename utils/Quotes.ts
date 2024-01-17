@@ -7,13 +7,14 @@ export { type QuoteSource, type PermissionToShare, type QuoteData, getUIStrings,
 
 enum QuoteSource {
   // (string equivalents are localization keys)
-  Email           = 'quote-source.email',
-  PayPalDonation  = 'quote-source.payPalDonation',
-  GitHub          = 'quote-source.gitHub',
-  StackExchange   = 'quote-source.stackExchange',
-  Reddit          = 'quote-source.reddit',
-  Lifehacker      = 'quote-source.lifehacker',
-  YoutubeComment  = 'quote-source.youtubeComment',
+  Email             = 'quote-source.email',
+  PayPalDonation    = 'quote-source.payPalDonation',
+  GitHub            = 'quote-source.gitHub',
+  StackExchange     = 'quote-source.stackExchange',
+  Reddit            = 'quote-source.reddit',
+  Lifehacker        = 'quote-source.lifehacker',
+  YoutubeComment    = 'quote-source.youtubeComment',
+  Acknowledgements  = 'quote-source.acknowledgements',
 }
 enum PermissionToShare {
   None,
@@ -590,6 +591,26 @@ const quotes: QuoteData[] = [
     name: "Brendon Janku",
     source: QuoteSource.Email,
     link: 'message:<CAMbYH-qmh-ib65wqiFVJW8CpmvJTqHZSG_YwoySc5cnvKSSO-w@mail.gmail.com>',
+    permission: PermissionToShare.Unrequested,
+    weight: 0,
+  },
+  {
+    quote: "Noah you made my cheap mouse MAGICal without buying APPLE's Magic Mouse!!!! Congratz", // TODO: Translate and request this one
+    quoteKey: "quotes.50",
+    originalLanguage: 'en',
+    name: "Periklis Petridis",
+    source: QuoteSource.Acknowledgements,
+    link: 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors',
+    permission: PermissionToShare.Unrequested,
+    weight: 0,
+  },
+  {
+    quote: "This beautiful piece of software turned a cheap mouse into a great mouse, which I even started preferring over my MX Master. Thank you Noah and keep making awesome stuff! Much love, Markus ❤️", // TODO: Translate and request this one
+    quoteKey: "quotes.51",
+    originalLanguage: 'en',
+    name: "Markus Leonhard",
+    source: QuoteSource.Acknowledgements,
+    link: 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors',
     permission: PermissionToShare.Unrequested,
     weight: 0,
   },
