@@ -207,7 +207,26 @@ export default {
                     //"Mac Mouse Fix makes your $10 mouse better than an Apple Trackpad. And **far** better than a Logitech MX Master! Even though those two are often considered the best input devices for Macs. \n\nYet, Mac Mouse Fix is **{ priceFactorMXMaster }x** cheaper than an MX Master and **{priceFactorTrackpad}x** cheaper than a Trackpad.", // Keep MXMasterPrice in index.vue in sync with this, so that the price factor is correct.
                     //"Mac Mouse Fix is **{ priceFactorMXMaster }x** cheaper compared a Logitech MX Master ($99.99 MSRP), and **{priceFactorTrackpad}x** cheaper compared to an Apple Trackpad ($129.00 MSRP).\n\nAnd that's even though Mac Mouse Fix offers an experience that is at least as good - if not better! Even paired with a cheap mouse.", // Keep MXMasterPrice in index.vue in sync with this, so that the price factor is correct.
   
-  'price.disclaimer': "Note on taxes: The price of **${price}** does not include local taxes, which might have to be paid in your region. To see your total price, visit the [checkout page](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). I would really like to include the tax in the price - to make the buying experience simpler and clearer. But this is currently not feasible due to limitations with the sales platform Gumroad.com. I hope the price still feels very fair and cheap.",
+  /*
+  
+  On PayPal currency conversion fees:
+  
+  General Info:
+  - For the conversion, PayPal charges 4.5% fee: https://www.paypal.com/sr/webapps/mpp/paypal-fees#:~:text=What%20a%20deal.,conversion%20service%20charge%20of%204.5%25.
+  - Gumroad always converts to my PayPal account's 'default currency' (Euro) according to: https://help.gumroad.com/article/46-what-currency-does-gumroad-use#:~:text=Gumroad%20processes%20all%20transactions%20in%20United%20States%20Dollars.&text=However%2C%20during%20the%20checkout%20process,purchases%20to%20USD%20for%20processing.
+    - In PayPal I activated some setting to not convert payments in other currencies to Euro, but Gumroad seems to override this.
+
+  Thoughts:
+  - I could change my PayPal's 'default currency' to USD, but then all non-usd paying customers would still have to pay the conversion fee. And I'd have to conver the dollars back to Euros to use them. So not a good idea.
+
+  Also see: 
+  - I wrote feedback to Gumroad about this: https://gumroad.nolt.io/871  
+  - I was made aware of this by the conversation around this mail: message:<CALQY+mqTdN4y8+mpFADAaLexSq5eALzkso3QPP4P3AMUZw9y4g@mail.gmail.com>
+   
+    */
+
+  'price.disclaimer': "Note on price: The price of **${price}** does not include local taxes, which might have to be paid in your region. To see your total price, visit the [checkout page](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). If you pay on Gumroad.com via PayPal in a currency other than Euros, PayPal will charge an additional 4.5% currency conversion fee.\
+  \n\nI would like to include these fees in the price - to make the buying experience simpler and clearer. But this is currently not possible due to limitations with the sales platform Gumroad.com. I hope the price still feels very fair and cheap.",
                     //"Note on taxes: The price of **${price}** does not include consumption taxes, which must be paid in most regions. For example, Sales Tax in the US, or VAT in Europe. The tax will be added to the price at the time of purchase, depending on your location. I would really like to include the tax in the price - to make the buying experience simpler and clearer. But this is currently not feasible due to limitations with the sales platform Gumroad.com. I hope the price still feels very fair and cheap. To see your final price, visit the [checkout page](https://app.gumroad.com/checkout?wanted=true).",
                     //"Note: The price of **${price}** does not include the local consumption tax, which must be paid in most regions.\nFor example, the Sales Tax in the USA, or VAT in Europe. The tax will be added to the price at the time of purchase, depending on your location.",
                     //"Note: The price of **${price}** does not include the consumption tax that has to be paid in your region.\n(Such as sales tax in the US or VAT in Europe)", 
