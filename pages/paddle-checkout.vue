@@ -23,17 +23,29 @@
 
     </div>
 
+    <!-- Bottom navigation -->
+    <BottomNav color-class="accent-[default] strong:gradient-blue" downloads-badge-color="4094ff"/> <!-- Good: 2f9bff, 4798ff, 4094ff || #3b82f6 is tailwinds blue-500 color -->
+
   </div>
 </template>
 
 <script setup lang="ts">
 
+// Ge† ref
+
 var rootElement = ref<HTMLDivElement | null>(null)
+
+// Get global store
 
 import { storeToRefs } from 'pinia';
 import { useGlobalStore } from '~/store/global';
 const global = useGlobalStore()
 const { navbarHeight_Unexpanded } = storeToRefs(global)
+
+// Configure page
+definePageMeta({
+  layout: false,
+})
 
 // Pad rootElement so that navbar doesn't overlap
 watch(navbarHeight_Unexpanded, (newHeight) => {
