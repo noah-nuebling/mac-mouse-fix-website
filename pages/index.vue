@@ -7,7 +7,7 @@
  -->
 
 <template>
-  <div ref="rootElement" class="strong:box-decoration-clone"> <!-- Shouldn't this global styling be in tailwind.css? -->
+  <div ref="rootElement">
 
     <!-- Debug Stuff -->
 

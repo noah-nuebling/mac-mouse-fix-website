@@ -41,6 +41,10 @@ Notes:
     /* Set background */
     @apply bg-neutral-50;
     
+    /* Make effects look better on wrapping text 
+      (When this is set, gradients restart on the new line) */
+    @apply strong:box-decoration-clone
+
     /* zoom: 122%; Like Feedback Assistant */
 
     
@@ -91,7 +95,7 @@ Notes:
 @layer components {
 
   .mask-text {
-    /* This seems to be the only way to clip backdrop-filer to text */
+    /* This seems to be the only way to clip backdrop-filter to text */
     mask: linear-gradient(black, black) text;
   }
   .chromium .mask-text {
