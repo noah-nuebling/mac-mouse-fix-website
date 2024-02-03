@@ -378,7 +378,22 @@ export default {
   'quotes.46': "",
   'quotes.47': "I've been searching for a similar app for a long time, and finally found this one, thumbs up 👍.", 
   'quotes.48': "",
-  'quotes.49': ""
+  'quotes.49': "",
 
+
+  /* Paddle checkout */
+  'checkout-option.base.price': '$1.99',
+  'checkout-option.base.title': '',
+  'checkout-option.base.body': 'Just Mac Mouse Fix',
+
+  'checkout-option.generous.price': '$4.99',
+  'checkout-option.generous.title': '**Generous Contributor**',
+  'checkout-option.generous.body': "1. Mac Mouse Fix\n2. Milkshake for Noah\n3. You'll be shown under **Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md)",
+
+  'checkout-option.very-generous.price': '$9.99',
+  'checkout-option.very-generous.title': '**Very Generous Contributor**',
+  'checkout-option.very-generous.body': "1. Mac Mouse Fix\n2. *Awesome* Milkshake for Noah!\n3. You'll be shown under ***Very* Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors), and you can also leave a message there if you like",
+
+  'checkout-option.disclaimer': '\\+ tax',
 
 };
