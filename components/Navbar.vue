@@ -6,7 +6,7 @@
 -->
 
 <template>
-  <header ref="root" :class="['select-none fixed left-0 right-0 header-shadow backdrop-blur-[20px] backdrop-saturate-[1.8] z-50 transition-[transform,color,background-color,border-color,text-decoration-color,fill,stroke] duration-[0.5s] !max-w-full ch-[a]:no-underline', navbarHasDarkAppearance ? 'bg-neutral-950/80 text-white/[0.85]' : 'bg-neutral-50/80 text-black/[0.85]']"
+  <header ref="root" :class="['fixed select-none left-0 right-0 header-shadow backdrop-blur-[20px] backdrop-saturate-[1.8] z-50 transition-[transform,color,background-color,border-color,text-decoration-color,fill,stroke] duration-[0.5s] !max-w-full ch-[a]:no-underline', navbarHasDarkAppearance ? 'bg-neutral-950/80 text-white/[0.85]' : 'bg-neutral-50/80 text-black/[0.85]']"
     v-on-click-outside="{ onEvent: () => isExpanded = false, condition: isExpanded, blockEvents: true }"
   >
     <nav :class="['py-[0.4rem] px-[2rem] text-[1rem] font-[400] flex justify-between items-center relative left-[50%] translate-x-[-50%]', $attrs.class]">
@@ -64,7 +64,7 @@ import externalLinkImagePath from "../assets/img/arrow.up.right.square@8x.png"
 import { storeToRefs } from "pinia";
 
 const globalState = useGlobalStore()
-const { navbarHasDarkAppearance, navbarHeight } = storeToRefs(globalState)
+const { navbarHasDarkAppearance, navbarHeight_Unexpanded } = storeToRefs(globalState)
 
 const localePath = useLocalePath()
 
@@ -75,7 +75,7 @@ const root = ref<HTMLElement | null>(null)
 onMounted(() => {
 
   // Update navbar height (not sure if good place/method to do this)
-  navbarHeight.value = root.value!.offsetHeight
+  navbarHeight_Unexpanded.value = root.value!.offsetHeight
 })
 
 
@@ -95,26 +95,50 @@ watch(isExpanded, (shouldExpand) => {
       // Start animation
       expandingContainer.value!.style.height = `${ calcHeight }px`
       root.value!.style.transform = `rotate(0.01deg)`
-    })
-  } else {
-    
-    // Start animation
-    expandingContainer.value!.style.height = '0'
-    root.value!.style.transform = `rotate(0deg)`
 
-    // Update navbar height (not sure if good place/method to do this)
-    navbarHeight.value = root.value!.offsetHeight
+    })
+  } else { 
+    
+    // Unexpand
+
+    // Store og props
+    const ogTransition = expandingContainer.value!.style.transition
+    const ogHeight = expandingContainer.value!.style.height
+
+    // Set target height
+    //  Without animation
+    expandingContainer.value!.style.transition = 'none'
+    expandingContainer.value!.style.height = '0'
+
+    // Store target height globally
+    const calcNavbarHeight = root.value!.offsetHeight
+    navbarHeight_Unexpanded.value = calcNavbarHeight
+
+    // Restore og height
+    expandingContainer.value!.style.height = ogHeight
+
+    doAfterRender(() => {
+      // Restore transition & start animation
+      expandingContainer.value!.style.transition = ogTransition
+      expandingContainer.value!.style.height = '0'
+      root.value!.style.transform = `rotate(0deg)`
+    })
   }
 })
 
-watch(currentSize, (newValue) => {
+function unexpandAndStoreHeight() {
 
-  if (newValue > ResponsiveSize.sm) {
-    isExpanded.value = false
-  }
 
-  // Update navbar height (not sure if good place/method to do this)
-  navbarHeight.value = root.value!.offsetHeight
+}
+
+watch(currentSize, (newValue) => { 
+
+  // Watch page width changes
+
+  // We're always unexpanding after page width changes 
+  //  So that we can properly update the navbarHeight_Unexpanded and so the expanded height is recalculated for the new page width
+  //  I think I saw some subtle bugs with this when playing around with it a lot but can't reproduce anymore.
+  isExpanded.value = false
 })
 
 

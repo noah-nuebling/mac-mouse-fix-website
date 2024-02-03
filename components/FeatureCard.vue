@@ -607,22 +607,22 @@ if (props.doesExpand) {
       // Notes: I can't manage to center the card properly. But it's okay.
       
       const viewportHeight = window.innerHeight
-      const navbarHeight = globalStore.navbarHeight
+      const navbarHeight_Unexpanded = globalStore.navbarHeight_Unexpanded
       const cardViewPortRect = card.value!.getBoundingClientRect();
       const cardHeight = calcHeight // cardViewPortRect.height
       const cardViewPortTop = cardViewPortRect.top
       const cardViewPortBottom = viewportHeight - cardViewPortRect.bottom
-      const cardViewPortTopMax = 0.0 + (navbarHeight)
+      const cardViewPortTopMax = 0.0 + (navbarHeight_Unexpanded)
       const cardViewPortBottomMax = 0.0
       const cardViewportTopTarget =  Math.max(cardViewPortTop, cardViewPortTopMax)
       const cardViewportBottomTarget = Math.max(cardViewPortBottom, cardViewPortBottomMax)
 
       if (cardViewportTopTarget != cardViewPortTop || cardViewportBottomTarget != cardViewPortBottom) {
 
-        const viewportCenter  = ((viewportHeight - navbarHeight)/2) + navbarHeight
+        const viewportCenter  = ((viewportHeight - navbarHeight_Unexpanded)/2) + navbarHeight_Unexpanded
         const cardCenter      = cardViewPortTop + (cardHeight/2)
         
-        // console.log(`viewPortCenter: ${viewportCenter}, viewportHeight: ${viewportHeight}, navbarHeight: ${navbarHeight} ||| cardCenter: ${cardCenter}, cardViewPortRect.top: ${cardViewPortRect.top}], cardViewPortRect.height: ${cardViewPortRect.height}, cardHeight: ${cardHeight}`)
+        // console.log(`viewPortCenter: ${viewportCenter}, viewportHeight: ${viewportHeight}, navbarHeight_Unexpanded: ${navbarHeight_Unexpanded} ||| cardCenter: ${cardCenter}, cardViewPortRect.top: ${cardViewPortRect.top}], cardViewPortRect.height: ${cardViewPortRect.height}, cardHeight: ${cardHeight}`)
 
         const documentScrollTopTarget = document.documentElement.scrollTop + (cardCenter - viewportCenter)
         
