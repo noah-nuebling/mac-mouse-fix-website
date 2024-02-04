@@ -47,15 +47,14 @@
 
       <div :style="selectedOption == 'generous' || selectedOption == 'very-generous' ? '' : 'display: none'">
 
-        <hr class="my-[2em] opacity-0">
+        <hr class="my-[4em] opacity-1">
 
-        <!-- Hint -->
         <div :style="selectedOption == 'generous' ? '' : 'display: none'">
-          <p v-html="'Add your name'" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[5vh]"></p>
+          <p v-html="'Add your name'" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
           <p v-html="$mt('checkout-extra.name.hint')" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"/>
         </div>
         <div :style="selectedOption == 'very-generous' ? '' : 'display: none'">
-          <p v-html="'Add your name and message'" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[5vh]"></p>
+          <p v-html="'Add your name and message'" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
           <p v-html="$mt('checkout-extra.message.hint')" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"/>
         </div>
 
@@ -84,7 +83,7 @@
 
         <!-- <p v-html="'Check out'" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[5vh]"></p>
         <p v-html="'Checking out is handled by Paddle'" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[-2em]"></p> -->
-        <hr class="my-[2em] opacity-0">
+        <hr class="my-[4em] opacity-1">
         <div ref="paddleCheckoutContainer" class="paddle-checkout-container"></div> <!-- border rounded-[1.6rem] bg-white shadow-sm p-[0.75rem] -->
       </div>
 
