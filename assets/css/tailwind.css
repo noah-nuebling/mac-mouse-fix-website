@@ -81,6 +81,9 @@ Notes:
   a {
     text-decoration: underline;
   }
+  .normal-link-color {
+    @apply text-blue-500 /* In most places on the website we color our links weirdly. This is normal, default, blue link color. */
+  }
 
   /* Custom underline 
       Works with our gradient-ed text */

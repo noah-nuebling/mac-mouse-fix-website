@@ -382,6 +382,10 @@ export default {
 
 
   /* Paddle checkout */
+
+  'checkout-options.title': 'How much would you like to pay?',
+  'checkout-options.hint': 'You can pay a bit more to support the project.', // You can pay a bit more if you like to support the project and show your appreciation.
+
   'checkout-option.base.price': '$1.99',
   'checkout-option.base.title': '',
   'checkout-option.base.body': 'Just Mac Mouse Fix',
@@ -395,5 +399,14 @@ export default {
   'checkout-option.very-generous.body': "1. Mac Mouse Fix\n2. *Awesome* Milkshake for Noah!\n3. You'll be shown under ***Very* Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors), and you can also leave a message there if you like",
 
   'checkout-option.disclaimer': '\\+ tax',
+
+  // 'checkout-extras.title': 'Extra info?', // Probably unused
+  // 'checkout-extras.hint': 'Extra info and stuff?',
+
+  'checkout-extra.name.title': 'Your name',
+  'checkout-extra.name.hint': 'Your name will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md). Thank you for your generosity!',
+
+  'checkout-extra.message.title': 'Your message',
+  'checkout-extra.message.hint': 'Your name and message will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors). Thank you so much for your generosity!',
 
 };
