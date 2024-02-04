@@ -7,7 +7,7 @@
  -->
 
  <template>
-  <div ref="rootElement" class="mt-[50px] flex flex-col items-center text-[1.0rem] xs:mx-[1rem] mx-[2rem] ch-[a]:normal-link-color">
+  <div ref="rootElement" class="flex flex-col items-center text-[1.0rem] xs:mx-[1rem] mx-[2rem] ch-[a]:normal-link-color">
 
     <div class="flex flex-col items-stretch max-w-[45rem]">
 
@@ -15,15 +15,25 @@
 
       <!-- Header -->
       
-      <div class="hidden">
-        <NuxtImg ref="mmfIcon" :src="mmfIconImagePath" sizes="225px" alt="Mac Mouse Fix Icon" :class="['h-[10rem]']"/> <!-- Copied this from intro.vue, not sure if good -->
-        <p class="text-[2.0rem] font-[600]">Mac Mouse Fix</p>
-        <p class="mb-[15rem]">Make your $10 Mouse Better than an Apple Trackpad!</p>
+      <div class="flex flex-col items-start  mt-[6rem]">
+        
+        
+        <NuxtLink  :to="localePath('/')" class="no-underline mb-[-0.5rem] font-[500]">
+          <!-- <img :src="chevronLeft" class="inline h-[1em] translate-y-[-0.1em]"/> -->
+          <span class="text-[1.8em] font-[300] inline-block translate-y-[0.05em] mt-[-100rem]">‹</span> 
+          Front Page
+        </NuxtLink>
+        <!-- <NuxtImg ref="mmfIcon" :src="mmfIconImagePath" sizes="225px" alt="Mac Mouse Fix Icon" :class="['h-[6.5rem] mb-[3rem] mr-[1rem] hidden']"/> --> <!-- Copied this from intro.vue, not sure if good -->
+        <p class="text-[3.0rem] font-[600]">
+          <!-- <span class="font-[600] text-[1em] inline-block translate-y-[-0.1em]">􀎤</span>  -->
+          Buy Mac Mouse Fix
+        </p>
+        <!-- <p class="mb-[15rem]">Make your $10 Mouse Better than an Apple Trackpad!</p> -->
       </div>
 
       <!-- Options -->
 
-      <p v-html="$mt('checkout-options.title')" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[5vh]"></p>
+      <p v-html="$mt('checkout-options.title')" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[3rem]"></p>
       <p v-html="$mt('checkout-options.hint')" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"></p>
 
       <div class="flex flex-col gap-[2em]">
@@ -97,13 +107,12 @@
 
 <script setup lang="ts">
 
-
 // Import i18n stuff
 const $mt = useMT()
 
 // Import assets
-
-const mmfIconImagePath = "/mmf-icon.png"
+// const mmfIconImagePath = "/mmf-icon.png"
+// import chevronLeft from '../assets/img/chevron.backward.circle-blue@8x.png'
 
 // Edit head
 useHead({
@@ -114,7 +123,6 @@ useHead({
     {
       type: 'text/javascript',
       innerHTML: `
-
       `
     }
   ]
@@ -122,7 +130,6 @@ useHead({
 
 
 // Refs
-
 const paddleCheckoutContainer = ref<HTMLDivElement | null>(null)
 const paddleCheckoutContainerContainer = ref<HTMLDivElement | null>(null)
 
