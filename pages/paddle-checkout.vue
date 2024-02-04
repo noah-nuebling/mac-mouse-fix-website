@@ -31,9 +31,11 @@
         <!-- <p class="mb-[15rem]">Make your $10 Mouse Better than an Apple Trackpad!</p> -->
       </div>
 
+      <hr class="my-[4em] opacity-1">
+
       <!-- Options -->
 
-      <p v-html="$mt('checkout-options.title')" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[3rem]"></p>
+      <p v-html="$mt('checkout-options.title')" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0rem]"></p>
       <p v-html="$mt('checkout-options.hint')" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"></p>
 
       <div class="flex flex-col gap-[2em]">
@@ -97,10 +99,17 @@
         <div ref="paddleCheckoutContainer" class="paddle-checkout-container"></div> <!-- border rounded-[1.6rem] bg-white shadow-sm p-[0.75rem] -->
       </div>
 
+      <!-- Bottom divider (for BottomNav) -->
+      <hr class="my-[4em] opacity-1">
     </div>
 
     <!-- Bottom navigation -->
     <BottomNav :is-minimal="true" color-class="accent-[default] strong:gradient-blue" downloads-badge-color="4094ff"/> <!-- Good: 2f9bff, 4798ff, 4094ff || #3b82f6 is tailwinds blue-500 color -->
+
+    <!-- Bottom spacer (for BottomNav) -->
+    <hr class="mt-[4em] opacity-0">
+
+
 
   </div>
 </template>

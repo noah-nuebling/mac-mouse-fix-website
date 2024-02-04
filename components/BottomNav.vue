@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :class="['relative h-[50vh] flex justify-center', colorClass ?? '']">
+    <div :class="['relative flex justify-center', colorClass ?? '', $props.isMinimal ? '' : 'h-[50vh]']">
       <div class="w-fit h-full flex flex-col justify-center items-center gap-[0.9rem] !text-[1.0rem]">
 
         <!-- Credits -->
