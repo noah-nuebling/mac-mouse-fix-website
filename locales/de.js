@@ -241,5 +241,43 @@ export default {
   'quotes.46': "Danke für diese App, ich verstehe nicht, warum Apple das nicht zum Standard gemacht hat, es ist super intuitiv, Gesten mit dem Mittelklick zu machen.",
   'quotes.47': "Ich habe lange nach einer ähnlichen App gesucht und endlich diese hier gefunden, super 👍.",
   'quotes.48': "Du hast meine Superlight besser gemacht als eine MX Master.",
-  'quotes.49': "Diese App ist so verdammt gut."
-};s
+  'quotes.49': "Diese App ist so verdammt gut.",
+
+  /* Paddle checkout */
+
+  'checkout-header.back-button': 'Startseite',
+  'checkout-header.title': 'Mac Mouse Fix kaufen',
+
+  'checkout-options.title': 'Wie viel möchtest du bezahlen?',
+  'checkout-options.hint': 'Du kannst etwas mehr zahlen, wenn du das Projekt unterstützen möchtest.',
+
+  'checkout-option.base.price': '$1.99',
+  'checkout-option.base.title': '',
+  'checkout-option.base.body': 'Nur Mac Mouse Fix',
+
+  'checkout-option.generous.price': '$4.99',
+  'checkout-option.generous.title': '**Großzügiger Unterstützer**',
+  'checkout-option.generous.body': "1. Mac Mouse Fix\n2. Milkshake für Noah\n3. Du wirst unter **Großzügige Unterstützer** in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md) aufgeführt",
+
+  'checkout-option.very-generous.price': '$9.99',
+  'checkout-option.very-generous.title': '**Sehr Großzügiger Unterstützer**',
+  'checkout-option.very-generous.body': "1. Mac Mouse Fix\n2. *Fantastischer* Milkshake für Noah!\n3. Du wirst unter ***Sehr* Großzügige Unterstützer** in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-sehr-großzügige-unterstützer) aufgeführt, und du kannst dort auch eine Nachricht hinterlassen, wenn du möchtest",
+
+  'checkout-option.disclaimer': '\\+ Steuer',
+
+  'checkout-extras.title.name': 'Füge deinen Namen hinzu',
+  'checkout-extras.title.message': 'Füge deinen Namen und deine Nachricht hinzu',
+  'checkout-extras.hint.name': 'Dein Name wird in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md) aufgeführt. Vielen Dank für deine Großzügigkeit!',
+  'checkout-extras.hint.message': 'Dein Name und deine Nachricht werden in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-sehr-großzügige-unterstützer) aufgeführt. Vielen Dank für deine große Großzügigkeit!',
+  'checkout-extra.name.title': 'Dein Name',
+  'checkout-extra.message.title': 'Deine Nachricht',
+
+  'checkout-totals.subtotal': 'Zwischensumme:',
+  'checkout-totals.discount': 'Rabatt:',
+  'checkout-totals.tax': 'Steuer:',
+  'checkout-totals.total': 'Gesamt:',
+  'checkout-totals.credit': 'Angewandtes Guthaben:',
+  'checkout-totals.balance': 'Saldo:',
+  'checkout-totals.credit-to-balance': 'Erhaltenes Guthaben:'
+
+};

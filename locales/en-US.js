@@ -383,6 +383,9 @@ export default {
 
   /* Paddle checkout */
 
+  'checkout-header.back-button': 'Front Page',
+  'checkout-header.title': 'Buy Mac Mouse Fix',
+
   'checkout-options.title': 'How much would you like to pay?',
   'checkout-options.hint': 'You can pay a bit more to support the project.', // You can pay a bit more if you like to support the project and show your appreciation.
 
@@ -400,13 +403,19 @@ export default {
 
   'checkout-option.disclaimer': '\\+ tax',
 
-  // 'checkout-extras.title': 'Extra info?', // Probably unused
-  // 'checkout-extras.hint': 'Extra info and stuff?',
+  'checkout-extras.title.name': 'Add your name',
+  'checkout-extras.title.message': 'Add your name and message',
+  'checkout-extras.hint.name': 'Your name will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md). Thank you for your generosity!',
+  'checkout-extras.hint.message': 'Your name and message will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors). Thank you so much for your generosity!',
+  'checkout-extra.name.title': 'Your Name',
+  'checkout-extra.message.title': 'Your Message',
 
-  'checkout-extra.name.title': 'Your name',
-  'checkout-extra.name.hint': 'Your name will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md). Thank you for your generosity!',
-
-  'checkout-extra.message.title': 'Your message',
-  'checkout-extra.message.hint': 'Your name and message will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors). Thank you so much for your generosity!',
+  'checkout-totals.subtotal': 'Subtotal:',
+  'checkout-totals.discount': 'Discount:',
+  'checkout-totals.tax': 'Tax:',
+  'checkout-totals.total': 'Total:',
+  'checkout-totals.credit': 'Credit Applied:',
+  'checkout-totals.balance': 'Balance:',
+  'checkout-totals.credit-to-balance': 'Credit Received:',
 
 };

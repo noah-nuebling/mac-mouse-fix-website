@@ -1,6 +1,28 @@
 import { request } from "https"
 
-export { doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo, setResolution, unsetResolution}
+export { doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo, setResolution, unsetResolution, formatAsMoney }
+
+function formatAsMoney(number: number, currencyCode: string, locale = 'en') {
+
+  // Written by ChatGPT
+
+  // Restrict functionality
+  //    Formatting USD with European formatting or formatting Euro with US formatting looks super weird. Also we're only using USD at this time. So we're forcing this to only with with USD and US formatting.
+  console.assert(currencyCode == 'USD' && locale == 'en', `We only support formatting USD with en formatting at the moment. Tried to format ${currencyCode} with ${locale} formatting.`)
+
+  // Create formatter
+  const formatter = new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency: currencyCode,
+      // minimumFractionDigits: minimumFractionDigits, // Optional: Avoids decimal part for the dummy number
+  });
+
+  // Format
+  const result = formatter.format(number)
+
+  // Return
+  return result
+}
 
 type ElementSize<T = number | string> = {
     fontSize: T,

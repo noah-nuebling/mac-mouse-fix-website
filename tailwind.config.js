@@ -71,6 +71,7 @@ export default {
 
       'display': '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif', /* Copied from big text on iPad Pro page */ 
       'body': '-apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif', /* Copied from small text on iPad Pro page */
+      'mono': 'ui-monospace',
     },
     // fontSize: {
     //   xs: '0.75',

@@ -11,22 +11,21 @@
 
     <div class="flex flex-col items-stretch max-w-[45rem]">
 
-      <!-- Custom UI -->
-
       <!-- Header -->
       
-      <div class="flex flex-col items-start  mt-[6rem]">
-        
-        
+      <!-- <BottomNav class="mt-[1rem] mb-[-3rem] self-start translate-y-[0rem]" :is-minimal="true" color-class="accent-[default] strong:gradient-blue" downloads-badge-color="4094ff"/> -->
+
+      <div class="flex flex-col items-start  mt-[5rem]">
+
         <NuxtLink  :to="localePath('/')" class="no-underline mb-[-0.5rem] font-[500]">
           <!-- <img :src="chevronLeft" class="inline h-[1em] translate-y-[-0.1em]"/> -->
           <span class="text-[1.8em] font-[300] inline-block translate-y-[0.05em] mt-[-100rem]">‹</span> 
-          Front Page
+          {{ $mt('checkout-header.back-button') }}
         </NuxtLink>
         <!-- <NuxtImg ref="mmfIcon" :src="mmfIconImagePath" sizes="225px" alt="Mac Mouse Fix Icon" :class="['h-[6.5rem] mb-[3rem] mr-[1rem] hidden']"/> --> <!-- Copied this from intro.vue, not sure if good -->
-        <p class="text-[3.0rem] font-[600]">
+        <p class="xs:text-[2.5rem] text-[3.0rem] font-[600]">
           <!-- <span class="font-[600] text-[1em] inline-block translate-y-[-0.1em]">􀎤</span>  -->
-          Buy Mac Mouse Fix
+          {{ $mt('checkout-header.title') }}
         </p>
         <!-- <p class="mb-[15rem]">Make your $10 Mouse Better than an Apple Trackpad!</p> -->
       </div>
@@ -62,12 +61,12 @@
         <hr class="my-[4em] opacity-1">
 
         <div :style="selectedOption == 'generous' ? '' : 'display: none'">
-          <p v-html="'Add your name'" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
-          <p v-html="$mt('checkout-extra.name.hint')" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"/>
+          <p v-html="$mt('checkout-extras.title.name')" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
+          <p v-html="$mt('checkout-extras.hint.name')" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"/>
         </div>
         <div :style="selectedOption == 'very-generous' ? '' : 'display: none'">
-          <p v-html="'Add your name and message'" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
-          <p v-html="$mt('checkout-extra.message.hint')" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"/>
+          <p v-html="$mt('checkout-extras.title.message')" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
+          <p v-html="$mt('checkout-extras.hint.message')" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"/>
         </div>
 
         <div class=""> <!-- border rounded-[1.6rem] bg-white p-[1.5rem] shadow-sm -->
@@ -96,6 +95,31 @@
         <!-- <p v-html="'Check out'" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[5vh]"></p>
         <p v-html="'Checking out is handled by Paddle'" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[-2em]"></p> -->
         <hr class="my-[4em] opacity-1">
+
+        <div class="w-full flex justify-end items-center">
+          <!-- <div class="w-[10rem]">
+            <div class="flex justify-between"><p>Subtotal:</p><p>$9.99</p></div>
+            <div class="flex justify-between"><p>Tax:</p><p>$1.76</p></div>
+            <div class="flex justify-between"><p>Total:</p><p><strong>$10.75</strong></p></div>
+          </div> -->
+        </div>
+        <p v-if="totals" class="w-full text-end px-[1rem] mb-[0rem] text-[1rem] font-[400]"> 
+          <!-- 
+            Notes: 
+            - See Paddle documentation for context: https://developer.paddle.com/build/customers/get-customer-credit-balances 
+            - https://developer.paddle.com/api-reference/transactions/list-transactions
+            - There are two weird data fields in the docs that don't show up for us at the moment: credit_to_balance and grand_total
+            - ChatGPT says the credit stuff is confusing since user might wonder: Where does the credit come from? Where is it stored? What can it be used for? But I don't know the answer to these questions either so we'll just leave it for now.
+          -->
+          <span v-if="totals.subtotal != totals.total">       {{  $mt('checkout-totals.subtotal') }}             <span class="">{{ formatAsMoney(totals.subtotal, currencyCode!, currencyLocale) }}</span></span>
+          <span v-if="totals.discount > 0">             <br>  {{  $mt('checkout-totals.discount')  }}         <span class="">-{{ formatAsMoney(totals.discount, currencyCode!, currencyLocale) }}</span></span>
+          <span v-if="totals.tax > 0">                  <br>  {{  $mt('checkout-totals.tax')  }}              <span class="">{{ formatAsMoney(totals.tax, currencyCode!, currencyLocale) }}</span></span>
+          <span>                                        <br>  {{  $mt('checkout-totals.total')  }}            <span class=""><strong>{{ formatAsMoney(totals.total, currencyCode!, currencyLocale) }}</strong></span></span>
+          <span v-if="totals.credit > 0">               <br>  {{  $mt('checkout-totals.credit')  }}   <span class="">-{{ formatAsMoney(totals.credit, currencyCode!, currencyLocale) }}</span></span>
+          <span v-if="totals.balance != totals.total">  <br>  {{  $mt('checkout-totals.balance')  }}             <span class="">{{ formatAsMoney(totals.balance, currencyCode!, currencyLocale) }}</span></span>
+          <span v-if="totals.credit_to_balance">     <br><br> {{  $mt('checkout-totals.credit-to-balance')  }} <span class="">{{ formatAsMoney(totals.credit_to_balance, currencyCode!, currencyLocale) }}</span></span>
+        </p>
+        
         <div ref="paddleCheckoutContainer" class="paddle-checkout-container"></div> <!-- border rounded-[1.6rem] bg-white shadow-sm p-[0.75rem] -->
       </div>
 
@@ -116,8 +140,10 @@
 
 <script setup lang="ts">
 
-// Import i18n stuff
+// Import other stuff
 const $mt = useMT()
+const $i18n = useI18n()
+import { formatAsMoney } from '../utils/util'
 
 // Import assets
 // const mmfIconImagePath = "/mmf-icon.png"
@@ -160,10 +186,35 @@ onMounted(() => {
   });
 })
 
+// State
+
+const selectedOption = ref<string>('')
+var totals = ref<Object|null>(null)
+var currencyCode = ref<string|null>(null)
+var currencyLocale = 'en' // $i18n.locale.value
+
+watch(selectedOption, (newValue) => {
+  
+  if (newValue != '') {
+    paddleCheckoutContainerContainer.value?.classList.remove('hidden')
+  }
+  
+
+  if (newValue == 'base') {
+    openPaddleCheckout('pri_01hnp1bmt8cs73d49s8v64wtjg' /* Sandbox */)
+  } else if (newValue == 'generous') {
+    openPaddleCheckout('pri_01hnp1e1d7cm1g1gqgsq738s0y' /* Sandbox */)
+  } else if (newValue == 'very-generous') {
+    openPaddleCheckout('pri_01hnp1hc8jgpv3qfw0w9v94p7a' /* Sandbox */)
+  } else {
+    console.assert(false)
+  }
+
+})
 
 function handlePaddleEvent(event: Object) {
 
-  console.log(`Received Paddle event: ${event.name}: ${JSON.stringify(event, null, 2)}`)
+  console.log(`Received Paddle event: ${event.name}: ${JSON.stringify(event, null, 4)}`)
 
   updatePaddleCheckoutHeight()
 
@@ -175,6 +226,15 @@ function handlePaddleEvent(event: Object) {
     
     if (event.name == 'checkout.closed') {
       window.open("/", "_self"); // Navigate to domain root. This happens when the user clicks the little 'x' button. Ideally I'd like to hide that one.
+    }
+
+    // console.log(`TOTALLS: ${JSON.stringify(event, null, 4)}`)
+
+    if (event.data.totals) {
+      totals.value = event.data.totals
+    }
+    if (event.data.currency_code) {
+      currencyCode.value = event.data.currency_code
     }
   }
 }
@@ -192,14 +252,14 @@ function openPaddleCheckout(priceId: String) {
       frameStyle: "min-width: 286px; width: 100%; overflow: visible;",             //  Docs say min width should be >= 286 || Here's the official tutorial where they set some example values: https://developer.paddle.com/build/checkout/build-branded-inline-checkout || Here are the docs: https://developer.paddle.com/paddlejs/methods/paddle-checkout-open
       
       theme: null, 								// There doesn't seem to be an auto option. Defaults to light. Dark looks fresher. Edit: But light seems more 'trustworthy' I think.
-      successUrl: null, 					// If this is null, Paddle will display a simple success message saying they emailed you the order details. For Swish, the email contains download link, license key and custom instructions, which is all we want I think.
-      locale: null, 							// Null so that it automatically detects browser locale
+      // successUrl: null, 					// If this is null, Paddle will display a simple success message saying they emailed you the order details. For Swish, the email contains download link, license key and custom instructions, which is all we want I think. Edit: Comment this out due to errors setting to null.
+      locale: $i18n.locale.value, 	// Null so that it automatically detects browser locale. Edit: Comment this out due to errors setting to null. Edit: We'd rather manually set the locale so everything is consistent
       //showAddDiscounts: null, 		// At the moment, discount field doesn't seem to show up when we set this to null. (We don't have any discount codes at the moment.) (In sandbox environment setting this to null leads to error atm.)
 
-      allowLogout: false, 				// This hides the little 'Not you?' button next to your email on the second screen. Very small detail but I think it's slightly cleaner without this.
+      allowLogout: true, 				// This hides the little 'Not you?' button next to your email on the second screen. Very small detail but I think it's slightly cleaner without this. Edit: There is no back button and this is the simplest substitute to implement - so enabling this for now. Edit: Doesn't even show up atm. Maybe only for overlay checkout?
       showAddTaxId: true, 				// The use case for this is very niche but can avoid VAT for some businesses, so why not. Documented here: https://www.paddle.com/help/sell/tax/how-paddle-handles-vat-on-your-behalf
     
-      allowedPaymentMethods: null, 	// Just setting this to null seems to allow everything from my testing. Although I can't get alipay to show up even when I connect a VPN to China mainland. Edit: That's because Alipay is in early access and you have to apply for it. See https://developer.paddle.com/concepts/payment-methods/alipay
+      // allowedPaymentMethods: null, 	// Just setting this to null seems to allow everything from my testing. Although I can't get alipay to show up even when I connect a VPN to China mainland. Edit: That's because Alipay is in early access and you have to apply for it. See https://developer.paddle.com/concepts/payment-methods/alipay Edit: Comment this out due to errors setting to null.
       //[
         //"alipay",
         // "apple_pay",
@@ -243,27 +303,7 @@ watch(navbarHeight_Unexpanded, (newHeight) => {
   rootElement!.value!.style.paddingTop = `${newHeight}px`
 })
 
-// State
-const selectedOption = ref<string>('')
 
-watch(selectedOption, (newValue) => {
-  
-  if (newValue != '') {
-    paddleCheckoutContainerContainer.value?.classList.remove('hidden')
-  }
-  
-
-  if (newValue == 'base') {
-    openPaddleCheckout('pri_01hnp1bmt8cs73d49s8v64wtjg' /* Sandbox */)
-  } else if (newValue == 'generous') {
-    openPaddleCheckout('pri_01hnp1e1d7cm1g1gqgsq738s0y' /* Sandbox */)
-  } else if (newValue == 'very-generous') {
-    openPaddleCheckout('pri_01hnp1hc8jgpv3qfw0w9v94p7a' /* Sandbox */)
-  } else {
-    console.assert(false)
-  }
-
-})
 
 </script>
 
