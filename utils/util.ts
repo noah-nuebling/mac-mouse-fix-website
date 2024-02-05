@@ -231,14 +231,14 @@ function prefersReducedMotion(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches
 }
 
-function debouncer(workload: () => any, timeout: number): () => any {
+function debouncer(workload: (...args: any[]) => any, timeout: number): (...args: any[]) => void {
 
   // Returns a function that executes `workload` after `timout` milliseconds. If the function is called again during this timeout period, the timeout will reset.
 
   var timer: any
-  const result = () => {
+  const result = (...args: any[]) => {
     clearTimeout(timer)
-    timer = setTimeout(workload, timeout)
+    timer = setTimeout(() => workload(...args), timeout)
   }
 
   return result

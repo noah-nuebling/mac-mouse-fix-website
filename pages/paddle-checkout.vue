@@ -75,13 +75,13 @@
           <div :style="selectedOption == 'generous' || selectedOption == 'very-generous' ? '' : 'display: none'">
             <p v-html="$mt('checkout-extra.name.title')"    class="text-[1.2em] font-[600] mb-[0.5em] mt-[0em]"
               :style="selectedOption == 'very-generous' ? '' : 'display: none'"/>
-            <input type="text" id="name" class="border-black/[0.1] bg-white/[0.75] border rounded-[0.75rem] h-[3.5rem] px-[1rem] text-[1.1rem] w-full">
+            <input v-model="paddleCustomData.name" type="text" class="border-black/[0.1] bg-white/[0.75] border rounded-[0.75rem] h-[3.5rem] px-[1rem] text-[1.1rem] w-full">
           </div>
 
           <!-- Message field -->
           <div :style="selectedOption == 'very-generous' ? '' : 'display: none'">
             <p v-html="$mt('checkout-extra.message.title')" class="text-[1.2em] font-[600] mb-[0.5em] mt-[1em]"/>
-            <input type="text" id="name" class="border-black/[0.1] bg-white/[0.75] border rounded-[0.75rem] h-[3.5rem] px-[1rem] text-[1.1rem] w-full">
+            <input v-model="paddleCustomData.message" type="text" class="border-black/[0.1] bg-white/[0.75] border rounded-[0.75rem] h-[3.5rem] px-[1rem] text-[1.1rem] w-full">
           </div>
         </div>
       </div>
@@ -105,7 +105,9 @@
         </div>
         <p v-if="totals" class="w-full text-end px-[1rem] mb-[0rem] text-[1rem] font-[400]"> 
           <!-- 
+            Display totals
             Notes: 
+            - Should've probably used Paddle.PricePreview() to implement this, instead of custom formatAsMoney() method. But oh well.
             - See Paddle documentation for context: https://developer.paddle.com/build/customers/get-customer-credit-balances 
             - https://developer.paddle.com/api-reference/transactions/list-transactions
             - There are two weird data fields in the docs that don't show up for us at the moment: credit_to_balance and grand_total
@@ -164,9 +166,10 @@ useHead({
 })
 
 
-// Refs
+// HTML Refs
 const paddleCheckoutContainer = ref<HTMLDivElement | null>(null)
 const paddleCheckoutContainerContainer = ref<HTMLDivElement | null>(null)
+
 
 // Paddle stuff
 
@@ -192,25 +195,33 @@ const selectedOption = ref<string>('')
 var totals = ref<Object|null>(null)
 var currencyCode = ref<string|null>(null)
 var currencyLocale = 'en' // $i18n.locale.value
+var paddleCustomData = reactive({
+  'name': null,
+  'message': null,
+})
 
-watch(selectedOption, (newValue) => {
+watch([selectedOption, paddleCustomData], ([newSelectedOption, newCustomData], [oldSelectedOption, oldCustomData]) => {
   
-  if (newValue != '') {
+  /* Discussion: 
+    - We recreate the whole Paddle checkout any time one of these values changes. There is Paddle.Checkout.updateCheckout(), but it doesn't let us update the custom data according do docs. So we just recreate the checkout.
+    - Perhaps we could pass in a transaction ID so that Paddle restores some of the entered information, but probably not worth it. */
+
+  if (newSelectedOption != '') {
     paddleCheckoutContainerContainer.value?.classList.remove('hidden')
   }
-  
 
-  if (newValue == 'base') {
-    openPaddleCheckout('pri_01hnp1bmt8cs73d49s8v64wtjg' /* Sandbox */)
-  } else if (newValue == 'generous') {
-    openPaddleCheckout('pri_01hnp1e1d7cm1g1gqgsq738s0y' /* Sandbox */)
-  } else if (newValue == 'very-generous') {
-    openPaddleCheckout('pri_01hnp1hc8jgpv3qfw0w9v94p7a' /* Sandbox */)
+  const ch =  newSelectedOption != oldSelectedOption ? openPaddleCheckout : debouncedOpenPaddleCheckout
+
+  if (newSelectedOption == 'base') {
+    ch('pri_01hnp1bmt8cs73d49s8v64wtjg' /* Sandbox */, newCustomData)
+  } else if (newSelectedOption == 'generous') {
+    ch('pri_01hnp1e1d7cm1g1gqgsq738s0y' /* Sandbox */, newCustomData)
+  } else if (newSelectedOption == 'very-generous') {
+    ch('pri_01hnp1hc8jgpv3qfw0w9v94p7a' /* Sandbox */, newCustomData)
   } else {
     console.assert(false)
   }
-
-})
+}, { deep: true })
 
 function handlePaddleEvent(event: Object) {
 
@@ -218,18 +229,22 @@ function handlePaddleEvent(event: Object) {
 
   updatePaddleCheckoutHeight()
 
-  if (event['type'] == "checkout.ping.size") {
-      const iFrame = paddleCheckoutContainer.value!.querySelector('iframe')!
-      console.log(`The iFrame: ${iFrame}`)
-      iFrame.height = `${event['height']}`;
-  } else {
+  if (event.type == "checkout.ping.size") {
+      if (paddleCheckoutContainer.value) {
+        const iFrame = paddleCheckoutContainer.value!.querySelector('iframe')!
+        console.log(`The iFrame: ${iFrame}`)
+        iFrame.height = `${event['height']}`;
+      }
+      return
+  }
     
-    if (event.name == 'checkout.closed') {
-      window.open("/", "_self"); // Navigate to domain root. This happens when the user clicks the little 'x' button. Ideally I'd like to hide that one.
-    }
+  if (event.name == 'checkout.closed') {
+    window.open("/", "_self"); // Navigate to domain root. This happens when the user clicks the little 'x' button. Ideally I'd like to hide that one.
+  }
 
-    // console.log(`TOTALLS: ${JSON.stringify(event, null, 4)}`)
+  // console.log(`TOTALLS: ${JSON.stringify(event, null, 4)}`)
 
+  if (event.data) {
     if (event.data.totals) {
       totals.value = event.data.totals
     }
@@ -239,10 +254,16 @@ function handlePaddleEvent(event: Object) {
   }
 }
 
-function openPaddleCheckout(priceId: String) {
-	
+const debouncedOpenPaddleCheckout = debouncer((priceId: string, customData: Object) => openPaddleCheckout(priceId, customData), 500)
+
+function openPaddleCheckout(priceId: String, customData: Object) {
+
+  /* Notes:
+    - Sandbox credit cards at: https://developer.paddle.com/concepts/payment-methods/credit-debit-card 
+  */
+
   Paddle.Checkout.open({ 					// See the docs at: https://developer.paddle.com/build/checkout/build-branded-inline-checkout || https://developer.paddle.com/paddlejs/methods/paddle-checkout-open
-    customData: null,							// Idk
+    customData: customData,			  // We pass in the user's name and message through this.
     discountCode: null, 					// Prepopulate with discount.
     settings: {
       displayMode: 'inline',			// Overlay is simpler. Good example of inline checkout at https://my.setapp.com/activate
