@@ -11,6 +11,9 @@
 
     <div class="flex flex-col items-stretch max-w-[45rem]">
 
+
+      <p class="text-red-500"> THIS PAGE IS A WORK IN PROGRESS - DONT BUY THE APP FROM HERE </p>
+
       <!-- Header -->
       
       <!-- <BottomNav class="mt-[1rem] mb-[-3rem] self-start translate-y-[0rem]" :is-minimal="true" color-class="accent-[default] strong:gradient-blue" downloads-badge-color="4094ff"/> -->
