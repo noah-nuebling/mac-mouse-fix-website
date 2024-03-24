@@ -8,6 +8,7 @@ When editing config.json:
 - When you change `price` also change the price on **Gumroad/Paddle/...**
 - When you update `price` or `trialDays` then also update **GitHub** release notes which contain them. Don't forget to re-generate the in-app update notes which are generated from the gh release notes.
   - Update: We mention that prices might change in the release notes, so it's okay.
+- To make the changes to config.json take effect, remember to use `pnpm upload`
 
 Countries:
 - Countries are specified by BCP 47 Region Identifiers. For example "IN" for India. Also see ([BCP 47 Search](https://www.techonthenet.com/js/language_tags.php) and [OSX Language ID Documentation](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html))
@@ -19,6 +20,7 @@ Countries:
   - Turkey (TR): It's too expensive for college student even at $1.99 due to current (December 2023) terrible economic situation in Turkey. Source: [this mail](message:<5C18F7A2-8336-48B5-A458-D6A193CEFFAC@icloud.com>).
   - Iran (IR): According to [this mail](message:<CAHkB1paSesFmjY-AehsPuOUr5WfZACkXCxDuaWtqgdn4kKrcuw@mail.gmail.com>) they can't pay in Dollars due to economic sanctions
   - Myanmar (MM): According to [this mail](message:<0FD140DD-9672-4B29-BEA5-F3EEBAE0736A@gmail.com>) the checkout page is available but the person can't actually check out.
+  - Nepal (NP): According to [this mail](message:<CAFf=ELgRHw0d0G10z-JbO7RpiVrkc8Ktjh0QoaFmAG6O2NVw-Q@mail.gmail.com>) they "don't have any payment gateway in dollars", "Paypal has yet to come to our country, and we can only make transactions inside our country.", and $2.99 is very expensive for a student.
 
 Other notes:
 - I removed ?wanted=true from the quickpPayLink (https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true). Now it's less 'quick' which might be annoying to users, but I think it's less confusing, because all the stuff about the 1. 2. 3. Options still shows up for ?wanted=true but without context which I think is sort of confusing.

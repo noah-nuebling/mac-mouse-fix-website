@@ -7,5 +7,5 @@
    "altPayLink": "<Todo: Add paddle pay link>",
    "altQuickPayLink": "<Todo: Add paddle quick pay link>",
    "altPayLinkCountries": [],
-   "freeCountries": ["CN", "RU", "IN", "AZ", "TR", "IR", "MM"]
+   "freeCountries": ["CN", "RU", "IN", "AZ", "TR", "IR", "MM", "NP"]
 }
