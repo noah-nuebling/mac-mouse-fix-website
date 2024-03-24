@@ -1,0 +1,8 @@
+# START nuxt-simple-robots (indexable)
+User-agent: *
+Allow: *
+Disallow: /activate
+Disallow: /thankyou
+
+Sitemap: https://macmousefix.com/sitemap_index.xml
+# END nuxt-simple-robots
