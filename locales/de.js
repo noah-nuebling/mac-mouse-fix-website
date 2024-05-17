@@ -278,6 +278,11 @@ export default {
   'checkout-totals.total': 'Gesamt:',
   'checkout-totals.credit': 'Angewandtes Guthaben:',
   'checkout-totals.balance': 'Saldo:',
-  'checkout-totals.credit-to-balance': 'Erhaltenes Guthaben:'
+  'checkout-totals.credit-to-balance': 'Erhaltenes Guthaben:',
+
+  /* 404 page */
+
+  '404.back': "Startseite",
+  '404.title': "Die gewünschte Seite wurde nicht gefunden.",
 
 };

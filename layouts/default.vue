@@ -16,13 +16,6 @@
     <!-- Output page content -->
     <div class="min-w-[320px] max-w-[1780px] mx-auto pt-[0rem]"><slot /></div> <!-- page templates will be inserted here (about.vue, index.vue, etc) -->
 
-
-    <!-- Bottom Nav -->
-    <!-- Notes:
-          - The hex colors used here are based on tailwinds green-500 with slight brightness adjustments using oklch.com
-    -->
-    <BottomNav/>
-
   </div>
 
   <!-- Filters

@@ -1,3 +1,4 @@
+
 /* Configuration for vue router
   
   Discussion:
@@ -23,7 +24,8 @@ const hashOffset = -70 // Chosen so that the headline is *centered* on the scree
 const scrollBehavior = 'instant' // Whether to animate the scroll
 
 // Main
-export default <RouterConfig> {
+export default <RouterC onfig> {
+  
   scrollBehavior: (to, from, savedPosition) => {
 
     const { $store } = useNuxtApp()

@@ -418,4 +418,8 @@ export default {
   'checkout-totals.balance': 'Balance:',
   'checkout-totals.credit-to-balance': 'Credit Received:',
 
+  /* 404 page */
+
+  '404.back': "Front Page",
+  '404.title': "The page you’re looking for can’t be found.", /* Text is copied from the Apple 404 page */
 };

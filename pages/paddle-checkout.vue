@@ -18,13 +18,9 @@
       
       <!-- <BottomNav class="mt-[1rem] mb-[-3rem] self-start translate-y-[0rem]" :is-minimal="true" color-class="accent-[default] strong:gradient-blue" downloads-badge-color="4094ff"/> -->
 
-      <div class="flex flex-col items-start  mt-[5rem]">
+      <div class="flex flex-col items-start mt-[5rem]">
 
-        <NuxtLink  :to="localePath('/')" class="no-underline mb-[-0.5rem] font-[500]">
-          <!-- <img :src="chevronLeft" class="inline h-[1em] translate-y-[-0.1em]"/> -->
-          <span class="text-[1.8em] font-[300] inline-block translate-y-[0.05em] mt-[-100rem]">‹</span> 
-          {{ $mt('checkout-header.back-button') }}
-        </NuxtLink>
+        <BackButton path="/" label-key='checkout-header.back-button'/>
         <!-- <NuxtImg ref="mmfIcon" :src="mmfIconImagePath" sizes="225px" alt="Mac Mouse Fix Icon" :class="['h-[6.5rem] mb-[3rem] mr-[1rem] hidden']"/> --> <!-- Copied this from intro.vue, not sure if good -->
         <p class="xs:text-[2.5rem] text-[3.0rem] font-[600]">
           <!-- <span class="font-[600] text-[1em] inline-block translate-y-[-0.1em]">􀎤</span>  -->

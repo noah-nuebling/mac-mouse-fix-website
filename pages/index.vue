@@ -182,6 +182,11 @@
 'pay-reason.pity'
 'pay-reason.open-source-indie' -->
 
+    <!-- Bottom Nav -->
+    <!-- Notes:
+          - The hex colors used here are based on tailwinds green-500 with slight brightness adjustments using oklch.com
+    -->
+    <BottomNav/>
 
   </div>
 </template>
