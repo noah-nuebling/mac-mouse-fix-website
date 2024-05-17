@@ -24,7 +24,7 @@ const hashOffset = -70 // Chosen so that the headline is *centered* on the scree
 const scrollBehavior = 'instant' // Whether to animate the scroll
 
 // Main
-export default <RouterC onfig> {
+export default <RouterConfig> {
   
   scrollBehavior: (to, from, savedPosition) => {
 

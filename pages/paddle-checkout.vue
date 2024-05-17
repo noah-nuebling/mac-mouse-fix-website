@@ -315,7 +315,7 @@ const { navbarHeight_Unexpanded } = storeToRefs(global)
 
 // Configure page
 definePageMeta({
-  layout: false,
+  layout: false, /// Disable the default layout
 })
 
 // Pad rootElement so that navbar doesn't overlap

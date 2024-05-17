@@ -14,19 +14,19 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@nuxtjs/i18n": "^8.0.0",
-    "@nuxtjs/tailwindcss": "^6.10.4",
-    "@types/node": "^18.19.6",
-    "nuxt": "^3.9.1",
+    "@nuxtjs/i18n": "^8.3.1",
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "@types/node": "^18.19.33",
+    "nuxt": "^3.11.2",
     "nuxt-simple-robots": "^3.1.10",
     "nuxt-simple-sitemap": "^4.4.1"
   },
   "dependencies": {
-    "@nuxt/image": "^1.2.0",
+    "@nuxt/image": "^1.7.0",
     "@pinia/nuxt": "^0.4.11",
-    "@types/markdown-it": "^13.0.7",
+    "@types/markdown-it": "^13.0.8",
     "assert": "^2.1.0",
-    "gsap": "^3.12.4",
+    "gsap": "^3.12.5",
     "markdown-it": "^13.0.2"
   }
 }

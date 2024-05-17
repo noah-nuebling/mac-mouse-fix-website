@@ -12,7 +12,13 @@ export default defineNuxtConfig({
   // Make the site static. See https://stackoverflow.com/questions/74070241/what-is-the-difference-between-ssrfalse-vs-targetstatic-in-nuxtjs
   // target: 'static', // Only on nuxt 2 I think. On nuxt 3 you use the generate script
   ssr: true,
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true
+    }
+  },
   modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/image', 'nuxt-simple-robots', 'nuxt-simple-sitemap'],
 
   app: {
