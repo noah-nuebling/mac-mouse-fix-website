@@ -25,3 +25,6 @@ logs
 # Python venv
 env
 venv
+
+# Xcode
+xcuserdata/
