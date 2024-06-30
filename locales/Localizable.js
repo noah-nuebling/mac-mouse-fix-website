@@ -4,8 +4,37 @@
 // It was converted from an .xcstrings file, by the CompileWebsiteStrings script (which is from the mac-mouse-fix repo).
 //
 export default {
-
-
+    "sourceLocale": "en",
+    "locales": [
+    {
+        "code": "en",
+        "name": "\ud83c\uddec\ud83c\udde7 English"
+    },
+    {
+        "code": "de",
+        "name": "\ud83c\udde9\ud83c\uddea Deutsch"
+    },
+    {
+        "code": "vi",
+        "name": "\ud83c\uddfb\ud83c\uddf3 Ti\u1ebfng Vi\u1ec7t"
+    },
+    {
+        "code": "zh-Hans",
+        "name": "\ud83c\udde8\ud83c\uddf3 \u4e2d\u6587 (\u7b80\u4f53)"
+    },
+    {
+        "code": "zh-Hant",
+        "name": "\ud83c\udde8\ud83c\uddf3 \u4e2d\u6587 (\u7e41\u9ad4)"
+    },
+    {
+        "code": "zh-HK",
+        "name": "\ud83c\udded\ud83c\uddf0 \u4e2d\u6587\uff08\u9999\u6e2f)"
+    },
+    {
+        "code": "ko",
+        "name": "\ud83c\uddf0\ud83c\uddf7 \ud55c\uad6d\uc5b4"
+    }
+],
     "strings":
     {
         "en": {
@@ -302,11 +331,11 @@ export default {
             "unobtrusive-lightweight.body": "Jedes Detail von Mac Mouse Fix wurde bedacht und optimiert, um dir das bestm\u00f6gliche Erlebnis zu bieten, und sich dabei wie eine **nat\u00fcrliche Erweiterung deines Macs** anzuf\u00fchlen. Etliche Stunden Arbeit sind eingeflossen damit Mac Mouse Fix **nicht mehr Batterie oder Speicher verwendet, als es wirklich muss**. Das Ziel ist, dass du Mac Mouse Fix \u00fcberhaupt nicht auf deinem Computer bemerkst - Au\u00dfer nat\u00fcrlich, wenn du deine Maus benutzt.",
             "unobtrusive-lightweight.title": "Unauff\u00e4llig. Ressourcenschonend. Sch\u00f6n."
         },
+        "vi": {},
+        "zh-Hans": {},
         "zh-Hant": {},
         "zh-HK": {},
-        "zh-Hans": {},
-        "ko": {},
-        "vi": {}
+        "ko": {}
     }
     
 };

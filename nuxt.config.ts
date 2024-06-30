@@ -5,6 +5,7 @@ Notes:
 - Not sure if `fallbackLocale` element is necessary since we already specify `defaultLocale` in nuxt.config.js
 */
 
+import Localizable from "./locales/Localizable"
 import { CANONICAL_URL, GITHUB_SUB_URL } from "./utils/constants" 
 
 export default defineNuxtConfig({
@@ -69,13 +70,8 @@ export default defineNuxtConfig({
   },
   i18n: {
     langDir: null, //'./locales/',
-    locales: [
-      // Note for translators: When you add your language here, you'll have to choose a language ID for your language such as `en-US` for American English or `de` for German. 
-      //  Choose the same language ID that's used in the MMF Xcode project or find a language ID using this Apple documentation: https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html
-      { code: 'en', iso: 'en', name: '🇬🇧 English', dir: 'ltr' },
-      { code: 'de', iso: 'de', name: '🇩🇪 Deutsch', dir: 'ltr' },
-    ],
-    defaultLocale: 'en',
+    locales: Localizable['locales'],
+    defaultLocale: Localizable['sourceLocale'],
     vueI18n: './i18n.config.ts',
     compilation: {
       strictMessage: false, // Allow HTML in localization files.
