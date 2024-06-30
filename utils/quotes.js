@@ -1,48 +1,75 @@
-import { QuoteCard } from "#build/components"
-import { log } from "console"
+/* 
 
-export { type QuoteSource, type PermissionToShare, type QuoteData, getUIStrings, quoteSourceIsPublic, getUsableQuotes}
+Note:
+- This file used to be .ts but we had to convert it to .js to make it easily accessible from our quotesTool.mjs node script.
+- However we could achieve equivalent 'type safety' in pure .js which is nice.
+
+*/
+
+export { QuoteSource, PermissionToShare, QuoteData, getUIStrings, quoteSourceIsPublic, getUsableQuotes}
 
 /* Define Quote types */
 
-enum QuoteSource {
+const QuoteSource = {
   // (string equivalents are localization keys)
-  Email             = 'quote-source.email',
-  PayPalDonation    = 'quote-source.payPalDonation',
-  GitHub            = 'quote-source.gitHub',
-  StackExchange     = 'quote-source.stackExchange',
-  Reddit            = 'quote-source.reddit',
-  Lifehacker        = 'quote-source.lifehacker',
-  YoutubeComment    = 'quote-source.youtubeComment',
-  Acknowledgements  = 'quote-source.acknowledgements',
+  Email             : 'quote-source.email',
+  PayPalDonation    : 'quote-source.payPalDonation',
+  GitHub            : 'quote-source.gitHub',
+  StackExchange     : 'quote-source.stackExchange',
+  Reddit            : 'quote-source.reddit',
+  Lifehacker        : 'quote-source.lifehacker',
+  YoutubeComment    : 'quote-source.youtubeComment',
+  Acknowledgements  : 'quote-source.acknowledgements',
 }
-enum PermissionToShare {
-  None,
-  Unrequested,
-  Requested,
-  Denied,
-  Granted,
+const PermissionToShare = {
+  None            : 'none',
+  Unrequested     : 'unrequested',
+  Requested       : 'requested',
+  Denied          : 'denied',
+  Granted         : 'granted',
 }
-type QuoteData = {
-  quote: string,
-  quoteKey: string,
-  originalLanguage: string,
-  name: string,
-  source: QuoteSource,
-  link: string,
-  permission: PermissionToShare,
-  weight: number,
+
+class QuoteData {
+  constructor({quote, quoteKey, originalLanguage, name, source, link, permission, weight}) {
+
+    const typesAreValid = typeof quote === 'string'
+                          && typeof quoteKey === 'string'
+                          && typeof originalLanguage === 'string'
+                          && typeof name === 'string'
+                          && Object.values(QuoteSource).includes(source)
+                          && typeof link === 'string'
+                          && Object.values(PermissionToShare).includes(permission)
+                          && typeof weight === 'number';
+
+    if (!typesAreValid) {
+      throw new TypeError('Invalid input types');
+    }
+
+    this.quote = quote;
+    this.quoteKey = quoteKey;
+    this.originalLanguage = originalLanguage;
+    this.name = name;
+    this.source = source;
+    this.link = link;
+    this.permission = permission;
+    this.weight = weight;
+  }
 }
 
 /* Helper functions */
 
-function quoteSourceIsPublic(source: QuoteSource) {
-  return source != QuoteSource.Email && source != QuoteSource.PayPalDonation
+function quoteSourceIsPublic(quoteSource) {
+
+  if (!Object.values(QuoteSource).includes(quoteSource)) {
+    throw new TypeError('Invalid input type')
+  }
+  
+  return quoteSource != QuoteSource.Email && quoteSource != QuoteSource.PayPalDonation
 }
 
 /* String Generator */
 
-function getUIStrings(quote: QuoteData) {
+function getUIStrings(quote) {
 
   // Setup
 
@@ -82,19 +109,19 @@ function getUIStrings(quote: QuoteData) {
   return { quote: uiQuote, source: uiSource }
 }
 
-function getUsableQuotes(): QuoteData[] {
+function getUsableQuotes() { // Returns QuoteData objects
 
-  var result: QuoteData[] = quotes
-                              .filter((quote) => quote.permission != PermissionToShare.Denied && quote.permission != PermissionToShare.Unrequested)
-                              .toSorted((a: QuoteData, b: QuoteData) => b.weight - a.weight)
+  var result = quotes
+                    .filter((quote) => quote.permission != PermissionToShare.Denied && quote.permission != PermissionToShare.Unrequested)
+                    .toSorted((a, b) => b.weight - a.weight)
   return result
 }
 
 /* Define Quotes */
 
-const quotes: QuoteData[] = [
+const quotes = [ // QuoteData objects
 
-  {
+  new QuoteData({
     quote: "Among all apps that try to fix this problem, this one is undoubtly the best!",
     quoteKey: "quotes.0",
     originalLanguage: 'en',
@@ -103,8 +130,18 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/34',
     permission: PermissionToShare.None,
     weight: 101,
-  },
-  {
+  }),
+  new QuoteData ({
+    quote: "Among all apps that try to fix this problem, this one is undoubtly the best!",
+    quoteKey: "quotes.0",
+    originalLanguage: 'en',
+    name: "tomatsaev",
+    source: QuoteSource.GitHub,
+    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/34',
+    permission: PermissionToShare.None,
+    weight: 101,
+  }),
+  new QuoteData ({
     quote: "Mac Mouse Fix is literally everything you could want in your experience of using a mouse with OSX.",
     quoteKey: "quotes.1",
     originalLanguage: 'en',
@@ -113,8 +150,8 @@ const quotes: QuoteData[] = [
     link: 'message:<3B.AC.57749.F6B6C326@ccg13mail02>',
     permission: PermissionToShare.Requested,
     weight: 175,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Works like a charm and it's easy to set up!",
     quoteKey: "quotes.2",
     originalLanguage: 'en',
@@ -123,8 +160,8 @@ const quotes: QuoteData[] = [
     link: 'https://apple.stackexchange.com/a/371330/308049',
     permission: PermissionToShare.None,
     weight: 140,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "This is the best mouse software on the Mac.",
     quoteKey: "quotes.3",
     originalLanguage: 'en',
@@ -133,8 +170,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/105',
     permission: PermissionToShare.None,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!",
     quoteKey: "quotes.4",
     originalLanguage: 'en',
@@ -143,8 +180,8 @@ const quotes: QuoteData[] = [
     link: 'message:<04.52.53548.372FA446@ccg13mail05>',
     permission: PermissionToShare.Granted,
     weight: -100,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is.",
     quoteKey: "quotes.5",
     originalLanguage: 'en',
@@ -153,8 +190,8 @@ const quotes: QuoteData[] = [
     link: "message:<CAFj72xngJzJz8dvOx4pzL+QZTG97dSeuJ0QQwEmETJ67eGzrbQ@mail.gmail.com>",
     permission: PermissionToShare.Granted,
     weight: 200,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows.",
     quoteKey: "quotes.6",
     originalLanguage: 'en',
@@ -163,8 +200,8 @@ const quotes: QuoteData[] = [
     link: 'https://www.reddit.com/r/macapps/comments/s5h7gb/mac_mouse_fix_2_featuring_nativefeeling_gestures/',
     permission: PermissionToShare.None,
     weight: 101,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Thanks for this AMAZING software. 10/10!",
     quoteKey: "quotes.7",
     originalLanguage: 'en',
@@ -173,8 +210,8 @@ const quotes: QuoteData[] = [
     link: 'message:<21D82608-53B7-4A72-AD52-E650FF0FED20@live.de>',
     permission: PermissionToShare.Requested,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Probably the best app on my Mac",
     quoteKey: "quotes.8",
     originalLanguage: 'en',
@@ -183,8 +220,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/273',
     permission: PermissionToShare.None,
     weight: 199,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "No other similar utility can compete",
     quoteKey: "quotes.9",
     originalLanguage: 'en',
@@ -193,8 +230,8 @@ const quotes: QuoteData[] = [
     link: 'message:<CAB+S4pXD+RP3OYxENZXa_+NWLmJBB1Uqf1_Z9xKLqRy=-QaTJg@mail.gmail.com>',
     permission: PermissionToShare.Granted,
     weight: -100,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "A must have app for any Mac user with a mouse.",
     quoteKey: "quotes.10",
     originalLanguage: 'en',
@@ -203,8 +240,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/326',
     permission: PermissionToShare.None,
     weight: 170,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "You just saved me from spending money on the MX Master.",
     quoteKey: "quotes.11",
     originalLanguage: 'en',
@@ -213,8 +250,8 @@ const quotes: QuoteData[] = [
     link: 'message:<D50495F3-3F30-4159-A09E-9373A9F40777@gmail.com>',
     permission: PermissionToShare.Requested,
     weight: 145,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "This has nearly doubled my productivity.",
     quoteKey: "quotes.12",
     originalLanguage: 'en',
@@ -223,8 +260,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/419',
     permission: PermissionToShare.None,
     weight: 180,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "The UI and gestures are so intuitive.",
     quoteKey: "quotes.13",
     originalLanguage: 'en',
@@ -233,8 +270,8 @@ const quotes: QuoteData[] = [
     link: 'message:<1634236926.25936@paypal.com>',
     permission: PermissionToShare.Requested,
     weight: -100,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Love this app so much, it's a must-have!",
     quoteKey: "quotes.14",
     originalLanguage: 'en',
@@ -243,8 +280,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/297#issuecomment-1211926291',
     permission: PermissionToShare.None,
     weight: -100,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Your app is incredible and absolutely vital to my workflow.",
     quoteKey: "quotes.15",
     originalLanguage: 'en',
@@ -253,8 +290,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/369',
     permission: PermissionToShare.None,
     weight: 160,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Mac Mouse Fix is the single most important Mac app for me. It feels incredibly polished.",
     quoteKey: "quotes.16",
     originalLanguage: 'en',
@@ -263,8 +300,8 @@ const quotes: QuoteData[] = [
     link: 'message:<94.9D.24537.7D594A26@ccg01mail03>',
     permission: PermissionToShare.Requested,
     weight: -100,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Mac Mouse Fix is the best in its class!",
     quoteKey: "quotes.17",
     originalLanguage: 'en',
@@ -273,8 +310,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/378',
     permission: PermissionToShare.None,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "The vertical scroll is just awesome",
     quoteKey: "quotes.18",
     originalLanguage: 'en',
@@ -283,8 +320,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/378',
     permission: PermissionToShare.None,
     weight: 150,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Click & drag for switching between the screens feels so native.",
     quoteKey: "quotes.19",
     originalLanguage: 'en',
@@ -293,8 +330,8 @@ const quotes: QuoteData[] = [
     link: 'message:<BDF0E117-B5BB-4E3E-9CD5-C1DE163F7F02@gmail.com>',
     permission: PermissionToShare.Requested,
     weight: 102,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "I've been wanting to get rid of my Magic Mouse for a while and because of your app, I can do just that!",
     quoteKey: "quotes.20",
     originalLanguage: 'en',
@@ -303,8 +340,8 @@ const quotes: QuoteData[] = [
     link: 'message:<E2.BB.41759.B545C736@ccg13mail04>',
     permission: PermissionToShare.Granted,
     weight: -100,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "I recommend Mac Mouse Fix, honestly it’s the cheapest, simple, and most well coded app I have yet seen.",
     quoteKey: "quotes.21",
     originalLanguage: 'en',
@@ -313,8 +350,8 @@ const quotes: QuoteData[] = [
     link: 'https://www.reddit.com/r/MacOS/comments/y9q18r/comment/it80ce6/?utm_source=share&utm_medium=web2x&context=3',
     permission: PermissionToShare.None,
     weight: 100.9,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Thank you, saved me from buying an apple mouse",
     quoteKey: "quotes.22",
     originalLanguage: 'en',
@@ -323,8 +360,8 @@ const quotes: QuoteData[] = [
     link: 'message:<5E.65.01822.93ADD426@ccg01mail02>',
     permission: PermissionToShare.Granted,
     weight: 101,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "The UI in V2 is fantastic and very intuitive.",
     quoteKey: "quotes.23",
     originalLanguage: 'en',
@@ -333,8 +370,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/135',
     permission: PermissionToShare.None,
     weight: -100,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "I spent last week without it and my whole workflow was interrupted. Thank you for such a brilliant app.",
     quoteKey: "quotes.24",
     originalLanguage: 'en',
@@ -343,8 +380,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/326',
     permission: PermissionToShare.None,
     weight: -100,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "I really appreciate the simplicity it brings.",
     quoteKey: "quotes.25",
     originalLanguage: 'en',
@@ -353,8 +390,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/150',
     permission: PermissionToShare.None,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "After switching to a mouse, I tried software such as SteerMouse, which received many recommendations and even charges, and finally found that this software meets my needs perfectly, every feature is very useful, and the performance is very good!",
     quoteKey: "quotes.26",
     originalLanguage: 'en',
@@ -363,8 +400,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/449',
     permission: PermissionToShare.None,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Awesome app, it definitely deserves to be shared widely with others 😁",
     quoteKey: "quotes.27",
     originalLanguage: 'en',
@@ -373,8 +410,8 @@ const quotes: QuoteData[] = [
     link: 'https://www.youtube.com/watch?v=gkYNdy-Hig4',
     permission: PermissionToShare.None,
     weight: -200,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "This App Makes Your Cheap Mouse Work Better Than Trackpad Gestures",
     quoteKey: "quotes.28",
     originalLanguage: 'en',
@@ -383,8 +420,8 @@ const quotes: QuoteData[] = [
     link: 'https://lifehacker.com/this-app-makes-your-cheap-mouse-work-better-than-trackp-1848416099',
     permission: PermissionToShare.None,
     weight: -100,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "This is the single greatest piece of software in Apple's history.",
     quoteKey: "quotes.29",
     originalLanguage: 'en',
@@ -393,8 +430,8 @@ const quotes: QuoteData[] = [
     link: 'message:<13.9C.09725.38CA7836@ccg01mail05>',
     permission: PermissionToShare.Granted,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "This is great software and solved all my mouse issues.",
     quoteKey: "quotes.30",
     originalLanguage: 'en',
@@ -403,8 +440,8 @@ const quotes: QuoteData[] = [
     link: 'https://superuser.com/a/1699506',
     permission: PermissionToShare.None,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Utterly incredible software, bro :) so simple yet so functional. keep up the good work.",
     quoteKey: "quotes.31",
     originalLanguage: 'en',
@@ -413,8 +450,8 @@ const quotes: QuoteData[] = [
     link: 'message:<36.97.42814.18522A36@ccg01mail04>',
     permission: PermissionToShare.Requested,
     weight: 101,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Your app is literally the best Mac Mouse Fix available. So simple, light, M1 compatible, no bugs. I’m totally in love. I don’t even use Logitech Hub as your app is far superior. I’ll definitely be recommending your app as much as possible.",
     quoteKey: "quotes.32",
     originalLanguage: 'en',
@@ -423,8 +460,8 @@ const quotes: QuoteData[] = [
     link: 'message:<221C5A7A-5754-4B3E-A74A-04EC3694772E@gmail.com>',
     permission: PermissionToShare.Requested,
     weight: 142.5,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "It's exact what I was looking for to make non-Apple-Mice work like I want ",
     quoteKey: "quotes.33",
     originalLanguage: 'en',
@@ -433,8 +470,8 @@ const quotes: QuoteData[] = [
     link: 'message:<59.33.32745.E2035526@ccg13mail04>',
     permission: PermissionToShare.Requested,
     weight: -100,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "This software is amazing!",
     quoteKey: "quotes.34",
     originalLanguage: 'en',
@@ -443,8 +480,8 @@ const quotes: QuoteData[] = [
     link: 'https://apple.stackexchange.com/a/371342/308049',
     permission: PermissionToShare.None,
     weight: -100,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Thanks, the app is very cool",
     quoteKey: "quotes.35",
     originalLanguage: 'en',
@@ -453,8 +490,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/393',
     permission: PermissionToShare.None,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "SUPER NICE APPLICATION",
     quoteKey: "quotes.36",
     originalLanguage: 'en',
@@ -463,8 +500,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/136',
     permission: PermissionToShare.None,
     weight: -100,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "It works perfectly with my mouse",
     quoteKey: "quotes.37",
     originalLanguage: 'en',
@@ -473,8 +510,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/455',
     permission: PermissionToShare.None,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Works so well! Great idea and implementation, and of course the design, in the best Apple traditions!",
     quoteKey: "quotes.38",
     originalLanguage: 'en',
@@ -483,8 +520,8 @@ const quotes: QuoteData[] = [
     link: 'message:<280189B0-BC31-4E89-907C-46FBFB584E38@icloud.com>',
     permission: PermissionToShare.Requested,
     weight: -100,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Many thanks for Mac Mouse Fix—it’s become an essential tool for me, and of all of the programs of this type I’ve found, it’s easily the best.",
     quoteKey: "quotes.39",
     originalLanguage: 'en',
@@ -493,8 +530,8 @@ const quotes: QuoteData[] = [
     link: 'message:<E344087D-7575-4253-B310-D127CC9F4A99@me.com>',
     permission: PermissionToShare.Denied,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Thank you for Mac Mouse Fix! I love it. You're doing what Apple didn't =)",
     quoteKey: "quotes.40",
     originalLanguage: 'en',
@@ -503,8 +540,8 @@ const quotes: QuoteData[] = [
     link: 'message:<1634211506.4537@paypal.com>',
     permission: PermissionToShare.Requested,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Great app! Love the simplicity and it works like a charm! Thanx :)",
     quoteKey: "quotes.41",
     originalLanguage: 'en',
@@ -513,8 +550,8 @@ const quotes: QuoteData[] = [
     link: 'message:<49.05.55471.3D245B36@ccg01mail03>',
     permission: PermissionToShare.Requested,
     weight: -100,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "You are an absolute legend thank you so much for creating this app, it's literally perfect",
     quoteKey: "quotes.42",
     originalLanguage: 'en',
@@ -523,8 +560,8 @@ const quotes: QuoteData[] = [
     link: 'message:<67.68.63016.6BAA3D36@ccg01mail02>',
     permission: PermissionToShare.Requested,
     weight: -100,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Thanks for your awesome app its just wonderful :).",
     quoteKey: "quotes.43",
     originalLanguage: 'en',
@@ -533,8 +570,8 @@ const quotes: QuoteData[] = [
     link: 'message:<9C61D7F1-CABE-4851-8F29-AE04AF932140@icloud.com>',
     permission: PermissionToShare.Requested,
     weight: -200,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Your tool is literally the only way how I can use macOS (with a mouse especially) without freaking out!",
     quoteKey: "quotes.44",
     originalLanguage: 'en',
@@ -543,8 +580,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/414',
     permission: PermissionToShare.None,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Beautiful piece of libre software. Thank you for your contribution to the open source cause.",
     quoteKey: "quotes.45",
     originalLanguage: 'en',
@@ -553,8 +590,8 @@ const quotes: QuoteData[] = [
     link: 'https://www.reddit.com/r/macapps/comments/s5h7gb/mac_mouse_fix_2_featuring_nativefeeling_gestures/',
     permission: PermissionToShare.None,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Thank you for this, i don't understand why apple didn't make this as default, like it's super intuitive doing gestures with the middle click.",
     quoteKey: "quotes.46",
     originalLanguage: 'en',
@@ -563,8 +600,8 @@ const quotes: QuoteData[] = [
     link: 'https://www.reddit.com/r/macapps/comments/s5h7gb/mac_mouse_fix_2_featuring_nativefeeling_gestures/',
     permission: PermissionToShare.None,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "我找了半天类似的应用，终于发现这个了，赞👍",
     quoteKey: "quotes.47",
     originalLanguage: 'zh',
@@ -573,8 +610,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/25',
     permission: PermissionToShare.None,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "You've made my superlight better than an mx master.", // TODO: Translate and request this one
     quoteKey: "quotes.48",
     originalLanguage: 'en',
@@ -583,8 +620,8 @@ const quotes: QuoteData[] = [
     link: 'message:<CAMbYH-qmh-ib65wqiFVJW8CpmvJTqHZSG_YwoySc5cnvKSSO-w@mail.gmail.com>',
     permission: PermissionToShare.Unrequested,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "This app is so f*cking good", // TODO: Translate and request this one
     quoteKey: "quotes.49",
     originalLanguage: 'en',
@@ -593,8 +630,8 @@ const quotes: QuoteData[] = [
     link: 'message:<CAMbYH-qmh-ib65wqiFVJW8CpmvJTqHZSG_YwoySc5cnvKSSO-w@mail.gmail.com>',
     permission: PermissionToShare.Unrequested,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "Noah you made my cheap mouse MAGICal without buying APPLE's Magic Mouse!!!! Congratz", // TODO: Translate and request this one
     quoteKey: "quotes.50",
     originalLanguage: 'en',
@@ -603,8 +640,8 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors',
     permission: PermissionToShare.Unrequested,
     weight: 0,
-  },
-  {
+  }),
+  new QuoteData ({
     quote: "This beautiful piece of software turned a cheap mouse into a great mouse, which I even started preferring over my MX Master. Thank you Noah and keep making awesome stuff! Much love, Markus ❤️", // TODO: Translate and request this one
     quoteKey: "quotes.51",
     originalLanguage: 'en',
@@ -613,7 +650,7 @@ const quotes: QuoteData[] = [
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors',
     permission: PermissionToShare.Unrequested,
     weight: 0,
-  },
+  }),
   
 ]
 
