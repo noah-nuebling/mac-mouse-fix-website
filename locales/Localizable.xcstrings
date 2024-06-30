@@ -263,13 +263,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "\\\\+ Steuer"
+            "value" : "+ Steuer"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "\\\\+ tax"
+            "value" : "+ tax"
           }
         }
       }
@@ -280,13 +280,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1. Mac Mouse Fix\\n2. Milkshake für Noah\\n3. Du wirst unter **Großzügige Unterstützer** in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md) aufgeführt"
+            "value" : "1. Mac Mouse Fix\n2. Milkshake für Noah\n3. Du wirst unter **Großzügige Unterstützer** in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md) aufgeführt"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1. Mac Mouse Fix\\n2. Milkshake for Noah\\n3. You'll be shown under **Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md)"
+            "value" : "1. Mac Mouse Fix\n2. Milkshake for Noah\n3. You'll be shown under **Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md)"
           }
         }
       }
@@ -331,13 +331,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1. Mac Mouse Fix\\n2. *Fantastischer* Milkshake für Noah!\\n3. Du wirst unter ***Sehr* Großzügige Unterstützer** in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-sehr-großzügige-unterstützer) aufgeführt, und du kannst dort auch eine Nachricht hinterlassen, wenn du möchtest"
+            "value" : "1. Mac Mouse Fix\n2. *Fantastischer* Milkshake für Noah!\n3. Du wirst unter ***Sehr* Großzügige Unterstützer** in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-sehr-großzügige-unterstützer) aufgeführt, und du kannst dort auch eine Nachricht hinterlassen, wenn du möchtest"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1. Mac Mouse Fix\\n2. *Awesome* Milkshake for Noah!\\n3. You'll be shown under ***Very* Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors), and you can also leave a message there if you like"
+            "value" : "1. Mac Mouse Fix\n2. *Awesome* Milkshake for Noah!\n3. You'll be shown under ***Very* Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors), and you can also leave a message there if you like"
           }
         }
       }
@@ -535,13 +535,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Um deiner Maus eine Aktion hinzuzufügen:\\n\\n1. **Bewege** den Mauszeiger in das '+' Feld. (Unten abgebildet)\\n2. **Klicke** die Maustaste, der du eine Aktion zuweisen möchtest.\\nDu kannst auch Doppelklicken, Klicken und Ziehen und mehr!\\n3. **Wähle** eine Aktion aus, zum Beispiel Intelligentes Zoomen.\\n\\nUnd das war's!"
+            "value" : "Um deiner Maus eine Aktion hinzuzufügen:\n\n1. **Bewege** den Mauszeiger in das '+' Feld. (Unten abgebildet)\n2. **Klicke** die Maustaste, der du eine Aktion zuweisen möchtest.\nDu kannst auch Doppelklicken, Klicken und Ziehen und mehr!\n3. **Wähle** eine Aktion aus, zum Beispiel Intelligentes Zoomen.\n\nUnd das war's!"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To add an action to your mouse:\\n\\n1. **Move** the mouse pointer inside t. (Shown below)\\n2. **Click** the mouse button you want to assign an action to.\\nYou can also Double Click, Click and Drag, and much more!\\n3. **Choose** an action, such as Smart Zoom.\\n\\nAnd that's it!he '+'-field"
+            "value" : "To add an action to your mouse:\n\n1. **Move** the mouse pointer inside the '+'-field. (Shown below)\n2. **Click** the mouse button you want to assign an action to.\nYou can also Double Click, Click and Drag, and much more!\n3. **Choose** an action, such as Smart Zoom.\n\nAnd that's it!"
           }
         }
       }
@@ -688,13 +688,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach unten**, um alle Fenster der App anzuzeigen, die du verwendest.\\n\\nEs funktioniert genauso wie das Streichen nach unten mit vier Fingern auf einem Apple Trackpad."
+            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach unten**, um alle Fenster der App anzuzeigen, die du verwendest.\n\nEs funktioniert genauso wie das Streichen nach unten mit vier Fingern auf einem Apple Trackpad."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **down** to see all windows of the app you're using.\\n\\nIt works just like swiping down with four fingers on an Apple trackpad."
+            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **down** to see all windows of the app you're using.\n\nIt works just like swiping down with four fingers on an Apple trackpad."
           }
         }
       }
@@ -722,13 +722,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **ziehe** dann die Maus in **beliebiger Richtung**, um präzise mit 360° Freiheit und einem intuitiven Trägheitseffekt zu scrollen. So kannst du dich mühelos in Profi-Apps wie Excel oder Affinity Photo bewegen.\\n\\nEs ist genauso einfach und präzise wie das Scrollen auf einem Apple Trackpad."
+            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **ziehe** dann die Maus in **beliebiger Richtung**, um präzise mit 360° Freiheit und einem intuitiven Trägheitseffekt zu scrollen. So kannst du dich mühelos in Profi-Apps wie Excel oder Affinity Photo bewegen.\n\nEs ist genauso einfach und präzise wie das Scrollen auf einem Apple Trackpad."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse in **any direction** to precisely scroll with 360° freedom and an intuitive inertial effect. So you can navigate the canvas with ease in pro apps like Excel or Affinity Photo.\\n\\nIt's just as easy and precise as scrolling on an Apple trackpad."
+            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse in **any direction** to precisely scroll with 360° freedom and an intuitive inertial effect. So you can navigate the canvas with ease in pro apps like Excel or Affinity Photo.\n\nIt's just as easy and precise as scrolling on an Apple trackpad."
           }
         }
       }
@@ -739,13 +739,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Präzises 360\\xB0-Scrollen"
+            "value" : "Präzises 360°-Scrollen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Precise 360\\xB0 scrolling"
+            "value" : "Precise 360° scrolling"
           }
         }
       }
@@ -756,13 +756,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **scrolle nach unten**, um Launchpad anzuzeigen.\\n\\nEs funktioniert genauso wie das Zusammenziehen von Daumen und drei Fingern auf einem Apple Trackpad."
+            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **scrolle nach unten**, um Launchpad anzuzeigen.\n\nEs funktioniert genauso wie das Zusammenziehen von Daumen und drei Fingern auf einem Apple Trackpad."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 4** on your mouse, then **scroll down** to display Launchpad.\\n\\nIt works just like pinching your thumb and three fingers together on an Apple trackpad."
+            "value" : "Hold down **button 4** on your mouse, then **scroll down** to display Launchpad.\n\nIt works just like pinching your thumb and three fingers together on an Apple trackpad."
           }
         }
       }
@@ -790,13 +790,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**Klicke Taste 4** auf deiner Maus, um ein Wort im Wörterbuch nachzuschlagen, einen schnellen Blick auf Webseiten in Safari oder Dateien im Finder zu werfen, und mehr.\\n\\nEs funktioniert genauso wie das Tippen mit 3 Fingern oder ein kräftiger Klick auf einem Apple Trackpad."
+            "value" : "**Klicke Taste 4** auf deiner Maus, um ein Wort im Wörterbuch nachzuschlagen, einen schnellen Blick auf Webseiten in Safari oder Dateien im Finder zu werfen, und mehr.\n\nEs funktioniert genauso wie das Tippen mit 3 Fingern oder ein kräftiger Klick auf einem Apple Trackpad."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**Click button 4** on your mouse to look up a word in the dictionary, preview websites in Safari or files in Finder, and more.\\n\\n It works just like tapping with 3 fingers or force clicking on an Apple trackpad."
+            "value" : "**Click button 4** on your mouse to look up a word in the dictionary, preview websites in Safari or files in Finder, and more.\n\n It works just like tapping with 3 fingers or force clicking on an Apple trackpad."
           }
         }
       }
@@ -824,13 +824,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach links** oder **nach rechts**, um Nachrichten in Mail zu löschen, schnell auf eine iMessage zu antworten und mehr.\\n\\nJede Geste, die du in einer App durch Streichen auf einem Apple Trackpad ausführen kannst, funktioniert genauso gut mit Mac Mouse Fix."
+            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach links** oder **nach rechts**, um Nachrichten in Mail zu löschen, schnell auf eine iMessage zu antworten und mehr.\n\nJede Geste, die du in einer App durch Streichen auf einem Apple Trackpad ausführen kannst, funktioniert genauso gut mit Mac Mouse Fix."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to delete messages in Mail, quickly reply to an iMessage, and more.\\n\\nAny gesture you can perform inside an app by swiping on an Apple trackpad works just as well using Mac Mouse Fix."
+            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to delete messages in Mail, quickly reply to an iMessage, and more.\n\nAny gesture you can perform inside an app by swiping on an Apple trackpad works just as well using Mac Mouse Fix."
           }
         }
       }
@@ -858,13 +858,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach oben**, um eine Übersicht über deine geöffneten Fenster, Apps und Schreibtische anzuzeigen.\\n\\nEs funktioniert genauso wie das Streichen nach oben mit vier Fingern auf einem Apple Trackpad."
+            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach oben**, um eine Übersicht über deine geöffneten Fenster, Apps und Schreibtische anzuzeigen.\n\nEs funktioniert genauso wie das Streichen nach oben mit vier Fingern auf einem Apple Trackpad."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **up** to see an overview of your open windows, applications, and desktops.\\n\\nIt works just like swiping up with four fingers on an Apple trackpad."
+            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **up** to see an overview of your open windows, applications, and desktops.\n\nIt works just like swiping up with four fingers on an Apple trackpad."
           }
         }
       }
@@ -892,13 +892,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach links** oder **nach rechts**, um die vorherige oder nächste Seite in Apps wie Safari anzuzeigen.\\n\\nEs funktioniert genauso wie das Streichen nach links oder rechts mit zwei Fingern auf einem Apple Trackpad."
+            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach links** oder **nach rechts**, um die vorherige oder nächste Seite in Apps wie Safari anzuzeigen.\n\nEs funktioniert genauso wie das Streichen nach links oder rechts mit zwei Fingern auf einem Apple Trackpad."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to show the previous or next page in apps like Safari.\\n\\nIt works just like swiping left or right with two fingers on an Apple trackpad."
+            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to show the previous or next page in apps like Safari.\n\nIt works just like swiping left or right with two fingers on an Apple trackpad."
           }
         }
       }
@@ -926,13 +926,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **scrolle nach oben**, um deinen Schreibtisch anzuzeigen.\\n\\nEs funktioniert genauso wie das Auseinanderziehen von Daumen und drei Fingern auf einem Apple Trackpad."
+            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **scrolle nach oben**, um deinen Schreibtisch anzuzeigen.\n\nEs funktioniert genauso wie das Auseinanderziehen von Daumen und drei Fingern auf einem Apple Trackpad."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 4** on your mouse, then **scroll up** to show your desktop.\\n\\nIt works just like spreading your thumb and three fingers apart on an Apple trackpad."
+            "value" : "Hold down **button 4** on your mouse, then **scroll up** to show your desktop.\n\nIt works just like spreading your thumb and three fingers apart on an Apple trackpad."
           }
         }
       }
@@ -960,13 +960,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**Klicke Taste 5** auf deiner Maus, um eine Webseite oder ein PDF zu vergrößern oder zu verkleinern.\\n\\nEs funktioniert genauso wie das Doppeltippen mit zwei Fingern auf einem Apple Trackpad."
+            "value" : "**Klicke Taste 5** auf deiner Maus, um eine Webseite oder ein PDF zu vergrößern oder zu verkleinern.\n\nEs funktioniert genauso wie das Doppeltippen mit zwei Fingern auf einem Apple Trackpad."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**Click button 5** on your mouse to zoom in and back out of a webpage or PDF.\\n\\nIt works just like double-tapping with two fingers on an Apple trackpad."
+            "value" : "**Click button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple trackpad."
           }
         }
       }
@@ -994,13 +994,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach links** oder **nach rechts**, um zwischen Schreibtischen und Vollbild-Apps zu wechseln.\\n\\nEs funktioniert genauso wie das Streichen nach links oder rechts mit vier Fingern auf einem Apple Trackpad."
+            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach links** oder **nach rechts**, um zwischen Schreibtischen und Vollbild-Apps zu wechseln.\n\nEs funktioniert genauso wie das Streichen nach links oder rechts mit vier Fingern auf einem Apple Trackpad."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **left** or **right** to move to another desktop or fullscreen-app.\\n\\nIt works just like swiping left or right with four fingers on an Apple trackpad."
+            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **left** or **right** to move to another desktop or fullscreen-app.\n\nIt works just like swiping left or right with four fingers on an Apple trackpad."
           }
         }
       }
@@ -1028,13 +1028,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **scrolle nach oben** oder **nach unten**, um den Inhalt in Apps wie Safari oder Vorschau zu vergrößern oder zu verkleinern.\\n\\nEs funktioniert genauso wie das Auf- oder Zusammenziehen mit zwei Fingern auf einem Apple Trackpad."
+            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **scrolle nach oben** oder **nach unten**, um den Inhalt in Apps wie Safari oder Vorschau zu vergrößern oder zu verkleinern.\n\nEs funktioniert genauso wie das Auf- oder Zusammenziehen mit zwei Fingern auf einem Apple Trackpad."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 5** on your mouse, then **scroll up** or **down** to zoom in or out in apps like Safari and Preview.\\n\\nIt works just like pinching with two fingers on an Apple trackpad."
+            "value" : "Hold down **button 5** on your mouse, then **scroll up** or **down** to zoom in or out in apps like Safari and Preview.\n\nIt works just like pinching with two fingers on an Apple trackpad."
           }
         }
       }
@@ -1164,13 +1164,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tolle Software.\\nToller {accent2}."
+            "value" : "Tolle Software.\nToller {accent2}."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Great Software.\\nGreat {accent2}."
+            "value" : "Great Software.\nGreat {accent2}."
           }
         }
       }
@@ -1300,13 +1300,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac Mouse Fix kostet ${ price } ([+ Steuern](#price.disclaimer)) zum Besitzen - und das war's.  Es gibt keine Abonnements oder zusätzlichen Zahlungen. Ich habe darauf geachtet, dass die Kauferfahrung so **angenehm** und **schnell** wie möglich ist, und du kannst sogar mit **Apple Pay** bezahlen!\\n\\nUm die App zu kaufen, klicke den Button in der App, oder klicke [hier](https://noahnuebling.gumroad.com/l/mmfinappusd::newTab)."
+            "value" : "Mac Mouse Fix kostet ${ price } ([+ Steuern](#price.disclaimer)) zum Besitzen - und das war's.  Es gibt keine Abonnements oder zusätzlichen Zahlungen. Ich habe darauf geachtet, dass die Kauferfahrung so **angenehm** und **schnell** wie möglich ist, und du kannst sogar mit **Apple Pay** bezahlen!\n\nUm die App zu kaufen, klicke den Button in der App, oder klicke [hier](https://noahnuebling.gumroad.com/l/mmfinappusd::newTab)."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac Mouse Fix costs ${ price } ([+ taxes](#price.disclaimer)) to own - and that's it. There are no subscriptions or additional payments. I made sure the checkout experience is as **nice** and **quick** as possible, and you can even pay with **Apple Pay**!\\n\\nTo buy the app, click the button in the app, or click [here](https://noahnuebling.gumroad.com/l/mmfinappusd::newTab)."
+            "value" : "Mac Mouse Fix costs ${ price } ([+ taxes](#price.disclaimer)) to own - and that's it. There are no subscriptions or additional payments. I made sure the checkout experience is as **nice** and **quick** as possible, and you can even pay with **Apple Pay**!\n\nTo buy the app, click the button in the app, or click [here](https://noahnuebling.gumroad.com/l/mmfinappusd::newTab)."
           }
         }
       }
@@ -1316,14 +1316,14 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hinweis zum Preis: Der Preis von **${price}** ist ohne lokale Steuern, die eventuell in deiner Region gezahlt werden müssen. Um den Gesamtpreis zu sehen, besuche die [Kassenseite](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). Wenn du auf Gumroad.com über PayPal in einer anderen Währung als Euro zahlst, berechnet PayPal eine zusätzliche Währungsumrechnungsgebühr von 4,5%.\\\n  \\n\\nIch würde die Gebühren gerne im Preis einschließen - damit die Kauferfahrung einfacher und klarer ist. Aber das ist momentan wegen Einschränkungen bei der Verkaufsplattform Gumroad.com nicht möglich. Ich hoffe der Preis fühlt sich trotzdem sehr fair und günstig an."
+            "state" : "needs_review",
+            "value" : "Hinweis zum Preis: Der Preis von **${price}** ist ohne lokale Steuern, die eventuell in deiner Region gezahlt werden müssen. Um den Gesamtpreis zu sehen, besuche die [Kassenseite](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). Wenn du auf Gumroad.com über PayPal in einer anderen Währung als Euro zahlst, berechnet PayPal eine zusätzliche Währungsumrechnungsgebühr von 4,5%.\n\nIch würde die Gebühren gerne im Preis einschließen - damit die Kauferfahrung einfacher und klarer ist. Aber das ist momentan wegen Einschränkungen bei der Verkaufsplattform Gumroad.com nicht möglich. Ich hoffe der Preis fühlt sich trotzdem sehr fair und günstig an."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Note on price: The price of **${price}** does not include local taxes, which might have to be paid in your region. To see your total price, visit the [checkout page](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). If you pay on Gumroad.com via PayPal in a currency other than Euros, PayPal will charge an additional 4.5% currency conversion fee.\\\n  \\n\\nI would like to include these fees in the price - to make the buying experience simpler and clearer. But this is currently not possible due to limitations with the sales platform Gumroad.com. I hope the price still feels very fair and cheap."
+            "value" : "Note on price: The price of **${price}** does not include local taxes, which might have to be paid in your region. To see your total price, visit the [checkout page](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). If you pay on Gumroad.com via PayPal in a currency other than Euros, PayPal will charge an additional 4.5% currency conversion fee.\n\nI would like to include these fees in the price - to make the buying experience simpler and clearer. But this is currently not possible due to limitations with the sales platform Gumroad.com. I hope the price still feels very fair and cheap."
           }
         }
       }
@@ -2078,13 +2078,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**Dankeschön** an alle, die ihre Wertschätzung und Gedanken geteilt haben! Auch an die, die hier nicht aufgeführt sind. Solche Nachrichten zu lesen motiviert mich immer und macht mich ein bisschen glücklicher. :)"
+            "value" : "**Dankeschön** an alle, die ihre Wertschätzung und Gedanken geteilt haben! Auch an die, die hier nicht aufgeführt sind. Solche Nachrichten zu lesen motiviert mich immer und macht mich ein bisschen glücklicher. **:)**"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**Thank you** to everyone who shared their appreciation and thoughts! Also to those who aren\\'t listed here. Reading such messages always motivates me and makes me a little happier. **:)**"
+            "value" : "**Thank you** to everyone who shared their appreciation and thoughts! Also to those who aren't listed here. Reading such messages always motivates me and makes me a little happier. **:)**"
           }
         }
       }
@@ -2160,13 +2160,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gewaltig {accent2}\\n{accent} intuitiv."
+            "value" : "Gewaltig {accent2}\n{accent} intuitiv."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Amazingly {accent2}\\n{accent} Intuitive."
+            "value" : "Amazingly {accent2}\n{accent} Intuitive."
           }
         }
       }
@@ -2381,13 +2381,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mit *Flüssigkeit: Aus* funktioniert das Scrollen wie gewohnt unter macOS - **ohne jede Animation** oder Glättung. Aber mit einem entscheidenden Unterschied: **Eine Raste des Scrollrads** scrollt eine **festgelegte Anzahl von *Zeilen***, statt nur ein paar Pixel. Das macht die Navigation konsistenter und angenehmer.\\n\\nSo funktioniert das Scrollen auch in den meisten Apps auf Windows und Linux, sowie in älteren macOS-Versionen."
+            "value" : "Mit *Flüssigkeit: Aus* funktioniert das Scrollen wie gewohnt unter macOS - **ohne jede Animation** oder Glättung. Aber mit einem entscheidenden Unterschied: **Eine Raste des Scrollrads** scrollt eine **festgelegte Anzahl von *Zeilen***, statt nur ein paar Pixel. Das macht die Navigation konsistenter und angenehmer.\n\nSo funktioniert das Scrollen auch in den meisten Apps auf Windows und Linux, sowie in älteren macOS-Versionen."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "With *Smoothness: Off*, scrolling works as it normally does under macOS - **without any animation** or smoothing. But with one key difference: **One increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.\\n\\nThis is how scrolling also works in most apps on Windows and Linux, as well as older macOS versions."
+            "value" : "With *Smoothness: Off*, scrolling works as it normally does under macOS - **without any animation** or smoothing. But with one key difference: **One increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.\n\nThis is how scrolling also works in most apps on Windows and Linux, as well as older macOS versions."
           }
         }
       }
@@ -2415,13 +2415,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wähle *Flüssigkeit: Regulär* für **reaktionsschnelles** Scrollen, das sich anfühlt, **als würdest du die Seite direkt mit dem Finger schieben**. Die kurzen, schwungbasierten Animationen bieten ein raffiniertes Scroll-Gefühl.\\n\\nDiese Option fühlt sich ähnlich an wie das Scrollen in Chrome oder modernen Windows-Apps."
+            "value" : "Wähle *Flüssigkeit: Regulär* für **reaktionsschnelles** Scrollen, das sich anfühlt, **als würdest du die Seite direkt mit dem Finger schieben**. Die kurzen, schwungbasierten Animationen bieten ein raffiniertes Scroll-Gefühl.\n\nDiese Option fühlt sich ähnlich an wie das Scrollen in Chrome oder modernen Windows-Apps."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Choose *Smoothness: Regular* for **highly responsive** scrolling that **feels like you're directly pushing the page with your finger**. The short, momentum-based animations provide a refined feel.\\n\\nThis option feels similar to scrolling in Chrome or modern Windows apps."
+            "value" : "Choose *Smoothness: Regular* for **highly responsive** scrolling that **feels like you're directly pushing the page with your finger**. The short, momentum-based animations provide a refined feel.\n\nThis option feels similar to scrolling in Chrome or modern Windows apps."
           }
         }
       }
@@ -2466,13 +2466,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "{accent}.\\nButterweich."
+            "value" : "{accent}.\nButterweich."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "{accent}.\\nSmooth As Butter."
+            "value" : "{accent}.\nSmooth As Butter."
           }
         }
       }
@@ -2552,7 +2552,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Macs sind am besten\\nMit einem {accent},\\nOder?"
+            "value" : "Macs sind am besten\nMit einem {accent},\nOder?"
           }
         },
         "en" : {
