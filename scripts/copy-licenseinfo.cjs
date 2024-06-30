@@ -9,7 +9,10 @@
 //    - 2. Using vite-plugin-static-copy to copy from assets to public -> Doesn't seem to work with SSG. See https://github.com/sapphi-red/vite-plugin-static-copy/discussions/68
 //    - 3. Using nuxt3's useFetch() to access public folder from vue components -> Is buggy. With possible workarounds. See https://github.com/nuxt/nuxt/issues/13857.
 //    - 4. Using custom server routing to make licenseconfig appear at the server root -> This might work well. I didn't test it. See https://github.com/nuxt/nuxt/issues/15779
+//
+//  Note: .cjs instead of .js file ext is necessary to makre require() work (not sure why) (Update, you can use .mjs to make import work)
 
+// Imports
 const fs = require('fs');
 const path = require('path');
 

@@ -2,6 +2,9 @@
 
 ## On automatic analysis
 
+(Outdated)
+(Since we don't use the autoanalysis script anymore and instead use .xcstrings now.)
+
 The python script in the MMF repo which automatically analyzes missing, superfluous and outdated translations, relies on the file structure here to be like:
 
 Base file at:
@@ -19,7 +22,7 @@ The only purpose is so that we use the `xcodebuild` command-line-tool to export 
 
 I'm not entirelyyy sure the Xcode project is necessary.
 
-We had to add the `dummy-xcode-target` Target (it's a macOS `App` target. I also tried more lightweight targets like a Command Line Tool but it didn't work), in order for the "Export Localizations..." option in Xcode to work. Not sure if this is also necessary for exporting .xcloc files using the `xcodebuild` command-line-tool which we plan to use.
+We had to add the `dummy-xcode-target` Target, and then add the .xcstrings file to that target. (It's a macOS `App` target. I also tried more lightweight targets like a Command Line Tool but it didn't work), in order for the "Export Localizations..." option in Xcode to work. Not sure if this is also necessary for exporting .xcloc files using the `xcodebuild` command-line-tool which we plan to use.
 Sidenote: After creating the target in the Xcode Project, we had to turn off the "Generate Info.plist File" build setting and turn off localization for MainMenu.xib to prevent those files from adding unnecessary strings to the .xcloc exports.
 
 To export an .xcloc file for German into the folder `localization-export` go to the folder that contains the .xcodeproj file and use the following command:

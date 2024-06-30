@@ -9,8 +9,8 @@
   ],
   "scripts": {
     "upload": "./scripts/deploy.sh",
-    "generate": "node ./scripts/copy-licenseinfo.cjs && nuxt generate",
-    "dev": "node ./scripts/copy-licenseinfo.cjs && nuxt dev"
+    "generate": "python3 ./scripts/preprocess.py && nuxt generate",
+    "dev": "python3 ./scripts/preprocess.py && nuxt dev"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
