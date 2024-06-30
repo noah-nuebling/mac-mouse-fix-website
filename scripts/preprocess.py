@@ -20,6 +20,8 @@ def main():
   print("Calling copy-licenseinfo script ...")
   subprocess.run('node ./scripts/copy-licenseinfo.cjs', text=True, shell=True)
   
+  print('\nFinished preprocessing.\n')
+  
 
 if __name__ == '__main__':
   main()
