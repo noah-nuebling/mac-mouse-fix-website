@@ -8,7 +8,7 @@ Note:
 
 export { QuoteSource, PermissionToShare, QuoteData, getUIStrings, quoteSourceIsPublic, getUsableQuotes}
 
-/* Define Quote types */
+/* Define Quote types and helper functions */
 
 const QuoteSource = {
   // (string equivalents are localization keys)
@@ -21,18 +21,57 @@ const QuoteSource = {
   YoutubeComment    : 'quote-source.youtubeComment',
   Acknowledgements  : 'quote-source.acknowledgements',
 }
+function quoteSourceIsPublic(quoteSource) {
+
+  if (!Object.values(QuoteSource).includes(quoteSource)) {
+    throw new TypeError(`Unknown QuoteSource ${ quoteSource }`)
+  }
+
+  return  quoteSource != QuoteSource.Email 
+          && quoteSource != QuoteSource.PayPalDonation
+}
+
 const PermissionToShare = {
+
+  // Notes:
+  //   What is the difference between None and Unrequested?
+  //   -> They're kind of the same, Unrequested was sort of a "note-to-self: Request this one", which was intended to be used with non-public quoteSource's
+
   None            : 'none',
   Unrequested     : 'unrequested',
   Requested       : 'requested',
   Denied          : 'denied',
   Granted         : 'granted',
 }
+function quoteIsSharable(quote) {
+  
+  const work = (quote) => {
+    if (quote.permission == PermissionToShare.None)         { return quoteSourceIsPublic(quote.source) }
+    if (quote.permission == PermissionToShare.Unrequested)  { return quoteSourceIsPublic(quote.source) }
+    if (quote.permission == PermissionToShare.Requested)    { return false }
+    if (quote.permission == PermissionToShare.Denied)       { return false }
+    if (quote.permission == PermissionToShare.Granted)      { return true }
+    
+    console.assert(false, `Found quote with unknown permission value: ${ quote.permission }`)
+    throw new TypeError(`Unknown permission: ${ quote.permission }`)
+
+    return false
+  }
+
+  const result = work(quote)
+
+  if (result == false) { // Debugging
+    // console.log(`Quote ${quote.quoteKey} is not sharable.`)
+  }
+
+  return result
+}
 
 class QuoteData {
-  constructor({quote, quoteKey, originalLanguage, name, source, link, permission, weight}) {
-
-    const typesAreValid = typeof quote === 'string'
+  constructor({originalQuote, englishQuote, quoteKey, originalLanguage, name, source, link, permission, weight}) {
+    
+    // Validate required values
+    var requiredValues = typeof englishQuote === 'string'
                           && typeof quoteKey === 'string'
                           && typeof originalLanguage === 'string'
                           && typeof name === 'string'
@@ -41,11 +80,29 @@ class QuoteData {
                           && Object.values(PermissionToShare).includes(permission)
                           && typeof weight === 'number';
 
-    if (!typesAreValid) {
-      throw new TypeError('Invalid input types');
+    if (!requiredValues) {
+      throw new TypeError(`ERROR: Quote ${quoteKey} is missing required values.`)
     }
 
-    this.quote = quote;
+    // Validate originalLanguage stuff
+    if (originalLanguage != 'en') {
+      if (typeof originalQuote ==! 'string') {
+        throw new TypeError(`ERROR: Quote ${quoteKey} is not originally in English, yet doesn't have originalLanguage field`)
+      }
+    } else {
+      if (originalQuote) {
+        throw new TypeError(`ERROR: Quote ${quoteKey} is originally in English, yet has originalLanguage field`)
+      }
+    }
+
+    // Validate permission
+    if (permission == PermissionToShare.Unrequested && quoteSourceIsPublic(source)) {
+      throw new TypeError(`ERROR: Quote ${quoteKey} source is public (${source}), yet its state is Unrequested.`)
+    }
+
+    // Store values
+    this.originalQuote = originalQuote;
+    this.englishQuote = englishQuote;
     this.quoteKey = quoteKey;
     this.originalLanguage = originalLanguage;
     this.name = name;
@@ -54,17 +111,21 @@ class QuoteData {
     this.permission = permission;
     this.weight = weight;
   }
+  
 }
 
 /* Helper functions */
 
-function quoteSourceIsPublic(quoteSource) {
-
-  if (!Object.values(QuoteSource).includes(quoteSource)) {
-    throw new TypeError('Invalid input type')
-  }
+function getUsableQuotes() { 
   
-  return quoteSource != QuoteSource.Email && quoteSource != QuoteSource.PayPalDonation
+  // Notes:
+  // - This is the main interface for getting the quotes.
+  // - Returns QuoteData objects
+
+  var result = quotes
+                    .filter((quote) => quoteIsSharable(quote))
+                    .toSorted((a, b) => b.weight - a.weight)
+  return result
 }
 
 /* String Generator */
@@ -109,20 +170,12 @@ function getUIStrings(quote) {
   return { quote: uiQuote, source: uiSource }
 }
 
-function getUsableQuotes() { // Returns QuoteData objects
-
-  var result = quotes
-                    .filter((quote) => quote.permission != PermissionToShare.Denied && quote.permission != PermissionToShare.Unrequested)
-                    .toSorted((a, b) => b.weight - a.weight)
-  return result
-}
-
 /* Define Quotes */
 
 const quotes = [ // QuoteData objects
 
   new QuoteData({
-    quote: "Among all apps that try to fix this problem, this one is undoubtly the best!",
+    englishQuote: "Among all apps that try to fix this problem, this one is undoubtly the best!",
     quoteKey: "quotes.0",
     originalLanguage: 'en',
     name: "tomatsaev",
@@ -132,7 +185,7 @@ const quotes = [ // QuoteData objects
     weight: 101,
   }),
   new QuoteData ({
-    quote: "Among all apps that try to fix this problem, this one is undoubtly the best!",
+    englishQuote: "Among all apps that try to fix this problem, this one is undoubtly the best!",
     quoteKey: "quotes.0",
     originalLanguage: 'en',
     name: "tomatsaev",
@@ -142,7 +195,7 @@ const quotes = [ // QuoteData objects
     weight: 101,
   }),
   new QuoteData ({
-    quote: "Mac Mouse Fix is literally everything you could want in your experience of using a mouse with OSX.",
+    englishQuote: "Mac Mouse Fix is literally everything you could want in your experience of using a mouse with OSX.",
     quoteKey: "quotes.1",
     originalLanguage: 'en',
     name: "William Park",
@@ -152,7 +205,7 @@ const quotes = [ // QuoteData objects
     weight: 175,
   }),
   new QuoteData ({
-    quote: "Works like a charm and it's easy to set up!",
+    englishQuote: "Works like a charm and it's easy to set up!",
     quoteKey: "quotes.2",
     originalLanguage: 'en',
     name: "Tomáš Nesrovnal",
@@ -162,7 +215,7 @@ const quotes = [ // QuoteData objects
     weight: 140,
   }),
   new QuoteData ({
-    quote: "This is the best mouse software on the Mac.",
+    englishQuote: "This is the best mouse software on the Mac.",
     quoteKey: "quotes.3",
     originalLanguage: 'en',
     name: "samueljim",
@@ -172,7 +225,7 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!",
+    englishQuote: "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!",
     quoteKey: "quotes.4",
     originalLanguage: 'en',
     name: "Erik Svendsen",
@@ -182,7 +235,7 @@ const quotes = [ // QuoteData objects
     weight: -100,
   }),
   new QuoteData ({
-    quote: "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is.",
+    englishQuote: "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is.",
     quoteKey: "quotes.5",
     originalLanguage: 'en',
     name: "Shaon Khan",
@@ -192,7 +245,7 @@ const quotes = [ // QuoteData objects
     weight: 200,
   }),
   new QuoteData ({
-    quote: "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows.",
+    englishQuote: "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows.",
     quoteKey: "quotes.6",
     originalLanguage: 'en',
     name: "abhimadav",
@@ -202,7 +255,7 @@ const quotes = [ // QuoteData objects
     weight: 101,
   }),
   new QuoteData ({
-    quote: "Thanks for this AMAZING software. 10/10!",
+    englishQuote: "Thanks for this AMAZING software. 10/10!",
     quoteKey: "quotes.7",
     originalLanguage: 'en',
     name: "Timon Weides",
@@ -212,7 +265,7 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "Probably the best app on my Mac",
+    englishQuote: "Probably the best app on my Mac",
     quoteKey: "quotes.8",
     originalLanguage: 'en',
     name: "SaMaY-69",
@@ -222,7 +275,7 @@ const quotes = [ // QuoteData objects
     weight: 199,
   }),
   new QuoteData ({
-    quote: "No other similar utility can compete",
+    englishQuote: "No other similar utility can compete",
     quoteKey: "quotes.9",
     originalLanguage: 'en',
     name: "5silentrain",
@@ -232,7 +285,7 @@ const quotes = [ // QuoteData objects
     weight: -100,
   }),
   new QuoteData ({
-    quote: "A must have app for any Mac user with a mouse.",
+    englishQuote: "A must have app for any Mac user with a mouse.",
     quoteKey: "quotes.10",
     originalLanguage: 'en',
     name: "4332weizi",
@@ -242,7 +295,7 @@ const quotes = [ // QuoteData objects
     weight: 170,
   }),
   new QuoteData ({
-    quote: "You just saved me from spending money on the MX Master.",
+    englishQuote: "You just saved me from spending money on the MX Master.",
     quoteKey: "quotes.11",
     originalLanguage: 'en',
     name: "Andreea",
@@ -252,7 +305,7 @@ const quotes = [ // QuoteData objects
     weight: 145,
   }),
   new QuoteData ({
-    quote: "This has nearly doubled my productivity.",
+    englishQuote: "This has nearly doubled my productivity.",
     quoteKey: "quotes.12",
     originalLanguage: 'en',
     name: "holdingsllc",
@@ -262,7 +315,7 @@ const quotes = [ // QuoteData objects
     weight: 180,
   }),
   new QuoteData ({
-    quote: "The UI and gestures are so intuitive.",
+    englishQuote: "The UI and gestures are so intuitive.",
     quoteKey: "quotes.13",
     originalLanguage: 'en',
     name: "Laurynas Tumosa",
@@ -272,7 +325,7 @@ const quotes = [ // QuoteData objects
     weight: -100,
   }),
   new QuoteData ({
-    quote: "Love this app so much, it's a must-have!",
+    englishQuote: "Love this app so much, it's a must-have!",
     quoteKey: "quotes.14",
     originalLanguage: 'en',
     name: "LinusGeffarth",
@@ -282,7 +335,7 @@ const quotes = [ // QuoteData objects
     weight: -100,
   }),
   new QuoteData ({
-    quote: "Your app is incredible and absolutely vital to my workflow.",
+    englishQuote: "Your app is incredible and absolutely vital to my workflow.",
     quoteKey: "quotes.15",
     originalLanguage: 'en',
     name: "ar311krypton",
@@ -292,7 +345,7 @@ const quotes = [ // QuoteData objects
     weight: 160,
   }),
   new QuoteData ({
-    quote: "Mac Mouse Fix is the single most important Mac app for me. It feels incredibly polished.",
+    englishQuote: "Mac Mouse Fix is the single most important Mac app for me. It feels incredibly polished.",
     quoteKey: "quotes.16",
     originalLanguage: 'en',
     name: "Florian Schmidt",
@@ -302,7 +355,7 @@ const quotes = [ // QuoteData objects
     weight: -100,
   }),
   new QuoteData ({
-    quote: "Mac Mouse Fix is the best in its class!",
+    englishQuote: "Mac Mouse Fix is the best in its class!",
     quoteKey: "quotes.17",
     originalLanguage: 'en',
     name: "ib0ndar",
@@ -312,7 +365,7 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "The vertical scroll is just awesome",
+    englishQuote: "The vertical scroll is just awesome",
     quoteKey: "quotes.18",
     originalLanguage: 'en',
     name: "nickcolea",
@@ -322,7 +375,7 @@ const quotes = [ // QuoteData objects
     weight: 150,
   }),
   new QuoteData ({
-    quote: "Click & drag for switching between the screens feels so native.",
+    englishQuote: "Click & drag for switching between the screens feels so native.",
     quoteKey: "quotes.19",
     originalLanguage: 'en',
     name: "Lazar Manasijević",
@@ -332,7 +385,7 @@ const quotes = [ // QuoteData objects
     weight: 102,
   }),
   new QuoteData ({
-    quote: "I've been wanting to get rid of my Magic Mouse for a while and because of your app, I can do just that!",
+    englishQuote: "I've been wanting to get rid of my Magic Mouse for a while and because of your app, I can do just that!",
     quoteKey: "quotes.20",
     originalLanguage: 'en',
     name: "Zach Taffet",
@@ -342,7 +395,7 @@ const quotes = [ // QuoteData objects
     weight: -100,
   }),
   new QuoteData ({
-    quote: "I recommend Mac Mouse Fix, honestly it’s the cheapest, simple, and most well coded app I have yet seen.",
+    englishQuote: "I recommend Mac Mouse Fix, honestly it’s the cheapest, simple, and most well coded app I have yet seen.",
     quoteKey: "quotes.21",
     originalLanguage: 'en',
     name: "Rafiq_Kobayashi",
@@ -352,7 +405,7 @@ const quotes = [ // QuoteData objects
     weight: 100.9,
   }),
   new QuoteData ({
-    quote: "Thank you, saved me from buying an apple mouse",
+    englishQuote: "Thank you, saved me from buying an apple mouse",
     quoteKey: "quotes.22",
     originalLanguage: 'en',
     name: "João Santos",
@@ -362,7 +415,7 @@ const quotes = [ // QuoteData objects
     weight: 101,
   }),
   new QuoteData ({
-    quote: "The UI in V2 is fantastic and very intuitive.",
+    englishQuote: "The UI in V2 is fantastic and very intuitive.",
     quoteKey: "quotes.23",
     originalLanguage: 'en',
     name: "nghtstr",
@@ -372,7 +425,7 @@ const quotes = [ // QuoteData objects
     weight: -100,
   }),
   new QuoteData ({
-    quote: "I spent last week without it and my whole workflow was interrupted. Thank you for such a brilliant app.",
+    englishQuote: "I spent last week without it and my whole workflow was interrupted. Thank you for such a brilliant app.",
     quoteKey: "quotes.24",
     originalLanguage: 'en',
     name: "nianiam",
@@ -382,7 +435,7 @@ const quotes = [ // QuoteData objects
     weight: -100,
   }),
   new QuoteData ({
-    quote: "I really appreciate the simplicity it brings.",
+    englishQuote: "I really appreciate the simplicity it brings.",
     quoteKey: "quotes.25",
     originalLanguage: 'en',
     name: "chamburr",
@@ -392,7 +445,7 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "After switching to a mouse, I tried software such as SteerMouse, which received many recommendations and even charges, and finally found that this software meets my needs perfectly, every feature is very useful, and the performance is very good!",
+    englishQuote: "After switching to a mouse, I tried software such as SteerMouse, which received many recommendations and even charges, and finally found that this software meets my needs perfectly, every feature is very useful, and the performance is very good!",
     quoteKey: "quotes.26",
     originalLanguage: 'en',
     name: "SamyukL",
@@ -402,7 +455,7 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "Awesome app, it definitely deserves to be shared widely with others 😁",
+    englishQuote: "Awesome app, it definitely deserves to be shared widely with others 😁",
     quoteKey: "quotes.27",
     originalLanguage: 'en',
     name: "Jeff Su",
@@ -412,7 +465,7 @@ const quotes = [ // QuoteData objects
     weight: -200,
   }),
   new QuoteData ({
-    quote: "This App Makes Your Cheap Mouse Work Better Than Trackpad Gestures",
+    englishQuote: "This App Makes Your Cheap Mouse Work Better Than Trackpad Gestures",
     quoteKey: "quotes.28",
     originalLanguage: 'en',
     name: "Pranay Parab",
@@ -422,7 +475,7 @@ const quotes = [ // QuoteData objects
     weight: -100,
   }),
   new QuoteData ({
-    quote: "This is the single greatest piece of software in Apple's history.",
+    englishQuote: "This is the single greatest piece of software in Apple's history.",
     quoteKey: "quotes.29",
     originalLanguage: 'en',
     name: "Michael Hicklen",
@@ -432,7 +485,7 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "This is great software and solved all my mouse issues.",
+    englishQuote: "This is great software and solved all my mouse issues.",
     quoteKey: "quotes.30",
     originalLanguage: 'en',
     name: "Mladen Mihajlovic",
@@ -442,7 +495,7 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "Utterly incredible software, bro :) so simple yet so functional. keep up the good work.",
+    englishQuote: "Utterly incredible software, bro :) so simple yet so functional. keep up the good work.",
     quoteKey: "quotes.31",
     originalLanguage: 'en',
     name: "Osman Keshawarz",
@@ -452,7 +505,7 @@ const quotes = [ // QuoteData objects
     weight: 101,
   }),
   new QuoteData ({
-    quote: "Your app is literally the best Mac Mouse Fix available. So simple, light, M1 compatible, no bugs. I’m totally in love. I don’t even use Logitech Hub as your app is far superior. I’ll definitely be recommending your app as much as possible.",
+    englishQuote: "Your app is literally the best Mac Mouse Fix available. So simple, light, M1 compatible, no bugs. I’m totally in love. I don’t even use Logitech Hub as your app is far superior. I’ll definitely be recommending your app as much as possible.",
     quoteKey: "quotes.32",
     originalLanguage: 'en',
     name: "Marvin Marker",
@@ -462,7 +515,7 @@ const quotes = [ // QuoteData objects
     weight: 142.5,
   }),
   new QuoteData ({
-    quote: "It's exact what I was looking for to make non-Apple-Mice work like I want ",
+    englishQuote: "It's exact what I was looking for to make non-Apple-Mice work like I want ",
     quoteKey: "quotes.33",
     originalLanguage: 'en',
     name: "Wolf Spalteholz",
@@ -472,7 +525,7 @@ const quotes = [ // QuoteData objects
     weight: -100,
   }),
   new QuoteData ({
-    quote: "This software is amazing!",
+    englishQuote: "This software is amazing!",
     quoteKey: "quotes.34",
     originalLanguage: 'en',
     name: "NicolaeS",
@@ -482,7 +535,7 @@ const quotes = [ // QuoteData objects
     weight: -100,
   }),
   new QuoteData ({
-    quote: "Thanks, the app is very cool",
+    englishQuote: "Thanks, the app is very cool",
     quoteKey: "quotes.35",
     originalLanguage: 'en',
     name: "danilinus",
@@ -492,7 +545,7 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "SUPER NICE APPLICATION",
+    englishQuote: "SUPER NICE APPLICATION",
     quoteKey: "quotes.36",
     originalLanguage: 'en',
     name: "Chien Wei Chek",
@@ -502,7 +555,7 @@ const quotes = [ // QuoteData objects
     weight: -100,
   }),
   new QuoteData ({
-    quote: "It works perfectly with my mouse",
+    englishQuote: "It works perfectly with my mouse",
     quoteKey: "quotes.37",
     originalLanguage: 'en',
     name: "wnavarrobr",
@@ -512,7 +565,7 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "Works so well! Great idea and implementation, and of course the design, in the best Apple traditions!",
+    englishQuote: "Works so well! Great idea and implementation, and of course the design, in the best Apple traditions!",
     quoteKey: "quotes.38",
     originalLanguage: 'en',
     name: "Dzhakhongir Normatov",
@@ -522,7 +575,7 @@ const quotes = [ // QuoteData objects
     weight: -100,
   }),
   new QuoteData ({
-    quote: "Many thanks for Mac Mouse Fix—it’s become an essential tool for me, and of all of the programs of this type I’ve found, it’s easily the best.",
+    englishQuote: "Many thanks for Mac Mouse Fix—it’s become an essential tool for me, and of all of the programs of this type I’ve found, it’s easily the best.",
     quoteKey: "quotes.39",
     originalLanguage: 'en',
     name: "David Isom",
@@ -532,7 +585,7 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "Thank you for Mac Mouse Fix! I love it. You're doing what Apple didn't =)",
+    englishQuote: "Thank you for Mac Mouse Fix! I love it. You're doing what Apple didn't =)",
     quoteKey: "quotes.40",
     originalLanguage: 'en',
     name: "Fernanda",
@@ -542,7 +595,7 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "Great app! Love the simplicity and it works like a charm! Thanx :)",
+    englishQuote: "Great app! Love the simplicity and it works like a charm! Thanx :)",
     quoteKey: "quotes.41",
     originalLanguage: 'en',
     name: "Peter Leijenhorst",
@@ -552,7 +605,7 @@ const quotes = [ // QuoteData objects
     weight: -100,
   }),
   new QuoteData ({
-    quote: "You are an absolute legend thank you so much for creating this app, it's literally perfect",
+    englishQuote: "You are an absolute legend thank you so much for creating this app, it's literally perfect",
     quoteKey: "quotes.42",
     originalLanguage: 'en',
     name: "Herta Gatter",
@@ -562,7 +615,7 @@ const quotes = [ // QuoteData objects
     weight: -100,
   }),
   new QuoteData ({
-    quote: "Thanks for your awesome app its just wonderful :).",
+    englishQuote: "Thanks for your awesome app its just wonderful :).",
     quoteKey: "quotes.43",
     originalLanguage: 'en',
     name: "Marvin P.",
@@ -572,7 +625,7 @@ const quotes = [ // QuoteData objects
     weight: -200,
   }),
   new QuoteData ({
-    quote: "Your tool is literally the only way how I can use macOS (with a mouse especially) without freaking out!",
+    englishQuote: "Your tool is literally the only way how I can use macOS (with a mouse especially) without freaking out!",
     quoteKey: "quotes.44",
     originalLanguage: 'en',
     name: "BlackBird11",
@@ -582,7 +635,7 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "Beautiful piece of libre software. Thank you for your contribution to the open source cause.",
+    englishQuote: "Beautiful piece of libre software. Thank you for your contribution to the open source cause.",
     quoteKey: "quotes.45",
     originalLanguage: 'en',
     name: "yonitubul",
@@ -592,7 +645,7 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "Thank you for this, i don't understand why apple didn't make this as default, like it's super intuitive doing gestures with the middle click.",
+    englishQuote: "Thank you for this, i don't understand why apple didn't make this as default, like it's super intuitive doing gestures with the middle click.",
     quoteKey: "quotes.46",
     originalLanguage: 'en',
     name: "couch_ech",
@@ -602,7 +655,8 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "我找了半天类似的应用，终于发现这个了，赞👍",
+    originalQuote: "我找了半天类似的应用，终于发现这个了，赞👍",
+    englishQuote: "I've been searching for a similar app for a long time, and finally found this one, thumbs up 👍.",
     quoteKey: "quotes.47",
     originalLanguage: 'zh',
     name: "imzhuhl",
@@ -612,7 +666,7 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "You've made my superlight better than an mx master.", // TODO: Translate and request this one
+    englishQuote: "You've made my superlight better than an mx master.", // TODO: Translate and request this one
     quoteKey: "quotes.48",
     originalLanguage: 'en',
     name: "Brendon Janku",
@@ -622,7 +676,7 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    quote: "This app is so f*cking good", // TODO: Translate and request this one
+    englishQuote: "This app is so f*cking good", // TODO: Translate and request this one
     quoteKey: "quotes.49",
     originalLanguage: 'en',
     name: "Brendon Janku",
@@ -631,26 +685,27 @@ const quotes = [ // QuoteData objects
     permission: PermissionToShare.Unrequested,
     weight: 0,
   }),
-  new QuoteData ({
-    quote: "Noah you made my cheap mouse MAGICal without buying APPLE's Magic Mouse!!!! Congratz", // TODO: Translate and request this one
-    quoteKey: "quotes.50",
-    originalLanguage: 'en',
-    name: "Periklis Petridis",
-    source: QuoteSource.Acknowledgements,
-    link: 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors',
-    permission: PermissionToShare.Unrequested,
-    weight: 0,
-  }),
-  new QuoteData ({
-    quote: "This beautiful piece of software turned a cheap mouse into a great mouse, which I even started preferring over my MX Master. Thank you Noah and keep making awesome stuff! Much love, Markus ❤️", // TODO: Translate and request this one
-    quoteKey: "quotes.51",
-    originalLanguage: 'en',
-    name: "Markus Leonhard",
-    source: QuoteSource.Acknowledgements,
-    link: 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors',
-    permission: PermissionToShare.Unrequested,
-    weight: 0,
-  }),
+  // vvv 50 and 51 don't feel right to share I think.
+  // new QuoteData ({
+  //   englishQuote: "Noah you made my cheap mouse MAGICal without buying APPLE's Magic Mouse!!!! Congratz", // TODO: Translate and request this one
+  //   quoteKey: "quotes.50",
+  //   originalLanguage: 'en',
+  //   name: "Periklis Petridis",
+  //   source: QuoteSource.Acknowledgements,
+  //   link: 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors',
+  //   permission: PermissionToShare.None,
+  //   weight: 0,
+  // }),
+  // new QuoteData ({
+  //   englishQuote: "This beautiful piece of software turned a cheap mouse into a great mouse, which I even started preferring over my MX Master. Thank you Noah and keep making awesome stuff! Much love, Markus ❤️", // TODO: Translate and request this one
+  //   quoteKey: "quotes.51",
+  //   originalLanguage: 'en',
+  //   name: "Markus Leonhard",
+  //   source: QuoteSource.Acknowledgements,
+  //   link: 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors',
+  //   permission: PermissionToShare.None,
+  //   weight: 0,
+  // }),
   
 ]
 
