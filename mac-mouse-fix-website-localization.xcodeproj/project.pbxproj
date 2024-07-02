@@ -7,24 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4FA2F1D62C2BB559000C5535 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2F1CA2C2BB559000C5535 /* AppDelegate.m */; };
-		4FA2F1D72C2BB559000C5535 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2F1CB2C2BB559000C5535 /* Assets.xcassets */; };
-		4FA2F1D82C2BB559000C5535 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA2F1CD2C2BB559000C5535 /* main.m */; };
-		4FA2F1DC2C2BB559000C5535 /* LocalesReadme.md in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2F1D32C2BB559000C5535 /* LocalesReadme.md */; };
-		4FA2F1DD2C2BB559000C5535 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2F1D42C2BB559000C5535 /* Localizable.xcstrings */; };
-		4FA2F1E02C2BB6E8000C5535 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FA2F1DF2C2BB6E8000C5535 /* MainMenu.xib */; };
+		4F8B01892C34834B00F3AF8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B017B2C34834B00F3AF8D /* AppDelegate.m */; };
+		4F8B018A2C34834B00F3AF8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8B017C2C34834B00F3AF8D /* Assets.xcassets */; };
+		4F8B018B2C34834B00F3AF8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B017E2C34834B00F3AF8D /* main.m */; };
+		4F8B018C2C34834B00F3AF8D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F8B017F2C34834B00F3AF8D /* MainMenu.xib */; };
+		4F8B018D2C34834B00F3AF8D /* xcode-dummy-target-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F8B01802C34834B00F3AF8D /* xcode-dummy-target-Info.plist */; };
+		4F8B01902C34834B00F3AF8D /* LocalesReadme.md in Resources */ = {isa = PBXBuildFile; fileRef = 4F8B01842C34834B00F3AF8D /* LocalesReadme.md */; };
+		4F8B01922C34834B00F3AF8D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4F8B01862C34834B00F3AF8D /* Localizable.xcstrings */; };
+		4F8B01932C34834B00F3AF8D /* Quotes.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4F8B01872C34834B00F3AF8D /* Quotes.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4FA2F1A32C2BB347000C5535 /* dummy-target.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "dummy-target.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FA2F1C92C2BB559000C5535 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4FA2F1CA2C2BB559000C5535 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4FA2F1CB2C2BB559000C5535 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4FA2F1CC2C2BB559000C5535 /* dummy_target.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = dummy_target.entitlements; sourceTree = "<group>"; };
-		4FA2F1CD2C2BB559000C5535 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4FA2F1D32C2BB559000C5535 /* LocalesReadme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LocalesReadme.md; sourceTree = "<group>"; };
-		4FA2F1D42C2BB559000C5535 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		4FA2F1DF2C2BB6E8000C5535 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		4F8B017A2C34834B00F3AF8D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4F8B017B2C34834B00F3AF8D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4F8B017C2C34834B00F3AF8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4F8B017D2C34834B00F3AF8D /* dummy_target.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = dummy_target.entitlements; sourceTree = "<group>"; };
+		4F8B017E2C34834B00F3AF8D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4F8B017F2C34834B00F3AF8D /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		4F8B01802C34834B00F3AF8D /* xcode-dummy-target-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "xcode-dummy-target-Info.plist"; sourceTree = "<group>"; };
+		4F8B01842C34834B00F3AF8D /* LocalesReadme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LocalesReadme.md; sourceTree = "<group>"; };
+		4F8B01862C34834B00F3AF8D /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		4F8B01872C34834B00F3AF8D /* Quotes.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Quotes.xcstrings; sourceTree = "<group>"; };
+		4FA2F1A32C2BB347000C5535 /* xcode-dummy-target.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xcode-dummy-target.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,10 +42,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F8B01812C34834B00F3AF8D /* xcode-dummy-target */ = {
+			isa = PBXGroup;
+			children = (
+				4F8B017A2C34834B00F3AF8D /* AppDelegate.h */,
+				4F8B017B2C34834B00F3AF8D /* AppDelegate.m */,
+				4F8B017C2C34834B00F3AF8D /* Assets.xcassets */,
+				4F8B017D2C34834B00F3AF8D /* dummy_target.entitlements */,
+				4F8B017E2C34834B00F3AF8D /* main.m */,
+				4F8B017F2C34834B00F3AF8D /* MainMenu.xib */,
+				4F8B01802C34834B00F3AF8D /* xcode-dummy-target-Info.plist */,
+			);
+			path = "xcode-dummy-target";
+			sourceTree = "<group>";
+		};
+		4F8B01882C34834B00F3AF8D /* locales */ = {
+			isa = PBXGroup;
+			children = (
+				4F8B01862C34834B00F3AF8D /* Localizable.xcstrings */,
+				4F8B01872C34834B00F3AF8D /* Quotes.xcstrings */,
+				4F8B01842C34834B00F3AF8D /* LocalesReadme.md */,
+				4F8B01812C34834B00F3AF8D /* xcode-dummy-target */,
+			);
+			path = locales;
+			sourceTree = SOURCE_ROOT;
+		};
 		4FA2F1412C2B9296000C5535 = {
 			isa = PBXGroup;
 			children = (
-				4FA2F1D52C2BB559000C5535 /* locales */,
+				4F8B01882C34834B00F3AF8D /* locales */,
 				4FA2F1562C2BB10B000C5535 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,40 +78,17 @@
 		4FA2F1562C2BB10B000C5535 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4FA2F1A32C2BB347000C5535 /* dummy-target.app */,
+				4FA2F1A32C2BB347000C5535 /* xcode-dummy-target.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4FA2F1D02C2BB559000C5535 /* dummy-target */ = {
-			isa = PBXGroup;
-			children = (
-				4FA2F1C92C2BB559000C5535 /* AppDelegate.h */,
-				4FA2F1CA2C2BB559000C5535 /* AppDelegate.m */,
-				4FA2F1CB2C2BB559000C5535 /* Assets.xcassets */,
-				4FA2F1CC2C2BB559000C5535 /* dummy_target.entitlements */,
-				4FA2F1CD2C2BB559000C5535 /* main.m */,
-				4FA2F1DF2C2BB6E8000C5535 /* MainMenu.xib */,
-			);
-			path = "dummy-target";
-			sourceTree = "<group>";
-		};
-		4FA2F1D52C2BB559000C5535 /* locales */ = {
-			isa = PBXGroup;
-			children = (
-				4FA2F1D42C2BB559000C5535 /* Localizable.xcstrings */,
-				4FA2F1D32C2BB559000C5535 /* LocalesReadme.md */,
-				4FA2F1D02C2BB559000C5535 /* dummy-target */,
-			);
-			path = locales;
-			sourceTree = SOURCE_ROOT;
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4FA2F1A22C2BB347000C5535 /* dummy-target */ = {
+		4FA2F1A22C2BB347000C5535 /* xcode-dummy-target */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4FA2F1B02C2BB349000C5535 /* Build configuration list for PBXNativeTarget "dummy-target" */;
+			buildConfigurationList = 4FA2F1B02C2BB349000C5535 /* Build configuration list for PBXNativeTarget "xcode-dummy-target" */;
 			buildPhases = (
 				4FA2F19F2C2BB347000C5535 /* Sources */,
 				4FA2F1A02C2BB347000C5535 /* Frameworks */,
@@ -92,9 +98,9 @@
 			);
 			dependencies = (
 			);
-			name = "dummy-target";
+			name = "xcode-dummy-target";
 			productName = "dummy-target";
-			productReference = 4FA2F1A32C2BB347000C5535 /* dummy-target.app */;
+			productReference = 4FA2F1A32C2BB347000C5535 /* xcode-dummy-target.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -129,7 +135,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4FA2F1A22C2BB347000C5535 /* dummy-target */,
+				4FA2F1A22C2BB347000C5535 /* xcode-dummy-target */,
 			);
 		};
 /* End PBXProject section */
@@ -139,10 +145,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FA2F1DC2C2BB559000C5535 /* LocalesReadme.md in Resources */,
-				4FA2F1E02C2BB6E8000C5535 /* MainMenu.xib in Resources */,
-				4FA2F1D72C2BB559000C5535 /* Assets.xcassets in Resources */,
-				4FA2F1DD2C2BB559000C5535 /* Localizable.xcstrings in Resources */,
+				4F8B018D2C34834B00F3AF8D /* xcode-dummy-target-Info.plist in Resources */,
+				4F8B01902C34834B00F3AF8D /* LocalesReadme.md in Resources */,
+				4F8B01922C34834B00F3AF8D /* Localizable.xcstrings in Resources */,
+				4F8B01932C34834B00F3AF8D /* Quotes.xcstrings in Resources */,
+				4F8B018A2C34834B00F3AF8D /* Assets.xcassets in Resources */,
+				4F8B018C2C34834B00F3AF8D /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,8 +161,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FA2F1D82C2BB559000C5535 /* main.m in Sources */,
-				4FA2F1D62C2BB559000C5535 /* AppDelegate.m in Sources */,
+				4F8B018B2C34834B00F3AF8D /* main.m in Sources */,
+				4F8B01892C34834B00F3AF8D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +173,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_INCLUDE_INFOPLIST_LOCALIZATIONS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 			};
 			name = Debug;
 		};
@@ -172,6 +181,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_INCLUDE_INFOPLIST_LOCALIZATIONS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
 			};
 			name = Release;
 		};
@@ -210,13 +220,13 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "dummy-target/dummy_target.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "locales/xcode-dummy-target/dummy_target.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = LM5Z78756B;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -235,7 +245,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_FILE = "locales/xcode-dummy-target/xcode-dummy-target-Info.plist";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -289,13 +299,13 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = "dummy-target/dummy_target.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "locales/xcode-dummy-target/dummy_target.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = LM5Z78756B;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -308,7 +318,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_FILE = "locales/xcode-dummy-target/xcode-dummy-target-Info.plist";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -338,7 +348,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4FA2F1B02C2BB349000C5535 /* Build configuration list for PBXNativeTarget "dummy-target" */ = {
+		4FA2F1B02C2BB349000C5535 /* Build configuration list for PBXNativeTarget "xcode-dummy-target" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4FA2F1B12C2BB349000C5535 /* Debug */,
