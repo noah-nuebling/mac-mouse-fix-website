@@ -118,6 +118,11 @@
 			knownRegions = (
 				en,
 				de,
+				ko,
+				vi,
+				"zh-HK",
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 4FA2F1412C2B9296000C5535;
 			productRefGroup = 4FA2F1562C2BB10B000C5535 /* Products */;
