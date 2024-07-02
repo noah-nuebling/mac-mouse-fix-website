@@ -147,13 +147,14 @@ function getUIStrings(quote) {
   // Try to get translation
   uiQuote = t(quote.quoteKey)
 
-  // Fall back to original quote
-  if (uiQuote == null || uiQuote.length == 0) { // Not sure if == 0 check is necessary
-    uiQuote = quote.quote
+  // Log
+  console.log(`UI ${uiQuote}, en: ${ quote.englishQuote }, og: ${ quote.originalQuote} `)
+  
+  // Determine isUsingTranslation
+  const ogQuote = quote.originalLanguage == 'en' ? quote.englishQuote : quote.originalQuote
+  if (uiQuote == ogQuote) {
     isUsingTranslation = false
   }
-  // Validate
-  console.assert(!isCurrentLanguage(quote.originalLanguage) || !isUsingTranslation, `We're using a translation for quote with key ${ quote.quoteKey }, despite that quote being in the current language.`)
 
   // Get quote SOURCE ui string
 
