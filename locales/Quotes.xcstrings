@@ -1,600 +1,600 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "quotes.0": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unter allen Apps, die versuchen, dieses Problem zu l\u00f6sen, ist diese zweifellos die beste!"
+  "sourceLanguage" : "en",
+  "strings" : {
+    "quotes.0" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unter allen Apps, die versuchen, dieses Problem zu lösen, ist diese zweifellos die beste!"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Among all apps that try to fix this problem, this one is undoubtly the best!"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Among all apps that try to fix this problem, this one is undoubtly the best!"
           }
         }
       }
     },
-    "quotes.2": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Funktioniert wie ein Zauber und ist kinderleicht einzurichten!"
+    "quotes.2" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funktioniert wie ein Zauber und ist kinderleicht einzurichten!"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Works like a charm and it's easy to set up!"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Works like a charm and it's easy to set up!"
           }
         }
       }
     },
-    "quotes.3": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Dies ist die beste Maussoftware f\u00fcr den Mac."
+    "quotes.3" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dies ist die beste Maussoftware für den Mac."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "This is the best mouse software on the Mac."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This is the best mouse software on the Mac."
           }
         }
       }
     },
-    "quotes.4": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Vielen Dank f\u00fcr die fantastische App Mac Mouse Fix. Genau das, was ich gebraucht habe, ohne Abonnement und ohne unn\u00f6tigen Ballast. Vielen, vielen Dank!"
+    "quotes.4" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vielen Dank für die fantastische App Mac Mouse Fix. Genau das, was ich gebraucht habe, ohne Abonnement und ohne unnötigen Ballast. Vielen, vielen Dank!"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!"
           }
         }
       }
     },
-    "quotes.5": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Mac Mouse Fix ist magisch. Ich bin absolut hin und weg, wie gut gestaltet und benutzerfreundlich es ist."
+    "quotes.5" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix ist magisch. Ich bin absolut hin und weg, wie gut gestaltet und benutzerfreundlich es ist."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is."
           }
         }
       }
     },
-    "quotes.6": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Ich kann mir nicht vorstellen, meinen B\u00fcro-Mac ohne diese Software zu verwenden. Ein echter Produktivit\u00e4tsverst\u00e4rker, gepaart mit meiner Evoluent-Vertikalmaus, f\u00fcr die es keinen Mac-Treiber gibt, wie es ihn f\u00fcr Windows gibt."
+    "quotes.6" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich kann mir nicht vorstellen, meinen Büro-Mac ohne diese Software zu verwenden. Ein echter Produktivitätsverstärker, gepaart mit meiner Evoluent-Vertikalmaus, für die es keinen Mac-Treiber gibt, wie es ihn für Windows gibt."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows."
           }
         }
       }
     },
-    "quotes.8": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Wahrscheinlich die beste App auf meinem Mac."
+    "quotes.8" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wahrscheinlich die beste App auf meinem Mac."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Probably the best app on my Mac"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Probably the best app on my Mac"
           }
         }
       }
     },
-    "quotes.9": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Keine andere \u00e4hnliche Software kann konkurrieren."
+    "quotes.9" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine andere ähnliche Software kann konkurrieren."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "No other similar utility can compete"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No other similar utility can compete"
           }
         }
       }
     },
-    "quotes.10": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Eine Muss-App f\u00fcr jeden Mac-Benutzer mit einer Maus."
+    "quotes.10" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eine Muss-App für jeden Mac-Benutzer mit einer Maus."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "A must have app for any Mac user with a mouse."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "A must have app for any Mac user with a mouse."
           }
         }
       }
     },
-    "quotes.12": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Es hat meine Produktivit\u00e4t fast verdoppelt."
+    "quotes.12" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es hat meine Produktivität fast verdoppelt."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "This has nearly doubled my productivity."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This has nearly doubled my productivity."
           }
         }
       }
     },
-    "quotes.14": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Ich liebe diese App so sehr, sie ist ein Muss!"
+    "quotes.14" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich liebe diese App so sehr, sie ist ein Muss!"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Love this app so much, it's a must-have!"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Love this app so much, it's a must-have!"
           }
         }
       }
     },
-    "quotes.15": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Deine App ist unglaublich und absolut unverzichtbar f\u00fcr meinen Arbeitsablauf."
+    "quotes.15" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine App ist unglaublich und absolut unverzichtbar für meinen Arbeitsablauf."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Your app is incredible and absolutely vital to my workflow."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your app is incredible and absolutely vital to my workflow."
           }
         }
       }
     },
-    "quotes.17": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Mac Mouse Fix ist das Beste seiner Klasse!"
+    "quotes.17" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix ist das Beste seiner Klasse!"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Mac Mouse Fix is the best in its class!"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mac Mouse Fix is the best in its class!"
           }
         }
       }
     },
-    "quotes.18": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Das vertikale Scrollen ist einfach genial."
+    "quotes.18" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das vertikale Scrollen ist einfach genial."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "The vertical scroll is just awesome"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The vertical scroll is just awesome"
           }
         }
       }
     },
-    "quotes.20": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Ich wollte schon seit einer Weile meine Magic Mouse loswerden und dank deiner App kann ich das jetzt auch!"
+    "quotes.20" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich wollte schon seit einer Weile meine Magic Mouse loswerden und dank deiner App kann ich das jetzt auch!"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "I've been wanting to get rid of my Magic Mouse for a while and because of your app, I can do just that!"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "I've been wanting to get rid of my Magic Mouse for a while and because of your app, I can do just that!"
           }
         }
       }
     },
-    "quotes.21": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Ich empfehle Mac Mouse Fix, ehrlich gesagt ist es die preisg\u00fcnstigste, einfachste und am besten programmierte App, die ich bis jetzt gesehen habe."
+    "quotes.21" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich empfehle Mac Mouse Fix, ehrlich gesagt ist es die preisgünstigste, einfachste und am besten programmierte App, die ich bis jetzt gesehen habe."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "I recommend Mac Mouse Fix, honestly it\u2019s the cheapest, simple, and most well coded app I have yet seen."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "I recommend Mac Mouse Fix, honestly it’s the cheapest, simple, and most well coded app I have yet seen."
           }
         }
       }
     },
-    "quotes.22": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Danke, du hast mich davor bewahrt, eine Apple-Maus zu kaufen"
+    "quotes.22" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danke, du hast mich davor bewahrt, eine Apple-Maus zu kaufen"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Thank you, saved me from buying an apple mouse"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Thank you, saved me from buying an apple mouse"
           }
         }
       }
     },
-    "quotes.23": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Die Benutzeroberfl\u00e4che in V2 ist fantastisch und sehr intuitiv."
+    "quotes.23" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Benutzeroberfläche in V2 ist fantastisch und sehr intuitiv."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "The UI in V2 is fantastic and very intuitive."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The UI in V2 is fantastic and very intuitive."
           }
         }
       }
     },
-    "quotes.24": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Ich habe letzte Woche ohne die App verbracht und mein ganzer Arbeitsablauf war unterbrochen. Vielen Dank f\u00fcr so eine brillante App."
+    "quotes.24" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich habe letzte Woche ohne die App verbracht und mein ganzer Arbeitsablauf war unterbrochen. Vielen Dank für so eine brillante App."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "I spent last week without it and my whole workflow was interrupted. Thank you for such a brilliant app."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "I spent last week without it and my whole workflow was interrupted. Thank you for such a brilliant app."
           }
         }
       }
     },
-    "quotes.25": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Ich sch\u00e4tze die Einfachheit, die die App mit sich bringt, wirklich."
+    "quotes.25" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich schätze die Einfachheit, die die App mit sich bringt wirklich."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "I really appreciate the simplicity it brings."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "I really appreciate the simplicity it brings."
           }
         }
       }
     },
-    "quotes.26": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Nachdem ich zu einer Maus gewechselt habe, habe ich Software wie SteerMouse ausprobiert, die viele Empfehlungen erh\u00e4lt und sogar kostenpflichtig ist, und letztendlich festgestellt, dass Mac Mouse Fix meine Bed\u00fcrfnisse perfekt erf\u00fcllt, jedes Feature ist sehr n\u00fctzlich und die Effizienz ist sehr gut!"
+    "quotes.26" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nachdem ich zu einer Maus gewechselt habe, habe ich Software wie SteerMouse ausprobiert, die viele Empfehlungen erhält und sogar kostenpflichtig ist, und letztendlich festgestellt, dass Mac Mouse Fix meine Bedürfnisse perfekt erfüllt, jedes Feature ist sehr nützlich und die Effizienz ist sehr gut!"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "After switching to a mouse, I tried software such as SteerMouse, which received many recommendations and even charges, and finally found that this software meets my needs perfectly, every feature is very useful, and the performance is very good!"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "After switching to a mouse, I tried software such as SteerMouse, which received many recommendations and even charges, and finally found that this software meets my needs perfectly, every feature is very useful, and the performance is very good!"
           }
         }
       }
     },
-    "quotes.27": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Tolle App, sie verdient es definitiv, weit verbreitet zu werden \ud83d\ude01"
+    "quotes.27" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tolle App, sie verdient es definitiv, weit verbreitet zu werden 😁"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Awesome app, it definitely deserves to be shared widely with others \ud83d\ude01"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Awesome app, it definitely deserves to be shared widely with others 😁"
           }
         }
       }
     },
-    "quotes.28": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Diese App macht deine g\u00fcnstige Maus besser als Trackpad-Gesten"
+    "quotes.28" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese App macht deine günstige Maus besser als Trackpad-Gesten"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "This App Makes Your Cheap Mouse Work Better Than Trackpad Gestures"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This App Makes Your Cheap Mouse Work Better Than Trackpad Gestures"
           }
         }
       }
     },
-    "quotes.29": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Dies ist die gro\u00dfartigste Software in der Geschichte von Apple."
+    "quotes.29" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dies ist die großartigste Software in der Geschichte von Apple."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "This is the single greatest piece of software in Apple's history."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This is the single greatest piece of software in Apple's history."
           }
         }
       }
     },
-    "quotes.30": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Dies ist gro\u00dfartige Software und hat alle meine Mausprobleme gel\u00f6st."
+    "quotes.30" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dies ist großartige Software und hat alle meine Mausprobleme gelöst."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "This is great software and solved all my mouse issues."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This is great software and solved all my mouse issues."
           }
         }
       }
     },
-    "quotes.34": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Diese Software ist erstaunlich!"
+    "quotes.34" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Software ist erstaunlich!"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "This software is amazing!"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This software is amazing!"
           }
         }
       }
     },
-    "quotes.35": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Danke, die App ist sehr cool"
+    "quotes.35" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danke, die App ist sehr cool"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Thanks, the app is very cool"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Thanks, the app is very cool"
           }
         }
       }
     },
-    "quotes.36": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "SUPER SCH\u00d6NE ANWENDUNG"
+    "quotes.36" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SUPER TOLLE ANWENDUNG"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "SUPER NICE APPLICATION"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "SUPER NICE APPLICATION"
           }
         }
       }
     },
-    "quotes.37": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Es funktioniert perfekt mit meiner Maus"
+    "quotes.37" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es funktioniert perfekt mit meiner Maus"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "It works perfectly with my mouse"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "It works perfectly with my mouse"
           }
         }
       }
     },
-    "quotes.44": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Dein Werkzeug ist buchst\u00e4blich der einzige Weg, wie ich macOS (besonders mit einer Maus) verwenden kann, ohne auszuflippen!"
+    "quotes.44" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dein Werkzeug ist buchstäblich der einzige Weg, wie ich macOS (besonders mit einer Maus) verwenden kann, ohne auszuflippen!"
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Your tool is literally the only way how I can use macOS (with a mouse especially) without freaking out!"
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your tool is literally the only way how I can use macOS (with a mouse especially) without freaking out!"
           }
         }
       }
     },
-    "quotes.45": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Ein sch\u00f6nes St\u00fcck freier Software. Danke f\u00fcr deinen Beitrag zur Open-Source-Sache."
+    "quotes.45" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein schönes Stück freier Software. Danke für deinen Beitrag zur Open-Source-Sache."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Beautiful piece of libre software. Thank you for your contribution to the open source cause."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Beautiful piece of libre software. Thank you for your contribution to the open source cause."
           }
         }
       }
     },
-    "quotes.46": {
-      "comment": " ",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "needs_review",
-            "value": "Danke f\u00fcr diese App, ich verstehe nicht, warum Apple das nicht zum Standard gemacht hat, es ist super intuitiv, Gesten mit dem Mittelklick zu machen."
+    "quotes.46" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danke für diese App, ich verstehe nicht, warum Apple das nicht zum Standard gemacht hat, es ist super intuitiv, Gesten mit dem Mittelklick zu machen."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "Thank you for this, i don't understand why apple didn't make this as default, like it's super intuitive doing gestures with the middle click."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Thank you for this, i don't understand why apple didn't make this as default, like it's super intuitive doing gestures with the middle click."
           }
         }
       }
     },
-    "quotes.47": {
-      "comment": "The original language of this quote is Chinese - \u6211\u627e\u4e86\u534a\u5929\u7c7b\u4f3c\u7684\u5e94\u7528\uff0c\u7ec8\u4e8e\u53d1\u73b0\u8fd9\u4e2a\u4e86\uff0c\u8d5e\ud83d\udc4d",
-      "extractionState": "manual",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ich habe lange nach einer \u00e4hnlichen App gesucht und endlich diese hier gefunden, super \ud83d\udc4d."
+    "quotes.47" : {
+      "comment" : "The original language of this quote is Chinese - 我找了半天类似的应用，终于发现这个了，赞👍",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich habe lange nach einer ähnlichen App gesucht und endlich diese hier gefunden, super 👍."
           }
         },
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "I've been searching for a similar app for a long time, and finally found this one, thumbs up \ud83d\udc4d."
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "I've been searching for a similar app for a long time, and finally found this one, thumbs up 👍."
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }
