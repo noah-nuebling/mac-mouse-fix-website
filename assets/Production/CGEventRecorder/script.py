@@ -172,7 +172,7 @@ def set_nice(nice_value):
     libc.setpriority(0, os.getpid(), nice_value)
 
 def compress_events(events):
-    data = json.dumps(events).encode('utf-8')
+    data = json.dumps(events, ensure_ascii=False).encode('utf-8')
     return zlib.compress(data)
 
 def expand_events(compressed_data):
