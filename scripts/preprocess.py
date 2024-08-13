@@ -14,7 +14,7 @@ def main():
   
   # Compile .xcstrings to .js  
   print("Calling mmf-website-compile-strings script ...")
-  subprocess.run('python3 ./scripts/run.py mmf-website-compile-strings --output_path locales/Localizable.js', text=True, shell=True)
+  subprocess.run('python3 ./scripts/run.py mmf-website_build-strings --output_path locales/Localizable.js', text=True, shell=True)
   
   # Move licenseinfo to ./public folder
   print("Calling copy-licenseinfo script ...")

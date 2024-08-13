@@ -84,7 +84,8 @@
             "value" : "Your Message"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-extra.name.title" : {
       "extractionState" : "manual",
@@ -101,7 +102,8 @@
             "value" : "Your Name"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-extras.hint.message" : {
       "extractionState" : "manual",
@@ -118,7 +120,8 @@
             "value" : "Your name and message will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors). Thank you so much for your generosity!"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-extras.hint.name" : {
       "extractionState" : "manual",
@@ -135,7 +138,8 @@
             "value" : "Your name will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md). Thank you for your generosity!"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-extras.title.message" : {
       "extractionState" : "manual",
@@ -152,7 +156,8 @@
             "value" : "Add your name and message"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-extras.title.name" : {
       "extractionState" : "manual",
@@ -169,7 +174,8 @@
             "value" : "Add your name"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-header.back-button" : {
       "extractionState" : "manual",
@@ -186,7 +192,8 @@
             "value" : "Front Page"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-header.title" : {
       "extractionState" : "manual",
@@ -203,7 +210,8 @@
             "value" : "Buy Mac Mouse Fix"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-option.base.body" : {
       "extractionState" : "manual",
@@ -220,7 +228,8 @@
             "value" : "Just Mac Mouse Fix"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-option.base.price" : {
       "extractionState" : "manual",
@@ -237,7 +246,8 @@
             "value" : "$1.99"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-option.base.title" : {
       "comment" : "Why doesn't this have a value in the base file?",
@@ -255,7 +265,8 @@
             "value" : "checkout-option.base.title"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-option.disclaimer" : {
       "extractionState" : "manual",
@@ -272,7 +283,8 @@
             "value" : "+ tax"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-option.generous.body" : {
       "extractionState" : "manual",
@@ -289,7 +301,8 @@
             "value" : "1. Mac Mouse Fix\n2. Milkshake for Noah\n3. You'll be shown under **Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md)"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-option.generous.price" : {
       "extractionState" : "manual",
@@ -306,7 +319,8 @@
             "value" : "$4.99"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-option.generous.title" : {
       "extractionState" : "manual",
@@ -323,7 +337,8 @@
             "value" : "**Generous Contributor**"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-option.very-generous.body" : {
       "extractionState" : "manual",
@@ -340,7 +355,8 @@
             "value" : "1. Mac Mouse Fix\n2. *Awesome* Milkshake for Noah!\n3. You'll be shown under ***Very* Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors), and you can also leave a message there if you like"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-option.very-generous.price" : {
       "extractionState" : "manual",
@@ -357,7 +373,8 @@
             "value" : "$9.99"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-option.very-generous.title" : {
       "extractionState" : "manual",
@@ -374,7 +391,8 @@
             "value" : "**Very Generous Contributor**"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-options.hint" : {
       "extractionState" : "manual",
@@ -391,7 +409,8 @@
             "value" : "You can pay a bit more to support the project."
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-options.title" : {
       "extractionState" : "manual",
@@ -408,7 +427,8 @@
             "value" : "How much would you like to pay?"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-totals.balance" : {
       "extractionState" : "manual",
@@ -425,7 +445,8 @@
             "value" : "Balance:"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-totals.credit" : {
       "extractionState" : "manual",
@@ -442,7 +463,8 @@
             "value" : "Credit Applied:"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-totals.credit-to-balance" : {
       "extractionState" : "manual",
@@ -459,7 +481,8 @@
             "value" : "Credit Received:"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-totals.discount" : {
       "extractionState" : "manual",
@@ -476,7 +499,8 @@
             "value" : "Discount:"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-totals.subtotal" : {
       "extractionState" : "manual",
@@ -493,7 +517,8 @@
             "value" : "Subtotal:"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-totals.tax" : {
       "extractionState" : "manual",
@@ -510,7 +535,8 @@
             "value" : "Tax:"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "checkout-totals.total" : {
       "extractionState" : "manual",
@@ -527,7 +553,8 @@
             "value" : "Total:"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "customization-feature.action-table.body" : {
       "extractionState" : "manual",
@@ -1316,7 +1343,7 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Hinweis zum Preis: Der Preis von **${price}** ist ohne lokale Steuern, die eventuell in deiner Region gezahlt werden müssen. Um den Gesamtpreis zu sehen, besuche die [Kassenseite](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). Wenn du auf Gumroad.com über PayPal in einer anderen Währung als Euro zahlst, berechnet PayPal eine zusätzliche Währungsumrechnungsgebühr von 4,5%.\n\nIch würde die Gebühren gerne im Preis einschließen - damit die Kauferfahrung einfacher und klarer ist. Aber das ist momentan wegen Einschränkungen bei der Verkaufsplattform Gumroad.com nicht möglich. Ich hoffe der Preis fühlt sich trotzdem sehr fair und günstig an."
           }
         },
