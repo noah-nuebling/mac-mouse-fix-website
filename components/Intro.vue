@@ -9,6 +9,31 @@
     <!-- Initial Content -->
 
     <div class="flex items-center justify-center group w-[100%] h-[100svh] relative z-[-20]">
+
+      <!-- Localization Progress -->
+      <div ref="localizationProgress" :class="['absolute opacity-0 left-[50%] translate-x-[-50%] w-fit']" :style="{ 'top': `${navbarHeight_Unexpanded}px` }">
+        <div v-if="localizationProgressDisplay" :class="['xs:hidden relative leading-[2em] ch-[a]:normal-link-color text-[1em] font-[400] px-[0.9em] pb-[0.75em] pt-[calc(1em+10px)] mt-[-10px] text-black/[0.7] bg-white/[1] rounded-[0.75em] ']"">
+          
+          <i18n-t :keypath="'localization-progress'"
+                tag="p"
+                class="text-center whitespace-pre-line
+                      strong:bg-black/[0.05] strong:font-[600] strong:rounded-[4px] strong:px-[5px] strong:py-[1px]
+                      ch-[LocalePicker]:mx-[0.25em]">
+            <template #localizationProgress>
+              <strong>{{ localizationProgressDisplay }}</strong>
+            </template>
+            <template #currentLocale>
+              <LocalePicker></LocalePicker>
+            </template>
+            <template #linkToGuide>
+              <a href="https://noah-nuebling.github.io/redirection-service?message=&target=localization-guide">{{ $t('localization-progress.link-to-guide') }}</a>
+            </template>
+            
+          </i18n-t>
+        </div>
+      </div>
+
+      <!-- Inner content -->
       <div class="h-fit w-fit relative translate-y-[-1.5rem]">
         <div ref="innerContent" :class="['h-fit w-fit relative flex flex-col items-center justify-center -z-20', 
                                             'xs:origin-[50%_calc(50%_+_4.1rem)] sm:origin-[50%_calc(50%_+_4.925rem)] origin-[50%_calc(50%_+_5.55rem)]', false ? initialTranslateYTW : '' ]"> 
@@ -18,7 +43,7 @@
           <DownloadButton ref="downloadButton" class="bg-blue-500 rounded-full text-white px-[0.85em] py-[0.3em] text-[1.2rem] tracking-[0.0em]"></DownloadButton>
         </div>
       </div>
-
+      <!-- Down arrow -->
       <div ref="chevronDown" class="absolute left-0 right-0 bottom-0 h-fit flex justify-center opacity-0 z-[-10]">
         <img :src="chevronImagePath" alt="" class="w-[2rem] m-[3rem] opacity-[0.85]"/>
       </div>
@@ -130,10 +155,10 @@
 
 /* Debug */
 
-const i18n = useI18n()
-const locale = i18n.locale
+const _i18n = useI18n()
+const locale = _i18n.locale
 
-console.log(`Locale during Intro.vue setup: ${ locale.value }, browserLocale: ${ i18n.getBrowserLocale() }`);
+console.log(`Locale during Intro.vue setup: ${ locale.value }, browserLocale: ${ _i18n.getBrowserLocale() }`);
 
 /* Import gsap stuff */
 
@@ -162,6 +187,31 @@ const { currentSize, ResponsiveSize } = useResponsive()
 const $mt = useMT()
 const { onScrollStop } = useScrollCallbacks()
 
+/* Get localization progress */
+import Localizable from "../locales/Localizable";
+var localizationProgressDisplay: String | null; // String like `84%` or null.
+var currentLocaleInfo: any | null = null;
+if (_i18n.locale.value == Localizable["sourceLocale"]) {
+  localizationProgressDisplay = null;
+} else {
+  var currentLocaleInfo = null
+  for (var localeInfo of Localizable["locales"]) {
+    if (localeInfo["code"] == _i18n.locale.value) {
+      currentLocaleInfo = localeInfo;
+      break;
+    }
+  }
+  console.assert(currentLocaleInfo != null);
+  localizationProgressDisplay = currentLocaleInfo!["progressDisplay"];
+  // if (localizationProgressDisplay == '100%') { 
+  //   localizationProgressDisplay = null; // When the locale is 100% translated we set the displayString to `null`, since we don't want to display the progress in that case
+  // } 
+}
+
+/* TESTTT */
+var mt = useMT()
+console.log(`localization-progress-html: ${mt('localization-progress', {localizationProgress: localizationProgressDisplay, currentLocale: '<LocalePicker/>'})}`)
+
 /* Expose methods */
 
 defineExpose({
@@ -175,7 +225,7 @@ import { useGlobalStore } from "~/store/global";
 import { storeToRefs } from "pinia";
 import checkUserAgent from "~/plugins/check-user-agent";
 const global = useGlobalStore()
-const { navbarHasDarkAppearance } = storeToRefs(global)
+const { navbarHasDarkAppearance, navbarHeight_Unexpanded } = storeToRefs(global)
 
 /* Get dom element refs 
     All unused atm
@@ -187,6 +237,7 @@ const mmfIcon                 = ref<NuxtImg|null>(null)
 const mmfName                 = ref<HTMLElement|null>(null)
 const introTagline            = ref<HTMLElement|null>(null)
 const downloadButton          = ref<DownloadButton|null>(null)
+const localizationProgress    = ref<HTMLElement|null>(null)
 const chevronDown             = ref<HTMLElement|null>(null)
 const backgroundContainer     = ref<HTMLElement|null>(null)
 const colorSplash1            = ref<HTMLElement|null>(null)
@@ -257,13 +308,15 @@ onMounted(() => {
   // doAfterRender(() => tlSplash.play(), 0.0)
 
   // Intro transition
-  //  Edit: Removed the intro transition - Not this is just chevron fade-in
+  //  Edit: Removed the intro transition - Not this is just chevron (+ localizationProgress) fade-in
+  //  Note: I'm worried the localizationProgress fade-in takes away from the chevron animation a bit. But since its position is relative to the navBar height (`navbarHeight_Unexpanded`), I'm not sure we can render it in the correct position before hydration.
 
   const tlIntro = $gsap.timeline({ paused: true })
   ease = $customInOutEase
   duration = 1.0
 
   tlIntro.fromTo(chevronDown.value!, { autoAlpha: 0, translateY: initialTranslateY }, { autoAlpha: 1, translateY: 0, ease: ease }, 0)
+  tlIntro.fromTo(localizationProgress.value!, { autoAlpha: 0 }, { autoAlpha: 1, ease: ease }, 0)
 
   tlIntro.duration(duration)
   doAfterRender(() => tlIntro.play(), 0.0)
@@ -594,8 +647,9 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     tlScroll.fromTo(introTagline.value!,              { opacity: 1 }, { opacity: 0, duration: dur }, zoomStart)
   }
 
-  // Add fade-out to chevron
+  // Add fade-out to chevron (+ localizationProgress)
   tlScroll.fromTo(chevronDown.value, { autoAlpha: 1 }, { autoAlpha: 0, duration: zoomDistance/20 }, zoomStart)
+  tlScroll.fromTo(localizationProgress.value, { autoAlpha: 1 }, { autoAlpha: 0, duration: zoomDistance/20 }, zoomStart)
 
   // Add tagline fadein animation to tl
   tlScroll.fromTo(tagline.value, { autoAlpha: 0 }, { autoAlpha: 1, duration: taglineDistance }, taglineStart)

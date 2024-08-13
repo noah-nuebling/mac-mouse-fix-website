@@ -89,6 +89,7 @@ export default {
       'md-inset': '0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 8px 32px 0 rgba(0, 0, 0, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.30)',
       
       /* vvv Like Feedback Assistant shadows but without inset – otherwise tailwind shadow coloring colors the inset */
+      'xs': '0px 0.25px 1px 0.5px rgba(0, 0, 0, 0.225), 0 0.5px 1px 0 rgba(0, 0, 0, 0.08)',
       'sm': '0px 0.5px 3px 1px rgba(0, 0, 0, 0.1), 0 1px 8px 0 rgba(0, 0, 0, 0.08)',
       'md': '0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 8px 32px 0 rgba(0, 0, 0, 0.08)',
       'lg': '0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 20px 32px -5px rgba(0, 0, 0, 0.1)',

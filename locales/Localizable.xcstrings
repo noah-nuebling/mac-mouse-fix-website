@@ -1253,6 +1253,40 @@
         }
       }
     },
+    "localization-progress" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Seite ist {localizationProgress} übersetzt nach {currentLocale}\nUm beim Übersetzen zu helfen, klicke {linkToGuide}!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This page is {localizationProgress} translated into {currentLocale}\nTo help translate, click {linkToGuide}!"
+          }
+        }
+      }
+    },
+    "localization-progress.link-to-guide" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "hier"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "here"
+          }
+        }
+      }
+    },
     "navbar.github" : {
       "extractionState" : "manual",
       "localizations" : {

@@ -148,7 +148,7 @@ function getUIStrings(quote) {
   uiQuote = t(quote.quoteKey)
 
   // Log
-  console.log(`UI ${uiQuote}, en: ${ quote.englishQuote }, og: ${ quote.originalQuote} `)
+  // console.log(`UI ${uiQuote}, en: ${ quote.englishQuote }, og: ${ quote.originalQuote} `)
   
   // Determine isUsingTranslation
   const ogQuote = quote.originalLanguage == 'en' ? quote.englishQuote : quote.originalQuote
