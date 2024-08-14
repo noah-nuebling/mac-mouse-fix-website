@@ -10,6 +10,10 @@ import { CANONICAL_URL, GITHUB_SUB_URL } from "./utils/constants"
 
 export default defineNuxtConfig({
 
+  // Set compatibility date
+  //  I don't understand this, nuxt told me to add this (Today is 2024-08-14)
+  compatibilityDate: '2024-08-14',
+
   // Make the site static. See https://stackoverflow.com/questions/74070241/what-is-the-difference-between-ssrfalse-vs-targetstatic-in-nuxtjs
   // target: 'static', // Only on nuxt 2 I think. On nuxt 3 you use the generate script
   ssr: true,
@@ -20,7 +24,7 @@ export default defineNuxtConfig({
       enabled: true
     }
   },
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/image', 'nuxt-simple-robots', 'nuxt-simple-sitemap'],
+  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/image', '@nuxtjs/robots', '@nuxtjs/sitemap'],
 
   app: {
     baseURL: '/', // GITHUB_SUB_URL,
@@ -46,7 +50,7 @@ export default defineNuxtConfig({
   },
   site: {
     url: CANONICAL_URL, 
-    indexable: true, // Makes nuxt-simple-robots allow indexing even for non-production env - I think only helpful for debugging.
+    indexable: true, // Makes @nuxtjs/robots allow indexing even for non-production env - I think only helpful for debugging.
   },
   router: {
     options: {
@@ -60,7 +64,7 @@ export default defineNuxtConfig({
   robots: {
     enabled: true,
   },
-  sitemap: {
+  sitemap: { // To see results, go to http://localhost:3000/sitemap_index.xml
     enabled: true,
     xsl: false,
   },  

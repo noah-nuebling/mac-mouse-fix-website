@@ -23,7 +23,7 @@ export function useResponsive() {
 
   function updateSize() {
 
-    if (!process.client) { return }
+    if (!process.client) { return } // If we're rendering serverside, the size should always be .none
     
     var result: ResponsiveSize
     const w = window.innerWidth

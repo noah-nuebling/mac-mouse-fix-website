@@ -220,8 +220,6 @@ const dynamicUIStrings = {
   afterTaxPriceEstimateHigh: afterTaxPriceEstimateHigh,
 }
 
-console.log(`licenseConfig: ${ licenseConfig }`)
-
 /* Import plugin stuff */
 const { $gsap, $ScrollTrigger, $isFirefox } = useNuxtApp()
 

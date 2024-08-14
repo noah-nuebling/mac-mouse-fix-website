@@ -210,10 +210,6 @@ watch(_i18n.locale, (newLocale) => {
   }
 }, { immediate: true })
 
-/* TESTTT */
-var mt = useMT()
-console.log(`localization-progress-html: ${mt('localization-progress', {localizationProgress: localizationProgressDisplay, currentLocale: '<LocalePicker/>'})}`)
-
 /* Expose methods */
 
 defineExpose({

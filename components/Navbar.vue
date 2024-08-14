@@ -36,14 +36,16 @@
   </nav>
 
   <!-- Expanded mobile nav links -->
-  <div ref="expandingContainer" :class="['overflow-clip h-0 transition-[height] duration-[0.5s]', currentSize <= ResponsiveSize.sm ? '' : 'hidden', isExpanded ? '' : '']">
-    <div :class="['sm:flex hidden flex-col items-left gap-[1rem] mx-[3rem] text-[1.1rem] font-[400] tracking-[-0.01em] pb-[1rem]']">
-      <hr :class="['border-t-[1px] ', navbarHasDarkAppearance ? 'border-white/[0.15]' : 'border-black/[0.1]']">
-      <NuxtLink class="" :to="localePath('/')" >{{ $t('navbar.overview') }}</NuxtLink>
-      <hr :class="['border-t-[1px] ', navbarHasDarkAppearance ? 'border-white/[0.15]' : 'border-black/[0.1]']">
-      <a class="" href="https://github.com/noah-nuebling/mac-mouse-fix" >{{ $mt('navbar.github') }} <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', navbarHasDarkAppearance ? 'invert' : '']"></a>
+  <client-only> <!-- Client-only to prevent hydration mismatch -->
+    <div ref="expandingContainer" :class="['overflow-clip h-0 transition-[height] duration-[0.5s]', currentSize <= ResponsiveSize.sm ? '' : 'hidden', isExpanded ? '' : '']">
+      <div :class="['sm:flex hidden flex-col items-left gap-[1rem] mx-[3rem] text-[1.1rem] font-[400] tracking-[-0.01em] pb-[1rem]']">
+        <hr :class="['border-t-[1px] ', navbarHasDarkAppearance ? 'border-white/[0.15]' : 'border-black/[0.1]']">
+        <NuxtLink class="" :to="localePath('/')" >{{ $t('navbar.overview') }}</NuxtLink>
+        <hr :class="['border-t-[1px] ', navbarHasDarkAppearance ? 'border-white/[0.15]' : 'border-black/[0.1]']">
+        <a class="" href="https://github.com/noah-nuebling/mac-mouse-fix" >{{ $mt('navbar.github') }} <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', navbarHasDarkAppearance ? 'invert' : '']"></a>
+      </div>
     </div>
-  </div>
+  </client-only>
 
   <hr :class="['border-t-[1px] ', navbarHasDarkAppearance ? 'border-white/[0.15]' : 'border-black/[0.0]']">
 </header>
