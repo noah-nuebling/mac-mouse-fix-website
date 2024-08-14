@@ -17,8 +17,8 @@
           <i18n-t :keypath="'localization-progress'"
                 tag="p"
                 class="text-center whitespace-pre-line
-                      strong:bg-black/[0.05] strong:font-[600] strong:rounded-[4px] strong:px-[5px] strong:py-[1px]
-                      ch-[LocalePicker]:mx-[0.25em]">
+                      strong:mx-[0.0em] strong:bg-black/[0.05] strong:font-[600] strong:rounded-[4px] strong:px-[5px] strong:py-[1px]
+                      ch-[select]:mx-[0.05em]">
             <template #localizationProgress>
               <strong>{{ localizationProgressDisplay }}</strong>
             </template>
@@ -190,23 +190,25 @@ const { onScrollStop } = useScrollCallbacks()
 /* Get localization progress */
 import Localizable from "../locales/Localizable";
 var localizationProgressDisplay: String | null; // String like `84%` or null.
-var currentLocaleInfo: any | null = null;
-if (_i18n.locale.value == Localizable["sourceLocale"]) {
-  localizationProgressDisplay = null;
-} else {
-  var currentLocaleInfo = null
-  for (var localeInfo of Localizable["locales"]) {
-    if (localeInfo["code"] == _i18n.locale.value) {
-      currentLocaleInfo = localeInfo;
-      break;
+watch(_i18n.locale, (newLocale) => {
+  var currentLocaleInfo: any | null = null;
+  if (newLocale == Localizable["sourceLocale"]) {
+    localizationProgressDisplay = null;
+  } else {
+    var currentLocaleInfo = null
+    for (var localeInfo of Localizable["locales"]) {
+      if (localeInfo["code"] == newLocale) {
+        currentLocaleInfo = localeInfo;
+        break;
+      }
     }
+    console.assert(currentLocaleInfo != null);
+    localizationProgressDisplay = currentLocaleInfo!["progressDisplay"];
+    if (localizationProgressDisplay == '100%') { 
+      // localizationProgressDisplay = null; // When the locale is 100% translated we set the displayString to `null`, since we don't want to display the progress in that case
+    } 
   }
-  console.assert(currentLocaleInfo != null);
-  localizationProgressDisplay = currentLocaleInfo!["progressDisplay"];
-  // if (localizationProgressDisplay == '100%') { 
-  //   localizationProgressDisplay = null; // When the locale is 100% translated we set the displayString to `null`, since we don't want to display the progress in that case
-  // } 
-}
+}, { immediate: true })
 
 /* TESTTT */
 var mt = useMT()
