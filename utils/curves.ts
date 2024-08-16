@@ -1,6 +1,16 @@
-export { criticalSpring, linearScalingEase, linearFadingEase }
+export { criticalSpring, linearScalingEase, linearFadingEase, customInOutEase };
 
-import { AnimationCurve, animationCurveFromRawCurve } from "./animationCurveTransform"
+import { animationCurveFromRawCurve } from "./animationCurveTransform";
+
+
+/* Custom inOut ease 
+  Created with this: https://gsap.com/docs/v3/Eases/
+*/
+function customInOutEase(): any {
+  const { $CustomEase } = useNuxtApp(); /// Not sure it's bad for performance that we don't cache this? But if we call useNuxtApp() at top level of this file we get errors.
+  const result = $CustomEase.create("custom", "M0,0 C0,0 -0.047,0 0,0 0.027,0 0.105,0.011 0.178,0.113 0.258,0.225 0.288,0.343 0.34,0.481 0.388,0.609 0.458,0.874 0.581,0.948 0.685,1.01 1,1 1,1 1,1 1,1 1,1 1,1 1,1 1,1 1.056,1 1,1 1,1");
+  return result;
+}
 
 /*   
   Logarithmic easing for linear feeling scale animations

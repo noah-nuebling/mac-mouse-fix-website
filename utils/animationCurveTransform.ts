@@ -1,4 +1,4 @@
-export { type AnimationCurve, type Curve, type Ease, rawCurveFromAnimationCurve, combineCurves, transfromCurve, animationCurveFromRawCurve }
+export { type AnimationCurve, type Curve, type Ease, rawCurveFromAnimationCurve, combineCurves, transfromCurve, animationCurveFromRawCurve, reverseEase }
 
 import { strict as assert } from 'assert'
 import { Interval, intervalScale } from './intervalScale'
@@ -19,13 +19,28 @@ type Ease = Curve // Ease should always go through (0,0) and (1,1)
 /// Convenience
 ///
 
+function reverseEase(ease: Ease): Ease {
 
+  /* The output ease will behave like the input ease on an animation that is played in reverse 
+      The output ease is the input ease flipped along 0.5 on the x and y axis. (Which is different from flipping along the y = x line which I first thought we had to do.) */
+
+  console.assert(ease(0) == 0 && ease(1) == 1);
+
+  const transformed = (arg0: number) => {
+    arg0 = 1 - arg0   // Flip along x axis
+    var y = ease(arg0); 
+    y = 1 - y;        // Flip along y axis
+    return y;
+  }
+
+  return transformed;
+}
 
 /// 
 /// Core
 ///
 
-function transfromCurve(curve: Curve, transform: (arg0: number) => number) {
+function transfromCurve(curve: Curve, transform: (arg0: number) => number): Curve {
   
   // Applies `transform` to each output value
 

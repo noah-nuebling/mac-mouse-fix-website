@@ -4,7 +4,7 @@
     
     <!-- Title -->
     <div v-if="titleKey" :class="['relative sm:pt-[5.5rem] sm:pb-[calc(5.5rem-3rem)] pt-[7rem] pb-[calc(7rem-1.5rem)] mx-[1rem] mb-[0.25rem] ', titleClass]">
-      <p v-html="$mt(titleKey!)" class="fadeee whitespace-pre-wrap sm:text-[1.4rem] text-[1.8rem] font-[300] strong:font-[600] leading-[1.4] text-center text-neutral-950/80 w-max-[60rem]"></p>
+      <p v-html="$mt(titleKey!)" class="fadeee move-uppp move-uppp-little-space whitespace-pre-wrap sm:text-[1.4rem] text-[1.8rem] font-[300] strong:font-[600] leading-[1.4] text-center text-neutral-950/80 w-max-[60rem]"></p>
     </div>  
 
     <!-- Content -->

@@ -221,7 +221,7 @@ const dynamicUIStrings = {
 }
 
 /* Import plugin stuff */
-const { $gsap, $ScrollTrigger, $isFirefox } = useNuxtApp()
+const { $gsap, $ScrollTrigger, $Power4, $Power3, $Power2, $Power1, Power0, $isFirefox } = useNuxtApp()
 
 /* Import i18n stuff
     Note: Why can't we use $i18n in ts like we do in html? */
@@ -239,7 +239,7 @@ const quotes = getUsableQuotes()
 
 import { everyNth } from '~/utils/util';
 import { type Ref } from 'vue'
-import { linearFadingEase } from '~/utils/curves'
+import { linearFadingEase, customInOutEase } from '~/utils/curves'
 
 /* Manually import video assets
     Notes on manually importing assets:
@@ -410,16 +410,32 @@ onMounted(() => {
 
     /* Create fade-in animations for titles and bodys */
 
-    const toFade: Array<HTMLElement> = []
-    const classes = ['fadeee']
-    for (const c of classes) {
-      const elements = rootElement.value!.getElementsByClassName(c)
-      for (const element of elements) {
-        toFade.push(element as HTMLElement)
+    if ((false)) {
+      const toFade: Array<Element> = Array.from(rootElement.value!.getElementsByClassName('fadeee'))
+      
+      for (const element of toFade) {
+
+        const tlFade = $gsap.timeline({ scrollTrigger: {
+          trigger: element,
+          pin: false,
+          start: "bottom 95%",
+          end: "bottom 10%",
+          scrub: false,
+          toggleActions: 'play none none reverse',
+          markers: false,
+        }})
+        tlFade.fromTo(element, { opacity: '0' }, { opacity: '1', duration: 0.33, ease: linearFadingEase(0) }, 0)
+        fadeTimelines.push(tlFade)
+
       }
     }
-    
-    for (const element of toFade) {
+
+    /* Create move-up animations for subtitles 
+        I'm not quite sure if these are obnoxious, but it is sorta cool.
+        On the SectionHeaders we just have big text on white background, so we have to make the animations a little exaggerated to make them visible, but that is a little nauseating. */
+
+    const toMoveUp: Array<Element> = Array.from(rootElement.value!.getElementsByClassName('move-uppp'))
+    for (const element of toMoveUp) {
 
       const tlFade = $gsap.timeline({ scrollTrigger: {
         trigger: element,
@@ -430,12 +446,26 @@ onMounted(() => {
         toggleActions: 'play none none reverse',
         markers: false,
       }})
+      
+      const hasLittleSpace = element.classList.contains('move-uppp-little-space'); // We made the 'little-space' modifier for the CardContainer headers so they don't appear behind the cards at the start of the animation.
+      tlFade.fromTo(element, { opacity: '0' }, { opacity: '1', duration: 0.33, ease: linearFadingEase(0) }, hasLittleSpace ? 0.2 : 0.0); // (The fade-in starts 0.2s later into the animation if `hasLittleSpace` is active)
 
-      tlFade.fromTo(element, { translateY: "0rem", opacity: '0' }, { translateY: '0rem', opacity: '1', duration: 0.33, ease: linearFadingEase(0) }, 0)
+      const tlMoveUp = $gsap.timeline({ scrollTrigger: {
+        trigger: element,
+          pin: false,
+          start: "bottom 95%",
+          end: "bottom 10%",
+          scrub: false,
+          toggleActions: 'play none none reverse',
+          markers: false,
+      }});
+      // tlMoveUp.fromTo(element, { opacity: '0' }, { opacity: '1', duration: 0.33, ease: linearFadingEase(0) }, 0)
+      // tlMoveUp.fromTo(element, { translateY: '18rem' }, { translateY: '0rem', duration: 0.75, ease: criticalSpring(5.0) /* $Power3.easeOut */ }, 0);
+      // tlMoveUp.fromTo(element, { translateY: '12rem' }, { translateY: '0rem', duration: 0.55, ease: criticalSpring(6.0) }, 0);
+      tlMoveUp.fromTo(element, { translateY: '18rem' }, { translateY: '0rem', duration: 0.8, ease: criticalSpring(6.0) }, 0);
 
-      fadeTimelines.push(tlFade)
+      fadeTimelines.push(tlMoveUp);
     }
-
   })
 })
 

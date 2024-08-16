@@ -3,7 +3,7 @@
 
     <!-- Title -->
     <div class="section-title h-full flex items-center mt-[45vh]">
-      <i18n-t tag="h2" :keypath="titleKey!" class="fadeee text-center whitespace-pre-wrap xs:text-[3.15rem] sm:text-[3.5rem] md:text-[5.5rem] text-[6rem] font-[700] leading-[1.05] tracking-[-0.15rem] text-gray-800">
+      <i18n-t tag="h2" :keypath="titleKey!" class="fadeee move-uppp text-center whitespace-pre-wrap xs:text-[3.15rem] sm:text-[3.5rem] md:text-[5.5rem] text-[6rem] font-[700] leading-[1.05] tracking-[-0.15rem] text-gray-800">
         <template #accent v-if="titleAccentKey"> 
           <span :class="['', titleAccentClass]">{{ $t(titleAccentKey!)}}</span> 
         </template>
@@ -14,8 +14,8 @@
     </div>
 
     <!-- Body -->
-    <div class="section-body mx-[1.5rem] flex justify-center items-center my-[25vh]">
-      <p v-if="bodyKey" v-html="$mt(bodyKey!)" class="fadeee text-center max-w-[30em] whitespace-pre-wrap sm:text-[1.4rem] text-[2rem] text-black/[0.9] font-[400] strong:font-[500] leading-[1.4] tracking-[-0.005rem]"></p>
+    <div class="section-body mx-[1.5rem] flex justify-center items-center my-[25vh] strong:move-uppp">
+      <p v-if="bodyKey" v-html="$mt(bodyKey!)" class="fadeee move-uppp text-center max-w-[30em] whitespace-pre-wrap sm:text-[1.4rem] text-[2rem] text-black/[0.9] font-[400] strong:font-[500] leading-[1.4] tracking-[-0.005rem]"></p>
     </div>
   </div>
 </template>

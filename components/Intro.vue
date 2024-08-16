@@ -167,8 +167,8 @@ console.log(`Locale during Intro.vue setup: ${ locale.value }, browserLocale: ${
 
 /* Import gsap stuff */
 
-const { $gsap, $ScrollTrigger, $customInOutEase, $isMobile, $isSafari, $isFirefox } = useNuxtApp()
-import { linearScalingEase } from "../utils/curves"
+const { $gsap, $ScrollTrigger, $isMobile, $isSafari, $isFirefox } = useNuxtApp()
+import { linearScalingEase, customInOutEase } from "../utils/curves"
 
 /* Manually import images 
   (Not totally sure if necessary)
@@ -361,8 +361,8 @@ onMounted(() => {
 
   // Color splash animation
   // const tlSplash = $gsap.timeline({ paused: true })
-  var ease: any = "none"
-  var introTransitionDuration = 3.6
+  // var ease: any = "none"
+  // var introTransitionDuration = 3.6
 
   // tlSplash.to(colorSplash1.value, { opacity: 1, ease: ease }, 0)
   // tlSplash.to(colorSplash2.value, { opacity: 1, ease: ease }, 0)
@@ -378,11 +378,10 @@ onMounted(() => {
   //    So just implementing the fade-in for all languages is probably the easiest solution. 
 
   const tlIntro = $gsap.timeline({ paused: true });
-  ease = $customInOutEase;
-  introTransitionDuration = 1.0;
+  var introTransitionDuration = 1.0;
 
-  tlIntro.fromTo(chevronDown_Wrapper.value!, { autoAlpha: 0, translateY: initialTranslateY }, { autoAlpha: 1, translateY: 0, ease: ease }, 0)
-  tlIntro.fromTo(localizationProgress_Wrapper.value!, { autoAlpha: 0 }, { autoAlpha: 1, ease: ease }, 0) // We use `_Wrapper` here to prevent interference, because we're also animating the alpha with the scrollAnimation.
+  tlIntro.fromTo(chevronDown_Wrapper.value!, { autoAlpha: 0, translateY: initialTranslateY }, { autoAlpha: 1, translateY: 0, ease: customInOutEase() }, 0)
+  tlIntro.fromTo(localizationProgress_Wrapper.value!, { autoAlpha: 0 }, { autoAlpha: 1, ease: customInOutEase() /*  linearFadingEase(0) */ }, 0) // We use `_Wrapper` here to prevent interference, because we're also animating the alpha with the scrollAnimation.
 
   tlIntro.duration(introTransitionDuration)
   doAfterRender(() => tlIntro.play(), 0.0)
