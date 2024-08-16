@@ -303,7 +303,6 @@ Notes:
   @apply shadow-gray-700/40;
  }
 
-
   .text-gradient-to-r {
     @apply text-gradient-base bg-gradient-to-r;
   }
@@ -316,6 +315,15 @@ Notes:
     background-clip: text;
 
     /* Set `display: inline-block` and `position: relative` to make this compatible with cool-underline. We're not doing that here because this breaks line wrapping. */
+  }
+  .text-gradient-block-base {
+    @apply inline-block relative py-[1em] -my-[1em]; /* The padding adjustment is necessary so the bottom/top of tall characters like `g` isn't cut off. The margin compensates for it for the layout. */
+  }
+  .text-gradient-to-l-block { /* Created this for use with the move-uppp class. The move-uppp animation needs the elements to be blocks. */
+    @apply text-gradient-to-l text-gradient-block-base;
+  }
+  .text-gradient-to-r-block {
+    @apply text-gradient-to-r text-gradient-block-base;
   }
 
   .gradient-violet {

@@ -41,7 +41,7 @@
 
         <div class="relative">
           <!-- Section head -->
-          <SectionHeader id="trackpad" class=" strong:gradient-blue strong:filter strong:brightness-[1.0]" title-accent-class="text-gradient-to-l gradient-blue brightness-[1.43] filter hue-rotate-[0deg]" title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" body-key="trackpad-features.body" />
+          <SectionHeader id="trackpad" class=" strong:gradient-blue strong:filter strong:brightness-[1.0]" title-accent-class="inline-block move-uppp text-gradient-to-l gradient-blue brightness-[1.43] filter hue-rotate-[0deg]" title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" body-key="trackpad-features.body" />
           <!-- Color splash -->
           <div class="hidden absolute top-0 bottom-0 left-[50%] translate-x-[-50%] w-[100vw]">
             <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[100rem] relative left-[-15rem] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.7] filter hue-rotate-[0deg]"/>
@@ -85,7 +85,7 @@
 
       <!-- Scrolling -->
       <div class="strong:text-gradient-to-l">
-        <SectionHeader id="scroll" class="gradient-violet" title-accent-class="text-gradient-to-l filter brightness-[1.06]" title-key="scrolling.title" title-accent-key="scrolling.title.accent" body-key="scrolling.body" />
+        <SectionHeader id="scroll" class="gradient-violet" title-accent-class="move-uppp text-gradient-to-l-block filter brightness-[1.06]" title-key="scrolling.title" title-accent-key="scrolling.title.accent" body-key="scrolling.body" />
         
         <CardContainer title-key="scroll-smoothness.header" class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] mb-[5rem] z-[10]">
           <div class="w-fit relative left-[50%] translate-x-[-50%]">
@@ -120,7 +120,7 @@
             - Thought about including a non-trackpad features section - but not enough features so far to warrant a whole section -->
 
       <div class="strong:text-gradient-to-l">
-        <SectionHeader id="action_table" class="gradient-red strong:filter strong:brightness-[1.0]" title-accent-class="italic" title-accent2-class="text-gradient-to-l filter brightness-[1.12] hue-rotate-[-0deg]" title-key="remap-engine.title" title-accent-key="remap-engine.title.accent" title-accent2-key="remap-engine.title.accent2" body-key="remap-engine.body" />
+        <SectionHeader id="action_table" class="gradient-red strong:filter strong:brightness-[1.0]" title-accent-class="italic" title-accent2-class="move-uppp text-gradient-to-l-block filter brightness-[1.12] hue-rotate-[-0deg]" title-key="remap-engine.title" title-accent-key="remap-engine.title.accent" title-accent2-key="remap-engine.title.accent2" body-key="remap-engine.body" />
 
         <CardContainer class="gradient-red var-[accent-rotate=170deg] ch-[.card-title_strong]:brightness-[1.0] strong:brightness-[0.95]">
           <div class="relative">
@@ -141,7 +141,7 @@
       <!-- Price / Good Software -->
 
       <div class="strong:text-gradient-to-l ch-[a]:text-green-600 ch-[a]:font-[500]">
-        <SectionHeader id="price" class="gradient-green strong:filter strong:brightness-[1.15]" title-accent2-class="text-gradient-to-l gradient-green filter brightness-[1.35]" title-key="good-software.title" title-accent2-key="good-software.title.accent2" body-key="good-software.body" />
+        <SectionHeader id="price" class="gradient-green strong:filter strong:brightness-[1.15]" title-accent2-class="move-uppp text-gradient-to-l-block gradient-green filter brightness-[1.35]" title-key="good-software.title" title-accent2-key="good-software.title.accent2" body-key="good-software.body" />
         
         <CardContainer title-key="good-software.header" 
           class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] "             title-class=" strong:filter strong:brightness-[1.2]">
@@ -432,9 +432,31 @@ onMounted(() => {
 
     /* Create move-up animations for subtitles 
         I'm not quite sure if these are obnoxious, but it is sorta cool.
-        On the SectionHeaders we just have big text on white background, so we have to make the animations a little exaggerated to make them visible, but that is a little nauseating. */
+        On the SectionHeaders we just have big text on white background, so we have to make the animations a little exaggerated to make them visible, but that is a little nauseating. 
+        
+        Note on hasLittleSpace:
+         The fade-in starts 0.2s later into the animation if `hasLittleSpace` is active. That way we don't see the start of the animation, 
+         which is nice if there's elements close to the animated element which would otherwise overlap during animation. 
+         Actually, I think we should always turn this on, because if there aren't elements close by as visual reference points, 
+         then we have to have an exxagerated, fast-moving animation for it to be visually striking, and that is a bit nauseating. 
+         I think it's perhaps better to just avoid animations unless there's a visual reference point. We ended up creating visual reference points, 
+         by only animating the emphasized words of the text.
 
-    const toMoveUp: Array<Element> = Array.from(rootElement.value!.getElementsByClassName('move-uppp'))
+        Note:
+          Use inline-block (or text-gradient-to-l-block) to make the .move-uppp animation work. (display: block is necessary for transforms to work.)
+        */
+
+    // Use css query
+    //  Note: 
+    //  - Gets all elements which either:
+    //    1. Have class `move-uppp`
+    //    2. Have a parent with class `strong:move-uppp` and themselves have class `strong` 
+    //        (Note how the strong:some-class syntax is usually a custom tailwind variant implemented in tailwind.config.js, but here we're kinda 'misappropriating' this syntax.)
+
+    var toMoveUp: Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-uppp, .strong\\:move-uppp strong'));
+    
+    console.log(`index: toMoveUp elements: ${objectDescription(toMoveUp)}`)
+
     for (const element of toMoveUp) {
 
       const tlFade = $gsap.timeline({ scrollTrigger: {
@@ -446,9 +468,9 @@ onMounted(() => {
         toggleActions: 'play none none reverse',
         markers: false,
       }})
-      
-      const hasLittleSpace = element.classList.contains('move-uppp-little-space'); // We made the 'little-space' modifier for the CardContainer headers so they don't appear behind the cards at the start of the animation.
-      tlFade.fromTo(element, { opacity: '0' }, { opacity: '1', duration: 0.33, ease: linearFadingEase(0) }, hasLittleSpace ? 0.2 : 0.0); // (The fade-in starts 0.2s later into the animation if `hasLittleSpace` is active)
+
+      const hasLittleSpace = true;
+      tlFade.fromTo(element, { opacity: '0' }, { opacity: '1', duration: 0.33, ease: linearFadingEase(0) }, hasLittleSpace ? 0.2 : 0.0); 
 
       const tlMoveUp = $gsap.timeline({ scrollTrigger: {
         trigger: element,

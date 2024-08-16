@@ -2,21 +2,124 @@ import { request } from "https"
 
 export { objectDescription, doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo, setResolution, unsetResolution, formatAsMoney }
 
-function objectDescription(obj: any) {
+function objectDescription(value: any, parents: Array<any> = []): string | undefined {
 
   // Returns an objectDescription for debugging
   //  Use this over JSON.stringify() because that crashes for circular references inside the object.
+  //  Credit: ChatGPT
 
-  const alreadySeen = new Set();
+  // constants
+  const ndent = 4;
+  const brindent = "\n    ";
+  const br = "\n";
+  const activateSpecialSerialization = true;
+  const doEscape = false;
 
-  JSON.stringify(obj, function (this: any, key: string, value: any) {
-    if (alreadySeen.has(value)) {
-      return '[already seen element]';
-    } else {
-      alreadySeen.add(value);
-      return value;
+  // Declare string-escaping function (Credit: ChatGPT)
+  function escapeString(str: string) {
+    if (!doEscape) { return str };
+    return str.replace(/\\/g, '\\\\')   // Escape backslashes
+              .replace(/"/g, '\\"')     // Escape double quotes
+              .replace(/\n/g, '\\n')    // Escape newlines
+              .replace(/\r/g, '\\r')    // Escape carriage returns
+              .replace(/\t/g, '\\t')    // Escape tabs
+              .replace(/\b/g, '\\b')    // Escape backspaces
+              .replace(/\f/g, '\\f')    // Escape form feeds
+              .replace(/[\u0000-\u001F\u007F]/g, c => { // Escape control characters
+                  return '\\u' + ('0000' + c.charCodeAt(0).toString(16)).slice(-4);
+              });
+  }
+
+  // Declare add-indent function
+  function addIndent(str: string): string {
+    var resultArr: string[] = [];
+    for (const line of str.split('\n')) {
+      resultArr.push(" ".repeat(ndent).concat(line));
     }
-  }, 4);
+    return resultArr.join('\n');
+  }
+  function addBrindent(str: string): string {
+    const result = addIndent(str);
+    if (result.trim().length == 0) { return '' }
+    return "\n".concat(addIndent(str));
+  }
+
+  // Handle circular refs
+  const indexInParents = parents.indexOf(value);
+  if (indexInParents != -1) {
+    return `"<Duplicate of parent at index ${indexInParents}>"`;
+  }
+
+  // Push parents
+  parents.push(value);
+
+  // Declare result
+  var result: string | undefined
+
+  // Implement standard json serialization:
+
+  if (value === null || value === undefined) { 
+    // Handle null
+    result = "null";
+  } else if (typeof value === "string") { 
+    // Handle strings
+    result = `"${escapeString(value)}"`;
+  } else if (typeof value === "number" || typeof value === "boolean") { 
+    // Handle numbers and booleans
+    result = String(value);
+  } else if (typeof value.toJSON === 'function') { 
+    // Handle Dates + custom objects
+    result = value.toJSON(); // Should this be wrapped in escapeString()?
+  } else if (Array.isArray(value)) { 
+    // Handle arrays
+    var elements: Array<string> = []
+    for (const val of value) {
+      const d = objectDescription(val, parents);
+      elements.push(d == undefined ? "null" : d); // Non-parsable objects inside arrays are converted to "null" as JSON.stringify() also does.
+    };
+    result = `[${br}${elements.map((e) => addIndent(e)).join(`,${br}`)}${br}]`;
+  } else if (typeof value === "object") { 
+    // Handle objects
+    var entries: Array<string> = []
+    for (const [key, val] of Object.entries(value)) {
+      var d = objectDescription(val, parents);
+      d = d == undefined ? "null" : d;
+      if (d.includes('\n')) {
+        entries.push(`"${escapeString(key)}":${addBrindent(d)}`);
+      } else {
+        entries.push(`"${escapeString(key)}": ${d}`);
+      }
+    };
+    result = `{${entries.join(`,${br}`)}}`;
+  } else {
+    // Handle undefined and functions (these are not valid JSON values)
+    result = undefined;
+  }
+
+  // Implement SPECIAL serialization.
+  //  We wanna log some non-json serializable elements like HTMLElement.
+  //  So we implement custom toString stuff here.
+
+  if (activateSpecialSerialization) {
+    if (value instanceof HTMLElement) {
+      const tagName = value.tagName.toLowerCase();
+      const id = value.id ? `#${value.id}` : '';
+      const classList = 'class = ' + (value.classList.length > 0 ? ` .${Array.from(value.classList).join(' .')}` : '');
+      const attributes = Array.from(value.attributes)
+          .filter(attr => attr.name !== 'id' && attr.name !== 'class')
+          .map(attr => `${attr.name}="${escapeString(attr.value)}"`)
+          .join(' ');
+      const attrString = attributes ? ` ${attributes}` : '';
+      const content = escapeString(value.innerHTML.trim());
+      result = `<${tagName}${addBrindent(id)}${addBrindent(classList)}${addBrindent(attrString)}${br}>${br}${addIndent(content)}${br}</${tagName}>`;
+    }
+  }
+
+  // Pop self from parents
+  parents.pop();
+
+  // Return 
+  return result;
 }
 
 function formatAsMoney(number: number, currencyCode: string, locale = 'en') {
