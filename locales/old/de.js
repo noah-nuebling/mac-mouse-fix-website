@@ -189,7 +189,7 @@ export default {
   'quotes.translation-disclaimer.de': "", // !IS_OK || Leave current language blank
   'quotes.translation-disclaimer.zh': "Übersetzt aus dem Chinesischen",
 
-  // vvv Find original quotes in quotes.ts
+  // vvv Find original quotes in quotes.js
   // vvv Leave quotes blank which are originally in the current language
 
   'quotes.0': "Unter allen Apps, die versuchen, dieses Problem zu lösen, ist diese zweifellos die beste!",

@@ -18,7 +18,7 @@ logs
 .idea
 
 # Local env files
-.env
+# .env 		# Commenting out since python .env config file has this name
 .env.*
 !.env.example
 

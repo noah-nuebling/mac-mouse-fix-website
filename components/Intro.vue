@@ -11,25 +11,27 @@
     <div class="flex items-center justify-center group w-[100%] h-[100svh] relative z-[-20]">
 
       <!-- Localization Progress -->
-      <div ref="localizationProgress" :class="['absolute opacity-0 left-[50%] translate-x-[-50%] w-fit']" :style="{ 'top': `${navbarHeight_Unexpanded}px` }">
-        <div v-if="localizationProgressDisplay" :class="['xs:hidden relative leading-[2em] ch-[a]:normal-link-color text-[1em] font-[400] px-[0.9em] pb-[0.75em] pt-[calc(1em+10px)] mt-[-10px] text-black/[0.7] bg-white/[1] rounded-[0.75em] ']"">
-          
-          <i18n-t :keypath="'localization-progress'"
-                tag="p"
-                class="text-center whitespace-pre-line
-                      strong:mx-[0.0em] strong:bg-black/[0.05] strong:font-[600] strong:rounded-[4px] strong:px-[5px] strong:py-[1px]
-                      ch-[select]:mx-[0.05em]">
-            <template #localizationProgress>
-              <strong>{{ localizationProgressDisplay }}</strong>
-            </template>
-            <template #currentLocale>
-              <LocalePicker></LocalePicker>
-            </template>
-            <template #linkToGuide>
-              <a href="https://noah-nuebling.github.io/redirection-service?message=&target=localization-guide">{{ $t('localization-progress.link-to-guide') }}</a>
-            </template>
+      <div ref="localizationProgress_Wrapper" v-if="doShowLocalizationProgress" :class="['absolute opacity-0 left-[50%] translate-x-[-50%] w-fit']" :style="{ 'top': `${ global.navbarHeight_Unexpanded }px` }">
+        <div ref="localizationProgress">
+          <div :class="['xs:hidden relative leading-[2em] ch-[a]:normal-link-color text-[1em] font-[400] px-[0.9em] pb-[0.75em] pt-[calc(1em+10px)] mt-[-10px] text-black/[0.7] bg-white/[1] rounded-[0.75em]']">
             
-          </i18n-t>
+            <i18n-t :keypath="'localization-progress'"
+                  tag="p"
+                  class="text-center whitespace-pre-line
+                        strong:mx-[0.0em] strong:bg-black/[0.05] strong:font-[600] strong:rounded-[4px] strong:px-[5px] strong:py-[1px]
+                        ch-[select]:mx-[0.05em]">
+              <template #localizationProgress>
+                <strong>{{ localizationProgressDisplay }}</strong>
+              </template>
+              <template #currentLocale>
+                <LocalePicker></LocalePicker>
+              </template>
+              <template #linkToGuide>
+                <a href="https://noah-nuebling.github.io/redirection-service?message=&target=localization-guide">{{ $t('localization-progress.link-to-guide') }}</a>
+              </template>
+              
+            </i18n-t>
+          </div>
         </div>
       </div>
 
@@ -43,9 +45,12 @@
           <DownloadButton ref="downloadButton" class="bg-blue-500 rounded-full text-white px-[0.85em] py-[0.3em] text-[1.2rem] tracking-[0.0em]"></DownloadButton>
         </div>
       </div>
+
       <!-- Down arrow -->
-      <div ref="chevronDown" class="absolute left-0 right-0 bottom-0 h-fit flex justify-center opacity-0 z-[-10]">
-        <img :src="chevronImagePath" alt="" class="w-[2rem] m-[3rem] opacity-[0.85]"/>
+      <div ref="chevronDown_Wrapper" class="absolute left-0 right-0 bottom-0 h-fit z-[-10] opacity-0">
+        <div ref="chevronDown" class="flex justify-center">
+          <img :src="chevronImagePath" alt="" class="w-[2rem] m-[3rem] opacity-[0.85]"/>
+        </div>
       </div>
     </div>
 
@@ -69,24 +74,24 @@
       <div ref="dancer1" :class="['absolute inset-0 z-10 color-splash-dance1', splashDance ? '' : 'paused']">
         <div :class="['absolute inset-0 color-splash-pulse1', splashDance ? '' : 'paused']">
           <div ref="colorSplash1" class="absolute inset-0 opacity-1 ">
-            <NuxtImg :src="colorSplashDark1ImagePath" alt="" :class="['f-w-[calc((0.5*200vh)+(0.5*200*9.75px))] absolute top-[0] left-[calc(50%-0.5*1920px)]       translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] filter brightness-[1.0] transition-[opacity] duration-[1000ms] ease-linear ', navbarHasDarkAppearance ? '' : 'opacity-0']"/>
+            <NuxtImg :src="colorSplashDark1ImagePath" alt="" :class="['f-w-[calc((0.5*200vh)+(0.5*200*9.75px))] absolute top-[0] left-[calc(50%-0.5*1920px)]       translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] filter brightness-[1.0] transition-[opacity] duration-[1000ms] ease-linear ', global.navbarHasDarkAppearance ? '' : 'opacity-0']"/>
           </div>
         </div>
       </div>
 
       <!-- Top-left splash (light) -->
-      <NuxtImg :src="colorSplashImagePath" alt=""            :class="['f-w-[calc((0.5*235vh)+(0.5*235*9.75px))] absolute z-[10] top-[0] left-[calc(50%-0.5*1920px)] translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']"/>
+      <NuxtImg :src="colorSplashImagePath" alt=""            :class="['f-w-[calc((0.5*235vh)+(0.5*235*9.75px))] absolute z-[10] top-[0] left-[calc(50%-0.5*1920px)] translate-x-[calc(-50%-(-15%))] translate-y-[calc(-50%-12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', global.navbarHasDarkAppearance ? 'opacity-0' : '']"/>
 
       <!-- Bottom-right splash (dark) -->
       <div ref="dancer2" :class="['absolute inset-0 z-10 color-splash-dance2', splashDance ? '' : 'paused']">
         <div :class="['absolute inset-0 color-splash-pulse2', splashDance ? '' : 'paused']">
           <div ref="colorSplash2" class="absolute inset-0 opacity-1">
-            <NuxtImg :src="colorSplashDark2ImagePath" alt="" :class="['f-w-[calc((0.5*220vh)+(0.5*220*9.75px))] absolute bottom-[0] right-[calc(50%-0.5*1920px)]   translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] filter brightness-[1.0] transition-[opacity] duration-[1000ms] ease-linear ', navbarHasDarkAppearance ? '' : 'opacity-0']"/>
+            <NuxtImg :src="colorSplashDark2ImagePath" alt="" :class="['f-w-[calc((0.5*220vh)+(0.5*220*9.75px))] absolute bottom-[0] right-[calc(50%-0.5*1920px)]   translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] filter brightness-[1.0] transition-[opacity] duration-[1000ms] ease-linear ', global.navbarHasDarkAppearance ? '' : 'opacity-0']"/>
           </div>
         </div>
       </div>
       <!-- Bottom-right splash (light) -->
-      <NuxtImg :src="colorSplashImagePath" alt=""            :class="['f-w-[calc((0.5*185vh)+(0.5*185*9.75px))] absolute z-[10] bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', navbarHasDarkAppearance ? 'opacity-0' : '']"/>
+      <NuxtImg :src="colorSplashImagePath" alt=""            :class="['f-w-[calc((0.5*185vh)+(0.5*185*9.75px))] absolute z-[10] bottom-[0] right-[calc(50%-0.5*1920px)] translate-x-[calc(50%+(-15%))] translate-y-[calc(50%+12%)] scale-[1.1] transition-[opacity] duration-[1000ms] ease-linear', global.navbarHasDarkAppearance ? 'opacity-0' : '']"/>
     </div>
 
     <!-- Big Tagline -->
@@ -177,7 +182,7 @@ import speechBubbleImagePath from '../assets/img/text.bubble@8x.png'
 
 /* Import Quote stuff */
 
-import { getUsableQuotes } from '~/utils/Quotes';
+import { getUsableQuotes } from '~/utils/quotes';
 const quotes = getUsableQuotes()
 
 /* Import Other */
@@ -186,29 +191,6 @@ const constants = useConstants()
 const { currentSize, ResponsiveSize } = useResponsive()
 const $mt = useMT()
 const { onScrollStop } = useScrollCallbacks()
-
-/* Get localization progress */
-import Localizable from "../locales/Localizable";
-var localizationProgressDisplay: String | null; // String like `84%` or null.
-watch(_i18n.locale, (newLocale) => {
-  var currentLocaleInfo: any | null = null;
-  if (newLocale == Localizable["sourceLocale"]) {
-    localizationProgressDisplay = null;
-  } else {
-    var currentLocaleInfo = null
-    for (var localeInfo of Localizable["locales"]) {
-      if (localeInfo["code"] == newLocale) {
-        currentLocaleInfo = localeInfo;
-        break;
-      }
-    }
-    console.assert(currentLocaleInfo != null);
-    localizationProgressDisplay = currentLocaleInfo!["progressDisplay"];
-    if (localizationProgressDisplay == '100%') { 
-      // localizationProgressDisplay = null; // When the locale is 100% translated we set the displayString to `null`, since we don't want to display the progress in that case
-    } 
-  }
-}, { immediate: true })
 
 /* Expose methods */
 
@@ -220,37 +202,68 @@ defineExpose({
 /* Get global state */
 
 import { useGlobalStore } from "~/store/global";
-import { storeToRefs } from "pinia";
-import checkUserAgent from "~/plugins/check-user-agent";
 const global = useGlobalStore()
-const { navbarHasDarkAppearance, navbarHeight_Unexpanded } = storeToRefs(global)
+
+/* Get localization progress */
+
+import Localizable from "../locales/Localizable";
+var localizationProgressDisplay = ref<string>(''); // String like `84%`
+var doShowLocalizationProgress = computed(() => localizationProgressDisplay.value != '100%' || global.localeSwitchCount > 0); // Note: Show progress if is page is not fully translated, or user has switched locales (so the progress UI doesn't disappear while the user is using it to switch locales.) 
+
+// Watch locale changes
+watch(_i18n.locale, (newLocale: string) => {
+  // Get new localizationProgress
+  var p: string = '100%';
+  if (newLocale == Localizable["sourceLocale"]) {
+    p = '100%'; // Source language is 100% translated by definition.
+  } else {
+    var currentLocaleInfo: any | null = null;
+    for (var localeInfo of Localizable["locales"]) {
+      if (localeInfo["code"] == newLocale) {
+        currentLocaleInfo = localeInfo;
+        break;
+      }
+    }
+    console.assert(currentLocaleInfo != null);
+    p = currentLocaleInfo!["progressDisplay"]; // I think It would be cleaner if currentLocaleInfo gave us a float instead of a string like `%87`
+  }
+  console.assert(p != '' && p.includes('%'))
+    
+  // Store the progress string
+  localizationProgressDisplay.value = p
+
+  // Log
+  console.log(`Intro: localeSwitchCount: ${global.localeSwitchCount}, progress: ${localizationProgressDisplay.value}`)
+}, { immediate: true })
 
 /* Get dom element refs 
     All unused atm
 */
 
-const outerContainer          = ref<HTMLElement|null>(null)
-const innerContent            = ref<HTMLElement|null>(null)
-const mmfIcon                 = ref<NuxtImg|null>(null)
-const mmfName                 = ref<HTMLElement|null>(null)
-const introTagline            = ref<HTMLElement|null>(null)
-const downloadButton          = ref<DownloadButton|null>(null)
-const localizationProgress    = ref<HTMLElement|null>(null)
-const chevronDown             = ref<HTMLElement|null>(null)
-const backgroundContainer     = ref<HTMLElement|null>(null)
-const colorSplash1            = ref<HTMLElement|null>(null)
-const colorSplash2            = ref<HTMLElement|null>(null)
-const colorSplashCenter       = ref<HTMLElement|null>(null)
-const dancer1                 = ref<HTMLElement|null>(null)
-const dancer2                 = ref<HTMLElement|null>(null)
-const backgroundDiv           = ref<HTMLElement|null>(null)
-const taglineContainer        = ref<HTMLElement|null>(null)
-const tagline                 = ref<HTMLElement|null>(null)
-const quoteContainer          = ref<HTMLElement|null>(null)
-const quoteBottom             = ref<HTMLElement|null>(null)
-const quoteScrollingContainer = ref<HTMLElement|null>(null)
-const innerQuoteContainer     = ref<HTMLElement|null>(null)
-const quoteExpandButton       = ref<HTMLElement|null>(null)
+const outerContainer                  = ref<HTMLElement|null>(null)
+const innerContent                    = ref<HTMLElement|null>(null)
+const mmfIcon                         = ref<NuxtImg|null>(null)
+const mmfName                         = ref<HTMLElement|null>(null)
+const introTagline                    = ref<HTMLElement|null>(null)
+const downloadButton                  = ref<DownloadButton|null>(null)
+const localizationProgress_Wrapper    = ref<HTMLElement|null>(null)
+const localizationProgress            = ref<HTMLElement|null>(null)
+const chevronDown_Wrapper             = ref<HTMLElement|null>(null)
+const chevronDown                     = ref<HTMLElement|null>(null)
+const backgroundContainer             = ref<HTMLElement|null>(null)
+const colorSplash1                    = ref<HTMLElement|null>(null)
+const colorSplash2                    = ref<HTMLElement|null>(null)
+const colorSplashCenter               = ref<HTMLElement|null>(null)
+const dancer1                         = ref<HTMLElement|null>(null)
+const dancer2                         = ref<HTMLElement|null>(null)
+const backgroundDiv                   = ref<HTMLElement|null>(null)
+const taglineContainer                = ref<HTMLElement|null>(null)
+const tagline                         = ref<HTMLElement|null>(null)
+const quoteContainer                  = ref<HTMLElement|null>(null)
+const quoteBottom                     = ref<HTMLElement|null>(null)
+const quoteScrollingContainer         = ref<HTMLElement|null>(null)
+const innerQuoteContainer             = ref<HTMLElement|null>(null)
+const quoteExpandButton               = ref<HTMLElement|null>(null)
 
   // Collect elements
 function initalElementsExceptName() { return [findChild(mmfIcon.value, (child) => child.tagName == "IMG"), introTagline.value, downloadButton.value.rootElement] }
@@ -286,53 +299,13 @@ watch(quotesAreExpanded, (newValue) => {
 
 onMounted(() => {
 
-  /* Adjust gsap lag smoothing for better responsivity - doesn't seem to work (The feature cards set this to their own value) */
+  /* Adjust gsap lag smoothing for better responsivity - doesn't seem to work 
+      (The feature cards set this to their own value) */
+
   $gsap.ticker.lagSmoothing(false);
 
-  /* Play intro animations */
-
-  // Stop playing loading animation (pulse animation on `Mac Mouse Fix`)
-  playLoadingAnimation.value = false
-
-  // Color splash animation
-  // const tlSplash = $gsap.timeline({ paused: true })
-  var ease: any = "none"
-  var duration = 3.6
-
-  // tlSplash.to(colorSplash1.value, { opacity: 1, ease: ease }, 0)
-  // tlSplash.to(colorSplash2.value, { opacity: 1, ease: ease }, 0)
-
-  // tlSplash.duration(duration)
-  // doAfterRender(() => tlSplash.play(), 0.0)
-
-  // Intro transition
-  //  Edit: Removed the intro transition - Not this is just chevron (+ localizationProgress) fade-in
-  //  Note: I'm worried the localizationProgress fade-in takes away from the chevron animation a bit. But since its position is relative to the navBar height (`navbarHeight_Unexpanded`), I'm not sure we can render it in the correct position before hydration.
-
-  const tlIntro = $gsap.timeline({ paused: true })
-  ease = $customInOutEase
-  duration = 1.0
-
-  tlIntro.fromTo(chevronDown.value!, { autoAlpha: 0, translateY: initialTranslateY }, { autoAlpha: 1, translateY: 0, ease: ease }, 0)
-  tlIntro.fromTo(localizationProgress.value!, { autoAlpha: 0 }, { autoAlpha: 1, ease: ease }, 0)
-
-  tlIntro.duration(duration)
-  doAfterRender(() => tlIntro.play(), 0.0)
-
-  /* Make chevron bounce after delay 
-      Not totally sure if this is helpful or annoying. */
-  const chevronBounceDelay = 0.5 + duration
-  setTimeout(() => {
-    if (chevronDown.value != null) {
-      const c = chevronDown.value!.firstChild as HTMLElement
-      c.classList.add('cool-bounce')
-    }
-  }, chevronBounceDelay * 1000);
-
   /* Create scroll animation, then enable vertical scrolling */
-  doAfterRender(() => {
-    recreateIntroAnimation()
-  }, duration*1000)
+  recreateIntroAnimation()
   
   /* Update scroll animation on window resize */
   window.addEventListener("resize", () => {
@@ -357,7 +330,53 @@ onMounted(() => {
     debouncedCorrectQuoteScrollTop()
 
 
-  }); // Note: No need to call ScrollTrigger.refresh() here since we're killing and creating new triggers
+  }); // Note: There is no need to call ScrollTrigger.refresh() here since we're killing and creating new triggers
+
+  /* Play intro animations */
+
+  // Stop playing loading animation (pulse animation on `Mac Mouse Fix`)
+  playLoadingAnimation.value = false
+
+  // Color splash animation
+  // const tlSplash = $gsap.timeline({ paused: true })
+  var ease: any = "none"
+  var introTransitionDuration = 3.6
+
+  // tlSplash.to(colorSplash1.value, { opacity: 1, ease: ease }, 0)
+  // tlSplash.to(colorSplash2.value, { opacity: 1, ease: ease }, 0)
+
+  // tlSplash.duration(duration)
+  // doAfterRender(() => tlSplash.play(), 0.0)
+
+  // Intro transition
+  //  Edit: Removed the intro transition - Now this is just chevron + localizationProgress fade-in
+  //  Note: I'm worried the localizationProgress fade-in takes away from the chevron animation a bit. But since its position is relative to the navBar height (`global.navbarHeight_Unexpanded`), 
+  //    I'm not sure we can render it in the correct position before hydration, since we get the navbarHeight from the global store? Not sure. Also for languages that are 100% translated, we only display the 
+  //    localizationProgress if user has switch locales already. And so at least for those langauges, we can't prerender the localizationProgress and have to make it visible after hydration. 
+  //    So just implementing the fade-in for all languages is probably the easiest solution. 
+
+  const tlIntro = $gsap.timeline({ paused: true });
+  ease = $customInOutEase;
+  introTransitionDuration = 1.0;
+
+  tlIntro.fromTo(chevronDown_Wrapper.value!, { autoAlpha: 0, translateY: initialTranslateY }, { autoAlpha: 1, translateY: 0, ease: ease }, 0)
+  tlIntro.fromTo(localizationProgress_Wrapper.value!, { autoAlpha: 0 }, { autoAlpha: 1, ease: ease }, 0) // We use `_Wrapper` here to prevent interference, because we're also animating the alpha with the scrollAnimation.
+
+  tlIntro.duration(introTransitionDuration)
+  doAfterRender(() => tlIntro.play(), 0.0)
+
+  /* Make chevron bounce after delay 
+      Not totally sure if this is helpful or annoying. */
+
+  const chevronBounceDelay = 0.5 + introTransitionDuration
+  setTimeout(() => {
+    if (chevronDown.value != null) {
+      const c = chevronDown.value!.firstChild as HTMLElement
+      c.classList.add('cool-bounce')
+    }
+  }, chevronBounceDelay * 1000);
+
+ 
 })
 
 /* Debug */
@@ -420,7 +439,6 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   // Debug
   console.log(`Recreating intro animation`);
   console.log(`Window width: ${ window.innerWidth }`);
-  
 
   // Update state
   viewportSizeForCurrentAnimation = { width: window.innerWidth, height: window.innerHeight }
@@ -444,6 +462,9 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   const s = currentSize.value
   var zoomScale = (s == ResponsiveSize.xs ? 210 : s == ResponsiveSize.sm ? 220 : 230.0) * window.innerHeight / constants.base.height
 
+  // Notes:
+  //  - This sometimes errors due to tagline.value == null. Seen it during window resize. Doesn't seem to cause problems.
+  if (tagline.value == null) { return; }
   const taglineDistanceToOffscreen = tagline.value!.offsetTop + tagline.value!.offsetHeight
   const quotesDistanceToTagline = outerContainer.value!.offsetHeight/2 - tagline.value!.offsetHeight/2
 
@@ -518,10 +539,10 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     trigger: outerContainer.value!,
     start: `top+=${ startOffset } top`,
     end: `+=${ overallDistance-startOffset + window.innerHeight }`,
-    onEnter: () => { navbarHasDarkAppearance.value = true }, 
-    onEnterBack: () => { navbarHasDarkAppearance.value = true }, 
-    onLeave: () => { navbarHasDarkAppearance.value = false }, 
-    onLeaveBack: () => { navbarHasDarkAppearance.value = false }, 
+    onEnter: () => { global.navbarHasDarkAppearance = true }, 
+    onEnterBack: () => { global.navbarHasDarkAppearance = true }, 
+    onLeave: () => { global.navbarHasDarkAppearance = false }, 
+    onLeaveBack: () => { global.navbarHasDarkAppearance = false }, 
   })
 
   /* Setup new animation */
@@ -722,7 +743,11 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   })
 
   // Signal globally
-  global.introAnimationId += 1
+  requestAnimationFrame(() => { // Wait for next frame to give index.vue time to start watching this.
+    console.log(`Intro: Incrementing introAnimationId (${global.introAnimationId})`)
+    global.introAnimationId += 1
+  })
+
 
   // DEBUG
 

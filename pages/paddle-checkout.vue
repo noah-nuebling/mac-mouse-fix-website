@@ -224,7 +224,7 @@ watch([selectedOption, paddleCustomData], ([newSelectedOption, newCustomData], [
 
 function handlePaddleEvent(event: Object) {
 
-  console.log(`Received Paddle event: ${event.name}: ${JSON.stringify(event, null, 4)}`)
+  console.log(`Received Paddle event: ${event.name}: ${objectDescription(event, null, 4)}`)
 
   updatePaddleCheckoutHeight()
 
@@ -241,7 +241,7 @@ function handlePaddleEvent(event: Object) {
     window.open("/", "_self"); // Navigate to domain root. This happens when the user clicks the little 'x' button. Ideally I'd like to hide that one.
   }
 
-  // console.log(`TOTALLS: ${JSON.stringify(event, null, 4)}`)
+  // console.log(`TOTALLS: ${objectDescription(event, null, 4)}`)
 
   if (event.data) {
     if (event.data.totals) {
@@ -308,10 +308,8 @@ function updatePaddleCheckoutHeight() {
 var rootElement = ref<HTMLDivElement | null>(null)
 
 // Get global store
-import { storeToRefs } from 'pinia';
 import { useGlobalStore } from '~/store/global';
 const global = useGlobalStore()
-const { navbarHeight_Unexpanded } = storeToRefs(global)
 
 // Configure page
 definePageMeta({
@@ -319,7 +317,7 @@ definePageMeta({
 })
 
 // Pad rootElement so that navbar doesn't overlap
-watch(navbarHeight_Unexpanded, (newHeight) => {
+watch(() => global.navbarHeight_Unexpanded, (newHeight) => {
   rootElement!.value!.style.paddingTop = `${newHeight}px`
 })
 

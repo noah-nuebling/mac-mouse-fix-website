@@ -32,7 +32,7 @@
 <script>
 
 	function handlePaddleEvent(event) {
-		console.log(`Received Paddle event: ${event.name}: ${JSON.stringify(event, null, 2)}`)
+		console.log(`Received Paddle event: ${event.name}: ${objectDescription(event, null, 2)}`)
 
 		if (event.name == 'checkout.closed') {
 			window.open("/", "_self"); // Navigate to domain root. This happens when the user clicks the little 'x' button. Ideally I'd like to hide that one.

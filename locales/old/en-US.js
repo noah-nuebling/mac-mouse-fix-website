@@ -326,7 +326,7 @@ export default {
   'quotes.translation-disclaimer.de': "Translated from German",
   'quotes.translation-disclaimer.zh': "Translated from Chinese",
 
-  // vvv Find original quotes in quotes.ts
+  // vvv Find original quotes in quotes.js
   // vvv Leave quotes blank which are originally in the current language
 
   'quotes.0': "",

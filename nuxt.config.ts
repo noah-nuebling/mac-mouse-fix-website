@@ -60,6 +60,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/activate': { index: false/* , robots: 'index, follow' */ },
     '/thankyou': { index: false },
+    '/paddle-checkout': { index: false },
   },
   robots: {
     enabled: true,
@@ -73,6 +74,7 @@ export default defineNuxtConfig({
     configPath: '~~/tailwind.config.js'
   },
   i18n: {
+    skipSettingLocaleOnNavigate: true, // See app.vue
     langDir: null, //'./locales/',
     locales: Localizable['locales'],
     defaultLocale: Localizable['sourceLocale'],

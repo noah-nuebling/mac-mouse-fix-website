@@ -9,9 +9,11 @@ export const useGlobalStore = defineStore('global', () => {
 
   // Variables
   // const backdrop = ref<HTMLElement | null>(null)
-  const navbarHasDarkAppearance = ref<boolean>(false)
-  const navbarHeight_Unexpanded = ref(0)
-  const introAnimationId = ref(0) // This increments every time the intro animation is (re-)created. Useful for watching changes.
+  const navbarHasDarkAppearance = ref<boolean>(false);
+  const navbarHeight_Unexpanded = ref(0);
+  const introAnimationId = ref(0); // This increments every time the intro animation is (re-)created. Useful for watching changes.
+  const localeSwitchCount = ref(0); // How often the user has switched the locale
+  const localeSwitchIsPending = ref(false); // How often the user has switched the locale
 
   // Functions
   // function increment() {
@@ -19,5 +21,5 @@ export const useGlobalStore = defineStore('global', () => {
   // }
 
   // Return 
-  return { navbarHasDarkAppearance, introAnimationId, navbarHeight_Unexpanded }
+  return { navbarHasDarkAppearance, introAnimationId, navbarHeight_Unexpanded, localeSwitchCount, localeSwitchIsPending };
 })

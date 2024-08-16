@@ -130,13 +130,15 @@ function getUsableQuotes() {
 
 /* String Generator */
 
-function getUIStrings(quote) {
+function getUIStrings(quote, localeCode) {
 
   // Setup
 
-  const { t } = useI18n()
-  const { isCurrentLanguage } = useCoolI18n()
-  const mt = useMT()
+  
+  const { $i18n,  $coolI18n } = useNuxtApp()
+  const { t } = $i18n
+  const { mt } = $coolI18n
+  // locale.value
 
   // Get quote ui string
 
@@ -145,7 +147,7 @@ function getUIStrings(quote) {
   var isUsingTranslation = true
 
   // Try to get translation
-  uiQuote = t(quote.quoteKey)
+  uiQuote = t(quote.quoteKey, localeCode, {})
 
   // Log
   // console.log(`UI ${uiQuote}, en: ${ quote.englishQuote }, og: ${ quote.originalQuote} `)
@@ -159,7 +161,7 @@ function getUIStrings(quote) {
   // Get quote SOURCE ui string
 
   // Get quote source string from stringsfile, insert name, and apply markdown
-  var uiSource = mt( quote.source, { name: quote.name } )
+  var uiSource = mt(quote.source, { name: quote.name }, true, localeCode)
 
   // Add disclaimer
   if (isUsingTranslation) {

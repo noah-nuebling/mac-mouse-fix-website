@@ -1,4 +1,4 @@
-// Currently unused. We instead create the md renderer in markdownTranslate.ts.
+// Currently unused. We instead create the md renderer in markdownTranslate.ts. Update: Now in setup-cool-i18n.ts
 // This globally imports and registers markdownit
 // See: https://github.com/nuxt-community/markdownit-module/issues/47#issuecomment-1453684664
 

@@ -17,7 +17,8 @@
 
 // Imports
 import { type RouterConfig } from "@nuxt/schema"
-import { storeToRefs } from "pinia"
+import { type RouteLocationNormalizedGeneric, type RouteLocationNormalizedLoadedGeneric } from 'vue-router'
+import { objectDescription } from "~/utils/util"
 
 // Constants
 const hashOffset = -70 // Chosen so that the headline is *centered* on the screen when we link to sections of the website with #. !REMEMBER: Update this when the layout of the section headers changes.
@@ -26,27 +27,75 @@ const scrollBehavior = 'instant' // Whether to animate the scroll
 // Main
 export default <RouterConfig> {
   
-  scrollBehavior: (to, from, savedPosition) => {
+  scrollBehavior: (to: RouteLocationNormalizedGeneric, from: RouteLocationNormalizedLoadedGeneric, savedPosition) => {
 
-    const { $store } = useNuxtApp()
-    const { introAnimationId } = storeToRefs($store)
+    /* Here, we customize scroll-position-restoration logic after page reloads or route-changes
+    
+        This is all very hacky. If we change the logic here, we need to change other parts of the page, which rely on the timing of this. For example:
+        - Unhiding the `afterIntro` content inside Index.vue.
+    */
+
+    console.log(`router.options: Adjusting scroll position with\nfrom: ${objectDescription(from)}\nto: ${objectDescription(to)}\nsaved: ${savedPosition}`); // If we use JSON.stringify() instead of objectDescription(), this will crash in (only in release builds) due to circular refs int the printed objects.
+
+    const { $store: global, $i18n } = useNuxtApp();
+
+    const scrollY1 = window.scrollY;
+    const scrollHeight1 = document.documentElement.scrollHeight;
 
     return new Promise((resolve) => {
+      
+      const scrollY2 = window.scrollY;
+      const scrollHeight2 = document.documentElement.scrollHeight;
 
-      const unwatch = watch(introAnimationId, () => { // Wait for the intro scroll animation to load, because it shifts everything below it down.
+      const isLocaleSwitch = global.localeSwitchIsPending; // Why are we checking the localeSwitch flag here and not with scrollY4, scrollY5, whatever? Idk it works. 
+      if (isLocaleSwitch) {
+        console.assert(to.name !== from.name);
+      }
 
-        if (introAnimationId.value > 0) {
-          
-          requestAnimationFrame(() => {
-            resolve(
-                to.hash       ? { el: to.hash, top: hashOffset, behavior: scrollBehavior } : // If the URL ends with `#someID`, scroll to the element with HTML id `someID`
-                savedPosition ? { top: savedPosition.top, behavior: scrollBehavior  } : 
-                                { top: 0 }
-            )
-          })
+      const unwatch = watch(() => global.introAnimationId, async (newIntroAnimationId) => { // Wait for the intro scroll animation to load, because it shifts everything below it down.
 
-          unwatch()
+        const scrollY3 = window.scrollY;
+        const scrollHeight3 = document.documentElement.scrollHeight;
+
+        if (isLocaleSwitch) {
+          // `$i18n` is injected in the `setup` of the nuxtjs/i18n module.
+          // `scrollBehavior` is guarded against being called even when it is not completed
+          await $i18n.waitForPendingLocaleChange();
         }
+
+        const scrollY4 = window.scrollY;
+        const scrollHeight4 = document.documentElement.scrollHeight;
+
+        requestAnimationFrame(() => {
+
+          const scrollY5 = window.scrollY;
+          const scrollHeight5 = document.documentElement.scrollHeight;
+
+          console.log(`router.options: scrollYAndHeightChanges: ${scrollY1}/${scrollHeight1} -> ${scrollY2}/${scrollHeight2} -> ${scrollY3}/${scrollHeight3} -> ${scrollY4}/${scrollHeight4} -> ${scrollY5}/${scrollHeight5}`);
+
+          if (newIntroAnimationId > 0) {
+            if (isLocaleSwitch) {
+              const oldScrollTopDist = (scrollY1 - 0); // This is all very hacky. We're using scrollY1 and scrollY5 here. I'm not sure why that works.
+              const oldScrollBottomDist = (scrollHeight1 - window.innerHeight - scrollY1);
+              const scrollPosWasCloserToTopThanBottom = oldScrollTopDist < oldScrollBottomDist;
+              const newScrollY = scrollPosWasCloserToTopThanBottom ? (oldScrollTopDist) : (scrollHeight5 - window.innerHeight - oldScrollBottomDist);
+              console.log(`router.options: Restoring scroll position after locale switch. Anchoring to ${ scrollPosWasCloserToTopThanBottom ? 'top' : 'bottom'}. Target y: ${newScrollY}`);
+              resolve({ top: newScrollY });
+            } else if 
+            (to.hash) {
+              console.log(`router.options: Restoring scroll position with hash ${to.hash}`)
+              resolve({ el: to.hash, top: hashOffset, behavior: scrollBehavior}) // If the URL ends with `#someID`, scroll to the element with HTML id `someID`)
+            } else if 
+            (savedPosition) {
+              console.log(`router.options: Restoring scroll position to saved position ${savedPosition.top}`)
+              resolve({ top: savedPosition.top, behavior: scrollBehavior})
+            } else {
+              console.log(`router.options: Falling back to using default scroll restoration`);
+              resolve({ top: scrollY1 }) 
+            }
+          }
+        })
+        unwatch()
       })
     })
   }

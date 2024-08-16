@@ -12,12 +12,16 @@
 
 <script lang="ts" setup>
 
+/* Import global store */
+import { useGlobalStore } from "~/store/global";
+const global = useGlobalStore();
+
 /* Import i18n stuff
 Note: Why can't we use $i18n in ts like we do in html? */
 
 const i18n = useI18n();
+const switchLocalePath = useSwitchLocalePath()
 const localePicker = ref<HTMLSelectElement|null>(null);
-
 
 /* Set initial locale picker selection
     Note: We tried to use v-bind/: and v-model, but neither of them worked */
@@ -27,11 +31,36 @@ onMounted(() => {
 });
 
 /* React to user selecting a new locale */
-  
+
 function handleLocaleSelect(event: Event) {
-  const select = event.target as HTMLSelectElement
-  i18n.setLocale(select.value);
+  
+  // Extract info
+  const target = event.target as HTMLSelectElement;
+  const selectedLocale = target.value;
+
+  // Guard change
+  if (i18n.locale.value == selectedLocale) { return }
+
+  // Global flag
+  global.localeSwitchCount += 1;
+
+  // Set locale
+  //  setLocale changes the route, setting i18n.locale.value does not, and is not recommended for nuxt
+  // i18n.setLocale(selectedLocale);
+  navigateTo(switchLocalePath(selectedLocale));
+  global.localeSwitchIsPending = true;
+  // window.location.href = switchLocalePath(selectedLocale);
 }
+
+/* Update selection when locale updates due to other reasons 
+  (E.g. user navigating back through history)
+  Update: Not necessary anymore (I think after adding transitions in app.vue) */ 
+watch(i18n.locale, (newLocale) => {
+  // i18n.waitForPendingLocaleChange()
+  // if (localePicker.value != null) {
+  //   localePicker.value!.value = newLocale
+  // }  
+})
 
 </script>
 

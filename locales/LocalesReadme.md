@@ -1,20 +1,39 @@
 # Locales Readme
 
-## On automatic analysis
+## Overview 
+(16.08.2024)
 
-(Outdated)
-(Since we don't use the autoanalysis script anymore and instead use .xcstrings now.)
+- Overview: (16.08.2024)
+- Localizable.xcstrings, quotes.js,and Quotes.xcstrings are the ground-truth sources for all UI Strings.
+- Translations for the .vue files throughout the project are inside Localizable.xcstrings, while translations for quotes.js are inside Quotes.xcstrings.
+- quotes.js contains the English and Original-language versions of all quotes. Quotes.xcstrings is updated with the data from quotes.js through build scripts that run before the page is built.         
+    (Implemented in the `sync-strings` script in the `mac-mouse-fix-scripts` subrepo). The other language versions of the quotes are defined directly inside Quotes.xcstrings.
+- All other ui strings are defined directly inside Localizable.xcstrings.
+- Before the app is built, all uistrings are compiled into Localizable.js by one of our build scripts (build-strings script inside `mac-mouse-fix-scripts` iirc). Localizable.js is then directly used by nuxt-i18n to load the strings.
 
-The python script in the MMF repo which automatically analyzes missing, superfluous and outdated translations, relies on the file structure here to be like:
+- Also see:
+  1. Python scripts inside `mac-mouse-fix-scripts` where all this stuff is implemented have some explanations at the top of the files.
+  2. Details of the higher level concepts are discussion in the `mac-mouse-fix` repo's readme(s) about localization. (- we should possibly remove the discussion here and reference the `mac-mouse-fix` repo instead.)
 
-Base file at:
-`locales/en-US.js`
+Details: Why use this convoluted system?
+  - In Summer of 2024, we wanted to create a system where translators can access all localization resources for the MMF project from a single place. And then edit and submit translations in a relatively easy-to-use, and non-technical way. (Before, localizers had to build the Xcode project / nuxt app, them edit the source files, and then submit pull requests. The state of each localizable string had to be looked up in the State of Localization GitHub discussion). 
+  I decided I wanted to use .xcstrings files to hold our localizations (as well as keep track of the state of each localizable string) and export them for localizers as .xcloc files. (Xcode can import/export .xcstrings files as translator-friendly .xcloc files)
+  - So we wanted to use .xcstrings files for the whole project, so we can export/import everything as .xcloc files. 
+    But requires us to implement two functionalities:
+    1. Functionality: You need to compile the .xcstrings files into a format that is compatible with the target. Xcode automatically compiles the .xcstrings files to .strings and .stringsdict files when you build an app for an Apple platform. For the MMF Website, we compile the .xcstrings files into the Localizable.js file, which is then used by @nuxt/i18n to load the translated strings. We do this with a python script that runs before we build the nuxt app. This is relatively simple, since .xcstrings files are nicely-structured .json files under-the-hood, that we just have to restructure a little bit and then wrap with `export default {` to create a valid `.js` file.
+    2. Functionality: Usually, you have one/several source files, which the .xcstrings files are translating. You want to keep the .xcstrings file in-sync with the source files that are being translated. 
+       Xcode does this automatically, for C (Objective-C, C++, etc.) and .swift source code files, as well as .nib and .storyboard (interface-builder) files. But for our purposes we also wanted to use.md, .js, and .vue files as source files to be translated by our `.xcstrings` files. Specfically, for the MMF website, all the `.vue` files are the source files for `Localizable.xcstrings`, and `quotes.js` is the source file for `Quotes.xcstrings`. At the time of writing, we have a script that syncs `Quotes.xcstrings` with `quotes.js`. (Leveraging Apple's `xcstringstool` clt) For the `.vue` files, we don't have a syncing-script that updates `Localizable.xcstrings`, yet, but since the `.vue` files do not contain the source language (English) uiStrings directly, (instead, they only contain the string-keys) - it shouldn't be too much of a hassle to keep `Localizable.xcstrings` reasonably in-sync with the `.vue` files by hand.
 
-Translations at:
-`locales/*.js`
+Rambling: (This stuff is also discussed in the `mac-mouse-fix` repo's readme on localizatio -  we should possibly remove this and reference that instead.) 
+  Why did we decide to use .xcstrings + .xcloc files instead of using an online platform like crowdin or localazy:
+    This decision is a bit questionable but here are the reasons I remember:
+    - We can embed auto-generated localization screenshots, which will be shown in-line to translators, as they edit the .xcloc files
+      -> Apple even promised that Xcode would auto-generate localization screenshots, but I couldn't get it to work and we ended up implementing our own mechanism for doing that. (I couldn't stop myself. Result is nice)
+    - The localization state (stale, needs_review, translated, do_not_translate, etc.) is being kept track of by Xcode automatically as you edit the .xcstrings / .xcloc files. And the state is shown in-line for editors and for me, right in the project.
+    - The editing experience is imo nicer/cleaner/simpler than most online localization platforms, like localazy and crowdin (although localazy is pretty good and supports .xcstrings files iirc. I have detailed notes on my tests somewhere.)
+    - It's free (I don't think the online platforms like crowdin and localazy would be free for MMF, since MMF is not free and doesn't have an officially authorized open-source license.) (On the other hand, the platforms aren't very expensive IIRC, and it would have surely been worth it.)
+    - To make it easier to translate our Readme.md and Acknowledgements.md files, I thought it's really nice to use .xcstrings files, since you can break the long document down into little chunks where each chunk has a state, such as 'needs_review' which is automatically managed by Xcode. Translators can see the original section right in line with the translated section in the editor, and compiling/syncing the markdown documents from/to .xcstrings files really wasn't hard. Not sure something comparable would be possible with an online platform.
 
-(Don't use `.ts` as file extension)\
-See the output of the script in the comment at: https://github.com/noah-nuebling/mac-mouse-fix/discussions/731
 
 ## Why do we have an Xcode project here? 
 
@@ -32,9 +51,25 @@ To export an .xcloc file for German into the folder `localization-export` go to 
 xcodebuild -exportLocalizations -localizationPath localization-export -exportLanguage de
 ```
 
+## On automatic analysis
+
+(Outdated as of August 2024)
+(Since we don't use the autoanalysis script (aka `State of Localization` script) anymore and instead use .xcstrings now.)
+
+The python script in the MMF repo which automatically analyzes missing, superfluous and outdated translations, relies on the file structure here to be like:
+
+Base file at:
+`locales/en-US.js`
+
+Translations at:
+`locales/*.js`
+
+(Don't use `.ts` as file extension)\
+See the output of the script in the comment at: https://github.com/noah-nuebling/mac-mouse-fix/discussions/731
+
 ## Notes from old en-US.js file
 
-We had these notes inside the en-US.js file before we moved over to using Localizable.xsstrings
+We had these notes inside the en-US.js file before we moved over to using Localizable.xcstrings
 
 ### Trackpad Features
 

@@ -22,9 +22,14 @@ Notes:
 
     @apply sm:text-[12px] text-[12px];
 
+    /* Disable horizontal scroll */
+    @apply overflow-x-hidden;
+
     /* Disable vertical scroll - is re-enabled in js after hydration in index.html
-      Note: Tried to put this inside index.html where I think it belongs but dindn't work there for some reason. */
-    overflow-y: clip;
+        Notes: 
+        - Tried to put this inside index.html where I think it belongs but didn't work there for some reason. 
+        - `overflow-hidden` is better than `clip` I think. Clip also turns off programmatic scrolling apparently. */
+    @apply overflow-y-hidden;
 
     /* Set default font family (Defined in tailwind.config.js) */
     @apply font-body;
@@ -35,8 +40,16 @@ Notes:
   }
 
   body {
-    /* Disable horizontal scroll (setting this on the html element doesn't work on mobile) */
-    @apply overflow-x-clip;
+
+    /* Disable horizontal scroll 
+        Notes: 
+        - setting this on the html element doesn't work on mobile
+        - Doing this on `body` as well as `html` to be safe. */
+    @apply overflow-x-hidden;
+
+    /* Disable vertical scroll - re-enable in js after hydration 
+        Note: We're doing this on `body` as well as `html` to be safe */
+    @apply overflow-y-hidden;
 
     /* Set background */
     @apply bg-neutral-50;

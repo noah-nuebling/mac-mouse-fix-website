@@ -17,10 +17,10 @@
 
     <p class="hidden fixed top-[15rem] w-full pointer-events-none">This is a work in progress. Visit <a href="https://mousefix.org" style="color:blue">mousefix.org</a></p>
     <div class="hidden items-end justify-center fixed left-0 top-[15rem] w-full h-[10rem] z-50">
-      <div class="hidden bg-red-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="$refs.intro.killIntroAnimation()">
+      <div class="bg-red-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="$refs.intro.killIntroAnimation()">
         <p class="text-white text-center">Kill Intro</p>
       </div>
-      <div class="hidden bg-green-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="$refs.intro.recreateIntroAnimation()">
+      <div class="bg-green-500 rounded-[20px] w-fit h-fit py-[0px] px-[7px] m-[20px] cursor-pointer select-none z-50" @click="$refs.intro.recreateIntroAnimation()">
         <p class="text-white text-center">Reload Intro</p>
       </div>
     </div>
@@ -33,7 +33,7 @@
     <!-- Initialize this to low opacity, to hide that scroll position changes twice - once to restore scroll position and another time after intro animation has loaded. 
             Edit: We're now delaying when the scroll position is set inside app/router.options.ts, so in most cases we don't need this. But there is one case: When we open a new tab in Chrome and then go to a hash link. In that case chrome goes to the hashlink immediately, and then a moment later, after the introAnimation as loaded, the vue router sets the proper scroll position. And if we don't hide the afterIntro content during this it looks janky Edit: In Safari on first page load the position never corrects to the proper one. Edit: By setting hashMode to false in the nuxt routerconfig, now it works I think. -->
 
-    <div ref="afterIntro" class="opacity-[0.0]"> 
+    <div ref="afterIntro" class="opacity-0"> 
 
       <!-- Replaces Trackpad -->
       
@@ -176,18 +176,18 @@
         </CardContainer>
       </div>
 
-    </div>
+        <!-- 'alternatives.mx-master-rant'
+          'pay-reason.pity'
+          'pay-reason.open-source-indie' -->
 
-<!-- 'alternatives.mx-master-rant'
-'pay-reason.pity'
-'pay-reason.open-source-indie' -->
+      <!-- Bottom Nav
+           Notes:
+            - The hex colors used here are based on tailwinds green-500 with slight brightness adjustments using oklch.com
+            - bottomNav should be in 'afterIntro', so it's hidden before the has loaded (since the whole layout shifts after the intro has loaded.)
+      -->
+      <BottomNav/>
 
-    <!-- Bottom Nav -->
-    <!-- Notes:
-          - The hex colors used here are based on tailwinds green-500 with slight brightness adjustments using oklch.com
-    -->
-    <BottomNav/>
-
+    </div> <!-- End of 'afterIntro' div.  -->
   </div>
 </template>
 
@@ -226,8 +226,8 @@ const { $gsap, $ScrollTrigger, $isFirefox } = useNuxtApp()
 /* Import i18n stuff
     Note: Why can't we use $i18n in ts like we do in html? */
 
-const { setLocale, locale, defaultLocale } = useI18n() 
-const $mt = useMT()
+// const { setLocale, locale, defaultLocale } = useI18n() 
+// const $mt = useMT()
 // import { $mt } from '~/utils/markdownTranslate'
 
 /* Import quote stuff */
@@ -277,27 +277,26 @@ const colorSplashImagePath = '/color-splash.png'
 
 /* Get global store */
 import { useGlobalStore } from '~/store/global';
-import { storeToRefs } from 'pinia';
 const global = useGlobalStore()
-const { introAnimationId } = storeToRefs(global)
 
 /* Get refs */
 
-const rootElement = ref<HTMLElement | null>(null)
+const rootElement = ref<HTMLElement | null>(null);
 
-const afterIntro = ref<HTMLElement | null>(null)
+const intro = ref<HTMLElement | null>(null);
+const afterIntro = ref<HTMLElement | null>(null);
 
-const trackpadCardsSection1 = ref<HTMLDivElement | null>(null)
-const trackpadCardsSection2 = ref<HTMLDivElement | null>(null)
-const trackpadSplash1 = ref<HTMLElement | null>(null)
-const trackpadSplash2 = ref<HTMLElement | null>(null)
-const trackpadRule = ref<HTMLElement | null>(null)
+const trackpadCardsSection1 = ref<HTMLDivElement | null>(null);
+const trackpadCardsSection2 = ref<HTMLDivElement | null>(null);
+const trackpadSplash1 = ref<HTMLElement | null>(null);
+const trackpadSplash2 = ref<HTMLElement | null>(null);
+const trackpadRule = ref<HTMLElement | null>(null);
 
-const scrollingCardsSection1 = ref<HTMLElement | null>(null)
-const scrollingCardsSection2 = ref<HTMLElement | null>(null)
-const actionTableCardsSection = ref<HTMLElement | null>(null)
-const priceCardsSection1 = ref<HTMLElement | null>(null)
-const priceCardsSection2 = ref<HTMLElement | null>(null)
+const scrollingCardsSection1 = ref<HTMLElement | null>(null);
+const scrollingCardsSection2 = ref<HTMLElement | null>(null);
+const actionTableCardsSection = ref<HTMLElement | null>(null);
+const priceCardsSection1 = ref<HTMLElement | null>(null);
+const priceCardsSection2 = ref<HTMLElement | null>(null);
 
 /* Other vars */
 const sectionToTimelineMap = new Map<Ref<HTMLElement | null>, gsap.core.Timeline>()
@@ -307,8 +306,16 @@ var fadeTimelines: Array<gsap.core.Timeline> = []
 //  Don't do this on Firefox, because the framerate is super low when the Feature Cards are in view. Not sure if disabling parallax helps noticably.
 var parallaxElements = $isFirefox ? [] : [trackpadCardsSection1, trackpadCardsSection2, scrollingCardsSection1, scrollingCardsSection2, actionTableCardsSection, priceCardsSection1, priceCardsSection2]
 
-
 onMounted(() => {
+
+
+  /*  Turn off scrolling 
+        Notes: 
+        - We already set `overflow-y-hidden` in tailwind.css, which turns off scrolling after the initial page load, but after a page transition (e.g. locale switch), we need to programmatically turn off scrolling.
+  */
+  if (import.meta.client) {
+      document.documentElement.style.overflowY = 'hidden'; 
+  };
 
   // Add parallaxElements
   //  Currently unused
@@ -317,15 +324,36 @@ onMounted(() => {
     parallaxElements.push(ref(element as HTMLElement)) 
   } 
 
-  watch(introAnimationId, (newValue) => {
+  console.log(`Index: Setting up introAnimationId watcher...`);
+  watch(() => global.introAnimationId, (newValue) => {
 
     console.log(`Intro is ready: ${ newValue }`)
 
     if (newValue == 0) { return }
 
-    afterIntro.value!.style.opacity = '1.0'
+    requestAnimationFrame(() => { 
+      
+      // Discussion:
+      //  - We delay using `requestAnimationFrame()` so the opacity is set to 1.0 after (instead of before) router.option.ts has set the scroll position. 
+      //      Might need to change this if we update router.option.ts. Very hacky. 
+      //  - Afaik, we turn off scrolling and hide everything before the intro is loaded, because the intro will change height after it's loaded.
+      //      (that's because it dynamically calculates the structure and length of the scroll-linked intro animation)
+      //      This shifts all the following content (Should be everything inside the `afterIntro` div) down. 
+      //      A more elegant solution might be to - instead of hiding and locking everything - to simply shift the browser's scroll position after the intro has loaded,
+      //      to compensate for the shift of the `afterIntro` content. (So that from the users perspective, they don't see the content moving around after the intro has loaded)
+      //  - Based on looking at console-logs, the loading of the intro actually takes almost no time. The thing that's causing a noticable delay until the page is unhidden, and unlocked, 
+      //      is that we're waiting for the page to be hydrated before the intro is loaded. So we're kind of undoing the benefits of nuxt's static site generation, by simply hiding all 
+      //      the static, 'server-side generated' aka 'pre-rendered', aka 'SSG' content, and only showing stuff, once the 'client-side-rendering' has finished. 
+      //      However, since we don't hide the intro itself, the big MMF logo with the download button at the very top of the page, is prerendered and shown to the user immediately after page-load, 
+      //      so we do get some nuxt-SSG benefits there.
 
-    document.documentElement.style.overflowY = 'scroll'
+      // Make visible
+      afterIntro.value!.style.opacity = '1.0';
+
+      // Enable scrolling
+      //  Note: `overflow-y-hidden` is set in tailwind.css
+      document.documentElement.style.overflowY = 'scroll';
+    });
 
     if (false /* newValue > 1 */) {
       // Refresh scrollTriggers

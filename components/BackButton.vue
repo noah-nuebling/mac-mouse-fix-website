@@ -11,6 +11,7 @@
 <script setup lang="ts">
 
 const $mt = useMT()
+const localePath = useLocalePath()
 
 const props = defineProps({
   path: String,

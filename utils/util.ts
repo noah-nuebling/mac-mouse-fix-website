@@ -1,6 +1,23 @@
 import { request } from "https"
 
-export { doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo, setResolution, unsetResolution, formatAsMoney }
+export { objectDescription, doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo, setResolution, unsetResolution, formatAsMoney }
+
+function objectDescription(obj: any) {
+
+  // Returns an objectDescription for debugging
+  //  Use this over JSON.stringify() because that crashes for circular references inside the object.
+
+  const alreadySeen = new Set();
+
+  JSON.stringify(obj, function (this: any, key: string, value: any) {
+    if (alreadySeen.has(value)) {
+      return '[already seen element]';
+    } else {
+      alreadySeen.add(value);
+      return value;
+    }
+  }, 4);
+}
 
 function formatAsMoney(number: number, currencyCode: string, locale = 'en') {
 
