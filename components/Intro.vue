@@ -295,7 +295,17 @@ watch(quotesAreExpanded, (newValue) => {
 
 // console.log(`Window dims: ${ vw() * 100 } x ${ vh() * 10095 }`)
 
-/* Wait for mount */
+/* Lifecycle */
+
+var windowResizeObserver: ResizeObserver | null = null
+
+onMounted(() => {
+
+  /* Cleanup resize-observation */
+  if (windowResizeObserver) {
+    windowResizeObserver!.disconnect();
+  }
+})
 
 onMounted(() => {
 
@@ -308,7 +318,8 @@ onMounted(() => {
   recreateIntroAnimation()
   
   /* Update scroll animation on window resize */
-  window.addEventListener("resize", () => {
+
+  const onResize = () => {
 
     // Recreate intro scroll animation
     // Discussion:
@@ -329,8 +340,19 @@ onMounted(() => {
     // Correct quotes
     debouncedCorrectQuoteScrollTop()
 
+  }; // Note: There is no need to call ScrollTrigger.refresh() here since we're killing and creating new triggers
 
-  }); // Note: There is no need to call ScrollTrigger.refresh() here since we're killing and creating new triggers
+  // Start resize-observation
+  //  Notes: 
+  //  - We're using `  window.addEventListener('resize', ...)` since that's called when you resize the window on the desktop.
+  //  - We're using ResizeObserver() + a 50 ms debouncer for iOS:
+  //    On iOS (16.7.8), when you scale the site using the a|A buttons, window.addEventListener('resize', ...) didn't seem to fire until you start scrolling, leading to janky layouts. Listening to `orientationchange` instead of `resize` doesn't help. 
+  //    Had to use a 50 ms delay before invoking onResize() for the window.innerWidth/.innerHeight to be updated before onResize() is invoked. Tried requestAnimationFrame() but it didn't work it seemed.
+  //    Debouncing bc why not and in case user spams the `a|A` buttons.
+  const debouncedOnResize = debouncer(onResize, 50);
+  windowResizeObserver = new ResizeObserver(debouncedOnResize);
+  windowResizeObserver.observe(document.body, {});
+  window.addEventListener('resize', debouncedOnResize);
 
   /* Play intro animations */
 
@@ -391,8 +413,8 @@ var tlScroll: gsap.core.Timeline | null = null
 var navTrigger: ScrollTrigger | null = null
 
 
-const debouncedCorrectQuoteScrollTop = debouncer(() => correctQuoteScrollTop(), 100)
-const debouncedRecreateIntroAnimation = debouncer(() => recreateIntroAnimation(), 100)
+const debouncedCorrectQuoteScrollTop = debouncer(correctQuoteScrollTop, 100)
+const debouncedRecreateIntroAnimation = debouncer(recreateIntroAnimation, 100)
 
 function killIntroAnimation(reset: boolean = false) {
   if (tlScroll != null) {
