@@ -616,7 +616,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
     // setResolution(1.0, ...resolutionAdjustedElements)
   }
   tlScroll.to({}, { onUpdate: optimizeOnUpdate((rawProgress) => {
-    
+
     const scaler = (rawProgress: number) => intervalScale(scaleEase(rawProgress), unitInterval, { start: 1, end: zoomScale })
     const scale = scaler(rawProgress)
 
@@ -638,43 +638,53 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
       if (rawProgress <= 0.00) {
         if (lastRawZoomStage != -2) {
-          unsetResolution(...resolutionAdjustedElements)
+          unsetResolution(...resolutionAdjustedElements);
           // setResolution(1.0, ...resolutionAdjustedElements)
           // mmfName.value!.style.color = 'black'
-          lastRawZoomStage = -2
+          lastRawZoomStage = -2;
         }
       } else if (rawProgress < 0.05) {
         if (lastRawZoomStage != -1) {
-          unsetResolution(...resolutionAdjustedElements)
+          unsetResolution(...resolutionAdjustedElements);
           // setResolution(scaler(0.05), ...resolutionAdjustedElements)
           // mmfName.value!.style.color = 'black'
-          lastRawZoomStage = -1
+          lastRawZoomStage = -1;
         }
       } else if (rawProgress < 0.2) {
         if (lastRawZoomStage != 0) {
-          setResolution(scaler(0.2), ...resolutionAdjustedElements)
+          setResolution(scaler(0.2), ...resolutionAdjustedElements);
           // mmfName.value!.style.color = 'blue'
-          lastRawZoomStage = 0
+          lastRawZoomStage = 0;
         }
       } else if (rawProgress < 0.5) {
         if (lastRawZoomStage != 1) {
-          setResolution(scaler(0.5), ...resolutionAdjustedElements)
+          setResolution(scaler(0.5), ...resolutionAdjustedElements);
           // mmfName.value!.style.color = 'orange'
-          lastRawZoomStage = 1
+          lastRawZoomStage = 1;
         }
       } else if (rawProgress < 0.6) {
         if (lastRawZoomStage != 2) {
-          setResolution(scaler(0.6), ...resolutionAdjustedElements)
+          setResolution(scaler(0.6), ...resolutionAdjustedElements);
           // mmfName.value!.style.color = 'yellow'
-          lastRawZoomStage = 2
+          lastRawZoomStage = 2;
         }
-      } else if (rawProgress >= 0.6) {
+      } else if (rawProgress < 1.0) {
         if (lastRawZoomStage != 3) {
-          setResolution(scaler(0.7), ...resolutionAdjustedElements)
+          setResolution(scaler(0.7), ...resolutionAdjustedElements);
           // mmfName.value!.style.color = 'green'
-          lastRawZoomStage = 3
+          lastRawZoomStage = 3;
         }
+      } else if (rawProgress >= 1.0) {
+        // Explanation - Why do we need this >=1.0 zoom stage that does nothing?: 
+        //    The <1.0 zoom stage is entered when the user actually scrolls into the zoom animation, while the >=1.0 stage is entered immediately on page load, 
+        //      if the page is loaded scrolled past the zoom animation.
+        //    If we setResolution() right after page load, while scrolled past the zoomAnimation, we get janky behaviour. 
+        //    I suspect the jank is because the bitmap caching of setResolution() doesn't work since we set `display: none` shortly after the end of the zoomAnimation. 
+        //    (That happens in ```tlScroll.to(zoomedElement, { display: "none", duration: 0 }, bgStop);```. If we disable that, the jank goes away but that causes other problems.)
+        
+        lastRawZoomStage = 4; 
       }
+
     }
   }), duration: zoomDistance }, zoomStart)
 
@@ -702,9 +712,10 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   tlScroll.set({}, { onComplete: () => { splashDance.value = (!prefersReducedMotion()) }, onReverseComplete: () => { splashDance.value = false } }, bgStart-300)
   tlScroll.fromTo(zoomedElement, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0 }, bgStop)
   if (!useOptimizedAnimations) {
-    /* Setting the scale back to 1 here seem to slow things down, but if we don't reset the scale at some point, then the site becomes superrrr long. Maybe we should reset it at some point where there's no other heavy animations? Or set disabled rendering (by setting `display: none`) instead of resetting scale? Edit: Setting `display: none`
-        Update: This triggers too early and looks unpolished on mobile. Dont' know why. Tried tween.set() and tween.to() */
-    tlScroll.to(zoomedElement, { display: "none", duration: 0 }, bgStop)
+    // Setting the scale back to 1 here seem to slow things down, but if we don't reset the scale at some point, then the site becomes superrrr long. Maybe we should reset it at some point where there's no other heavy animations? Or set disabled rendering (by setting `display: none`) instead of resetting scale? Edit: Setting `display: none`
+    //    Update: This triggers too early and looks unpolished on mobile. Dont' know why. Tried tween.set() and tween.to()
+    //    Update (August 2024): I can't reproduce the issues above. Tried removing this, and I think it caused Chrome performance to tank and the move-uppp animations to break on the page when scrolling down fast. Not sure.
+    tlScroll.to(zoomedElement, { display: "none", duration: 0 }, bgStop);
   }
 
   // Add quotes
