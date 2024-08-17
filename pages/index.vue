@@ -237,7 +237,7 @@ const quotes = getUsableQuotes()
 
 /* Import other stuff */
 
-import { everyNth } from '~/utils/util';
+import { remInPx } from '~/utils/util';
 import { type Ref } from 'vue'
 import { linearFadingEase, customInOutEase } from '~/utils/curves'
 
@@ -453,17 +453,36 @@ onMounted(() => {
     //    2. Have a parent with class `strong:move-uppp` and themselves have class `strong` 
     //        (Note how the strong:some-class syntax is usually a custom tailwind variant implemented in tailwind.config.js, but here we're kinda 'misappropriating' this syntax.)
 
-    var toMoveUp: Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-uppp, .strong\\:move-uppp strong'));
+    var toMoveUp: Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-uppp, .strong\\:move-uppp strong')); // The double backslash `\\` is so colon `:` is interpreted as part of the class name, instead of the start of a `:pseudo-class`.
     
     console.log(`index: toMoveUp elements: ${objectDescription(toMoveUp)}`)
 
+    const animationStartOffset = `${18 * remInPx()}px`;
+
     for (const element of toMoveUp) {
 
-      const tlFade = $gsap.timeline({ scrollTrigger: {
-        trigger: element,
+      if (!(element instanceof HTMLElement)) { continue; }
+
+      // Get triggerElement and compensation
+      // Explanations:
+      //  On inline-block: At the time of writing, we only move-uppp specific spans of text inside longer paragraphs. To apply a transform to a text-span, it has to be set to `display: inline-block` afaik. 
+      //    For these cases, we want to start the animation based on the scroll position of the parent paragraph, so the user can read the paragraph and then the 'blanks' are filled in at a controlled point.
+      //    That's why here, we set the 'triggerElement' to the parent if the element has display: inline-block.
+      //  On animationStartOffsetCompensation: For the move-uppp animation, we start the animated element in a moved-down position, and then, after its scrolled into view, we animate it into its proper position in the layout.
+      //    However, the element being moved-down initially, changes the scroll position where the animation is started, since that scroll position is calculated relative to the `triggerElement` which we set equal to the animated element by default.
+      //    To Remove this shift in the animamtion-start-scroll-position, we use `animationStartOffsetCompensation`.
+      var animationStartOffsetCompensation = `-${animationStartOffset}`;
+      var triggerElement = element;
+      if (getComputedStyle(element).display == 'inline-block') {
+        triggerElement = element.parentElement ?? element;
+        animationStartOffsetCompensation = '0px';
+      }
+      
+      const tlFade = $gsap.timeline({scrollTrigger: {
+        trigger: triggerElement,
         pin: false,
-        start: "bottom 95%",
-        end: "bottom 10%",
+        start: `bottom+=${animationStartOffsetCompensation} 85%`,
+        end: `bottom+=${animationStartOffsetCompensation} 10%`,
         scrub: false,
         toggleActions: 'play none none reverse',
         markers: false,
@@ -473,10 +492,10 @@ onMounted(() => {
       tlFade.fromTo(element, { opacity: '0' }, { opacity: '1', duration: 0.33, ease: linearFadingEase(0) }, hasLittleSpace ? 0.2 : 0.0); 
 
       const tlMoveUp = $gsap.timeline({ scrollTrigger: {
-        trigger: element,
+        trigger: triggerElement,
           pin: false,
-          start: "bottom 95%",
-          end: "bottom 10%",
+          start: `bottom+=${animationStartOffsetCompensation} 85%`,
+          end: `bottom+=${animationStartOffsetCompensation} 10%`,
           scrub: false,
           toggleActions: 'play none none reverse',
           markers: false,
@@ -484,9 +503,10 @@ onMounted(() => {
       // tlMoveUp.fromTo(element, { opacity: '0' }, { opacity: '1', duration: 0.33, ease: linearFadingEase(0) }, 0)
       // tlMoveUp.fromTo(element, { translateY: '18rem' }, { translateY: '0rem', duration: 0.75, ease: criticalSpring(5.0) /* $Power3.easeOut */ }, 0);
       // tlMoveUp.fromTo(element, { translateY: '12rem' }, { translateY: '0rem', duration: 0.55, ease: criticalSpring(6.0) }, 0);
-      tlMoveUp.fromTo(element, { translateY: '18rem' }, { translateY: '0rem', duration: 0.8, ease: criticalSpring(6.0) }, 0);
+      tlMoveUp.fromTo(element, { translateY: animationStartOffset }, { translateY: '0rem', duration: 0.8, ease: criticalSpring(6.0) }, 0);
 
       fadeTimelines.push(tlMoveUp);
+      fadeTimelines.push(tlFade);
     }
   })
 })
