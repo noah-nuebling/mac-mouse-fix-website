@@ -120,7 +120,7 @@
             - Thought about including a non-trackpad features section - but not enough features so far to warrant a whole section -->
 
       <div class="strong:text-gradient-to-l">
-        <SectionHeader id="action_table" class="gradient-red strong:filter strong:brightness-[1.0]" title-accent-class="italic" title-accent2-class="move-uppp text-gradient-to-l-block filter brightness-[1.12] hue-rotate-[-0deg]" title-key="remap-engine.title" title-accent-key="remap-engine.title.accent" title-accent2-key="remap-engine.title.accent2" body-key="remap-engine.body" />
+        <SectionHeader id="action_table" class="gradient-red strong:filter strong:brightness-[1.0]" title-accent-class="italic" title-accent2-class="move-uppp text-gradient-to-l-block filter brightness-[1.12] hue-rotate-[-0deg]" title-key="customization.intro.title" title-accent-key="customization.intro.title.accent" title-accent2-key="customization.intro.title.accent2" body-key="customization.intro.body" />
 
         <CardContainer class="gradient-red var-[accent-rotate=170deg] ch-[.card-title_strong]:brightness-[1.0] strong:brightness-[0.95]">
           <div class="relative">
@@ -130,8 +130,8 @@
                   <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]"/>
               </div>
               <div ref="actionTableCardsSection" class="flex flex-col items-center gap-[5rem] py-[4.5rem]">
-                <NormalFeatureCard titleKey="customization-feature.action-table.title" bodyKey="customization-feature.action-table.body" :videoPath="actionTableDemoPath"              title-class="!font-[600]" class="w-full"        content-class="par-[.isNotExpanded]:max-w-[50rem]" :image-path="actionTableImagePath" image-scaling-sizes="" image-class="w-[205%] sm:mt-[1rem] mt-[2rem] mr-[calc(-107%)] mb-[-35%] translate-x-[0rem]"/>
-                <NormalFeatureCard titleKey="customization-feature.keyboard-shortcuts.title" bodyKey="customization-feature.keyboard-shortcuts.body" :videoPath="keyboardShortcutDemoPath"  title-class="!font-[600]" class="w-full" expand-button-key="customization-feature.keyboard-shortcuts.expand-button"/>
+                <NormalFeatureCard titleKey="customization.action-table.title" bodyKey="customization.action-table.body" :videoPath="actionTableDemoPath"              title-class="!font-[600]" class="w-full"        content-class="par-[.isNotExpanded]:max-w-[50rem]" :image-path="actionTableImagePath" image-scaling-sizes="" image-class="w-[205%] sm:mt-[1rem] mt-[2rem] mr-[calc(-107%)] mb-[-35%] translate-x-[0rem]"/>
+                <NormalFeatureCard titleKey="customization.keyboard-shortcuts.title" bodyKey="customization.keyboard-shortcuts.body" :videoPath="keyboardShortcutDemoPath"  title-class="!font-[600]" class="w-full" expand-button-key="customization.keyboard-shortcuts.expand-button"/>
               </div>
             </div>
           </div>

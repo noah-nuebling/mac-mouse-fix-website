@@ -2,6 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "404.back" : {
+      "comment" : "Label for a button that takes you from the 'page not found' page back to the front page.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -36,23 +37,25 @@
       }
     },
     "alternatives.body" : {
+      "comment" : "Adding ::newTab to the end of the link makes the MMF Website open the link in a new tab!",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mac Mouse Fix macht deine $10 Maus besser als eine Logitech MX Master Maus oder ein Apple Trackpad. (Diese gelten als einige der besten Eingabegeräte für Macs.)\n\nUnd trotzdem ist Mac Mouse Fix [**{priceFactorMXMaster}x**](https://www.logitech.com/en-us/products/mice/mx-master-3s::newTab) günstiger als eine MX Master und [**{priceFactorTrackpad}x**](https://www.apple.com/us/shop/mac/accessories/mice-keyboards::newTab) günstiger als ein Trackpad!"
+            "state" : "needs_review",
+            "value" : "Mac Mouse Fix macht deine $10 Maus besser als eine Logitech MX Master Maus oder ein Apple Trackpad. (Diese gelten als einige der besten Eingabegeräte für Macs.)\n\nUnd trotzdem ist Mac Mouse Fix [**{priceFactorMXMaster}x**](https://www.logitech.com/products/mice/mx-master-3s::newTab) günstiger als eine MX Master und [**{priceFactorTrackpad}x**](https://www.apple.com/shop/mac/accessories/mice-keyboards::newTab) günstiger als ein Trackpad!"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac Mouse Fix makes your $10 mouse better than a Logitech MX Master mouse or an Apple Trackpad. (These are considered some of the best input devices for Macs.)\n\nAnd yet, Mac Mouse Fix is [**{priceFactorMXMaster}x**](https://www.logitech.com/en-us/products/mice/mx-master-3s::newTab) cheaper than an MX Master and [**{priceFactorTrackpad}x**](https://www.apple.com/us/shop/mac/accessories/mice-keyboards::newTab) cheaper than a Trackpad!"
+            "value" : "Mac Mouse Fix makes your $10 mouse better than a Logitech MX Master mouse or an Apple Trackpad. (These are considered some of the best input devices for Macs.)\n\nAnd yet, Mac Mouse Fix is [**{priceFactorMXMaster}x**](https://www.logitech.com/products/mice/mx-master-3s::newTab) cheaper than an MX Master and [**{priceFactorTrackpad}x**](https://www.apple.com/shop/mac/accessories/mice-keyboards::newTab) cheaper than a Trackpad!"
           }
         }
       }
     },
     "alternatives.title" : {
+      "comment" : "Text wrapped in **asterisk** will get a cool color-highlight on the page!",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -70,6 +73,7 @@
       }
     },
     "checkout-extra.message.title" : {
+      "comment" : "The checkout page is still work-in-progress so we don't have to translate it, yet",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -250,7 +254,7 @@
       "shouldTranslate" : false
     },
     "checkout-option.base.title" : {
-      "comment" : "Why doesn't this have a value in the base file?",
+      "comment" : "Note to self: Why doesn't this have a value in the base file?",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -556,7 +560,8 @@
       },
       "shouldTranslate" : false
     },
-    "customization-feature.action-table.body" : {
+    "customization.action-table.body" : {
+      "comment" : "Don't forget the linebreaks between the list-items, and inside the second list-item. \nThat lets the website understand this is a list, and display it in a nice way. \n\n(Linebreaks can usually be entered with Option-Return, Shift-Return or just Return, depending on what program you're using.)",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -573,7 +578,8 @@
         }
       }
     },
-    "customization-feature.action-table.title" : {
+    "customization.action-table.title" : {
+      "comment" : "This is the title for the `customization-feature.action-table.body` text and will be displayed directly above it.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -590,7 +596,8 @@
         }
       }
     },
-    "customization-feature.header" : {
+    "customization.feature.header" : {
+      "comment" : "Old and unused",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -605,9 +612,78 @@
             "value" : "Flexible **Customization Options**"
           }
         }
+      },
+      "shouldTranslate" : false
+    },
+    "customization.intro.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix lässt dich **fast alles tun**, was du dir ausdenken kannst – direkt mit deiner Maus! Und trotzdem ist es **bemerkenswert einfach** zu verwenden."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix lets you **do almost anything** you can think of - straight from your mouse! And yet, it's **remarkably easy** to use."
+          }
+        }
       }
     },
-    "customization-feature.keyboard-shortcuts.body" : {
+    "customization.intro.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gewaltig {accent2}\n{accent} intuitiv."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amazingly {accent2}\n{accent} Intuitive."
+          }
+        }
+      }
+    },
+    "customization.intro.title.accent" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "und"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "and"
+          }
+        }
+      }
+    },
+    "customization.intro.title.accent2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flexibel"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flexible"
+          }
+        }
+      }
+    },
+    "customization.keyboard-shortcuts.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -624,7 +700,7 @@
         }
       }
     },
-    "customization-feature.keyboard-shortcuts.expand-button" : {
+    "customization.keyboard-shortcuts.expand-button" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -641,7 +717,7 @@
         }
       }
     },
-    "customization-feature.keyboard-shortcuts.title" : {
+    "customization.keyboard-shortcuts.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1657,74 +1733,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Translated from Chinese"
-          }
-        }
-      }
-    },
-    "remap-engine.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mac Mouse Fix lässt dich **fast alles tun**, was du dir ausdenken kannst – direkt mit deiner Maus! Und trotzdem ist es **bemerkenswert einfach** zu verwenden."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mac Mouse Fix lets you **do almost anything** you can think of - straight from your mouse! And yet, it's **remarkably easy** to use."
-          }
-        }
-      }
-    },
-    "remap-engine.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gewaltig {accent2}\n{accent} intuitiv."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Amazingly {accent2}\n{accent} Intuitive."
-          }
-        }
-      }
-    },
-    "remap-engine.title.accent" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "und"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "and"
-          }
-        }
-      }
-    },
-    "remap-engine.title.accent2" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Flexibel"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Flexible"
           }
         }
       }

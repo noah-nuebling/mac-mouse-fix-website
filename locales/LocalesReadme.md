@@ -141,6 +141,7 @@ Notes:
   */
 
 ### Previous values for remap-engine.body
+(Renamed to customization.intro.body)
 
 //"**Powerful customization options** usually come with a complex user interface. Well, you guessed it, not with Mac Mouse Fix! It lets you set up your mouse exactly the way you want, while being **remarkably simple**.", 
 //"Too often, powerful customization options come with **complex** and **confusing** user interfaces. Well, you guessed it, not Mac Mouse Fix! It lets you set up your mouse **exactly** the way you want - and it's **remarkably easy**!", 
@@ -280,5 +281,6 @@ Notes:
 //Außerdem hilft es dabei, Mac Mouse Fix in verschiedene Sprachen zu übersetzen, die Software-Qualität zu verbessern, und mehr.",
 
 ### German alternatives for remap-engine.body
+(Renamed to customization.intro.body)
 
 //"Richte deine Maus **genau** so ein wie du es willst - **In Sekunden**!",//'Mit Mac Mouse Fix kannst du **fast alles tun**, was dein Computer kann. Und deine Maus **in Sekunden** genau so einrichten, wie du es willst.',
