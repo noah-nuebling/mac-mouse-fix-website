@@ -4,9 +4,14 @@
 
 <template>
 
+  <!--
+    Notes on FeatureCard class:
+    - shadow-lg2 puts the cards closer to the 'ground' than 'shadow-lg3'. The strong parallax was designed for shadow-lg3 iirc, but I still prefer the less 'floaty' feel of shadow-lg2 (August 2024)
+    - Similarily, putting the opacity lower in `bg-neutral-50/[0.7]` makes the cards get a stronger tint from the color splashes in the background. This can look nice, but also makes it feel more 'floaty' or less 'solid'. 
+  -->
   <FeatureCard 
-    ref="thisCard"
-    class="h-full feature-card col-span-auto group shadow-lg3 !shadow-black/[0.045]xxx !shadow-black/[0.065] rounded-[1.5rem] !text-black/[0.8] bg-neutral-50/[0.7]xxx bg-neutral-50/[0.85] !backdrop-blur-xl" 
+    ref="thisCard" 
+    class="h-full feature-card col-span-auto group shadow-lg3xxx shadow-lg2 !shadow-black/[0.045]xxx !shadow-black/[0.05] rounded-[1.5rem] !text-black/[0.8] bg-neutral-50/[0.7]xxx bg-neutral-50/[0.7] !backdrop-blur-xl" 
     borderClass="border-[0px] border-black/[0.05]"
     :contentClass="contentClass"
     :backgroundFilterClass="backgroundFilterClass"
