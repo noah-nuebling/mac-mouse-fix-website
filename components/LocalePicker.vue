@@ -45,11 +45,12 @@ function handleLocaleSelect(event: Event) {
   global.localeSwitchCount += 1;
 
   // Set locale
-  //  setLocale changes the route, setting i18n.locale.value does not, and is not recommended for nuxt
-  // i18n.setLocale(selectedLocale);
+  // Notes: 
+  //  - `i18n.locale.value = newLocale` does not change the route
+  //  - `setLocale()` changes the route, doesn't set the locale cookie (August 2024) (It used to set the cookie?)
   navigateTo(switchLocalePath(selectedLocale));
+  i18n.setLocaleCookie(selectedLocale);
   global.localeSwitchIsPending = true;
-  // window.location.href = switchLocalePath(selectedLocale);
 }
 
 /* Update selection when locale updates due to other reasons 
