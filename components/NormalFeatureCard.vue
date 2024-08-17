@@ -11,7 +11,7 @@
   -->
   <FeatureCard 
     ref="thisCard" 
-    class="h-full feature-card col-span-auto group shadow-lg3xxx shadow-lg2 !shadow-black/[0.045]xxx !shadow-black/[0.05] rounded-[1.5rem] !text-black/[0.8] bg-neutral-50/[0.7]xxx bg-neutral-50/[0.7] !backdrop-blur-xl" 
+    class="h-full feature-card col-span-auto group shadow-lg3xxx shadow-lg2 !shadow-black/[0.045]xxx !shadow-black/[0.045] rounded-[1.5rem] !text-black/[0.8] bg-neutral-50/[0.7]xxx bg-neutral-50/[0.7] !backdrop-blur-xl" 
     borderClass="border-[0px] border-black/[0.05]"
     :contentClass="contentClass"
     :backgroundFilterClass="backgroundFilterClass"

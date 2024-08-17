@@ -1,10 +1,5 @@
 
 <template>
-  <!-- 
-  Locale Picker
-  Notes: 
-  - I can't seem to give this a blue accent under the arrow like the native system buttons. This should be default look for <select> buttons. See https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select. But the current look is good enough for Chrome and Safari.
-  -->
     <select ref="localePicker" @change="handleLocaleSelect" class="cool-select"> 
       <option v-for="$loc in $i18n.locales" :value="$loc.code"> {{ $loc.name }}</option> 
     </select>
@@ -69,19 +64,22 @@ watch(i18n.locale, (newLocale) => {
 
 .cool-select {
 
-/* 
-This button looks weirdddd on macOS Safari. Idk why. `appearance: button` seems to render <select> elements nicely in a codepen, but here's it renders this weird iOS 6 button. 
-The rounded and outline stuff applies on Chrome. Not sure what happens on mobile Safari, but it looks okay. 
-Update: Found a solution! See below. 
-*/
+  /* 
+  This button looks weirdddd on macOS Safari. Idk why. `appearance: button` seems to render <select> elements nicely in a codepen, (See https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select) but here's it renders this weird iOS 6 button. 
+  The rounded and outline stuff applies on Chrome. Not sure what happens on mobile Safari, but it looks okay. 
+  Update: Found a solution! See below. 
+  */
 
-appearance: button;
+  appearance: button;
 
-/* The following 4 styles are set inside tailwind.css @base with the selector `*, ::before, ::after`. Not sure why. But these styles break the system button styles. By reverting them all, the system button styles work properly. */
-box-sizing: revert;
-border-width: revert;
-border-style: revert;
-border-color: revert;
+  /* The following 4 styles are set inside tailwind.css @base with the selector `*, ::before, ::after`. That's due to tailwinds 'preflight' feature. This breaks the system-button-styles. By reverting them all, the system button styles work properly. 
+      Notes: 
+      - Alternatively, we could turn off preflight in tailwind.config.js. 
+      - I've seen the button break again during testing which was very confusing. To get the broken style to go away, I had to open the website on a different domain (Using http://192.168.1.107:3000 instead of localhost:3000) */
+  box-sizing: revert;
+  border-width: revert;
+  border-style: revert;
+  border-color: revert;
 }
 
 </style>

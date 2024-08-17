@@ -112,6 +112,10 @@ function objectDescription(value: any, parents: Array<any> = []): string | undef
       const attrString = attributes ? ` ${attributes}` : '';
       const content = escapeString(value.innerHTML.trim());
       result = `<${tagName}${addBrindent(id)}${addBrindent(classList)}${addBrindent(attrString)}${br}>${br}${addIndent(content)}${br}</${tagName}>`;
+    } else if (value instanceof DOMRect) {
+      const v = value;
+      result = `(x: ${v.x}, y: ${v.y}, width: ${v.width}, height: ${v.height})`;
+      console.assert((v.top == v.y) && (v.bottom == v.y + v.height) && (v.left == v.x) && (v.right == v.x + v.width));
     }
   }
 

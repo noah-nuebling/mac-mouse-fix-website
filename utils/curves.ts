@@ -19,6 +19,7 @@ function customInOutEase(): any {
 function linearFadingEase(a: number) {
   
   // See https://www.desmos.com/calculator/hou11kpoqj
+  // Update: (August 2024) I have no idea what the idea behind this is or what to set `a` to.
 
   if (a == 0) {
     return (x: number) => x

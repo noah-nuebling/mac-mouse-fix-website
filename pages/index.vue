@@ -41,7 +41,7 @@
 
         <div class="relative">
           <!-- Section head -->
-          <SectionHeader id="trackpad" class=" strong:gradient-blue strong:filter strong:brightness-[1.0]" title-accent-class="inline-block move-uppp text-gradient-to-l gradient-blue brightness-[1.43] filter hue-rotate-[0deg]" title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" body-key="trackpad-features.body" />
+          <SectionHeader id="trackpad" class=" strong:gradient-blue strong:filter strong:brightness-[1.0]" title-accent-class="move-uppp text-gradient-to-l-block gradient-blue brightness-[1.43] filter hue-rotate-[0deg]" title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" body-key="trackpad-features.body" />
           <!-- Color splash -->
           <div class="hidden absolute top-0 bottom-0 left-[50%] translate-x-[-50%] w-[100vw]">
             <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[100rem] relative left-[-15rem] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.7] filter hue-rotate-[0deg]"/>
@@ -451,7 +451,7 @@ onMounted(() => {
     //  - Gets all elements which either:
     //    1. Have class `move-uppp`
     //    2. Have a parent with class `strong:move-uppp` and themselves have class `strong` 
-    //        (Note how the strong:some-class syntax is usually a custom tailwind variant implemented in tailwind.config.js, but here we're kinda 'misappropriating' this syntax.)
+    //        (Note how the strong:some-class syntax is usually a custom tailwind variant implemented in tailwind.config.js, but move-uppp is not a tailwind class, so here we're kinda 'misappropriating' this syntax.)
 
     var toMoveUp: Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-uppp, .strong\\:move-uppp strong')); // The double backslash `\\` is so colon `:` is interpreted as part of the class name, instead of the start of a `:pseudo-class`.
     
@@ -459,9 +459,12 @@ onMounted(() => {
 
     const animationStartOffset = `${18 * remInPx()}px`;
 
-    for (const element of toMoveUp) {
+    for (const [i, element] of toMoveUp.entries()) {
 
       if (!(element instanceof HTMLElement)) { continue; }
+
+      // Get info from element
+      const cs = getComputedStyle(element);
 
       // Get triggerElement and compensation
       // Explanations:
@@ -473,11 +476,52 @@ onMounted(() => {
       //    To Remove this shift in the animamtion-start-scroll-position, we use `animationStartOffsetCompensation`.
       var animationStartOffsetCompensation = `-${animationStartOffset}`;
       var triggerElement = element;
-      if (getComputedStyle(element).display == 'inline-block') {
+      if (cs.display == 'inline-block') {
         triggerElement = element.parentElement ?? element;
         animationStartOffsetCompensation = '0px';
       }
+
+      // Create placeholder
+      //  For the missing text, before it's faded in. So the layout doesn't look broken when parts of the paragraph are just missing.
       
+       var placeholder: HTMLDivElement | null = null;
+       if (false) { // Gave up on placeholders. Too janky, can't get it right.
+
+        const rect = { left: element.offsetLeft, top: element.offsetTop, width: element.offsetWidth, height: element.offsetHeight };
+
+        const placeholderID = `moveUpppPlaceholder-${i}`;
+        const oldPlaceholder = element.parentElement?.querySelector(`#${placeholderID}`)
+        if (oldPlaceholder && (oldPlaceholder instanceof Node)) {
+          element.parentElement?.removeChild(oldPlaceholder);
+        };
+
+        placeholder = document.createElement('div');
+        placeholder.id = placeholderID;
+
+        // Style the placeholder to match the target element
+        const hAdj = rect.height * -0.0; // Adjust height
+        const wAdj = rect.width * +0.00; // Adjust width
+
+        // element.style.paddingLeft = `${wAdj/2}px`;
+        // element.style.paddingRight = `${wAdj/2}px`;
+
+        placeholder.style.position = 'absolute';  // Position it absolutely
+        placeholder.style.width = `${rect.width+wAdj}px`;  // Match width
+        placeholder.style.height = `${rect.height+hAdj}px`;  // Match height
+        placeholder.style.left = `${rect.left-(wAdj/2)}px`;  // Adjust for scroll position
+        placeholder.style.top = `${rect.top-(hAdj/2)}px`;  // Adjust for scroll position
+        placeholder.style.backgroundImage = cs.backgroundImage;
+        // placeholder.style.filter = cs.filter; // Copies over hue-rotate, brightness, etc. from our colorful text spans.
+        placeholder.style.borderRadius = '0.3em';
+        placeholder.style.zIndex = '-5';  // Ensure it's behind the target element
+
+        element.parentElement?.appendChild(placeholder);
+      }
+
+      // Animation duration
+      const anDur = 0.8;
+
+      // Create fade animation
       const tlFade = $gsap.timeline({scrollTrigger: {
         trigger: triggerElement,
         pin: false,
@@ -489,7 +533,11 @@ onMounted(() => {
       }})
 
       const hasLittleSpace = true;
-      tlFade.fromTo(element, { opacity: '0' }, { opacity: '1', duration: 0.33, ease: linearFadingEase(0) }, hasLittleSpace ? 0.2 : 0.0); 
+      tlFade.fromTo(element, { opacity: '0' }, { opacity: '1', duration: anDur*0.4, ease: linearFadingEase(0) }, hasLittleSpace ? anDur*0.25 : 0.0); 
+      tlFade.fromTo(placeholder, { opacity: '0.1' }, { opacity: '0', duration: anDur*0.2, ease: linearFadingEase(0) }, hasLittleSpace ? anDur*0.0 : 0.0); 
+      fadeTimelines.push(tlFade);
+
+      // Create move-up animation
 
       const tlMoveUp = $gsap.timeline({ scrollTrigger: {
         trigger: triggerElement,
@@ -503,10 +551,8 @@ onMounted(() => {
       // tlMoveUp.fromTo(element, { opacity: '0' }, { opacity: '1', duration: 0.33, ease: linearFadingEase(0) }, 0)
       // tlMoveUp.fromTo(element, { translateY: '18rem' }, { translateY: '0rem', duration: 0.75, ease: criticalSpring(5.0) /* $Power3.easeOut */ }, 0);
       // tlMoveUp.fromTo(element, { translateY: '12rem' }, { translateY: '0rem', duration: 0.55, ease: criticalSpring(6.0) }, 0);
-      tlMoveUp.fromTo(element, { translateY: animationStartOffset }, { translateY: '0rem', duration: 0.8, ease: criticalSpring(6.0) }, 0);
-
+      tlMoveUp.fromTo(element, { translateY: animationStartOffset }, { translateY: '0rem', duration: anDur, ease: criticalSpring(6.0) }, 0);
       fadeTimelines.push(tlMoveUp);
-      fadeTimelines.push(tlFade);
     }
   })
 })

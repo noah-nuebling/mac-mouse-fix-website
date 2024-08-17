@@ -317,7 +317,7 @@ Notes:
     /* Set `display: inline-block` and `position: relative` to make this compatible with cool-underline. We're not doing that here because this breaks line wrapping. */
   }
   .text-gradient-block-base {
-    @apply inline-block relative py-[1em] -my-[1em]; /* The padding adjustment is necessary so the bottom/top of tall characters like `g` isn't cut off. The margin compensates for it for the layout. */
+    @apply inline-block relative py-[0.05em] -my-[0.05em]; /* The slight padding adjustment is necessary so the bottom/top of tall characters like `g` isn't cut off. The margin compensates for it for the layout. This might lead to confusing issues? */
   }
   .text-gradient-to-l-block { /* Created this for use with the move-uppp class. The move-uppp animation needs the elements to be blocks. */
     @apply text-gradient-to-l text-gradient-block-base;
