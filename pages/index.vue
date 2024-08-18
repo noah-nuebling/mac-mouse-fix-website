@@ -41,14 +41,15 @@
 
         <div class="relative">
           <!-- Section head -->
-          <SectionHeader id="trackpad" class=" strong:gradient-blue strong:filter strong:brightness-[1.0]" title-accent-class="move-uppp text-gradient-to-l-block gradient-blue brightness-[1.43] filter hue-rotate-[0deg]" title-key="trackpad-features.title" title-accent-key="trackpad-features.title.accent" body-key="trackpad-features.body" />
+          <SectionHeader id="trackpad" title-key="trackpad.intro.title" title-accent-key="trackpad.intro.title.accent" body-key="trackpad.intro.body" 
+                          class=" strong:gradient-blue strong:filter strong:brightness-[1.0]" title-accent-class="move-uppp text-gradient-to-l-block gradient-blue brightness-[1.43] filter hue-rotate-[0deg]"  />
           <!-- Color splash -->
           <div class="hidden absolute top-0 bottom-0 left-[50%] translate-x-[-50%] w-[100vw]">
             <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[100rem] relative left-[-15rem] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.7] filter hue-rotate-[0deg]"/>
           </div>
         </div>
 
-        <CardContainer title-key="trackpad-features.header" class="gradient-blue strong:filter ch-[.card-title_strong]:brightness-[1.15]" title-class="strong:filter strong:brightness-[1.2] strong:hue-rotate-[0deg]" disclaimer-key="trackpad-features.disclaimer">
+        <CardContainer title-key="trackpad.gestures.header" disclaimer-key="trackpad.gestures.disclaimer" class="gradient-blue strong:filter ch-[.card-title_strong]:brightness-[1.15]" title-class="strong:filter strong:brightness-[1.2] strong:hue-rotate-[0deg]">
 
           <div class="w-full flex justify-center">
             <div class="relative flex flex-col items-center w-fit">
@@ -59,12 +60,12 @@
 
               <!-- <hr ref="trackpadRule" class="mb-[2.25rem] mx-[12px] border-neutral-950/[0.066]"> -->
               <div ref="trackpadCardsSection1" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] relative z-[10]">
-                <NormalFeatureCard titleKey="feature.lookup.title"              bodyKey="feature.lookup.body"           :videoPath="lookupDemoPath"               class="w-fit"/>
-                <NormalFeatureCard titleKey="feature.mission-control.title"     bodyKey="feature.mission-control.body"  :videoPath="missionControlDemoPath"       class="w-fit"/>
-                <NormalFeatureCard titleKey="feature.spaces.title"              bodyKey="feature.spaces.body"           :videoPath="moveDesktopsDemoPath"         class="w-fit"/>
-                <NormalFeatureCard titleKey="feature.app-expose.title"          bodyKey="feature.app-expose.body"       :videoPath="appExposeDemoPath"            class="w-fit"/>
-                <NormalFeatureCard titleKey="feature.show-desktop.title"        bodyKey="feature.show-desktop.body"     :videoPath="showDesktopDemoPath"          class="w-fit"/>
-                <NormalFeatureCard titleKey="feature.launchpad.title"           bodyKey="feature.launchpad.body"        :videoPath="launchpadDemoPath"            class="w-fit"/>
+                <NormalFeatureCard titleKey="trackpad.gestures.lookup.title"              bodyKey="trackpad.gestures.lookup.body"           :videoPath="lookupDemoPath"               class="w-fit"/>
+                <NormalFeatureCard titleKey="trackpad.gestures.mission-control.title"     bodyKey="trackpad.gestures.mission-control.body"  :videoPath="missionControlDemoPath"       class="w-fit"/>
+                <NormalFeatureCard titleKey="trackpad.gestures.spaces.title"              bodyKey="trackpad.gestures.spaces.body"           :videoPath="moveDesktopsDemoPath"         class="w-fit"/>
+                <NormalFeatureCard titleKey="trackpad.gestures.app-expose.title"          bodyKey="trackpad.gestures.app-expose.body"       :videoPath="appExposeDemoPath"            class="w-fit"/>
+                <NormalFeatureCard titleKey="trackpad.gestures.show-desktop.title"        bodyKey="trackpad.gestures.show-desktop.body"     :videoPath="showDesktopDemoPath"          class="w-fit"/>
+                <NormalFeatureCard titleKey="trackpad.gestures.launchpad.title"           bodyKey="trackpad.gestures.launchpad.body"        :videoPath="launchpadDemoPath"            class="w-fit"/>
               </div>
 
               <div class="w-full">
@@ -72,11 +73,11 @@
               </div>
 
               <div ref="trackpadCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] relative z-[9]">
-                <NormalFeatureCard titleKey="feature.zoom.title"                bodyKey="feature.zoom.body"             :videoPath="zoomDemoPath"       class=""/>
-                <NormalFeatureCard titleKey="feature.pages.title"               bodyKey="feature.pages.body"            :videoPath="backAndForwardDemoPath"       class=""/>
-                <NormalFeatureCard titleKey="feature.mail-actions.title"        bodyKey="feature.mail-actions.body"     :videoPath="deleteMailsDemoPath"       class=""/>
-                <NormalFeatureCard titleKey="feature.free-scroll.title"         bodyKey="feature.free-scroll.body"      :videoPath="threeSixtyScrollDemoPath"       class=""/>
-                <NormalFeatureCard titleKey="feature.smart-zoom.title"          bodyKey="feature.smart-zoom.body"       :videoPath="smartZoomDemoPath"       class=""/>
+                <NormalFeatureCard titleKey="trackpad.gestures.zoom.title"                bodyKey="trackpad.gestures.zoom.body"             :videoPath="zoomDemoPath"       class=""/>
+                <NormalFeatureCard titleKey="trackpad.gestures.pages.title"               bodyKey="trackpad.gestures.pages.body"            :videoPath="backAndForwardDemoPath"       class=""/>
+                <NormalFeatureCard titleKey="trackpad.gestures.mail-actions.title"        bodyKey="trackpad.gestures.mail-actions.body"     :videoPath="deleteMailsDemoPath"       class=""/>
+                <NormalFeatureCard titleKey="trackpad.gestures.free-scroll.title"         bodyKey="trackpad.gestures.free-scroll.body"      :videoPath="threeSixtyScrollDemoPath"       class=""/>
+                <NormalFeatureCard titleKey="trackpad.gestures.smart-zoom.title"          bodyKey="trackpad.gestures.smart-zoom.body"       :videoPath="smartZoomDemoPath"       class=""/>
               </div>
             </div>
           </div>
@@ -85,7 +86,8 @@
 
       <!-- Scrolling -->
       <div class="strong:text-gradient-to-l">
-        <SectionHeader id="scroll" class="gradient-violet" title-accent-class="move-uppp text-gradient-to-l-block filter brightness-[1.06]" title-key="scroll.intro.title" title-accent-key="scroll.intro.title.accent" body-key="scroll.intro.body" />
+        <SectionHeader id="scroll" title-key="scroll.intro.title" title-accent-key="scroll.intro.title.accent" body-key="scroll.intro.body" 
+                        class="gradient-violet" title-accent-class="move-uppp text-gradient-to-l-block filter brightness-[1.06]" />
         
         <CardContainer title-key="scroll.smoothness.header" class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] mb-[5rem] z-[10]">
           <div class="w-fit relative left-[50%] translate-x-[-50%]">
@@ -120,7 +122,8 @@
             - Thought about including a non-trackpad features section - but not enough features so far to warrant a whole section -->
 
       <div class="strong:text-gradient-to-l">
-        <SectionHeader id="action_table" class="gradient-red strong:filter strong:brightness-[1.0]" title-accent-class="italic" title-accent2-class="move-uppp text-gradient-to-l-block filter brightness-[1.12] hue-rotate-[-0deg]" title-key="customization.intro.title" title-accent-key="customization.intro.title.accent" title-accent2-key="customization.intro.title.accent2" body-key="customization.intro.body" />
+        <SectionHeader id="action_table" title-key="customization.intro.title" title-accent-key="customization.intro.title.accent" title-accent2-key="customization.intro.title.accent2" body-key="customization.intro.body" 
+                        class="gradient-red strong:filter strong:brightness-[1.0]" title-accent-class="italic" title-accent2-class="move-uppp text-gradient-to-l-block filter brightness-[1.12] hue-rotate-[-0deg]" />
 
         <CardContainer class="gradient-red var-[accent-rotate=170deg] ch-[.card-title_strong]:brightness-[1.0] strong:brightness-[0.95]">
           <div class="relative">
@@ -141,7 +144,8 @@
       <!-- Price / Good Software -->
 
       <div class="strong:text-gradient-to-l ch-[a]:text-green-600 ch-[a]:font-[500]">
-        <SectionHeader id="price" class="gradient-green strong:filter strong:brightness-[1.15]" title-accent2-class="move-uppp text-gradient-to-l-block gradient-green filter brightness-[1.35]" title-key="benefits.intro.title" title-accent2-key="benefits.intro.title.accent2" body-key="benefits.intro.body" />
+        <SectionHeader id="price" title-key="benefits.intro.title" title-accent2-key="benefits.intro.title.accent2" body-key="benefits.intro.body"
+                        class="gradient-green strong:filter strong:brightness-[1.15]" title-accent2-class="move-uppp text-gradient-to-l-block gradient-green filter brightness-[1.35]" />
         
         <CardContainer title-key="benefits.software.header" 
           class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] "             title-class=" strong:filter strong:brightness-[1.2]">

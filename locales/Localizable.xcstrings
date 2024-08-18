@@ -88,7 +88,7 @@
       }
     },
     "benefits.pricing.alternatives.body" : {
-      "comment" : "Adding ::newTab to the end of the link makes the MMF Website open the link in a new tab!",
+      "comment" : "Adding ::newTab to the end of the link makes the MMF Website open the link in a new tab!\n\nText wrapped in **asterisks** will get a cool color highlight on the page! \n\nWe use quite a lot of **asterisks** to make the page more colorful and visually interesting, but also to make the text easier to understand when the reader is just skimming through.\n\nNote to self: I chose this string for the **asterisks** explanation since it's fairly high up when localizers sort the keys alphabetically.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -106,7 +106,6 @@
       }
     },
     "benefits.pricing.alternatives.title" : {
-      "comment" : "Text wrapped in **asterisk** will get a cool color-highlight on the page!",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -175,7 +174,7 @@
       }
     },
     "benefits.pricing.header" : {
-      "comment" : "There are two sections discussing pricing and other benefits of Mac Mouse Fix: Each section is preceded by a header. (Which are \"benefits.pricing.header\" and \"benefits.software.header\")\n\nThe two section's headers together form a sort of sentence. It looks something like this on the website:\n\n-----------------------------------------\n\nGreat **Software** ...\n\n[...]\n\n... Great **Price**\n\n[...]\n\n----------------------------------------\n\nTake a look at macmousefix.com/#price to see this in action!",
+      "comment" : "There are two sections discussing various 'benefits' of Mac Mouse Fix at the end of the page: The 'pricing' and the 'software' section. Each section is preceded by a header. (Whose ui-strings are defined by 'benefits.pricing.header' and 'benefits.software.header')\n\nThe two section's headers together form a sort of sentence. It looks something like this on the website:\n\n-----------------------\n\nGreat **Software** ...\n\n[...]\n\n... Great **Price**\n\n[...]\n\n--------------------\n\nTake a look at macmousefix.com/#price to see this in action!\n\nNote to self: We might wanna keep this comment in sync with the similar comment on scroll.more.header",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -210,6 +209,7 @@
       }
     },
     "benefits.pricing.price.title" : {
+      "comment" : "This is the title for the benefits.pricing.price.body text and will be displayed right above it.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -227,6 +227,7 @@
       }
     },
     "benefits.software.header" : {
+      "comment" : "See the comment on benefits.pricing.header",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1026,383 +1027,6 @@
         }
       }
     },
-    "feature.app-expose.body" : {
-      "comment" : "Text wrapped in **asterisks** will get a cool color highlight on the page! We use quite a lot of **asterisks** to make the page more colorful and visually interesting, but also to make the text easier to understand when the reader is just skimming through.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach unten**, um alle Fenster der App anzuzeigen, die du verwendest.\n\nEs funktioniert genauso wie das Streichen nach unten mit vier Fingern auf einem Apple Trackpad."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **down** to see all windows of the app you're using.\n\nIt works just like swiping down with four fingers on an Apple trackpad."
-          }
-        }
-      }
-    },
-    "feature.app-expose.title" : {
-      "comment" : "This is the title for the feature.app-expose.body text and will be displayed right above it.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "App Exposé"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "App Exposé"
-          }
-        }
-      }
-    },
-    "feature.free-scroll.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **ziehe** dann die Maus in **beliebiger Richtung**, um präzise mit 360° Freiheit und einem intuitiven Trägheitseffekt zu scrollen. So kannst du dich mühelos in Profi-Apps wie Excel oder Affinity Photo bewegen.\n\nEs ist genauso einfach und präzise wie das Scrollen auf einem Apple Trackpad."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse in **any direction** to precisely scroll with 360° freedom and an intuitive inertial effect. So you can navigate the canvas with ease in pro apps like Excel or Affinity Photo.\n\nIt's just as easy and precise as scrolling on an Apple trackpad."
-          }
-        }
-      }
-    },
-    "feature.free-scroll.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Präzises 360°-Scrollen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Precise 360° scrolling"
-          }
-        }
-      }
-    },
-    "feature.launchpad.body" : {
-      "comment" : "To translate weird phrases like 'pinching your thumb and three fingers together' I usually looked at how Apple translated these phrases on their support or marketing pages or inside System Settings.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **scrolle nach unten**, um Launchpad anzuzeigen.\n\nEs funktioniert genauso wie das Zusammenziehen von Daumen und drei Fingern auf einem Apple Trackpad."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hold down **button 4** on your mouse, then **scroll down** to display Launchpad.\n\nIt works just like pinching your thumb and three fingers together on an Apple trackpad."
-          }
-        }
-      }
-    },
-    "feature.launchpad.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Launchpad"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Launchpad"
-          }
-        }
-      }
-    },
-    "feature.lookup.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**Klicke Taste 4** auf deiner Maus, um ein Wort im Wörterbuch nachzuschlagen, einen schnellen Blick auf Webseiten in Safari oder Dateien im Finder zu werfen, und mehr.\n\nEs funktioniert genauso wie das Tippen mit 3 Fingern oder ein kräftiger Klick auf einem Apple Trackpad."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**Click button 4** on your mouse to look up a word in the dictionary, preview websites in Safari or files in Finder, and more.\n\n It works just like tapping with 3 fingers or force clicking on an Apple trackpad."
-          }
-        }
-      }
-    },
-    "feature.lookup.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quick Look und Nachschlagen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Look up and Quick Look"
-          }
-        }
-      }
-    },
-    "feature.mail-actions.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach links** oder **nach rechts**, um Nachrichten in Mail zu löschen, schnell auf eine iMessage zu antworten und mehr.\n\nJede Geste, die du in einer App durch Streichen auf einem Apple Trackpad ausführen kannst, funktioniert genauso gut mit Mac Mouse Fix."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to delete messages in Mail, quickly reply to an iMessage, and more.\n\nAny gesture you can perform inside an app by swiping on an Apple trackpad works just as well using Mac Mouse Fix."
-          }
-        }
-      }
-    },
-    "feature.mail-actions.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "E-Mails schnell löschen und mehr"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Delete mails quickly and more"
-          }
-        }
-      }
-    },
-    "feature.mission-control.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach oben**, um eine Übersicht über deine geöffneten Fenster, Apps und Schreibtische anzuzeigen.\n\nEs funktioniert genauso wie das Streichen nach oben mit vier Fingern auf einem Apple Trackpad."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **up** to see an overview of your open windows, applications, and desktops.\n\nIt works just like swiping up with four fingers on an Apple trackpad."
-          }
-        }
-      }
-    },
-    "feature.mission-control.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mission Control"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mission Control"
-          }
-        }
-      }
-    },
-    "feature.pages.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach links** oder **nach rechts**, um die vorherige oder nächste Seite in Apps wie Safari anzuzeigen.\n\nEs funktioniert genauso wie das Streichen nach links oder rechts mit zwei Fingern auf einem Apple Trackpad."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to show the previous or next page in apps like Safari.\n\nIt works just like swiping left or right with two fingers on an Apple trackpad."
-          }
-        }
-      }
-    },
-    "feature.pages.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vorwärts und zurück gehen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Go back and forward"
-          }
-        }
-      }
-    },
-    "feature.show-desktop.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **scrolle nach oben**, um deinen Schreibtisch anzuzeigen.\n\nEs funktioniert genauso wie das Auseinanderziehen von Daumen und drei Fingern auf einem Apple Trackpad."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hold down **button 4** on your mouse, then **scroll up** to show your desktop.\n\nIt works just like spreading your thumb and three fingers apart on an Apple trackpad."
-          }
-        }
-      }
-    },
-    "feature.show-desktop.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schreibtisch anzeigen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Show desktop"
-          }
-        }
-      }
-    },
-    "feature.smart-zoom.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**Klicke Taste 5** auf deiner Maus, um eine Webseite oder ein PDF zu vergrößern oder zu verkleinern.\n\nEs funktioniert genauso wie das Doppeltippen mit zwei Fingern auf einem Apple Trackpad."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**Click button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple trackpad."
-          }
-        }
-      }
-    },
-    "feature.smart-zoom.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Intelligentes Zoomen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Smart zoom"
-          }
-        }
-      }
-    },
-    "feature.spaces.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach links** oder **nach rechts**, um zwischen Schreibtischen und Vollbild-Apps zu wechseln.\n\nEs funktioniert genauso wie das Streichen nach links oder rechts mit vier Fingern auf einem Apple Trackpad."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **left** or **right** to move to another desktop or fullscreen-app.\n\nIt works just like swiping left or right with four fingers on an Apple trackpad."
-          }
-        }
-      }
-    },
-    "feature.spaces.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zwischen Schreibtischen wechseln"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Move between desktops"
-          }
-        }
-      }
-    },
-    "feature.zoom.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **scrolle nach oben** oder **nach unten**, um den Inhalt in Apps wie Safari oder Vorschau zu vergrößern oder zu verkleinern.\n\nEs funktioniert genauso wie das Auf- oder Zusammenziehen mit zwei Fingern auf einem Apple Trackpad."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hold down **button 5** on your mouse, then **scroll up** or **down** to zoom in or out in apps like Safari and Preview.\n\nIt works just like pinching with two fingers on an Apple trackpad."
-          }
-        }
-      }
-    },
-    "feature.zoom.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vergrößern und verkleinern"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zoom in or out"
-          }
-        }
-      }
-    },
     "footer.credits" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1847,7 +1471,7 @@
       }
     },
     "scroll.more.header" : {
-      "comment" : "There are two sections related to scrolling: The Smoothness section and the More section. Each section is preceded by a header. (Which are \"scroll.smoothness.header\" and \"scroll.more.header\")\n\nThe two section's headers together form a sort of sentence. It looks something like this on the website:\n\n-----------------------------------------\n\nChoose a **Scrolling Smoothness** ...\n\n[...]\n\n... And **More**\n\n[...]\n\n----------------------------------------\n\nTake a look at macmousefix.com/#scroll to see this in action!",
+      "comment" : "There are two sections talking about scrolling: The 'smoothness' section and the 'more' section. Each section is preceded by a header. (Whose ui-strings are defined by 'scroll.smoothness.header' and 'scroll.more.header')\n\nThe two section's headers together form a sort of sentence. It looks something like this on the website:\n\n----------------------------------\n\nChoose a **Scrolling Smoothness** ...\n\n[...]\n\n... And **More**\n\n[...]\n\n---------------------------------\n\nTake a look at macmousefix.com/#scroll to see this in action!\n\nNote to self: We might wanna keep this comment in sync with the similar comment on benefits.pricing.header",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1933,6 +1557,7 @@
       }
     },
     "scroll.smoothness.header" : {
+      "comment" : "See the comment on scroll.more.header",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -2051,24 +1676,41 @@
         }
       }
     },
-    "trackpad-features.body" : {
+    "trackpad.gestures.app-expose.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jetzt nicht mehr! Mac Mouse Fix bringt alle Funktionen eines Apple Trackpads - und mehr - auf **ergonomische** und **präzise** Drittanbieter-Mäuse. Und alle Interaktionen fühlen sich genauso **ausgefeilt** und **geschmeidig** an wie auf einem Trackpad."
+            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach unten**, um alle Fenster der App anzuzeigen, die du verwendest.\n\nEs funktioniert genauso wie das Streichen nach unten mit vier Fingern auf einem Apple Trackpad."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a trackpad."
+            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **down** to see all windows of the app you're using.\n\nIt works just like swiping down with four fingers on an Apple trackpad."
           }
         }
       }
     },
-    "trackpad-features.disclaimer" : {
+    "trackpad.gestures.app-expose.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Exposé"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Exposé"
+          }
+        }
+      }
+    },
+    "trackpad.gestures.disclaimer" : {
       "comment" : "Note to self: Maybe we should have information about all these caveats on a more info page, instead of here.",
       "extractionState" : "manual",
       "localizations" : {
@@ -2086,7 +1728,42 @@
         }
       }
     },
-    "trackpad-features.header" : {
+    "trackpad.gestures.free-scroll.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **ziehe** dann die Maus in **beliebiger Richtung**, um präzise mit 360° Freiheit und einem intuitiven Trägheitseffekt zu scrollen. So kannst du dich mühelos in Profi-Apps wie Excel oder Affinity Photo bewegen.\n\nEs ist genauso einfach und präzise wie das Scrollen auf einem Apple Trackpad."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse in **any direction** to precisely scroll with 360° freedom and an intuitive inertial effect. So you can navigate the canvas with ease in pro apps like Excel or Affinity Photo.\n\nIt's just as easy and precise as scrolling on an Apple trackpad."
+          }
+        }
+      }
+    },
+    "trackpad.gestures.free-scroll.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Präzises 360°-Scrollen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Precise 360° scrolling"
+          }
+        }
+      }
+    },
+    "trackpad.gestures.header" : {
+      "comment" : "This is the header for the TrackpadGestures section and will be displayed above all the other strings of the section such as trackpad.gestures.free-scroll.title",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -2103,7 +1780,331 @@
         }
       }
     },
-    "trackpad-features.title" : {
+    "trackpad.gestures.launchpad.body" : {
+      "comment" : "To translate weird phrases like 'pinching your thumb and three fingers together' I usually looked at how Apple translated these phrases on their support or marketing pages or inside System Settings.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **scrolle nach unten**, um Launchpad anzuzeigen.\n\nEs funktioniert genauso wie das Zusammenziehen von Daumen und drei Fingern auf einem Apple Trackpad."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold down **button 4** on your mouse, then **scroll down** to display Launchpad.\n\nIt works just like pinching your thumb and three fingers together on an Apple trackpad."
+          }
+        }
+      }
+    },
+    "trackpad.gestures.launchpad.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Launchpad"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Launchpad"
+          }
+        }
+      }
+    },
+    "trackpad.gestures.lookup.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Klicke Taste 4** auf deiner Maus, um ein Wort im Wörterbuch nachzuschlagen, einen schnellen Blick auf Webseiten in Safari oder Dateien im Finder zu werfen, und mehr.\n\nEs funktioniert genauso wie das Tippen mit 3 Fingern oder ein kräftiger Klick auf einem Apple Trackpad."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Click button 4** on your mouse to look up a word in the dictionary, preview websites in Safari or files in Finder, and more.\n\n It works just like tapping with 3 fingers or force clicking on an Apple trackpad."
+          }
+        }
+      }
+    },
+    "trackpad.gestures.lookup.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quick Look und Nachschlagen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Look up and Quick Look"
+          }
+        }
+      }
+    },
+    "trackpad.gestures.mail-actions.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach links** oder **nach rechts**, um Nachrichten in Mail zu löschen, schnell auf eine iMessage zu antworten und mehr.\n\nJede Geste, die du in einer App durch Streichen auf einem Apple Trackpad ausführen kannst, funktioniert genauso gut mit Mac Mouse Fix."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to delete messages in Mail, quickly reply to an iMessage, and more.\n\nAny gesture you can perform inside an app by swiping on an Apple trackpad works just as well using Mac Mouse Fix."
+          }
+        }
+      }
+    },
+    "trackpad.gestures.mail-actions.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E-Mails schnell löschen und mehr"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete mails quickly and more"
+          }
+        }
+      }
+    },
+    "trackpad.gestures.mission-control.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach oben**, um eine Übersicht über deine geöffneten Fenster, Apps und Schreibtische anzuzeigen.\n\nEs funktioniert genauso wie das Streichen nach oben mit vier Fingern auf einem Apple Trackpad."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **up** to see an overview of your open windows, applications, and desktops.\n\nIt works just like swiping up with four fingers on an Apple trackpad."
+          }
+        }
+      }
+    },
+    "trackpad.gestures.mission-control.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mission Control"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mission Control"
+          }
+        }
+      }
+    },
+    "trackpad.gestures.pages.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach links** oder **nach rechts**, um die vorherige oder nächste Seite in Apps wie Safari anzuzeigen.\n\nEs funktioniert genauso wie das Streichen nach links oder rechts mit zwei Fingern auf einem Apple Trackpad."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to show the previous or next page in apps like Safari.\n\nIt works just like swiping left or right with two fingers on an Apple trackpad."
+          }
+        }
+      }
+    },
+    "trackpad.gestures.pages.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorwärts und zurück gehen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go back and forward"
+          }
+        }
+      }
+    },
+    "trackpad.gestures.show-desktop.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **scrolle nach oben**, um deinen Schreibtisch anzuzeigen.\n\nEs funktioniert genauso wie das Auseinanderziehen von Daumen und drei Fingern auf einem Apple Trackpad."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold down **button 4** on your mouse, then **scroll up** to show your desktop.\n\nIt works just like spreading your thumb and three fingers apart on an Apple trackpad."
+          }
+        }
+      }
+    },
+    "trackpad.gestures.show-desktop.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schreibtisch anzeigen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show desktop"
+          }
+        }
+      }
+    },
+    "trackpad.gestures.smart-zoom.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Klicke Taste 5** auf deiner Maus, um eine Webseite oder ein PDF zu vergrößern oder zu verkleinern.\n\nEs funktioniert genauso wie das Doppeltippen mit zwei Fingern auf einem Apple Trackpad."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Click button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple trackpad."
+          }
+        }
+      }
+    },
+    "trackpad.gestures.smart-zoom.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intelligentes Zoomen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smart zoom"
+          }
+        }
+      }
+    },
+    "trackpad.gestures.spaces.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Halte **Taste 4** auf deiner Maus gedrückt und **ziehe** dann die Maus **nach links** oder **nach rechts**, um zwischen Schreibtischen und Vollbild-Apps zu wechseln.\n\nEs funktioniert genauso wie das Streichen nach links oder rechts mit vier Fingern auf einem Apple Trackpad."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **left** or **right** to move to another desktop or fullscreen-app.\n\nIt works just like swiping left or right with four fingers on an Apple trackpad."
+          }
+        }
+      }
+    },
+    "trackpad.gestures.spaces.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zwischen Schreibtischen wechseln"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Move between desktops"
+          }
+        }
+      }
+    },
+    "trackpad.gestures.zoom.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Halte **Taste 5** auf deiner Maus gedrückt und **scrolle nach oben** oder **nach unten**, um den Inhalt in Apps wie Safari oder Vorschau zu vergrößern oder zu verkleinern.\n\nEs funktioniert genauso wie das Auf- oder Zusammenziehen mit zwei Fingern auf einem Apple Trackpad."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold down **button 5** on your mouse, then **scroll up** or **down** to zoom in or out in apps like Safari and Preview.\n\nIt works just like pinching with two fingers on an Apple trackpad."
+          }
+        }
+      }
+    },
+    "trackpad.gestures.zoom.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vergrößern und verkleinern"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom in or out"
+          }
+        }
+      }
+    },
+    "trackpad.intro.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jetzt nicht mehr! Mac Mouse Fix bringt alle Funktionen eines Apple Trackpads - und mehr - auf **ergonomische** und **präzise** Drittanbieter-Mäuse. Und alle Interaktionen fühlen sich genauso **ausgefeilt** und **geschmeidig** an wie auf einem Trackpad."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a trackpad."
+          }
+        }
+      }
+    },
+    "trackpad.intro.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -2120,7 +2121,7 @@
         }
       }
     },
-    "trackpad-features.title.accent" : {
+    "trackpad.intro.title.accent" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
