@@ -87,7 +87,7 @@
       <!-- Scrolling -->
       <div class="strong:text-gradient-to-l">
         <SectionHeader id="scroll" title-key="scroll.intro.title" title-accent-key="scroll.intro.title.accent" body-key="scroll.intro.body" 
-                        class="gradient-violet" title-accent-class="move-uppp text-gradient-to-l-block filter brightness-[1.06]" />
+                        class="gradient-violet" title-accent-class="move-righttt text-gradient-to-l-block filter brightness-[1.06]" />
         
         <CardContainer title-key="scroll.smoothness.header" class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] mb-[5rem] z-[10]">
           <div class="w-fit relative left-[50%] translate-x-[-50%]">
@@ -123,7 +123,7 @@
 
       <div class="strong:text-gradient-to-l">
         <SectionHeader id="action_table" title-key="customization.intro.title" title-accent-key="customization.intro.title.accent" title-accent2-key="customization.intro.title.accent2" body-key="customization.intro.body" 
-                        class="gradient-red strong:filter strong:brightness-[1.0]" title-accent-class="italic" title-accent2-class="move-uppp text-gradient-to-l-block filter brightness-[1.12] hue-rotate-[-0deg]" />
+                        class="gradient-red strong:filter strong:brightness-[1.0]" title-accent-class="italic" title-accent2-class="move-flexxx text-gradient-to-l-block filter brightness-[1.12] hue-rotate-[-0deg]" />
 
         <CardContainer class="gradient-red var-[accent-rotate=170deg] ch-[.card-title_strong]:brightness-[1.0] strong:brightness-[0.95]">
           <div class="relative">
@@ -145,7 +145,7 @@
 
       <div class="strong:text-gradient-to-l ch-[a]:text-green-600 ch-[a]:font-[500]">
         <SectionHeader id="price" title-key="benefits.intro.title" title-accent2-key="benefits.intro.title.accent2" body-key="benefits.intro.body"
-                        class="gradient-green strong:filter strong:brightness-[1.15]" title-accent2-class="move-uppp text-gradient-to-l-block gradient-green filter brightness-[1.35]" />
+                        class="gradient-green strong:filter strong:brightness-[1.15]" title-accent2-class="move-growww text-gradient-to-l-block gradient-green filter brightness-[1.35]" />
         
         <CardContainer title-key="benefits.software.header" 
           class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] "             title-class=" strong:filter strong:brightness-[1.2]">
@@ -243,7 +243,7 @@ const quotes = getUsableQuotes()
 
 import { remInPx } from '~/utils/util';
 import { type Ref } from 'vue'
-import { linearFadingEase, customInOutEase } from '~/utils/curves'
+import { linearFadingEase, customInOutEase, criticalSpring, spring } from '~/utils/curves'
 
 /* Manually import video assets
     Notes on manually importing assets:
@@ -434,6 +434,7 @@ onMounted(() => {
       }
     }
 
+
     /* Create move-up animations for subtitles 
         I'm not quite sure if these are obnoxious, but it is sorta cool.
         On the SectionHeaders we just have big text on white background, so we have to make the animations a little exaggerated to make them visible, but that is a little nauseating. 
@@ -456,14 +457,17 @@ onMounted(() => {
     //    1. Have class `move-uppp`
     //    2. Have a parent with class `strong:move-uppp` and themselves have class `strong` 
     //        (Note how the strong:some-class syntax is usually a custom tailwind variant implemented in tailwind.config.js, but move-uppp is not a tailwind class, so here we're kinda 'misappropriating' this syntax.)
-
     var toMoveUp: Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-uppp, .strong\\:move-uppp strong')); // The double backslash `\\` is so colon `:` is interpreted as part of the class name, instead of the start of a `:pseudo-class`.
+    var toMoveRight: Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-righttt'));
+    var toFlex: Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-flexxx'));
+    var toGrow: Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-growww'));
+    var toMoveee = toMoveUp.concat(toMoveRight).concat(toFlex).concat(toGrow);   
     
-    console.log(`index: toMoveUp elements: ${objectDescription(toMoveUp)}`)
+    console.log(`index: toMoveUp elements: ${objectDescription(toMoveee)}`)
 
     const animationStartOffset = `${18 * remInPx()}px`;
 
-    for (const [i, element] of toMoveUp.entries()) {
+    for (const [i, element] of toMoveee.entries()) {
 
       if (!(element instanceof HTMLElement)) { continue; }
 
@@ -522,41 +526,158 @@ onMounted(() => {
         element.parentElement?.appendChild(placeholder);
       }
 
-      // Animation duration
-      const anDur = 0.8;
+      if (toMoveUp.includes(element)) {
 
-      // Create fade animation
-      const tlFade = $gsap.timeline({scrollTrigger: {
-        trigger: triggerElement,
-        pin: false,
-        start: `bottom+=${animationStartOffsetCompensation} 85%`,
-        end: `bottom+=${animationStartOffsetCompensation} 10%`,
-        scrub: false,
-        toggleActions: 'play none none reverse',
-        markers: false,
-      }})
+        // Animation duration
+        const anDur = 0.8;
 
-      const hasLittleSpace = true;
-      tlFade.fromTo(element, { opacity: '0' }, { opacity: '1', duration: anDur*0.4, ease: linearFadingEase(0) }, hasLittleSpace ? anDur*0.25 : 0.0); 
-      tlFade.fromTo(placeholder, { opacity: '0.1' }, { opacity: '0', duration: anDur*0.2, ease: linearFadingEase(0) }, hasLittleSpace ? anDur*0.0 : 0.0); 
-      fadeTimelines.push(tlFade);
-
-      // Create move-up animation
-
-      const tlMoveUp = $gsap.timeline({ scrollTrigger: {
-        trigger: triggerElement,
+        // Create fade animation
+        const tlFade = $gsap.timeline({scrollTrigger: {
+          trigger: triggerElement,
           pin: false,
           start: `bottom+=${animationStartOffsetCompensation} 85%`,
           end: `bottom+=${animationStartOffsetCompensation} 10%`,
           scrub: false,
           toggleActions: 'play none none reverse',
           markers: false,
-      }});
-      // tlMoveUp.fromTo(element, { opacity: '0' }, { opacity: '1', duration: 0.33, ease: linearFadingEase(0) }, 0)
-      // tlMoveUp.fromTo(element, { translateY: '18rem' }, { translateY: '0rem', duration: 0.75, ease: criticalSpring(5.0) /* $Power3.easeOut */ }, 0);
-      // tlMoveUp.fromTo(element, { translateY: '12rem' }, { translateY: '0rem', duration: 0.55, ease: criticalSpring(6.0) }, 0);
-      tlMoveUp.fromTo(element, { translateY: animationStartOffset }, { translateY: '0rem', duration: anDur, ease: criticalSpring(6.0) }, 0);
-      fadeTimelines.push(tlMoveUp);
+        }})
+
+        const hasLittleSpace = true;
+        tlFade.fromTo(element, { opacity: '0' }, { opacity: '1', duration: anDur*0.4, ease: linearFadingEase(0) }, hasLittleSpace ? anDur*0.25 : 0.0); 
+        tlFade.fromTo(placeholder, { opacity: '0.1' }, { opacity: '0', duration: anDur*0.2, ease: linearFadingEase(0) }, hasLittleSpace ? anDur*0.0 : 0.0); 
+        fadeTimelines.push(tlFade);
+
+        // Create move-up animation
+
+        const tlMoveUp = $gsap.timeline({ scrollTrigger: {
+          trigger: triggerElement,
+            pin: false,
+            start: `bottom+=${animationStartOffsetCompensation} 85%`,
+            end: `bottom+=${animationStartOffsetCompensation} 10%`,
+            scrub: false,
+            toggleActions: 'restart none none reverse',
+            markers: false,
+        }});
+        // tlMoveUp.fromTo(element, { opacity: '0' }, { opacity: '1', duration: 0.33, ease: linearFadingEase(0) }, 0)
+        // tlMoveUp.fromTo(element, { translateY: '18rem' }, { translateY: '0rem', duration: 0.75, ease: criticalSpring(5.0) /* $Power3.easeOut */ }, 0);
+        // tlMoveUp.fromTo(element, { translateY: '12rem' }, { translateY: '0rem', duration: 0.55, ease: criticalSpring(6.0) }, 0);
+        tlMoveUp.fromTo(element, { translateY: animationStartOffset }, { translateY: '0rem', duration: anDur, ease: criticalSpring(6.0) }, 0);
+        fadeTimelines.push(tlMoveUp);
+
+      } else if (toMoveRight.includes(element)) {
+
+        // Animation duration
+        const anDur = 1.2;
+
+        // Create fade animation
+        const tlFade = $gsap.timeline({scrollTrigger: {
+          trigger: triggerElement,
+          pin: false,
+          start: `bottom+=${animationStartOffsetCompensation} 85%`,
+          end: `bottom+=${animationStartOffsetCompensation} 10%`,
+          scrub: false,
+          toggleActions: 'play none none reverse',
+          markers: false,
+        }})
+
+        const fadeStart = 0.0;
+        const fadeEnd = 0.4;
+        tlFade.fromTo(element, { opacity: '0' }, { opacity: '1', duration: fadeEnd-fadeStart, ease: linearFadingEase(0) }, fadeStart); 
+        fadeTimelines.push(tlFade);
+
+        // Create move-right animation
+
+        const tlMoveUp = $gsap.timeline({ scrollTrigger: {
+          trigger: triggerElement,
+            pin: false,
+            start: `bottom+=${animationStartOffsetCompensation} 85%`,
+            end: `bottom+=${animationStartOffsetCompensation} 10%`,
+            scrub: false,
+            toggleActions: 'restart none none reverse',
+            markers: false,
+        }});
+        tlMoveUp.fromTo(element, { translateX: '-18rem' }, { translateX: '0rem', duration: anDur, ease: criticalSpring(6.0) }, 0);
+        fadeTimelines.push(tlMoveUp);
+
+      } else if (toFlex.includes(element)) {
+
+          // Animation duration
+          const anDur = 1.2;
+          const anDurExt = 1.0; // Hacks
+          const anDelay = 0.3;
+
+          // Create fade animation
+          const tlFade = $gsap.timeline({scrollTrigger: {
+            trigger: triggerElement,
+            pin: false,
+            start: `bottom+=${animationStartOffsetCompensation} 85%`,
+            end: `bottom+=${animationStartOffsetCompensation} 10%`,
+            scrub: false,
+            toggleActions: 'play none none reverse',
+            markers: false,
+          }})
+
+          const fadeStart = 0.0;
+          const fadeEnd = 0.2;
+          tlFade.fromTo(element, { opacity: '0' }, { opacity: '1', duration: fadeEnd-fadeStart, ease: linearFadingEase(0) }, anDelay + fadeStart); 
+          fadeTimelines.push(tlFade);
+
+          // Create flex animation
+
+          const tlMoveUp = $gsap.timeline({ scrollTrigger: {
+            trigger: triggerElement,
+              pin: false,
+              start: `bottom+=${animationStartOffsetCompensation} 85%`,
+              end: `bottom+=${animationStartOffsetCompensation} 10%`,
+              scrub: false,
+              toggleActions: 'restart none none reverse',
+              markers: false,
+          }});
+          element.style.transformOrigin = 'bottom center';
+          // element.style.borderWidth = '2px'
+          // element.style.borderColor = 'black'
+          tlMoveUp.fromTo(element, { transform: 'scale(1.0,1.75)' }, { transform: 'scale(1.0,1.0)', duration: anDur*anDurExt, ease: spring(4.0, 0.4/anDurExt) }, anDelay);
+          fadeTimelines.push(tlMoveUp);
+
+      } else if (toGrow.includes(element)) {
+
+          // Animation duration
+          const anDur = 0.5;
+          const anDelay = 1.0;
+
+          // Create fade animation
+          const tlFade = $gsap.timeline({scrollTrigger: {
+            trigger: triggerElement,
+            pin: false,
+            start: `bottom+=${animationStartOffsetCompensation} 85%`,
+            end: `bottom+=${animationStartOffsetCompensation} 10%`,
+            scrub: false,
+            toggleActions: 'play none none reverse',
+            markers: false,
+          }})
+
+          const fadeStart = 0.0;
+          const fadeEnd = 0.2;
+          tlFade.fromTo(element, { opacity: '0' }, { opacity: '1', duration: fadeEnd-fadeStart, ease: linearFadingEase(0) }, fadeStart); 
+          fadeTimelines.push(tlFade);
+
+          // Create grow animation
+
+          const tlMoveUp = $gsap.timeline({ scrollTrigger: {
+            trigger: triggerElement,
+              pin: false,
+              start: `bottom+=${animationStartOffsetCompensation} 85%`,
+              end: `bottom+=${animationStartOffsetCompensation} 10%`,
+              scrub: false,
+              toggleActions: 'restart none none reverse',
+              markers: false,
+          }});
+          element.style.transformOrigin = 'center 80%';
+          // element.style.borderWidth = '2px'
+          // element.style.borderColor = 'black'
+          tlMoveUp.fromTo(element, { transform: 'scale(0.5,0.5)' }, { transform: 'scale(1.0,1.0)', duration: anDur, ease: criticalSpring(4.0) }, anDelay);
+          fadeTimelines.push(tlMoveUp);
+      }
     }
   })
 })

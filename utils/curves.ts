@@ -1,4 +1,4 @@
-export { criticalSpring, linearScalingEase, linearFadingEase, customInOutEase };
+export { criticalSpring, spring, linearScalingEase, linearFadingEase, customInOutEase };
 
 import { animationCurveFromRawCurve } from "./animationCurveTransform";
 
@@ -65,8 +65,8 @@ function spring(l: number, f: number) {
   */
  
   // Validate params
-  console.assert(f > 0.0 && f <= 1.0, "Damping ratio must > 0.0 and <= 1.0")
   console.assert(l > 0.0, "Decay rate must be > 0.0")
+  console.assert(f > 0.0 && f <= 1.0, "Damping ratio must > 0.0 and <= 1.0")
 
   // Define curve params
   const A = 1.0
