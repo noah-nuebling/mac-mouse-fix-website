@@ -88,19 +88,19 @@
       }
     },
     "benefits.pricing.alternatives.body" : {
-      "comment" : "Adding ::newTab to the end of the link makes the MMF Website open the link in a new tab!\n\nText wrapped in **asterisks** will get a cool color highlight on the page! \n\nWe use quite a lot of **asterisks** to make the page more colorful and visually interesting, but also to make the text easier to understand when the reader is just skimming through.\n\nNote to self: I chose this string for the **asterisks** explanation since it's fairly high up when localizers sort the keys alphabetically.",
+      "comment" : "Adding ::newTab to the end of the link makes the MMF Website open the link in a new tab!\n\nText wrapped in **asterisks** will get a cool color highlight on the page! \n\nWe use quite a lot of **asterisks** to make the page more colorful and visually interesting, but also to make the text easier to understand when the reader is just skimming through.\n\nNote to self: I chose this string for the **asterisks** explanation since it's fairly high up when localizers sort the keys alphabetically.\n\nNote to self2: I think it's grammatically wrong in English to capitalize 'Trackpad' in 'Apple Trackpad', but I think it looks better.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mac Mouse Fix macht deine $10 Maus besser als eine Logitech MX Master Maus oder ein Apple Trackpad. (Diese gelten als einige der besten Eingabegeräte für Macs.)\n\nUnd trotzdem ist Mac Mouse Fix [**{priceFactorMXMaster}x**](https://www.logitech.com/products/mice/mx-master-3s::newTab) günstiger als eine MX Master und [**{priceFactorTrackpad}x**](https://www.apple.com/shop/mac/accessories/mice-keyboards::newTab) günstiger als ein Trackpad!"
+            "state" : "translated",
+            "value" : "Mac Mouse Fix macht deine $10 Maus besser als eine Logitech MX Master Maus oder ein Apple Trackpad. (Diese gelten als einige der besten Eingabegeräte für Macs.)\n\nUnd trotzdem ist Mac Mouse Fix **[{priceFactorMXMaster}x](https://www.logitech.com/products/mice/mx-master-3s::newTab)** günstiger als eine MX Master und **[{priceFactorTrackpad}x](https://www.apple.com/shop/mac/accessories/mice-keyboards::newTab)** günstiger als ein Trackpad!"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac Mouse Fix makes your $10 mouse better than a Logitech MX Master mouse or an Apple Trackpad. (These are considered some of the best input devices for Macs.)\n\nAnd yet, Mac Mouse Fix is [**{priceFactorMXMaster}x**](https://www.logitech.com/products/mice/mx-master-3s::newTab) cheaper than an MX Master and [**{priceFactorTrackpad}x**](https://www.apple.com/shop/mac/accessories/mice-keyboards::newTab) cheaper than a Trackpad!"
+            "value" : "Mac Mouse Fix makes your $10 mouse better than a Logitech MX Master mouse or an Apple Trackpad. (These are considered some of the best input devices for Macs.)\n\nAnd yet, Mac Mouse Fix is **[{priceFactorMXMaster}x](https://www.logitech.com/products/mice/mx-master-3s::newTab)** cheaper than an MX Master and **[{priceFactorTrackpad}x](https://www.apple.com/shop/mac/accessories/mice-keyboards::newTab)** cheaper than a Trackpad!"
           }
         }
       }
@@ -1534,7 +1534,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac Mouse Fix lets you **change the scrolling direction** of your mouse - independently from your trackpad or Magic Mouse."
+            "value" : "Mac Mouse Fix lets you **change the scrolling direction** of your mouse - independently from your Trackpad or Magic Mouse."
           }
         }
       }
@@ -1586,7 +1586,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "With *Smoothness: High*, scrolling feels **incredibly smooth** - **just like a trackpad**. Details like the subtle bounce at the end of a page make for a dynamic and pleasant feel. Still, scrolling is super responsive and easy to control. With this option, you can also scroll large distances very easily."
+            "value" : "With *Smoothness: High*, scrolling feels **incredibly smooth** - **just like a Trackpad**. Details like the subtle bounce at the end of a page make for a dynamic and pleasant feel. Still, scrolling is super responsive and easy to control. With this option, you can also scroll large distances very easily."
           }
         }
       }
@@ -1688,7 +1688,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **down** to see all windows of the app you're using.\n\nIt works just like swiping down with four fingers on an Apple trackpad."
+            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **down** to see all windows of the app you're using.\n\nIt works just like swiping down with four fingers on an Apple Trackpad."
           }
         }
       }
@@ -1723,7 +1723,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Note: Mac Mouse Fix can bring these trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These 5 buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't recognize all the buttons at the moment. Mac Mouse Fix does not currently support the Apple Magic Mouse."
+            "value" : "Note: Mac Mouse Fix can bring these Trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These 5 buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't recognize all the buttons at the moment. Mac Mouse Fix does not currently support the Apple Magic Mouse."
           }
         }
       }
@@ -1740,7 +1740,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse in **any direction** to precisely scroll with 360° freedom and an intuitive inertial effect. So you can navigate the canvas with ease in pro apps like Excel or Affinity Photo.\n\nIt's just as easy and precise as scrolling on an Apple trackpad."
+            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse in **any direction** to precisely scroll with 360° freedom and an intuitive inertial effect. So you can navigate the canvas with ease in pro apps like Excel or Affinity Photo.\n\nIt's just as easy and precise as scrolling on an Apple Trackpad."
           }
         }
       }
@@ -1793,7 +1793,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 4** on your mouse, then **scroll down** to display Launchpad.\n\nIt works just like pinching your thumb and three fingers together on an Apple trackpad."
+            "value" : "Hold down **button 4** on your mouse, then **scroll down** to display Launchpad.\n\nIt works just like pinching your thumb and three fingers together on an Apple Trackpad."
           }
         }
       }
@@ -1827,7 +1827,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**Click button 4** on your mouse to look up a word in the dictionary, preview websites in Safari or files in Finder, and more.\n\n It works just like tapping with 3 fingers or force clicking on an Apple trackpad."
+            "value" : "**Click button 4** on your mouse to look up a word in the dictionary, preview websites in Safari or files in Finder, and more.\n\n It works just like tapping with 3 fingers or force clicking on an Apple Trackpad."
           }
         }
       }
@@ -1861,7 +1861,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to delete messages in Mail, quickly reply to an iMessage, and more.\n\nAny gesture you can perform inside an app by swiping on an Apple trackpad works just as well using Mac Mouse Fix."
+            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to delete messages in Mail, quickly reply to an iMessage, and more.\n\nAny gesture you can perform inside an app by swiping on an Apple Trackpad works just as well using Mac Mouse Fix."
           }
         }
       }
@@ -1895,7 +1895,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **up** to see an overview of your open windows, applications, and desktops.\n\nIt works just like swiping up with four fingers on an Apple trackpad."
+            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **up** to see an overview of your open windows, applications, and desktops.\n\nIt works just like swiping up with four fingers on an Apple Trackpad."
           }
         }
       }
@@ -1929,7 +1929,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to show the previous or next page in apps like Safari.\n\nIt works just like swiping left or right with two fingers on an Apple trackpad."
+            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to show the previous or next page in apps like Safari.\n\nIt works just like swiping left or right with two fingers on an Apple Trackpad."
           }
         }
       }
@@ -1963,7 +1963,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 4** on your mouse, then **scroll up** to show your desktop.\n\nIt works just like spreading your thumb and three fingers apart on an Apple trackpad."
+            "value" : "Hold down **button 4** on your mouse, then **scroll up** to show your desktop.\n\nIt works just like spreading your thumb and three fingers apart on an Apple Trackpad."
           }
         }
       }
@@ -1997,7 +1997,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**Click button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple trackpad."
+            "value" : "**Click button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple Trackpad."
           }
         }
       }
@@ -2031,7 +2031,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **left** or **right** to move to another desktop or fullscreen-app.\n\nIt works just like swiping left or right with four fingers on an Apple trackpad."
+            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **left** or **right** to move to another desktop or fullscreen-app.\n\nIt works just like swiping left or right with four fingers on an Apple Trackpad."
           }
         }
       }
@@ -2065,7 +2065,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold down **button 5** on your mouse, then **scroll up** or **down** to zoom in or out in apps like Safari and Preview.\n\nIt works just like pinching with two fingers on an Apple trackpad."
+            "value" : "Hold down **button 5** on your mouse, then **scroll up** or **down** to zoom in or out in apps like Safari and Preview.\n\nIt works just like pinching with two fingers on an Apple Trackpad."
           }
         }
       }
@@ -2099,7 +2099,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a trackpad."
+            "value" : "Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad."
           }
         }
       }
