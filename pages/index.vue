@@ -85,30 +85,30 @@
 
       <!-- Scrolling -->
       <div class="strong:text-gradient-to-l">
-        <SectionHeader id="scroll" class="gradient-violet" title-accent-class="move-uppp text-gradient-to-l-block filter brightness-[1.06]" title-key="scrolling.title" title-accent-key="scrolling.title.accent" body-key="scrolling.body" />
+        <SectionHeader id="scroll" class="gradient-violet" title-accent-class="move-uppp text-gradient-to-l-block filter brightness-[1.06]" title-key="scroll.intro.title" title-accent-key="scroll.intro.title.accent" body-key="scroll.intro.body" />
         
-        <CardContainer title-key="scroll-smoothness.header" class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] mb-[5rem] z-[10]">
+        <CardContainer title-key="scroll.smoothness.header" class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] mb-[5rem] z-[10]">
           <div class="w-fit relative left-[50%] translate-x-[-50%]">
             <div class="absolute inset-0 -z-10 pointer-events-none">
               <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] absolute left-[25%] top-[40%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]"/>
             </div>
             <div ref="scrollingCardsSection1" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] my-[0] w-fit">
-              <NormalFeatureCard titleKey="scroll-smoothness.high.title"           bodyKey="scroll-smoothness.high.body"        :videoPath="smoothnessHighDemoPath"       title-class="" class=""/>
-              <NormalFeatureCard titleKey="scroll-smoothness.regular.title"        bodyKey="scroll-smoothness.regular.body"     :videoPath="smoothnessRegularDemoPath"       title-class="" class=""/>
-              <NormalFeatureCard titleKey="scroll-smoothness.off.title"            bodyKey="scroll-smoothness.off.body"         :videoPath="smoothnessOffDemoPath"       title-class="" class=""/>
+              <NormalFeatureCard titleKey="scroll.smoothness.high.title"           bodyKey="scroll.smoothness.high.body"        :videoPath="smoothnessHighDemoPath"       title-class="" class=""/>
+              <NormalFeatureCard titleKey="scroll.smoothness.regular.title"        bodyKey="scroll.smoothness.regular.body"     :videoPath="smoothnessRegularDemoPath"    title-class="" class=""/>
+              <NormalFeatureCard titleKey="scroll.smoothness.off.title"            bodyKey="scroll.smoothness.off.body"         :videoPath="smoothnessOffDemoPath"        title-class="" class=""/>
             </div>
           </div>
         </CardContainer>
       
-        <CardContainer title-key="scroll-feature.header"    class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] z-[9]">
+        <CardContainer title-key="scroll.more.header"    class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] z-[9]">
           <div class="w-fit relative left-[50%] translate-x-[-50%]">
             <div class="absolute inset-0 -z-10 pointer-events-none">
               <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] scale-[1] absolute left-[66%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]"/>
             </div>
             <div ref="scrollingCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] my-[0] w-fit">
-              <NormalFeatureCard titleKey="scroll-feature.reverse.title"        bodyKey="scroll-feature.reverse.body"            class=""/>
-              <NormalFeatureCard titleKey="scroll-feature.modifiers.title"      bodyKey="scroll-feature.modifiers.body"          class=""/>
-              <NormalFeatureCard titleKey="scroll-feature.configurable.title"   bodyKey="scroll-feature.configurable.body"       class=""/>
+              <NormalFeatureCard titleKey="scroll.more.reverse.title"        bodyKey="scroll.more.reverse.body"            class=""/>
+              <NormalFeatureCard titleKey="scroll.more.modifiers.title"      bodyKey="scroll.more.modifiers.body"          class=""/>
+              <NormalFeatureCard titleKey="scroll.more.configurable.title"   bodyKey="scroll.more.configurable.body"       class=""/>
             </div>
           </div>
         </CardContainer>

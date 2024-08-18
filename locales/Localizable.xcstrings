@@ -175,6 +175,7 @@
       }
     },
     "benefits.pricing.header" : {
+      "comment" : "There are two sections discussing pricing and other benefits of Mac Mouse Fix: Each section is preceded by a header. (Which are \"benefits.pricing.header\" and \"benefits.software.header\")\n\nThe two section's headers together form a sort of sentence. It looks something like this on the website:\n\n-----------------------------------------\n\nGreat **Software** ...\n\n[...]\n\n... Great **Price**\n\n[...]\n\n----------------------------------------\n\nTake a look at macmousefix.com/#price to see this in action!",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1760,245 +1761,7 @@
         }
       }
     },
-    "scroll-feature.configurable.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mit nur wenigen Klicks kannst du das Scrollen in Mac Mouse Fix auf viele verschiedene Arten einrichten. **Jede von dir gewählte Option wird sich gut anfühlen, ohne dass du herumschrauben musst**. Du kannst jede Scroll-Verbesserung von Mac Mouse Fix auch deaktivieren, wenn du die Art und Weise bevorzugst, wie die Dinge in macOS nativ funktioniert."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You can set up scrolling in Mac Mouse Fix in many different ways with just a few clicks. **All options you choose will feel great without fiddling**. Each scrolling enhancement provided by Mac Mouse Fix can also be turned off, if you prefer how things work natively in macOS."
-          }
-        }
-      }
-    },
-    "scroll-feature.configurable.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Einfach aber flexibel"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Simple yet powerful"
-          }
-        }
-      }
-    },
-    "scroll-feature.header" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "... Und **Mehr**"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "... And **More**"
-          }
-        }
-      }
-    },
-    "scroll-feature.modifiers.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Halte beim Scrollen eine Sondertaste auf deinem Keyboard gedrückt, um **präzise zu scrollen**, **rein- oder rauszuzoomen** und mehr."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hold a keyboard modifier while scrolling to **scroll precisely**, **zoom in or out**, and more."
-          }
-        }
-      }
-    },
-    "scroll-feature.modifiers.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sondertasten"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keyboard modifiers"
-          }
-        }
-      }
-    },
-    "scroll-feature.reverse.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mit Mac Mouse Fix kannst du die **Scrollrichtung** deiner Maus **ändern** - unabhängig von deinem Trackpad oder deiner Magic Mouse."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mac Mouse Fix lets you **change the scrolling direction** of your mouse - independently from your trackpad or Magic Mouse."
-          }
-        }
-      }
-    },
-    "scroll-feature.reverse.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scrollrichtung umkehren"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scrolling direction"
-          }
-        }
-      }
-    },
-    "scroll-smoothness.header" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wähle eine **Scroll-Flüssigkeit** ..."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Choose a **Scrolling Smoothness** ..."
-          }
-        }
-      }
-    },
-    "scroll-smoothness.high.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mit *Flüssigkeit: Hoch*, fühlt sich das Scrollen **unglaublich flüssig** an - **genau wie bei einem Trackpad**. Details wie der dezente Rückprall am Ende einer Seite sorgen für ein dynamisches und angenehmes Scroll-Gefühl. Trotzdem ist das Scrollen super reaktionsschnell und leicht zu steuern. Mit dieser Option kannst du auch sehr leicht weite Strecken scrollen."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "With *Smoothness: High*, scrolling feels **incredibly smooth** - **just like a trackpad**. Details like the subtle bounce at the end of a page make for a dynamic and pleasant feel. Still, scrolling is super responsive and easy to control. With this option, you can also scroll large distances very easily."
-          }
-        }
-      }
-    },
-    "scroll-smoothness.high.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Flüssigkeit: **Hoch**"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Smoothness: **High**"
-          }
-        }
-      }
-    },
-    "scroll-smoothness.off.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mit *Flüssigkeit: Aus* funktioniert das Scrollen wie gewohnt unter macOS - **ohne jede Animation** oder Glättung. Aber mit einem entscheidenden Unterschied: **Eine Raste des Scrollrads** scrollt eine **festgelegte Anzahl von *Zeilen***, statt nur ein paar Pixel. Das macht die Navigation konsistenter und angenehmer.\n\nSo funktioniert das Scrollen auch in den meisten Apps auf Windows und Linux, sowie in älteren macOS-Versionen."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "With *Smoothness: Off*, scrolling works as it normally does under macOS - **without any animation** or smoothing. But with one key difference: **One increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.\n\nThis is how scrolling also works in most apps on Windows and Linux, as well as older macOS versions."
-          }
-        }
-      }
-    },
-    "scroll-smoothness.off.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Flüssigkeit: **Aus**"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Smoothness: **Off**"
-          }
-        }
-      }
-    },
-    "scroll-smoothness.regular.body" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wähle *Flüssigkeit: Regulär* für **reaktionsschnelles** Scrollen, das sich anfühlt, **als würdest du die Seite direkt mit dem Finger schieben**. Die kurzen, schwungbasierten Animationen bieten ein raffiniertes Scroll-Gefühl.\n\nDiese Option fühlt sich ähnlich an wie das Scrollen in Chrome oder modernen Windows-Apps."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Choose *Smoothness: Regular* for **highly responsive** scrolling that **feels like you're directly pushing the page with your finger**. The short, momentum-based animations provide a refined feel.\n\nThis option feels similar to scrolling in Chrome or modern Windows apps."
-          }
-        }
-      }
-    },
-    "scroll-smoothness.regular.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Flüssigkeit: **Regulär**"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Smoothness: **Regular**"
-          }
-        }
-      }
-    },
-    "scrolling.body" : {
+    "scroll.intro.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -2015,7 +1778,7 @@
         }
       }
     },
-    "scrolling.title" : {
+    "scroll.intro.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -2032,7 +1795,7 @@
         }
       }
     },
-    "scrolling.title.accent" : {
+    "scroll.intro.title.accent" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -2045,6 +1808,245 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scrolling"
+          }
+        }
+      }
+    },
+    "scroll.more.configurable.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit nur wenigen Klicks kannst du das Scrollen in Mac Mouse Fix auf viele verschiedene Arten einrichten. **Jede von dir gewählte Option wird sich gut anfühlen, ohne dass du herumschrauben musst**. Du kannst jede Scroll-Verbesserung von Mac Mouse Fix auch deaktivieren, wenn du die Art und Weise bevorzugst, wie die Dinge in macOS nativ funktioniert."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can set up scrolling in Mac Mouse Fix in many different ways with just a few clicks. **All options you choose will feel great without fiddling**. Each scrolling enhancement provided by Mac Mouse Fix can also be turned off, if you prefer how things work natively in macOS."
+          }
+        }
+      }
+    },
+    "scroll.more.configurable.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einfach aber flexibel"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Simple yet powerful"
+          }
+        }
+      }
+    },
+    "scroll.more.header" : {
+      "comment" : "There are two sections related to scrolling: The Smoothness section and the More section. Each section is preceded by a header. (Which are \"scroll.smoothness.header\" and \"scroll.more.header\")\n\nThe two section's headers together form a sort of sentence. It looks something like this on the website:\n\n-----------------------------------------\n\nChoose a **Scrolling Smoothness** ...\n\n[...]\n\n... And **More**\n\n[...]\n\n----------------------------------------\n\nTake a look at macmousefix.com/#scroll to see this in action!",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "... Und **Mehr**"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "... And **More**"
+          }
+        }
+      }
+    },
+    "scroll.more.modifiers.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Halte beim Scrollen eine Sondertaste auf deinem Keyboard gedrückt, um **präzise zu scrollen**, **rein- oder rauszuzoomen** und mehr."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold a keyboard modifier while scrolling to **scroll precisely**, **zoom in or out**, and more."
+          }
+        }
+      }
+    },
+    "scroll.more.modifiers.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sondertasten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keyboard modifiers"
+          }
+        }
+      }
+    },
+    "scroll.more.reverse.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Mac Mouse Fix kannst du die **Scrollrichtung** deiner Maus **ändern** - unabhängig von deinem Trackpad oder deiner Magic Mouse."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix lets you **change the scrolling direction** of your mouse - independently from your trackpad or Magic Mouse."
+          }
+        }
+      }
+    },
+    "scroll.more.reverse.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scrollrichtung umkehren"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scrolling direction"
+          }
+        }
+      }
+    },
+    "scroll.smoothness.header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle eine **Scroll-Flüssigkeit** ..."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a **Scrolling Smoothness** ..."
+          }
+        }
+      }
+    },
+    "scroll.smoothness.high.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit *Flüssigkeit: Hoch*, fühlt sich das Scrollen **unglaublich flüssig** an - **genau wie bei einem Trackpad**. Details wie der dezente Rückprall am Ende einer Seite sorgen für ein dynamisches und angenehmes Scroll-Gefühl. Trotzdem ist das Scrollen super reaktionsschnell und leicht zu steuern. Mit dieser Option kannst du auch sehr leicht weite Strecken scrollen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With *Smoothness: High*, scrolling feels **incredibly smooth** - **just like a trackpad**. Details like the subtle bounce at the end of a page make for a dynamic and pleasant feel. Still, scrolling is super responsive and easy to control. With this option, you can also scroll large distances very easily."
+          }
+        }
+      }
+    },
+    "scroll.smoothness.high.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flüssigkeit: **Hoch**"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smoothness: **High**"
+          }
+        }
+      }
+    },
+    "scroll.smoothness.off.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit *Flüssigkeit: Aus* funktioniert das Scrollen wie gewohnt unter macOS - **ohne jede Animation** oder Glättung. Aber mit einem entscheidenden Unterschied: **Eine Raste des Scrollrads** scrollt eine **festgelegte Anzahl von *Zeilen***, statt nur ein paar Pixel. Das macht die Navigation konsistenter und angenehmer.\n\nSo funktioniert das Scrollen auch in den meisten Apps auf Windows und Linux, sowie in älteren macOS-Versionen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With *Smoothness: Off*, scrolling works as it normally does under macOS - **without any animation** or smoothing. But with one key difference: **One increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.\n\nThis is how scrolling also works in most apps on Windows and Linux, as well as older macOS versions."
+          }
+        }
+      }
+    },
+    "scroll.smoothness.off.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flüssigkeit: **Aus**"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smoothness: **Off**"
+          }
+        }
+      }
+    },
+    "scroll.smoothness.regular.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle *Flüssigkeit: Regulär* für **reaktionsschnelles** Scrollen, das sich anfühlt, **als würdest du die Seite direkt mit dem Finger schieben**. Die kurzen, schwungbasierten Animationen bieten ein raffiniertes Scroll-Gefühl.\n\nDiese Option fühlt sich ähnlich an wie das Scrollen in Chrome oder modernen Windows-Apps."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose *Smoothness: Regular* for **highly responsive** scrolling that **feels like you're directly pushing the page with your finger**. The short, momentum-based animations provide a refined feel.\n\nThis option feels similar to scrolling in Chrome or modern Windows apps."
+          }
+        }
+      }
+    },
+    "scroll.smoothness.regular.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flüssigkeit: **Regulär**"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smoothness: **Regular**"
           }
         }
       }
@@ -2067,7 +2069,7 @@
       }
     },
     "trackpad-features.disclaimer" : {
-      "comment" : "Maybe we should have information about all these caveats on a more info page, instead of here.",
+      "comment" : "Note to self: Maybe we should have information about all these caveats on a more info page, instead of here.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
