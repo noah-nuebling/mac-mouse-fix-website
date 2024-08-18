@@ -141,9 +141,9 @@
       <!-- Price / Good Software -->
 
       <div class="strong:text-gradient-to-l ch-[a]:text-green-600 ch-[a]:font-[500]">
-        <SectionHeader id="price" class="gradient-green strong:filter strong:brightness-[1.15]" title-accent2-class="move-uppp text-gradient-to-l-block gradient-green filter brightness-[1.35]" title-key="good-software.title" title-accent2-key="good-software.title.accent2" body-key="good-software.body" />
+        <SectionHeader id="price" class="gradient-green strong:filter strong:brightness-[1.15]" title-accent2-class="move-uppp text-gradient-to-l-block gradient-green filter brightness-[1.35]" title-key="benefits.intro.title" title-accent2-key="benefits.intro.title.accent2" body-key="benefits.intro.body" />
         
-        <CardContainer title-key="good-software.header" 
+        <CardContainer title-key="benefits.software.header" 
           class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] "             title-class=" strong:filter strong:brightness-[1.2]">
 
           <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
@@ -151,13 +151,13 @@
               <NuxtImg :src="colorSplashImagePath" alt="" class="f-h-[50rem] f-w-[100rem] absolute left-[33%] top-[33%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8] filter invert hue-rotate-[125deg]"/>
             </div>
             <div ref="priceCardsSection1" class=" grid grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] relative">
-              <NormalFeatureCard titleKey="unobtrusive-lightweight.title"          bodyKey="unobtrusive-lightweight.body"     class=""/>
-              <NormalFeatureCard titleKey="open-source.title"                      bodyKey="open-source.body"                 class=""/>
+              <NormalFeatureCard titleKey="benefits.software.unobtrusive-lightweight.title"          bodyKey="benefits.software.unobtrusive-lightweight.body"     class=""/>
+              <NormalFeatureCard titleKey="benefits.software.open-source.title"                      bodyKey="benefits.software.open-source.body"                 class=""/>
             </div>
           </div>
         </CardContainer>
 
-        <CardContainer title-key="price.header" disclaimer-key="price.disclaimer" :disclaimer-values="dynamicUIStrings"
+        <CardContainer title-key="benefits.pricing.header" disclaimer-key="benefits.pricing.disclaimer" :disclaimer-values="dynamicUIStrings"
           class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] mt-[5rem]"   title-class="strong:filter strong:brightness-[1.2]">
 
           <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
@@ -165,9 +165,9 @@
                 <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[150rem] f-h-[75rem] absolute left-[75%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8] filter invert hue-rotate-[125deg]"/>
             </div>
             <div ref="priceCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem]">
-              <NormalFeatureCard titleKey="free-days.title"       bodyKey="free-days.body"        :dynamic="dynamicUIStrings" class=""/>
-              <NormalFeatureCard titleKey="price.title"           bodyKey="price.body"            :dynamic="dynamicUIStrings" class=""/>
-              <NormalFeatureCard titleKey="alternatives.title"    bodyKey="alternatives.body"     :dynamic="dynamicUIStrings" class=""/>
+              <NormalFeatureCard titleKey="benefits.pricing.free-days.title"       bodyKey="benefits.pricing.free-days.body"        :dynamic="dynamicUIStrings" class=""/>
+              <NormalFeatureCard titleKey="benefits.pricing.price.title"           bodyKey="benefits.pricing.price.body"            :dynamic="dynamicUIStrings" class=""/>
+              <NormalFeatureCard titleKey="benefits.pricing.alternatives.title"    bodyKey="benefits.pricing.alternatives.body"     :dynamic="dynamicUIStrings" class=""/>
               <div class="hidden sm:col-span-1 md:col-span-2 col-span-3 w-full flex justify-center">
                 <!-- Download counter was here -->
               </div> 
