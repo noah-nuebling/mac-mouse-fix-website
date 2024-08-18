@@ -1505,7 +1505,8 @@
         }
       }
     },
-    "navbar.github" : {
+    "navbar.links.github" : {
+      "comment" : "The 'navbar' or 'navigation bar' is the section at the top of the website that stays put when you scroll down and shows a bunch of useful links to the user.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1522,7 +1523,7 @@
         }
       }
     },
-    "navbar.overview" : {
+    "navbar.links.overview" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1539,141 +1540,17 @@
         }
       }
     },
-    "quote-source.email" : {
+    "navbar.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**{ name }** in einer E-Mail"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**{ name }** in an email"
+            "value" : "Mac Mouse Fix"
           }
         }
-      }
-    },
-    "quote-source.gitHub" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**{ name }** auf GitHub"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**{ name }** on GitHub"
-          }
-        }
-      }
-    },
-    "quote-source.lifehacker" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**{ name }** in einem LifeHacker-Artikel"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**{ name }** in a LifeHacker article"
-          }
-        }
-      }
-    },
-    "quote-source.payPalDonation" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**{ name }** in einer PayPal-Spendennachricht"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**{ name }** in a PayPal donation message"
-          }
-        }
-      }
-    },
-    "quote-source.reddit" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**{ name }** auf Reddit"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**{ name }** on Reddit"
-          }
-        }
-      }
-    },
-    "quote-source.stackExchange" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**{ name }** auf Stack Exchange"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**{ name }** on Stack Exchange"
-          }
-        }
-      }
-    },
-    "quote-source.youtubeComment" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**{ name }** in einem YouTube-Kommentar"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "**{ name }** in a YouTube comment"
-          }
-        }
-      }
-    },
-    "quotes.47" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Ich habe lange nach einer ähnlichen App gesucht und endlich diese hier gefunden, super 👍."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "I've been searching for a similar app for a long time, and finally found this one, thumbs up 👍."
-          }
-        }
-      }
+      },
+      "shouldTranslate" : false
     },
     "quotes.see-less" : {
       "extractionState" : "manual",
@@ -1693,6 +1570,7 @@
       }
     },
     "quotes.see-more" : {
+      "comment" : "Label for a button that lets you see more quotes from Mac Mouse Fix users.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1705,6 +1583,126 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "See More"
+          }
+        }
+      }
+    },
+    "quotes.source.email" : {
+      "comment" : "The \"quote.source.[...]\" strings are displayed directly below the quotes. \"{name}\" is replaced with the name of the author of the quote.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** in einer E-Mail"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** in an email"
+          }
+        }
+      }
+    },
+    "quotes.source.gitHub" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** auf GitHub"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** on GitHub"
+          }
+        }
+      }
+    },
+    "quotes.source.lifehacker" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** in einem LifeHacker-Artikel"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** in a LifeHacker article"
+          }
+        }
+      }
+    },
+    "quotes.source.payPalDonation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** in einer PayPal-Spendennachricht"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** in a PayPal donation message"
+          }
+        }
+      }
+    },
+    "quotes.source.reddit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** auf Reddit"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** on Reddit"
+          }
+        }
+      }
+    },
+    "quotes.source.stackExchange" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** auf Stack Exchange"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** on Stack Exchange"
+          }
+        }
+      }
+    },
+    "quotes.source.youtubeComment" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** in einem YouTube-Kommentar"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** in a YouTube comment"
           }
         }
       }
@@ -1726,24 +1724,8 @@
         }
       }
     },
-    "quotes.translation-disclaimer.de" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Translated from German"
-          }
-        }
-      }
-    },
     "quotes.translation-disclaimer.en" : {
+      "comment" : "This is shown below translated quotes that were originally in English",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1761,6 +1743,7 @@
       }
     },
     "quotes.translation-disclaimer.zh" : {
+      "comment" : "This is shown below translated quotes that were originally in Chinese",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {

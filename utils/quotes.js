@@ -12,14 +12,14 @@ export { QuoteSource, PermissionToShare, QuoteData, getUIStrings, quoteSourceIsP
 
 const QuoteSource = {
   // (string equivalents are localization keys)
-  Email             : 'quote-source.email',
-  PayPalDonation    : 'quote-source.payPalDonation',
-  GitHub            : 'quote-source.gitHub',
-  StackExchange     : 'quote-source.stackExchange',
-  Reddit            : 'quote-source.reddit',
-  Lifehacker        : 'quote-source.lifehacker',
-  YoutubeComment    : 'quote-source.youtubeComment',
-  Acknowledgements  : 'quote-source.acknowledgements',
+  Email             : 'quotes.source.email',
+  PayPalDonation    : 'quotes.source.payPalDonation',
+  GitHub            : 'quotes.source.gitHub',
+  StackExchange     : 'quotes.source.stackExchange',
+  Reddit            : 'quotes.source.reddit',
+  Lifehacker        : 'quotes.source.lifehacker',
+  YoutubeComment    : 'quotes.source.youtubeComment',
+  Acknowledgements  : 'quotes.source.acknowledgements',
 }
 function quoteSourceIsPublic(quoteSource) {
 
