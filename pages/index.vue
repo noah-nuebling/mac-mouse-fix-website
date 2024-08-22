@@ -412,9 +412,21 @@ onMounted(() => {
       sectionToTimelineMap.set(section, tlTrack)
     }
 
-    /* Create fade-in animations for titles and bodys */
+    /* Create fade-in animations for titles and bodys 
+    
+      Discussion: 
+      - Now that we have the move-uppp, flexxx, etc animation, we have a much cooler way to bring some motion and dynamic feel into the page than the fadeee animations.
+      - Reasons I can think of to keep using fadeee animations, is to only have the SectionHeader *title* visible when the title is scrolled into the middle of the screen, 
+          and not have the SectionHeader *body* visible as well.
+          -> This looks visually very clean and beautiful, when only the SectionHeader title is shown on in the middle of the screen with a white background. 
+          -> Also, it was one of the ideas behind the section header design to only have one large piece of text shown at a time, almost like a video or presentation
+           which I thought guides the viewers attention and emphasizes the 'story-telling' or 'question-reveal' aspects of the text.
+          -> A downside is that having the text fade in only once you scroll it to the middle of the screen makes the website feel more 'fuzzy', less 'solid', maybe more mentally
+            taxing to navigate. It feel similar to having very low contrast, no/light shadows and thin lines for 'elegance' which also gives me this 'less solid' feel (the iOS 7 effect.)
 
-    if ((false)) {
+      */
+
+    if ((true)) {
       const toFade: Array<Element> = Array.from(rootElement.value!.getElementsByClassName('fadeee'))
       
       for (const element of toFade) {
@@ -422,7 +434,7 @@ onMounted(() => {
         const tlFade = $gsap.timeline({ scrollTrigger: {
           trigger: element,
           pin: false,
-          start: "bottom 95%",
+          start: "top 80%",
           end: "bottom 10%",
           scrub: false,
           toggleActions: 'play none none reverse',
@@ -433,7 +445,6 @@ onMounted(() => {
 
       }
     }
-
 
     /* Create move-up animations for subtitles 
         I'm not quite sure if these are obnoxious, but it is sorta cool.
