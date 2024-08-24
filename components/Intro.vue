@@ -206,34 +206,19 @@ const global = useGlobalStore()
 
 /* Get localization progress */
 
-import Localizable from "../locales/Localizable";
+import * as Localizable from "../locales/localizableAccess";
 var localizationProgressDisplay = ref<string>(''); // String like `84%`
 var doShowLocalizationProgress = computed(() => localizationProgressDisplay.value != '100%' || global.localeSwitchCount > 0); // Note: Show progress if is page is not fully translated, or user has switched locales (so the progress UI doesn't disappear while the user is using it to switch locales.) 
 
 // Watch locale changes
 watch(_i18n.locale, (newLocale: string) => {
+
   // Get new localizationProgress
-  var p: string = '100%';
-  if (newLocale == Localizable["sourceLocale"]) {
-    p = '100%'; // Source language is 100% translated by definition.
-  } else {
-    var currentLocaleInfo: any | null = null;
-    for (var localeInfo of Localizable["locales"]) {
-      if (localeInfo["code"] == newLocale) {
-        currentLocaleInfo = localeInfo;
-        break;
-      }
-    }
-    console.assert(currentLocaleInfo != null);
-    p = currentLocaleInfo!["progressDisplay"]; // I think It would be cleaner if currentLocaleInfo gave us a float instead of a string like `%87`
-  }
-  console.assert(p != '' && p.includes('%'))
-    
-  // Store the progress string
-  localizationProgressDisplay.value = p
+  localizationProgressDisplay.value = Localizable.progressDisplay(newLocale)
 
   // Log
   console.log(`Intro: localeSwitchCount: ${global.localeSwitchCount}, progress: ${localizationProgressDisplay.value}`)
+  
 }, { immediate: true })
 
 /* Get dom element refs 

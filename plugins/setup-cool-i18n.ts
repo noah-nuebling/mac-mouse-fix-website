@@ -7,8 +7,14 @@
 
 import md from 'markdown-it' // We used to import 'md' here and it seemed to work the same.
 import type MarkdownIt from 'markdown-it/index.js';
+import type { LocaleObject } from '@nuxtjs/i18n';
 
 export default defineNuxtPlugin((app) => {
+
+  /* Test 
+      We use `useI18n()` to give us autocompletions for the `$i18n` object. 
+      When we actually use `useI18n()` it crashes though.
+  // const i18n = useI18n();
 
   /* Get stuff from nuxtApp */
   const { $i18n } = app;
@@ -31,17 +37,31 @@ export default defineNuxtPlugin((app) => {
 
   }
 
-  /* Define isCurrentLang */
+  /* Define isCurrentLanguage */
   function isCurrentLanguage(languageCode: string) {
 
     const currentLocale = $i18n.locale.value
     return currentLocale.startsWith(languageCode)
   }
 
+  /* Define */
+  function localeObject(locale: string): LocaleObject | null {
+    var result = null;
+    for (const l in i18n.locales) {
+      const obj = l as unknown as LocaleObject;
+      if (obj.code == locale) {
+        result = obj;
+        break;
+      }
+    }
+    return result;
+  }
+
   /* Store custom functions */
   const coolI18n = {
     mt,
-    isCurrentLanguage
+    isCurrentLanguage,
+    localeObject,
   }
 
   /* Return */
