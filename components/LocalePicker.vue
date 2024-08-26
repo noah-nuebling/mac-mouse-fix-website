@@ -1,7 +1,8 @@
 w
 <template>
     <select ref="localePicker" @change="handleLocaleSelect" class="cool-select">
-        <!-- We might wanna add <optgroup>s here and group the locales into continents once there are more displayed locales. -->
+        <!-- We might wanna add <optgroup>s here and group the locales into continents once there are more displayed locales. 
+            Update: (26.08.2024) All the langauges come from Europe or Asia, so doesn't make sense. Maybe we could group by something else. Will worry later. -->
         <option v-for="$loc in localesToDisplay" :value="$loc.code">
             {{ $loc.name }}
         </option>

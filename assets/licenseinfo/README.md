@@ -11,7 +11,7 @@ When editing config.json:
 - To make the changes to config.json take effect, remember to use `pnpm upload`
 
 Countries:
-- Countries are specified by BCP 47 Region Identifiers. For example "IN" for India. Also see ([BCP 47 Search](https://www.techonthenet.com/js/language_tags.php) and [OSX Language ID Documentation](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html))
+- Countries are specified by BCP 47 Region Identifiers. For example "IN" for India. Also see ([ISO Country Code Browser](https://www.iso.org/obp/ui/#search) and [OSX Language ID Documentation](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html))
 - Reasons for making MMF free in certain countries:
   - China (CN): Gumroad is blocked by the great Firewall
   - Russia (RU): Not totally sure anymore. I think PayPal and credit cards which Gumroad supports don't work in Russia because of the war.
