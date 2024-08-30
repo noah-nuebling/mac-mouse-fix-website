@@ -27,9 +27,8 @@
                 <LocalePicker></LocalePicker>
               </template>
               <template #linkToGuide>
-                <a href="https://noah-nuebling.github.io/redirection-service?message=&target=localization-guide">{{ $t('localization-progress.link-to-guide') }}</a>
+                <a href="https://noah-nuebling.github.io/redirection-service?message=&target=mmf-localization-guide">{{ $t('localization-progress.link-to-guide') }}</a>
               </template>
-              
             </i18n-t>
           </div>
         </div>
