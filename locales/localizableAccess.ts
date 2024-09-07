@@ -5,13 +5,22 @@ The main way to access Localizable.js is through the vuei18n framework. E.g. it 
 However we store some extra, custom data in Localizable.js which we make easy-to-access with this module.
 */
 
-export { localeInfo, sourceLocale, progressDisplay, localeHasTranslations };
+export { localeInfo, sourceLocale, progressDisplay, localizationProgressAsInt };
 
 import Localizable from "./Localizable";
 
-function localeHasTranslations(locale: string): boolean {
-  const progress = progressDisplay(locale);
-  return progress != "0%";
+function localizationProgressAsInt(locale: string): number {
+  
+  // Returns the progress percentage as an int. E.g. if the locale is 56% translated, this returns 56.
+  
+  const progressStr = progressDisplay(locale);
+  const result = parseInt(progressStr);
+
+  console.assert(progressStr.charAt(progressStr.length-1) == '%');
+  console.assert(2 <= progressStr.length && progressStr.length <= 4);
+  console.assert(0 <= result && result <= 100);
+
+  return result;
 }
 
 function progressDisplay(locale: string): string {

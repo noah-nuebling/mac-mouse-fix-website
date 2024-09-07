@@ -10,6 +10,10 @@ w
 </template>
 
 <script lang="ts" setup>
+
+/* Constants */
+const showLocaleThreshold = 50; // If the translation progress of a locale is greater than this, we show it in the locale picker. (E.g. 60 means: Only show locales that are more than 60% complete) || Note: Keep this in sync with `show_locale_threshold` in our python scripts.
+
 /* Import global store */
 import { useGlobalStore } from "~/store/global";
 const global = useGlobalStore();
@@ -34,7 +38,7 @@ onMounted(() => {
     const result = i18n.locales.value.filter((loc) => {
         return (
             $coolI18n.isCurrentLanguage(loc.code) || // Show the current language -> Otherwise the layout breaks.
-            Localizable.localeHasTranslations(loc.code) || // Show translated languages -> In case the user speaks one of these languages, they might want to switch to it
+            Localizable.localizationProgressAsInt(loc.code) > showLocaleThreshold || // Show sufficiently translated languages -> In case the user speaks one of these languages, they might want to switch to it
             i18n.getBrowserLocale() == loc.code
         ); // Show the preferred locale of the user's browser -> When the user first opens the page it will display in this locale (as of 23.08.2024)
     });

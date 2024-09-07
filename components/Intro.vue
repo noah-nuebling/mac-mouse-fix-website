@@ -315,7 +315,7 @@ onMounted(() => {
     const dx = window.innerWidth - viewportSizeForCurrentAnimation.width
     const dy = window.innerHeight - viewportSizeForCurrentAnimation.height
 
-    console.log(`Window size delta - dx: ${ dx }, dy: ${ dy }`)
+    // console.log(`Window size delta - dx: ${ dx }, dy: ${ dy }`); // Don't leave this on in production, it logs like 10 times in a row.
 
     if (Math.abs(dx) > 0 || Math.abs(dy) > yThreshold) {
       debouncedRecreateIntroAnimation()

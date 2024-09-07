@@ -81,7 +81,7 @@ const uiStrings = ref<{ quote: string|null, source: string } | null>(null);
   When switching locales from the UI, it changes locales twice - first with proper oldLocale, second with undefined as the old locale (15.08.2024) */
 const i18n = useI18n();
 const updateQuoteLocales = debouncer((newLocale: string, oldLocale: string) => {
-  console.log(`quoteCardLocales: ${oldLocale} -> ${newLocale}`)
+  // console.log(`quoteCardLocales: ${oldLocale} -> ${newLocale}`); // Don't leave this log on in production - It logs like 60 times in a row.
   uiStrings.value = props.quote ? getUIStrings(props.quote, newLocale) : null;
 }, 50);
 watch(i18n.locale, updateQuoteLocales, { immediate: false });
