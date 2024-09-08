@@ -549,7 +549,7 @@ onMounted(() => {
           start: `bottom+=${animationStartOffsetCompensation} 85%`,
           end: `bottom+=${animationStartOffsetCompensation} 10%`,
           scrub: false,
-          toggleActions: 'play none none reverse',
+          toggleActions: 'restart none none reverse',
           markers: false,
         }})
 
@@ -587,7 +587,7 @@ onMounted(() => {
           start: `bottom+=${animationStartOffsetCompensation} 85%`,
           end: `bottom+=${animationStartOffsetCompensation} 10%`,
           scrub: false,
-          toggleActions: 'play none none reverse',
+          toggleActions: 'restart none none reverse',
           markers: false,
         }})
 
@@ -624,7 +624,7 @@ onMounted(() => {
             start: `bottom+=${animationStartOffsetCompensation} 85%`,
             end: `bottom+=${animationStartOffsetCompensation} 10%`,
             scrub: false,
-            toggleActions: 'play none none reverse',
+            toggleActions: 'restart none none reverse',
             markers: false,
           }})
 
@@ -663,7 +663,7 @@ onMounted(() => {
             start: `bottom+=${animationStartOffsetCompensation} 85%`,
             end: `bottom+=${animationStartOffsetCompensation} 10%`,
             scrub: false,
-            toggleActions: 'play none none reverse',
+            toggleActions: 'restart none none reverse',
             markers: false,
           }})
 
