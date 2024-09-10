@@ -9,6 +9,8 @@ import md from 'markdown-it' // We used to import 'md' here and it seemed to wor
 import type MarkdownIt from 'markdown-it/index.js';
 import type { LocaleObject } from '@nuxtjs/i18n';
 
+import { objectDescription } from '../utils/util';
+
 export default defineNuxtPlugin((app) => {
 
   /* Test 
@@ -18,6 +20,9 @@ export default defineNuxtPlugin((app) => {
 
   /* Get stuff from nuxtApp */
   const { $i18n } = app;
+
+  /* TEST  */
+  console.log(`Theee global props:\n${objectDescription(app.vueApp.config.globalProperties)}`);
 
   /* Get renderer */
   const renderer = md({

@@ -8,6 +8,12 @@ function objectDescription(value: any, parents: Array<any> = []): string | undef
   //  Use this over JSON.stringify() because that crashes for circular references inside the object.
   //  Credit: ChatGPT
 
+  // Only run on client
+  //    This is for debugging. We don't need to prerender this. So we won't run on the server. (Also there's weird HTMLElement is not defined errors on the server.)
+  if (!import.meta.client) {
+    return undefined
+  }
+
   // constants
   const ndent = 4;
   const brindent = "\n    ";
@@ -34,13 +40,14 @@ function objectDescription(value: any, parents: Array<any> = []): string | undef
   function addIndent(str: string): string {
     var resultArr: string[] = [];
     for (const line of str.split('\n')) {
-      resultArr.push(" ".repeat(ndent).concat(line));
+      const appendix = "·".concat(" ".repeat(ndent-1)).concat("").concat(line);
+      resultArr.push(appendix);
     }
     return resultArr.join('\n');
   }
   function addBrindent(str: string): string {
-    const result = addIndent(str);
-    if (result.trim().length == 0) { return '' }
+    const testResult = addIndent(str);
+    if (testResult.trim().length == 0) { return '' }
     return "\n".concat(addIndent(str));
   }
 
@@ -68,7 +75,7 @@ function objectDescription(value: any, parents: Array<any> = []): string | undef
     // Handle numbers and booleans
     result = String(value);
   } else if (typeof value.toJSON === 'function') { 
-    // Handle Dates + custom objects
+    // toJSON -> Handle Dates + custom objects
     result = value.toJSON(); // Should this be wrapped in escapeString()?
   } else if (Array.isArray(value)) { 
     // Handle arrays
@@ -79,18 +86,47 @@ function objectDescription(value: any, parents: Array<any> = []): string | undef
     };
     result = `[${br}${elements.map((e) => addIndent(e)).join(`,${br}`)}${br}]`;
   } else if (typeof value === "object") { 
+    
     // Handle objects
+    
     var entries: Array<string> = []
     for (const [key, val] of Object.entries(value)) {
       var d = objectDescription(val, parents);
       d = d == undefined ? "null" : d;
-      if (d.includes('\n')) {
+      if (d.includes('\n') && 
+          (d.startsWith('{\n') || d.startsWith('[\n') || d.startsWith('(\n')) && 
+          (d.endsWith('\n}') || d.endsWith('\n]') || d.endsWith('\n)'))) {
+        entries.push(`"${escapeString(key)}":${br}${d}`);
+      } else if (d.includes('\n')) {
         entries.push(`"${escapeString(key)}":${addBrindent(d)}`);
       } else {
         entries.push(`"${escapeString(key)}": ${d}`);
       }
     };
-    result = `{${entries.join(`,${br}`)}}`;
+
+    const e = `${entries.join(`,${br}`)}`;
+    if (e.includes('\n')) {
+      result = `{${addBrindent(e)}${br}}`;
+    } else {
+      result = `{${e}}`;
+    }
+    
+  } else if (typeof value.toString === 'function') {
+    // toString() -> Handles methods and probably other stuff. Do this last, otherwise objects will just become '[Object object]'.
+    
+
+    result = value.toString();
+
+    const cutoff = 100;
+    if ((result?.length ?? 0) > cutoff) {
+      result = result?.slice(0, cutoff) + '\n[...]';
+    }
+
+    if (result?.includes('\n')) {
+      result = `"""${br}${result}${br}"""`
+    } else {
+      result = `"${result}"`
+    }
   } else {
     // Handle undefined and functions (these are not valid JSON values)
     result = undefined;
