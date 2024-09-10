@@ -2,11 +2,13 @@
 
 <template>
     <div ref="rootElement" :class="['cursor-pointer']" @click="() => downloadMMF()">
-      <p class="text-inherit">{{ $t('download-button') }}</p>
+      <p class="text-inherit">{{ MFLocalizedString('download-button', '') }}</p>
     </div>
 </template>
 
 <script setup lang="ts">
+
+const { MFLocalizedString } = useNuxtApp().$coolI18n;
 
 const rootElement: Ref<HTMLElement|null> = ref(null)
 

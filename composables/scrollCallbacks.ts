@@ -24,7 +24,7 @@ export function useScrollCallbacks() {
       frameCount += 1
 
       if (haltedFrameCount >= haltedFrameThreshold) {
-        console.log(`onScrollStop - callback called after ${ frameCount } frames`)
+        console.debug(`onScrollStop - callback called after ${ frameCount } frames`)
         callback()
       } else {
         requestAnimationFrame(() => checkStopLoop())  

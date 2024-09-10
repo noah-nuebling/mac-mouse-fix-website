@@ -24,7 +24,7 @@
         <!-- <NuxtImg ref="mmfIcon" :src="mmfIconImagePath" sizes="225px" alt="Mac Mouse Fix Icon" :class="['h-[6.5rem] mb-[3rem] mr-[1rem] hidden']"/> --> <!-- Copied this from intro.vue, not sure if good -->
         <p class="xs:text-[2.5rem] text-[3.0rem] font-[600]">
           <!-- <span class="font-[600] text-[1em] inline-block translate-y-[-0.1em]">􀎤</span>  -->
-          {{ $mt('checkout-header.title') }}
+          {{ mdrf(MFLocalizedString('checkout-header.title', '')) }}
         </p>
         <!-- <p class="mb-[15rem]">Make your $10 Mouse Better than an Apple Trackpad!</p> -->
       </div>
@@ -33,8 +33,8 @@
 
       <!-- Options -->
 
-      <p v-html="$mt('checkout-options.title')" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0rem]"></p>
-      <p v-html="$mt('checkout-options.hint')" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"></p>
+      <p v-html="mdrf(MFLocalizedString('checkout-options.title', ''))" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0rem]"></p>
+      <p v-html="mdrf(MFLocalizedString('checkout-options.hint', ''))" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"></p>
 
       <div class="flex flex-col gap-[2em]">
 
@@ -60,26 +60,26 @@
         <hr class="my-[4em] opacity-1">
 
         <div :style="selectedOption == 'generous' ? '' : 'display: none'">
-          <p v-html="$mt('checkout-extras.title.name')" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
-          <p v-html="$mt('checkout-extras.hint.name')" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"/>
+          <p v-html="mdrf(MFLocalizedString('checkout-extras.title.name', ''))" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
+          <p v-html="mdrf(MFLocalizedString('checkout-extras.hint.name', ''))" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"/>
         </div>
         <div :style="selectedOption == 'very-generous' ? '' : 'display: none'">
-          <p v-html="$mt('checkout-extras.title.message')" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
-          <p v-html="$mt('checkout-extras.hint.message')" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"/>
+          <p v-html="mdrf(MFLocalizedString('checkout-extras.title.message', ''))" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
+          <p v-html="mdrf(MFLocalizedString('checkout-extras.hint.message', ''))" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"/>
         </div>
 
         <div class=""> <!-- border rounded-[1.6rem] bg-white p-[1.5rem] shadow-sm -->
 
           <!-- Name field -->
           <div :style="selectedOption == 'generous' || selectedOption == 'very-generous' ? '' : 'display: none'">
-            <p v-html="$mt('checkout-extra.name.title')"    class="text-[1.2em] font-[600] mb-[0.5em] mt-[0em]"
+            <p v-html="mdrf(MFLocalizedString('checkout-extra.name.title', ''))"    class="text-[1.2em] font-[600] mb-[0.5em] mt-[0em]"
               :style="selectedOption == 'very-generous' ? '' : 'display: none'"/>
             <input v-model="paddleCustomData.name" type="text" class="border-black/[0.1] bg-white/[0.75] border rounded-[0.75rem] h-[3.5rem] px-[1rem] text-[1.1rem] w-full">
           </div>
 
           <!-- Message field -->
           <div :style="selectedOption == 'very-generous' ? '' : 'display: none'">
-            <p v-html="$mt('checkout-extra.message.title')" class="text-[1.2em] font-[600] mb-[0.5em] mt-[1em]"/>
+            <p v-html="mdrf(MFLocalizedString('checkout-extra.message.title', ''))" class="text-[1.2em] font-[600] mb-[0.5em] mt-[1em]"/>
             <input v-model="paddleCustomData.message" type="text" class="border-black/[0.1] bg-white/[0.75] border rounded-[0.75rem] h-[3.5rem] px-[1rem] text-[1.1rem] w-full">
           </div>
         </div>
@@ -112,13 +112,13 @@
             - There are two weird data fields in the docs that don't show up for us at the moment: credit_to_balance and grand_total
             - ChatGPT says the credit stuff is confusing since user might wonder: Where does the credit come from? Where is it stored? What can it be used for? But I don't know the answer to these questions either so we'll just leave it for now.
           -->
-          <span v-if="totals.subtotal != totals.total">       {{  $mt('checkout-totals.subtotal') }}             <span class="">{{ formatAsMoney(totals.subtotal, currencyCode!, currencyLocale) }}</span></span>
-          <span v-if="totals.discount > 0">             <br>  {{  $mt('checkout-totals.discount')  }}         <span class="">-{{ formatAsMoney(totals.discount, currencyCode!, currencyLocale) }}</span></span>
-          <span v-if="totals.tax > 0">                  <br>  {{  $mt('checkout-totals.tax')  }}              <span class="">{{ formatAsMoney(totals.tax, currencyCode!, currencyLocale) }}</span></span>
-          <span>                                        <br>  {{  $mt('checkout-totals.total')  }}            <span class=""><strong>{{ formatAsMoney(totals.total, currencyCode!, currencyLocale) }}</strong></span></span>
-          <span v-if="totals.credit > 0">               <br>  {{  $mt('checkout-totals.credit')  }}   <span class="">-{{ formatAsMoney(totals.credit, currencyCode!, currencyLocale) }}</span></span>
-          <span v-if="totals.balance != totals.total">  <br>  {{  $mt('checkout-totals.balance')  }}             <span class="">{{ formatAsMoney(totals.balance, currencyCode!, currencyLocale) }}</span></span>
-          <span v-if="totals.credit_to_balance">     <br><br> {{  $mt('checkout-totals.credit-to-balance')  }} <span class="">{{ formatAsMoney(totals.credit_to_balance, currencyCode!, currencyLocale) }}</span></span>
+          <span v-if="totals.subtotal != totals.total">       {{  mdrf(MFLocalizedString('checkout-totals.subtotal', '')) }}             <span class="">{{ formatAsMoney(totals.subtotal, currencyCode!, currencyLocale) }}</span></span>
+          <span v-if="totals.discount > 0">             <br>  {{  mdrf(MFLocalizedString('checkout-totals.discount', ''))  }}         <span class="">-{{ formatAsMoney(totals.discount, currencyCode!, currencyLocale) }}</span></span>
+          <span v-if="totals.tax > 0">                  <br>  {{  mdrf(MFLocalizedString('checkout-totals.tax', ''))  }}              <span class="">{{ formatAsMoney(totals.tax, currencyCode!, currencyLocale) }}</span></span>
+          <span>                                        <br>  {{  mdrf(MFLocalizedString('checkout-totals.total', ''))  }}            <span class=""><strong>{{ formatAsMoney(totals.total, currencyCode!, currencyLocale) }}</strong></span></span>
+          <span v-if="totals.credit > 0">               <br>  {{  mdrf(MFLocalizedString('checkout-totals.credit', ''))  }}   <span class="">-{{ formatAsMoney(totals.credit, currencyCode!, currencyLocale) }}</span></span>
+          <span v-if="totals.balance != totals.total">  <br>  {{  mdrf(MFLocalizedString('checkout-totals.balance', ''))  }}             <span class="">{{ formatAsMoney(totals.balance, currencyCode!, currencyLocale) }}</span></span>
+          <span v-if="totals.credit_to_balance">     <br><br> {{  mdrf(MFLocalizedString('checkout-totals.credit-to-balance', ''))  }} <span class="">{{ formatAsMoney(totals.credit_to_balance, currencyCode!, currencyLocale) }}</span></span>
         </p>
         
         <div ref="paddleCheckoutContainer" class="paddle-checkout-container"></div> <!-- border rounded-[1.6rem] bg-white shadow-sm p-[0.75rem] -->
@@ -142,7 +142,7 @@
 <script setup lang="ts">
 
 // Import other stuff
-const $mt = useMT()
+const { $coolI18n: { mdrf, MFLocalizedString } } = useNuxtApp();
 const $i18n = useI18n()
 import { formatAsMoney } from '../utils/util'
 
@@ -224,14 +224,14 @@ watch([selectedOption, paddleCustomData], ([newSelectedOption, newCustomData], [
 
 function handlePaddleEvent(event: Object) {
 
-  console.log(`Received Paddle event: ${event.name}: ${objectDescription(event, null, 4)}`)
+  console.debug(`Received Paddle event: ${event.name}: ${objectDescription(event, null, 4)}`)
 
   updatePaddleCheckoutHeight()
 
   if (event.type == "checkout.ping.size") {
       if (paddleCheckoutContainer.value) {
         const iFrame = paddleCheckoutContainer.value!.querySelector('iframe')!
-        console.log(`The iFrame: ${iFrame}`)
+        console.debug(`The iFrame: ${iFrame}`)
         iFrame.height = `${event['height']}`;
       }
       return
@@ -241,7 +241,7 @@ function handlePaddleEvent(event: Object) {
     window.open("/", "_self"); // Navigate to domain root. This happens when the user clicks the little 'x' button. Ideally I'd like to hide that one.
   }
 
-  // console.log(`TOTALLS: ${objectDescription(event, null, 4)}`)
+  // console.debug(`TOTALLS: ${objectDescription(event, null, 4)}`)
 
   if (event.data) {
     if (event.data.totals) {

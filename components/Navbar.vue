@@ -16,7 +16,7 @@
         <!-- <div class=" relative wh-[2.6rem] translate-y-[-0.025rem] mr-[2rem]">
           <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['absolute inset-0 w-full h-full scale-[1.2]']">
         </div> -->
-        <NuxtLink :to="localePath('/')" class="mmf-name font-display font-[600] sm:text-[1.75rem] text-[1.75rem] tracking-[-0.00em] leading-[1.15em]">{{ $t('navbar.title') }}</NuxtLink>
+        <NuxtLink :to="localePath('/')" class="mmf-name font-display font-[600] sm:text-[1.75rem] text-[1.75rem] tracking-[-0.00em] leading-[1.15em]">{{ MFLocalizedString('navbar.title', '') }}</NuxtLink>
       </div>
 
       <!-- Right-aligned -->
@@ -27,8 +27,8 @@
         </div>
 
 
-        <NuxtLink :to="localePath('/')" class="sm:hidden">{{ $t('navbar.links.overview') }}</NuxtLink>
-        <a href="https://github.com/noah-nuebling/mac-mouse-fix" class="sm:hidden">{{ $mt('navbar.links.github') }} <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', global.navbarHasDarkAppearance ? 'invert' : '']"></a>
+        <NuxtLink :to="localePath('/')" class="sm:hidden">{{ MFLocalizedString('navbar.links.overview', '') }}</NuxtLink>
+        <a href="https://github.com/noah-nuebling/mac-mouse-fix" class="sm:hidden">{{ mdrf(MFLocalizedString('navbar.links.github', '')) }} <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', global.navbarHasDarkAppearance ? 'invert' : '']"></a>
 
         <DownloadButton class="my-[0rem] bg-blue-500 rounded-full text-white ml-[0.3rem] px-[0.85em] py-[0.3em] text-[1.0rem] sm:translate-y-[0.15em] translate-y-[-0.05em]"/>
     </div>
@@ -40,9 +40,9 @@
     <div ref="expandingContainer" :class="['overflow-clip h-0 transition-[height] duration-[0.5s]', currentSize <= ResponsiveSize.sm ? '' : 'hidden', isExpanded ? '' : '']">
       <div :class="['sm:flex hidden flex-col items-left gap-[1rem] mx-[3rem] text-[1.1rem] font-[400] tracking-[-0.01em] pb-[1rem]']">
         <hr :class="['border-t-[1px] ', global.navbarHasDarkAppearance ? 'border-white/[0.15]' : 'border-black/[0.1]']">
-        <NuxtLink class="" :to="localePath('/')" >{{ $t('navbar.links.overview') }}</NuxtLink>
+        <NuxtLink class="" :to="localePath('/')" >{{ MFLocalizedString('navbar.links.overview', '') }}</NuxtLink>
         <hr :class="['border-t-[1px] ', global.navbarHasDarkAppearance ? 'border-white/[0.15]' : 'border-black/[0.1]']">
-        <a class="" href="https://github.com/noah-nuebling/mac-mouse-fix" >{{ $mt('navbar.links.github') }} <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', global.navbarHasDarkAppearance ? 'invert' : '']"></a>
+        <a class="" href="https://github.com/noah-nuebling/mac-mouse-fix" >{{ mdrf(MFLocalizedString('navbar.links.github', '')) }} <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', global.navbarHasDarkAppearance ? 'invert' : '']"></a>
       </div>
     </div>
   </client-only>
@@ -59,7 +59,7 @@ import chevronImagePath from "../assets/img/chevron.down@8x.png"
 
 
 const { currentSize, ResponsiveSize } = useResponsive()
-const $mt = useMT()
+const { $coolI18n: { mdrf, MFLocalizedString } } = useNuxtApp();
 import { getProps, setProps } from '~/utils/util'
 import { useGlobalStore } from "~/store/global";
 import externalLinkImagePath from "../assets/img/arrow.up.right.square@8x.png"

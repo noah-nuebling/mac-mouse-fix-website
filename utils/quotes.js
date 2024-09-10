@@ -61,7 +61,7 @@ function quoteIsSharable(quote) {
   const result = work(quote)
 
   if (result == false) { // Debugging
-    // console.log(`Quote ${quote.quoteKey} is not sharable.`)
+    // console.debug(`Quote ${quote.quoteKey} is not sharable.`)
   }
 
   return result
@@ -132,45 +132,47 @@ function getUsableQuotes() {
 
 function getUIStrings(quote, localeCode) {
 
+  /* 
+    Notes:
+    - I'm not sure passing in `localeCode` serves any purpose.
+  */
+
+  /* Setup */
+  //  Note: We use _localizedString instead of MFLocalizedString, since the quotes are extracted from the source code through quotestool.mjs instead of through regexing over the source code. (MFLocalizedString is what we regex for.)
+  const app = useNuxtApp();
+  const { $coolI18n: { mdrf, _localizedString } } = app;
+
+  /* Get quote ui string */
+
   // Setup
-
-  
-  const { $i18n,  $coolI18n } = useNuxtApp()
-  const { t } = $i18n
-  const { mt } = $coolI18n
-  // locale.value
-
-  // Get quote ui string
-
-  // Setup
-  var uiQuote = ''
-  var isUsingTranslation = true
+  var uiQuote = '';
+  var isUsingTranslation = true;
 
   // Try to get translation
-  uiQuote = t(quote.quoteKey, localeCode, {})
+  uiQuote = _localizedString(quote.quoteKey, localeCode);
 
   // Log
-  // console.log(`UI ${uiQuote}, en: ${ quote.englishQuote }, og: ${ quote.originalQuote} `)
+  // console.debug(`UI ${uiQuote}, en: ${ quote.englishQuote }, og: ${ quote.originalQuote} `)
   
-  // Determine isUsingTranslation
-  const ogQuote = quote.originalLanguage == 'en' ? quote.englishQuote : quote.originalQuote
+  /* Determine isUsingTranslation */
+  const ogQuote = quote.originalLanguage == 'en' ? quote.englishQuote : quote.originalQuote;
   if (uiQuote == ogQuote) {
-    isUsingTranslation = false
+    isUsingTranslation = false;
   }
 
-  // Get quote SOURCE ui string
+  /* Get quote SOURCE ui string */
 
   // Get quote source string from stringsfile, insert name, and apply markdown
-  var uiSource = mt(quote.source, { name: quote.name }, true, localeCode)
+  var uiSource = mdrf(_localizedString(quote.source, localeCode), { name: quote.name }, true);
 
   // Add disclaimer
   if (isUsingTranslation) {
-    const disclaimer = t(`quotes.translation-disclaimer.${ quote.originalLanguage }`)
-    uiSource = `${ uiSource } (${ disclaimer })`
+    const disclaimer = _localizedString(`quotes.translation-disclaimer.${ quote.originalLanguage }`, localeCode);
+    uiSource = `${ uiSource } (${ disclaimer })`;
   }
 
-  // Return
-  return { quote: uiQuote, source: uiSource }
+  /* Return */
+  return { quote: uiQuote, source: uiSource };
 }
 
 /* Define Quotes */

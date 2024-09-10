@@ -14,4 +14,4 @@ import { getUsableQuotes } from "./quotes.js"
 const quotes = getUsableQuotes()
 
 // Print quotes to stdout
-console.log(JSON.stringify(quotes, null, 4))
+console.debug(JSON.stringify(quotes, null, 4))

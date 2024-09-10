@@ -29,7 +29,7 @@ function linearFadingEase(a: number) {
   const f = (x: number) => Math.log(-x*c + 1)/-a
   const rawCurve = f
 
-  console.log(`linearFadingEase: ${ Math.pow(-Math.E, -a*0.1) }`)
+  console.debug(`linearFadingEase: ${ Math.pow(-Math.E, -a*0.1) }`)
 
   const animationCurve = animationCurveFromRawCurve(rawCurve)
   return animationCurve.ease

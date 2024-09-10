@@ -3,14 +3,14 @@
     <NuxtLink :to="localePath(props.path!)" :class='["no-underline mb-[-0.5rem] font-[500] normal-link-color", props.coolClass ?? ""]'>
       <!-- <img :src="chevronLeft" class="inline h-[1em] translate-y-[-0.1em]"/> -->
       <span class="text-[1.8em] font-[300] inline-block translate-y-[0.05em] mt-[-100rem]">‹</span> 
-      {{ $mt(props.labelKey!) }}
+      {{ mdrf(MFLocalizedString(props.labelKey!, "Note: Label for a back-button")) }}
     </NuxtLink>
   </div>
 </template>
 
 <script setup lang="ts">
 
-const $mt = useMT()
+const { $coolI18n: { mdrf, MFLocalizedString } } = useNuxtApp();
 const localePath = useLocalePath()
 
 const props = defineProps({

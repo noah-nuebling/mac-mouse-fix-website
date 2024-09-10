@@ -6,7 +6,7 @@
 export default defineNuxtPlugin((app) => {
   // const { $i18n } = app
   // app.hook('page:transition:start', () => {
-  //   console.log(`Pendinggg: ${$i18n.pendingLocale}`)
+  //   console.debug(`Pendinggg: ${$i18n.pendingLocale}`)
   //   if ($i18n.pendingLocale !== $i18n.locale.value) {
   //     await $i18n.finalizePendingLocaleChange();
   //   }

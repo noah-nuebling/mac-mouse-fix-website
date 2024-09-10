@@ -328,10 +328,10 @@ onMounted(() => {
     parallaxElements.push(ref(element as HTMLElement)) 
   } 
 
-  console.log(`Index: Setting up introAnimationId watcher...`);
+  console.debug(`Index: Setting up introAnimationId watcher...`);
   watch(() => global.introAnimationId, (newValue) => {
 
-    console.log(`Intro is ready: ${ newValue }`)
+    console.debug(`Intro is ready: ${ newValue }`)
 
     if (newValue == 0) { return }
 
@@ -474,7 +474,7 @@ onMounted(() => {
     var toGrow: Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-growww'));
     var toMoveee = toMoveUp.concat(toMoveRight).concat(toFlex).concat(toGrow);   
     
-    console.log(`index: toMoveUp elements: ${objectDescription(toMoveee)}`)
+    console.debug(`index: toMoveUp elements: ${objectDescription(toMoveee)}`)
 
     const animationStartOffset = `${18 * remInPx()}px`;
 

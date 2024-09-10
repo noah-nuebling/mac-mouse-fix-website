@@ -27,7 +27,7 @@
                 <LocalePicker></LocalePicker>
               </template>
               <template #linkToGuide>
-                <a href="https://noah-nuebling.github.io/redirection-service?message=&target=mmf-localization-guide">{{ $t('localization-progress.link-to-guide') }}</a>
+                <a href="https://noah-nuebling.github.io/redirection-service?message=&target=mmf-localization-guide">{{ MFLocalizedString('localization-progress.link-to-guide', '') }}</a>
               </template>
             </i18n-t>
           </div>
@@ -40,7 +40,7 @@
                                             'xs:origin-[50%_calc(50%_+_4.1rem)] sm:origin-[50%_calc(50%_+_4.925rem)] origin-[50%_calc(50%_+_5.55rem)]', false ? initialTranslateYTW : '' ]"> 
           <NuxtImg ref="mmfIcon" :src="mmfIconImagePath" sizes="225px" alt="Mac Mouse Fix Icon" :class="['xs:h-[13rem] sm:h-[15rem] h-[16.5rem] mt-[-2rem] mb-[3rem]']"/>
           <h1 ref="mmfName" :class="['fontxxx-[Helvetica] font-[700] xs:text-[3.75rem] sm:text-[4.5rem] text-[calc(5.75rem)] text-[hsl(0,0%,10%)] mb-[-1rem] tracking-[-0.01em]', false ? initialNameScaleTW : '', playLoadingAnimation && false ? 'animate-pulse' : '']">Mac Mouse Fix</h1>
-          <p ref="introTagline" :style="{ fontOpticalSizing: 'none'}" :class="['xs:tracking-[0.03em] tracking-[0.05em] whitespace-nowrap w-fit text-center fontxxx-[Helvetica] xs:text-[1.0rem] text-[1.1rem] text-black mb-[2.25rem] opacity-1']">{{ $t('intro.tagline') }}</p>
+          <p ref="introTagline" :style="{ fontOpticalSizing: 'none'}" :class="['xs:tracking-[0.03em] tracking-[0.05em] whitespace-nowrap w-fit text-center fontxxx-[Helvetica] xs:text-[1.0rem] text-[1.1rem] text-black mb-[2.25rem] opacity-1']">{{ MFLocalizedString('intro.tagline', '') }}</p>
           <DownloadButton ref="downloadButton" class="bg-blue-500 rounded-full text-white px-[0.85em] py-[0.3em] text-[1.2rem] tracking-[0.0em]"></DownloadButton>
         </div>
       </div>
@@ -96,7 +96,7 @@
     <!-- Big Tagline -->
 
     <div ref="taglineContainer" class="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center z-[20] pointer-events-none">
-      <p ref="tagline" class="font-[500] sm:text-[1.75rem] md:text-[2.25rem] text-[2.75rem] text-center mx-[1.5rem] opacity-0 text-glow-2 text-[hsla(0,0%,100%,0.86)] par-[.safari,.firefox]:text-[hsla(0,0%,100%,0.93)]" v-html="$mt('intro.big-tagline')"></p>
+      <p ref="tagline" class="font-[500] sm:text-[1.75rem] md:text-[2.25rem] text-[2.75rem] text-center mx-[1.5rem] opacity-0 text-glow-2 text-[hsla(0,0%,100%,0.86)] par-[.safari,.firefox]:text-[hsla(0,0%,100%,0.93)]" v-html="mdrf(MFLocalizedString('intro.big-tagline', ''))"></p>
     </div>
 
     <!-- Quote cards -->
@@ -108,7 +108,7 @@
         <div class="absolute inset-0 bg-gradient-to-b from-black/0 via-black/[0.1] via-20% to-black/[0.7]"></div>
         <div ref="quoteExpandButton" class="text-[1.1rem] relative w-fit h-fit py-[0.3em] px-[0.75em] m-[2.5em] shadow-sm shadow-black/[0.0] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
           <div class="absolute inset-0 bg-white/[0.1] backdrop-blur-[1rem] backdrop-saturate-[1.5] rounded-full border border-white/[0.2] z-10"/>
-          <p class="text-[1em] text-white/[0.85] font-[500] text-center relative z-20" v-html="!quotesAreExpanded ? $t('quotes.see-more') : $t('quotes.see-less')"></p>
+          <p class="text-[1em] text-white/[0.85] font-[500] text-center relative z-20" v-html="!quotesAreExpanded ? MFLocalizedString('quotes.see-more', '') : MFLocalizedString('quotes.see-less', '')"></p>
         </div>
       </div>
 
@@ -143,7 +143,7 @@
 
           <!-- Thank you message -->
           <div class="flex justify-center my-[10rem] mx-[1.5rem]">
-            <QuoteCard :text="$mt('quotes.thankyou')" :doGlow="false" class="strong:inline-block strong:text-glow-2 strong:text-white/[0.3]"/>
+            <QuoteCard :text="mdrf(MFLocalizedString('quotes.thankyou', ''))" :doGlow="false" class="strong:inline-block strong:text-glow-2 strong:text-white/[0.3]"/>
           </div>
           <!-- <CardHeader titleKey="user-feedback.card-header.title" :hideVideoHint="true" subtitleKey="" class="w-full"/> -->
         </div>
@@ -162,11 +162,11 @@
 const _i18n = useI18n()
 const locale = _i18n.locale
 
-console.log(`Locale during Intro.vue setup: ${ locale.value }, browserLocale: ${ _i18n.getBrowserLocale() }`);
+console.debug(`Locale during Intro.vue setup: ${ locale.value }, browserLocale: ${ _i18n.getBrowserLocale() }`);
 
 /* Import gsap stuff */
 
-const { $gsap, $ScrollTrigger, $isMobile, $isSafari, $isFirefox } = useNuxtApp()
+const { $gsap, $ScrollTrigger, $isMobile, $isSafari, $isFirefox, $coolI18n: { mdrf, MFLocalizedString } } = useNuxtApp();
 import { linearScalingEase, customInOutEase } from "../utils/curves"
 
 /* Manually import images 
@@ -188,7 +188,6 @@ const quotes = getUsableQuotes()
 import { everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, setResolution } from "~/utils/util";
 const constants = useConstants()
 const { currentSize, ResponsiveSize } = useResponsive()
-const $mt = useMT()
 const { onScrollStop } = useScrollCallbacks()
 
 /* Expose methods */
@@ -216,7 +215,7 @@ watch(_i18n.locale, (newLocale: string) => {
   localizationProgressDisplay.value = Localizable.progressDisplay(newLocale)
 
   // Log
-  console.log(`Intro: localeSwitchCount: ${global.localeSwitchCount}, progress: ${localizationProgressDisplay.value}`)
+  console.debug(`Intro: localeSwitchCount: ${global.localeSwitchCount}, progress: ${localizationProgressDisplay.value}`)
   
 }, { immediate: true })
 
@@ -277,7 +276,7 @@ watch(quotesAreExpanded, (newValue) => {
 
 /* Debug */
 
-// console.log(`Window dims: ${ vw() * 100 } x ${ vh() * 10095 }`)
+// console.debug(`Window dims: ${ vw() * 100 } x ${ vh() * 10095 }`)
 
 /* Lifecycle */
 
@@ -315,7 +314,7 @@ onMounted(() => {
     const dx = window.innerWidth - viewportSizeForCurrentAnimation.width
     const dy = window.innerHeight - viewportSizeForCurrentAnimation.height
 
-    // console.log(`Window size delta - dx: ${ dx }, dy: ${ dy }`); // Don't leave this on in production, it logs like 10 times in a row.
+    // console.debug(`Window size delta - dx: ${ dx }, dy: ${ dy }`); // Don't leave this on in production, it logs like 10 times in a row.
 
     if (Math.abs(dx) > 0 || Math.abs(dy) > yThreshold) {
       debouncedRecreateIntroAnimation()
@@ -387,7 +386,7 @@ onMounted(() => {
 /* Debug */
 
 // setInterval(() => {
-//   console.log(`Quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }`);
+//   console.debug(`Quote scrollPos: ${ quoteScrollingContainer.value!.scrollTop }`);
 // }, 500)
 
 /* Functions */
@@ -429,12 +428,12 @@ function correctQuoteScrollTop() {
     if (quoteScrollingContainer.value /* && lastQuoteScrollPosition != 0 */ && attempt <= maxAttempts) {
       if (quoteScrollingContainer.value.scrollTop === 0) {
         quoteScrollingContainer.value.scrollTop = lastQuoteScrollPosition
-        console.log(`set quote scrolling pos to last: ${ lastQuoteScrollPosition } on attempt ${ attempt }`);
+        console.debug(`set quote scrolling pos to last: ${ lastQuoteScrollPosition } on attempt ${ attempt }`);
       } else {
         requestAnimationFrame(() => inner(attempt + 1))
       }
     } else {
-      console.log(`Didn't correct quote scroll top after ${ attempt } attempts`);
+      console.debug(`Didn't correct quote scroll top after ${ attempt } attempts`);
     }
   }
 
@@ -442,8 +441,8 @@ function correctQuoteScrollTop() {
 function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDistance: number = 0.0) {
 
   // Debug
-  console.log(`Recreating intro animation`);
-  console.log(`Window width: ${ window.innerWidth }`);
+  console.debug(`Recreating intro animation`);
+  console.debug(`Window width: ${ window.innerWidth }`);
 
   // Update state
   viewportSizeForCurrentAnimation = { width: window.innerWidth, height: window.innerHeight }
@@ -710,7 +709,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
         if (quoteScrollingContainer.value != null) { // Prevent some errors when we switch language, maybe at other times too
           quoteScrollingContainer.value!.scrollTop = scrollPosition
-          // console.log(`Setting quote scrollPos to ${ scrollPosition }`);
+          // console.debug(`Setting quote scrollPos to ${ scrollPosition }`);
         }
         lastQuoteScrollPosition = scrollPosition
 
@@ -754,13 +753,13 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   }
   
   requestAnimationFrame(() => {
-    // console.log(`RESTORING scrollTop: ${ lastQuoteScrollPosition }`)
+    // console.debug(`RESTORING scrollTop: ${ lastQuoteScrollPosition }`)
     quoteScrollingContainer.value!.scrollTop = lastQuoteScrollPosition
   })
 
   // Signal globally
   requestAnimationFrame(() => { // Wait for next frame to give index.vue time to start watching this.
-    console.log(`Intro: Incrementing introAnimationId (${global.introAnimationId})`)
+    console.debug(`Intro: Incrementing introAnimationId (${global.introAnimationId})`)
     global.introAnimationId += 1
   })
 
@@ -768,7 +767,7 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
   // DEBUG
 
 
-  console.log(`
+  console.debug(`
     zoomStart: ${            zoomStart}
     zoomStop: ${             zoomStart + zoomDistance}
     taglineStart: ${         taglineStart}
@@ -785,14 +784,14 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
   // Recalculate all scrollTriggers (This scrolltrigger doesn't need to be recalculcated, because it was just recreated, but all the ones further down the page need to be recalculated)
   // doAfterRender(() => {
-  //   console.log(`Refresh all scrollTriggers`);
+  //   console.debug(`Refresh all scrollTriggers`);
   //   $ScrollTrigger.refresh()
   // }, 1 * 1000)
 
   /* Update scrollTrigger
       Doesn't seem to have any effect */
   // doAfterRenderrr(() => {
-  //   console.log("HHHHNGGGGG");
+  //   console.debug("HHHHNGGGGG");
   //   tlScroll!.scrollTrigger?.update()
   // }, 1000)
 

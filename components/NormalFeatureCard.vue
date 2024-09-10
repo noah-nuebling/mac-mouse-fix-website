@@ -31,25 +31,25 @@
           <!-- Expand -->
           <!-- Note: The play.circle and stop.circle images have blue-500 color. we use the --accent-rotate var to change the color. -->
           <span :class="['', isExpanded ? 'opacity-0 absolute' : '']">
-            <span class="" v-html="$mt(expandButtonKey ? expandButtonKey : 'feature-card.expand-button') + ''"></span>
+            <span class="" v-html="mdrf(MFLocalizedString(expandButtonKey ? expandButtonKey : 'feature-card.expand-button', '')) + ''"></span>
             <span class="inline-space-[0]"/><img src="~/assets/img/play.circle-blue@8x.png" alt="" class="ml-[0.4em] translate-x-[0em] inline wh-[1.00em] align-[-0.2em] filter hue-rotate-[var(--accent-rotate)]">
           </span>
           <!-- Unexpand -->
           <span :class="['', isExpanded ? '' : 'opacity-0 absolute']">
-            <span v-html="$mt('feature-card.unexpand-button')"></span>                                                        
+            <span v-html="mdrf(MFLocalizedString('feature-card.unexpand-button', ''))"></span>                                                        
             <span class="inline-space-[0]"/><img src="~/assets/img/pause.circle-blue@8x.png" alt="" class="ml-[0.4em] translate-x-[0em] inline wh-[1.00em] align-[-0.2em] filter hue-rotate-[var(--accent-rotate)]">
           </span>
         </a>
       </div>
       <!-- Title -->
-      <h3 :class="['card-title text-center sm:text-[1.4rem] text-[1.7rem] leading-[1.3] font-[700] strong:font-[700] sm:mx-[2rem] mx-[3rem]', titleClass]" v-html="$mt(titleKey!, dynamic)"></h3>
+      <h3 :class="['card-title text-center sm:text-[1.4rem] text-[1.7rem] leading-[1.3] font-[700] strong:font-[700] sm:mx-[2rem] mx-[3rem]', titleClass]" v-html="mdrf(MFLocalizedString(titleKey!, ''), dynamic)"></h3>
     </template>
 
     <template v-slot:default>
       <div class="flex flex-col items-center justify-start h-full sm:m-[2rem] m-[3.0rem] sm:mt-[1.33rem] mt-[2.75rem] ">
 
         <!-- Body -->
-        <div v-html="$mt(bodyKey!, dynamic, false)" class="card-sm strong:font-[500] sm:text-[1.05rem] text-[1.15rem] font-[400] max-w-[30em] not-last:ch-[ol,ul,p]:mb-[1em]"></div>
+        <div v-html="mdrf(MFLocalizedString(bodyKey!, ''), dynamic, false)" class="card-sm strong:font-[500] sm:text-[1.05rem] text-[1.15rem] font-[400] max-w-[30em] not-last:ch-[ol,ul,p]:mb-[1em]"></div>
 
         <!-- Image -->
         <div v-if="imagePath" :class="[imageClass]">
@@ -90,7 +90,7 @@
 <script setup lang="ts">
 
 // import { $mt, $mto } from '~/utils/markdownTranslate';
-const $mt = useMT()
+const { $coolI18n: { mdrf, MFLocalizedString } } = useNuxtApp();
 import type { FeatureCard } from '#build/components';
 // import remapDemoVideo from '@/assets/video/remap_demo_old.mp4';
 

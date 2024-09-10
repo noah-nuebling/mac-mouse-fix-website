@@ -260,7 +260,7 @@ function setResolution(scaleFactor: number, ...elements: HTMLElement[]) {
     // Calculate the inverse scale factor (for counter-scaling)
     const inverseScale = 1 / fontScale;
 
-    console.log(`Scale: ${fontScale}, inverse: ${inverseScale}, scaleRaw: ${scaleFactor}, fontBase: ${fontSize}, fontScaled: ${fontSizeNew}`)
+    console.debug(`Scale: ${fontScale}, inverse: ${inverseScale}, scaleRaw: ${scaleFactor}, fontBase: ${fontSize}, fontScaled: ${fontSizeNew}`)
 
     // Apply the increased font size, width, and height based on original size
     element.style.fontSize = `${fontScale * fontSize}px`;
@@ -492,7 +492,7 @@ function watchProperty(obj: any, propName: PropertyKey, callback: (newValue: any
   // Usage:
   //  var myDiv = document.getElementById('myDiv');
   //  var unwatchScrollTop = watchProperty(myDiv, 'scrollTop', function(newValue) {
-  //     console.log('scrollTop changed to:', newValue);
+  //     console.debug('scrollTop changed to:', newValue);
   //  });
   //  // To stop watching changes and restore the original property behavior
   //  unwatchScrollTop();

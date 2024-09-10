@@ -4,7 +4,7 @@
       <div class="w-fit h-full flex flex-col justify-center items-center gap-[0.9rem] !text-[1.0rem]">
 
         <!-- Credits -->
-        <p v-html="$mt('footer.credits')" :class="['strong:font-[600] strong:text-gradient-to-l  strong:filter strong:brightness-[1.05]']" :style="$props.isMinimal ? 'display: none' : ''"></p>
+        <p v-html="mdrf(MFLocalizedString('footer.credits', ''))" :class="['strong:font-[600] strong:text-gradient-to-l  strong:filter strong:brightness-[1.05]']" :style="$props.isMinimal ? 'display: none' : ''"></p>
         
         <div class="sm:w-[100%] w-[200%] h-[1px] !bg-neutral-900/[0.0] bg-gradient-to-r from-transparent via-neutral-900/[0.1] to-transparent" :style="$props.isMinimal ? 'display: none' : ''"/>
 
@@ -47,7 +47,7 @@ defineProps({
 })
 
 /* Import markdown translate */
-const $mt = useMT();
+const { $coolI18n: { mdrf, MFLocalizedString } } = useNuxtApp();
 
 
 

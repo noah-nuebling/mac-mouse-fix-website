@@ -35,7 +35,7 @@ export default <RouterConfig> {
         - Unhiding the `afterIntro` content inside Index.vue.
     */
 
-    console.log(`router.options: Adjusting scroll position with\nfrom: ${objectDescription(from)}\nto: ${objectDescription(to)}\nsaved: ${savedPosition}`); // If we use JSON.stringify() instead of objectDescription(), this will crash in (only in release builds) due to circular refs int the printed objects.
+    console.debug(`router.options: Adjusting scroll position with\nfrom: ${objectDescription(from)}\nto: ${objectDescription(to)}\nsaved: ${savedPosition}`); // If we use JSON.stringify() instead of objectDescription(), this will crash in (only in release builds) due to circular refs int the printed objects.
 
     const { $store: global, $i18n } = useNuxtApp();
 
@@ -71,7 +71,7 @@ export default <RouterConfig> {
           const scrollY5 = window.scrollY;
           const scrollHeight5 = document.documentElement.scrollHeight;
 
-          console.log(`router.options: scrollYAndHeightChanges: ${scrollY1}/${scrollHeight1} -> ${scrollY2}/${scrollHeight2} -> ${scrollY3}/${scrollHeight3} -> ${scrollY4}/${scrollHeight4} -> ${scrollY5}/${scrollHeight5}`);
+          console.debug(`router.options: scrollYAndHeightChanges: ${scrollY1}/${scrollHeight1} -> ${scrollY2}/${scrollHeight2} -> ${scrollY3}/${scrollHeight3} -> ${scrollY4}/${scrollHeight4} -> ${scrollY5}/${scrollHeight5}`);
 
           if (newIntroAnimationId > 0) {
             if (isLocaleSwitch) {
@@ -79,18 +79,18 @@ export default <RouterConfig> {
               const oldScrollBottomDist = (scrollHeight1 - window.innerHeight - scrollY1);
               const scrollPosWasCloserToTopThanBottom = oldScrollTopDist < oldScrollBottomDist;
               const newScrollY = scrollPosWasCloserToTopThanBottom ? (oldScrollTopDist) : (scrollHeight5 - window.innerHeight - oldScrollBottomDist);
-              console.log(`router.options: Restoring scroll position after locale switch. Anchoring to ${ scrollPosWasCloserToTopThanBottom ? 'top' : 'bottom'}. Target y: ${newScrollY}`);
+              console.debug(`router.options: Restoring scroll position after locale switch. Anchoring to ${ scrollPosWasCloserToTopThanBottom ? 'top' : 'bottom'}. Target y: ${newScrollY}`);
               resolve({ top: newScrollY });
             } else if 
             (to.hash) {
-              console.log(`router.options: Restoring scroll position with hash ${to.hash}`)
+              console.debug(`router.options: Restoring scroll position with hash ${to.hash}`)
               resolve({ el: to.hash, top: hashOffset, behavior: scrollBehavior}) // If the URL ends with `#someID`, scroll to the element with HTML id `someID`)
             } else if 
             (savedPosition) {
-              console.log(`router.options: Restoring scroll position to saved position ${savedPosition.top}`)
+              console.debug(`router.options: Restoring scroll position to saved position ${savedPosition.top}`)
               resolve({ top: savedPosition.top, behavior: scrollBehavior})
             } else {
-              console.log(`router.options: Falling back to using default scroll restoration`);
+              console.debug(`router.options: Falling back to using default scroll restoration`);
               resolve({ top: scrollY1 }) 
             }
           }

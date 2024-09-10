@@ -17,7 +17,7 @@
     <div :class='["flex flex-col justify-center items-center gap-[31vh] h-[100svh] px-[2rem]"]'>
       <div :class='["h-fit max-w-[960px] flex flex-col items-start justify-center mt-[5em] px-[0rem] text-[3rem] md:text-[2.4rem] sm:text-[2rem]"]'>
         <BackButton coolClass="" path="/" label-key="404.back"></BackButton>
-        <p class="mt-[0em] font-[600] text-pretty" v-html="$mt('404.title')"></p>
+        <p class="mt-[0em] font-[600] text-pretty" v-html="mdrf(MFLocalizedString('404.title', ''))"></p>
       </div>
       <BottomNav :is-minimal="true" color-class="accent-[unset]" class=""/>
     </div>
@@ -31,8 +31,8 @@ const pageNotFound = ref(false)
 
 /* Imports */
 
-const $mt = useMT()
-const $route = useRoute()
+const { $coolI18n: {mdrf, MFLocalizedString} } = useNuxtApp();
+const $route = useRoute();
 
 /* Configure page */
 
@@ -83,7 +83,7 @@ if (!redirectsExist) {
         - We wrapped this code in onMounted() so it would be re-triggered on navigate back, but it didn't help.
     */
 
-    console.log(`DEBUG - path: ${path}, elements: ${pathElements}, redirectMap keys: ${Object.keys(redirectMap)}`) // Debug
+    console.debug(`DEBUG - path: ${path}, elements: ${pathElements}, redirectMap keys: ${Object.keys(redirectMap)}`) // Debug
 
     var didRedirect = false
 
@@ -95,7 +95,7 @@ if (!redirectsExist) {
     /* Make 'page not found' text visible, if we didn't redirect 
         Note: I'm not totally why, but the `if (!didRedirect)` check is necessary to make the pageNotFound text not appear when we're redirecting. It seems like even thought we `await` the navigateTo() call, the actual redirection takes place ca. a second after navigateTo() returns. */
     if (!didRedirect) {
-      console.log(`DEBUG - Setting pageNotFound to true`) // Debug
+      console.debug(`DEBUG - Setting pageNotFound to true`) // Debug
       pageNotFound.value = true
     }
 

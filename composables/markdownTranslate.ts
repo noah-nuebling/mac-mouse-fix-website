@@ -1,16 +1,18 @@
-/* This is obsolete. 
+/* 
+  TODO: Delete this.
+  This is obsolete. 
     We moved the functionality of the localization.ts and markdownTranslate.ts composables into the setup-cool-i18n.ts plugin. */
 
-export function useMT() {
-  /* This method exists for 'backwards compatibility' after our refactor.
-      It would be better to remove this and call useNuxtApp() directly, anywhere we use this.  */
+// export function useMT() {
+//   /* This method exists for 'backwards compatibility' after our refactor.
+//       It would be better to remove this and call useNuxtApp() directly, anywhere we use this.  */
   
-  useI18n() // Not sure this is necessary
+//   useI18n() // Not sure this is necessary
   
-  const { $coolI18n } = useNuxtApp();
-  const { mt } = $coolI18n;
-  return mt;
-}
+//   const { $coolI18n } = useNuxtApp();
+//   const { mt } = $coolI18n;
+//   return mt;
+// }
 
 /* ----------- vvv Old implementation vvv ------------- */
 

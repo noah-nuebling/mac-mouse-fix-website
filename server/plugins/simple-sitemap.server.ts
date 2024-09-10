@@ -11,7 +11,7 @@ export default defineNitroPlugin((nitroApp) => {
   const newSitemap = (ctx.sitemap as string).replaceAll(CANONICAL_URL + GITHUB_SUB_URL, CANONICAL_URL )
   ctx.sitemap = newSitemap
 
-  console.log('sitemap:resolve ran');
+  console.debug('sitemap:resolve ran');
 
     // // single sitemap example - just add the url directly
     // ctx.urls.push({

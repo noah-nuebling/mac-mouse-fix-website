@@ -40,7 +40,7 @@
             ref="minimizeHint"
             class="hidden justify-center items-center absolute inset-0 bg-white/70 backdrop-blur-xl z-[10] invisible opacity-0 transition-opacity duration-[0.5s]">
             
-            <p class="text-blue-500/90 font-[600] text-center text-[1.6rem] group-hover:underline">{{ $t('feature-card.minimize-hint') }}</p>
+            <p class="text-blue-500/90 font-[600] text-center text-[1.6rem] group-hover:underline">{{ MFLocalizedString('feature-card.minimize-hint') }}</p>
           </div> -->
 
           <!-- Top -->
@@ -234,7 +234,7 @@ if (props.doesExpand) {
   watch(isExpanded, async (shouldExpand) => { 
 
     // DEBUG
-    console.log(`shouldExpand: ${shouldExpand}`)
+    console.debug(`shouldExpand: ${shouldExpand}`)
 
     // Kill current animations
     // Not totally sure if this is appropriate here. I think it prevents the onComplete method from being called when the card is unexpanded during the expand animation, which would lead to the zIndex getting messed up.
@@ -464,7 +464,7 @@ if (props.doesExpand) {
       // if (root.value) {
       //   const r = root.value!
         
-      //   console.log(`Type of r is: ${root.value!}`)
+      //   console.debug(`Type of r is: ${root.value!}`)
 
       //   $gsap.to(window, {
       //     duration: 1.0,
@@ -476,7 +476,7 @@ if (props.doesExpand) {
       // Define post-animation actions
       const onEnd = () => {
 
-        console.log(`on ENDDD`)
+        console.debug(`on ENDDD`)
 
         // Update state
         isAnimationExpanded.value = true
@@ -622,7 +622,7 @@ if (props.doesExpand) {
         const viewportCenter  = ((viewportHeight - navbarHeight_Unexpanded)/2) + navbarHeight_Unexpanded
         const cardCenter      = cardViewPortTop + (cardHeight/2)
         
-        // console.log(`viewPortCenter: ${viewportCenter}, viewportHeight: ${viewportHeight}, navbarHeight_Unexpanded: ${navbarHeight_Unexpanded} ||| cardCenter: ${cardCenter}, cardViewPortRect.top: ${cardViewPortRect.top}], cardViewPortRect.height: ${cardViewPortRect.height}, cardHeight: ${cardHeight}`)
+        // console.debug(`viewPortCenter: ${viewportCenter}, viewportHeight: ${viewportHeight}, navbarHeight_Unexpanded: ${navbarHeight_Unexpanded} ||| cardCenter: ${cardCenter}, cardViewPortRect.top: ${cardViewPortRect.top}], cardViewPortRect.height: ${cardViewPortRect.height}, cardHeight: ${cardHeight}`)
 
         const documentScrollTopTarget = document.documentElement.scrollTop + (cardCenter - viewportCenter)
         
@@ -703,7 +703,7 @@ if (props.doesExpand) {
       const onEnd = () => {
 
         // DEBUG
-        console.log(`onEnd`)
+        console.debug(`onEnd`)
 
         // Update state
         isAnimationExpanded.value = false
@@ -955,7 +955,7 @@ if (props.doesExpand) {
 
   function addAnimationToTimeline(tl: gsap.core.Timeline, element: HTMLElement, property: string, curve: AnimationCurve, duration: number, offset: number = 0.0) {
 
-    // console.log(`tl: ${ tl }, element: ${ element }, property: ${ property }, curve: ${ curve }, duration: ${ duration }, offset: ${ offset }`)
+    // console.debug(`tl: ${ tl }, element: ${ element }, property: ${ property }, curve: ${ curve }, duration: ${ duration }, offset: ${ offset }`)
 
     tl.fromTo(element, {
       [property]: curve.outputRange.start,
