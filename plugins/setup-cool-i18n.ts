@@ -10,6 +10,8 @@ import type MarkdownIt from 'markdown-it/index.js';
 import type { LocaleObject } from '@nuxtjs/i18n';
 import Localizable from "../locales/Localizable";
 
+import { stringf } from '../utils/util';
+
 import { objectDescription } from '../utils/util';
 
 export default defineNuxtPlugin(app => {
@@ -89,40 +91,13 @@ export default defineNuxtPlugin(app => {
     })
     renderer.use(openLinkInNewTab)
     
-    /* 
-        Define stringf function 
-            Implements basic python-style string formatting. 
-            Placeholders in string can look like this: {format_specifer} or this: { formatSpecifer   }
-            ($i18n.t() also supports this exact same format specifier syntax, so we could always replace this with $i18n.t())
-    
-            Probably doesn't belong in i18n code 
-    */
-    
-    function stringf(text: string, replacements: Object) {
-
-        var result = text;
-        
-        console.assert(Object.entries(replacements).length > 0);
-        
-        for (const [key, value] of Object.entries(replacements)) {
-            const pattern = String.raw`\{ *${key} *\}`;
-            const regex = new RegExp(pattern, 'g');
-            if (false) { // TODO: Turn this on later.
-                console.assert(regex.test(result), `Could not find format specifier ${regex} inside string "${result}" (og: ${text})`);
-            }
-            result = result.replaceAll(regex, value);
-
-        }
-
-        // console.debug(`stringf before-after: "${text}" -> "${result}". Replacements:\n${objectDescription(replacements)}`);
-        
-        return result;
-    }
-    
     /* Define mdrf (MarkDown Render and Format)
         Convenience function for rendering markdown markup to html while also inserting formats into the string.
     
-        Not totally sure this belongs in i18n code. (But I think we'll only use this for localized strings.) */
+        Does this belong into coolI18n?: This isn't super directly related to localization, but we have no reason to render markdown outside of localized strings, 
+            since could just write HTML instead. So I think we'll only ever use this in conjuction with MFLocalizedString. 
+            
+        On usage of stringf(): $i18n.t() also supports the same format specifier syntax we implemented for stringf, so we could always replace it with $i18n.t() */
     
     function mdrf(text: string, replacements?: Object, inline: boolean = true): string {
         
