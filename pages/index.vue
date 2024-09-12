@@ -41,7 +41,7 @@
 
         <div class="relative">
           <!-- Section head -->
-          <SectionHeader id="trackpad" title-key="trackpad.intro.title" title-accent-key="trackpad.intro.title.accent" body-key="trackpad.intro.body" 
+          <SectionHeader id="trackpad" :title="MFLocalizedString('trackpad.intro.title', '')" :titleAccent="MFLocalizedString('trackpad.intro.title.accent', '')" :body="mdrf(MFLocalizedString('trackpad.intro.body', ''))" 
                           class=" strong:gradient-blue strong:filter strong:brightness-[1.0]" title-accent-class="move-uppp text-gradient-to-l-block gradient-blue brightness-[1.43] filter hue-rotate-[0deg]"  />
           <!-- Color splash -->
           <div class="hidden absolute top-0 bottom-0 left-[50%] translate-x-[-50%] w-[100vw]">
@@ -49,7 +49,7 @@
           </div>
         </div>
 
-        <CardContainer title-key="trackpad.gestures.header" disclaimer-key="trackpad.gestures.disclaimer" class="gradient-blue strong:filter ch-[.card-title_strong]:brightness-[1.15]" title-class="strong:filter strong:brightness-[1.2] strong:hue-rotate-[0deg]">
+        <CardContainer :title="mdrf(MFLocalizedString('trackpad.gestures.header', ''))" :disclaimer="mdrf(MFLocalizedString('trackpad.gestures.disclaimer', ''))" class="gradient-blue strong:filter ch-[.card-title_strong]:brightness-[1.15]" title-class="strong:filter strong:brightness-[1.2] strong:hue-rotate-[0deg]">
 
           <div class="w-full flex justify-center">
             <div class="relative flex flex-col items-center w-fit">
@@ -60,12 +60,12 @@
 
               <!-- <hr ref="trackpadRule" class="mb-[2.25rem] mx-[12px] border-neutral-950/[0.066]"> -->
               <div ref="trackpadCardsSection1" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] relative z-[10]">
-                <NormalFeatureCard titleKey="trackpad.gestures.lookup.title"              bodyKey="trackpad.gestures.lookup.body"           :videoPath="lookupDemoPath"               class="w-fit"/>
-                <NormalFeatureCard titleKey="trackpad.gestures.mission-control.title"     bodyKey="trackpad.gestures.mission-control.body"  :videoPath="missionControlDemoPath"       class="w-fit"/>
-                <NormalFeatureCard titleKey="trackpad.gestures.spaces.title"              bodyKey="trackpad.gestures.spaces.body"           :videoPath="moveDesktopsDemoPath"         class="w-fit"/>
-                <NormalFeatureCard titleKey="trackpad.gestures.app-expose.title"          bodyKey="trackpad.gestures.app-expose.body"       :videoPath="appExposeDemoPath"            class="w-fit"/>
-                <NormalFeatureCard titleKey="trackpad.gestures.show-desktop.title"        bodyKey="trackpad.gestures.show-desktop.body"     :videoPath="showDesktopDemoPath"          class="w-fit"/>
-                <NormalFeatureCard titleKey="trackpad.gestures.launchpad.title"           bodyKey="trackpad.gestures.launchpad.body"        :videoPath="launchpadDemoPath"            class="w-fit"/>
+                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.lookup.title', ''))"              :body="mdrf(MFLocalizedString('trackpad.gestures.lookup.body', ''), {}, false)"           :videoPath="lookupDemoPath"               class="w-fit"/>
+                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.mission-control.title', ''))"     :body="mdrf(MFLocalizedString('trackpad.gestures.mission-control.body', ''), {}, false)"  :videoPath="missionControlDemoPath"       class="w-fit"/>
+                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.spaces.title', ''))"              :body="mdrf(MFLocalizedString('trackpad.gestures.spaces.body', ''), {}, false)"           :videoPath="moveDesktopsDemoPath"         class="w-fit"/>
+                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.app-expose.title', ''))"          :body="mdrf(MFLocalizedString('trackpad.gestures.app-expose.body', ''), {}, false)"       :videoPath="appExposeDemoPath"            class="w-fit"/>
+                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.show-desktop.title', ''))"        :body="mdrf(MFLocalizedString('trackpad.gestures.show-desktop.body', ''), {}, false)"     :videoPath="showDesktopDemoPath"          class="w-fit"/>
+                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.launchpad.title', ''))"           :body="mdrf(MFLocalizedString('trackpad.gestures.launchpad.body', ''), {}, false)"        :videoPath="launchpadDemoPath"            class="w-fit"/>
               </div>
 
               <div class="w-full">
@@ -73,11 +73,11 @@
               </div>
 
               <div ref="trackpadCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] relative z-[9]">
-                <NormalFeatureCard titleKey="trackpad.gestures.zoom.title"                bodyKey="trackpad.gestures.zoom.body"             :videoPath="zoomDemoPath"       class=""/>
-                <NormalFeatureCard titleKey="trackpad.gestures.pages.title"               bodyKey="trackpad.gestures.pages.body"            :videoPath="backAndForwardDemoPath"       class=""/>
-                <NormalFeatureCard titleKey="trackpad.gestures.mail-actions.title"        bodyKey="trackpad.gestures.mail-actions.body"     :videoPath="deleteMailsDemoPath"       class=""/>
-                <NormalFeatureCard titleKey="trackpad.gestures.free-scroll.title"         bodyKey="trackpad.gestures.free-scroll.body"      :videoPath="threeSixtyScrollDemoPath"       class=""/>
-                <NormalFeatureCard titleKey="trackpad.gestures.smart-zoom.title"          bodyKey="trackpad.gestures.smart-zoom.body"       :videoPath="smartZoomDemoPath"       class=""/>
+                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.zoom.title', ''))"                :body="mdrf(MFLocalizedString('trackpad.gestures.zoom.body', ''), {}, false)"             :videoPath="zoomDemoPath"                  class=""/>
+                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.pages.title', ''))"               :body="mdrf(MFLocalizedString('trackpad.gestures.pages.body', ''), {}, false)"            :videoPath="backAndForwardDemoPath"        class=""/>
+                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.mail-actions.title', ''))"        :body="mdrf(MFLocalizedString('trackpad.gestures.mail-actions.body', ''), {}, false)"     :videoPath="deleteMailsDemoPath"           class=""/>
+                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.free-scroll.title', ''))"         :body="mdrf(MFLocalizedString('trackpad.gestures.free-scroll.body', ''), {}, false)"      :videoPath="threeSixtyScrollDemoPath"      class=""/>
+                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.smart-zoom.title', ''))"          :body="mdrf(MFLocalizedString('trackpad.gestures.smart-zoom.body', ''), {}, false)"       :videoPath="smartZoomDemoPath"             class=""/>
               </div>
             </div>
           </div>
@@ -86,31 +86,31 @@
 
       <!-- Scrolling -->
       <div class="strong:text-gradient-to-l">
-        <SectionHeader id="scroll" title-key="scroll.intro.title" title-accent-key="scroll.intro.title.accent" body-key="scroll.intro.body" 
+        <SectionHeader id="scroll" :title="MFLocalizedString('scroll.intro.title', '')" :titleAccent="MFLocalizedString('scroll.intro.title.accent', '')" :body="mdrf(MFLocalizedString('scroll.intro.body', ''))" 
                         class="gradient-violet" title-accent-class="move-righttt text-gradient-to-l-block filter brightness-[1.06]" />
         
-        <CardContainer title-key="scroll.smoothness.header" class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] mb-[5rem] z-[10]">
+        <CardContainer :title="mdrf(MFLocalizedString('scroll.smoothness.header', ''))" class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] mb-[5rem] z-[10]">
           <div class="w-fit relative left-[50%] translate-x-[-50%]">
             <div class="absolute inset-0 -z-10 pointer-events-none">
               <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] absolute left-[25%] top-[40%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]"/>
             </div>
             <div ref="scrollingCardsSection1" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] my-[0] w-fit">
-              <NormalFeatureCard titleKey="scroll.smoothness.high.title"           bodyKey="scroll.smoothness.high.body"        :videoPath="smoothnessHighDemoPath"       title-class="" class=""/>
-              <NormalFeatureCard titleKey="scroll.smoothness.regular.title"        bodyKey="scroll.smoothness.regular.body"     :videoPath="smoothnessRegularDemoPath"    title-class="" class=""/>
-              <NormalFeatureCard titleKey="scroll.smoothness.off.title"            bodyKey="scroll.smoothness.off.body"         :videoPath="smoothnessOffDemoPath"        title-class="" class=""/>
+              <NormalFeatureCard :title="mdrf(MFLocalizedString('scroll.smoothness.high.title', ''))"           :body="mdrf(MFLocalizedString('scroll.smoothness.high.body', ''), {}, false)"        :videoPath="smoothnessHighDemoPath"       title-class="" class=""/>
+              <NormalFeatureCard :title="mdrf(MFLocalizedString('scroll.smoothness.regular.title', ''))"        :body="mdrf(MFLocalizedString('scroll.smoothness.regular.body', ''), {}, false)"     :videoPath="smoothnessRegularDemoPath"    title-class="" class=""/>
+              <NormalFeatureCard :title="mdrf(MFLocalizedString('scroll.smoothness.off.title', ''))"            :body="mdrf(MFLocalizedString('scroll.smoothness.off.body', ''), {}, false)"         :videoPath="smoothnessOffDemoPath"        title-class="" class=""/>
             </div>
           </div>
         </CardContainer>
       
-        <CardContainer title-key="scroll.more.header"    class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] z-[9]">
+        <CardContainer :title="mdrf(MFLocalizedString('scroll.more.header', ''))" class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] z-[9]">
           <div class="w-fit relative left-[50%] translate-x-[-50%]">
             <div class="absolute inset-0 -z-10 pointer-events-none">
               <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] scale-[1] absolute left-[66%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]"/>
             </div>
             <div ref="scrollingCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] my-[0] w-fit">
-              <NormalFeatureCard titleKey="scroll.more.reverse.title"        bodyKey="scroll.more.reverse.body"            class=""/>
-              <NormalFeatureCard titleKey="scroll.more.modifiers.title"      bodyKey="scroll.more.modifiers.body"          class=""/>
-              <NormalFeatureCard titleKey="scroll.more.configurable.title"   bodyKey="scroll.more.configurable.body"       class=""/>
+              <NormalFeatureCard :title="mdrf(MFLocalizedString('scroll.more.reverse.title', ''))"        :body="mdrf(MFLocalizedString('scroll.more.reverse.body', ''), {}, false)"            class=""/>
+              <NormalFeatureCard :title="mdrf(MFLocalizedString('scroll.more.modifiers.title', ''))"      :body="mdrf(MFLocalizedString('scroll.more.modifiers.body', ''), {}, false)"          class=""/>
+              <NormalFeatureCard :title="mdrf(MFLocalizedString('scroll.more.configurable.title', ''))"   :body="mdrf(MFLocalizedString('scroll.more.configurable.body', ''), {}, false)"       class=""/>
             </div>
           </div>
         </CardContainer>
@@ -122,7 +122,7 @@
             - Thought about including a non-trackpad features section - but not enough features so far to warrant a whole section -->
 
       <div class="strong:text-gradient-to-l">
-        <SectionHeader id="action_table" title-key="customization.intro.title" title-accent-key="customization.intro.title.accent" title-accent2-key="customization.intro.title.accent2" body-key="customization.intro.body" 
+        <SectionHeader id="action_table" :title="MFLocalizedString('customization.intro.title', '')" :titleAccent="MFLocalizedString('customization.intro.title.accent', '')" :titleAccent2="MFLocalizedString('customization.intro.title.accent2', '')" :body="mdrf(MFLocalizedString('customization.intro.body', ''))" 
                         class="gradient-red strong:filter strong:brightness-[1.0]" title-accent-class="italic" title-accent2-class="move-flexxx text-gradient-to-l-block filter brightness-[1.12] hue-rotate-[-0deg]" />
 
         <CardContainer class="gradient-red var-[accent-rotate=170deg] ch-[.card-title_strong]:brightness-[1.0] strong:brightness-[0.95]">
@@ -133,8 +133,8 @@
                   <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]"/>
               </div>
               <div ref="actionTableCardsSection" class="flex flex-col items-center gap-[5rem] py-[4.5rem]">
-                <NormalFeatureCard titleKey="customization.action-table.title" bodyKey="customization.action-table.body" :videoPath="actionTableDemoPath"              title-class="!font-[600]" class="w-full"        content-class="par-[.isNotExpanded]:max-w-[50rem]" :image-path="actionTableImagePath" image-scaling-sizes="" image-class="w-[205%] sm:mt-[1rem] mt-[2rem] mr-[calc(-107%)] mb-[-35%] translate-x-[0rem]"/>
-                <NormalFeatureCard titleKey="customization.keyboard-shortcuts.title" bodyKey="customization.keyboard-shortcuts.body" :videoPath="keyboardShortcutDemoPath"  title-class="!font-[600]" class="w-full" expand-button-key="customization.keyboard-shortcuts.expand-button"/>
+                <NormalFeatureCard :title="mdrf(MFLocalizedString('customization.action-table.title', ''))"        :body="mdrf(MFLocalizedString('customization.action-table.body', ''), {}, false)"       :videoPath="actionTableDemoPath"      title-class="!font-[600]" class="w-full" content-class="par-[.isNotExpanded]:max-w-[50rem]" :image-path="actionTableImagePath" image-scaling-sizes="" image-class="w-[205%] sm:mt-[1rem] mt-[2rem] mr-[calc(-107%)] mb-[-35%] translate-x-[0rem]"/>
+                <NormalFeatureCard :title="mdrf(MFLocalizedString('customization.keyboard-shortcuts.title', ''))"  :body="mdrf(MFLocalizedString('customization.keyboard-shortcuts.body', ''), {}, false)" :videoPath="keyboardShortcutDemoPath" title-class="!font-[600]" class="w-full" expand-button-key="customization.keyboard-shortcuts.expand-button"/>
               </div>
             </div>
           </div>
@@ -144,10 +144,10 @@
       <!-- Price / Good Software -->
 
       <div class="strong:text-gradient-to-l ch-[a]:text-green-600 ch-[a]:font-[500]">
-        <SectionHeader id="price" title-key="benefits.intro.title" title-accent2-key="benefits.intro.title.accent2" body-key="benefits.intro.body"
+        <SectionHeader id="price" :title="MFLocalizedString('benefits.intro.title', '')" :titleAccent2="MFLocalizedString('benefits.intro.title.accent2', '')" :body="mdrf(MFLocalizedString('benefits.intro.body', ''))"
                         class="gradient-green strong:filter strong:brightness-[1.15]" title-accent2-class="move-growww text-gradient-to-l-block gradient-green filter brightness-[1.35]" />
         
-        <CardContainer title-key="benefits.software.header" 
+        <CardContainer :title="mdrf(MFLocalizedString('benefits.software.header', ''))"
           class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] "             title-class=" strong:filter strong:brightness-[1.2]">
 
           <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
@@ -155,13 +155,13 @@
               <NuxtImg :src="colorSplashImagePath" alt="" class="f-h-[50rem] f-w-[100rem] absolute left-[33%] top-[33%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8] filter invert hue-rotate-[125deg]"/>
             </div>
             <div ref="priceCardsSection1" class=" grid grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] relative">
-              <NormalFeatureCard titleKey="benefits.software.unobtrusive-lightweight.title"          bodyKey="benefits.software.unobtrusive-lightweight.body"     class=""/>
-              <NormalFeatureCard titleKey="benefits.software.open-source.title"                      bodyKey="benefits.software.open-source.body"                 class=""/>
+              <NormalFeatureCard :title="mdrf(MFLocalizedString('benefits.software.unobtrusive-lightweight.title', ''))"  :body="mdrf(MFLocalizedString('benefits.software.unobtrusive-lightweight.body', ''), {}, false)"     class=""/>
+              <NormalFeatureCard :title="mdrf(MFLocalizedString('benefits.software.open-source.title', ''))"              :body="mdrf(MFLocalizedString('benefits.software.open-source.body', ''), {}, false)"                 class=""/>
             </div>
           </div>
         </CardContainer>
 
-        <CardContainer title-key="benefits.pricing.header" disclaimer-key="benefits.pricing.disclaimer" :disclaimer-values="dynamicUIStrings"
+        <CardContainer :title="mdrf(MFLocalizedString('benefits.pricing.header', ''))" :disclaimer="mdrf(MFLocalizedString('benefits.pricing.disclaimer', ''), dynamicUIStrings)" disclaimer-id="price.disclaimer"
           class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] mt-[5rem]"   title-class="strong:filter strong:brightness-[1.2]">
 
           <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
@@ -169,9 +169,9 @@
                 <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[150rem] f-h-[75rem] absolute left-[75%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8] filter invert hue-rotate-[125deg]"/>
             </div>
             <div ref="priceCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem]">
-              <NormalFeatureCard titleKey="benefits.pricing.free-days.title"       bodyKey="benefits.pricing.free-days.body"        :dynamic="dynamicUIStrings" class=""/>
-              <NormalFeatureCard titleKey="benefits.pricing.price.title"           bodyKey="benefits.pricing.price.body"            :dynamic="dynamicUIStrings" class=""/>
-              <NormalFeatureCard titleKey="benefits.pricing.alternatives.title"    bodyKey="benefits.pricing.alternatives.body"     :dynamic="dynamicUIStrings" class=""/>
+              <NormalFeatureCard :title="mdrf(MFLocalizedString('benefits.pricing.free-days.title', ''), dynamicUIStrings)"       :body="mdrf(MFLocalizedString('benefits.pricing.free-days.body', ''), dynamicUIStrings, false)"     class=""/>
+              <NormalFeatureCard :title="mdrf(MFLocalizedString('benefits.pricing.price.title', ''), dynamicUIStrings)"           :body="mdrf(MFLocalizedString('benefits.pricing.price.body', ''), dynamicUIStrings, false)"         class=""/>
+              <NormalFeatureCard :title="mdrf(MFLocalizedString('benefits.pricing.alternatives.title', ''), dynamicUIStrings)"    :body="mdrf(MFLocalizedString('benefits.pricing.alternatives.body', ''), dynamicUIStrings, false)"  class=""/>
               <div class="hidden sm:col-span-1 md:col-span-2 col-span-3 w-full flex justify-center">
                 <!-- Download counter was here -->
               </div> 
@@ -240,6 +240,8 @@ import { getUsableQuotes } from "../utils/quotes"
 const quotes = getUsableQuotes()
 
 /* Import other stuff */
+
+const { $coolI18n: { MFLocalizedString, mdrf } } = useNuxtApp();
 
 import { remInPx } from '~/utils/util';
 import { type Ref } from 'vue'
@@ -350,7 +352,7 @@ onMounted(() => {
       //      the static, 'server-side generated' aka 'pre-rendered', aka 'SSG' content, and only showing stuff, once the 'client-side-rendering' has finished. 
       //      However, since we don't hide the intro itself, the big MMF logo with the download button at the very top of the page, is prerendered and shown to the user immediately after page-load, 
       //      so we do get some nuxt-SSG benefits there.
-
+      
       // Make visible
       afterIntro.value!.style.opacity = '1.0';
 

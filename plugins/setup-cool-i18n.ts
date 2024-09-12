@@ -46,7 +46,7 @@ export default defineNuxtPlugin(app => {
     
     /* Create our own translation function */
     
-    function _localizedString(strKey: string, localeCode?: string): string|undefined {
+    function _localizedString(strKey: string, localeCode?: string): string {
 
         /* 
             This function gets a localized string directly from the Localizable.js file 
@@ -62,13 +62,18 @@ export default defineNuxtPlugin(app => {
 
         // Get translated string
         //  @ts-ignore
-        const result = Localizable.strings[c][strKey];
-        
+        var result: string|undefined = Localizable.strings[c][strKey];
+
+        // Make sure output is string - so we can use output directly in Vue templates without typescript complaining.
+        if (typeof result !== 'string') {
+            result = `<invalid localized string: ${objectDescription(result)} for key: ${strKey}>`
+        }
+
         // Return
         return result;
     }
 
-    function MFLocalizedString(strKey: string, localizerHint: string): string|undefined {
+    function MFLocalizedString(strKey: string, localizerHint: string): string {
 
         /* 
             This is the main way to access localized strings. 

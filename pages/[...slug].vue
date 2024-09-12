@@ -16,7 +16,7 @@
     <Navbar class="max-w-[960px]"/> <!-- Note: Should keep this max-w in sync with the NavBar max-w on other pages. -->
     <div :class='["flex flex-col justify-center items-center gap-[31vh] h-[100svh] px-[2rem]"]'>
       <div :class='["h-fit max-w-[960px] flex flex-col items-start justify-center mt-[5em] px-[0rem] text-[3rem] md:text-[2.4rem] sm:text-[2rem]"]'>
-        <BackButton coolClass="" path="/" label-key="404.back"></BackButton>
+        <BackButton coolClass="" path="/" :label="mdrf(MFLocalizedString('404.back', ''))"></BackButton>
         <p class="mt-[0em] font-[600] text-pretty" v-html="mdrf(MFLocalizedString('404.title', ''))"></p>
       </div>
       <BottomNav :is-minimal="true" color-class="accent-[unset]" class=""/>

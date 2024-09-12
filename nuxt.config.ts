@@ -46,6 +46,7 @@ export default defineNuxtConfig({
   vite: {
     assetsInclude: "**/*.mov",
     plugins: [
+      // { ...getMacroExpander(), enforce: 'pre', }, // preprocessorMacros are unused.
     ]
   },
   site: {

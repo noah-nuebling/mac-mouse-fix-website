@@ -1,5 +1,5 @@
 <!-- 
-  This component creates a FeatureCard component with a title, body text as default content, and a video as expanded content. The text isn't passed in directly but instead the localization keys are passed in. 
+  This component creates a FeatureCard component with a title, body text as default content, and a video as expanded content. The text is passed in directly. (As of 13.09.2024)
 -->
 
 <template>
@@ -31,7 +31,7 @@
           <!-- Expand -->
           <!-- Note: The play.circle and stop.circle images have blue-500 color. we use the --accent-rotate var to change the color. -->
           <span :class="['', isExpanded ? 'opacity-0 absolute' : '']">
-            <span class="" v-html="mdrf(MFLocalizedString(expandButtonKey ? expandButtonKey : 'feature-card.expand-button', '')) + ''"></span>
+            <span class="" v-html="expandButtonText ? expandButtonText : mdrf(MFLocalizedString('feature-card.expand-button', ''))"></span>
             <span class="inline-space-[0]"/><img src="~/assets/img/play.circle-blue@8x.png" alt="" class="ml-[0.4em] translate-x-[0em] inline wh-[1.00em] align-[-0.2em] filter hue-rotate-[var(--accent-rotate)]">
           </span>
           <!-- Unexpand -->
@@ -42,14 +42,14 @@
         </a>
       </div>
       <!-- Title -->
-      <h3 :class="['card-title text-center sm:text-[1.4rem] text-[1.7rem] leading-[1.3] font-[700] strong:font-[700] sm:mx-[2rem] mx-[3rem]', titleClass]" v-html="mdrf(MFLocalizedString(titleKey!, ''), dynamic)"></h3>
+      <h3 v-html="title" :class="['card-title text-center sm:text-[1.4rem] text-[1.7rem] leading-[1.3] font-[700] strong:font-[700] sm:mx-[2rem] mx-[3rem]', titleClass]"></h3>
     </template>
 
     <template v-slot:default>
       <div class="flex flex-col items-center justify-start h-full sm:m-[2rem] m-[3.0rem] sm:mt-[1.33rem] mt-[2.75rem] ">
 
         <!-- Body -->
-        <div v-html="mdrf(MFLocalizedString(bodyKey!, ''), dynamic, false)" class="card-sm strong:font-[500] sm:text-[1.05rem] text-[1.15rem] font-[400] max-w-[30em] not-last:ch-[ol,ul,p]:mb-[1em]"></div>
+        <div v-html="body" class="card-sm strong:font-[500] sm:text-[1.05rem] text-[1.15rem] font-[400] max-w-[30em] not-last:ch-[ol,ul,p]:mb-[1em]"></div>
 
         <!-- Image -->
         <div v-if="imagePath" :class="[imageClass]">
@@ -94,23 +94,25 @@ const { $coolI18n: { mdrf, MFLocalizedString } } = useNuxtApp();
 import type { FeatureCard } from '#build/components';
 // import remapDemoVideo from '@/assets/video/remap_demo_old.mp4';
 
-
 const thisCard = ref<InstanceType<typeof FeatureCard> | null>(null)
 
 const isExpanded = computed(() => thisCard.value?.isExpanded || thisCard.value?.isAnimationExpanded) // This is hacky but makes animations look nicer
 
 var props = defineProps({
-  titleKey: String,
-  bodyKey: String,
-  dynamic: Object,
+
+  title: String,
+  body: String,
+  expandButtonText: String,
+
   imagePath: String,
-  imageScalingSizes: String, // The intended size which NuxtImg uses for scaling the image down for optimization
-  imageClass: String,
   videoPath: String,
-  expandButtonKey: String,
-  backgroundFilterClass: String,
-  contentClass: String,
+
   titleClass: String,
+  imageClass: String,
+  contentClass: String,
+  backgroundFilterClass: String,
+
+  imageScalingSizes: String, // The intended size which NuxtImg uses for scaling the image down for optimization
 })
 
 </script>
@@ -118,8 +120,5 @@ var props = defineProps({
 <style scoped lang="postcss">
 
   /* Avoid styling here when using tailwind. See https://tailwindcss.com/docs/reusing-styles. */
-
-
-
 
 </style>

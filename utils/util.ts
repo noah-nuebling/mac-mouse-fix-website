@@ -1,9 +1,25 @@
 import { request } from "https"
 
-export { objectDescription, doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo, setResolution, unsetResolution, formatAsMoney, stringf }
+export { objectDescription, doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo, setResolution, unsetResolution, formatAsMoney, stringf, stringf_getArray}
 
+function getFormatSpecifierPattern(key: string, useNamedCaptureGroup: boolean = false): string {
 
+    // Helper for stringf().
+    //  Gets a regex pattern that matches "{<key>}" inside strings like "bla {<key>} blub".
+    //      Pattern tolerates spaces around <key> so "{<key>}" and "{ <key>  }" work the same.
 
+    //  If you pass `true` for `useNamedCaptureGroup`, the pattern will still match "{<key>}" in the same way as described above, but 
+    //      but "<key>"  will be captured in a regex capture group named "<key>". 
+    //      The purpose of this is that we can OR the results of this function together using "|", and then easily parse the matches of the resulting combined regex.
+
+    var result: string = '';
+    if (!useNamedCaptureGroup) {
+        result = String.raw`\{ *${key} *\}`;
+    } else {
+        result = String.raw`\{ *(?<${key}>${key}) *\}`; //  "creates a "named capture group" with the name '<key>' that captures '<key>' in the match '{ <key> }' in the string 'bla { <key> } blub'
+    }
+    return result;
+}
 
 function stringf(text: string, replacements: Object) {
     
@@ -36,18 +52,108 @@ function stringf(text: string, replacements: Object) {
     
     var result = text;
     
-    console.assert(Object.entries(replacements).length > 0);
+    // console.assert(Object.entries(replacements).length > 0);
     
     for (const [key, value] of Object.entries(replacements)) {
-        const pattern = String.raw`\{ *${key} *\}`;
-        const regex = new RegExp(pattern, 'g');
-        console.assert(regex.test(result), `Could not find format specifier ${regex} inside string "${text}"`);
+        const regex = new RegExp(getFormatSpecifierPattern(key), 'g');
+        // console.assert(regex.test(result), `Could not find format specifier ${regex} inside string "${text}"`); // Todo: Enable later.
         result = result.replaceAll(regex, value);
         
     }
     
     // console.debug(`stringf before-after: "${text}" -> "${result}". Replacements:\n${objectDescription(replacements)}`);
     
+    return result;
+}
+
+function stringf_getArray(text: string, replacements: Object): Array<any> {
+
+    /*
+        Works like regular stringf(), but returns an array instead of a string.
+
+        The array can contain strings and other objects.
+
+        This is useful for rendering HTML Nodes or Vue VNodes, since we can go from a format string directly to an array of objects which we can add as children into the DOM or Vue-virtual-DOM (is that the term?) and stuff. (We can [almost] pass the output of this directly into Vue's h() or createVNode() rendering functions.)
+
+        Example:
+            Input:
+                text:
+                    "Your { relative   } is { trait }"
+                replacements:
+                    { "relative": "mom", "trait": [1, 0, 0, 1, 0, 1] }
+            Output:
+                ["Your ", "mom", " is ", [1, 0, 0, 1, 0, 1]]
+    */
+
+    /* Edge cases */
+    if (typeof text !== 'string') {
+        console.assert(false, `Passed non-string into stringf_getArray: ${objectDescription(text)}`);
+        return [];
+    }
+
+    /* Preprocess keys of the `replacements` object into regexes 
+        for searching `text` for the relevant format specifiers, which will be replaced by the values of the 'replacements' dict. */
+    const patterns: string[] = []
+    const regexes: RegExp[] = [];
+    for (const key of Object.keys(replacements)) {
+        const pattern = getFormatSpecifierPattern(key, /* useNamedCaptureGroup: */true);    // Pattern which finds the format specifier for `key` in a string.
+        const regex = new RegExp(pattern, 'g');
+        patterns.push(pattern);
+        regexes.push(regex);
+    }
+    
+    const allPatternsPattern: string = patterns.join('|');      // Pattern that finds all the format specifiers corresponding to any of the keys of `replacements`.
+    const allPatternsRegex: RegExp = new RegExp(allPatternsPattern, 'g');
+
+    /* Iterate matches
+        and build result */
+
+    // Declare loop state
+    var result: string[] = [];
+    var lastIndexOfLastMatch: number = -1;
+    
+    for (const match of text.matchAll(allPatternsRegex)) { // Note: If we used allPatternsRegex.exec() instead of text.matchAll() I think we could simplify the code a bit.
+
+        // Get name of matched group
+        let capturedGroupNames: string[] = []
+        for (const [groupName, capturedContent] of Object.entries(match.groups!)) { //  The group names are available here because we used `useNamedCaptureGroup` arg for getFormatSpecifierPattern()
+            if (capturedContent === undefined) continue; // Skip groups that haven't captured anything. Explanation: For any match, our allPatternsRegex matches one specific formatSpecifer in the text, and the capture groups for all the other formatSpecifiers have an `undefined` value. 
+            capturedGroupNames.push(groupName);
+        }; 
+        console.assert(capturedGroupNames.length == 1, `stringf: Number of captured group names != 1. This is weird. Due to the structure of our regexes, I think every match should have exactly one capture group that actually captured something.`); 
+        const captureGroupName: string = capturedGroupNames[0];
+        
+        // Get match range
+        const startIndex = match.index;
+        const lastIndex = match.index + match[0].length - 1;
+
+        // Append unmatched section of string
+        const unmatchedSection = text.slice(lastIndexOfLastMatch+1, startIndex);
+        if (unmatchedSection.length > 0) {
+            result.push(unmatchedSection);
+        }
+        
+        if (replacements.hasOwnProperty(captureGroupName)) {
+            // Append replacement for matched section of string
+            const replacement = replacements[captureGroupName];
+            result.push(replacement);
+        } else {
+            // Fail
+            console.assert(false, `stringf fail: Should never happen.`);
+            result.push(match[0]);
+        }
+
+        // Update loop state
+        lastIndexOfLastMatch = lastIndex;
+    }
+
+    // Append last unmatched section of string
+    const unmatchedSection = text.slice(lastIndexOfLastMatch+1, undefined);
+    if (unmatchedSection.length > 0) {
+        result.push(unmatchedSection);
+    }
+
+    // Return
     return result;
 }
 

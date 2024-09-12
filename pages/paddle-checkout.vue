@@ -20,7 +20,7 @@
 
       <div class="flex flex-col items-start mt-[5rem]">
 
-        <BackButton path="/" label-key='checkout-header.back-button'/>
+        <BackButton path="/" :label="mdrf(MFLocalizedString('checkout-header.back-button', ''))"/>
         <!-- <NuxtImg ref="mmfIcon" :src="mmfIconImagePath" sizes="225px" alt="Mac Mouse Fix Icon" :class="['h-[6.5rem] mb-[3rem] mr-[1rem] hidden']"/> --> <!-- Copied this from intro.vue, not sure if good -->
         <p class="xs:text-[2.5rem] text-[3.0rem] font-[600]">
           <!-- <span class="font-[600] text-[1em] inline-block translate-y-[-0.1em]">􀎤</span>  -->
@@ -39,15 +39,24 @@
       <div class="flex flex-col gap-[2em]">
 
         <!-- Just Mac Mouse Fix -->
-        <CheckoutOption price='checkout-option.base.price' title='checkout-option.base.title' body='checkout-option.base.body' disclaimer='checkout-option.disclaimer'
+        <CheckoutOption :price="mdrf(MFLocalizedString('checkout-option.base.price', ''), {}, false)" 
+                        :title="mdrf(MFLocalizedString('checkout-option.base.title', ''), {}, false)"
+                        :body="mdrf(MFLocalizedString('checkout-option.base.body', ''), {}, false)"
+                        :disclaimer="mdrf(MFLocalizedString('checkout-option.disclaimer', ''), {}, false)"
         :is-selected="selectedOption == 'base'" @click="selectedOption = 'base'"/>
 
         <!-- Generous Contributor -->
-        <CheckoutOption price='checkout-option.generous.price' title='checkout-option.generous.title' body='checkout-option.generous.body' disclaimer='checkout-option.disclaimer'
+        <CheckoutOption :price="mdrf(MFLocalizedString('checkout-option.generous.price', ''), {}, false)"
+                        :title="mdrf(MFLocalizedString('checkout-option.generous.title', ''), {}, false)"
+                        :body="mdrf(MFLocalizedString('checkout-option.generous.body', ''), {}, false)"
+                        :disclaimer="mdrf(MFLocalizedString('checkout-option.disclaimer', ''), {}, false)"
         :is-selected="selectedOption == 'generous'" @click="selectedOption = 'generous'"/>
 
         <!-- Very Generous Contributor -->
-        <CheckoutOption price='checkout-option.very-generous.price' title='checkout-option.very-generous.title' body='checkout-option.very-generous.body' disclaimer='checkout-option.disclaimer'
+        <CheckoutOption :price="mdrf(MFLocalizedString('checkout-option.very-generous.price', ''), {}, false)"  
+                        :title="mdrf(MFLocalizedString('checkout-option.very-generous.title', ''), {}, false)"
+                        :body="mdrf(MFLocalizedString('checkout-option.very-generous.body', ''), {}, false)"
+                        :disclaimer="mdrf(MFLocalizedString('checkout-option.disclaimer', ''), {}, false)"
         :is-selected="selectedOption == 'very-generous'" @click="selectedOption = 'very-generous'"/>
       </div>
 
