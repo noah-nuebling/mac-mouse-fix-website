@@ -27,6 +27,7 @@
     "@types/markdown-it": "^14.1.2",
     "assert": "^2.1.0",
     "gsap": "^3.12.5",
-    "markdown-it": "^14.1.0"
+    "markdown-it": "^14.1.0",
+    "node-html-parser": "^6.1.13"
   }
 }

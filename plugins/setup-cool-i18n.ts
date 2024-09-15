@@ -147,6 +147,7 @@ export default defineNuxtPlugin(app => {
     
     /* Store custom functions */
     const coolI18n = {
+        mdRenderer: renderer,
         MFLocalizedString,
         _localizedString,
         mdrf,

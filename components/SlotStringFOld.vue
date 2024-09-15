@@ -1,6 +1,6 @@
 <!-- 
 
-This is unused. Replaced by SlotStringF.ts
+This is unused. Replaced by SlotStringFOld2.ts
     This implementation was written with the help of ChatGPT and Claude and it was just hacky and bad and didn't support reactivity.
     The new implementation was written with proper Vue integration, and based on the vue i18n source code. That was kinda hard but still took less time than I spent on this.
 

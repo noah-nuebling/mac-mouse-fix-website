@@ -1,6 +1,83 @@
 import { request } from "https"
+import { Text, createVNode } from 'vue'
+import * as vue from 'vue'
 
-export { objectDescription, doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo, setResolution, unsetResolution, formatAsMoney, stringf, stringf_getArray}
+export { plainTextFromVueSlot, removeIndent, createTextVNode, objectDescription, doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo, setResolution, unsetResolution, formatAsMoney, stringf, stringf_getArray}
+
+function createTextVNode(text: string): vue.VNode { 
+    // Helper function for creating Vue components from code. (More specifically: <StringF> component.)
+    //  Copied from <i18n-t> source code.
+    return createVNode(Text, null, text, 0);
+}
+
+function plainTextFromVueSlot(slotRenderingFunction: () => VNode[]): string {
+    
+    // Helper for <StringF>
+
+    let result = ''
+    const defaultSlotNodes: VNode[] = slotRenderingFunction();
+
+    for (let i = 0; i < defaultSlotNodes.length; i++) {
+        if (defaultSlotNodes[i].type == vue.Text) {
+            const children = defaultSlotNodes[i].children;
+            if (typeof children === 'string') {
+                result += children;
+            } else {
+                console.assert(false, 'Weird stuff');
+            }
+        } else {
+            console.assert(false, 'Slot contained a VNode that is not of type Text. Don\'t know how to handle.');
+        }
+    }
+    return result;
+}
+
+function removeIndent(input: string): string {
+
+    // Removes common whitespace prefix on each line of the passed-in string and returns the result.
+    //  Written for custom component rendering and stuff. After turning on whitespace preservation in the vite settings, the vue slot content we're processing in components like SlotStringF strings have linebreaks and indents and stuff that we sometimes need to remove.
+    //      Update: We chose a different approach for <StringF> component and turned off whitespace presevation in Vite, so this is unused now (as of 15.09.2024)
+
+    // Constants
+    const whitespacePrefixMatcher = /^(\s*?)\S.*$/m;
+
+    // Prepare
+    const lines = input.split('\n')
+
+    // Find common prefix
+    let indentLength = Number.MAX_SAFE_INTEGER;
+    for (const line of lines) {
+        if (line.trim().length == 0) { continue }  // Skip empty lines
+        const match: RegExpExecArray | null = whitespacePrefixMatcher.exec(line);
+        if (match == null) {
+            console.assert(false, 'This shouldn\'t happen. Review the code.');
+            continue;
+        }
+        const whitespacePrefix = match[1];
+        indentLength = Math.min(indentLength, whitespacePrefix.length);
+    }
+
+    // Handle edge case: No indentLength found
+    if (indentLength == Number.MAX_SAFE_INTEGER) {
+        console.assert(false, 'Not sure this can happen. Review the code.');
+        return input;
+    }
+
+    // Handle case: No indent found
+    if (indentLength == 0) {
+        return input;
+    }
+
+    // Remove indent
+    let cleanLines: string[] = [];
+    for (const line of lines) {
+        cleanLines.push(line.slice(indentLength, undefined));
+    }
+    const result = cleanLines.join('\n');
+
+    // Return
+    return result;
+}
 
 function getFormatSpecifierPattern(key: string, useNamedCaptureGroup: boolean = false): string {
 
@@ -23,9 +100,8 @@ function getFormatSpecifierPattern(key: string, useNamedCaptureGroup: boolean = 
 
 function stringf(text: string, replacements: Object) {
     
-
     //  stringf implements basic python-style string formatting. 
-    //  Placeholders in string can look like this: {format_specifer}. 
+    //  Placeholders in the string can look like this: {format_specifer}. 
     //      Spaces around the key are ignored, so this would work the same: { format_specifier   }
     //  
     //  On naming: stringf is what I called my -[NSString stringWithFormat:] macro in Objective-C. Name comes from C's printf. Is easy to type and remember for me.
@@ -66,7 +142,7 @@ function stringf(text: string, replacements: Object) {
     return result;
 }
 
-function stringf_getArray(text: string, replacements: Object): Array<any> {
+function stringf_getArray(text: string, replacements?: { [key: string]: any }): Array<any> {
 
     /*
         Works like regular stringf(), but returns an array instead of a string.
@@ -85,14 +161,23 @@ function stringf_getArray(text: string, replacements: Object): Array<any> {
                 ["Your ", "mom", " is ", [1, 0, 0, 1, 0, 1]]
     */
 
-    /* Edge cases */
+    /* Handle case: No format string */
     if (typeof text !== 'string') {
         console.assert(false, `Passed non-string into stringf_getArray: ${objectDescription(text)}`);
         return [];
     }
 
+    /* Handle case: no replacements */
+    if (replacements === undefined || Object.keys(replacements).length == 0) {
+        return [text];
+    }
+
     /* Preprocess keys of the `replacements` object into regexes 
-        for searching `text` for the relevant format specifiers, which will be replaced by the values of the 'replacements' dict. */
+        for searching `text` for the relevant format specifiers, which will be replaced by the values of the 'replacements' dict. 
+        
+        Note: 
+            Maybe we could optimize/simplify this by using one simple constant regex that captures all `{ format_specifiers }` instead of constructing a new complex regex on the fly every time?
+    */
     const patterns: string[] = []
     const regexes: RegExp[] = [];
     for (const key of Object.keys(replacements)) {
@@ -116,6 +201,10 @@ function stringf_getArray(text: string, replacements: Object): Array<any> {
 
         // Get name of matched group
         let capturedGroupNames: string[] = []
+        if (!match.groups) {
+            console.assert(false, `Weirddd stuff`);
+            continue;
+        }
         for (const [groupName, capturedContent] of Object.entries(match.groups!)) { //  The group names are available here because we used `useNamedCaptureGroup` arg for getFormatSpecifierPattern()
             if (capturedContent === undefined) continue; // Skip groups that haven't captured anything. Explanation: For any match, our allPatternsRegex matches one specific formatSpecifer in the text, and the capture groups for all the other formatSpecifiers have an `undefined` value. 
             capturedGroupNames.push(groupName);
@@ -293,6 +382,7 @@ function objectDescription(value: any, parents: Array<any> = []): string | undef
     
     if (activateSpecialSerialization) {
         if (value instanceof HTMLElement) {
+            // Serialize HTMLElement
             const tagName = value.tagName.toLowerCase();
             const id = value.id ? `#${value.id}` : '';
             const classList = 'class = ' + (value.classList.length > 0 ? ` .${Array.from(value.classList).join(' .')}` : '');
@@ -304,6 +394,7 @@ function objectDescription(value: any, parents: Array<any> = []): string | undef
             const content = escapeString(value.innerHTML.trim());
             result = `<${tagName}${addBrindent(id)}${addBrindent(classList)}${addBrindent(attrString)}${br}>${br}${addIndent(content)}${br}</${tagName}>`;
         } else if (value instanceof DOMRect) {
+            // Serialize DOMRect
             const v = value;
             result = `(x: ${v.x}, y: ${v.y}, width: ${v.width}, height: ${v.height})`;
             console.assert((v.top == v.y) && (v.bottom == v.y + v.height) && (v.left == v.x) && (v.right == v.x + v.width));
@@ -444,7 +535,7 @@ function setResolution(scaleFactor: number, ...elements: HTMLElement[]) {
 
 /* Pretty rounding */
 
-function roundTo(n: number, rounder: number, decimals: number = 100, roundingFn = Math.round) {
+function roundTo(n: number, rounder: number, decimals: number = 20, roundingFn = Math.round) {
     
     // Outputs the multiple of `rounder` which is closest to `n`.
     // Use `decimals` set a max number of digits after the period. This is to combat division errors where you get numbers like 0.500000000000003.

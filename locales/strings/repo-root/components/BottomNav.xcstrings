@@ -1,0 +1,13 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "1: footer.credits" : {
+      "extractionState" : "manual"
+    },
+    "2: footer.thankyou" : {
+      "comment" : "This is a thankkkkyou.",
+      "extractionState" : "manual"
+    }
+  },
+  "version" : "1.0"
+}

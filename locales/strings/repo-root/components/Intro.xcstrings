@@ -1,0 +1,27 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "1: localization-progress" : {
+      "extractionState" : "manual"
+    },
+    "2: localization-progress.link-to-guide" : {
+      "extractionState" : "manual"
+    },
+    "3: intro.tagline" : {
+      "extractionState" : "manual"
+    },
+    "4: intro.big-tagline" : {
+      "extractionState" : "manual"
+    },
+    "5: quotes.see-more" : {
+      "extractionState" : "manual"
+    },
+    "6: quotes.see-less" : {
+      "extractionState" : "manual"
+    },
+    "7: quotes.thankyou" : {
+      "extractionState" : "manual"
+    }
+  },
+  "version" : "1.0"
+}

@@ -1,0 +1,87 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "01: checkout-header.back-button" : {
+      "extractionState" : "manual"
+    },
+    "02: checkout-header.title" : {
+      "extractionState" : "manual"
+    },
+    "03: checkout-options.title" : {
+      "extractionState" : "manual"
+    },
+    "04: checkout-options.hint" : {
+      "extractionState" : "manual"
+    },
+    "05: checkout-option.base.price" : {
+      "extractionState" : "manual"
+    },
+    "06: checkout-option.base.title" : {
+      "extractionState" : "manual"
+    },
+    "07: checkout-option.base.body" : {
+      "extractionState" : "manual"
+    },
+    "08: checkout-option.disclaimer" : {
+      "extractionState" : "manual"
+    },
+    "09: checkout-option.generous.price" : {
+      "extractionState" : "manual"
+    },
+    "10: checkout-option.generous.title" : {
+      "extractionState" : "manual"
+    },
+    "11: checkout-option.generous.body" : {
+      "extractionState" : "manual"
+    },
+    "13: checkout-option.very-generous.price" : {
+      "extractionState" : "manual"
+    },
+    "14: checkout-option.very-generous.title" : {
+      "extractionState" : "manual"
+    },
+    "15: checkout-option.very-generous.body" : {
+      "extractionState" : "manual"
+    },
+    "17: checkout-extras.title.name" : {
+      "extractionState" : "manual"
+    },
+    "18: checkout-extras.hint.name" : {
+      "extractionState" : "manual"
+    },
+    "19: checkout-extras.title.message" : {
+      "extractionState" : "manual"
+    },
+    "20: checkout-extras.hint.message" : {
+      "extractionState" : "manual"
+    },
+    "21: checkout-extra.name.title" : {
+      "extractionState" : "manual"
+    },
+    "22: checkout-extra.message.title" : {
+      "extractionState" : "manual"
+    },
+    "23: checkout-totals.subtotal" : {
+      "extractionState" : "manual"
+    },
+    "24: checkout-totals.discount" : {
+      "extractionState" : "manual"
+    },
+    "25: checkout-totals.tax" : {
+      "extractionState" : "manual"
+    },
+    "26: checkout-totals.total" : {
+      "extractionState" : "manual"
+    },
+    "27: checkout-totals.credit" : {
+      "extractionState" : "manual"
+    },
+    "28: checkout-totals.balance" : {
+      "extractionState" : "manual"
+    },
+    "29: checkout-totals.credit-to-balance" : {
+      "extractionState" : "manual"
+    }
+  },
+  "version" : "1.0"
+}

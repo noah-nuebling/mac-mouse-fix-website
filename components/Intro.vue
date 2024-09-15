@@ -18,7 +18,8 @@
             <p class="text-center whitespace-pre-line
                         strong:mx-[0.0em] strong:bg-black/[0.05] strong:font-[600] strong:rounded-[4px] strong:px-[5px] strong:py-[1px]
                         ch-[select]:mx-[0.05em]">
-            <SlotStringF :format="MFLocalizedString('localization-progress', '')">
+            <SlotStringF>
+              {{  MFLocalizedString('localization-progress', '') }}
               <template #localizationProgress>
                 <strong>{{ localizationProgressDisplay }}</strong>
               </template>

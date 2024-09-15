@@ -3,33 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		4F8B01892C34834B00F3AF8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B017B2C34834B00F3AF8D /* AppDelegate.m */; };
-		4F8B018A2C34834B00F3AF8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8B017C2C34834B00F3AF8D /* Assets.xcassets */; };
-		4F8B018B2C34834B00F3AF8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B017E2C34834B00F3AF8D /* main.m */; };
-		4F8B018C2C34834B00F3AF8D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F8B017F2C34834B00F3AF8D /* MainMenu.xib */; };
-		4F8B018D2C34834B00F3AF8D /* xcode-dummy-target-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4F8B01802C34834B00F3AF8D /* xcode-dummy-target-Info.plist */; };
-		4F8B01902C34834B00F3AF8D /* LocalesReadme.md in Resources */ = {isa = PBXBuildFile; fileRef = 4F8B01842C34834B00F3AF8D /* LocalesReadme.md */; };
-		4F8B01922C34834B00F3AF8D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4F8B01862C34834B00F3AF8D /* Localizable.xcstrings */; };
-		4F8B01932C34834B00F3AF8D /* Quotes.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4F8B01872C34834B00F3AF8D /* Quotes.xcstrings */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
-		4F8B017A2C34834B00F3AF8D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4F8B017B2C34834B00F3AF8D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4F8B017C2C34834B00F3AF8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4F8B017D2C34834B00F3AF8D /* dummy_target.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = dummy_target.entitlements; sourceTree = "<group>"; };
-		4F8B017E2C34834B00F3AF8D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4F8B017F2C34834B00F3AF8D /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
-		4F8B01802C34834B00F3AF8D /* xcode-dummy-target-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "xcode-dummy-target-Info.plist"; sourceTree = "<group>"; };
-		4F8B01842C34834B00F3AF8D /* LocalesReadme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LocalesReadme.md; sourceTree = "<group>"; };
-		4F8B01862C34834B00F3AF8D /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		4F8B01872C34834B00F3AF8D /* Quotes.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Quotes.xcstrings; sourceTree = "<group>"; };
 		4FA2F1A32C2BB347000C5535 /* xcode-dummy-target.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xcode-dummy-target.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4F09D5E02C94A373001F8B48 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				strings/Localizable.xcstrings,
+				strings/Quotes.xcstrings,
+				"strings/repo-root/components/BottomNav.xcstrings",
+				"strings/repo-root/components/DownloadButton.xcstrings",
+				"strings/repo-root/components/Intro.xcstrings",
+				"strings/repo-root/components/Navbar.xcstrings",
+				"strings/repo-root/components/NormalFeatureCard.xcstrings",
+				"strings/repo-root/pages/[...slug].xcstrings",
+				"strings/repo-root/pages/index.xcstrings",
+				"strings/repo-root/pages/paddle-checkout.xcstrings",
+			);
+			target = 4FA2F1A22C2BB347000C5535 /* xcode-dummy-target */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4F09D5DE2C94A346001F8B48 /* locales */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (4F09D5E02C94A373001F8B48 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = locales; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4FA2F1A02C2BB347000C5535 /* Frameworks */ = {
@@ -42,35 +44,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4F8B01812C34834B00F3AF8D /* xcode-dummy-target */ = {
-			isa = PBXGroup;
-			children = (
-				4F8B017A2C34834B00F3AF8D /* AppDelegate.h */,
-				4F8B017B2C34834B00F3AF8D /* AppDelegate.m */,
-				4F8B017C2C34834B00F3AF8D /* Assets.xcassets */,
-				4F8B017D2C34834B00F3AF8D /* dummy_target.entitlements */,
-				4F8B017E2C34834B00F3AF8D /* main.m */,
-				4F8B017F2C34834B00F3AF8D /* MainMenu.xib */,
-				4F8B01802C34834B00F3AF8D /* xcode-dummy-target-Info.plist */,
-			);
-			path = "xcode-dummy-target";
-			sourceTree = "<group>";
-		};
-		4F8B01882C34834B00F3AF8D /* locales */ = {
-			isa = PBXGroup;
-			children = (
-				4F8B01862C34834B00F3AF8D /* Localizable.xcstrings */,
-				4F8B01872C34834B00F3AF8D /* Quotes.xcstrings */,
-				4F8B01842C34834B00F3AF8D /* LocalesReadme.md */,
-				4F8B01812C34834B00F3AF8D /* xcode-dummy-target */,
-			);
-			path = locales;
-			sourceTree = SOURCE_ROOT;
-		};
 		4FA2F1412C2B9296000C5535 = {
 			isa = PBXGroup;
 			children = (
-				4F8B01882C34834B00F3AF8D /* locales */,
+				4F09D5DE2C94A346001F8B48 /* locales */,
 				4FA2F1562C2BB10B000C5535 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -168,12 +145,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F8B018D2C34834B00F3AF8D /* xcode-dummy-target-Info.plist in Resources */,
-				4F8B01902C34834B00F3AF8D /* LocalesReadme.md in Resources */,
-				4F8B01922C34834B00F3AF8D /* Localizable.xcstrings in Resources */,
-				4F8B01932C34834B00F3AF8D /* Quotes.xcstrings in Resources */,
-				4F8B018A2C34834B00F3AF8D /* Assets.xcassets in Resources */,
-				4F8B018C2C34834B00F3AF8D /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,8 +155,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F8B018B2C34834B00F3AF8D /* main.m in Sources */,
-				4F8B01892C34834B00F3AF8D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +166,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_INCLUDE_INFOPLIST_LOCALIZATIONS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Debug;
 		};
@@ -205,6 +175,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_INCLUDE_INFOPLIST_LOCALIZATIONS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};

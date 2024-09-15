@@ -1,0 +1,12 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "1: feature-card.expand-button" : {
+      "extractionState" : "manual"
+    },
+    "2: feature-card.unexpand-button" : {
+      "extractionState" : "manual"
+    }
+  },
+  "version" : "1.0"
+}

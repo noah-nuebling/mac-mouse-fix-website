@@ -26,7 +26,7 @@
     </div>
 
     <!-- Intro -->
-   
+    
     <Intro ref="intro"/>
 
     <!-- Post-intro --> 
@@ -101,7 +101,7 @@
             </div>
           </div>
         </CardContainer>
-      
+
         <CardContainer :title="mdrf(MFLocalizedString('scroll.more.header', ''))" class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] z-[9]">
           <div class="w-fit relative left-[50%] translate-x-[-50%]">
             <div class="absolute inset-0 -z-10 pointer-events-none">
@@ -172,6 +172,7 @@
               <NormalFeatureCard :title="mdrf(MFLocalizedString('benefits.pricing.free-days.title', ''), dynamicUIStrings)"       :body="mdrf(MFLocalizedString('benefits.pricing.free-days.body', ''), dynamicUIStrings, false)"     class=""/>
               <NormalFeatureCard :title="mdrf(MFLocalizedString('benefits.pricing.price.title', ''), dynamicUIStrings)"           :body="mdrf(MFLocalizedString('benefits.pricing.price.body', ''), dynamicUIStrings, false)"         class=""/>
               <NormalFeatureCard :title="mdrf(MFLocalizedString('benefits.pricing.alternatives.title', ''), dynamicUIStrings)"    :body="mdrf(MFLocalizedString('benefits.pricing.alternatives.body', ''), dynamicUIStrings, false)"  class=""/>
+
               <div class="hidden sm:col-span-1 md:col-span-2 col-span-3 w-full flex justify-center">
                 <!-- Download counter was here -->
               </div> 
@@ -199,7 +200,6 @@
 
 import { roundTo } from "~/utils/util"
 import licenseConfig from "~/assets/licenseinfo/config.json"
-
 
 const MXMasterPrice = 99.99
 const trackpadPrice = 129.00 

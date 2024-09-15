@@ -1,0 +1,15 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "1: navbar.title" : {
+      "extractionState" : "manual"
+    },
+    "2: navbar.links.overview" : {
+      "extractionState" : "manual"
+    },
+    "3: navbar.links.github" : {
+      "extractionState" : "manual"
+    }
+  },
+  "version" : "1.0"
+}

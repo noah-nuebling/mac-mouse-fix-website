@@ -1,0 +1,12 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "1: 404.back" : {
+      "extractionState" : "manual"
+    },
+    "2: 404.title" : {
+      "extractionState" : "manual"
+    }
+  },
+  "version" : "1.0"
+}

@@ -14,9 +14,6 @@
 
 <script setup lang="ts">
 
-// Get i18n stuff
-const { $coolI18n: { mdrf, MFLocalizedString } } = useNuxtApp();
-
 // Define props
 const props = defineProps({
   title: String,

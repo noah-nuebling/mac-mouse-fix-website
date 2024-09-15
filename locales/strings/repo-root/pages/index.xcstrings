@@ -1,0 +1,210 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "01: trackpad.intro.title" : {
+      "extractionState" : "manual"
+    },
+    "02: trackpad.intro.title.accent" : {
+      "extractionState" : "manual"
+    },
+    "03: trackpad.intro.body" : {
+      "extractionState" : "manual"
+    },
+    "04: trackpad.gestures.header" : {
+      "extractionState" : "manual"
+    },
+    "05: trackpad.gestures.disclaimer" : {
+      "extractionState" : "manual"
+    },
+    "06: trackpad.gestures.lookup.title" : {
+      "extractionState" : "manual"
+    },
+    "07: trackpad.gestures.lookup.body" : {
+      "extractionState" : "manual"
+    },
+    "08: trackpad.gestures.mission-control.title" : {
+      "extractionState" : "manual"
+    },
+    "09: trackpad.gestures.mission-control.body" : {
+      "extractionState" : "manual"
+    },
+    "10: trackpad.gestures.spaces.title" : {
+      "extractionState" : "manual"
+    },
+    "11: trackpad.gestures.spaces.body" : {
+      "extractionState" : "manual"
+    },
+    "12: trackpad.gestures.app-expose.title" : {
+      "extractionState" : "manual"
+    },
+    "13: trackpad.gestures.app-expose.body" : {
+      "extractionState" : "manual"
+    },
+    "14: trackpad.gestures.show-desktop.title" : {
+      "extractionState" : "manual"
+    },
+    "15: trackpad.gestures.show-desktop.body" : {
+      "extractionState" : "manual"
+    },
+    "16: trackpad.gestures.launchpad.title" : {
+      "extractionState" : "manual"
+    },
+    "17: trackpad.gestures.launchpad.body" : {
+      "extractionState" : "manual"
+    },
+    "18: trackpad.gestures.zoom.title" : {
+      "extractionState" : "manual"
+    },
+    "19: trackpad.gestures.zoom.body" : {
+      "extractionState" : "manual"
+    },
+    "20: trackpad.gestures.pages.title" : {
+      "extractionState" : "manual"
+    },
+    "21: trackpad.gestures.pages.body" : {
+      "extractionState" : "manual"
+    },
+    "22: trackpad.gestures.mail-actions.title" : {
+      "extractionState" : "manual"
+    },
+    "23: trackpad.gestures.mail-actions.body" : {
+      "extractionState" : "manual"
+    },
+    "24: trackpad.gestures.free-scroll.title" : {
+      "extractionState" : "manual"
+    },
+    "25: trackpad.gestures.free-scroll.body" : {
+      "extractionState" : "manual"
+    },
+    "26: trackpad.gestures.smart-zoom.title" : {
+      "extractionState" : "manual"
+    },
+    "27: trackpad.gestures.smart-zoom.body" : {
+      "extractionState" : "manual"
+    },
+    "28: scroll.intro.title" : {
+      "extractionState" : "manual"
+    },
+    "29: scroll.intro.title.accent" : {
+      "extractionState" : "manual"
+    },
+    "30: scroll.intro.body" : {
+      "extractionState" : "manual"
+    },
+    "31: scroll.smoothness.header" : {
+      "extractionState" : "manual"
+    },
+    "32: scroll.smoothness.high.title" : {
+      "extractionState" : "manual"
+    },
+    "33: scroll.smoothness.high.body" : {
+      "extractionState" : "manual"
+    },
+    "34: scroll.smoothness.regular.title" : {
+      "extractionState" : "manual"
+    },
+    "35: scroll.smoothness.regular.body" : {
+      "extractionState" : "manual"
+    },
+    "36: scroll.smoothness.off.title" : {
+      "extractionState" : "manual"
+    },
+    "37: scroll.smoothness.off.body" : {
+      "extractionState" : "manual"
+    },
+    "38: scroll.more.header" : {
+      "extractionState" : "manual"
+    },
+    "39: scroll.more.reverse.title" : {
+      "extractionState" : "manual"
+    },
+    "40: scroll.more.reverse.body" : {
+      "extractionState" : "manual"
+    },
+    "41: scroll.more.modifiers.title" : {
+      "extractionState" : "manual"
+    },
+    "42: scroll.more.modifiers.body" : {
+      "extractionState" : "manual"
+    },
+    "43: scroll.more.configurable.title" : {
+      "extractionState" : "manual"
+    },
+    "44: scroll.more.configurable.body" : {
+      "extractionState" : "manual"
+    },
+    "45: customization.intro.title" : {
+      "extractionState" : "manual"
+    },
+    "46: customization.intro.title.accent" : {
+      "extractionState" : "manual"
+    },
+    "47: customization.intro.title.accent2" : {
+      "extractionState" : "manual"
+    },
+    "48: customization.intro.body" : {
+      "extractionState" : "manual"
+    },
+    "49: customization.action-table.title" : {
+      "extractionState" : "manual"
+    },
+    "50: customization.action-table.body" : {
+      "extractionState" : "manual"
+    },
+    "51: customization.keyboard-shortcuts.title" : {
+      "extractionState" : "manual"
+    },
+    "52: customization.keyboard-shortcuts.body" : {
+      "extractionState" : "manual"
+    },
+    "53: benefits.intro.title" : {
+      "extractionState" : "manual"
+    },
+    "54: benefits.intro.title.accent2" : {
+      "extractionState" : "manual"
+    },
+    "55: benefits.intro.body" : {
+      "extractionState" : "manual"
+    },
+    "56: benefits.software.header" : {
+      "extractionState" : "manual"
+    },
+    "57: benefits.software.unobtrusive-lightweight.title" : {
+      "extractionState" : "manual"
+    },
+    "58: benefits.software.unobtrusive-lightweight.body" : {
+      "extractionState" : "manual"
+    },
+    "59: benefits.software.open-source.title" : {
+      "extractionState" : "manual"
+    },
+    "60: benefits.software.open-source.body" : {
+      "extractionState" : "manual"
+    },
+    "61: benefits.pricing.header" : {
+      "extractionState" : "manual"
+    },
+    "62: benefits.pricing.disclaimer" : {
+      "extractionState" : "manual"
+    },
+    "63: benefits.pricing.free-days.title" : {
+      "extractionState" : "manual"
+    },
+    "64: benefits.pricing.free-days.body" : {
+      "extractionState" : "manual"
+    },
+    "65: benefits.pricing.price.title" : {
+      "extractionState" : "manual"
+    },
+    "66: benefits.pricing.price.body" : {
+      "extractionState" : "manual"
+    },
+    "67: benefits.pricing.alternatives.title" : {
+      "extractionState" : "manual"
+    },
+    "68: benefits.pricing.alternatives.body" : {
+      "extractionState" : "manual"
+    }
+  },
+  "version" : "1.0"
+}

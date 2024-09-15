@@ -10,7 +10,6 @@
 
 <script setup lang="ts">
 
-const { $coolI18n: { mdrf, MFLocalizedString } } = useNuxtApp();
 const localePath = useLocalePath()
 
 const props = defineProps({

@@ -24,7 +24,9 @@ export default defineNuxtConfig({
       enabled: true
     }
   },
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/image', '@nuxtjs/robots', '@nuxtjs/sitemap'],
+  modules: [
+    '@nuxtjs/tailwindcss', 
+    '@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/image', '@nuxtjs/robots', '@nuxtjs/sitemap'],
 
   app: {
     baseURL: '/', // GITHUB_SUB_URL,
@@ -44,7 +46,20 @@ export default defineNuxtConfig({
   nitro: {
   },
   vite: {
+
     assetsInclude: "**/*.mov",
+    vue: {
+      template: {
+        compilerOptions: {
+          // Preserve whitespace
+          //  Note:
+          //    We added this 'whitespace preservation option' to be able to render markdown that is passed into a slot of our custom component. 
+          //    Update: This caused some warnings in the console (although no visible rendering issues) and we don't need it anymore, so turning it off. 
+          //    See discussion: https://stackoverflow.com/questions/69055857/preserve-whitespace-between-spans-in-vue
+          // whitespace: 'preserve', 
+        }
+      }
+    },
     plugins: [
       // { ...getMacroExpander(), enforce: 'pre', }, // preprocessorMacros are unused.
     ]

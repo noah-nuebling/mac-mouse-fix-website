@@ -2,6 +2,15 @@
 
 /*
 
+    Unused. Replaced by <StringF>
+    
+        At the time of writing, the differences are that 
+            - The new StringF receives the 'format' string in its default slot, instead of in a 'format=...' attribute
+            - If the format string contains HTML syntax, the new StringF can render the HTML nodes to the DOM!
+        
+        We might wanna keep this as this has detailed explanations of stuff like vue.Fragment,
+            which the new <StringF> is missing.
+
 Vue-slot based string-formatting.
 
     Purpose:
@@ -53,39 +62,30 @@ Vue-slot based string-formatting.
 
 import { assign } from '@intlify/shared'
 import type { VNodeChild } from 'vue'
-import { Text, createVNode, isVNode, Fragment } from 'vue'
-import { stringf_getArray } from '../utils/util';
+import { isVNode, Fragment } from 'vue'
+import * as vue from 'vue'
+import { stringf_getArray, createTextVNode, plainTextFromVueSlot } from '../utils/util';
 
 export default defineComponent({
 
     // Implementation mostly copied from vue's <i18n-t> source code (GitHub: vue-i18n/packages/vue-i18n-core/src/components/Translation.ts)
 
     name: 'SlotStringF',
-    props: assign(
-        {
-
-            /**
-             * format:
-             *      String that is inserted into the DOM by this component.
-             *      If the string contains {formatSpecifiers}, they will be replaced by the content of the slots with #names matching the format specifiers.
-             */
-            format: {
-                type: String,
-                required: true,
-            }
-        },
-
-    ),
     setup(props: any, context: any): any {
 
         const { slots, attrs } = context
 
         return (): VNodeChild => {
             
-            // Prepare slots
-            const slotMap: { [key: string]: VNode[] } = {};
-            for (const [slotName, getSlotVNodes] of Object.entries(slots)) {
-                slotMap[slotName] = getSlotVNodes(); // Gets an array of the VNodes in the slot.
+            // Get format string from default slot
+            //  The format string is inserted into the DOM by this component.
+            //      If the format string contains {format_specifiers}, they will be replaced by the content of the slots with #names matching the format specifiers.
+            const formatString = plainTextFromVueSlot(slots['default']);
+
+            // Prepare named slots
+            const namedSlotMap: { [key: string]: VNode[] } = {};
+            for (const [slotName, slotRenderingFn] of Object.entries(slots)) {
+                namedSlotMap[slotName] = slotRenderingFn(); // Gets an array of the VNodes in the slot.
             }
             
             // Do string formatting
@@ -96,7 +96,7 @@ export default defineComponent({
             //          to insert into the root node of this component. However, the vue rendering function h() 
             //          seems to automatically flatten the array of childnodes which we pass it.
             //              Update: We do manually flatten it now for better code structure and validation.
-            var childNodes = stringf_getArray(props.format, slotMap);
+            var childNodes = stringf_getArray(formatString, namedSlotMap);
 
             // Post-process childNodes
             let cleanChildNodes: any[] = [];
@@ -150,9 +150,3 @@ export default defineComponent({
         }
     },
 });
-
-/* Helper functions */
-
-function createTextVNode(text: string): any { // Copied from <i18n-t> source code.
-    return createVNode(Text, null, text, 0);
-}

@@ -4,7 +4,8 @@
     <!-- Title -->
     <div class="section-title h-full flex items-center mt-[45vh]">
       <h2 class="fadeeexxx text-center whitespace-pre-wrap xs:text-[3.15rem] sm:text-[3.5rem] md:text-[5.5rem] text-[6rem] font-[700] leading-[1.05] tracking-[-0.15rem] text-gray-800">
-        <SlotStringF :format="title!" >
+        <SlotStringF>
+          {{ title }}
           <template #accent v-if="titleAccent"> 
             <span :class="['', titleAccentClass]">{{ titleAccent }}</span> 
           </template>
@@ -23,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import SlotStringF from './SlotStringF';
+import SlotStringF from './SlotStringFOld2';
 
 const props = defineProps({
   title: String,
