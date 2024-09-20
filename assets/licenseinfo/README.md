@@ -24,6 +24,7 @@ Countries:
   - Lebanon (LB): According to [this mail](message:<769F6BFC-D895-4DC3-8207-7CCDD51D7A18@icloud.com>) Gumroad tells people in Lebanon "Sorry, this item is not available in your location". 
   - Egypt (EG): The mister in this [this mail](message:<CABj_fxkd40BWQq5UwdfkVZu=qBsz6+Ova8QzWogasJLhVPACXw@mail.gmail.com>) wrote: "I'm unable to make payments in USD [...] due to the banking system in Egypt" and "the ongoing economic situation [...] has made it difficult for me to pay for products in foreign currencies." (Sep 2024)
   - Belarus (BY): "There is a payment error and I cannot purchase" (Src: [this mail](message:<02929B0E-719D-44D8-9A11-2B8D3F4A2B13@icloud.com>)). Most likely due to Russia sanctions.
+  - Venezuela (VE): There are US sanctions, I think, not sure why. Part of unsupported countries list for Paddle. Received [this message](message:<GoC9yZV6u_WniGgCiCvc3uErhT1FseoKHFjXJFa4I3_5pCbm18q-QrwHtM1GJsW-pxwDMD5ZiBn7cSXeWxdrAK43vWC1TdX1p4qcT8Lc1GY=@proton.me>) from Venezuelan user. (Last Updated: Sep 2024)
 
 Other notes:
 - I removed ?wanted=true from the quickpPayLink (https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true). Now it's less 'quick' which might be annoying to users, but I think it's less confusing, because all the stuff about the 1. 2. 3. Options still shows up for ?wanted=true but without context which I think is sort of confusing. Ideally the quick checkout would just take you to the 1. Option.
