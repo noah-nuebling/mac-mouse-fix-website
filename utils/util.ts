@@ -1,13 +1,32 @@
 import { request } from "https"
-import { Text, createVNode } from 'vue'
+import { Text } from 'vue'
 import * as vue from 'vue'
+import * as vueCompilerDom from "@vue/compiler-dom"
+import * as NodeHTMLParser from 'node-html-parser'
+import { endianness } from "os"
 
-export { plainTextFromVueSlot, removeIndent, createTextVNode, objectDescription, doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo, setResolution, unsetResolution, formatAsMoney, stringf, stringf_getArray}
+export { trimEmptyLines, plainTextFromVueSlot, removeIndent, createTextVNode, coolCreateStaticVNode, objectDescription, doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo, setResolution, unsetResolution, formatAsMoney, stringf, stringf_getArray}
 
 function createTextVNode(text: string): vue.VNode { 
     // Helper function for creating Vue components from code. (More specifically: <StringF> component.)
     //  Copied from <i18n-t> source code.
-    return createVNode(Text, null, text, 0);
+    return vue.createVNode(Text, null, text, 0, undefined, undefined);
+}
+function coolCreateStaticVNode(innerHTML: string, rootNodeCount?: number): vue.VNode {
+    
+    if (rootNodeCount === undefined) {
+        if (false) {
+            const mode = (import.meta.client && false) ? 'module' : 'function'
+            rootNodeCount = vueCompilerDom.compile(innerHTML, { mode: mode, whitespace: 'condense' }).ast.children.length; // Not sure how fast this is.
+        } else {
+            rootNodeCount = NodeHTMLParser.parse(innerHTML).childNodes.length; // I think this is abit faster than vueCompilerDom, but still not great.
+        }
+    }
+    const result = vue.createStaticVNode(innerHTML, rootNodeCount);
+
+    console.log(`Created static Vnode with children: ${result.children}, childCount: ${rootNodeCount}`);
+
+    return result;
 }
 
 function plainTextFromVueSlot(slotRenderingFunction: () => VNode[]): string {
@@ -32,11 +51,55 @@ function plainTextFromVueSlot(slotRenderingFunction: () => VNode[]): string {
     return result;
 }
 
+function trimEmptyLines(input: string): string {
+
+    // Removes leading and trailing empty lines
+
+    // Split
+    let lines = input.split('\n')
+
+    // Find first non-empty line
+    let firstIndex = undefined;
+    for (let i = 0; i < lines.length; i++) {
+        if (lines[i].trim() !== '') {
+            firstIndex = i;
+            break;
+        }
+    }
+
+    // Find last non-empty line
+    let lastIndex = undefined;
+    for (let i = lines.length-1; i >= 0; i--) {
+        if (lines[i].trim() !== '') {
+            lastIndex = i;
+            break;
+        }
+    }
+
+    // Edge-case: There are only empty lines
+    if ((firstIndex === undefined) || (lastIndex === undefined)) {
+        console.assert(lastIndex === lastIndex, "Don't think this can happen.");
+        return "";
+    }
+
+    // Assemble result
+    const cleanLines = lines.slice(firstIndex, lastIndex+1);
+    const result = cleanLines.join('\n');
+
+    // Return
+    return result;
+}
+
 function removeIndent(input: string): string {
 
     // Removes common whitespace prefix on each line of the passed-in string and returns the result.
     //  Written for custom component rendering and stuff. After turning on whitespace preservation in the vite settings, the vue slot content we're processing in components like SlotStringF strings have linebreaks and indents and stuff that we sometimes need to remove.
     //      Update: We chose a different approach for <StringF> component and turned off whitespace presevation in Vite, so this is unused now (as of 15.09.2024)
+
+    // Edge-cases
+    if (!input || input.length == 0) {
+        return input;
+    }
 
     // Constants
     const whitespacePrefixMatcher = /^(\s*?)\S.*$/m;

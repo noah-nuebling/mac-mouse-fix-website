@@ -2,7 +2,7 @@
 
 <template>
     <div ref="rootElement" :class="['cursor-pointer']" @click="() => downloadMMF()">
-      <p class="text-inherit">{{ MFLocalizedString('download-button', '') }}</p>
+      <p class="text-inherit">{{ MFLocalizedString(`Download`, 'download-button', `Label for the big 'Download' button that is displayed at the top of the page.`) }}</p>
     </div>
 </template>
 

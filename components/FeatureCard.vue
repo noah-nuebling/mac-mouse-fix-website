@@ -40,7 +40,7 @@
             ref="minimizeHint"
             class="hidden justify-center items-center absolute inset-0 bg-white/70 backdrop-blur-xl z-[10] invisible opacity-0 transition-opacity duration-[0.5s]">
             
-            <p class="text-blue-500/90 font-[600] text-center text-[1.6rem] group-hover:underline">{{ MFLocalizedString('feature-card.minimize-hint') }}</p>
+            <p class="text-blue-500/90 font-[600] text-center text-[1.6rem] group-hover:underline">{{ MFLocalizedStringgggg('feature-card.minimize-hint') }}</p>
           </div> -->
 
           <!-- Top -->

@@ -2,208 +2,773 @@
   "sourceLanguage" : "en",
   "strings" : {
     "01: trackpad.intro.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Macs Are Best\nWith a {accent},\nRight?"
+          }
+        }
+      }
     },
     "02: trackpad.intro.title.accent" : {
-      "extractionState" : "manual"
+      "comment" : ".",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Trackpad"
+          }
+        }
+      }
     },
     "03: trackpad.intro.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad."
+          }
+        }
+      }
     },
     "04: trackpad.gestures.header" : {
-      "extractionState" : "manual"
+      "comment" : "This is the header for the TrackpadGestures section and will be displayed above all the other strings of the section such as trackpad.gestures.free-scroll.title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**Trackpad Gestures** that Mac Mouse Fix brings to your mouse"
+          }
+        }
+      }
     },
     "05: trackpad.gestures.disclaimer" : {
-      "extractionState" : "manual"
+      "comment" : "Note to self: Maybe we should have information about all these caveats on a more info page, instead of here.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Note: Mac Mouse Fix can bring these Trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These 5 buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't recognize all the buttons at the moment. Mac Mouse Fix does not currently support the Apple Magic Mouse."
+          }
+        }
+      }
     },
     "06: trackpad.gestures.lookup.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Look up and Quick Look"
+          }
+        }
+      }
     },
     "07: trackpad.gestures.lookup.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**Click button 4** on your mouse to look up a word in the dictionary, preview websites in Safari or files in Finder, and more.\n\nIt works just like tapping with 3 fingers or force clicking on an Apple Trackpad."
+          }
+        }
+      }
     },
     "08: trackpad.gestures.mission-control.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mission Control"
+          }
+        }
+      }
     },
     "09: trackpad.gestures.mission-control.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **up** to see an overview of your open windows, applications, and desktops.\n\nIt works just like swiping up with four fingers on an Apple Trackpad."
+          }
+        }
+      }
     },
     "10: trackpad.gestures.spaces.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Move between desktops"
+          }
+        }
+      }
     },
     "11: trackpad.gestures.spaces.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **left** or **right** to move to another desktop or fullscreen-app.\n\nIt works just like swiping left or right with four fingers on an Apple Trackpad."
+          }
+        }
+      }
     },
     "12: trackpad.gestures.app-expose.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "App Exposé"
+          }
+        }
+      }
     },
     "13: trackpad.gestures.app-expose.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **down** to see all windows of the app you're using.\n\nIt works just like swiping down with four fingers on an Apple Trackpad."
+          }
+        }
+      }
     },
     "14: trackpad.gestures.show-desktop.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show desktop"
+          }
+        }
+      }
     },
     "15: trackpad.gestures.show-desktop.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hold down **button 4** on your mouse, then **scroll up** to show your desktop.\n\nIt works just like spreading your thumb and three fingers apart on an Apple Trackpad."
+          }
+        }
+      }
     },
     "16: trackpad.gestures.launchpad.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Launchpad"
+          }
+        }
+      }
     },
     "17: trackpad.gestures.launchpad.body" : {
-      "extractionState" : "manual"
+      "comment" : "To translate weird phrases like 'pinching your thumb and three fingers together' I usually looked at how Apple translated these phrases on their support or marketing pages or inside System Settings.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hold down **button 4** on your mouse, then **scroll down** to display Launchpad.\n\nIt works just like pinching your thumb and three fingers together on an Apple Trackpad."
+          }
+        }
+      }
     },
     "18: trackpad.gestures.zoom.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Zoom in or out"
+          }
+        }
+      }
     },
     "19: trackpad.gestures.zoom.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hold down **button 5** on your mouse, then **scroll up** or **down** to zoom in or out in apps like Safari and Preview.\n\nIt works just like pinching with two fingers on an Apple Trackpad."
+          }
+        }
+      }
     },
     "20: trackpad.gestures.pages.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Go back and forward"
+          }
+        }
+      }
     },
     "21: trackpad.gestures.pages.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to show the previous or next page in apps like Safari.\n\nIt works just like swiping left or right with two fingers on an Apple Trackpad."
+          }
+        }
+      }
     },
     "22: trackpad.gestures.mail-actions.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Delete mails quickly and more"
+          }
+        }
+      }
     },
     "23: trackpad.gestures.mail-actions.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to delete messages in Mail, quickly reply to an iMessage, and more.\n\nAny gesture you can perform inside an app by swiping on an Apple Trackpad works just as well using Mac Mouse Fix."
+          }
+        }
+      }
     },
     "24: trackpad.gestures.free-scroll.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Precise 360° scrolling"
+          }
+        }
+      }
     },
     "25: trackpad.gestures.free-scroll.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hold down **button 5** on your mouse, then **drag** the mouse in **any direction** to precisely scroll with 360° freedom and an intuitive inertial effect. So you can navigate the canvas with ease in pro apps like Excel or Affinity Photo.\n\nIt's just as easy and precise as scrolling on an Apple Trackpad."
+          }
+        }
+      }
     },
     "26: trackpad.gestures.smart-zoom.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Smart zoom"
+          }
+        }
+      }
     },
     "27: trackpad.gestures.smart-zoom.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**Click button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple Trackpad."
+          }
+        }
+      }
     },
     "28: scroll.intro.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "{accent}.\nSmooth As Butter."
+          }
+        }
+      }
     },
     "29: scroll.intro.title.accent" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Scrolling"
+          }
+        }
+      }
     },
     "30: scroll.intro.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Scrolling with a third-party mouse on macOS can feel **stuttery** and **hard to control**. Well, not any more! Experience a **refined**, **momentum-based** scrolling algorithm that makes navigating your computer **effortless** and **natural**."
+          }
+        }
+      }
     },
     "31: scroll.smoothness.header" : {
-      "extractionState" : "manual"
+      "comment" : "See the comment on scroll.more.header",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Choose a **Scrolling Smoothness** ..."
+          }
+        }
+      }
     },
     "32: scroll.smoothness.high.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Smoothness: **High**"
+          }
+        }
+      }
     },
     "33: scroll.smoothness.high.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "With *Smoothness: High*, scrolling feels **incredibly smooth** - **just like a Trackpad**. Details like the subtle bounce at the end of a page make for a dynamic and pleasant feel. Still, scrolling is super responsive and easy to control. With this option, you can also scroll large distances very easily."
+          }
+        }
+      }
     },
     "34: scroll.smoothness.regular.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Smoothness: **Regular**"
+          }
+        }
+      }
     },
     "35: scroll.smoothness.regular.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Choose *Smoothness: Regular* for **highly responsive** scrolling that **feels like you're directly pushing the page with your finger**. The short, momentum-based animations provide a refined feel.\n\nThis option feels similar to scrolling in Chrome or modern Windows apps."
+          }
+        }
+      }
     },
     "36: scroll.smoothness.off.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Smoothness: **Off**"
+          }
+        }
+      }
     },
     "37: scroll.smoothness.off.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "With *Smoothness: Off*, scrolling works as it normally does under macOS - **without any animation** or smoothing. But with one key difference: **One increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.\n\nThis is how scrolling also works in most apps on Windows and Linux, as well as older macOS versions."
+          }
+        }
+      }
     },
     "38: scroll.more.header" : {
-      "extractionState" : "manual"
+      "comment" : "There are two sections talking about scrolling: The 'smoothness' section and the 'more' section. Each section is preceded by a header. (Whose ui-strings are defined by 'scroll.smoothness.header' and 'scroll.more.header')\n\nThe two section's headers together form a sort of sentence. It looks something like this on the website:\n\n----------------------------------\n\nChoose a **Scrolling Smoothness** ...\n\n[...]\n\n... And **More**\n\n[...]\n\n---------------------------------\n\nTake a look at macmousefix.com/#scroll to see this in action!\n\nNote to self: We might wanna keep this comment in sync with the similar comment on benefits.pricing.header",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "... And **More**"
+          }
+        }
+      }
     },
     "39: scroll.more.reverse.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Scrolling direction"
+          }
+        }
+      }
     },
     "40: scroll.more.reverse.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mac Mouse Fix lets you **change the scrolling direction** of your mouse - independently from your Trackpad or Magic Mouse."
+          }
+        }
+      }
     },
     "41: scroll.more.modifiers.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Keyboard modifiers"
+          }
+        }
+      }
     },
     "42: scroll.more.modifiers.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hold a keyboard modifier while scrolling to **scroll precisely**, **zoom in or out**, and more."
+          }
+        }
+      }
     },
     "43: scroll.more.configurable.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Simple yet powerful"
+          }
+        }
+      }
     },
     "44: scroll.more.configurable.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You can set up scrolling in Mac Mouse Fix in many different ways with just a few clicks. **All options you choose will feel great without fiddling**. Each scrolling enhancement provided by Mac Mouse Fix can also be turned off, if you prefer how things work natively in macOS."
+          }
+        }
+      }
     },
     "45: customization.intro.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Amazingly {accent2}\n{accent} Intuitive."
+          }
+        }
+      }
     },
     "46: customization.intro.title.accent" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "and"
+          }
+        }
+      }
     },
     "47: customization.intro.title.accent2" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Flexible"
+          }
+        }
+      }
     },
     "48: customization.intro.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mac Mouse Fix lets you **do almost anything** you can think of - straight from your mouse! And yet, it's **remarkably easy** to use."
+          }
+        }
+      }
     },
     "49: customization.action-table.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**Add Actions** to your mouse"
+          }
+        }
+      }
     },
     "50: customization.action-table.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "To add an action to your mouse:\n\n1. **Move** the mouse pointer inside the '+'-field. (Shown below)\n2. **Click** the mouse button you want to assign an action to.\nYou can also Double Click, Click and Drag, and much more!\n3. **Choose** an action, such as Smart Zoom.\n\nAnd that's it!"
+          }
+        }
+      }
     },
-    "51: customization.keyboard-shortcuts.title" : {
-      "extractionState" : "manual"
+    "51: customization.keyboard-shortcuts.expand-button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "See How to Set It Up"
+          }
+        }
+      }
     },
-    "52: customization.keyboard-shortcuts.body" : {
-      "extractionState" : "manual"
+    "52: customization.keyboard-shortcuts.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Use **Keyboard Shortcuts** from your mouse"
+          }
+        }
+      }
     },
-    "53: benefits.intro.title" : {
-      "extractionState" : "manual"
+    "53: customization.keyboard-shortcuts.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mac Mouse Fix lets you **do anything you can do with a keyboard shortcut** straight from your mouse. For example, you can copy and paste, change the audio volume, open a new tab in Safari, and much more."
+          }
+        }
+      }
     },
-    "54: benefits.intro.title.accent2" : {
-      "extractionState" : "manual"
+    "54: benefits.intro.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Great Software.\nGreat {accent2}."
+          }
+        }
+      }
     },
-    "55: benefits.intro.body" : {
-      "extractionState" : "manual"
+    "55: benefits.intro.title.accent2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Price"
+          }
+        }
+      }
     },
-    "56: benefits.software.header" : {
-      "extractionState" : "manual"
+    "56: benefits.intro.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "I strive to make Mac Mouse Fix a software that you can **feel great** about installing. I want to offer it as **cheaply** as possible, so you feel like you're getting a great deal and so that everyone can afford it. And ultimately, I hope to make this tiny corner of the world a little more **awesome** and nice!"
+          }
+        }
+      }
     },
-    "57: benefits.software.unobtrusive-lightweight.title" : {
-      "extractionState" : "manual"
+    "57: benefits.software.header" : {
+      "comment" : "See the comment on benefits.pricing.header",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Great **Software** ..."
+          }
+        }
+      }
     },
-    "58: benefits.software.unobtrusive-lightweight.body" : {
-      "extractionState" : "manual"
+    "58: benefits.software.unobtrusive-lightweight.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Unobtrusive. Lightweight. Beautiful."
+          }
+        }
+      }
     },
-    "59: benefits.software.open-source.title" : {
-      "extractionState" : "manual"
+    "59: benefits.software.unobtrusive-lightweight.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Every detail of Mac Mouse Fix has been considered and optimized to give you the best possible experience while feeling like a **natural extension of your Mac**. I've invested countless hours to make sure that Mac Mouse Fix **uses no more battery or memory than absolutely necessary**. The goal is that you won't even notice Mac Mouse Fix on your computer - except of course, when using your mouse."
+          }
+        }
+      }
     },
-    "60: benefits.software.open-source.body" : {
-      "extractionState" : "manual"
+    "60: benefits.software.open-source.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Open source"
+          }
+        }
+      }
     },
-    "61: benefits.pricing.header" : {
-      "extractionState" : "manual"
+    "61: benefits.software.open-source.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The source code of Mac Mouse Fix is available on GitHub, so everyone can see exactly how it works. This helps with the development, and it means you can be sure that Mac Mouse Fix is **secure** and **trustworthy**, that it protects your **privacy**, and that it doesn't do anything when it runs in the background - except bringing your mouse experience to the next level!"
+          }
+        }
+      }
     },
-    "62: benefits.pricing.disclaimer" : {
-      "extractionState" : "manual"
+    "62: benefits.pricing.header" : {
+      "comment" : "There are two sections discussing various 'benefits' of Mac Mouse Fix at the end of the page: The 'pricing' and the 'software' section. Each section is preceded by a header. (Whose ui-strings are defined by 'benefits.pricing.header' and 'benefits.software.header')\n\nThe two section's headers together form a sort of sentence. It looks something like this on the website:\n\n-----------------------\n\nGreat **Software** ...\n\n[...]\n\n... Great **Price**\n\n[...]\n\n--------------------\n\nTake a look at macmousefix.com/#price to see this in action!\n\nNote to self: We might wanna keep this comment in sync with the similar comment on scroll.more.header",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "... Great **Price**"
+          }
+        }
+      }
     },
-    "63: benefits.pricing.free-days.title" : {
-      "extractionState" : "manual"
+    "63: benefits.pricing.disclaimer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Note on price: The price of **{price}** does not include local taxes, which might have to be paid in your region. To see your total price, visit the [checkout page](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). If you pay on Gumroad.com via PayPal in a currency other than Euros, PayPal will charge an additional 4.5% currency conversion fee.\n\nI would like to include these fees in the price - to make the buying experience simpler and clearer. But this is currently not possible due to limitations with the sales platform Gumroad.com. I hope the price still feels very fair and cheap."
+          }
+        }
+      }
     },
-    "64: benefits.pricing.free-days.body" : {
-      "extractionState" : "manual"
+    "64: benefits.pricing.free-days.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Free for **{ trialDays } Days**"
+          }
+        }
+      }
     },
-    "65: benefits.pricing.price.title" : {
-      "extractionState" : "manual"
+    "65: benefits.pricing.free-days.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mac Mouse Fix is free for { trialDays } days. Your **free days are only used up when you actually use the app**. That way you can get the most out of your free days - without any stress."
+          }
+        }
+      }
     },
-    "66: benefits.pricing.price.body" : {
-      "extractionState" : "manual"
+    "66: benefits.pricing.price.title" : {
+      "comment" : "This is the title for the benefits.pricing.price.body text and will be displayed right above it.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{price}** to own"
+          }
+        }
+      }
     },
-    "67: benefits.pricing.alternatives.title" : {
-      "extractionState" : "manual"
+    "67: benefits.pricing.price.body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mac Mouse Fix costs {price} ([+ taxes](#price.disclaimer)) to own - and that's it. There are no subscriptions or additional payments. I made sure the checkout experience is as **nice** and **quick** as possible, and you can even pay with **Apple Pay**!\n\nTo buy the app, click the button in the app, or click [here](https://noahnuebling.gumroad.com/l/mmfinappusd::newTab)."
+          }
+        }
+      }
     },
-    "68: benefits.pricing.alternatives.body" : {
-      "extractionState" : "manual"
+    "68: benefits.pricing.alternatives.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Better value than the **Alternatives**"
+          }
+        }
+      }
+    },
+    "69: benefits.pricing.alternatives.body" : {
+      "comment" : "Adding ::newTab to the end of the link makes the MMF Website open the link in a new tab!\n\nText wrapped in **asterisks** will get a cool color highlight on the page! \n\nWe use quite a lot of **asterisks** to make the page more colorful and visually interesting, but also to make the text easier to understand when the reader is just skimming through.\n\nNote to self: I chose this string for the **asterisks** explanation since it's fairly high up when localizers sort the keys alphabetically.\n\nNote to self2: I think it's grammatically wrong in English to capitalize 'Trackpad' in 'Apple Trackpad', but I think it looks better.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mac Mouse Fix makes your $10 mouse better than a Logitech MX Master mouse or an Apple Trackpad. (These are considered some of the best input devices for Macs.)\n\nAnd yet, Mac Mouse Fix is **[{priceFactorMXMaster}x](https://www.logitech.com/products/mice/mx-master-3s::newTab)** cheaper than an MX Master and **[{priceFactorTrackpad}x](https://www.apple.com/shop/mac/accessories/mice-keyboards::newTab)** cheaper than a Trackpad!"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

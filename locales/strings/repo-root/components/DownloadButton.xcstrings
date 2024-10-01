@@ -2,7 +2,16 @@
   "sourceLanguage" : "en",
   "strings" : {
     "1: download-button" : {
-      "extractionState" : "manual"
+      "comment" : "Label for the big 'Download' button that is displayed at the top of the page.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Download"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

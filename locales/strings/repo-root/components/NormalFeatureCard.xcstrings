@@ -2,10 +2,26 @@
   "sourceLanguage" : "en",
   "strings" : {
     "1: feature-card.expand-button" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "See It in Action"
+          }
+        }
+      }
     },
     "2: feature-card.unexpand-button" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Close Video"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

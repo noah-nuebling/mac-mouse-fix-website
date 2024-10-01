@@ -13,7 +13,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Front Page"
           }
         }
@@ -30,7 +30,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "The page you’re looking for can’t be found."
           }
         }
@@ -47,7 +47,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "I strive to make Mac Mouse Fix a software that you can **feel great** about installing. I want to offer it as **cheaply** as possible, so you feel like you're getting a great deal and so that everyone can afford it. And ultimately, I hope to make this tiny corner of the world a little more **awesome** and nice!"
           }
         }
@@ -64,7 +64,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Great Software.\nGreat {accent2}."
           }
         }
@@ -81,7 +81,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Price"
           }
         }
@@ -99,7 +99,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Mac Mouse Fix makes your $10 mouse better than a Logitech MX Master mouse or an Apple Trackpad. (These are considered some of the best input devices for Macs.)\n\nAnd yet, Mac Mouse Fix is **[{priceFactorMXMaster}x](https://www.logitech.com/products/mice/mx-master-3s::newTab)** cheaper than an MX Master and **[{priceFactorTrackpad}x](https://www.apple.com/shop/mac/accessories/mice-keyboards::newTab)** cheaper than a Trackpad!"
           }
         }
@@ -116,7 +116,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Better value than the **Alternatives**"
           }
         }
@@ -133,7 +133,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Note on price: The price of **${price}** does not include local taxes, which might have to be paid in your region. To see your total price, visit the [checkout page](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). If you pay on Gumroad.com via PayPal in a currency other than Euros, PayPal will charge an additional 4.5% currency conversion fee.\n\nI would like to include these fees in the price - to make the buying experience simpler and clearer. But this is currently not possible due to limitations with the sales platform Gumroad.com. I hope the price still feels very fair and cheap."
           }
         }
@@ -185,7 +185,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "... Great **Price**"
           }
         }
@@ -202,7 +202,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Mac Mouse Fix costs ${ price } ([+ taxes](#price.disclaimer)) to own - and that's it. There are no subscriptions or additional payments. I made sure the checkout experience is as **nice** and **quick** as possible, and you can even pay with **Apple Pay**!\n\nTo buy the app, click the button in the app, or click [here](https://noahnuebling.gumroad.com/l/mmfinappusd::newTab)."
           }
         }
@@ -220,7 +220,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "**${ price }** to own"
           }
         }
@@ -238,7 +238,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Great **Software** ..."
           }
         }
@@ -255,7 +255,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "The source code of Mac Mouse Fix is available on GitHub, so everyone can see exactly how it works. This helps with the development, and it means you can be sure that Mac Mouse Fix is **secure** and **trustworthy**, that it protects your **privacy**, and that it doesn't do anything when it runs in the background - except bringing your mouse experience to the next level!"
           }
         }
@@ -272,7 +272,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Open source"
           }
         }
@@ -289,7 +289,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Every detail of Mac Mouse Fix has been considered and optimized to give you the best possible experience while feeling like a **natural extension of your Mac**. I've invested countless hours to make sure that Mac Mouse Fix **uses no more battery or memory than absolutely necessary**. The goal is that you won't even notice Mac Mouse Fix on your computer - except of course, when using your mouse."
           }
         }
@@ -306,7 +306,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Unobtrusive. Lightweight. Beautiful."
           }
         }
@@ -812,7 +812,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "To add an action to your mouse:\n\n1. **Move** the mouse pointer inside the '+'-field. (Shown below)\n2. **Click** the mouse button you want to assign an action to.\nYou can also Double Click, Click and Drag, and much more!\n3. **Choose** an action, such as Smart Zoom.\n\nAnd that's it!"
           }
         }
@@ -830,7 +830,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "**Add Actions** to your mouse"
           }
         }
@@ -866,7 +866,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Mac Mouse Fix lets you **do almost anything** you can think of - straight from your mouse! And yet, it's **remarkably easy** to use."
           }
         }
@@ -883,7 +883,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Amazingly {accent2}\n{accent} Intuitive."
           }
         }
@@ -900,7 +900,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "and"
           }
         }
@@ -917,7 +917,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Flexible"
           }
         }
@@ -934,7 +934,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Mac Mouse Fix lets you **do anything you can do with a keyboard shortcut** straight from your mouse. For example, you can copy and paste, change the audio volume, open a new tab in Safari, and much more."
           }
         }
@@ -951,7 +951,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "See How to Set It Up"
           }
         }
@@ -968,7 +968,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Use **Keyboard Shortcuts** from your mouse"
           }
         }
@@ -986,7 +986,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Download"
           }
         }
@@ -1004,7 +1004,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "See It in Action"
           }
         }
@@ -1021,7 +1021,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Close Video"
           }
         }
@@ -1038,7 +1038,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Created by **Noah Nuebling**"
           }
         }
@@ -1055,7 +1055,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Thank you for {dwn} downloads!"
           }
         }
@@ -1072,7 +1072,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Make Your $10 Mouse Better Than an Apple Trackpad!"
           }
         }
@@ -1089,7 +1089,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Make Your $10 Mouse Better Than an Apple Trackpad!"
           }
         }
@@ -1107,7 +1107,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "This page is {localizationProgress} translated into {currentLocale}\nTo help translate, click {linkToGuide}!"
           }
         }
@@ -1124,7 +1124,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "here"
           }
         }
@@ -1142,7 +1142,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "More on GitHub"
           }
         }
@@ -1159,7 +1159,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Overview"
           }
         }
@@ -1188,7 +1188,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "See Less"
           }
         }
@@ -1206,7 +1206,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "See More"
           }
         }
@@ -1224,7 +1224,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "**{ name }** in an email"
           }
         }
@@ -1241,7 +1241,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "**{ name }** on GitHub"
           }
         }
@@ -1258,7 +1258,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "**{ name }** in a LifeHacker article"
           }
         }
@@ -1275,7 +1275,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "**{ name }** in a PayPal donation message"
           }
         }
@@ -1292,7 +1292,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "**{ name }** on Reddit"
           }
         }
@@ -1309,7 +1309,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "**{ name }** on Stack Exchange"
           }
         }
@@ -1326,7 +1326,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "**{ name }** in a YouTube comment"
           }
         }
@@ -1343,7 +1343,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "**Thank you** to everyone who shared their appreciation and thoughts! Also to those who aren't listed here. Reading such messages always motivates me and makes me a little happier. **:)**"
           }
         }
@@ -1361,7 +1361,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Translated from English"
           }
         }
@@ -1379,7 +1379,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Translated from Chinese"
           }
         }
@@ -1396,7 +1396,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Scrolling with a third-party mouse on macOS can feel **stuttery** and **hard to control**. Well, not any more! Experience a **refined**, **momentum-based** scrolling algorithm that makes navigating your computer **effortless** and **natural**."
           }
         }
@@ -1407,14 +1407,14 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "{accent}.\nButterweich."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "{accent}.\nSmooth As Butter."
+            "value" : "scroll.intro.title.accent"
           }
         }
       }
@@ -1447,7 +1447,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "You can set up scrolling in Mac Mouse Fix in many different ways with just a few clicks. **All options you choose will feel great without fiddling**. Each scrolling enhancement provided by Mac Mouse Fix can also be turned off, if you prefer how things work natively in macOS."
           }
         }
@@ -1464,7 +1464,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Simple yet powerful"
           }
         }
@@ -1482,7 +1482,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "... And **More**"
           }
         }
@@ -1499,7 +1499,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Hold a keyboard modifier while scrolling to **scroll precisely**, **zoom in or out**, and more."
           }
         }
@@ -1516,7 +1516,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Keyboard modifiers"
           }
         }
@@ -1533,7 +1533,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Mac Mouse Fix lets you **change the scrolling direction** of your mouse - independently from your Trackpad or Magic Mouse."
           }
         }
@@ -1550,7 +1550,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Scrolling direction"
           }
         }
@@ -1568,7 +1568,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Choose a **Scrolling Smoothness** ..."
           }
         }
@@ -1585,7 +1585,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "With *Smoothness: High*, scrolling feels **incredibly smooth** - **just like a Trackpad**. Details like the subtle bounce at the end of a page make for a dynamic and pleasant feel. Still, scrolling is super responsive and easy to control. With this option, you can also scroll large distances very easily."
           }
         }
@@ -1602,7 +1602,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Smoothness: **High**"
           }
         }
@@ -1619,7 +1619,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "With *Smoothness: Off*, scrolling works as it normally does under macOS - **without any animation** or smoothing. But with one key difference: **One increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.\n\nThis is how scrolling also works in most apps on Windows and Linux, as well as older macOS versions."
           }
         }
@@ -1636,7 +1636,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Smoothness: **Off**"
           }
         }
@@ -1653,7 +1653,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Choose *Smoothness: Regular* for **highly responsive** scrolling that **feels like you're directly pushing the page with your finger**. The short, momentum-based animations provide a refined feel.\n\nThis option feels similar to scrolling in Chrome or modern Windows apps."
           }
         }
@@ -1670,7 +1670,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Smoothness: **Regular**"
           }
         }
@@ -1687,7 +1687,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **down** to see all windows of the app you're using.\n\nIt works just like swiping down with four fingers on an Apple Trackpad."
           }
         }
@@ -1704,7 +1704,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "App Exposé"
           }
         }
@@ -1722,7 +1722,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Note: Mac Mouse Fix can bring these Trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These 5 buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't recognize all the buttons at the moment. Mac Mouse Fix does not currently support the Apple Magic Mouse."
           }
         }
@@ -1739,7 +1739,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Hold down **button 5** on your mouse, then **drag** the mouse in **any direction** to precisely scroll with 360° freedom and an intuitive inertial effect. So you can navigate the canvas with ease in pro apps like Excel or Affinity Photo.\n\nIt's just as easy and precise as scrolling on an Apple Trackpad."
           }
         }
@@ -1756,7 +1756,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Precise 360° scrolling"
           }
         }
@@ -1774,7 +1774,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "**Trackpad Gestures** that Mac Mouse Fix brings to your mouse"
           }
         }
@@ -1792,7 +1792,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Hold down **button 4** on your mouse, then **scroll down** to display Launchpad.\n\nIt works just like pinching your thumb and three fingers together on an Apple Trackpad."
           }
         }
@@ -1809,7 +1809,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Launchpad"
           }
         }
@@ -1826,7 +1826,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "**Click button 4** on your mouse to look up a word in the dictionary, preview websites in Safari or files in Finder, and more.\n\n It works just like tapping with 3 fingers or force clicking on an Apple Trackpad."
           }
         }
@@ -1843,7 +1843,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Look up and Quick Look"
           }
         }
@@ -1860,7 +1860,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to delete messages in Mail, quickly reply to an iMessage, and more.\n\nAny gesture you can perform inside an app by swiping on an Apple Trackpad works just as well using Mac Mouse Fix."
           }
         }
@@ -1877,7 +1877,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Delete mails quickly and more"
           }
         }
@@ -1894,7 +1894,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **up** to see an overview of your open windows, applications, and desktops.\n\nIt works just like swiping up with four fingers on an Apple Trackpad."
           }
         }
@@ -1911,7 +1911,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Mission Control"
           }
         }
@@ -1928,7 +1928,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to show the previous or next page in apps like Safari.\n\nIt works just like swiping left or right with two fingers on an Apple Trackpad."
           }
         }
@@ -1945,7 +1945,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Go back and forward"
           }
         }
@@ -1962,7 +1962,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Hold down **button 4** on your mouse, then **scroll up** to show your desktop.\n\nIt works just like spreading your thumb and three fingers apart on an Apple Trackpad."
           }
         }
@@ -1979,7 +1979,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Show desktop"
           }
         }
@@ -1996,7 +1996,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "**Click button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple Trackpad."
           }
         }
@@ -2013,7 +2013,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Smart zoom"
           }
         }
@@ -2030,7 +2030,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **left** or **right** to move to another desktop or fullscreen-app.\n\nIt works just like swiping left or right with four fingers on an Apple Trackpad."
           }
         }
@@ -2047,7 +2047,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Move between desktops"
           }
         }
@@ -2064,7 +2064,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Hold down **button 5** on your mouse, then **scroll up** or **down** to zoom in or out in apps like Safari and Preview.\n\nIt works just like pinching with two fingers on an Apple Trackpad."
           }
         }
@@ -2081,7 +2081,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Zoom in or out"
           }
         }
@@ -2098,7 +2098,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad."
           }
         }
@@ -2115,7 +2115,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Macs Are Best\nWith a {accent},\nRight?"
           }
         }
@@ -2132,7 +2132,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Trackpad"
           }
         }

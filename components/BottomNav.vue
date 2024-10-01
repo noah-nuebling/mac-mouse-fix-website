@@ -6,8 +6,8 @@
         <!-- Credits -->
         <p :class="['strong:font-[600] strong:text-gradient-to-l  strong:filter strong:brightness-[1.05]']" :style="$props.isMinimal ? 'display: none' : ''">
           <StringF>
-            {{ mdrf(MFLocalizedString('footer.credits', '')) }}
-          </StringF> 
+            {{ mdrf(MFLocalizedString(`Created by **Noah Nuebling**`, 'footer.credits', '')) }}
+          </StringF>
         </p>
         
         <div class="sm:w-[100%] w-[200%] h-[1px] !bg-neutral-900/[0.0] bg-gradient-to-r from-transparent via-neutral-900/[0.1] to-transparent" :style="$props.isMinimal ? 'display: none' : ''"/>
@@ -16,7 +16,7 @@
         <div :class="['whitespace-nowrap overflow-none border-0 py-[0.0rem] px-[0rem] mx-[0rem] rounded-[0.5rem] bg-white/[0] border-neutral-900/[0.9] border-1']" :style="$props.isMinimal ? 'display: none' : ''">
           <p class="inline-block">
             <StringF>
-              {{ MFLocalizedString('footer.thankyou', 'This is a thankkkkyou.') }}
+              {{ MFLocalizedString(`Thank you for {dwn} downloads!`, 'footer.thankyou', '') }}
               <template #dwn>
                 <img :src="`https://img.shields.io/github/downloads/noah-nuebling/mac-mouse-fix/total?label=&link=https%3A%2F%2Fgithub.com%2Fnoah-nuebling%2Fmac-mouse-fix%2Freleases&color=${downloadsBadgeColor}`" class="inline-block mx-[.25em] translate-y-[-0.1em] my-[-99rem] min-w-[34px] brightness-[1]">
               </template>

@@ -2,85 +2,303 @@
   "sourceLanguage" : "en",
   "strings" : {
     "01: checkout-header.back-button" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Front Page"
+          }
+        }
+      }
     },
     "02: checkout-header.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Buy Mac Mouse Fix"
+          }
+        }
+      }
     },
     "03: checkout-options.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "How much would you like to pay?"
+          }
+        }
+      }
     },
     "04: checkout-options.hint" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You can pay a bit more to support the project."
+          }
+        }
+      }
     },
     "05: checkout-option.base.price" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "$1.99"
+          }
+        }
+      }
     },
     "06: checkout-option.base.title" : {
-      "extractionState" : "manual"
+      "comment" : "Note to self: Why doesn't this have a value in the base file?",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        }
+      }
     },
     "07: checkout-option.base.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Just Mac Mouse Fix"
+          }
+        }
+      }
     },
     "08: checkout-option.disclaimer" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "+ tax"
+          }
+        }
+      }
     },
     "09: checkout-option.generous.price" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "$4.99"
+          }
+        }
+      }
     },
     "10: checkout-option.generous.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**Generous Contributor**"
+          }
+        }
+      }
     },
     "11: checkout-option.generous.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "1. Mac Mouse Fix\n2. Milkshake for Noah\n3. You'll be shown under **Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md)"
+          }
+        }
+      }
     },
     "13: checkout-option.very-generous.price" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "$9.99"
+          }
+        }
+      }
     },
     "14: checkout-option.very-generous.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**Very Generous Contributor**"
+          }
+        }
+      }
     },
     "15: checkout-option.very-generous.body" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "1. Mac Mouse Fix\n2. *Awesome* Milkshake for Noah!\n3. You'll be shown under ***Very* Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors), and you can also leave a message there if you like"
+          }
+        }
+      }
     },
     "17: checkout-extras.title.name" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Add your name"
+          }
+        }
+      }
     },
     "18: checkout-extras.hint.name" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your name will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md). Thank you for your generosity!"
+          }
+        }
+      }
     },
     "19: checkout-extras.title.message" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Add your name and message"
+          }
+        }
+      }
     },
     "20: checkout-extras.hint.message" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your name and message will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors). Thank you so much for your generosity!"
+          }
+        }
+      }
     },
     "21: checkout-extra.name.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your Name"
+          }
+        }
+      }
     },
     "22: checkout-extra.message.title" : {
-      "extractionState" : "manual"
+      "comment" : "The checkout page is still work-in-progress so we don't have to translate it, yet",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your Message"
+          }
+        }
+      }
     },
     "23: checkout-totals.subtotal" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Subtotal:"
+          }
+        }
+      }
     },
     "24: checkout-totals.discount" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Discount:"
+          }
+        }
+      }
     },
     "25: checkout-totals.tax" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Tax:"
+          }
+        }
+      }
     },
     "26: checkout-totals.total" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Total:"
+          }
+        }
+      }
     },
     "27: checkout-totals.credit" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Credit Applied:"
+          }
+        }
+      }
     },
     "28: checkout-totals.balance" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Balance:"
+          }
+        }
+      }
     },
     "29: checkout-totals.credit-to-balance" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Credit Received:"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

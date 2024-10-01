@@ -41,15 +41,65 @@
 
         <div class="relative">
           <!-- Section head -->
-          <SectionHeader id="trackpad" :title="MFLocalizedString('trackpad.intro.title', '')" :titleAccent="MFLocalizedString('trackpad.intro.title.accent', '')" :body="mdrf(MFLocalizedString('trackpad.intro.body', ''))" 
-                          class=" strong:gradient-blue strong:filter strong:brightness-[1.0]" title-accent-class="move-uppp text-gradient-to-l-block gradient-blue brightness-[1.43] filter hue-rotate-[0deg]"  />
+          <SectionHeader id="trackpad" class="strong:gradient-blue strong:filter strong:brightness-[1.0]">
+
+            <template #title>
+              <StringF>
+                {{ MFLocalizedString(
+                  `
+                  Macs Are Best
+                  With a {accent},
+                  Right?
+                  `, 
+                  'trackpad.intro.title',
+                  ''
+                ) }}
+                <template #accent>
+                  <span class="move-uppp text-gradient-to-l-block gradient-blue brightness-[1.43] filter hue-rotate-[0deg]">
+                    {{ MFLocalizedString('Trackpad', 'trackpad.intro.title.accent', '.') }}
+                  </span>
+                </template>
+              </StringF>
+            </template>
+
+            <template #body>
+              <StringF>
+                {{ mdrf(MFLocalizedString(
+                  `Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad.`,
+                  'trackpad.intro.body',
+                  ``,
+                )) }}
+              </StringF>
+            </template>
+
+          </SectionHeader>
           <!-- Color splash -->
           <div class="hidden absolute top-0 bottom-0 left-[50%] translate-x-[-50%] w-[100vw]">
             <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[100rem] relative left-[-15rem] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.7] filter hue-rotate-[0deg]"/>
           </div>
         </div>
 
-        <CardContainer :title="mdrf(MFLocalizedString('trackpad.gestures.header', ''))" :disclaimer="mdrf(MFLocalizedString('trackpad.gestures.disclaimer', ''))" class="gradient-blue strong:filter ch-[.card-title_strong]:brightness-[1.15]" title-class="strong:filter strong:brightness-[1.2] strong:hue-rotate-[0deg]">
+        <CardContainer class="gradient-blue strong:filter ch-[.card-title_strong]:brightness-[1.15]" title-class="strong:filter strong:brightness-[1.2] strong:hue-rotate-[0deg]">
+
+          <template #title>
+            <StringF>
+              {{ mdrf(MFLocalizedString(
+                `**Trackpad Gestures** that Mac Mouse Fix brings to your mouse`, 
+                'trackpad.gestures.header', 
+                'This is the header for the TrackpadGestures section and will be displayed above all the other strings of the section such as trackpad.gestures.free-scroll.title'
+              )) }}
+            </StringF>
+          </template>
+
+          <template #disclaimer>
+            {{ mdrf(MFLocalizedString(
+              `
+              Note: Mac Mouse Fix can bring these Trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These 5 buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't recognize all the buttons at the moment. Mac Mouse Fix does not currently support the Apple Magic Mouse.
+              `, 
+              'trackpad.gestures.disclaimer', 
+              'Note to self: Maybe we should have information about all these caveats on a more info page, instead of here.'
+            )) }}
+          </template>
 
           <div class="w-full flex justify-center">
             <div class="relative flex flex-col items-center w-fit">
@@ -60,24 +110,247 @@
 
               <!-- <hr ref="trackpadRule" class="mb-[2.25rem] mx-[12px] border-neutral-950/[0.066]"> -->
               <div ref="trackpadCardsSection1" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] relative z-[10]">
-                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.lookup.title', ''))"              :body="mdrf(MFLocalizedString('trackpad.gestures.lookup.body', ''), {}, false)"           :videoPath="lookupDemoPath"               class="w-fit"/>
-                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.mission-control.title', ''))"     :body="mdrf(MFLocalizedString('trackpad.gestures.mission-control.body', ''), {}, false)"  :videoPath="missionControlDemoPath"       class="w-fit"/>
-                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.spaces.title', ''))"              :body="mdrf(MFLocalizedString('trackpad.gestures.spaces.body', ''), {}, false)"           :videoPath="moveDesktopsDemoPath"         class="w-fit"/>
-                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.app-expose.title', ''))"          :body="mdrf(MFLocalizedString('trackpad.gestures.app-expose.body', ''), {}, false)"       :videoPath="appExposeDemoPath"            class="w-fit"/>
-                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.show-desktop.title', ''))"        :body="mdrf(MFLocalizedString('trackpad.gestures.show-desktop.body', ''), {}, false)"     :videoPath="showDesktopDemoPath"          class="w-fit"/>
-                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.launchpad.title', ''))"           :body="mdrf(MFLocalizedString('trackpad.gestures.launchpad.body', ''), {}, false)"        :videoPath="launchpadDemoPath"            class="w-fit"/>
-              </div>
+                
+                <!-- Trackpad cards pt 1 -->
 
+                <NormalFeatureCard :videoPath="lookupDemoPath"               class="w-fit">
+                  <template #title>
+                    {{ mdrf(MFLocalizedString(`Look up and Quick Look`, 'trackpad.gestures.lookup.title', '')) }}
+                  </template>
+                  <template #body>
+                    <StringF>
+                      {{ mdrf(MFLocalizedString(
+                        `
+                        **Click button 4** on your mouse to look up a word in the dictionary, preview websites in Safari or files in Finder, and more.
+
+                        It works just like tapping with 3 fingers or force clicking on an Apple Trackpad.
+                        `, 
+                        'trackpad.gestures.lookup.body', 
+                        ''
+                      ), {}, false) }}
+                    </StringF>
+                  </template>
+                </NormalFeatureCard>
+
+                <NormalFeatureCard :videoPath="missionControlDemoPath"       class="w-fit">
+                  
+                  <template #title>
+                    {{ MFLocalizedString(`Mission Control`, 'trackpad.gestures.mission-control.title', '') }}
+                  </template>
+
+                  <template #body>
+                    <StringF>
+                      {{ mdrf(MFLocalizedString(
+                        `
+                        Hold down **button 4** on your mouse, then **drag** the mouse **up** to see an overview of your open windows, applications, and desktops.
+
+                        It works just like swiping up with four fingers on an Apple Trackpad.
+                        `,
+                        'trackpad.gestures.mission-control.body', 
+                        ''
+                      ), {}, false) }}
+                    </StringF>  
+                  </template>
+                </NormalFeatureCard>
+
+                <NormalFeatureCard :videoPath="moveDesktopsDemoPath"         class="w-fit">
+                  <template #title>
+                    {{ MFLocalizedString(`Move between desktops`, 'trackpad.gestures.spaces.title', '') }}
+                  </template>
+
+                  <template #body>
+                    <StringF>
+                      {{ mdrf(MFLocalizedString(
+                        `
+                        Hold down **button 4** on your mouse, then **drag** the mouse **left** or **right** to move to another desktop or fullscreen-app.
+
+                        It works just like swiping left or right with four fingers on an Apple Trackpad.
+                        `,
+                        'trackpad.gestures.spaces.body', 
+                        ''
+                      ), {}, false) }}
+                    </StringF>
+                  </template>
+                </NormalFeatureCard>
+
+                <NormalFeatureCard :videoPath="appExposeDemoPath"            class="w-fit">
+                  
+                  <template #title>
+                    {{ mdrf(MFLocalizedString(`App Exposé`, 'trackpad.gestures.app-expose.title', '')) }}
+                  </template>
+
+                  <template #body>
+                    <StringF>
+                      {{ mdrf(MFLocalizedString(
+                        `
+                        Hold down **button 4** on your mouse, then **drag** the mouse **down** to see all windows of the app you're using.
+
+                        It works just like swiping down with four fingers on an Apple Trackpad.
+                        `,
+                        'trackpad.gestures.app-expose.body', 
+                        ''
+                      ), {}, false) }}
+                    </StringF>
+                  </template>
+                </NormalFeatureCard>
+
+                <NormalFeatureCard :videoPath="showDesktopDemoPath"          class="w-fit">
+                  
+                  <template #title>
+                    {{ MFLocalizedString(`Show desktop`, 'trackpad.gestures.show-desktop.title', '') }}
+                  </template>
+
+                  <template #body>
+                    <StringF>
+                      {{ mdrf(MFLocalizedString(
+                        `
+                        Hold down **button 4** on your mouse, then **scroll up** to show your desktop.
+
+                        It works just like spreading your thumb and three fingers apart on an Apple Trackpad.
+                        `,
+                        'trackpad.gestures.show-desktop.body', 
+                        ''
+                      ), {}, false) }}
+                    </StringF>
+                  </template>
+                </NormalFeatureCard>
+
+                <NormalFeatureCard :videoPath="launchpadDemoPath"            class="w-fit">
+                  
+                  <template #title>
+                    {{ MFLocalizedString(`Launchpad`, 'trackpad.gestures.launchpad.title', '') }}
+                  </template>
+
+                  <template #body>
+                    <StringF>
+                      {{ mdrf(MFLocalizedString(
+                        `
+                        Hold down **button 4** on your mouse, then **scroll down** to display Launchpad.
+
+                        It works just like pinching your thumb and three fingers together on an Apple Trackpad.
+                        `,
+                        'trackpad.gestures.launchpad.body', 
+                        `To translate weird phrases like 'pinching your thumb and three fingers together' I usually looked at how Apple translated these phrases on their support or marketing pages or inside System Settings.`
+                      ), {}, false) }}
+                    </StringF>
+                  </template>
+                </NormalFeatureCard>  
+              </div>
+              
+              <!-- Trackpad cards separator -->
               <div class="w-full">
                 <hr ref="trackpadRule" class="my-[2.25rem] mx-[2.5rem] border-t-[1px] border-neutral-950/[0.05]">
               </div>
 
               <div ref="trackpadCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] relative z-[9]">
-                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.zoom.title', ''))"                :body="mdrf(MFLocalizedString('trackpad.gestures.zoom.body', ''), {}, false)"             :videoPath="zoomDemoPath"                  class=""/>
-                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.pages.title', ''))"               :body="mdrf(MFLocalizedString('trackpad.gestures.pages.body', ''), {}, false)"            :videoPath="backAndForwardDemoPath"        class=""/>
-                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.mail-actions.title', ''))"        :body="mdrf(MFLocalizedString('trackpad.gestures.mail-actions.body', ''), {}, false)"     :videoPath="deleteMailsDemoPath"           class=""/>
-                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.free-scroll.title', ''))"         :body="mdrf(MFLocalizedString('trackpad.gestures.free-scroll.body', ''), {}, false)"      :videoPath="threeSixtyScrollDemoPath"      class=""/>
-                <NormalFeatureCard :title="mdrf(MFLocalizedString('trackpad.gestures.smart-zoom.title', ''))"          :body="mdrf(MFLocalizedString('trackpad.gestures.smart-zoom.body', ''), {}, false)"       :videoPath="smartZoomDemoPath"             class=""/>
+
+                <!-- Trackpad cards pt 2 -->
+
+                <NormalFeatureCard :videoPath="zoomDemoPath"                  class="">
+                  
+                  <template #title>
+                    {{ mdrf(MFLocalizedString(`Zoom in or out`, 'trackpad.gestures.zoom.title', '')) }}
+                  </template>
+
+                  <template #body>
+                    <StringF>
+                      {{ mdrf(MFLocalizedString(
+                        `
+                        Hold down **button 5** on your mouse, then **scroll up** or **down** to zoom in or out in apps like Safari and Preview.
+
+                        It works just like pinching with two fingers on an Apple Trackpad.
+                        `, 
+                        'trackpad.gestures.zoom.body', 
+                        ''
+                      ), {}, false) }}
+                    </StringF>
+                  </template>
+                </NormalFeatureCard>
+
+                <NormalFeatureCard :videoPath="backAndForwardDemoPath"        class="">
+                  
+                  <template #title>
+                    {{ mdrf(MFLocalizedString(`Go back and forward`, 'trackpad.gestures.pages.title', '')) }}
+                  </template>
+
+                  <template #body>
+                    <StringF>
+                      {{ mdrf(MFLocalizedString(
+                        `
+                        Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to show the previous or next page in apps like Safari.
+
+                        It works just like swiping left or right with two fingers on an Apple Trackpad.
+                        `, 
+                        'trackpad.gestures.pages.body', 
+                        ''
+                      ), {}, false) }}
+                    </StringF>
+                  </template>
+                </NormalFeatureCard>
+
+                <NormalFeatureCard :videoPath="deleteMailsDemoPath"           class="">
+                  
+                  <template #title>
+                    {{ mdrf(MFLocalizedString(`Delete mails quickly and more`, 'trackpad.gestures.mail-actions.title', '')) }}
+                  </template>
+
+                  <template #body>
+                    <StringF>
+                      {{ mdrf(MFLocalizedString(
+                        `
+                        Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to delete messages in Mail, quickly reply to an iMessage, and more.
+
+                        Any gesture you can perform inside an app by swiping on an Apple Trackpad works just as well using Mac Mouse Fix.
+                        `, 
+                        'trackpad.gestures.mail-actions.body', 
+                        ''
+                      ), {}, false) }}
+                    </StringF>
+                  </template>
+                </NormalFeatureCard>
+
+                <NormalFeatureCard :videoPath="threeSixtyScrollDemoPath"      class="">
+                  
+                  <template #title>
+                    {{ mdrf(MFLocalizedString(`Precise 360° scrolling`, 'trackpad.gestures.free-scroll.title', '')) }}
+                  </template>
+
+                  <template #body>
+                    <StringF>
+                      {{ mdrf(MFLocalizedString(
+                        `
+                        Hold down **button 5** on your mouse, then **drag** the mouse in **any direction** to precisely scroll with 360° freedom and an intuitive inertial effect. So you can navigate the canvas with ease in pro apps like Excel or Affinity Photo.
+
+                        It's just as easy and precise as scrolling on an Apple Trackpad.
+                        `, 
+                        'trackpad.gestures.free-scroll.body', 
+                        ''
+                      ), {}, false) }}
+                    </StringF>
+                  </template>
+                </NormalFeatureCard>
+
+                <NormalFeatureCard :videoPath="smartZoomDemoPath"             class="">
+                  
+                  <template #title>
+                    {{ mdrf(MFLocalizedString(`Smart zoom`, 'trackpad.gestures.smart-zoom.title', '')) }}
+                  </template>
+                  
+                  <template #body>
+                    <StringF>
+                      {{ mdrf(MFLocalizedString(
+                        `
+                        **Click button 5** on your mouse to zoom in and back out of a webpage or PDF.
+
+                        It works just like double-tapping with two fingers on an Apple Trackpad.
+                        `, 
+                        'trackpad.gestures.smart-zoom.body', 
+                        ''
+                      ), {}, false) }}
+                    </StringF>
+                  </template>
+                </NormalFeatureCard>
+
               </div>
             </div>
           </div>
@@ -86,44 +359,247 @@
 
       <!-- Scrolling -->
       <div class="strong:text-gradient-to-l">
-        <SectionHeader id="scroll" :title="MFLocalizedString('scroll.intro.title', '')" :titleAccent="MFLocalizedString('scroll.intro.title.accent', '')" :body="mdrf(MFLocalizedString('scroll.intro.body', ''))" 
-                        class="gradient-violet" title-accent-class="move-righttt text-gradient-to-l-block filter brightness-[1.06]" />
+        <SectionHeader id="scroll" class="gradient-violet" >
         
-        <CardContainer :title="mdrf(MFLocalizedString('scroll.smoothness.header', ''))" class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] mb-[5rem] z-[10]">
+          <template #title>
+            <StringF>
+              {{ MFLocalizedString(
+                `
+                {accent}.
+                Smooth As Butter.
+                `,
+                'scroll.intro.title', 
+                ''
+              ) }}
+              <template #accent>
+                <span class="move-righttt text-gradient-to-l-block filter brightness-[1.06]">
+                  {{ MFLocalizedString(`Scrolling`, 'scroll.intro.title.accent', '') }}
+                </span>
+              </template>
+            </StringF>
+          </template>
+
+          <template #body>
+            <StringF>
+              {{ mdrf(MFLocalizedString(
+                `Scrolling with a third-party mouse on macOS can feel **stuttery** and **hard to control**. Well, not any more! Experience a **refined**, **momentum-based** scrolling algorithm that makes navigating your computer **effortless** and **natural**.`,
+                'scroll.intro.body',
+                ``,
+              )) }}
+            </StringF>
+          </template>
+
+        </SectionHeader>
+        
+        <CardContainer class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] mb-[5rem] z-[10]">
+
+          <template #title>
+            <StringF>{{ mdrf(MFLocalizedString(`Choose a **Scrolling Smoothness** ...`, 'scroll.smoothness.header', `See the comment on scroll.more.header`)) }}</StringF>
+          </template>
+
           <div class="w-fit relative left-[50%] translate-x-[-50%]">
             <div class="absolute inset-0 -z-10 pointer-events-none">
               <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] absolute left-[25%] top-[40%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]"/>
             </div>
             <div ref="scrollingCardsSection1" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] my-[0] w-fit">
-              <NormalFeatureCard :title="mdrf(MFLocalizedString('scroll.smoothness.high.title', ''))"           :body="mdrf(MFLocalizedString('scroll.smoothness.high.body', ''), {}, false)"        :videoPath="smoothnessHighDemoPath"       title-class="" class=""/>
-              <NormalFeatureCard :title="mdrf(MFLocalizedString('scroll.smoothness.regular.title', ''))"        :body="mdrf(MFLocalizedString('scroll.smoothness.regular.body', ''), {}, false)"     :videoPath="smoothnessRegularDemoPath"    title-class="" class=""/>
-              <NormalFeatureCard :title="mdrf(MFLocalizedString('scroll.smoothness.off.title', ''))"            :body="mdrf(MFLocalizedString('scroll.smoothness.off.body', ''), {}, false)"         :videoPath="smoothnessOffDemoPath"        title-class="" class=""/>
+              
+              <NormalFeatureCard :videoPath="smoothnessHighDemoPath" class="">
+                <template #title>
+                <StringF>{{ mdrf(MFLocalizedString(`Smoothness: **High**`, 'scroll.smoothness.high.title', '')) }}</StringF>
+                </template>
+                <template #body>
+                  <StringF>
+                    {{ mdrf(MFLocalizedString(
+                      `
+                      With *Smoothness: High*, scrolling feels **incredibly smooth** - **just like a Trackpad**. Details like the subtle bounce at the end of a page make for a dynamic and pleasant feel. Still, scrolling is super responsive and easy to control. With this option, you can also scroll large distances very easily.
+                      `,
+                      'scroll.smoothness.high.body', 
+                      ''
+                    ), {}, false) }}
+                  </StringF>
+                </template>
+              </NormalFeatureCard>
+
+              <NormalFeatureCard :videoPath="smoothnessRegularDemoPath" class="">
+                <template #title>
+                  <StringF>{{ mdrf(MFLocalizedString(`Smoothness: **Regular**`, 'scroll.smoothness.regular.title', '')) }}</StringF>
+                </template>
+                <template #body>
+                  <StringF>
+                    {{ mdrf(MFLocalizedString(
+                      `
+                      Choose *Smoothness: Regular* for **highly responsive** scrolling that **feels like you're directly pushing the page with your finger**. The short, momentum-based animations provide a refined feel.
+
+                      This option feels similar to scrolling in Chrome or modern Windows apps.
+                      `,
+                      'scroll.smoothness.regular.body', 
+                      ''
+                    ), {}, false) }}
+                  </StringF>
+                </template>
+              </NormalFeatureCard>
+
+              <NormalFeatureCard :videoPath="smoothnessOffDemoPath" class="">
+                <template #title>
+                  <StringF>{{ mdrf(MFLocalizedString(`Smoothness: **Off**`, 'scroll.smoothness.off.title', '')) }} </StringF>
+                </template>
+                <template #body>
+                  <StringF>
+                    {{ mdrf(MFLocalizedString(
+                      `
+                      With *Smoothness: Off*, scrolling works as it normally does under macOS - **without any animation** or smoothing. But with one key difference: **One increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.
+
+                      This is how scrolling also works in most apps on Windows and Linux, as well as older macOS versions.
+                      `,
+                      'scroll.smoothness.off.body', 
+                      ''
+                    ), {}, false) }}
+                  </StringF>
+                </template>
+              </NormalFeatureCard>
+
             </div>
           </div>
         </CardContainer>
 
-        <CardContainer :title="mdrf(MFLocalizedString('scroll.more.header', ''))" class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] z-[9]">
+        <CardContainer class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] z-[9]">
+
+          <template #title>
+            <StringF>
+              {{ mdrf(MFLocalizedString(
+                `... And **More**`, 
+                'scroll.more.header', 
+                `
+                There are two sections talking about scrolling: The 'smoothness' section and the 'more' section. Each section is preceded by a header. (Whose ui-strings are defined by 'scroll.smoothness.header' and 'scroll.more.header')
+
+                The two section's headers together form a sort of sentence. It looks something like this on the website:
+
+                ----------------------------------
+
+                Choose a **Scrolling Smoothness** ...
+
+                [...]
+
+                ... And **More**
+
+                [...]
+
+                ---------------------------------
+
+                Take a look at macmousefix.com/#scroll to see this in action!
+
+                Note to self: We might wanna keep this comment in sync with the similar comment on benefits.pricing.header
+                `
+              )) }}
+            </StringF>
+          </template>
+
           <div class="w-fit relative left-[50%] translate-x-[-50%]">
             <div class="absolute inset-0 -z-10 pointer-events-none">
               <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] scale-[1] absolute left-[66%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]"/>
             </div>
             <div ref="scrollingCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] my-[0] w-fit">
-              <NormalFeatureCard :title="mdrf(MFLocalizedString('scroll.more.reverse.title', ''))"        :body="mdrf(MFLocalizedString('scroll.more.reverse.body', ''), {}, false)"            class=""/>
-              <NormalFeatureCard :title="mdrf(MFLocalizedString('scroll.more.modifiers.title', ''))"      :body="mdrf(MFLocalizedString('scroll.more.modifiers.body', ''), {}, false)"          class=""/>
-              <NormalFeatureCard :title="mdrf(MFLocalizedString('scroll.more.configurable.title', ''))"   :body="mdrf(MFLocalizedString('scroll.more.configurable.body', ''), {}, false)"       class=""/>
+              
+              <NormalFeatureCard class="">
+                <template #title>
+                  {{ mdrf(MFLocalizedString(`Scrolling direction`, 'scroll.more.reverse.title', '')) }}
+                </template>
+                <template #body>
+                  <StringF>
+                    {{ mdrf(MFLocalizedString(
+                      `
+                      Mac Mouse Fix lets you **change the scrolling direction** of your mouse - independently from your Trackpad or Magic Mouse.
+                      `,
+                      'scroll.more.reverse.body', 
+                      ''
+                    ), {}, false) }}
+                  </StringF>
+                </template>
+              </NormalFeatureCard>
+
+              <NormalFeatureCard class="">
+                <template #title>
+                  {{ mdrf(MFLocalizedString(`Keyboard modifiers`, 'scroll.more.modifiers.title', '')) }}
+                </template>
+                <template #body>
+                  <StringF>
+                    {{ mdrf(MFLocalizedString(
+                      `
+                      Hold a keyboard modifier while scrolling to **scroll precisely**, **zoom in or out**, and more.
+                      `,
+                      'scroll.more.modifiers.body', 
+                      ''
+                    ), {}, false) }}
+                  </StringF>
+                </template>
+              </NormalFeatureCard>
+
+              <NormalFeatureCard class="">
+                <template #title>
+                  {{ mdrf(MFLocalizedString(`Simple yet powerful`, 'scroll.more.configurable.title', '')) }}
+                </template>
+                <template #body>
+                  <StringF>
+                    {{ mdrf(MFLocalizedString(
+                      `
+                      You can set up scrolling in Mac Mouse Fix in many different ways with just a few clicks. **All options you choose will feel great without fiddling**. Each scrolling enhancement provided by Mac Mouse Fix can also be turned off, if you prefer how things work natively in macOS.
+                      `,
+                      'scroll.more.configurable.body', 
+                      ''
+                    ), {}, false) }}
+                  </StringF>
+                </template>
+              </NormalFeatureCard>
+
             </div>
           </div>
         </CardContainer>
       </div>
-
 
       <!-- Action Table 
             Notes:
             - Thought about including a non-trackpad features section - but not enough features so far to warrant a whole section -->
 
       <div class="strong:text-gradient-to-l">
-        <SectionHeader id="action_table" :title="MFLocalizedString('customization.intro.title', '')" :titleAccent="MFLocalizedString('customization.intro.title.accent', '')" :titleAccent2="MFLocalizedString('customization.intro.title.accent2', '')" :body="mdrf(MFLocalizedString('customization.intro.body', ''))" 
-                        class="gradient-red strong:filter strong:brightness-[1.0]" title-accent-class="italic" title-accent2-class="move-flexxx text-gradient-to-l-block filter brightness-[1.12] hue-rotate-[-0deg]" />
+        <SectionHeader id="action_table"
+                        class="gradient-red strong:filter strong:brightness-[1.0]" >
+          
+          <template #title>
+            
+            <StringF>
+              {{ MFLocalizedString(
+                `
+                Amazingly {accent2}
+                {accent} Intuitive.
+                `,
+                'customization.intro.title', 
+                ''
+              ) }}
+              <template #accent>
+                <span class="italic"> 
+                  {{ MFLocalizedString(`and`, 'customization.intro.title.accent', '') }} 
+                </span>
+              </template>
+              <template #accent2>
+                <span class="move-flexxx text-gradient-to-l-block filter brightness-[1.12] hue-rotate-[-0deg]">
+                  {{ MFLocalizedString(`Flexible`, 'customization.intro.title.accent2', '') }}
+                </span>
+              </template>
+            </StringF>
+          </template>
+
+          <template #body>
+            <StringF>
+              {{ mdrf(MFLocalizedString(
+                `Mac Mouse Fix lets you **do almost anything** you can think of - straight from your mouse! And yet, it's **remarkably easy** to use.`, 
+                'customization.intro.body', 
+                ``
+              )) }}
+            </StringF>
+          </template>
+
+        </SectionHeader>
+
 
         <CardContainer class="gradient-red var-[accent-rotate=170deg] ch-[.card-title_strong]:brightness-[1.0] strong:brightness-[0.95]">
           <div class="relative">
@@ -133,8 +609,51 @@
                   <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[100rem] f-h-[80rem] absolute left-[25%] top-[75%] translate-x-[-50%] translate-y-[-50%] opacity-[0.9] filter hue-rotate-[120deg]"/>
               </div>
               <div ref="actionTableCardsSection" class="flex flex-col items-center gap-[5rem] py-[4.5rem]">
-                <NormalFeatureCard :title="mdrf(MFLocalizedString('customization.action-table.title', ''))"        :body="mdrf(MFLocalizedString('customization.action-table.body', ''), {}, false)"       :videoPath="actionTableDemoPath"      title-class="!font-[600]" class="w-full" content-class="par-[.isNotExpanded]:max-w-[50rem]" :image-path="actionTableImagePath" image-scaling-sizes="" image-class="w-[205%] sm:mt-[1rem] mt-[2rem] mr-[calc(-107%)] mb-[-35%] translate-x-[0rem]"/>
-                <NormalFeatureCard :title="mdrf(MFLocalizedString('customization.keyboard-shortcuts.title', ''))"  :body="mdrf(MFLocalizedString('customization.keyboard-shortcuts.body', ''), {}, false)" :videoPath="keyboardShortcutDemoPath" title-class="!font-[600]" class="w-full" expand-button-key="customization.keyboard-shortcuts.expand-button"/>
+
+                <NormalFeatureCard :videoPath="actionTableDemoPath" class="w-full" content-class="par-[.isNotExpanded]:max-w-[50rem]" :image-path="actionTableImagePath" image-scaling-sizes="" image-class="w-[205%] sm:mt-[1rem] mt-[2rem] mr-[calc(-107%)] mb-[-35%] translate-x-[0rem]">
+                  <template #title>
+                    <span class="!font-[600]"><StringF>{{ mdrf(MFLocalizedString(`**Add Actions** to your mouse`, 'customization.action-table.title', '')) }}</StringF></span>
+                  </template>
+                  <template #body>
+                    <StringF>
+                      {{ mdrf(MFLocalizedString(
+                        `
+                        To add an action to your mouse:
+
+                        1. **Move** the mouse pointer inside the '+'-field. (Shown below)
+                        2. **Click** the mouse button you want to assign an action to.
+                        You can also Double Click, Click and Drag, and much more!
+                        3. **Choose** an action, such as Smart Zoom.
+
+                        And that's it!
+                        `, 
+                        'customization.action-table.body', 
+                        ''
+                      ), {}, false) }}
+                    </StringF>
+                  </template>
+                </NormalFeatureCard>
+
+                <NormalFeatureCard :videoPath="keyboardShortcutDemoPath" class="w-full">
+                  <template #expandButtonText>
+                    {{ MFLocalizedString(`See How to Set It Up`, 'customization.keyboard-shortcuts.expand-button', '') }}
+                  </template>
+                  <template #title>
+                    <span class="!font-[600]"><StringF>{{ mdrf(MFLocalizedString(`Use **Keyboard Shortcuts** from your mouse`, 'customization.keyboard-shortcuts.title', '')) }}</StringF></span>
+                  </template>
+                  <template #body>
+                    <StringF>
+                      {{ mdrf(MFLocalizedString(
+                        `
+                        Mac Mouse Fix lets you **do anything you can do with a keyboard shortcut** straight from your mouse. For example, you can copy and paste, change the audio volume, open a new tab in Safari, and much more.
+                        `,
+                        'customization.keyboard-shortcuts.body', 
+                        ''
+                      ), {}, false) }}
+                    </StringF>
+                  </template>
+                </NormalFeatureCard>
+
               </div>
             </div>
           </div>
@@ -144,34 +663,211 @@
       <!-- Price / Good Software -->
 
       <div class="strong:text-gradient-to-l ch-[a]:text-green-600 ch-[a]:font-[500]">
-        <SectionHeader id="price" :title="MFLocalizedString('benefits.intro.title', '')" :titleAccent2="MFLocalizedString('benefits.intro.title.accent2', '')" :body="mdrf(MFLocalizedString('benefits.intro.body', ''))"
-                        class="gradient-green strong:filter strong:brightness-[1.15]" title-accent2-class="move-growww text-gradient-to-l-block gradient-green filter brightness-[1.35]" />
+        <SectionHeader id="price" class="gradient-green strong:filter strong:brightness-[1.15]">
+          
+          <template #title>
+            <StringF>
+              {{ MFLocalizedString(
+                `
+                Great Software.
+                Great {accent2}.
+                `, 
+                'benefits.intro.title', 
+                ''
+              ) }}
+              <template #accent2>
+                <span class="move-growww text-gradient-to-l-block gradient-green filter brightness-[1.35]">
+                  {{ MFLocalizedString('Price', 'benefits.intro.title.accent2', '') }}
+                </span>
+              </template>
+            </StringF>
+          </template>
+
+          <template #body>
+            <StringF>
+              {{ mdrf(MFLocalizedString(
+                `I strive to make Mac Mouse Fix a software that you can **feel great** about installing. I want to offer it as **cheaply** as possible, so you feel like you're getting a great deal and so that everyone can afford it. And ultimately, I hope to make this tiny corner of the world a little more **awesome** and nice!`, 
+                'benefits.intro.body', 
+                ''
+              )) }}
+            </StringF>
+          </template>
+
+        </SectionHeader>
         
-        <CardContainer :title="mdrf(MFLocalizedString('benefits.software.header', ''))"
-          class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] "             title-class=" strong:filter strong:brightness-[1.2]">
+        <CardContainer class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] " title-class=" strong:filter strong:brightness-[1.2]">
+
+          <template #title>
+            <StringF>{{ mdrf(MFLocalizedString(`Great **Software** ...`, 'benefits.software.header', 'See the comment on benefits.pricing.header')) }}</StringF>
+          </template>
 
           <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
             <div class="absolute inset-0 -z-10 pointer-events-none">
               <NuxtImg :src="colorSplashImagePath" alt="" class="f-h-[50rem] f-w-[100rem] absolute left-[33%] top-[33%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8] filter invert hue-rotate-[125deg]"/>
             </div>
             <div ref="priceCardsSection1" class=" grid grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem] relative">
-              <NormalFeatureCard :title="mdrf(MFLocalizedString('benefits.software.unobtrusive-lightweight.title', ''))"  :body="mdrf(MFLocalizedString('benefits.software.unobtrusive-lightweight.body', ''), {}, false)"     class=""/>
-              <NormalFeatureCard :title="mdrf(MFLocalizedString('benefits.software.open-source.title', ''))"              :body="mdrf(MFLocalizedString('benefits.software.open-source.body', ''), {}, false)"                 class=""/>
+              
+              <NormalFeatureCard class="">
+                <template #title>
+                  {{ mdrf(MFLocalizedString(`Unobtrusive. Lightweight. Beautiful.`, 'benefits.software.unobtrusive-lightweight.title', '')) }}
+                </template>
+                <template #body>
+                  <StringF>
+                    {{ mdrf(MFLocalizedString(
+                      `
+                      Every detail of Mac Mouse Fix has been considered and optimized to give you the best possible experience while feeling like a **natural extension of your Mac**. I've invested countless hours to make sure that Mac Mouse Fix **uses no more battery or memory than absolutely necessary**. The goal is that you won't even notice Mac Mouse Fix on your computer - except of course, when using your mouse.
+                      `,
+                      'benefits.software.unobtrusive-lightweight.body', 
+                      ''
+                    ), {}, false) }}
+                  </StringF>
+                </template>
+              </NormalFeatureCard>
+
+              <NormalFeatureCard class="">
+                <template #title>
+                  {{ mdrf(MFLocalizedString(`Open source`, 'benefits.software.open-source.title', '')) }}
+                </template>
+                <template #body>
+                  <StringF>
+                    {{ mdrf(MFLocalizedString(
+                      `
+                      The source code of Mac Mouse Fix is available on GitHub, so everyone can see exactly how it works. This helps with the development, and it means you can be sure that Mac Mouse Fix is **secure** and **trustworthy**, that it protects your **privacy**, and that it doesn't do anything when it runs in the background - except bringing your mouse experience to the next level!
+                      `,
+                      'benefits.software.open-source.body', 
+                      ''
+                    ), {}, false) }}
+                  </StringF>
+                </template>
+              </NormalFeatureCard>
+
             </div>
           </div>
         </CardContainer>
 
-        <CardContainer :title="mdrf(MFLocalizedString('benefits.pricing.header', ''))" :disclaimer="mdrf(MFLocalizedString('benefits.pricing.disclaimer', ''), dynamicUIStrings)" disclaimer-id="price.disclaimer"
-          class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] mt-[5rem]"   title-class="strong:filter strong:brightness-[1.2]">
+        <CardContainer class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] mt-[5rem]"   title-class="strong:filter strong:brightness-[1.2]">
+          
+          <template #title><StringF>
+            {{ mdrf(MFLocalizedString(
+              `
+              ... Great **Price**
+              `, 
+              'benefits.pricing.header', 
+              `
+              There are two sections discussing various 'benefits' of Mac Mouse Fix at the end of the page: The 'pricing' and the 'software' section. Each section is preceded by a header. (Whose ui-strings are defined by 'benefits.pricing.header' and 'benefits.software.header')
+
+              The two section's headers together form a sort of sentence. It looks something like this on the website:
+
+              -----------------------
+
+              Great **Software** ...
+
+              [...]
+
+              ... Great **Price**
+
+              [...]
+
+              --------------------
+
+              Take a look at macmousefix.com/#price to see this in action!
+
+              Note to self: We might wanna keep this comment in sync with the similar comment on scroll.more.header
+              `
+            )) }}
+          </StringF></template>
+          
+          <template #disclaimer>
+            <span id="price.disclaimer">
+              <StringF>
+                {{ mdrf(MFLocalizedString(
+                  `
+                  Note on price: The price of **{price}** does not include local taxes, which might have to be paid in your region. To see your total price, visit the [checkout page](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). If you pay on Gumroad.com via PayPal in a currency other than Euros, PayPal will charge an additional 4.5% currency conversion fee.
+
+                  I would like to include these fees in the price - to make the buying experience simpler and clearer. But this is currently not possible due to limitations with the sales platform Gumroad.com. I hope the price still feels very fair and cheap.
+                  `,
+                  'benefits.pricing.disclaimer', 
+                  ''
+                ), dynamicUIStrings) }}
+              </StringF>
+            </span> <!-- /* The price.disclaimer id lets us link to the disclaimer using macmousefix.com/#<disclaimerId> -->
+          </template>
 
           <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
             <div class="absolute inset-0 -z-10 pointer-events-none">
                 <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[150rem] f-h-[75rem] absolute left-[75%] top-[66%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8] filter invert hue-rotate-[125deg]"/>
             </div>
             <div ref="priceCardsSection2" class="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-[2.5rem] pb-[4.5rem]">
-              <NormalFeatureCard :title="mdrf(MFLocalizedString('benefits.pricing.free-days.title', ''), dynamicUIStrings)"       :body="mdrf(MFLocalizedString('benefits.pricing.free-days.body', ''), dynamicUIStrings, false)"     class=""/>
-              <NormalFeatureCard :title="mdrf(MFLocalizedString('benefits.pricing.price.title', ''), dynamicUIStrings)"           :body="mdrf(MFLocalizedString('benefits.pricing.price.body', ''), dynamicUIStrings, false)"         class=""/>
-              <NormalFeatureCard :title="mdrf(MFLocalizedString('benefits.pricing.alternatives.title', ''), dynamicUIStrings)"    :body="mdrf(MFLocalizedString('benefits.pricing.alternatives.body', ''), dynamicUIStrings, false)"  class=""/>
+              
+              <NormalFeatureCard class="">
+                <template #title>
+                  <StringF>{{ mdrf(MFLocalizedString(`Free for **{ trialDays } Days**`, 'benefits.pricing.free-days.title', ''), dynamicUIStrings) }}</StringF>
+                </template>
+                <template #body>
+                  <StringF>
+                    {{ mdrf(MFLocalizedString(
+                      `
+                      Mac Mouse Fix is free for { trialDays } days. Your **free days are only used up when you actually use the app**. That way you can get the most out of your free days - without any stress.
+                      `,
+                      'benefits.pricing.free-days.body', 
+                      ''
+                    ), dynamicUIStrings, false) }}
+                  </StringF>
+                </template>
+              </NormalFeatureCard>
+
+              <NormalFeatureCard class="">
+                <template #title>
+                  <StringF>{{ mdrf(MFLocalizedString(
+                    `**{price}** to own`, 
+                    'benefits.pricing.price.title', 
+                    'This is the title for the benefits.pricing.price.body text and will be displayed right above it.'
+                  ), dynamicUIStrings) }}</StringF>
+                </template>
+                <template #body>
+                  <StringF>
+                    {{ mdrf(MFLocalizedString(
+                      `
+                      Mac Mouse Fix costs {price} ([+ taxes](#price.disclaimer)) to own - and that's it. There are no subscriptions or additional payments. I made sure the checkout experience is as **nice** and **quick** as possible, and you can even pay with **Apple Pay**!
+
+                      To buy the app, click the button in the app, or click [here](https://noahnuebling.gumroad.com/l/mmfinappusd::newTab).
+                      `,
+                      'benefits.pricing.price.body', 
+                      ''
+                    ), dynamicUIStrings, false) }}
+                  </StringF>
+                </template>
+              </NormalFeatureCard>
+
+              <NormalFeatureCard class="">
+                <template #title>
+                  <StringF>{{ mdrf(MFLocalizedString(`Better value than the **Alternatives**`, 'benefits.pricing.alternatives.title', ''), dynamicUIStrings) }}</StringF>
+                </template>
+                <template #body>
+                  <StringF>
+                    {{ mdrf(MFLocalizedString(
+                      `
+                      Mac Mouse Fix makes your $10 mouse better than a Logitech MX Master mouse or an Apple Trackpad. (These are considered some of the best input devices for Macs.)
+
+                      And yet, Mac Mouse Fix is **[{priceFactorMXMaster}x](https://www.logitech.com/products/mice/mx-master-3s::newTab)** cheaper than an MX Master and **[{priceFactorTrackpad}x](https://www.apple.com/shop/mac/accessories/mice-keyboards::newTab)** cheaper than a Trackpad!
+                      `,
+                      'benefits.pricing.alternatives.body', 
+                      `
+                      Adding ::newTab to the end of the link makes the MMF Website open the link in a new tab!
+
+                      Text wrapped in **asterisks** will get a cool color highlight on the page! 
+
+                      We use quite a lot of **asterisks** to make the page more colorful and visually interesting, but also to make the text easier to understand when the reader is just skimming through.
+
+                      Note to self: I chose this string for the **asterisks** explanation since it's fairly high up when localizers sort the keys alphabetically.
+
+                      Note to self2: I think it's grammatically wrong in English to capitalize 'Trackpad' in 'Apple Trackpad', but I think it looks better.
+                      `
+                    ), dynamicUIStrings, false) }}
+                  </StringF>
+                </template>
+              </NormalFeatureCard>
+
 
               <div class="hidden sm:col-span-1 md:col-span-2 col-span-3 w-full flex justify-center">
                 <!-- Download counter was here -->
@@ -204,14 +900,16 @@ import licenseConfig from "~/assets/licenseinfo/config.json"
 const MXMasterPrice = 99.99
 const trackpadPrice = 129.00 
 
-const price = licenseConfig["price"] / 100
-const trialDays = licenseConfig["trialDays"]
-const priceFactorMXMaster = roundTo(MXMasterPrice / price, 5, 0, Math.floor)
-const priceFactorTrackpad = roundTo(trackpadPrice / price, 5, 0, Math.floor)
-const taxEstimateLow = 0.05
-const taxEstimateHigh = 0.25
-const afterTaxPriceEstimateLow = roundTo(price * (1 + taxEstimateLow), 0.01, 2, Math.round)
-const afterTaxPriceEstimateHigh = roundTo(price * (1 + taxEstimateHigh), 0.01, 2, Math.round)
+const priceRaw = licenseConfig["price"] / 100;
+
+const price = '$' + String(priceRaw);
+const trialDays = licenseConfig["trialDays"];
+const priceFactorMXMaster = roundTo(MXMasterPrice / priceRaw, 5, 0, Math.floor);
+const priceFactorTrackpad = roundTo(trackpadPrice / priceRaw, 5, 0, Math.floor);
+const taxEstimateLow = 0.05;
+const taxEstimateHigh = 0.25;
+const afterTaxPriceEstimateLow = roundTo(priceRaw * (1 + taxEstimateLow), 0.01, 2, Math.round);
+const afterTaxPriceEstimateHigh = roundTo(priceRaw * (1 + taxEstimateHigh), 0.01, 2, Math.round);
 
 const dynamicUIStrings = {
   price: price,

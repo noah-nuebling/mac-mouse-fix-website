@@ -20,11 +20,13 @@
 
       <div class="flex flex-col items-start mt-[5rem]">
 
-        <BackButton path="/" :label="mdrf(MFLocalizedString('checkout-header.back-button', ''))"/>
+        <BackButton path="/">
+          {{ mdrf(MFLocalizedString(`Front Page`, 'checkout-header.back-button', '')) }}
+        </BackButton>
         <!-- <NuxtImg ref="mmfIcon" :src="mmfIconImagePath" sizes="225px" alt="Mac Mouse Fix Icon" :class="['h-[6.5rem] mb-[3rem] mr-[1rem] hidden']"/> --> <!-- Copied this from intro.vue, not sure if good -->
         <p class="xs:text-[2.5rem] text-[3.0rem] font-[600]">
           <!-- <span class="font-[600] text-[1em] inline-block translate-y-[-0.1em]">􀎤</span>  -->
-          {{ mdrf(MFLocalizedString('checkout-header.title', '')) }}
+          {{ mdrf(MFLocalizedString(`Buy Mac Mouse Fix`, 'checkout-header.title', '')) }}
         </p>
         <!-- <p class="mb-[15rem]">Make your $10 Mouse Better than an Apple Trackpad!</p> -->
       </div>
@@ -33,31 +35,47 @@
 
       <!-- Options -->
 
-      <p v-html="mdrf(MFLocalizedString('checkout-options.title', ''))" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0rem]"></p>
-      <p v-html="mdrf(MFLocalizedString('checkout-options.hint', ''))" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"></p>
+      <p v-html="mdrf(MFLocalizedString(`How much would you like to pay?`, 'checkout-options.title', ''))" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0rem]"></p>
+      <p v-html="mdrf(MFLocalizedString(`You can pay a bit more to support the project.`, 'checkout-options.hint', ''))" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"></p>
 
       <div class="flex flex-col gap-[2em]">
 
         <!-- Just Mac Mouse Fix -->
-        <CheckoutOption :price="mdrf(MFLocalizedString('checkout-option.base.price', ''), {}, false)" 
-                        :title="mdrf(MFLocalizedString('checkout-option.base.title', ''), {}, false)"
-                        :body="mdrf(MFLocalizedString('checkout-option.base.body', ''), {}, false)"
-                        :disclaimer="mdrf(MFLocalizedString('checkout-option.disclaimer', ''), {}, false)"
-        :is-selected="selectedOption == 'base'" @click="selectedOption = 'base'"/>
+        <CheckoutOption :price="mdrf(MFLocalizedString(`$1.99`, 'checkout-option.base.price', ''), {}, false)" 
+                        :title="mdrf(MFLocalizedString('', 'checkout-option.base.title', `Note to self: Why doesn't this have a value in the base file?`), {}, false)"
+                        :body="mdrf(MFLocalizedString(`Just Mac Mouse Fix`, 'checkout-option.base.body', ''), {}, false)"
+                        :disclaimer="mdrf(MFLocalizedString(`+ tax`, 'checkout-option.disclaimer', ''), {}, false)"
+                        :is-selected="selectedOption == 'base'" @click="selectedOption = 'base'"/>
 
         <!-- Generous Contributor -->
-        <CheckoutOption :price="mdrf(MFLocalizedString('checkout-option.generous.price', ''), {}, false)"
-                        :title="mdrf(MFLocalizedString('checkout-option.generous.title', ''), {}, false)"
-                        :body="mdrf(MFLocalizedString('checkout-option.generous.body', ''), {}, false)"
-                        :disclaimer="mdrf(MFLocalizedString('checkout-option.disclaimer', ''), {}, false)"
-        :is-selected="selectedOption == 'generous'" @click="selectedOption = 'generous'"/>
+        <CheckoutOption :price="mdrf(MFLocalizedString(`$4.99`, 'checkout-option.generous.price', ''), {}, false)"
+                        :title="mdrf(MFLocalizedString(`**Generous Contributor**`, 'checkout-option.generous.title', ''), {}, false)"
+                        :body="mdrf(MFLocalizedString(
+                          `
+                          1. Mac Mouse Fix
+                          2. Milkshake for Noah
+                          3. You'll be shown under **Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md)
+                          `, 
+                          'checkout-option.generous.body', 
+                          ''
+                        ), {}, false)"
+                        :disclaimer="mdrf(MFLocalizedString(`+ tax`, 'checkout-option.disclaimer', ''), {}, false)"
+                        :is-selected="selectedOption == 'generous'" @click="selectedOption = 'generous'"/>
 
         <!-- Very Generous Contributor -->
-        <CheckoutOption :price="mdrf(MFLocalizedString('checkout-option.very-generous.price', ''), {}, false)"  
-                        :title="mdrf(MFLocalizedString('checkout-option.very-generous.title', ''), {}, false)"
-                        :body="mdrf(MFLocalizedString('checkout-option.very-generous.body', ''), {}, false)"
-                        :disclaimer="mdrf(MFLocalizedString('checkout-option.disclaimer', ''), {}, false)"
-        :is-selected="selectedOption == 'very-generous'" @click="selectedOption = 'very-generous'"/>
+        <CheckoutOption :price="mdrf(MFLocalizedString(`$9.99`, 'checkout-option.very-generous.price', ''), {}, false)"  
+                        :title="mdrf(MFLocalizedString(`**Very Generous Contributor**`, 'checkout-option.very-generous.title', ''), {}, false)"
+                        :body="mdrf(MFLocalizedString(
+                          `
+                          1. Mac Mouse Fix
+                          2. *Awesome* Milkshake for Noah!
+                          3. You'll be shown under ***Very* Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors), and you can also leave a message there if you like
+                          `, 
+                          'checkout-option.very-generous.body', 
+                          ''
+                        ), {}, false)"
+                        :disclaimer="mdrf(MFLocalizedString(`+ tax`, 'checkout-option.disclaimer', ''), {}, false)"
+                        :is-selected="selectedOption == 'very-generous'" @click="selectedOption = 'very-generous'"/>
       </div>
 
       <!-- Extra Info (for Acknowledgements) -->
@@ -69,26 +87,43 @@
         <hr class="my-[4em] opacity-1">
 
         <div :style="selectedOption == 'generous' ? '' : 'display: none'">
-          <p v-html="mdrf(MFLocalizedString('checkout-extras.title.name', ''))" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
-          <p v-html="mdrf(MFLocalizedString('checkout-extras.hint.name', ''))" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"/>
+          <p v-html="mdrf(MFLocalizedString(`Add your name`, 'checkout-extras.title.name', ''))" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
+          <p v-html="mdrf(MFLocalizedString(
+            `Your name will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md). Thank you for your generosity!`, 
+            'checkout-extras.hint.name', 
+            ''
+            ))" 
+            class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]">
+          </p>
         </div>
         <div :style="selectedOption == 'very-generous' ? '' : 'display: none'">
-          <p v-html="mdrf(MFLocalizedString('checkout-extras.title.message', ''))" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
-          <p v-html="mdrf(MFLocalizedString('checkout-extras.hint.message', ''))" class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]"/>
+          <p v-html="mdrf(MFLocalizedString(`Add your name and message`, 'checkout-extras.title.message', ''))" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
+          <p v-html="mdrf(MFLocalizedString(
+            `Your name and message will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors). Thank you so much for your generosity!`,
+            'checkout-extras.hint.message',
+            ''))"
+            class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]">
+          </p>
         </div>
 
         <div class=""> <!-- border rounded-[1.6rem] bg-white p-[1.5rem] shadow-sm -->
 
           <!-- Name field -->
           <div :style="selectedOption == 'generous' || selectedOption == 'very-generous' ? '' : 'display: none'">
-            <p v-html="mdrf(MFLocalizedString('checkout-extra.name.title', ''))"    class="text-[1.2em] font-[600] mb-[0.5em] mt-[0em]"
+            <p v-html="mdrf(MFLocalizedString(`Your Name`, 'checkout-extra.name.title', ''))"    class="text-[1.2em] font-[600] mb-[0.5em] mt-[0em]"
               :style="selectedOption == 'very-generous' ? '' : 'display: none'"/>
             <input v-model="paddleCustomData.name" type="text" class="border-black/[0.1] bg-white/[0.75] border rounded-[0.75rem] h-[3.5rem] px-[1rem] text-[1.1rem] w-full">
           </div>
 
           <!-- Message field -->
           <div :style="selectedOption == 'very-generous' ? '' : 'display: none'">
-            <p v-html="mdrf(MFLocalizedString('checkout-extra.message.title', ''))" class="text-[1.2em] font-[600] mb-[0.5em] mt-[1em]"/>
+            <p v-html="mdrf(MFLocalizedString(
+              `Your Message`, 
+              'checkout-extra.message.title', 
+              `The checkout page is still work-in-progress so we don't have to translate it, yet`
+              ))" 
+              class="text-[1.2em] font-[600] mb-[0.5em] mt-[1em]">
+            </p>
             <input v-model="paddleCustomData.message" type="text" class="border-black/[0.1] bg-white/[0.75] border rounded-[0.75rem] h-[3.5rem] px-[1rem] text-[1.1rem] w-full">
           </div>
         </div>
@@ -121,13 +156,13 @@
             - There are two weird data fields in the docs that don't show up for us at the moment: credit_to_balance and grand_total
             - ChatGPT says the credit stuff is confusing since user might wonder: Where does the credit come from? Where is it stored? What can it be used for? But I don't know the answer to these questions either so we'll just leave it for now.
           -->
-          <span v-if="totals.subtotal != totals.total">       {{  mdrf(MFLocalizedString('checkout-totals.subtotal', '')) }}             <span class="">{{ formatAsMoney(totals.subtotal, currencyCode!, currencyLocale) }}</span></span>
-          <span v-if="totals.discount > 0">             <br>  {{  mdrf(MFLocalizedString('checkout-totals.discount', ''))  }}         <span class="">-{{ formatAsMoney(totals.discount, currencyCode!, currencyLocale) }}</span></span>
-          <span v-if="totals.tax > 0">                  <br>  {{  mdrf(MFLocalizedString('checkout-totals.tax', ''))  }}              <span class="">{{ formatAsMoney(totals.tax, currencyCode!, currencyLocale) }}</span></span>
-          <span>                                        <br>  {{  mdrf(MFLocalizedString('checkout-totals.total', ''))  }}            <span class=""><strong>{{ formatAsMoney(totals.total, currencyCode!, currencyLocale) }}</strong></span></span>
-          <span v-if="totals.credit > 0">               <br>  {{  mdrf(MFLocalizedString('checkout-totals.credit', ''))  }}   <span class="">-{{ formatAsMoney(totals.credit, currencyCode!, currencyLocale) }}</span></span>
-          <span v-if="totals.balance != totals.total">  <br>  {{  mdrf(MFLocalizedString('checkout-totals.balance', ''))  }}             <span class="">{{ formatAsMoney(totals.balance, currencyCode!, currencyLocale) }}</span></span>
-          <span v-if="totals.credit_to_balance">     <br><br> {{  mdrf(MFLocalizedString('checkout-totals.credit-to-balance', ''))  }} <span class="">{{ formatAsMoney(totals.credit_to_balance, currencyCode!, currencyLocale) }}</span></span>
+          <span v-if="totals.subtotal != totals.total">       {{  mdrf(MFLocalizedString(`Subtotal:`, 'checkout-totals.subtotal', '')) }}                   <span class="">{{ formatAsMoney(totals.subtotal, currencyCode!, currencyLocale) }}</span></span>
+          <span v-if="totals.discount > 0">             <br>  {{  mdrf(MFLocalizedString(`Discount:`, 'checkout-totals.discount', ''))  }}                  <span class="">-{{ formatAsMoney(totals.discount, currencyCode!, currencyLocale) }}</span></span>
+          <span v-if="totals.tax > 0">                  <br>  {{  mdrf(MFLocalizedString(`Tax:`, 'checkout-totals.tax', ''))  }}                            <span class="">{{ formatAsMoney(totals.tax, currencyCode!, currencyLocale) }}</span></span>
+          <span>                                        <br>  {{  mdrf(MFLocalizedString(`Total:`, 'checkout-totals.total', ''))  }}                        <span class=""><strong>{{ formatAsMoney(totals.total, currencyCode!, currencyLocale) }}</strong></span></span>
+          <span v-if="totals.credit > 0">               <br>  {{  mdrf(MFLocalizedString(`Credit Applied:`, 'checkout-totals.credit', ''))  }}              <span class="">-{{ formatAsMoney(totals.credit, currencyCode!, currencyLocale) }}</span></span>
+          <span v-if="totals.balance != totals.total">  <br>  {{  mdrf(MFLocalizedString(`Balance:`, 'checkout-totals.balance', ''))  }}                    <span class="">{{ formatAsMoney(totals.balance, currencyCode!, currencyLocale) }}</span></span>
+          <span v-if="totals.credit_to_balance">     <br><br> {{  mdrf(MFLocalizedString(`Credit Received:`, 'checkout-totals.credit-to-balance', ''))  }}  <span class="">{{ formatAsMoney(totals.credit_to_balance, currencyCode!, currencyLocale) }}</span></span>
         </p>
         
         <div ref="paddleCheckoutContainer" class="paddle-checkout-container"></div> <!-- border rounded-[1.6rem] bg-white shadow-sm p-[0.75rem] -->

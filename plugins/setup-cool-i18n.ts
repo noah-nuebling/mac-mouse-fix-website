@@ -12,7 +12,7 @@ import Localizable from "../locales/Localizable";
 
 import { stringf } from '../utils/util';
 
-import { objectDescription } from '../utils/util';
+import { objectDescription, trimEmptyLines, removeIndent } from '../utils/util';
 
 export default defineNuxtPlugin(app => {
     
@@ -45,7 +45,16 @@ export default defineNuxtPlugin(app => {
     app.vueApp.config.globalProperties.$tm = stub
     
     /* Create our own translation function */
-    
+
+    function getLocaleCode(localeCode?: string): string {
+        
+        const c: string = localeCode ?? $i18n.locale.value;
+        return c;
+    }
+    function getSourceLocaleCode(): string {
+        return Localizable['sourceLocale'];
+    }
+
     function _localizedString(strKey: string, localeCode?: string): string {
 
         /* 
@@ -58,7 +67,7 @@ export default defineNuxtPlugin(app => {
         */
 
         // Get locale code
-        const c: string = localeCode ?? $i18n.locale.value;
+        const c = getLocaleCode(localeCode);
 
         // Get translated string
         //  @ts-ignore
@@ -66,26 +75,65 @@ export default defineNuxtPlugin(app => {
 
         // Make sure output is string - so we can use output directly in Vue templates without typescript complaining.
         if (typeof result !== 'string') {
-            result = `<invalid localized string: ${objectDescription(result)} for key: ${strKey}>`
+            result = `<invalid localized string: ${objectDescription(result)} for key: ${strKey}>`;
         }
 
         // Return
         return result;
     }
-
-    function MFLocalizedString(strKey: string, localizerHint: string): string {
+    function MFLocalizedString(englishUIString: string, key: string, comment: string): string {
 
         /* 
             This is the main way to access localized strings. 
                 Don't use $i18n.t(), $i18n.tc(), etc.
             We plan to regex the source code files for MFLocalizedString() calls to automatically sync the .xcstrings files to the source code using a 'sync-strings' script.
-                The `strKey` and `localizerHint` args will both end up in the .xcstrings file. 
-                And actually, the `localizerHint` is *only* intended for the .xcstrings file and is not used by the nuxt app at all.
+                The `key`, `comment`, and `englishUIString` args will all end up in the .xcstrings file. 
+                And actually, the `comment` and `englishUIString` are *only* intended for the .xcstrings file and is not used by the nuxt app.
             All this is basically the exact same idea as the NSLocalizedString() macro which is used by Xcode to synchronize .xcstrings files to Swift and C source-code files.
 
         */
 
-        const result = _localizedString(strKey);
+        // Get result
+        const result = _localizedString(key);
+
+        // Validate
+        console.assert(import.meta.env.DEV !== import.meta.env.PROD, "App is simulateously in development and production mode, or in neither mode.");
+        if (import.meta.env.DEV) { // Only do these checks in development builds
+            const currentLocale = getLocaleCode();
+            const sourceLocale = getSourceLocaleCode();
+            if (currentLocale == sourceLocale) {
+
+                // Log
+                // console.log(`Validating localizedString ${key}...`);
+                
+                // Guard isEnglish
+                console.assert(currentLocale === 'en', `Something is weird. The source locale is not English.`)
+
+                // Clean the englishUIString
+                //  
+                // Explanation: 
+                //      - Our sync-strings script extracts localizable strings from 'sourceCode -> .xcstrings' and the build-strings script transfers localizable strings from '.xcstrings -> Localizable.js'. 
+                //          We load the 'result' of this function directly from Localizable.js.
+                //      - The sync-strings script works by regexing the source code for MFLocalizedString() invocations. Since we're inside the MFLocalizedString() code here, 
+                //          we can use this opportunity to validate, whether the sync-strings and build-strings scripts have correctly extracted the values passed into MFLocalizedString() into Localizable.js.
+                //      - However, after the sync-strings script extracts the values from the MFLocalizedString() invocations, it then removes linebreaks and trims empty lines before it stores the values in the .xcstrings files.
+                //          So we need to replicate this 'string cleaning' here to validate the process. That's what `coolStrip()` is for. It emulates the string cleaning we do in the sync-strings script.
+                // Sidenote:
+                //      - We are not validating the `comment` in the same way, since the comment is not transferred from the .xcstrings file to the Localizable.js file by the build-strings script - Only the value aka UIString is transferred to Localizable.js)
+                
+                function coolStrip(s: string): string {
+                    s = trimEmptyLines(s);
+                    s = removeIndent(s);
+                    return s;
+                }
+                const cleanedEnglishUIString = coolStrip(englishUIString);
+
+                // Validate englishUIString
+                console.assert(result == cleanedEnglishUIString, `English UIString loaded from file doesn't match the passed-in string.\nFrom file:\n${result}\npassed-in:\n${cleanedEnglishUIString}\nPerhaps our 'sourceCode -> .xcstrings' or '.xcstrings -> Localizable.js' extraction isn't working properly or wasn't ran before this webapp was compiled.`);
+            }
+        }
+
+        // Return
         return result;
     }
     
@@ -96,13 +144,16 @@ export default defineNuxtPlugin(app => {
     })
     renderer.use(openLinkInNewTab)
     
-    /* Define mdrf (MarkDown Render and Format)
+    /* Define mdrf (MarkDown Render and Format) (commonly pronounced emdörf)
         Convenience function for rendering markdown markup to html while also inserting formats into the string.
-    
-        Does this belong into coolI18n?: This isn't super directly related to localization, but we have no reason to render markdown outside of localized strings, 
+
+        Discussion:
+        - I think we should remove this and just use stringf() and md.render() explicitly. That's cleaner/clearer.
+        - Does this belong into coolI18n?: This isn't super directly related to localization, but we have no reason to render markdown outside of localized strings, 
             since could just write HTML instead. So I think we'll only ever use this in conjuction with MFLocalizedString. 
             
-        On usage of stringf(): $i18n.t() also supports the same format specifier syntax we implemented for stringf, so we could always replace it with $i18n.t() */
+        On usage of stringf(): 
+            $i18n.t() also supports the same format specifier syntax we implemented for stringf, so we could always replace it with $i18n.t() */
     
     function mdrf(text: string, replacements?: Object, inline: boolean = true): string {
         

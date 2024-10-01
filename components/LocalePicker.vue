@@ -34,7 +34,7 @@ onMounted(() => {
       Notes:
       - We get cryptic errors if we run this serverside. No Idea why. (23.08.2024)
       - Tried to run this outside of onMounted(). Strange issues iirc, but don't remember what.
-  */
+    */
     const result = i18n.locales.value.filter((loc) => {
         return (
             $coolI18n.isCurrentLanguage(loc.code) || // Show the current language -> Otherwise the layout breaks.
@@ -79,12 +79,12 @@ function handleLocaleSelect(event: Event) {
 /* Update selection when locale updates due to other reasons
   (E.g. user navigating back through history)
   Update: Not necessary anymore (I think after adding transitions in app.vue) */
-watch(i18n.locale, (newLocale) => {
+// watch(i18n.locale, (newLocale) => {
     // i18n.waitForPendingLocaleChange()
     // if (localePicker.value != null) {
     //   localePicker.value!.value = newLocale
     // }
-});
+// });
 </script>
 
 <style scoped>

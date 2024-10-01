@@ -2,10 +2,27 @@
   "sourceLanguage" : "en",
   "strings" : {
     "1: 404.back" : {
-      "extractionState" : "manual"
+      "comment" : "Note: Label for a button that takes you from the 'page not found' page back to the front page.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Front Page"
+          }
+        }
+      }
     },
     "2: 404.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The page you're looking for can't be found."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

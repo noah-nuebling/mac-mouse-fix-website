@@ -1,5 +1,7 @@
 /*
 
+    (SECURITY: Make sure you don't use this component with any strings from untrusted sources. Since it renders the HTML in the strings.)
+
     Vue-slot based string-formatting.
 
     Purpose:
@@ -12,7 +14,7 @@
                 slot-based string-formatting 
             which <i18n-t> does all-in-one.
             That way we can neatly reuse our MFLocalizedString(<key>, <localizerHint>) function and pass its result to <SlotStringF>.
-            Which in turn lets us easily regex the source code for MFLocalizedString() to find all localizedStringKeys used in the source code.
+            Which in turn lets us easily regex the source code for MFLocalizedString() to find all localizedStrings used in the source code.
 
             Also, I guess it was fun to implement some 'low-level' Vue stuff. (And I think this API is more modular and less complicated than <i18n-t>)
 
@@ -23,14 +25,23 @@
     Functionality:
 
         Overview:
-            Content from the slots that are passed into this component is inserted into the *format string* and then rendered into the DOM. 
-                The format string is passed into the default slot as plain text. If the format string contains <html> <tags>, those will be rendered as well!
 
-            Overall, this works similar to regular string-formatting (that's what StringF stands for), but instead of replacing format-specifiers in the format string with simple text, 
-                we can replace format-specifiers with anything that can go into a Vue slot. (Any HTML nodes, Vue-Components, Elements with TailwindCSS styling, etc.) Also the format string 
-                can contain HTML syntax which will be rendered into the DOM.
-                
-            This is useful for inserting HTML Nodes and Vue Components into a localized string. And also for rendering markdown in the localized string.
+            Feature 1: HTML-String Rendering:
+                A format string is passed into the *default slot* of this component as plain text.
+                If the format string contains <html> <tags>, those will be rendered as actual HTML structure in the DOM tree!
+
+                In that way, this is replacement for innerHTML or v-html.
+                    - The benefit over innerHTML / v-html is that we do not have to specify a root-node that the HTML string gets rendered into. <StringF> will simply render multiple root nodes, if the rendered HTML string describes multiple root nodes.
+                    - <StringF> is probably somewhat slower than using v-html, but I haven't tested that. I think it's fast enough that it doesn't make any noticable difference to page loads or usage. We could still probably optimize it later.
+
+            Feature 2: HTML-String Formatting:
+                Content from the *named slots* that are passed into this component is inserted into the *format string* and then rendered into the DOM.
+
+                Overall, this works similar to regular string-formatting (that's what StringF stands for), but instead of replacing format-specifiers in the format string with simple text, 
+                    we can replace format-specifiers with anything that can go into a Vue slot. (Any HTML nodes, Vue-Components, etc.) 
+            
+            Our use case:
+                We built this, because it's useful for inserting HTML Nodes and Vue Components into a localized string. And also for rendering markdown syntax in the localized string into the DOM.
 
         Example 1: 
 
@@ -50,12 +61,13 @@
                 <p class='bg-blue-500'>
                     Some text with a vue component: [Full, reactive, render of <SomeAwesomeVueComponent>] in the <strong>middle</strong>!
                 </p>
+
         Example 2: 
 
             Usage: 
 
                 <StringF>
-                    {{ mdRender(MFLocalizedString('some.localization.key', 'Some hint for the localizer', `
+                    {{ mdRender(MFLocalizedStringgg('Some hint for the localizer', 'some.localization.key', `
                         Hi this **issss**
                         - Z
                         - {locale_picker}
@@ -84,27 +96,101 @@
                 (-> And in other languages it would render to the appropriate translation.)
     
     Performance:
-        - In my benchmarking, in production builds, this componentn always takes well under 1ms to render. 
-            And since Vue heavily caches components and we also do prerendering, this will usually only run a few times when the page loads (idk why it runs at all after prerendering actually?). It will not run while the user is using the page. So it's totally fast enough without optimizations (as of September 2024, running on M1 MacBook Air)
+        - In my benchmarking, in production builds, this component always takes well under 1ms to render. 
+            And since Vue heavily caches components and we also do prerendering, this will usually only run a few times when the page loads (idk why it runs at all after prerendering actually?). It will not run while the user is using the page. So it's totally fast enough without optimizations (as of September 2024, running on M1 MacBook Air, these conclusions are based on very superficial testing - don't believe them - but I do think it's fast enough.)
 */
 
-import * as NodeHTMLParser from 'node-html-parser'
 import * as vue from 'vue'
+import * as vueServerRenderer from '@vue/server-renderer'
+import * as NodeHTMLParser from 'node-html-parser'
 import * as intlify from '@intlify/shared'
-import { stringf_getArray, createTextVNode, removeIndent } from '../utils/util'
+import { stringf_getArray, createTextVNode, coolCreateStaticVNode, removeIndent } from '../utils/util'
 import { defineNuxtComponent } from 'nuxt/app'
 
+// Setup benchmark
+let totalRenderingTime = 0;
+
 export default defineNuxtComponent({
+    
+    // Set component name
     name: 'StringF',
+    
+    // Turn off attribute inheritance.
+    //      Explanation: 
+    //      Automatic attribute inheritance makes it so when you use <StringF SomeAttribute>, then the root HTML element that StringF renders will have `SomeAttribute`. However, Vue will fail to do this if we render multiple root nodes, and then it will print errors to the console.
+    //      In case we still wanna use the attrs passed to <StringF> we can use ctx.attrs I think.
+    inheritAttrs: false,
+    
+    // Define props
     props: intlify.assign({
         replacements: Object,
     }),
+    
+    // Define setup fn
     setup(props, ctx) {
 
-        return () => {
+        // Get ref to current component instance
+        const self = getCurrentInstance();
 
-            // Benchmark
-            console.time('StringFRendering');
+        // Define helper funcs
+        
+        async function getInnerHTMLWithServerRenderer(root: VNode): Promise<string> {
+            
+            //  Notes:
+            //      - This should work anytime - even before mounting.
+
+            const result = await vueServerRenderer.renderToString(root, undefined);
+            return result;
+        }
+        function getInnerHTML(instance: vue.ComponentInternalInstance | null): string {
+
+            // Get the HTML that the <StringF> component renders into the DOM.
+            //  Notes:
+            //      - This is a debug helper function
+            //      - Should only work after the instance is mounted.
+
+            // Edge cases
+            if (!instance) { return '' }
+            if (!instance.subTree.children) { return '' }
+
+            // Assemble dom tree
+            //      We need to do this weird stuff since the root VNode of this component is a vue.Fragment, so it renders multiple children into its parent in the DOM tree. We first need to combines these multiple dom nodes as children under one domNode to use .innerHTML effectively.
+            let root = document.createElement('div');
+
+            // Ensure that instance.subTree.children is iterable
+            const children = Array.isArray(instance.subTree.children) ? instance.subTree.children : [instance.subTree.children];
+
+            for (const child of children) {
+                if (child === null || child === undefined) { continue }
+                const vnode = child as VNode
+                if (Object.hasOwn(vnode, 'el')) {
+                    let domNode = vnode.el?.cloneNode(true); // We need to clone the node! Otherwise the node will be removed from its original parent (nodes can only have one parent.) which breaks the whole page.
+                    if (domNode) {
+                        root.appendChild(domNode);
+                    }
+                    
+                }
+            }
+
+            // Get innerHTML
+            const result = root.innerHTML;
+
+            // Return
+            return result;
+        
+        }
+
+        // Lifecycle
+        onMounted(() => {
+
+            // DEBUG: Print innerHTML
+            const innerHTML = getInnerHTML(self);
+            // console.log(`<StringF> mounted with innerHTML:\n\n${innerHTML}\n`);
+            
+        })
+
+        // Return rendering fn
+        return () => {
 
             // Parse context
             const { attrs, slots, emit, expose } = ctx;
@@ -118,21 +204,26 @@ export default defineNuxtComponent({
             // Get format string from default slot
             let format: string = getPlaintextSlotContent(defaultSlotRenderer);
 
+            // Log
+            console.log(`StringF - rendering format:\n\n${format}`);
+
+            // Benchmark
+            const tsStart = performance.now();
+
+            // TEST
+
+            // if (format.includes(`... And <strong>More`)) {
+            //     console.log(`debug stuffff`);        
+            // }
+
             // Remove indent from default slot content
             //  Notes: 
             //      This is was for when we used the 'preserve-whitespace vite complier option, which makes it so whitespace and indents of text passed into vue slots is not cleaned automatically. (See in nuxt.config.ts: ```vite: { vue: { template: { compilerOptions: { whitespace: 'preserve' } } } }```)
             //      We did that to be able to write markdown directly in the slot, but we don't need that anymore.
+
             // format = removeIndent(format);
 
-            // Render format string to DOM nodes
-            //  Notes:
-            //  - We used to use the browser-native DOMParser() but switched to node-html-parser package since that also works during prerendering.
-            //  - We do this whole HTML parsing in case the *format string* contains HTML tags. We want this so we can pass in the result of our markdown renderer (which returns a string with HTML tags), since we like using markdown in our localized strings.
-            //          Sidenote: Not sure if this could work when we write html text into the slot directly, (instead of passing a plaintext string containing html markup) since I think vue would automatically render literal HTML markup passed into a slot as VNodes instead of a string with HTML.
-
-            const formatAsElementTree: NodeHTMLParser.HTMLElement = NodeHTMLParser.parse(format, {}); // (new DOMParser()).parseFromString(format, 'text/html');
-
-            // Render other slots
+            // Render format specifier slots
             let renderedFormatSpecifierSlots: { [slotName: string]: vue.VNode[] } = {};
             for (const [slotName, slotRenderingFn] of Object.entries(slots)) {
                 if (slotName == 'default') continue; // Skip the default slot, since we handle that separately. It contains our 'format string', and the other slots, which we're handling here, contain the content we want to insert into the format string.
@@ -140,6 +231,94 @@ export default defineNuxtComponent({
                 // @ts-ignore
                 renderedFormatSpecifierSlots[slotName] = slotRenderingFn();
             }
+
+            // innerHTML optimization
+            //  Turning this off since it's actually way slower than the unoptimized variant. (Based on my superficial benchmarks. Din't test overall page-loading times.)
+
+            if (false) {
+
+                // Analyze format specifier slots
+                let someFormatSpecifiersAreDynamic = false;
+                outerLoop: for (const [slotName, vnodes] of Object.entries(renderedFormatSpecifierSlots)) {
+                    for (const vnode of vnodes) {
+                        const nodeIsStatic = (vnode.type == vue.Text) || (vnode.type == vue.Comment) || (vnode.type == vue.Static)
+                        if (!nodeIsStatic) {
+                            someFormatSpecifiersAreDynamic = true;
+                            break outerLoop;
+                        }
+                    }
+                }
+
+                // Function to convert non-dynamic VNodes to HTML strings
+                function staticVnodeToHTMLString(vnode: vue.VNode): string {
+                    if (vnode.type === vue.Text) {
+                        return vnode.children ?? '';
+                    } else if (vnode.type === vue.Comment) {
+                        return `<!--${vnode.children}-->`;
+                    } else if (vnode.type === vue.Static) {
+                        // For Static nodes, `children` is already an array of strings (says ChatGPT)
+                        return vnode.children ? vnode.children.join('') : '';
+                    } else {
+                        // If somehow a dynamic node slipped through, assert false and return an empty string.
+                        console.assert(false, 'Dynamic node slipped through.');
+                        return '';
+                    }
+                }
+
+                // Optimize
+                if (!someFormatSpecifiersAreDynamic) {
+
+                    // Log
+                    console.log(`Using static html optimization in <StringF>. (Format string: ${format})`);
+                    
+                    // Convert VNodes from slots to HTML strings
+                    let formatSpecifierToHTMLMap: { [key: string]: string } = { };
+                    for (const [slotName, vnodes] of Object.entries(renderedFormatSpecifierSlots)) {
+                        formatSpecifierToHTMLMap[slotName] = vnodes.map((node) => staticVnodeToHTMLString(node)).join('');
+                    }
+
+                    // Insert the HTML strings into the format string
+                    const innerHTML = stringf(format, formatSpecifierToHTMLMap);
+
+                    console.log(`innerHTML: ${innerHTML}`);
+                    
+                    // Get result VNode
+                    //  Use span instead of vue.Fragment since that has minimal impact on the layout? Still bad. We don't want a to force a root element, since our non-optimized code doesn't do that.
+                    //
+                    //  Note: Here's a vuejs GH issue with people trying to do a similar thing (render v-html without a root element): https://github.com/vuejs/vue/issues/7431 
+                    //          -> They seem to be resorting to creating vnodes, which shouldn't be faster than our unoptimized approach. The point of this optimization was to get away from VNodes.
+                    //
+                    //  Idea: Maybe we could return a vue.Static vnode and just store the innerHTML in there?
+                    //      Update: I tried that and it seems to work! However, this is actually slower than the unoptimized variant! (At least the this rendering function runs slower, maybe once it's rendered it's faster?) 
+                    //                  I'm not sure why it's slower. A part might be that coolCreateStaticVNode() needs to find the number of root elements in the innerHTML string, and it does that by rendering the whole string to DOM nodes. 
+                    //                  However, we also do that in the unoptimized code, so that doesn't explain why it's slower. (Keep in mind also that my testing was superficial)
+                    
+                    let result: VNode
+                    
+                    if (false) {
+                        result = coolCreateStaticVNode(innerHTML, undefined);
+                        result = vue.h(vue.Fragment, undefined, result);
+                    } else {
+                        result = h('span', { domProps:{ innerHTML: innerHTML } }); // ChatGPT says that domProps is a Vue 2 thing, not Vue 3.
+                    }
+                    
+
+                    // Benchmark
+                    // console.timeEnd('StringFRendering');
+
+                    // Return
+                    return  result;
+                }
+            }
+
+            // Render format string to DOM nodes
+            //  Notes:
+            //  - We used to use the browser-native DOMParser() but switched to node-html-parser package since that also works during prerendering.
+            //  - We do this whole HTML parsing in case the *format string* contains HTML tags. We want this so we can pass in the result of our markdown renderer (which returns a string with HTML tags), since we like using markdown in our localized strings.
+            //          Sidenote: Not sure if this could work when we write html text into the slot directly, (instead of passing a plaintext string containing html markup) since I think vue would automatically render literal HTML markup passed into a slot as VNodes instead of a string with HTML.
+            //  - Turning off lowerCaseTagName, to match @vue/server-renderer, since it outputs uppercase tagnames. Not sure it makes a difference.
+
+            const formatAsElementTree: NodeHTMLParser.HTMLElement = NodeHTMLParser.parse(format, { lowerCaseTagName: false }); // (new DOMParser()).parseFromString(format, 'text/html');
 
             // Define helper 
             //      Iterate HTML nodes and parse them into VNodes
@@ -154,10 +333,10 @@ export default defineNuxtComponent({
                         // Recurse
                         const n = vNodesFromDomTree(rootNode.childNodes[i], renderedFormatSpecifierSlots);
                         
-                        // Store in child array
+                        // Store children in array
                         if (n === undefined) {
-
-                        } else if (Array.isArray(n)) {
+                            // Do nothing
+                        } else if (Array.isArray(n)) { // Flatten VNode arrays (forgot why we do this)
                             childVNodes.push(...n);
                         } else {
                             childVNodes.push(n);
@@ -168,7 +347,6 @@ export default defineNuxtComponent({
 
                 // Render parent
                 let result: vue.VNode | vue.VNode[] | undefined = undefined;
-                const vueProps = undefined;
                 if (rootNode instanceof NodeHTMLParser.TextNode) {
                     // Render HTML Text node to VNode
 
@@ -186,7 +364,7 @@ export default defineNuxtComponent({
 
                     } else {
                         
-                        // Format the strin
+                        // Format the string
                         //      Note: The `#slotNames`s of the rendered slots need to match with `{ format_specifiers }` inside the text content - then stringf_getArray() will replace the { format_specifier } with the rendered VNodes from the slot. If feel like this is a bit confusing/obfuscated.
                         const stringfArray: (string | vue.VNode[])[] = stringf_getArray(nodeText, renderedFormatSpecifierSlots);
                         
@@ -211,8 +389,29 @@ export default defineNuxtComponent({
                     //      This validation doesn't make sense after moving from DOMParser -> node-html-parser.
                     if (false) {  console.assert((rootNode.tagName) && (rootNode.tagName === rootNode.nodeName), `Our markdown renderer outputted an HTMLElement with an unhandled nodeName: ${rootNode.nodeName}. The nodeName does not match the HTML tag which we don't expect.`); }
                     
+                    // Get the HTML attributes
+                    //      Discussion:
+                    //      -  (Last Update: 2024) the HTML markup in the format strings we pass to <StringF> always comes from a markdown parser. The only time that this HTML contains attributes is for [the](links) I think.
+                    //         Copying over the attributes might increase the potential to be hacked. We should only use `StringF` with trusted format strings or we could perhaps clean the HTML of javascript and stuff to be safe (I think there's node packages for that).
+                    //      - (Last Update: Sep 2024) Using rootNode.rawTagName since the non-raw tagName is all caps. I think that works for the most part, but I saw it cause a couple strange hydration-mismatch warnings all over the project. Specifically I saw it breaks <br> tags.
+                    //          It took me like 1.5 days to figure this out. I'm so relieved and happy that I finally did. Nuxt error messages are crazy. 
+                    //          Here's an example of a warning that was caused by this:
+                    //              ```
+                    //              [Vue warn]: Hydration node mismatch:
+                    //              - rendered on server: 
+                    //              ""
+                    //              "
+                    //              - expected on client:"
+                    //              Symbol(v-txt) 
+                    //              ```
+                    //          The only way I could figure it out in the end is by making a new nuxt project to minimally reproduce one of the hydration mismatch warnings.
+                    //          (Sidenote: The rootNode.tagName being all-caps might be because we turn off `lowerCaseTagName:` on the NodeHTMLParser further up.)
+
+                    const vueProps = rootNode.attributes;
+                    const tagName = rootNode.rawTagName; 
+
                     // Render HTML element to VNode
-                    result = vue.h(rootNode.tagName, vueProps, childVNodes);
+                    result = vue.h(tagName, vueProps, childVNodes);
                 } else {
                     console.assert(false, `Found node of unexpected type: ${typeof rootNode}`);
                 }
@@ -246,11 +445,30 @@ export default defineNuxtComponent({
             const result = vue.h(vue.Fragment, props, formatTreeChildrenAsVNodes); // vue.Fragment explanation: https://v3-migration.vuejs.org/new/fragments.html
 
             // Benchmark
-            console.timeEnd('StringFRendering');
+            //  Results: I've seen the overall time spent rendering <StringF> components during page load around 5ms - 20ms. It's more than fast enough, I think.
+            const tsEnd = performance.now();
+            const elapsedTime = tsEnd - tsStart;
+            totalRenderingTime += elapsedTime;
+            
+            // Log Benchmark
+            // console.log(`StringFRendering: ${elapsedTime.toFixed(2)} ms, total StringF rendering time: ${totalRenderingTime.toFixed(2)} ms`);
+
+            // TEST
+            // return createTextVNode(format);
+            // if (format.includes('To add an action to your mouse:')) {
+            //     console.log(`FOUND ITTT`);
+            // }
+
+            // Log
+            // getInnerHTMLWithServerRenderer(result).then((innerHTML) => {
+            //     console.log(`<StringF> rendered VNodes with server-rendered innerHTML:\n\n${innerHTML}\n`);
+            // });
 
             // Return
             return result;
         }
+
+
     }
 })
 function getPlaintextSlotContent(slotGetterFn: () => vue.VNode[]): string {
@@ -283,7 +501,7 @@ function getPlaintextSlotContent(slotGetterFn: () => vue.VNode[]): string {
             if (domElement && domElement instanceof Element) {
                 result += domElement.innerHTML
             } else {
-                console.assert(false, `Not sure this can happen. Reviewwww the code.`)
+                console.assert(true, `Not sure this can happen. Reviewwww the code.`)
             }
         }
     }
@@ -302,11 +520,11 @@ OLD STUFF
 
 
 // MFLocalizedStringNode
-//      This was supposed to be a replacement for ```{{ mdRender(MFLocalizedString()) }}```
-//      that lets us write multiline uiStrings more easily. 
-//      But we can just use `template-literals` to nicely write a multiline string literal and pass it to the MFLocalizedString() js function instead.
+//      This was supposed to be a replacement for ```{{ mdRender(MFLocalizedString()) }}``` (which we'd pass into the default slot of <StringF> as a format string.)
+//      The goal was to let us write multiline uiStrings more easily, by writing the UIStrings directly into the components slot, instead of wrapping the UIStrings in a {{ "js string" }} and passing that into the slot.
+//      But then I remembered, that we can just use `template-literals` to nicely write a multiline string literal and pass it to the MFLocalizedString() js function instead.
 //      Also using this requires us to disable whitespace stripping in the vite compiler settings, which lead to weird warnings in the browser console. 
-//      So using {{ MFLoclizedString() }} is just better.
+//      So using {{ MFLocalizedStringggg() }} is just better.
 
 // const MFLocalizedStringNode = defineNuxtComponent({
 

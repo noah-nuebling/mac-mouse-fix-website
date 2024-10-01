@@ -2,13 +2,38 @@
   "sourceLanguage" : "en",
   "strings" : {
     "1: navbar.title" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : ""
+          }
+        }
+      }
     },
     "2: navbar.links.overview" : {
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Overview"
+          }
+        }
+      }
     },
     "3: navbar.links.github" : {
-      "extractionState" : "manual"
+      "comment" : "The 'navbar' or 'navigation bar' is the section at the top of the website that stays put when you scroll down and shows a bunch of useful links to the user.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "More on GitHub"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
