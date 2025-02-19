@@ -179,16 +179,6 @@ function getUIStrings(quote, localeCode) {
 
 const quotes = [ // QuoteData objects
 
-  new QuoteData({
-    englishQuote: "Among all apps that try to fix this problem, this one is undoubtly the best!",
-    quoteKey: "quotes.0",
-    originalLanguage: 'en',
-    name: "tomatsaev",
-    source: QuoteSource.GitHub,
-    link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/34',
-    permission: PermissionToShare.None,
-    weight: 101,
-  }),
   new QuoteData ({
     englishQuote: "Among all apps that try to fix this problem, this one is undoubtly the best!",
     quoteKey: "quotes.0",
@@ -690,6 +680,18 @@ const quotes = [ // QuoteData objects
     permission: PermissionToShare.Unrequested,
     weight: 0,
   }),
+  new QuoteData ({
+    englishQuote: "Input devices are important. You fixed it. Makes all the difference. ❤️ from Sweden.", // TODO: Translate and request this one
+    quoteKey: "quotes.52",
+    originalLanguage: 'en',
+    name: "Stefan",             /* Note: Maybe it's better not to include their last names – even if it's only in the source – before requesting permission to share. */
+    source: QuoteSource.Email,
+    link: 'message:<367F5FF6-F2F1-45AB-8AB5-CEC419B08A2F@live.com>',
+    permission: PermissionToShare.Unrequested,
+    weight: 0,
+  }),
+
+
   // vvv 50 and 51 don't feel right to share I think.
   // new QuoteData ({
   //   englishQuote: "Noah you made my cheap mouse MAGICal without buying APPLE's Magic Mouse!!!! Congratz", // TODO: Translate and request this one
