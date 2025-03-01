@@ -10,6 +10,8 @@ export { QuoteSource, PermissionToShare, QuoteData, getUIStrings, quoteSourceIsP
 
 /* Define Quote types and helper functions */
 
+const inactive = (...items) => []; // General helper function for deactivating elements in an array literal. Use like this: ...inactive(element1, element2).
+
 const QuoteSource = {
   // (string equivalents are localization keys)
   Email             : 'quotes.source.email',
@@ -680,6 +682,31 @@ const quotes = [ // QuoteData objects
     permission: PermissionToShare.Unrequested,
     weight: 0,
   }),
+
+  ...inactive(
+    // vvv 50 and 51 don't feel right to share I think.
+    new QuoteData ({
+      englishQuote: "Noah you made my cheap mouse MAGICal without buying APPLE's Magic Mouse!!!! Congratz", // TODO: Translate and request this one
+      quoteKey: "quotes.50",
+      originalLanguage: 'en',
+      name: "Periklis Petridis",
+      source: QuoteSource.Acknowledgements,
+      link: 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors',
+      permission: PermissionToShare.None,
+      weight: 0,
+    }),
+    new QuoteData ({
+      englishQuote: "This beautiful piece of software turned a cheap mouse into a great mouse, which I even started preferring over my MX Master. Thank you Noah and keep making awesome stuff! Much love, Markus ❤️", // TODO: Translate and request this one
+      quoteKey: "quotes.51",
+      originalLanguage: 'en',
+      name: "Markus Leonhard",
+      source: QuoteSource.Acknowledgements,
+      link: 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors',
+      permission: PermissionToShare.None,
+      weight: 0,
+    })
+  ),
+
   new QuoteData ({
     englishQuote: "Input devices are important. You fixed it. Makes all the difference. ❤️ from Sweden.", // TODO: Translate and request this one
     quoteKey: "quotes.52",
@@ -690,30 +717,16 @@ const quotes = [ // QuoteData objects
     permission: PermissionToShare.Unrequested,
     weight: 0,
   }),
-
-
-  // vvv 50 and 51 don't feel right to share I think.
-  // new QuoteData ({
-  //   englishQuote: "Noah you made my cheap mouse MAGICal without buying APPLE's Magic Mouse!!!! Congratz", // TODO: Translate and request this one
-  //   quoteKey: "quotes.50",
-  //   originalLanguage: 'en',
-  //   name: "Periklis Petridis",
-  //   source: QuoteSource.Acknowledgements,
-  //   link: 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors',
-  //   permission: PermissionToShare.None,
-  //   weight: 0,
-  // }),
-  // new QuoteData ({
-  //   englishQuote: "This beautiful piece of software turned a cheap mouse into a great mouse, which I even started preferring over my MX Master. Thank you Noah and keep making awesome stuff! Much love, Markus ❤️", // TODO: Translate and request this one
-  //   quoteKey: "quotes.51",
-  //   originalLanguage: 'en',
-  //   name: "Markus Leonhard",
-  //   source: QuoteSource.Acknowledgements,
-  //   link: 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors',
-  //   permission: PermissionToShare.None,
-  //   weight: 0,
-  // }),
-  
+  new QuoteData ({
+    englishQuote: "AWESOME SHIT !!!! Greetings from Granada Spain, keeping it simple, cheap, dope and nice.", // TODO: Translate and request this one
+    quoteKey: "quotes.53",
+    originalLanguage: 'en',
+    name: "Alfonso",
+    source: QuoteSource.Email,
+    link: 'message:<0E9E6E86-0284-42DA-9A6B-753A2918EDB2@gmail.com>',
+    permission: PermissionToShare.Unrequested,
+    weight: 0,
+  }),
 ]
 
 /*
