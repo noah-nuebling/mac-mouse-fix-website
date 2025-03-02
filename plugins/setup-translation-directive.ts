@@ -27,7 +27,7 @@ export default defineNuxtPlugin((app) => {
     app.vueApp.directive('translate', {
       mounted (el: HTMLElement, binding, vnode, prevVnode) {
 
-        el.innerHTML = "don't use v-translate" // mdrf(MFLocalizedString(binding.value, ''))
+        el.innerHTML = "don't use v-translate" // mdrf(MFLocalizedString(...))
       },
     })
 

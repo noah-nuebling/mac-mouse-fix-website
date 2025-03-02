@@ -1,6 +1,6 @@
 <!-- 
 
-This is unused. Replaced by SlotStringFOld2.ts
+This is unused. Replaced by SlotStringFOld2.ts, which was replaced by StringF.ts
     This implementation was written with the help of ChatGPT and Claude and it was just hacky and bad and didn't support reactivity.
     The new implementation was written with proper Vue integration, and based on the vue i18n source code. That was kinda hard but still took less time than I spent on this.
 
@@ -16,24 +16,24 @@ Vue-slot based string-formatting.
             from the
                 slot-based string-formatting 
             which <i18n-t> does all-in-one.
-            That way we can neatly reuse our MFLocalizedString(<key>, <localizerHint>) function and pass its result to <SlotStringF>.
+            That way we can neatly reuse our MFLocalizedString(<englishUIString>, <key>, <localizerHint>) function and pass its result to <SlotStringFOld>.
             Which in turn lets us easily regex the source code for MFLocalizedString() to find all localizedStringKeys used in the source code.
 
     Discussion:
-        If this makes trouble we could go back to using <i18n-t> and creata a new, nicely regexable function MFLocalizedStringKey(<key>, <localizerHint>) 
+        If this makes trouble we could go back to using <i18n-t> and creata a new, nicely regexable function MFLocalizedString(<englishUIString>, <key>, <localizerHint>) 
             which just returns the key that it is passed. We could pass its return to <i18n-t> and that should work. 
             That approach should be much simpler than this.
 
     Functionality:
 
         Overview:
-            The component renders a an html element with a specific 'tag', 'class' and an 'innerHTML' string. The innerHTML string can contain {format_specifiers} which will be replaced by the content of the vue-slots passed into the <SlotStringF> component.
+            The component renders a an html element with a specific 'tag', 'class' and an 'innerHTML' string. The innerHTML string can contain {format_specifiers} which will be replaced by the content of the vue-slots passed into the <SlotStringFOld> component.
 
         Example 1: 
 
             Usage:
 
-                <SlotStringF    
+                <SlotStringFOld    
                     root-tag="p" 
                     root-class="bg-blue-500" 
                     html-format="Some <strong>html<strong> text with a vue component: {vue_component_placeholder} as well!"
@@ -41,7 +41,7 @@ Vue-slot based string-formatting.
                     <template #vue_component_placeholder>
                         <SomeAwesomeVueComponent/>
                     </template>
-                </SlotStringF>
+                </SlotStringFOld>
             
             This would render into the DOM as:
 

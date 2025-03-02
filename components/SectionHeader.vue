@@ -5,7 +5,7 @@
     <div class="section-title h-full flex items-center mt-[45vh]">
       <h2 class="fadeeexxx text-center whitespace-pre-wrap xs:text-[3.15rem] sm:text-[3.5rem] md:text-[5.5rem] text-[6rem] font-[700] leading-[1.05] tracking-[-0.15rem] text-gray-800">
         <slot name="title"></slot>
-        <!-- <SlotStringF>
+        <!-- <StringF>
           {{ title }}
           <template #accent v-if="titleAccent"> 
             <span :class="['', titleAccentClass]">{{ titleAccent }}</span> 
@@ -13,7 +13,7 @@
           <template #accent2 v-if="titleAccent2"> 
             <span :class="['', titleAccent2Class]">{{ titleAccent2 }}</span> 
           </template>
-        </SlotStringF> -->
+        </StringF> -->
       </h2>
     </div>
 

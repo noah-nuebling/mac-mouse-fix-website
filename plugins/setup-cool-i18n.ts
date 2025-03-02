@@ -144,16 +144,20 @@ export default defineNuxtPlugin(app => {
     })
     renderer.use(openLinkInNewTab)
     
-    /* Define mdrf (MarkDown Render and Format) (commonly pronounced emdörf)
-        Convenience function for rendering markdown markup to html while also inserting formats into the string.
+    /* mdrf 
+        (MarkDown Render and Format) (commonly pronounced emdörf)
+         Convenience function for rendering markdown markup to html string while also inserting formats into the string.
 
         Discussion:
         - I think we should remove this and just use stringf() and md.render() explicitly. That's cleaner/clearer.
+            - Update [Feb 2025]: While it might be 'cleaner', especially since we don't even use the string formatting in most uses of mdrf(), it also doesn't matter. The refactor wouldn't be worth it.
+        - [Feb 2025] In many places we're passing localized strings into mdrf() even though they have no markdown markup. That's unnecessary, but also unproblematic, so we won't change it.
         - Does this belong into coolI18n?: This isn't super directly related to localization, but we have no reason to render markdown outside of localized strings, 
             since could just write HTML instead. So I think we'll only ever use this in conjuction with MFLocalizedString. 
             
         On usage of stringf(): 
-            $i18n.t() also supports the same format specifier syntax we implemented for stringf, so we could always replace it with $i18n.t() */
+            $i18n.t() also supports the same format specifier syntax we implemented for stringf, so we could always replace it with $i18n.t() 
+    */
     
     function mdrf(text: string, replacements?: Object, inline: boolean = true): string {
         

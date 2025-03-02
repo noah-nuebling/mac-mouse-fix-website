@@ -22,7 +22,7 @@ Vue-slot based string-formatting.
             from the
                 slot-based string-formatting 
             which <i18n-t> does all-in-one.
-            That way we can neatly reuse our MFLocalizedString(<key>, <localizerHint>) function and pass its result to <SlotStringF>.
+            That way we can neatly reuse our MFLocalizedString(<englishUIString>, <key>, <localizerHint>) function and pass its result to <SlotStringFOld2>.
             Which in turn lets us easily regex the source code for MFLocalizedString() to find all localizedStringKeys used in the source code.
 
             Also, I guess it was fun to implement some 'low-level' Vue stuff. (And I think this API is more modular and less complicated than <i18n-t>)
@@ -46,11 +46,11 @@ Vue-slot based string-formatting.
             Usage:
 
                 <p class='bg-blue-500'>
-                    <SlotStringF format="Some text with a vue component: {vue_comppp} in the middle!">
+                    <SlotStringFOld2 format="Some text with a vue component: {vue_comppp} in the middle!">
                         <template #vue_comppp>
                             <SomeAwesomeVueComponent/>
                         </template>
-                    </SlotStringF>
+                    </SlotStringFOld2>
                 </p>
             
             This would render into the DOM as:
@@ -70,7 +70,7 @@ export default defineComponent({
 
     // Implementation mostly copied from vue's <i18n-t> source code (GitHub: vue-i18n/packages/vue-i18n-core/src/components/Translation.ts)
 
-    name: 'SlotStringF',
+    name: 'SlotStringFOld2',
     setup(props: any, context: any): any {
 
         const { slots, attrs } = context
@@ -140,8 +140,8 @@ export default defineComponent({
             let tag = Fragment;
 
             // Render
-            //  Note: I think passing `assignedAttrs` to h() makes it so the HTML attributes (such as class="...") that the parent assigned to <SlotStringF> 
-            //      are transferred to the Root HTML node that <SlotStringF> renders into the HTML DOM. Since we use a 'Fragment' VNode (as of 13.09.2024), 
+            //  Note: I think passing `assignedAttrs` to h() makes it so the HTML attributes (such as class="...") that the parent assigned to <SlotStringFOld2> 
+            //      are transferred to the Root HTML node that <SlotStringFOld2> renders into the HTML DOM. Since we use a 'Fragment' VNode (as of 13.09.2024), 
             //      which doesn't render *anything* into the HTML DOM, using assignedAttrs might not do anything.
             const result: VNode = h(tag, assignedAttrs, cleanChildNodes);
 

@@ -15,6 +15,7 @@
 <script setup lang="ts">
 
 // Define props
+//  Note: [Feb 2025] we moved most components over to receiving ui strings via slots instead of props, but felt it wasn't worth the effort here. See 59bd002862af20c53684f10e7f5dd2de40945121.
 const props = defineProps({
   title: String,
   body: String,

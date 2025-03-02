@@ -27,13 +27,9 @@
         </div>
 
 
-        <NuxtLink :to="localePath('/')" class="sm:hidden">{{ MFLocalizedString(`Overview`, 'navbar.links.overview', '') }}</NuxtLink>
+        <NuxtLink :to="localePath('/')" class="sm:hidden">{{ locstring_link_overview }}</NuxtLink>
         <a href="https://github.com/noah-nuebling/mac-mouse-fix" class="sm:hidden">
-          {{ mdrf(MFLocalizedString(
-            'More on GitHub', 
-            'navbar.links.github', 
-            `The 'navbar' or 'navigation bar' is the section at the top of the website that stays put when you scroll down and shows a bunch of useful links to the user.`
-          )) }}
+          {{ locstring_link_github }}
           <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', global.navbarHasDarkAppearance ? 'invert' : '']">
         </a>
 
@@ -47,14 +43,10 @@
     <div ref="expandingContainer" :class="['overflow-clip h-0 transition-[height] duration-[0.5s]', currentSize <= ResponsiveSize.sm ? '' : 'hidden', isExpanded ? '' : '']">
       <div :class="['sm:flex hidden flex-col items-left gap-[1rem] mx-[3rem] text-[1.1rem] font-[400] tracking-[-0.01em] pb-[1rem]']">
         <hr :class="['border-t-[1px] ', global.navbarHasDarkAppearance ? 'border-white/[0.15]' : 'border-black/[0.1]']">
-        <NuxtLink class="" :to="localePath('/')" >{{ MFLocalizedString(`Overview`, 'navbar.links.overview', '') }}</NuxtLink>
+        <NuxtLink :to="localePath('/')" class="">{{ locstring_link_overview }}</NuxtLink>
         <hr :class="['border-t-[1px] ', global.navbarHasDarkAppearance ? 'border-white/[0.15]' : 'border-black/[0.1]']">
         <a class="" href="https://github.com/noah-nuebling/mac-mouse-fix" >
-          {{ mdrf(MFLocalizedString(
-            'More on GitHub',
-            'navbar.links.github', 
-            `The 'navbar' or 'navigation bar' is the section at the top of the website that stays put when you scroll down and shows a bunch of useful links to the user.`
-            )) }} 
+          {{ locstring_link_github }} 
           <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', global.navbarHasDarkAppearance ? 'invert' : '']">
         </a>
       </div>
@@ -85,6 +77,14 @@ const localePath = useLocalePath()
 const isExpanded = ref(false)
 const expandingContainer = ref<HTMLElement | null>(null)
 const root = ref<HTMLElement | null>(null)
+
+// Extract locstrings that are used multiple times inside <template> into <script>.
+const locstring_link_overview = MFLocalizedString(`Overview`, 'navbar.links.overview', '');
+const locstring_link_github = MFLocalizedString(
+  'More on GitHub', 
+  'navbar.links.github', 
+  `The 'navbar' or 'navigation bar' is the section at the top of the website that stays put when you scroll down and shows a bunch of useful links to the user.`
+)
 
 onMounted(() => {
 

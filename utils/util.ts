@@ -1,32 +1,16 @@
-import { request } from "https"
+// import { request } from "https"
 import { Text } from 'vue'
 import * as vue from 'vue'
-import * as vueCompilerDom from "@vue/compiler-dom"
-import * as NodeHTMLParser from 'node-html-parser'
-import { endianness } from "os"
+// import * as vueCompilerDom from "@vue/compiler-dom"
+// import * as NodeHTMLParser from 'node-html-parser'
+// import { endianness } from "os"
 
-export { trimEmptyLines, plainTextFromVueSlot, removeIndent, createTextVNode, coolCreateStaticVNode, objectDescription, doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo, setResolution, unsetResolution, formatAsMoney, stringf, stringf_getArray}
+export { trimEmptyLines, plainTextFromVueSlot, removeIndent, createTextVNode, objectDescription, doAfterRenderrr, doAfterRender, doBeforeRender, optimizeOnUpdate, everyNth, debouncer, watchProperty, prefersReducedMotion, remInPx, vw, vh, vmin, vmax, resetCSSAnimation, getProps, setProps, roundTo, setResolution, unsetResolution, formatAsMoney, stringf, stringf_getArray}
 
 function createTextVNode(text: string): vue.VNode { 
     // Helper function for creating Vue components from code. (More specifically: <StringF> component.)
     //  Copied from <i18n-t> source code.
     return vue.createVNode(Text, null, text, 0, undefined, undefined);
-}
-function coolCreateStaticVNode(innerHTML: string, rootNodeCount?: number): vue.VNode {
-    
-    if (rootNodeCount === undefined) {
-        if (false) {
-            const mode = (import.meta.client && false) ? 'module' : 'function'
-            rootNodeCount = vueCompilerDom.compile(innerHTML, { mode: mode, whitespace: 'condense' }).ast.children.length; // Not sure how fast this is.
-        } else {
-            rootNodeCount = NodeHTMLParser.parse(innerHTML).childNodes.length; // I think this is abit faster than vueCompilerDom, but still not great.
-        }
-    }
-    const result = vue.createStaticVNode(innerHTML, rootNodeCount);
-
-    console.log(`Created static Vnode with children: ${result.children}, childCount: ${rootNodeCount}`);
-
-    return result;
 }
 
 function plainTextFromVueSlot(slotRenderingFunction: () => VNode[]): string {
@@ -93,8 +77,13 @@ function trimEmptyLines(input: string): string {
 function removeIndent(input: string): string {
 
     // Removes common whitespace prefix on each line of the passed-in string and returns the result.
-    //  Written for custom component rendering and stuff. After turning on whitespace preservation in the vite settings, the vue slot content we're processing in components like SlotStringF strings have linebreaks and indents and stuff that we sometimes need to remove.
-    //      Update: We chose a different approach for <StringF> component and turned off whitespace presevation in Vite, so this is unused now (as of 15.09.2024)
+    //  Written for custom component rendering and stuff. After turning on whitespace preservation in the vite settings, the vue slot content we're processing in components like <StringF> strings have linebreaks and indents and stuff that we sometimes need to remove.
+    //      Update [Feb 2025]: We're now removing the indent in our python script after extracting the englishUIStrings from the MFLocalizedString() invocations 
+    //          This is now unused except for some validation code.
+    //      Old comment (I think outdated as of [Feb 2025])
+    //          Update: We chose a different approach for <StringF> component and turned off whitespace presevation in Vite, so this is unused now (as of 15.09.2024)
+
+    
 
     // Edge-cases
     if (!input || input.length == 0) {
@@ -315,12 +304,6 @@ function objectDescription(value: any, parents: Array<any> = []): string | undef
     //  Use this over JSON.stringify() because that crashes for circular references inside the object.
     //  Credit: ChatGPT
     
-    // Only run on client
-    //    This is for debugging. We don't need to prerender this. So we won't run on the server. (Also there's weird HTMLElement is not defined errors on the server.)
-    if (!import.meta.client) {
-        return undefined
-    }
-    
     // constants
     const ndent = 4;
     const brindent = "\n    ";
@@ -444,7 +427,10 @@ function objectDescription(value: any, parents: Array<any> = []): string | undef
     //  So we implement custom toString stuff here.
     
     if (activateSpecialSerialization) {
-        if (value instanceof HTMLElement) {
+
+        const runningClient = import.meta.client; // Some of the types below like HTMLElement are not available during prerender and will therefore throw an error, which can cause cryptic issues. (I think Vue components will catch the error and just keep going uninitialized as of [Feb 2025] – webdev is crazy man.)
+
+        if (runningClient && value instanceof HTMLElement) {
             // Serialize HTMLElement
             const tagName = value.tagName.toLowerCase();
             const id = value.id ? `#${value.id}` : '';
@@ -456,7 +442,7 @@ function objectDescription(value: any, parents: Array<any> = []): string | undef
             const attrString = attributes ? ` ${attributes}` : '';
             const content = escapeString(value.innerHTML.trim());
             result = `<${tagName}${addBrindent(id)}${addBrindent(classList)}${addBrindent(attrString)}${br}>${br}${addIndent(content)}${br}</${tagName}>`;
-        } else if (value instanceof DOMRect) {
+        } else if (runningClient && value instanceof DOMRect) {
             // Serialize DOMRect
             const v = value;
             result = `(x: ${v.x}, y: ${v.y}, width: ${v.width}, height: ${v.height})`;

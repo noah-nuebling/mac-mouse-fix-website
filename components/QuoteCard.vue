@@ -55,7 +55,8 @@ import { type QuoteData, getUIStrings, quoteSourceIsPublic } from '~/utils/quote
 /* Define props 
   Notes:
   - Using "pure type annotations" instead of "object declaration syntax", because there you need to pass in the constructor of a type, and QuoteData doesn't have a constructor. See https://vuejs.org/guide/components/props.html
-  */
+  - [Feb 2025] We moved most components over to receiving UI strings via slots instead of props, but felt it wasn't worth it here. See 59bd002862af20c53684f10e7f5dd2de40945121. 
+*/
 
 var props = defineProps({
   quote: Object as () => QuoteData,
