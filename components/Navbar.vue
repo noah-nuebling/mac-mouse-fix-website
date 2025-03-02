@@ -16,7 +16,7 @@
         <!-- <div class=" relative wh-[2.6rem] translate-y-[-0.025rem] mr-[2rem]">
           <img ref="mmfIcon" :src="mmfIconImagePath" alt="Mac Mouse Fix Icon" :class="['absolute inset-0 w-full h-full scale-[1.2]']">
         </div> -->
-        <NuxtLink :to="localePath('/')" class="mmf-name font-display font-[600] sm:text-[1.75rem] text-[1.75rem] tracking-[-0.00em] leading-[1.15em]">{{ MFLocalizedString(``, 'navbar.title', '') }}</NuxtLink>
+        <NuxtLink :to="localePath('/')" class="mmf-name font-display font-[600] sm:text-[1.75rem] text-[1.75rem] tracking-[-0.00em] leading-[1.15em]">{{ MFLocalizedString(`Mac Mouse Fix`, 'navbar.title', '') }}</NuxtLink>
       </div>
 
       <!-- Right-aligned -->

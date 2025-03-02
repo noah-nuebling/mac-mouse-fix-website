@@ -12,17 +12,17 @@ export { QuoteSource, PermissionToShare, QuoteData, getUIStrings, quoteSourceIsP
 
 const inactive = (...items) => []; // General helper function for deactivating elements in an array literal. Use like this: ...inactive(element1, element2).
 
-const QuoteSource = {
-  // (string equivalents are localization keys)
-  Email             : 'quotes.source.email',
-  PayPalDonation    : 'quotes.source.payPalDonation',
-  GitHub            : 'quotes.source.gitHub',
-  StackExchange     : 'quotes.source.stackExchange',
-  Reddit            : 'quotes.source.reddit',
-  Lifehacker        : 'quotes.source.lifehacker',
-  YoutubeComment    : 'quotes.source.youtubeComment',
-  Acknowledgements  : 'quotes.source.acknowledgements',
-}
+const QuoteSource = Object.freeze ({
+  Email            : Symbol('Email'),
+  PayPalDonation   : Symbol('PayPalDonation'),
+  GitHub           : Symbol('GitHub'),
+  StackExchange    : Symbol('StackExchange'),
+  Reddit           : Symbol('Reddit'),
+  Lifehacker       : Symbol('Lifehacker'),
+  YoutubeComment   : Symbol('YoutubeComment'),
+  Acknowledgements : Symbol('Acknowledgements'),
+})
+
 function quoteSourceIsPublic(quoteSource) {
 
   if (!Object.values(QuoteSource).includes(quoteSource)) {
@@ -142,7 +142,7 @@ function getUIStrings(quote, localeCode) {
   /* Setup */
   //  Note: We use _localizedString instead of MFLocalizedString, since the quotes are extracted from the source code through quotestool.mjs instead of through regexing over the source code. (MFLocalizedString is what we regex for.)
   const app = useNuxtApp();
-  const { $coolI18n: { mdrf, _localizedString } } = app;
+  const { $coolI18n: { mdrf, _localizedString, MFLocalizedString } } = app;
 
   /* Get quote ui string */
 
@@ -162,14 +162,33 @@ function getUIStrings(quote, localeCode) {
     isUsingTranslation = false;
   }
 
-  /* Get quote SOURCE ui string */
-
-  // Get quote source string from stringsfile, insert name, and apply markdown
-  var uiSource = mdrf(_localizedString(quote.source, localeCode), { name: quote.name }, true);
-
-  // Add disclaimer
+  /* 
+    Get quote SOURCE ui string 
+    Notes: 
+    - Is it a problem that we don't pass MFLocalizedString() the localeCode like we do for _localizedString() ? 
+  */
+  
+  var uiSource
+  switch (quote.source) {
+          case QuoteSource.Email             : uiSource = mdrf(MFLocalizedString('**{ name }** in an email',                   
+                                                                                  'quotes.source.email',             
+                                                                                  'The "quote.source.[...]" strings are displayed directly below the quotes. "{ name }" is replaced with the name of the author of the quote.'), 
+                                                                                  { name: quote.name }, true)
+  break;  case QuoteSource.PayPalDonation    : uiSource = mdrf(MFLocalizedString('**{ name }** in a PayPal donation message',  'quotes.source.payPalDonation',    ''), { name: quote.name }, true)
+  break;  case QuoteSource.GitHub            : uiSource = mdrf(MFLocalizedString('**{ name }** on GitHub',                     'quotes.source.gitHub',            ''), { name: quote.name }, true)
+  break;  case QuoteSource.StackExchange     : uiSource = mdrf(MFLocalizedString('**{ name }** on Stack Exchange',             'quotes.source.stackExchange',     ''), { name: quote.name }, true)
+  break;  case QuoteSource.Reddit            : uiSource = mdrf(MFLocalizedString('**{ name }** on Reddit',                     'quotes.source.reddit',            ''), { name: quote.name }, true)
+  break;  case QuoteSource.Lifehacker        : uiSource = mdrf(MFLocalizedString('**{ name }** in a LifeHacker article',       'quotes.source.lifehacker',        ''), { name: quote.name }, true)
+  break;  case QuoteSource.YoutubeComment    : uiSource = mdrf(MFLocalizedString('**{ name }** in a YouTube comment',          'quotes.source.youtubeComment',    ''), { name: quote.name }, true)
+  break;  case QuoteSource.Acknowledgements  : uiSource = mdrf(MFLocalizedString('**{ name }** in a Gumroad donation message', 'quotes.source.acknowledgements',  ''), { name: quote.name }, true)
+  }
+  // Add disclaimer 
   if (isUsingTranslation) {
-    const disclaimer = _localizedString(`quotes.translation-disclaimer.${ quote.originalLanguage }`, localeCode);
+    var disclaimer;
+    switch (quote.originalLanguage) {
+            case 'en': disclaimer = MFLocalizedString('Translated from English', 'quotes.translation-disclaimer.en', 'This is shown below translated quotes that were originally in English')
+    break;  case 'zh': disclaimer = MFLocalizedString('Translated from Chinese', 'quotes.translation-disclaimer.zh', 'This is shown below translated quotes that were originally in Chinese')
+    }
     uiSource = `${ uiSource } (${ disclaimer })`;
   }
 
@@ -684,7 +703,7 @@ const quotes = [ // QuoteData objects
   }),
 
   ...inactive(
-    // vvv 50 and 51 don't feel right to share I think.
+    // vvv 50 and 51 don't feel right to share I think. I think the Acknowledgements should just be a little secret not used for marketing.
     new QuoteData ({
       englishQuote: "Noah you made my cheap mouse MAGICal without buying APPLE's Magic Mouse!!!! Congratz", // TODO: Translate and request this one
       quoteKey: "quotes.50",

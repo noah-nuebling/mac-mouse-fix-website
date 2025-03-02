@@ -71,8 +71,8 @@ var props = defineProps({
 // const quoteElement = ref<HTMLElement | null>(null)
 
 /* State and vars */
-// const doGlow = ref(true) // Does this have to be `ref()` ed for reactivity to work?
-var scrollTrigger: ScrollTrigger | null = null
+const doGlow = ref(false) // Does this have to be `ref()` ed for reactivity to work?
+if (false) var scrollTrigger: ScrollTrigger | null = null
 const sourceIsPublic = props.quote ? quoteSourceIsPublic(props.quote.source) : false
 const uiStrings = ref<{ quote: string|null, source: string } | null>(null);
 

@@ -594,6 +594,119 @@
           }
         }
       }
+    },
+    "quotes.source.email" : {
+      "comment" : "The \"quote.source.[...]\" strings are displayed directly below the quotes. \"{ name }\" is replaced with the name of the author of the quote.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{ name }** in an email"
+          }
+        }
+      }
+    },
+    "quotes.source.payPalDonation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{ name }** in a PayPal donation message"
+          }
+        }
+      }
+    },
+    "quotes.source.gitHub" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{ name }** on GitHub"
+          }
+        }
+      }
+    },
+    "quotes.source.stackExchange" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{ name }** on Stack Exchange"
+          }
+        }
+      }
+    },
+    "quotes.source.reddit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{ name }** on Reddit"
+          }
+        }
+      }
+    },
+    "quotes.source.lifehacker" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{ name }** in a LifeHacker article"
+          }
+        }
+      }
+    },
+    "quotes.source.youtubeComment" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{ name }** in a YouTube comment"
+          }
+        }
+      }
+    },
+    "quotes.source.acknowledgements" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{ name }** in a Gumroad donation message"
+          }
+        }
+      }
+    },
+    "quotes.translation-disclaimer.en" : {
+      "comment" : "This is shown below translated quotes that were originally in English",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Translated from English"
+          }
+        }
+      }
+    },
+    "quotes.translation-disclaimer.zh" : {
+      "comment" : "This is shown below translated quotes that were originally in Chinese",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Translated from Chinese"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
