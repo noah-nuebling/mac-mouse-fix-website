@@ -5,10 +5,16 @@
       "comment" : "Note: Label for a button that takes you from the 'page not found' page back to the front page.",
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Startseite"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Front Page"
           }
         }
       }
@@ -16,10 +22,16 @@
     "2: 404.title" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Die gewünschte Seite wurde nicht gefunden."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The page you’re looking for can’t be found."
           }
         }
       }

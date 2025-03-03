@@ -801,13 +801,13 @@
               
               <NormalFeatureCard class="">
                 <template #title>
-                  <StringF>{{ mdrf(MFLocalizedString(`Free for **{ trialDays } Days**`, 'benefits.pricing.free-days.title', ''), dynamicUIStrings) }}</StringF>
+                  <StringF>{{ mdrf(MFLocalizedString(`Free for **{trialDays} Days**`, 'benefits.pricing.free-days.title', ''), dynamicUIStrings) }}</StringF>
                 </template>
                 <template #body>
                   <StringF>
                     {{ mdrf(MFLocalizedString(
                       `
-                      Mac Mouse Fix is free for { trialDays } days. Your **free days are only used up when you actually use the app**. That way you can get the most out of your free days - without any stress.
+                      Mac Mouse Fix is free for {trialDays} days. Your **free days are only used up when you actually use the app**. That way you can get the most out of your free days - without any stress.
                       `,
                       'benefits.pricing.free-days.body', 
                       ''

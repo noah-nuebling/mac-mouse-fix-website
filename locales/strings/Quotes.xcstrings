@@ -636,31 +636,31 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**{ name }** in einer Gumroad-Spendennachricht"
+            "value" : "**{name}** in einer Gumroad-Spendennachricht"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "**{ name }** in a Gumroad donation message"
+            "value" : "**{name}** in a Gumroad donation message"
           }
         }
       }
     },
     "quotes.source.email" : {
-      "comment" : "The \"quote.source.[...]\" strings are displayed directly below the quotes. \"{ name }\" is replaced with the name of the author of the quote.",
+      "comment" : "The \"quote.source.[...]\" strings are displayed directly below the quotes. \"{name}\" is replaced with the name of the author of the quote.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**{ name }** in einer E-Mail"
+            "value" : "**{name}** in einer E-Mail"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "**{ name }** in an email"
+            "value" : "**{name}** in an email"
           }
         }
       }
@@ -671,13 +671,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**{ name }** auf GitHub"
+            "value" : "**{name}** auf GitHub"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "**{ name }** on GitHub"
+            "value" : "**{name}** on GitHub"
           }
         }
       }
@@ -688,13 +688,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**{ name }** in einem LifeHacker-Artikel"
+            "value" : "**{name}** in einem LifeHacker-Artikel"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "**{ name }** in a LifeHacker article"
+            "value" : "**{name}** in a LifeHacker article"
           }
         }
       }
@@ -705,13 +705,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**{ name }** in einer PayPal-Spendennachricht"
+            "value" : "**{name}** in einer PayPal-Spendennachricht"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "**{ name }** in a PayPal donation message"
+            "value" : "**{name}** in a PayPal donation message"
           }
         }
       }
@@ -722,13 +722,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**{ name }** auf Reddit"
+            "value" : "**{name}** auf Reddit"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "**{ name }** on Reddit"
+            "value" : "**{name}** on Reddit"
           }
         }
       }
@@ -739,13 +739,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**{ name }** auf Stack Exchange"
+            "value" : "**{name}** auf Stack Exchange"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "**{ name }** on Stack Exchange"
+            "value" : "**{name}** on Stack Exchange"
           }
         }
       }
@@ -756,13 +756,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**{ name }** in einem YouTube-Kommentar"
+            "value" : "**{name}** in einem YouTube-Kommentar"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "**{ name }** in a YouTube comment"
+            "value" : "**{name}** in a YouTube comment"
           }
         }
       }

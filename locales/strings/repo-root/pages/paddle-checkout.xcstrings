@@ -2,6 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "01: checkout-header.back-button" : {
+      "comment" : "The checkout page is still work-in-progress so you don't have to translate it, yet.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {

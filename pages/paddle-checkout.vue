@@ -120,7 +120,7 @@
             <p v-html="mdrf(MFLocalizedString(
               `Your Message`, 
               'checkout-extra.message.title', 
-              `The checkout page is still work-in-progress so we don't have to translate it, yet`
+              ``
               ))" 
               class="text-[1.2em] font-[600] mb-[0.5em] mt-[1em]">
             </p>

@@ -1088,13 +1088,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**{ trialDays } Tage** kostenlos"
+            "value" : "**{trialDays} Tage** kostenlos"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Free for **{ trialDays } Days**"
+            "value" : "Free for **{trialDays} Days**"
           }
         }
       }
@@ -1105,13 +1105,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac Mouse Fix ist { trialDays } Tage lang kostenlos. Deine **kostenlosen Tage werden nur verbraucht, wenn du die App tatsächlich benutzt**. So kannst du alles aus deinen kostenlosen Tagen herausholen - Ganz ohne Stress."
+            "value" : "Mac Mouse Fix ist {trialDays} Tage lang kostenlos. Deine **kostenlosen Tage werden nur verbraucht, wenn du die App tatsächlich benutzt**. So kannst du alles aus deinen kostenlosen Tagen herausholen - Ganz ohne Stress."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Mac Mouse Fix is free for { trialDays } days. Your **free days are only used up when you actually use the app**. That way you can get the most out of your free days - without any stress."
+            "value" : "Mac Mouse Fix is free for {trialDays} days. Your **free days are only used up when you actually use the app**. That way you can get the most out of your free days - without any stress."
           }
         }
       }
