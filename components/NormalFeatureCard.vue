@@ -32,7 +32,11 @@
           <!-- Note: The play.circle and stop.circle images have blue-500 color. we use the --accent-rotate var to change the color. -->
           <span :class="['', isExpanded ? 'opacity-0 absolute' : '']">
             <slot name="expandButtonText">
-              {{ mdrf(MFLocalizedString(`See It in Action`, 'feature-card.expand-button', '')) }}
+              {{ mdrf(MFLocalizedString(
+                `See It in Action`, 
+                'feature-card.expand-button', 
+                `Cards describing specific features of MMF can be expanded to reveal a video-demo! This is the label for the button that expands a card and lets the user see the feature described in the card 'in action'.`
+              )) }}
             </slot>
             <span class="inline-space-[0]"/><img src="~/assets/img/play.circle-blue@8x.png" alt="" class="ml-[0.4em] translate-x-[0em] inline wh-[1.00em] align-[-0.2em] filter hue-rotate-[var(--accent-rotate)]">
           </span>

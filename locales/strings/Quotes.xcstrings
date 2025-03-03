@@ -19,6 +19,132 @@
         }
       }
     },
+    "quotes.2" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funktioniert wie ein Zauber und ist kinderleicht einzurichten!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Works like a charm and it's easy to set up!"
+          }
+        }
+      }
+    },
+    "quotes.3" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dies ist die beste Maussoftware für den Mac."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This is the best mouse software on the Mac."
+          }
+        }
+      }
+    },
+    "quotes.4" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vielen Dank für die fantastische App Mac Mouse Fix. Genau das, was ich gebraucht habe, ohne Abonnement und ohne unnötigen Ballast. Vielen, vielen Dank!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!"
+          }
+        }
+      }
+    },
+    "quotes.5" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix ist magisch. Ich bin absolut hin und weg, wie gut gestaltet und benutzerfreundlich es ist."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is."
+          }
+        }
+      }
+    },
+    "quotes.6" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich kann mir nicht vorstellen, meinen Büro-Mac ohne diese Software zu verwenden. Ein echter Produktivitätsverstärker, gepaart mit meiner Evoluent-Vertikalmaus, für die es keinen Mac-Treiber gibt, wie es ihn für Windows gibt."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows."
+          }
+        }
+      }
+    },
+    "quotes.8" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wahrscheinlich die beste App auf meinem Mac."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Probably the best app on my Mac"
+          }
+        }
+      }
+    },
+    "quotes.9" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine andere ähnliche Software kann konkurrieren."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No other similar utility can compete"
+          }
+        }
+      }
+    },
     "quotes.10" : {
       "comment" : " ",
       "extractionState" : "manual",
@@ -123,24 +249,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "The vertical scroll is just awesome"
-          }
-        }
-      }
-    },
-    "quotes.2" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Funktioniert wie ein Zauber und ist kinderleicht einzurichten!"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Works like a charm and it's easy to set up!"
           }
         }
       }
@@ -325,24 +433,6 @@
         }
       }
     },
-    "quotes.3" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dies ist die beste Maussoftware für den Mac."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "This is the best mouse software on the Mac."
-          }
-        }
-      }
-    },
     "quotes.30" : {
       "comment" : " ",
       "extractionState" : "manual",
@@ -433,24 +523,6 @@
         }
       }
     },
-    "quotes.4" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vielen Dank für die fantastische App Mac Mouse Fix. Genau das, was ich gebraucht habe, ohne Abonnement und ohne unnötigen Ballast. Vielen, vielen Dank!"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!"
-          }
-        }
-      }
-    },
     "quotes.44" : {
       "comment" : " ",
       "extractionState" : "manual",
@@ -523,152 +595,37 @@
         }
       }
     },
-    "quotes.5" : {
-      "comment" : " ",
+    "quotes.see-less" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac Mouse Fix ist magisch. Ich bin absolut hin und weg, wie gut gestaltet und benutzerfreundlich es ist."
+            "value" : "Weniger sehen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is."
+            "value" : "See Less"
           }
         }
       }
     },
-    "quotes.6" : {
-      "comment" : " ",
+    "quotes.see-more" : {
+      "comment" : "Label for a button that lets you see more quotes from Mac Mouse Fix users.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ich kann mir nicht vorstellen, meinen Büro-Mac ohne diese Software zu verwenden. Ein echter Produktivitätsverstärker, gepaart mit meiner Evoluent-Vertikalmaus, für die es keinen Mac-Treiber gibt, wie es ihn für Windows gibt."
+            "value" : "Mehr sehen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows."
-          }
-        }
-      }
-    },
-    "quotes.8" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wahrscheinlich die beste App auf meinem Mac."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Probably the best app on my Mac"
-          }
-        }
-      }
-    },
-    "quotes.9" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keine andere ähnliche Software kann konkurrieren."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "No other similar utility can compete"
-          }
-        }
-      }
-    },
-    "quotes.source.email" : {
-      "comment" : "The \"quote.source.[...]\" strings are displayed directly below the quotes. \"{ name }\" is replaced with the name of the author of the quote.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "**{ name }** in an email"
-          }
-        }
-      }
-    },
-    "quotes.source.payPalDonation" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "**{ name }** in a PayPal donation message"
-          }
-        }
-      }
-    },
-    "quotes.source.gitHub" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "**{ name }** on GitHub"
-          }
-        }
-      }
-    },
-    "quotes.source.stackExchange" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "**{ name }** on Stack Exchange"
-          }
-        }
-      }
-    },
-    "quotes.source.reddit" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "**{ name }** on Reddit"
-          }
-        }
-      }
-    },
-    "quotes.source.lifehacker" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "**{ name }** in a LifeHacker article"
-          }
-        }
-      }
-    },
-    "quotes.source.youtubeComment" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "**{ name }** in a YouTube comment"
+            "value" : "See More"
           }
         }
       }
@@ -676,6 +633,12 @@
     "quotes.source.acknowledgements" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** in einer Gumroad-Spendennachricht"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -684,10 +647,153 @@
         }
       }
     },
+    "quotes.source.email" : {
+      "comment" : "The \"quote.source.[...]\" strings are displayed directly below the quotes. \"{ name }\" is replaced with the name of the author of the quote.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** in einer E-Mail"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{ name }** in an email"
+          }
+        }
+      }
+    },
+    "quotes.source.gitHub" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** auf GitHub"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{ name }** on GitHub"
+          }
+        }
+      }
+    },
+    "quotes.source.lifehacker" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** in einem LifeHacker-Artikel"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{ name }** in a LifeHacker article"
+          }
+        }
+      }
+    },
+    "quotes.source.payPalDonation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** in einer PayPal-Spendennachricht"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{ name }** in a PayPal donation message"
+          }
+        }
+      }
+    },
+    "quotes.source.reddit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** auf Reddit"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{ name }** on Reddit"
+          }
+        }
+      }
+    },
+    "quotes.source.stackExchange" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** auf Stack Exchange"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{ name }** on Stack Exchange"
+          }
+        }
+      }
+    },
+    "quotes.source.youtubeComment" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{ name }** in einem YouTube-Kommentar"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**{ name }** in a YouTube comment"
+          }
+        }
+      }
+    },
+    "quotes.thankyou" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Dankeschön** an alle, die ihre Wertschätzung und Gedanken geteilt haben! Auch an die, die hier nicht aufgeführt sind. Solche Nachrichten zu lesen motiviert mich immer und macht mich ein bisschen glücklicher. **:)**"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "**Thank you** to everyone who shared their appreciation and thoughts! Also to those who aren't listed here. Reading such messages always motivates me and makes me a little happier. **:)**"
+          }
+        }
+      }
+    },
     "quotes.translation-disclaimer.en" : {
       "comment" : "This is shown below translated quotes that were originally in English",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übersetzt aus dem Englischen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -700,6 +806,12 @@
       "comment" : "This is shown below translated quotes that were originally in Chinese",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übersetzt aus dem Chinesischen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",

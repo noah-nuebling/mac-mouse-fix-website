@@ -30,7 +30,7 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		4F09D5DE2C94A346001F8B48 /* locales */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (4F09D5E02C94A373001F8B48 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = locales; sourceTree = "<group>"; };
+		4F09D5DE2C94A346001F8B48 /* locales */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (4F09D5E02C94A373001F8B48 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {localizableAccess.ts = sourcecode.typescript; }; explicitFolders = (); path = locales; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */

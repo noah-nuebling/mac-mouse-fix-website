@@ -21,7 +21,7 @@
       <div class="flex flex-col items-start mt-[5rem]">
 
         <BackButton path="/">
-          {{ mdrf(MFLocalizedString(`Front Page`, 'checkout-header.back-button', '')) }}
+          {{ mdrf(MFLocalizedString(`Front Page`, 'checkout-header.back-button', `The checkout page is still work-in-progress so you don't have to translate it, yet.`)) }}
         </BackButton>
         <!-- <NuxtImg ref="mmfIcon" :src="mmfIconImagePath" sizes="225px" alt="Mac Mouse Fix Icon" :class="['h-[6.5rem] mb-[3rem] mr-[1rem] hidden']"/> --> <!-- Copied this from intro.vue, not sure if good -->
         <p class="xs:text-[2.5rem] text-[3.0rem] font-[600]">

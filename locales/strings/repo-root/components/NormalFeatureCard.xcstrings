@@ -2,8 +2,15 @@
   "sourceLanguage" : "en",
   "strings" : {
     "1: feature-card.expand-button" : {
+      "comment" : "Cards describing specific features of MMF can be expanded to reveal a video-demo! This is the label for the button that expands a card and lets the user see the feature described in the card 'in action'.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In Aktion sehen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -15,6 +22,12 @@
     "2: feature-card.unexpand-button" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Video schließen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",

@@ -7,8 +7,8 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Front Page"
+            "state" : "translated",
+            "value" : "Startseite"
           }
         }
       }
@@ -18,8 +18,8 @@
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "The page you're looking for can't be found."
+            "state" : "translated",
+            "value" : "Die gewünschte Seite wurde nicht gefunden."
           }
         }
       }

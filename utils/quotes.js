@@ -6,7 +6,19 @@ Note:
 
 */
 
-export { QuoteSource, PermissionToShare, QuoteData, getUIStrings, quoteSourceIsPublic, getUsableQuotes}
+export { QuoteSource, PermissionToShare, QuoteData, getUIStrings, getThankYouText, getExpandButtonText, quoteSourceIsPublic, getUsableQuotes}
+
+function getLocalizationFunctions() {
+
+  /* Import helper
+      Note: I feel like we're doing this in a stupid way.
+  */
+
+  const app = useNuxtApp();
+  const { $coolI18n: { mdrf, _localizedString, MFLocalizedString } } = app;
+
+  return { mdrf, _localizedString, MFLocalizedString }
+}
 
 /* Define Quote types and helper functions */
 
@@ -132,6 +144,26 @@ function getUsableQuotes() {
 
 /* String Generator */
 
+function getExpandButtonText(quotesAreExpanded) { 
+  /// Note: We put all quotes.[...] strings into quotes.js so they get extracted into Quotes.xcstrings by our python script.
+
+  const { MFLocalizedString } = getLocalizationFunctions()
+
+  if (!quotesAreExpanded)
+    return MFLocalizedString(`See More`, 'quotes.see-more', 'Label for a button that lets you see more quotes from Mac Mouse Fix users.')
+  else
+    return MFLocalizedString(`See Less`, 'quotes.see-less', '')
+}
+
+function getThankYouText() {
+  const { mdrf, MFLocalizedString, } = getLocalizationFunctions()
+  return mdrf(MFLocalizedString(
+    `**Thank you** to everyone who shared their appreciation and thoughts! Also to those who aren't listed here. Reading such messages always motivates me and makes me a little happier. **:)**`, 
+    'quotes.thankyou', 
+    ''
+  ))
+}
+
 function getUIStrings(quote, localeCode) {
 
   /* 
@@ -139,10 +171,8 @@ function getUIStrings(quote, localeCode) {
     - I'm not sure passing in `localeCode` serves any purpose.
   */
 
-  /* Setup */
-  //  Note: We use _localizedString instead of MFLocalizedString, since the quotes are extracted from the source code through quotestool.mjs instead of through regexing over the source code. (MFLocalizedString is what we regex for.)
-  const app = useNuxtApp();
-  const { $coolI18n: { mdrf, _localizedString, MFLocalizedString } } = app;
+  /* Import */
+  const { mdrf, _localizedString, MFLocalizedString, } = getLocalizationFunctions()
 
   /* Get quote ui string */
 
@@ -151,6 +181,7 @@ function getUIStrings(quote, localeCode) {
   var isUsingTranslation = true;
 
   // Try to get translation
+  //  Note: We use _localizedString instead of MFLocalizedString, since the quotes are extracted from the source code through quotestool.mjs instead of through regexing over the source code. (MFLocalizedString is what we regex for.)
   uiQuote = _localizedString(quote.quoteKey, localeCode);
 
   // Log

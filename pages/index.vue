@@ -126,7 +126,7 @@
                         It works just like tapping with 3 fingers or force clicking on an Apple Trackpad.
                         `, 
                         'trackpad.gestures.lookup.body', 
-                        ''
+                        `To translate unusual phrases like 'tapping with 3 fingers' I usually looked at how Apple translated these phrases on their support or marketing pages or inside System Settings.`
                       ), {}, false) }}
                     </StringF>
                   </template>
@@ -230,7 +230,7 @@
                         It works just like pinching your thumb and three fingers together on an Apple Trackpad.
                         `,
                         'trackpad.gestures.launchpad.body', 
-                        `To translate weird phrases like 'pinching your thumb and three fingers together' I usually looked at how Apple translated these phrases on their support or marketing pages or inside System Settings.`
+                        ``
                       ), {}, false) }}
                     </StringF>
                   </template>

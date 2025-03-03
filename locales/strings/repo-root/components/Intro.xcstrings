@@ -5,6 +5,12 @@
       "comment" : "\"{localizationProgress}\" will be replaced by a string like \"84%\". \n\"{currentLocale}\" will be replaced by a language name like \"🇩🇪 Deutsch\" (The language names are translated programmatically). \"{linkToGuide}\" will be replaced by the \"localization-progress.link-to-guide\" string defined by translators.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Seite ist {localizationProgress} übersetzt nach {currentLocale}\nUm beim Übersetzen zu helfen, klicke {linkToGuide}!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -16,6 +22,12 @@
     "2: localization-progress.link-to-guide" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "hier"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -27,6 +39,12 @@
     "3: intro.tagline" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mach deine $10 Maus besser als ein Apple Trackpad!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -38,44 +56,16 @@
     "4: intro.big-tagline" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mach deine $10 Maus besser als ein Apple Trackpad!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Make Your $10 Mouse Better Than an Apple Trackpad!"
-          }
-        }
-      }
-    },
-    "5: quotes.see-more" : {
-      "comment" : "Label for a button that lets you see more quotes from Mac Mouse Fix users.",
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "See More"
-          }
-        }
-      }
-    },
-    "6: quotes.see-less" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "See Less"
-          }
-        }
-      }
-    },
-    "7: quotes.thankyou" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "**Thank you** to everyone who shared their appreciation and thoughts! Also to those who aren't listed here. Reading such messages always motivates me and makes me a little happier. **:)**"
           }
         }
       }

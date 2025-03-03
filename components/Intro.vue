@@ -121,7 +121,7 @@
         <div class="absolute inset-0 bg-gradient-to-b from-black/0 via-black/[0.1] via-20% to-black/[0.7]"></div>
         <div ref="quoteExpandButton" class="text-[1.1rem] relative w-fit h-fit py-[0.3em] px-[0.75em] m-[2.5em] shadow-sm shadow-black/[0.0] cursor-pointer select-none z-50" @click="quotesAreExpanded = !quotesAreExpanded">
           <div class="absolute inset-0 bg-white/[0.1] backdrop-blur-[1rem] backdrop-saturate-[1.5] rounded-full border border-white/[0.2] z-10"/>
-          <p class="text-[1em] text-white/[0.85] font-[500] text-center relative z-20" v-html="!quotesAreExpanded ? MFLocalizedString(`See More`, 'quotes.see-more', 'Label for a button that lets you see more quotes from Mac Mouse Fix users.') : MFLocalizedString(`See Less`, 'quotes.see-less', '')"></p>
+          <p class="text-[1em] text-white/[0.85] font-[500] text-center relative z-20" v-html="getExpandButtonText(quotesAreExpanded)"></p>
         </div>
       </div>
 
@@ -156,10 +156,7 @@
 
           <!-- Thank you message -->
           <div class="flex justify-center my-[10rem] mx-[1.5rem]">
-            <QuoteCard :text="mdrf(MFLocalizedString(
-              `**Thank you** to everyone who shared their appreciation and thoughts! Also to those who aren't listed here. Reading such messages always motivates me and makes me a little happier. **:)**`, 
-              'quotes.thankyou', 
-              ''))"
+            <QuoteCard :text="getThankYouText()"
               :doGlow="false" class="strong:inline-block strong:text-glow-2 strong:text-white/[0.3]">
             </QuoteCard>
           </div>
@@ -199,7 +196,7 @@ import speechBubbleImagePath from '../assets/img/text.bubble@8x.png'
 
 /* Import Quote stuff */
 
-import { getUsableQuotes } from '~/utils/quotes';
+import { getUsableQuotes, getThankYouText, getExpandButtonText } from '~/utils/quotes';
 const quotes = getUsableQuotes()
 
 /* Import Other */

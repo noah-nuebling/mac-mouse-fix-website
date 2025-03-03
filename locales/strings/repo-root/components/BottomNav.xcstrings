@@ -4,6 +4,12 @@
     "1: footer.credits" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gemacht von **Noah Nuebling**"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -15,6 +21,12 @@
     "2: footer.thankyou" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vielen Dank für {dwn} Downloads!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",

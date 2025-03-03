@@ -5,6 +5,12 @@
       "comment" : "Label for the big 'Download' button that is displayed at the top of the page.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",

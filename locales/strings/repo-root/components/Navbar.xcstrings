@@ -4,6 +4,12 @@
     "1: navbar.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -15,6 +21,12 @@
     "2: navbar.links.overview" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übersicht"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
@@ -27,6 +39,12 @@
       "comment" : "The 'navbar' or 'navigation bar' is the section at the top of the website that stays put when you scroll down and shows a bunch of useful links to the user.",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehr auf GitHub"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",

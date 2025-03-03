@@ -4,301 +4,489 @@
     "01: checkout-header.back-button" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Startseite"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Front Page"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "02: checkout-header.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix kaufen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Buy Mac Mouse Fix"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "03: checkout-options.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wie viel möchtest du bezahlen?"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "How much would you like to pay?"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "04: checkout-options.hint" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du kannst etwas mehr zahlen, wenn du das Projekt unterstützen möchtest."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "You can pay a bit more to support the project."
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "05: checkout-option.base.price" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "$1.99"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "$1.99"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "06: checkout-option.base.title" : {
       "comment" : "Note to self: Why doesn't this have a value in the base file?",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : ""
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "07: checkout-option.base.body" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nur Mac Mouse Fix"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Just Mac Mouse Fix"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "08: checkout-option.disclaimer" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "+ Steuer"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "+ tax"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "09: checkout-option.generous.price" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "$4.99"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "$4.99"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "10: checkout-option.generous.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Großzügiger Unterstützer**"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "**Generous Contributor**"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "11: checkout-option.generous.body" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Mac Mouse Fix\n2. Milkshake für Noah\n3. Du wirst unter **Großzügige Unterstützer** in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md) aufgeführt"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "1. Mac Mouse Fix\n2. Milkshake for Noah\n3. You'll be shown under **Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md)"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "13: checkout-option.very-generous.price" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "$9.99"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "$9.99"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "14: checkout-option.very-generous.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Sehr Großzügiger Unterstützer**"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "**Very Generous Contributor**"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "15: checkout-option.very-generous.body" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1. Mac Mouse Fix\n2. *Fantastischer* Milkshake für Noah!\n3. Du wirst unter ***Sehr* Großzügige Unterstützer** in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-sehr-großzügige-unterstützer) aufgeführt, und du kannst dort auch eine Nachricht hinterlassen, wenn du möchtest"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "1. Mac Mouse Fix\n2. *Awesome* Milkshake for Noah!\n3. You'll be shown under ***Very* Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors), and you can also leave a message there if you like"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "17: checkout-extras.title.name" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Füge deinen Namen hinzu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Add your name"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "18: checkout-extras.hint.name" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dein Name wird in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md) aufgeführt. Vielen Dank für deine Großzügigkeit!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Your name will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md). Thank you for your generosity!"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "19: checkout-extras.title.message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Füge deinen Namen und deine Nachricht hinzu"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Add your name and message"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "20: checkout-extras.hint.message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dein Name und deine Nachricht werden in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-sehr-großzügige-unterstützer) aufgeführt. Vielen Dank für deine große Großzügigkeit!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Your name and message will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors). Thank you so much for your generosity!"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "21: checkout-extra.name.title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dein Name"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Your Name"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "22: checkout-extra.message.title" : {
-      "comment" : "The checkout page is still work-in-progress so we don't have to translate it, yet",
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine Nachricht"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Your Message"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "23: checkout-totals.subtotal" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zwischensumme:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Subtotal:"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "24: checkout-totals.discount" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rabatt:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Discount:"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "25: checkout-totals.tax" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steuer:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Tax:"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "26: checkout-totals.total" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesamt:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Total:"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "27: checkout-totals.credit" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Angewandtes Guthaben:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Credit Applied:"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "28: checkout-totals.balance" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saldo:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Balance:"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "29: checkout-totals.credit-to-balance" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erhaltenes Guthaben:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Credit Received:"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     }
   },
   "version" : "1.0"
