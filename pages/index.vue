@@ -782,13 +782,13 @@
               <StringF>
                 {{ mdrf(MFLocalizedString(
                   `
-                  Note on price: The price of **{price}** does not include local taxes, which might have to be paid in your region. To see your total price, visit the [checkout page](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). If you pay on Gumroad.com via PayPal in a currency other than Euros, PayPal will charge an additional 4.5% currency conversion fee.
+                  Note on price: The price of **{price}** does not include local taxes, which might have to be paid in your region. To see your total price, visit the [checkout page]({urlCheckoutPage}). If you pay on Gumroad.com via PayPal in a currency other than Euros, PayPal will charge an additional 4.5% currency conversion fee.
 
                   I would like to include these fees in the price - to make the buying experience simpler and clearer. But this is currently not possible due to limitations with the sales platform Gumroad.com. I hope the price still feels very fair and cheap.
                   `,
                   'benefits.pricing.disclaimer', 
                   ''
-                ), dynamicUIStrings) }}
+                ), { ...dynamicUIStrings, ...{ urlCheckoutPage: 'https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab' } }) }} <!-- Note: [Mar 2025] If you remove the space betwen the 3rd and 4th last closing braces, the whole app breaks! Webdev is crazyy. -->
               </StringF>
             </span> <!-- /* The price.disclaimer id lets us link to the disclaimer using macmousefix.com/#<disclaimerId> -->
           </template>
@@ -828,13 +828,13 @@
                   <StringF>
                     {{ mdrf(MFLocalizedString(
                       `
-                      Mac Mouse Fix costs {price} ([+ taxes](#price.disclaimer)) to own - and that's it. There are no subscriptions or additional payments. I made sure the checkout experience is as **nice** and **quick** as possible, and you can even pay with **Apple Pay**!
+                      Mac Mouse Fix costs {price} ([+ taxes]({urlTaxes})) to own - and that's it. There are no subscriptions or additional payments. I made sure the checkout experience is as **nice** and **quick** as possible, and you can even pay with **Apple Pay**!
 
-                      To buy the app, click the button in the app, or click [here](https://noahnuebling.gumroad.com/l/mmfinappusd::newTab).
+                      To buy the app, click the button in the app, or click [here]({urlBuyApp}).
                       `,
                       'benefits.pricing.price.body', 
                       ''
-                    ), dynamicUIStrings, false) }}
+                    ), { ...dynamicUIStrings, ...{ urlTaxes: '#price.disclaimer', urlBuyApp: 'https://noahnuebling.gumroad.com/l/mmfinappusd::newTab' } }, false) }}
                   </StringF>
                 </template>
               </NormalFeatureCard>
@@ -845,11 +845,11 @@
                 </template>
                 <template #body>
                   <StringF>
-                    {{ mdrf(MFLocalizedString(
+                    {{ mdrf(MFLocalizedString( // Note: We thought about hardcoding the use of 'x' to mean 'times'. E.g. 10x – to simplify the strings for localizers. But Apple doesn't use 'x' for all languages. It uses 'x' in German, but e.g. https://www.apple.com/hk/macbook-pro/ uses 倍 instead. If we do use 'x' instead of 'times' in English, I think we'll have to tell localizers to localize that so they don't overlook it.
                       `
                       Mac Mouse Fix makes your $10 mouse better than a Logitech MX Master mouse or an Apple Trackpad. (These are considered some of the best input devices for Macs.)
 
-                      And yet, Mac Mouse Fix is **[{priceFactorMXMaster}x](https://www.logitech.com/products/mice/mx-master-3s::newTab)** cheaper than an MX Master and **[{priceFactorTrackpad}x](https://www.apple.com/shop/mac/accessories/mice-keyboards::newTab)** cheaper than a Trackpad!
+                      And yet, Mac Mouse Fix is **[{priceFactorMXMaster} times]({urlMXMaster})** cheaper than an MX Master and **[{priceFactorTrackpad} times]({urlTrackpad})** cheaper than a Trackpad!
                       `,
                       'benefits.pricing.alternatives.body', 
                       `
@@ -863,7 +863,8 @@
 
                       Note to self2: I think it's grammatically wrong in English to capitalize 'Trackpad' in 'Apple Trackpad', but I think it looks better.
                       `
-                    ), dynamicUIStrings, false) }}
+                    ), dynamicUIStrings, false) 
+                    }}
                   </StringF>
                 </template>
               </NormalFeatureCard>
@@ -904,8 +905,11 @@ const priceRaw = licenseConfig["price"] / 100;
 
 const price = '$' + String(priceRaw);
 const trialDays = licenseConfig["trialDays"];
+
 const priceFactorMXMaster = roundTo(MXMasterPrice / priceRaw, 5, 0, Math.floor);
 const priceFactorTrackpad = roundTo(trackpadPrice / priceRaw, 5, 0, Math.floor);
+const urlMXMaster = 'https://www.logitech.com/products/mice/mx-master-3s::newTab';       
+const urlTrackpad = 'https://www.apple.com/shop/mac/accessories/mice-keyboards::newTab';
 const taxEstimateLow = 0.05;
 const taxEstimateHigh = 0.25;
 const afterTaxPriceEstimateLow = roundTo(priceRaw * (1 + taxEstimateLow), 0.01, 2, Math.round);
@@ -914,6 +918,8 @@ const afterTaxPriceEstimateHigh = roundTo(priceRaw * (1 + taxEstimateHigh), 0.01
 const dynamicUIStrings = {
   price: price,
   trialDays: trialDays,
+  urlMXMaster: urlMXMaster,
+  urlTrackpad: urlTrackpad,
   priceFactorMXMaster: priceFactorMXMaster,
   priceFactorTrackpad: priceFactorTrackpad,
   taxEstimateLow: taxEstimateLow*100,

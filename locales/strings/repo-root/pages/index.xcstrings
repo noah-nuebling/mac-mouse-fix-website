@@ -1071,13 +1071,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hinweis zum Preis: Der Preis von **{price}** ist ohne lokale Steuern, die eventuell in deiner Region gezahlt werden müssen. Um den Gesamtpreis zu sehen, besuche die [Kassenseite](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). Wenn du auf Gumroad.com über PayPal in einer anderen Währung als Euro zahlst, berechnet PayPal eine zusätzliche Währungsumrechnungsgebühr von 4,5%.\n\nIch würde die Gebühren gerne im Preis einschließen - damit die Kauferfahrung einfacher und klarer ist. Aber das ist momentan wegen Einschränkungen bei der Verkaufsplattform Gumroad.com nicht möglich. Ich hoffe der Preis fühlt sich trotzdem sehr fair und günstig an."
+            "value" : "Hinweis zum Preis: Der Preis von **{price}** ist ohne lokale Steuern, die eventuell in deiner Region gezahlt werden müssen. Um den Gesamtpreis zu sehen, besuche die [Kassenseite]({urlCheckoutPage}). Wenn du auf Gumroad.com über PayPal in einer anderen Währung als Euro zahlst, berechnet PayPal eine zusätzliche Währungsumrechnungsgebühr von 4,5%.\n\nIch würde die Gebühren gerne im Preis einschließen - damit die Kauferfahrung einfacher und klarer ist. Aber das ist momentan wegen Einschränkungen bei der Verkaufsplattform Gumroad.com nicht möglich. Ich hoffe der Preis fühlt sich trotzdem sehr fair und günstig an."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Note on price: The price of **{price}** does not include local taxes, which might have to be paid in your region. To see your total price, visit the [checkout page](https://noahnuebling.gumroad.com/l/mmfinappusd?wanted=true::newTab). If you pay on Gumroad.com via PayPal in a currency other than Euros, PayPal will charge an additional 4.5% currency conversion fee.\n\nI would like to include these fees in the price - to make the buying experience simpler and clearer. But this is currently not possible due to limitations with the sales platform Gumroad.com. I hope the price still feels very fair and cheap."
+            "value" : "Note on price: The price of **{price}** does not include local taxes, which might have to be paid in your region. To see your total price, visit the [checkout page]({urlCheckoutPage}). If you pay on Gumroad.com via PayPal in a currency other than Euros, PayPal will charge an additional 4.5% currency conversion fee.\n\nI would like to include these fees in the price - to make the buying experience simpler and clearer. But this is currently not possible due to limitations with the sales platform Gumroad.com. I hope the price still feels very fair and cheap."
           }
         }
       }
@@ -1140,13 +1140,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac Mouse Fix kostet {price} ([+ Steuern](#price.disclaimer)) zum Besitzen - und das war's.  Es gibt keine Abonnements oder zusätzlichen Zahlungen. Ich habe darauf geachtet, dass die Kauferfahrung so **angenehm** und **schnell** wie möglich ist, und du kannst sogar mit **Apple Pay** bezahlen!\n\nUm die App zu kaufen, klicke den Button in der App, oder klicke [hier](https://noahnuebling.gumroad.com/l/mmfinappusd::newTab)."
+            "value" : "Mac Mouse Fix kostet {price} ([+ Steuern]({urlTaxes})) zum Besitzen - und das war's.  Es gibt keine Abonnements oder zusätzlichen Zahlungen. Ich habe darauf geachtet, dass die Kauferfahrung so **angenehm** und **schnell** wie möglich ist, und du kannst sogar mit **Apple Pay** bezahlen!\n\nUm die App zu kaufen, klicke den Button in der App, oder klicke [hier]({urlBuyApp})."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Mac Mouse Fix costs {price} ([+ taxes](#price.disclaimer)) to own - and that's it. There are no subscriptions or additional payments. I made sure the checkout experience is as **nice** and **quick** as possible, and you can even pay with **Apple Pay**!\n\nTo buy the app, click the button in the app, or click [here](https://noahnuebling.gumroad.com/l/mmfinappusd::newTab)."
+            "value" : "Mac Mouse Fix costs {price} ([+ taxes]({urlTaxes})) to own - and that's it. There are no subscriptions or additional payments. I made sure the checkout experience is as **nice** and **quick** as possible, and you can even pay with **Apple Pay**!\n\nTo buy the app, click the button in the app, or click [here]({urlBuyApp})."
           }
         }
       }
@@ -1175,13 +1175,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac Mouse Fix macht deine $10 Maus besser als eine Logitech MX Master Maus oder ein Apple Trackpad. (Diese gelten als einige der besten Eingabegeräte für Macs.)\n\nUnd trotzdem ist Mac Mouse Fix **[{priceFactorMXMaster}x](https://www.logitech.com/products/mice/mx-master-3s::newTab)** günstiger als eine MX Master und **[{priceFactorTrackpad}x](https://www.apple.com/shop/mac/accessories/mice-keyboards::newTab)** günstiger als ein Trackpad!"
+            "value" : "Mac Mouse Fix macht deine $10 Maus besser als eine Logitech MX Master Maus oder ein Apple Trackpad. (Diese gelten als einige der besten Eingabegeräte für Macs.)\n\nUnd trotzdem ist Mac Mouse Fix **[{priceFactorMXMaster}-mal]({urlMXMaster})** günstiger als eine MX Master und **[{priceFactorTrackpad}-mal]({urlTrackpad})** günstiger als ein Trackpad!"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Mac Mouse Fix makes your $10 mouse better than a Logitech MX Master mouse or an Apple Trackpad. (These are considered some of the best input devices for Macs.)\n\nAnd yet, Mac Mouse Fix is **[{priceFactorMXMaster}x](https://www.logitech.com/products/mice/mx-master-3s::newTab)** cheaper than an MX Master and **[{priceFactorTrackpad}x](https://www.apple.com/shop/mac/accessories/mice-keyboards::newTab)** cheaper than a Trackpad!"
+            "value" : "Mac Mouse Fix makes your $10 mouse better than a Logitech MX Master mouse or an Apple Trackpad. (These are considered some of the best input devices for Macs.)\n\nAnd yet, Mac Mouse Fix is **[{priceFactorMXMaster} times]({urlMXMaster})** cheaper than an MX Master and **[{priceFactorTrackpad} times]({urlTrackpad})** cheaper than a Trackpad!"
           }
         }
       }

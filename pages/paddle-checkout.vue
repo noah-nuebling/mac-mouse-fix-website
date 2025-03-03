@@ -54,11 +54,11 @@
                           `
                           1. Mac Mouse Fix
                           2. Milkshake for Noah
-                          3. You'll be shown under **Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md)
+                          3. You'll be shown under **Generous Contributors** in the [Acknowledgements]({url})
                           `, 
                           'checkout-option.generous.body', 
                           ''
-                        ), {}, false)"
+                        ), { url: urlAcknowGenerous }, false)"
                         :disclaimer="mdrf(MFLocalizedString(`+ tax`, 'checkout-option.disclaimer', ''), {}, false)"
                         :is-selected="selectedOption == 'generous'" @click="selectedOption = 'generous'"/>
 
@@ -69,11 +69,11 @@
                           `
                           1. Mac Mouse Fix
                           2. *Awesome* Milkshake for Noah!
-                          3. You'll be shown under ***Very* Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors), and you can also leave a message there if you like
+                          3. You'll be shown under ***Very* Generous Contributors** in the [Acknowledgements]({url}), and you can also leave a message there if you like
                           `, 
                           'checkout-option.very-generous.body', 
                           ''
-                        ), {}, false)"
+                        ), { url: urlAcknowVeryGenerous }, false)"
                         :disclaimer="mdrf(MFLocalizedString(`+ tax`, 'checkout-option.disclaimer', ''), {}, false)"
                         :is-selected="selectedOption == 'very-generous'" @click="selectedOption = 'very-generous'"/>
       </div>
@@ -89,19 +89,19 @@
         <div :style="selectedOption == 'generous' ? '' : 'display: none'">
           <p v-html="mdrf(MFLocalizedString(`Add your name`, 'checkout-extras.title.name', ''))" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
           <p v-html="mdrf(MFLocalizedString(
-            `Your name will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md). Thank you for your generosity!`, 
+            `Your name will be shown in the [Acknowledgements]({url}). Thank you for your generosity!`, 
             'checkout-extras.hint.name', 
             ''
-            ))" 
+            ), { url: urlAcknowGenerous }, false)" 
             class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]">
           </p>
         </div>
         <div :style="selectedOption == 'very-generous' ? '' : 'display: none'">
           <p v-html="mdrf(MFLocalizedString(`Add your name and message`, 'checkout-extras.title.message', ''))" class="self-start text-[1.7em] font-[600] mb-[0.7em] mt-[0]"></p>
           <p v-html="mdrf(MFLocalizedString(
-            `Your name and message will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors). Thank you so much for your generosity!`,
+            `Your name and message will be shown in the [Acknowledgements]({url}). Thank you so much for your generosity!`,
             'checkout-extras.hint.message',
-            ''))"
+            ''), { url: urlAcknowVeryGenerous }, false)"
             class="self-start text-[1.1em] font-[500] text-neutral-500/[1.0] mb-[1.5em]">
           </p>
         </div>
@@ -213,6 +213,21 @@ useHead({
 const paddleCheckoutContainer = ref<HTMLDivElement | null>(null)
 const paddleCheckoutContainerContainer = ref<HTMLDivElement | null>(null)
 
+// Define urls
+
+var urlAcknowGenerous: string;
+var urlAcknowVeryGenerous: string;
+
+switch ($i18n.locale.value) {
+  case 'en': {
+    urlAcknowGenerous     = 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md' // The generousContributor section is close enough to the top that we don't need a #-link.
+    urlAcknowVeryGenerous = 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors';
+  }
+  break; case 'de': {
+    urlAcknowGenerous     = 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master//Markdown/AAA/BBB/Acknowledgements.md'
+    urlAcknowVeryGenerous = 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Markdown/AAA/BBB/Acknowledgements.md#-sehr-großzügige-unterstützer'; // Seems very brittle. Is there a language-agnostic way? Perhaps use our redirection-service?
+  }
+}
 
 // Paddle stuff
 

@@ -231,6 +231,11 @@ function getUIStrings(quote, localeCode) {
 
 const quotes = [ // QuoteData objects
 
+  /*
+    Design consideration:
+      The first and last quotes are probably the most 'visible'. I tend to skim over the ones in the middle. At the end we can hide some more quirky or interesting ones.
+  */
+
   new QuoteData ({
     englishQuote: "Among all apps that try to fix this problem, this one is undoubtly the best!",
     quoteKey: "quotes.0",
@@ -248,7 +253,7 @@ const quotes = [ // QuoteData objects
     name: "William Park",
     source: QuoteSource.PayPalDonation,
     link: 'message:<3B.AC.57749.F6B6C326@ccg13mail02>',
-    permission: PermissionToShare.Requested,
+    permission: PermissionToShare.Granted,
     weight: 175,
   }),
   new QuoteData ({
@@ -299,7 +304,7 @@ const quotes = [ // QuoteData objects
     source: QuoteSource.Reddit,
     link: 'https://www.reddit.com/r/macapps/comments/s5h7gb/mac_mouse_fix_2_featuring_nativefeeling_gestures/',
     permission: PermissionToShare.None,
-    weight: 101,
+    weight: 142.5, // Note: [Mar 2025] sort of a replacement for quotes.32, since that one's really long, and it feels weird if they're all super short.
   }),
   new QuoteData ({
     englishQuote: "Thanks for this AMAZING software. 10/10!",
@@ -428,7 +433,7 @@ const quotes = [ // QuoteData objects
     name: "Lazar Manasijević",
     source: QuoteSource.Email,
     link: 'message:<BDF0E117-B5BB-4E3E-9CD5-C1DE163F7F02@gmail.com>',
-    permission: PermissionToShare.Requested,
+    permission: PermissionToShare.Granted,
     weight: 102,
   }),
   new QuoteData ({
@@ -499,7 +504,7 @@ const quotes = [ // QuoteData objects
     source: QuoteSource.GitHub,
     link: 'https://github.com/noah-nuebling/mac-mouse-fix/issues/449',
     permission: PermissionToShare.None,
-    weight: 0,
+    weight: -1,
   }),
   new QuoteData ({
     englishQuote: "Awesome app, it definitely deserves to be shared widely with others 😁",
@@ -541,7 +546,7 @@ const quotes = [ // QuoteData objects
     permission: PermissionToShare.None,
     weight: 0,
   }),
-  new QuoteData ({
+  new QuoteData ({ // Note: [Mar 2025] We could perhaps use this to replace quotes.32 (which we don't have express permission to share) since this also mentions that the app is 'simple'.
     englishQuote: "Utterly incredible software, bro :) so simple yet so functional. keep up the good work.",
     quoteKey: "quotes.31",
     originalLanguage: 'en',
@@ -551,7 +556,7 @@ const quotes = [ // QuoteData objects
     permission: PermissionToShare.Requested,
     weight: 101,
   }),
-  new QuoteData ({
+  new QuoteData ({ // Note: [Mar 2025] We used to show this prominently, but we don't have express permission to share. It's the only quote mentioning 'light' so we don't have a great replacement. Perhaps we should search for another quote in our Email/GitHub? Edit: quotes.26 mentions 'performance'. 
     englishQuote: "Your app is literally the best Mac Mouse Fix available. So simple, light, M1 compatible, no bugs. I’m totally in love. I don’t even use Logitech Hub as your app is far superior. I’ll definitely be recommending your app as much as possible.",
     quoteKey: "quotes.32",
     originalLanguage: 'en',
@@ -579,7 +584,7 @@ const quotes = [ // QuoteData objects
     source: QuoteSource.StackExchange,
     link: 'https://apple.stackexchange.com/a/371342/308049',
     permission: PermissionToShare.None,
-    weight: -100,
+    weight: 101.5,
   }),
   new QuoteData ({
     englishQuote: "Thanks, the app is very cool",
@@ -713,13 +718,13 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    englishQuote: "You've made my superlight better than an mx master.", // TODO: Translate and request this one
+    englishQuote: "You've made my superlight better than an mx master.", // Note: [Mar 2025] Just requested this one. We used to prominently show quotes.11 – it's short and mentions replacing the MX Master – but they haven't given us express permission. So perhaps we can use this one. We could also replace quotes.32, since that one's pretty long and we could also make this quote longer.
     quoteKey: "quotes.48",
     originalLanguage: 'en',
     name: "Brendon Janku",
     source: QuoteSource.Email,
     link: 'message:<CAMbYH-qmh-ib65wqiFVJW8CpmvJTqHZSG_YwoySc5cnvKSSO-w@mail.gmail.com>',
-    permission: PermissionToShare.Unrequested,
+    permission: PermissionToShare.Requested,
     weight: 0,
   }),
   new QuoteData ({
@@ -756,12 +761,11 @@ const quotes = [ // QuoteData objects
       weight: 0,
     })
   ),
-
   new QuoteData ({
     englishQuote: "Input devices are important. You fixed it. Makes all the difference. ❤️ from Sweden.", // TODO: Translate and request this one
     quoteKey: "quotes.52",
     originalLanguage: 'en',
-    name: "Stefan",             /* Note: Maybe it's better not to include their last names – even if it's only in the source – before requesting permission to share. */
+    name: "Stefan",             /* Note: Maybe it's better not to include their last names – even if it's only in the source – before they've granted permission to share. */
     source: QuoteSource.Email,
     link: 'message:<367F5FF6-F2F1-45AB-8AB5-CEC419B08A2F@live.com>',
     permission: PermissionToShare.Unrequested,
@@ -777,6 +781,16 @@ const quotes = [ // QuoteData objects
     permission: PermissionToShare.Unrequested,
     weight: 0,
   }),
+  new QuoteData ({
+    englishQuote: "Amazing product! Absolutely love it! My Logitech trackball is like an extension of me now.",
+    quoteKey: "quotes.54", 
+    originalLanguage: 'en', 
+    name: 'Andriy Babkin',
+    source: QuoteSource.Email,
+    link: 'message:<ED1D1358-1F14-4152-8A35-A345A63DF1D4@gmail.com>',
+    permission: PermissionToShare.Granted,
+    weight: 142.6, // Note: [Mar 2025] Using this to replace quotes.32 (since we don't have express permission to share that) and since this also mentions specific logitech products. (Specificity makes it more memorable/less abstract I guess?)
+  })
 ]
 
 /*

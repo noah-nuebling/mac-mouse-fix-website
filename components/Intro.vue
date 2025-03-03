@@ -15,33 +15,28 @@
         <div ref="localizationProgress">
           <div :class="['xs:hidden relative leading-[2em] ch-[a]:normal-link-color text-[1em] font-[400] px-[0.9em] pb-[0.75em] pt-[calc(1em+10px)] mt-[-10px] text-black/[0.7] bg-white/[1] rounded-[0.75em]']">
             
-            <p class="text-center whitespace-pre-line
+            <p class="text-center
                         strong:mx-[0.0em] strong:bg-black/[0.05] strong:font-[600] strong:rounded-[4px] strong:px-[5px] strong:py-[1px]
                         ch-[select]:mx-[0.05em]">
-            <StringF>
-              {{  MFLocalizedString(
-                `
-                This page is {localizationProgress} translated into {currentLocale}
-                To help translate, click {linkToGuide}!
-                `,
-                'localization-progress', 
-                `
-                "{localizationProgress}" will be replaced by a string like "84%". 
-                "{currentLocale}" will be replaced by a language name like "🇩🇪 Deutsch" (The language names are translated programmatically). "{linkToGuide}" will be replaced by the "localization-progress.link-to-guide" string defined by translators.
-                `
-              ) }}
-              <template #localizationProgress>
-                <strong>{{ localizationProgressDisplay }}</strong>
-              </template>
-              <template #currentLocale>
-                <LocalePicker></LocalePicker>
-              </template>
-              <template #linkToGuide>
-                <a href="https://noah-nuebling.github.io/redirection-service?message=&target=mmf-localization-guide">
-                  {{ MFLocalizedString(`here`, 'localization-progress.link-to-guide', '') }}
-                </a>
-              </template>
-            </StringF>
+              <StringF>
+                {{ mdrf(MFLocalizedString(
+                  `
+                  This page is {localizationProgress} translated into {currentLocale}
+                  To help translate, click [here]({url})!
+                  `,
+                  'localization-progress', 
+                  `
+                  "{localizationProgress}" will be replaced by a string like "84%". 
+                  "{currentLocale}" will be replaced by a language name like "🇩🇪 Deutsch" (The language names are translated programmatically). "{linkToGuide}" will be replaced by the "localization-progress.link-to-guide" string defined by translators.
+                  `
+                ), { url: 'https://noah-nuebling.github.io/redirection-service?message=&target=mmf-localization-guide' }, true) }}
+                <template #localizationProgress>
+                  <strong>{{ localizationProgressDisplay }}</strong>
+                </template>
+                <template #currentLocale>
+                  <LocalePicker></LocalePicker>
+                </template>
+              </StringF>
             </p>
           </div>
         </div>

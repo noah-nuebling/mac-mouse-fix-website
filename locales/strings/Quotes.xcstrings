@@ -19,6 +19,24 @@
         }
       }
     },
+    "quotes.1" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix ist buchstäblich alles, was man sich für die Nutzung einer Maus mit OSX wünschen könnte."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mac Mouse Fix is literally everything you could want in your experience of using a mouse with OSX."
+          }
+        }
+      }
+    },
     "quotes.2" : {
       "comment" : " ",
       "extractionState" : "manual",
@@ -249,6 +267,24 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "The vertical scroll is just awesome"
+          }
+        }
+      }
+    },
+    "quotes.19" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klicken & Ziehen zum Wechseln zwischen den Bildschirmen fühlt sich so natürlich an."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Click & drag for switching between the screens feels so native."
           }
         }
       }
@@ -591,6 +627,24 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "I've been searching for a similar app for a long time, and finally found this one, thumbs up 👍."
+          }
+        }
+      }
+    },
+    "quotes.54" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fantastisches Produkt! Ich liebe es absolut! Mein Logitech-Trackball ist jetzt wie eine Verlängerung von mir."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Amazing product! Absolutely love it! My Logitech trackball is like an extension of me now."
           }
         }
       }

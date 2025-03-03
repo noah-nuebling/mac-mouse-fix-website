@@ -493,7 +493,10 @@ function getPlaintextSlotContent(slotGetterFn: () => vue.VNode[]): string {
      // Note: This function is a duplicate of util.plainTextFromVueSlot(). Should probably unify.
 
     // Get VNodes from slot.
-    const slotNodes: vue.VNode[] = slotGetterFn();
+    var slotNodes: vue.VNode[] = slotGetterFn();
+
+    // Strip <!-- comment --> nodes
+    slotNodes = slotNodes.filter((node) => node.type != vue.Comment)
 
     // Validate
     console.assert(Array.isArray(slotNodes));

@@ -189,13 +189,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1. Mac Mouse Fix\n2. Milkshake für Noah\n3. Du wirst unter **Großzügige Unterstützer** in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md) aufgeführt"
+            "value" : "1. Mac Mouse Fix\n2. Milkshake für Noah\n3. Du wirst unter **Großzügige Unterstützer** in den [Danksagungen]({url}) aufgeführt"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "1. Mac Mouse Fix\n2. Milkshake for Noah\n3. You'll be shown under **Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md)"
+            "value" : "1. Mac Mouse Fix\n2. Milkshake for Noah\n3. You'll be shown under **Generous Contributors** in the [Acknowledgements]({url})"
           }
         }
       },
@@ -243,13 +243,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "1. Mac Mouse Fix\n2. *Fantastischer* Milkshake für Noah!\n3. Du wirst unter ***Sehr* Großzügige Unterstützer** in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-sehr-großzügige-unterstützer) aufgeführt, und du kannst dort auch eine Nachricht hinterlassen, wenn du möchtest"
+            "value" : "1. Mac Mouse Fix\n2. *Fantastischer* Milkshake für Noah!\n3. Du wirst unter ***Sehr* Großzügige Unterstützer** in den [Danksagungen]({url}) aufgeführt, und du kannst dort auch eine Nachricht hinterlassen, wenn du möchtest"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "1. Mac Mouse Fix\n2. *Awesome* Milkshake for Noah!\n3. You'll be shown under ***Very* Generous Contributors** in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors), and you can also leave a message there if you like"
+            "value" : "1. Mac Mouse Fix\n2. *Awesome* Milkshake for Noah!\n3. You'll be shown under ***Very* Generous Contributors** in the [Acknowledgements]({url}), and you can also leave a message there if you like"
           }
         }
       },
@@ -279,13 +279,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dein Name wird in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md) aufgeführt. Vielen Dank für deine Großzügigkeit!"
+            "value" : "Dein Name wird in den [Danksagungen]({url}) aufgeführt. Vielen Dank für deine Großzügigkeit!"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Your name will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md). Thank you for your generosity!"
+            "value" : "Your name will be shown in the [Acknowledgements]({url}). Thank you for your generosity!"
           }
         }
       },
@@ -315,13 +315,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dein Name und deine Nachricht werden in den [Danksagungen](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-sehr-großzügige-unterstützer) aufgeführt. Vielen Dank für deine große Großzügigkeit!"
+            "value" : "Dein Name und deine Nachricht werden in den [Danksagungen]({url}) aufgeführt. Vielen Dank für deine große Großzügigkeit!"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Your name and message will be shown in the [Acknowledgements](https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors). Thank you so much for your generosity!"
+            "value" : "Your name and message will be shown in the [Acknowledgements]({url}). Thank you so much for your generosity!"
           }
         }
       },

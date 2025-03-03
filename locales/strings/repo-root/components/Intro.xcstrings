@@ -8,35 +8,18 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Diese Seite ist {localizationProgress} übersetzt nach {currentLocale}\nUm beim Übersetzen zu helfen, klicke {linkToGuide}!"
+            "value" : "Diese Seite ist {localizationProgress} übersetzt nach {currentLocale}\nUm beim Übersetzen zu helfen, klicke [hier]({url})!"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "This page is {localizationProgress} translated into {currentLocale}\nTo help translate, click {linkToGuide}!"
+            "value" : "This page is {localizationProgress} translated into {currentLocale}\nTo help translate, click [here]({url})!"
           }
         }
       }
     },
-    "2: localization-progress.link-to-guide" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "hier"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "here"
-          }
-        }
-      }
-    },
-    "3: intro.tagline" : {
+    "2: intro.tagline" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -53,7 +36,7 @@
         }
       }
     },
-    "4: intro.big-tagline" : {
+    "3: intro.big-tagline" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
