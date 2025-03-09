@@ -718,14 +718,18 @@ const quotes = [ // QuoteData objects
     weight: 0,
   }),
   new QuoteData ({
-    englishQuote: "You've made my superlight better than an mx master.", // Note: [Mar 2025] Just requested this one. We used to prominently show quotes.11 – it's short and mentions replacing the MX Master – but they haven't given us express permission. So perhaps we can use this one. We could also replace quotes.32, since that one's pretty long and we could also make this quote longer.
+    // Notes: 
+    //  - [Mar 2025] Potential replacement for quotes.11 – it's short and mentions replacing the MX Master (Mention specific products makes it more memorable/less abstract I guess?) (we don't have express permission to share quotes.11)
+    //  - [Mar 2025] Downside: The superlight is very expensive and Brendon says it has a mushy/fragile scroll wheel and that he's using a finalmouse ulx now (also expensive). So perhaps we shouldn't be promoting the superlight.
+
+    englishQuote: "You've made my superlight better than an mx master.", 
     quoteKey: "quotes.48",
     originalLanguage: 'en',
     name: "Brendon Janku",
     source: QuoteSource.Email,
     link: 'message:<CAMbYH-qmh-ib65wqiFVJW8CpmvJTqHZSG_YwoySc5cnvKSSO-w@mail.gmail.com>',
-    permission: PermissionToShare.Requested,
-    weight: 0,
+    permission: PermissionToShare.Granted,
+    weight: 1,
   }),
   new QuoteData ({
     englishQuote: "This app is so f*cking good", // TODO: Translate and request this one
@@ -789,7 +793,7 @@ const quotes = [ // QuoteData objects
     source: QuoteSource.Email,
     link: 'message:<ED1D1358-1F14-4152-8A35-A345A63DF1D4@gmail.com>',
     permission: PermissionToShare.Granted,
-    weight: 142.6, // Note: [Mar 2025] Using this to replace quotes.32 (since we don't have express permission to share that) and since this also mentions specific logitech products. (Specificity makes it more memorable/less abstract I guess?)
+    weight: 142.6, // Note: [Mar 2025] Potential replacement for quotes.11. (Also mentions specific Logitech product.)
   })
 ]
 

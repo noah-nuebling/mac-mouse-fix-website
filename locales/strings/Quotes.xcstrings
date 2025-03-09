@@ -631,6 +631,24 @@
         }
       }
     },
+    "quotes.48" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du hast meine Superlight besser als eine MX Master gemacht."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You've made my superlight better than an mx master."
+          }
+        }
+      }
+    },
     "quotes.54" : {
       "comment" : " ",
       "extractionState" : "manual",
