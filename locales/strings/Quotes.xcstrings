@@ -703,6 +703,7 @@
       }
     },
     "quotes.source.acknowledgements" : {
+      "comment" : "The \"quote.source.[...]\" strings are displayed directly below the quotes themselves. \"{name}\" is replaced with the name of the author of the quote.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -720,7 +721,6 @@
       }
     },
     "quotes.source.email" : {
-      "comment" : "The \"quote.source.[...]\" strings are displayed directly below the quotes. \"{name}\" is replaced with the name of the author of the quote.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {

@@ -26,8 +26,8 @@
                   `,
                   'localization-progress', 
                   `
-                  "{localizationProgress}" will be replaced by a string like "84%". 
-                  "{currentLocale}" will be replaced by a language name like "🇩🇪 Deutsch" (The language names are translated programmatically). "{linkToGuide}" will be replaced by the "localization-progress.link-to-guide" string defined by translators.
+                  "{localizationProgress}" will be replaced by a string like "84%".
+                  "{currentLocale}" will be replaced by a language name like "🇩🇪 Deutsch".
                   `
                 ), { url: 'https://noah-nuebling.github.io/redirection-service?message=&target=mmf-localization-guide' }, true) }}
                 <template #localizationProgress>

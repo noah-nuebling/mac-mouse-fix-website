@@ -201,17 +201,18 @@ function getUIStrings(quote, localeCode) {
   
   var uiSource
   switch (quote.source) {
-          case QuoteSource.Email             : uiSource = mdrf(MFLocalizedString('**{name}** in an email',                   
-                                                                                  'quotes.source.email',             
-                                                                                  'The "quote.source.[...]" strings are displayed directly below the quotes. "{name}" is replaced with the name of the author of the quote.'), 
-                                                                                  { name: quote.name }, true)
+          case QuoteSource.Acknowledgements  : uiSource = mdrf(MFLocalizedString(
+            '**{name}** in a Gumroad donation message', 
+            'quotes.source.acknowledgements',  
+            'The "quote.source.[...]" strings are displayed directly below the quotes themselves. "{name}" is replaced with the name of the author of the quote.'), 
+            { name: quote.name }, true)
+  break;  case QuoteSource.Email             : uiSource = mdrf(MFLocalizedString('**{name}** in an email', 'quotes.source.email', ''), { name: quote.name }, true)
   break;  case QuoteSource.PayPalDonation    : uiSource = mdrf(MFLocalizedString('**{name}** in a PayPal donation message',  'quotes.source.payPalDonation',    ''), { name: quote.name }, true)
   break;  case QuoteSource.GitHub            : uiSource = mdrf(MFLocalizedString('**{name}** on GitHub',                     'quotes.source.gitHub',            ''), { name: quote.name }, true)
   break;  case QuoteSource.StackExchange     : uiSource = mdrf(MFLocalizedString('**{name}** on Stack Exchange',             'quotes.source.stackExchange',     ''), { name: quote.name }, true)
   break;  case QuoteSource.Reddit            : uiSource = mdrf(MFLocalizedString('**{name}** on Reddit',                     'quotes.source.reddit',            ''), { name: quote.name }, true)
   break;  case QuoteSource.Lifehacker        : uiSource = mdrf(MFLocalizedString('**{name}** in a LifeHacker article',       'quotes.source.lifehacker',        ''), { name: quote.name }, true)
   break;  case QuoteSource.YoutubeComment    : uiSource = mdrf(MFLocalizedString('**{name}** in a YouTube comment',          'quotes.source.youtubeComment',    ''), { name: quote.name }, true)
-  break;  case QuoteSource.Acknowledgements  : uiSource = mdrf(MFLocalizedString('**{name}** in a Gumroad donation message', 'quotes.source.acknowledgements',  ''), { name: quote.name }, true)
   }
   // Add disclaimer 
   if (isUsingTranslation) {

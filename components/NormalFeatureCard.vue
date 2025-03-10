@@ -35,7 +35,10 @@
               {{ mdrf(MFLocalizedString(
                 `See It in Action`, 
                 'feature-card.expand-button', 
-                `Cards describing specific features of MMF can be expanded to reveal a video-demo! This is the label for the button that expands a card and lets the user see the feature described in the card 'in action'.`
+                `
+                Cards describing specific features of MMF can be expanded to reveal a video-demo!
+                This is the label for the button that expands a card, and lets the user see the feature 'in action'.
+                `
               )) }}
             </slot>
             <span class="inline-space-[0]"/><img src="~/assets/img/play.circle-blue@8x.png" alt="" class="ml-[0.4em] translate-x-[0em] inline wh-[1.00em] align-[-0.2em] filter hue-rotate-[var(--accent-rotate)]">

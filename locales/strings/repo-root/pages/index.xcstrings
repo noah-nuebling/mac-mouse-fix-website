@@ -37,6 +37,7 @@
       }
     },
     "03: trackpad.intro.body" : {
+      "comment" : "Background:\nText wrapped in **asterisks** will get a cool color highlight on the page! \nWe use quite a lot of **asterisks** to make the page more colorful and visually interesting, but also to make the text easier to understand when the reader is just skimming through.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -107,7 +108,7 @@
       }
     },
     "07: trackpad.gestures.lookup.body" : {
-      "comment" : "To translate unusual phrases like 'tapping with 3 fingers' I usually looked at how Apple translated these phrases on their support or marketing pages or inside System Settings.",
+      "comment" : "To translate unusual phrases like 'tapping with 3 fingers' to German, I usually looked at how Apple translated these phrases on their support or marketing pages or inside System Settings.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1169,7 +1170,6 @@
       }
     },
     "69: benefits.pricing.alternatives.body" : {
-      "comment" : "Adding ::newTab to the end of the link makes the MMF Website open the link in a new tab!\n\nText wrapped in **asterisks** will get a cool color highlight on the page! \n\nWe use quite a lot of **asterisks** to make the page more colorful and visually interesting, but also to make the text easier to understand when the reader is just skimming through.\n\nNote to self: I chose this string for the **asterisks** explanation since it's fairly high up when localizers sort the keys alphabetically.\n\nNote to self2: I think it's grammatically wrong in English to capitalize 'Trackpad' in 'Apple Trackpad', but I think it looks better.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {

@@ -2,7 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "1: localization-progress" : {
-      "comment" : "\"{localizationProgress}\" will be replaced by a string like \"84%\". \n\"{currentLocale}\" will be replaced by a language name like \"🇩🇪 Deutsch\" (The language names are translated programmatically). \"{linkToGuide}\" will be replaced by the \"localization-progress.link-to-guide\" string defined by translators.",
+      "comment" : "\"{localizationProgress}\" will be replaced by a string like \"84%\".\n\"{currentLocale}\" will be replaced by a language name like \"🇩🇪 Deutsch\".",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {

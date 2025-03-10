@@ -79,11 +79,18 @@ const expandingContainer = ref<HTMLElement | null>(null)
 const root = ref<HTMLElement | null>(null)
 
 // Extract locstrings that are used multiple times inside <template> into <script>.
-const locstring_link_overview = MFLocalizedString(`Overview`, 'navbar.links.overview', '');
+const locstring_link_overview = MFLocalizedString(
+  `Overview`, 
+  'navbar.links.overview', 
+  `
+  This string is for a link in the 'navbar' that takes you to the front page of the website.
+  Background: The 'navbar' or 'navigation bar' is the section at the top of the website that stays in place when you scroll down and shows a bunch of useful links to the user.
+  `
+);
 const locstring_link_github = MFLocalizedString(
   'More on GitHub', 
   'navbar.links.github', 
-  `The 'navbar' or 'navigation bar' is the section at the top of the website that stays put when you scroll down and shows a bunch of useful links to the user.`
+  ``
 )
 
 onMounted(() => {

@@ -20,7 +20,7 @@
           {{ MFLocalizedString(
             'Front Page', 
             '404.back', 
-            `Note: Label for a button that takes you from the 'page not found' page back to the front page.`, 
+            `Label for a button that takes you from the 'page not found' page back to the front page.`, 
             )}}
         </BackButton>
         <p class="mt-[0em] font-[600] text-pretty">

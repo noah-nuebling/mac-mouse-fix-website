@@ -67,7 +67,11 @@
                 {{ mdrf(MFLocalizedString(
                   `Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad.`,
                   'trackpad.intro.body',
-                  ``,
+                  `
+                  Background:
+                  Text wrapped in **asterisks** will get a cool color highlight on the page! 
+                  We use quite a lot of **asterisks** to make the page more colorful and visually interesting, but also to make the text easier to understand when the reader is just skimming through.
+                  `,
                 )) }}
               </StringF>
             </template>
@@ -852,17 +856,8 @@
                       And yet, Mac Mouse Fix is **[{priceFactorMXMaster} times]({urlMXMaster})** cheaper than an MX Master and **[{priceFactorTrackpad} times]({urlTrackpad})** cheaper than a Trackpad!
                       `,
                       'benefits.pricing.alternatives.body', 
-                      `
-                      Adding ::newTab to the end of the link makes the MMF Website open the link in a new tab!
-
-                      Text wrapped in **asterisks** will get a cool color highlight on the page! 
-
-                      We use quite a lot of **asterisks** to make the page more colorful and visually interesting, but also to make the text easier to understand when the reader is just skimming through.
-
-                      Note to self: I chose this string for the **asterisks** explanation since it's fairly high up when localizers sort the keys alphabetically.
-
-                      Note to self2: I think it's grammatically wrong in English to capitalize 'Trackpad' in 'Apple Trackpad', but I think it looks better.
-                      `
+                      ``
+                      /* Note to self: I think it's grammatically wrong in English to capitalize 'Trackpad' in 'Apple Trackpad', but I think it looks better. */
                     ), dynamicUIStrings, false) 
                     }}
                   </StringF>
@@ -908,7 +903,7 @@ const trialDays = licenseConfig["trialDays"];
 
 const priceFactorMXMaster = roundTo(MXMasterPrice / priceRaw, 5, 0, Math.floor);
 const priceFactorTrackpad = roundTo(trackpadPrice / priceRaw, 5, 0, Math.floor);
-const urlMXMaster = 'https://www.logitech.com/products/mice/mx-master-3s::newTab';       
+const urlMXMaster = 'https://www.logitech.com/products/mice/mx-master-3s::newTab';    // Adding ::newTab to the end of the link makes the MMF Website open the link in a new tab!
 const urlTrackpad = 'https://www.apple.com/shop/mac/accessories/mice-keyboards::newTab';
 const taxEstimateLow = 0.05;
 const taxEstimateHigh = 0.25;
