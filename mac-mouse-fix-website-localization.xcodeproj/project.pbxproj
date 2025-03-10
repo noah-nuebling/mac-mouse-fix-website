@@ -14,7 +14,7 @@
 		4F09D5E02C94A373001F8B48 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				strings/Localizable.xcstrings,
+				old/Localizable.xcstrings,
 				strings/Quotes.xcstrings,
 				"strings/repo-root/components/BottomNav.xcstrings",
 				"strings/repo-root/components/DownloadButton.xcstrings",

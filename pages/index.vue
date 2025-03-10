@@ -1129,10 +1129,12 @@ onMounted(() => {
            which I thought guides the viewers attention and emphasizes the 'story-telling' or 'question-reveal' aspects of the text.
           -> A downside is that having the text fade in only once you scroll it to the middle of the screen makes the website feel more 'fuzzy', less 'solid', maybe more mentally
             taxing to navigate. It feel similar to having very low contrast, no/light shadows and thin lines for 'elegance' which also gives me this 'less solid' feel (the iOS 7 effect.)
-
+      - [Mar 2025] I'm disabling the fade animations now. Problem is that the SectionHeader.vue body usually fades in *while* the (more cooler) title animations play, taking attention away from the cooler animations. 
+          An alternative fix to this problem would be spacing the title and body further apart or only triggering the body fade-in when the user has scrolled further down. 
+          But that would require more design work. Disabling the fade animations is the simplest solution for now.
       */
 
-    if ((true)) {
+    if ((false)) {
       const toFade: Array<Element> = Array.from(rootElement.value!.getElementsByClassName('fadeee'))
       
       for (const element of toFade) {
@@ -1210,7 +1212,7 @@ onMounted(() => {
       //  For the missing text, before it's faded in. So the layout doesn't look broken when parts of the paragraph are just missing.
       
        var placeholder: HTMLDivElement | null = null;
-       if (false) { // Gave up on placeholders. Too janky, can't get it right.
+       if ((false)) { // Gave up on placeholders. Too janky, can't get it right.
 
         const rect = { left: element.offsetLeft, top: element.offsetTop, width: element.offsetWidth, height: element.offsetHeight };
 
