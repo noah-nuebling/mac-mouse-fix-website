@@ -158,7 +158,9 @@ function getExpandButtonText(quotesAreExpanded) {
 function getThankYouText() {
   const { mdrf, MFLocalizedString, } = getLocalizationFunctions()
   return mdrf(MFLocalizedString(
-    `**Thank you** to everyone who shared their appreciation and thoughts! Also to those who aren't listed here. Reading such messages always motivates me and makes me a little happier. **:)**`, 
+    `
+    **Thank you** to everyone sharing their appreciation and feedback over the years! Reading your nice messages is always motivating **:)**
+    `, 
     'quotes.thankyou', 
     ''
   ))

@@ -28,7 +28,7 @@
     <!-- Quote -->
     <div ref="quoteElement" class="flex flex-row items-start justify-center h-fit mx-[3em] my-[5.5em]">
       <p v-if="quote" class="font-[700] text-[3.85em] absolute top-[0rem] left-[1rem] text-white/[0.375] ">&#8220</p>
-      <blockquote :class="['whitespace-pre-wrap max-w-[24em] text-center text-[1.6em] font-[400]', !doGlow ? 'text-white/[0.90]' : 'text-glow-2 text-white/[0.90]']" v-html="quote ? uiStrings?.quote : text!"/>
+      <blockquote :class="['whitespace-pre-wrapxxx max-w-[24em] text-center text-[1.6em] font-[400]', !doGlow ? 'text-white/[0.90]' : 'text-glow-2 text-white/[0.90]']" v-html="quote ? uiStrings?.quote : text!"/>
     </div>
     <!-- Quote Source -->
     <div v-if="quote" class="flex justify-center mt-[-2.05em] mb-[0.6em] mx-[1.5em] strong:font-[600] strong:text-glow-2 strong:inline-block strong:text-white/[0.3] text-white/[0.5] font-[400]">

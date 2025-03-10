@@ -845,13 +845,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**Dankeschön** an alle, die ihre Wertschätzung und Gedanken geteilt haben! Auch an die, die hier nicht aufgeführt sind. Solche Nachrichten zu lesen motiviert mich immer und macht mich ein bisschen glücklicher. **:)**"
+            "value" : "**Danke** an alle, die über die Jahre ihre Wertschätzung und ihr Feedback geteilt haben! Eure netten Nachrichten zu lesen ist immer motivierend **:)**"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "**Thank you** to everyone who shared their appreciation and thoughts! Also to those who aren't listed here. Reading such messages always motivates me and makes me a little happier. **:)**"
+            "value" : "**Thank you** to everyone sharing their appreciation and feedback over the years! Reading your nice messages is always motivating **:)**"
           }
         }
       }
