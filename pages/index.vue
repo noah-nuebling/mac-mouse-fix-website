@@ -52,11 +52,17 @@
                   Right?
                   `, 
                   'trackpad.intro.title',
-                  ''
+                  `
+                  {accent} is replaced with the trackpad.intro.title.accent string.
+
+                  Tip: If you sort the strings by their key, they will appear in the same order as they do on the website (macmousefix.com).
+                  So you can easily use the website as a reference while translating.
+                  (You might be translating a development version with some differences to the live website.)
+                  `
                 ) }}
                 <template #accent>
                   <span class="move-uppp text-gradient-to-l-block gradient-blue brightness-[1.43] filter hue-rotate-[0deg]">
-                    {{ MFLocalizedString('Trackpad', 'trackpad.intro.title.accent', '.') }}
+                    {{ MFLocalizedString('Trackpad', 'trackpad.intro.title.accent', 'Gets inserted into the trackpad.intro.title string') }}
                   </span>
                 </template>
               </StringF>
@@ -90,7 +96,7 @@
               {{ mdrf(MFLocalizedString(
                 `**Trackpad Gestures** that Mac Mouse Fix brings to your mouse`, 
                 'trackpad.gestures.header', 
-                'This is the header for the TrackpadGestures section and will be displayed above all the other strings of the section such as trackpad.gestures.free-scroll.title'
+                ''
               )) }}
             </StringF>
           </template>
@@ -101,7 +107,8 @@
               Note: Mac Mouse Fix can bring these Trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These 5 buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't recognize all the buttons at the moment. Mac Mouse Fix does not currently support the Apple Magic Mouse.
               `, 
               'trackpad.gestures.disclaimer', 
-              'Note to self: Maybe we should have information about all these caveats on a more info page, instead of here.'
+              ''
+              /* Note to self: Maybe we should have information about all these caveats on a more info page, instead of here. */
             )) }}
           </template>
 
@@ -130,7 +137,7 @@
                         It works just like tapping with 3 fingers or force clicking on an Apple Trackpad.
                         `, 
                         'trackpad.gestures.lookup.body', 
-                        `To translate unusual phrases like 'tapping with 3 fingers' I usually looked at how Apple translated these phrases on their support or marketing pages or inside System Settings.`
+                        `Tip: For Apple-specific terms like 'Quick Look' or phrases like 'tapping with 3 fingers', you can usually find official translations on Apple's support pages, marketing sites or inside System Settings.`
                       ), {}, false) }}
                     </StringF>
                   </template>
@@ -398,7 +405,15 @@
         <CardContainer class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] mb-[5rem] z-[10]">
 
           <template #title>
-            <StringF>{{ mdrf(MFLocalizedString(`Choose a **Scrolling Smoothness** ...`, 'scroll.smoothness.header', `See the comment on scroll.more.header`)) }}</StringF>
+            <StringF>{{ mdrf(MFLocalizedString(
+              `Choose a **Scrolling Smoothness** ...`, 
+              'scroll.smoothness.header', 
+              `
+              This forms a sentence with the next header (scroll.more.header)
+              
+              You can see this in context at macmousefix.com/#scroll
+              `
+              )) }} </StringF>
           </template>
 
           <div class="w-fit relative left-[50%] translate-x-[-50%]">
@@ -473,27 +488,7 @@
               {{ mdrf(MFLocalizedString(
                 `... And **More**`, 
                 'scroll.more.header', 
-                `
-                There are two sections talking about scrolling: The 'smoothness' section and the 'more' section. Each section is preceded by a header. (Whose ui-strings are defined by 'scroll.smoothness.header' and 'scroll.more.header')
-
-                The two section's headers together form a sort of sentence. It looks something like this on the website:
-
-                ----------------------------------
-
-                Choose a **Scrolling Smoothness** ...
-
-                [...]
-
-                ... And **More**
-
-                [...]
-
-                ---------------------------------
-
-                Take a look at macmousefix.com/#scroll to see this in action!
-
-                Note to self: We might wanna keep this comment in sync with the similar comment on benefits.pricing.header
-                `
+                ``
               )) }}
             </StringF>
           </template>
@@ -632,7 +627,12 @@
                         And that's it!
                         `, 
                         'customization.action-table.body', 
-                        ''
+                        `
+                        Don't forget the linebreaks between the list-items, and inside the second list-item. 
+                        That lets the website understand this is a list, and display it in a nice way. 
+
+                        (Linebreaks can usually be entered with Option-Return, Shift-Return or just Return, depending on what program you're using.)
+                        `
                       ), {}, false) }}
                     </StringF>
                   </template>
@@ -702,7 +702,14 @@
         <CardContainer class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] " title-class=" strong:filter strong:brightness-[1.2]">
 
           <template #title>
-            <StringF>{{ mdrf(MFLocalizedString(`Great **Software** ...`, 'benefits.software.header', 'See the comment on benefits.pricing.header')) }}</StringF>
+            <StringF>{{ mdrf(MFLocalizedString(
+              `Great **Software** ...`, 
+              'benefits.software.header', 
+              `
+              This forms a sentence with the next header (benefits.pricing.header)
+              
+              You can see this in context at macmousefix.com/#price
+              `)) }}</StringF>
           </template>
 
           <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
@@ -757,27 +764,7 @@
               ... Great **Price**
               `, 
               'benefits.pricing.header', 
-              `
-              There are two sections discussing various 'benefits' of Mac Mouse Fix at the end of the page: The 'pricing' and the 'software' section. Each section is preceded by a header. (Whose ui-strings are defined by 'benefits.pricing.header' and 'benefits.software.header')
-
-              The two section's headers together form a sort of sentence. It looks something like this on the website:
-
-              -----------------------
-
-              Great **Software** ...
-
-              [...]
-
-              ... Great **Price**
-
-              [...]
-
-              --------------------
-
-              Take a look at macmousefix.com/#price to see this in action!
-
-              Note to self: We might wanna keep this comment in sync with the similar comment on scroll.more.header
-              `
+              ``
             )) }}
           </StringF></template>
           
@@ -825,7 +812,7 @@
                   <StringF>{{ mdrf(MFLocalizedString(
                     `**{price}** to own`, 
                     'benefits.pricing.price.title', 
-                    'This is the title for the benefits.pricing.price.body text and will be displayed right above it.'
+                    ''
                   ), dynamicUIStrings) }}</StringF>
                 </template>
                 <template #body>
@@ -849,14 +836,21 @@
                 </template>
                 <template #body>
                   <StringF>
-                    {{ mdrf(MFLocalizedString( // Note: We thought about hardcoding the use of 'x' to mean 'times'. E.g. 10x – to simplify the strings for localizers. But Apple doesn't use 'x' for all languages. It uses 'x' in German, but e.g. https://www.apple.com/hk/macbook-pro/ uses 倍 instead. If we do use 'x' instead of 'times' in English, I think we'll have to tell localizers to localize that so they don't overlook it.
+                    {{ mdrf(MFLocalizedString(
                       `
                       Mac Mouse Fix makes your $10 mouse better than a Logitech MX Master mouse or an Apple Trackpad. (These are considered some of the best input devices for Macs.)
 
-                      And yet, Mac Mouse Fix is **[{priceFactorMXMaster} times]({urlMXMaster})** cheaper than an MX Master and **[{priceFactorTrackpad} times]({urlTrackpad})** cheaper than a Trackpad!
+                      And yet, Mac Mouse Fix is **[{priceFactorMXMaster}x]({urlMXMaster})** cheaper than an MX Master and **[{priceFactorTrackpad}x]({urlTrackpad})** cheaper than a Trackpad!
                       `,
                       'benefits.pricing.alternatives.body', 
-                      ``
+                      `
+                      {priceFactorMXMaster} will get replaced by how many times more expensive the MX Master is compared to Mac Mouse Fix.
+                      
+                      The 'x' right after stands for 'times'. E.g. '10x' means 'ten times'.
+                      In other languages you'd use different symbols or words than 'x'.
+                      E.g. '10x' is written as '10倍' in Chinese and '10 φορές' in Greek.
+                      (Don't forget to add a space in languages like Greek, so it becomes '10 φορές' instead of '10φορές')
+                      `
                       /* Note to self: I think it's grammatically wrong in English to capitalize 'Trackpad' in 'Apple Trackpad', but I think it looks better. */
                     ), dynamicUIStrings, false) 
                     }}

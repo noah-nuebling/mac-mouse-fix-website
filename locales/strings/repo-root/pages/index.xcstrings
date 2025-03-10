@@ -2,6 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "01: trackpad.intro.title" : {
+      "comment" : "{accent} is replaced with the trackpad.intro.title.accent string.\n\nTip: If you sort the strings by their key, they will appear in the same order as they do on the website (macmousefix.com).\nSo you can easily use the website as a reference while translating.\n(You might be translating a development version with some differences to the live website.)",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -19,7 +20,7 @@
       }
     },
     "02: trackpad.intro.title.accent" : {
-      "comment" : ".",
+      "comment" : "Gets inserted into the trackpad.intro.title string",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -55,7 +56,6 @@
       }
     },
     "04: trackpad.gestures.header" : {
-      "comment" : "This is the header for the TrackpadGestures section and will be displayed above all the other strings of the section such as trackpad.gestures.free-scroll.title",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -73,7 +73,6 @@
       }
     },
     "05: trackpad.gestures.disclaimer" : {
-      "comment" : "Note to self: Maybe we should have information about all these caveats on a more info page, instead of here.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -108,7 +107,7 @@
       }
     },
     "07: trackpad.gestures.lookup.body" : {
-      "comment" : "To translate unusual phrases like 'tapping with 3 fingers' to German, I usually looked at how Apple translated these phrases on their support or marketing pages or inside System Settings.",
+      "comment" : "Tip: For Apple-specific terms like 'Quick Look' or phrases like 'tapping with 3 fingers', you can usually find official translations on Apple's support pages, marketing sites or inside System Settings.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -517,7 +516,7 @@
       }
     },
     "31: scroll.smoothness.header" : {
-      "comment" : "See the comment on scroll.more.header",
+      "comment" : "This forms a sentence with the next header (scroll.more.header)\n\nYou can see this in context at macmousefix.com/#scroll",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -637,7 +636,6 @@
       }
     },
     "38: scroll.more.header" : {
-      "comment" : "There are two sections talking about scrolling: The 'smoothness' section and the 'more' section. Each section is preceded by a header. (Whose ui-strings are defined by 'scroll.smoothness.header' and 'scroll.more.header')\n\nThe two section's headers together form a sort of sentence. It looks something like this on the website:\n\n----------------------------------\n\nChoose a **Scrolling Smoothness** ...\n\n[...]\n\n... And **More**\n\n[...]\n\n---------------------------------\n\nTake a look at macmousefix.com/#scroll to see this in action!\n\nNote to self: We might wanna keep this comment in sync with the similar comment on benefits.pricing.header",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -825,7 +823,6 @@
       }
     },
     "49: customization.action-table.title" : {
-      "comment" : "This is the title for the `customization-feature.action-table.body` text and will be displayed directly above it.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -963,7 +960,7 @@
       }
     },
     "57: benefits.software.header" : {
-      "comment" : "See the comment on benefits.pricing.header",
+      "comment" : "This forms a sentence with the next header (benefits.pricing.header)\n\nYou can see this in context at macmousefix.com/#price",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1049,7 +1046,6 @@
       }
     },
     "62: benefits.pricing.header" : {
-      "comment" : "There are two sections discussing various 'benefits' of Mac Mouse Fix at the end of the page: The 'pricing' and the 'software' section. Each section is preceded by a header. (Whose ui-strings are defined by 'benefits.pricing.header' and 'benefits.software.header')\n\nThe two section's headers together form a sort of sentence. It looks something like this on the website:\n\n-----------------------\n\nGreat **Software** ...\n\n[...]\n\n... Great **Price**\n\n[...]\n\n--------------------\n\nTake a look at macmousefix.com/#price to see this in action!\n\nNote to self: We might wanna keep this comment in sync with the similar comment on scroll.more.header",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1118,7 +1114,6 @@
       }
     },
     "66: benefits.pricing.price.title" : {
-      "comment" : "This is the title for the benefits.pricing.price.body text and will be displayed right above it.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1170,18 +1165,19 @@
       }
     },
     "69: benefits.pricing.alternatives.body" : {
+      "comment" : "{priceFactorMXMaster} will get replaced by how many times more expensive the MX Master is compared to Mac Mouse Fix.\n\nThe 'x' right after stands for 'times'. E.g. '10x' means 'ten times'.\nIn other languages you'd use different symbols or words than 'x'.\nE.g. '10x' is written as '10倍' in Chinese and '10 φορές' in Greek.\n(Don't forget to add a space in languages like Greek, so it becomes '10 φορές' instead of '10φορές')",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac Mouse Fix macht deine $10 Maus besser als eine Logitech MX Master Maus oder ein Apple Trackpad. (Diese gelten als einige der besten Eingabegeräte für Macs.)\n\nUnd trotzdem ist Mac Mouse Fix **[{priceFactorMXMaster}-mal]({urlMXMaster})** günstiger als eine MX Master und **[{priceFactorTrackpad}-mal]({urlTrackpad})** günstiger als ein Trackpad!"
+            "value" : "Mac Mouse Fix macht deine $10 Maus besser als eine Logitech MX Master Maus oder ein Apple Trackpad. (Diese gelten als einige der besten Eingabegeräte für Macs.)\n\nUnd trotzdem ist Mac Mouse Fix **[{priceFactorMXMaster}x]({urlMXMaster})** günstiger als eine MX Master und **[{priceFactorTrackpad}x]({urlTrackpad})** günstiger als ein Trackpad!"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Mac Mouse Fix makes your $10 mouse better than a Logitech MX Master mouse or an Apple Trackpad. (These are considered some of the best input devices for Macs.)\n\nAnd yet, Mac Mouse Fix is **[{priceFactorMXMaster} times]({urlMXMaster})** cheaper than an MX Master and **[{priceFactorTrackpad} times]({urlTrackpad})** cheaper than a Trackpad!"
+            "value" : "Mac Mouse Fix makes your $10 mouse better than a Logitech MX Master mouse or an Apple Trackpad. (These are considered some of the best input devices for Macs.)\n\nAnd yet, Mac Mouse Fix is **[{priceFactorMXMaster}x]({urlMXMaster})** cheaper than an MX Master and **[{priceFactorTrackpad}x]({urlTrackpad})** cheaper than a Trackpad!"
           }
         }
       }
