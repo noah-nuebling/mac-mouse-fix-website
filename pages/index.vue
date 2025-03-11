@@ -49,12 +49,11 @@
                   {{ MFLocalizedString(
                     `
                     Macs Are Best
-                    With a {accent},
-                    Right?
+                    With a {accent}.
                     `, 
                     'trackpad.intro.title',
                     `
-                    {accent} is replaced with the trackpad.intro.title.accent string.
+                    {accent} is replaced with the trackpad.intro.title.accent.1 or trackpad.intro.title.accent.2 string.
 
                     Tip: If you sort the strings by their key, they will appear in the same order as they do on the website (macmousefix.com).
                     So you can easily use the website as a reference while translating.
@@ -62,9 +61,16 @@
                     `
                   ) }}
                   <template #accent>
-                    <span class="move-uppp text-gradient-to-l-block gradient-blue brightness-[1.43] filter hue-rotate-[0deg]">
-                      {{ MFLocalizedString('Trackpad', 'trackpad.intro.title.accent', 'Gets inserted into the trackpad.intro.title string') }}
-                    </span>
+                    <div class="inline-grid justify-items-center overflow-visible">
+                      <span class="col-start-1 col-end-1 row-start-1 row-end-1 flex justify-center replaceee-0">
+                        <span class="text-black/[0.25]xxx">
+                          {{ MFLocalizedString('Trackpad', 'trackpad.intro.title.accent.1', '') }}
+                        </span>
+                      </span>
+                      <span class="col-start-1 col-end-1 row-start-1 row-end-1 replaceee-1 text-gradient-to-l-block gradient-blue brightness-[1.43] filter hue-rotate-[0deg]">
+                        {{ MFLocalizedString('Mouse', 'trackpad.intro.title.accent.2', 'Replaces the  trackpad.intro.title.accent.1 string with a cool animation!') }}
+                      </span>
+                    </div>
                   </template>
                 </StringF>
               </span>
@@ -74,7 +80,7 @@
               <span class="fadeeet fadeeet-trigger">
                 <StringF>
                   {{ mdrf(MFLocalizedString(
-                    `Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad.`,
+                    `That's right! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad.`,
                     'trackpad.intro.body',
                     `
                     Background:
@@ -1148,6 +1154,9 @@ onMounted(() => {
         - I felt like the text fade-in makes the website feel more 'fuzzy', less 'solid', maybe more mentally taxing to navigate. 
           It felt similar to having very low contrast, no/light shadows and thin lines for 'elegance' which also gives me this 'less solid' feel (the iOS 7 effect.)
           But as of [Mar 2025] I really like the fade-in again. (Seems to change from day-to-day) So I'll leave it for now.
+      
+      Notes:
+        - `fadeeet` stands for: fade with separate (t)rigger
       */
 
     if ((true)) {
@@ -1161,7 +1170,7 @@ onMounted(() => {
         const tlFade = $gsap.timeline({ scrollTrigger: {
           trigger: fadeTriggers[i],
           pin: false,
-          start: "center 45%",
+          start: "center 42.5%",
           end: "bottom 10%",
           scrub: false,
           toggleActions: 'play none none reverse', 
@@ -1195,11 +1204,12 @@ onMounted(() => {
     //    1. Have class `move-uppp`
     //    2. Have a parent with class `strong:move-uppp` and themselves have class `strong` 
     //        (Note how the strong:some-class syntax is usually a custom tailwind variant implemented in tailwind.config.js, but move-uppp is not a tailwind class, so here we're kinda 'misappropriating' this syntax.)
-    var toMoveUp: Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-uppp, .strong\\:move-uppp strong')); // The double backslash `\\` is so colon `:` is interpreted as part of the class name, instead of the start of a `:pseudo-class`.
-    var toMoveRight: Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-righttt'));
-    var toFlex: Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-flexxx'));
-    var toGrow: Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-growww'));
-    var toMoveee = toMoveUp.concat(toMoveRight).concat(toFlex).concat(toGrow);   
+    var toMoveUp:         Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-uppp, .strong\\:move-uppp strong')); // The double backslash `\\` is so colon `:` is interpreted as part of the class name, instead of the start of a `:pseudo-class`.
+    var toMoveRight:      Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-righttt'));
+    var toFlex:           Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-flexxx'));
+    var toGrow:           Array<Element> = Array.from(rootElement.value!.querySelectorAll('.move-growww'));
+    var toReplace:        Array<Element> = Array.from(rootElement.value!.querySelectorAll('.replaceee-0'));
+    var toMoveee:         Array<Element> = [...toMoveUp, ...toMoveRight, ...toFlex, ...toGrow, ...toReplace];
     
     console.debug(`index: toMoveUp elements: ${objectDescription(toMoveee)}`)
 
@@ -1264,7 +1274,94 @@ onMounted(() => {
         element.parentElement?.appendChild(placeholder);
       }
 
-      if (toMoveUp.includes(element)) {
+      if ((0)) {}
+      else if (toReplace.includes(element)) {
+        
+        // Constants
+        const anDur = 0.9;
+        const star = (pstart: number) => { return pstart*anDur; }                               // It's called star not start cause I'm too lazy to type t I guess
+        const dur = (pstart: number, pend: number) => { return (pend*anDur) - (pstart*anDur); } 
+
+        // Find replacement
+        const replacement: HTMLElement | undefined | null = element.parentElement?.parentElement?.querySelector('.replaceee-1') // [Mar 2025] This is very hardcoded to our usecase.
+
+        if (!replacement) console.assert(false);
+        else {
+
+          const tlReplace = $gsap.timeline({ scrollTrigger: {
+            trigger: replacement,
+            pin: false,
+            start: `bottom+=${animationStartOffsetCompensation} 50%`,
+            end: `bottom+=${animationStartOffsetCompensation} 10%`,
+            scrub: false,
+            toggleActions: 'restart none none reverse',
+            markers: false,
+          }});
+
+          // Fade out
+          const fadeOutStart = 0, fadeOutEnd = 0.3
+          tlReplace.fromTo(element, { opacity: '1' }, { opacity: '0', duration: dur(fadeOutStart, fadeOutEnd), ease: linearFadingEase(1) }, star(fadeOutStart))
+
+          // Fade in
+          const fadeInStart = 0.4, fadeInEnd = 0.6;
+          tlReplace.fromTo(replacement, { opacity: '0' }, { opacity: '1', duration: dur(fadeInStart, fadeInEnd), ease: linearFadingEase(1) }, star(fadeInStart))
+
+          // Slam 
+          const scale = 2.0
+          const slamStart = 0.2, slamEnd = 0.6
+          const ease = (x: number) => { return linearScalingEase(scale)($Power2.easeIn(x)) }
+          tlReplace.fromTo(replacement, { scale: scale }, { scale: 1.0, duration: dur(slamStart, slamEnd), ease: ease }, slamStart)
+
+          // Shrink slot
+          const shrinkStart = 0.9, shrinkEnd = 1.7
+          element.style.overflow = 'visible';
+          console.log(`replacement widht: ${replacement.scrollWidth}`)
+          tlReplace.to(element, { 
+            width:        `${replacement.offsetWidth}px`,
+            duration:     dur(shrinkStart, shrinkEnd),
+            ease:         customInOutEase(),
+          }, star(shrinkStart))
+
+            // replacement!.textContent = "Ahhh";
+            // replacement!.style.display = 'none';
+        
+          fadeTimelines.push(tlReplace)
+
+          const tlImpactJiggle = $gsap.timeline({ scrollTrigger: {
+            trigger: replacement,
+            pin: false,
+            start: `bottom+=${animationStartOffsetCompensation} 50%`,
+            end: `bottom+=${animationStartOffsetCompensation} 10%`,
+            scrub: false,
+            toggleActions: 'restart none none none', // Don't play reverse jiggle
+            markers: false,
+          }})
+
+            // Impact jiggle
+          tlImpactJiggle.to(replacement, {
+            rotation: 2,  // Small rotation clockwise
+            duration: 0.05,
+            ease: "power1.out"
+          }, star(slamEnd))  // Start right after the slam
+          .to(replacement, {
+            rotation: -2,  // Small rotation counter-clockwise
+            duration: 0.1,
+            ease: "power1.inOut"
+          })
+          .to(replacement, {
+            rotation: 1,  // Small rotation clockwise again
+            duration: 0.08,
+            ease: "power1.inOut"
+          })
+          .to(replacement, {
+            rotation: 0,  // Back to normal
+            duration: 0.07,
+            ease: "power1.inOut"
+          });
+        }
+
+      }
+      else if (toMoveUp.includes(element)) {
 
         // Animation duration
         const anDur = 0.8;
@@ -1281,8 +1378,8 @@ onMounted(() => {
         }})
 
         const hasLittleSpace = true;
-        tlFade.fromTo(element, { opacity: '0' }, { opacity: '1', duration: anDur*0.4, ease: linearFadingEase(0) }, hasLittleSpace ? anDur*0.25 : 0.0); 
-        tlFade.fromTo(placeholder, { opacity: '0.1' }, { opacity: '0', duration: anDur*0.2, ease: linearFadingEase(0) }, hasLittleSpace ? anDur*0.0 : 0.0); 
+                  tlFade.fromTo(element,      { opacity: '0' },   { opacity: '1', duration: anDur*0.4, ease: linearFadingEase(0) }, hasLittleSpace ? anDur*0.25 : 0.0); 
+        if ((0))  tlFade.fromTo(placeholder,  { opacity: '0.1' }, { opacity: '0', duration: anDur*0.2, ease: linearFadingEase(0) }, hasLittleSpace ? anDur*0.0 : 0.0); 
         fadeTimelines.push(tlFade);
 
         // Create move-up animation
@@ -1302,7 +1399,8 @@ onMounted(() => {
         tlMoveUp.fromTo(element, { translateY: animationStartOffset }, { translateY: '0rem', duration: anDur, ease: criticalSpring(6.0) }, 0);
         fadeTimelines.push(tlMoveUp);
 
-      } else if (toMoveRight.includes(element)) {
+      } 
+      else if (toMoveRight.includes(element)) {
 
         // Animation duration
         const anDur = 1.2;
@@ -1337,7 +1435,8 @@ onMounted(() => {
         tlMoveUp.fromTo(element, { translateX: '-18rem' }, { translateX: '0rem', duration: anDur, ease: criticalSpring(6.0) }, 0);
         fadeTimelines.push(tlMoveUp);
 
-      } else if (toFlex.includes(element)) {
+      } 
+      else if (toFlex.includes(element)) {
 
           // Animation duration
           const anDur = 1.2;
@@ -1377,7 +1476,8 @@ onMounted(() => {
           tlMoveUp.fromTo(element, { transform: 'scale(1.0,1.75)' }, { transform: 'scale(1.0,1.0)', duration: anDur*anDurExt, ease: spring(4.0, 0.4/anDurExt) }, anDelay);
           fadeTimelines.push(tlMoveUp);
 
-      } else if (toGrow.includes(element)) {
+      } 
+      else if (toGrow.includes(element)) {
 
           // Animation duration
           const anDur = 0.5;
