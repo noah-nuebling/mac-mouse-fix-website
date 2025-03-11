@@ -44,42 +44,46 @@
           <SectionHeader id="trackpad" class="strong:gradient-blue strong:filter strong:brightness-[1.0]">
 
             <template #title>
-              <StringF>
-                {{ MFLocalizedString(
-                  `
-                  Macs Are Best
-                  With a {accent},
-                  Right?
-                  `, 
-                  'trackpad.intro.title',
-                  `
-                  {accent} is replaced with the trackpad.intro.title.accent string.
+              <span class="fadeeet-trigger">
+                <StringF>
+                  {{ MFLocalizedString(
+                    `
+                    Macs Are Best
+                    With a {accent},
+                    Right?
+                    `, 
+                    'trackpad.intro.title',
+                    `
+                    {accent} is replaced with the trackpad.intro.title.accent string.
 
-                  Tip: If you sort the strings by their key, they will appear in the same order as they do on the website (macmousefix.com).
-                  So you can easily use the website as a reference while translating.
-                  (You might be translating a development version with some differences to the live website.)
-                  `
-                ) }}
-                <template #accent>
-                  <span class="move-uppp text-gradient-to-l-block gradient-blue brightness-[1.43] filter hue-rotate-[0deg]">
-                    {{ MFLocalizedString('Trackpad', 'trackpad.intro.title.accent', 'Gets inserted into the trackpad.intro.title string') }}
-                  </span>
-                </template>
-              </StringF>
+                    Tip: If you sort the strings by their key, they will appear in the same order as they do on the website (macmousefix.com).
+                    So you can easily use the website as a reference while translating.
+                    (You might be translating a development version with some differences to the live website.)
+                    `
+                  ) }}
+                  <template #accent>
+                    <span class="move-uppp text-gradient-to-l-block gradient-blue brightness-[1.43] filter hue-rotate-[0deg]">
+                      {{ MFLocalizedString('Trackpad', 'trackpad.intro.title.accent', 'Gets inserted into the trackpad.intro.title string') }}
+                    </span>
+                  </template>
+                </StringF>
+              </span>
             </template>
 
             <template #body>
-              <StringF>
-                {{ mdrf(MFLocalizedString(
-                  `Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad.`,
-                  'trackpad.intro.body',
-                  `
-                  Background:
-                  Text wrapped in **asterisks** will get a cool color highlight on the page! 
-                  We use quite a lot of **asterisks** to make the page more colorful and visually interesting, but also to make the text easier to understand when the reader is just skimming through.
-                  `,
-                )) }}
-              </StringF>
+              <span class="fadeeet fadeeet-trigger">
+                <StringF>
+                  {{ mdrf(MFLocalizedString(
+                    `Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad.`,
+                    'trackpad.intro.body',
+                    `
+                    Background:
+                    Text wrapped in **asterisks** will get a cool color highlight on the page! 
+                    We use quite a lot of **asterisks** to make the page more colorful and visually interesting, but also to make the text easier to understand when the reader is just skimming through.
+                    `,
+                  )) }}
+                </StringF>
+              </span>
             </template>
 
           </SectionHeader>
@@ -92,13 +96,15 @@
         <CardContainer class="gradient-blue strong:filter ch-[.card-title_strong]:brightness-[1.15]" title-class="strong:filter strong:brightness-[1.2] strong:hue-rotate-[0deg]">
 
           <template #title>
-            <StringF>
-              {{ mdrf(MFLocalizedString(
-                `**Trackpad Gestures** that Mac Mouse Fix brings to your mouse`, 
-                'trackpad.gestures.header', 
-                ''
-              )) }}
-            </StringF>
+            <span class="fadeeet">
+              <StringF>
+                {{ mdrf(MFLocalizedString(
+                  `**Trackpad Gestures** that Mac Mouse Fix brings to your mouse`, 
+                  'trackpad.gestures.header', 
+                  ''
+                )) }}
+              </StringF>
+            </span>
           </template>
 
           <template #disclaimer>
@@ -371,33 +377,37 @@
       <!-- Scrolling -->
       <div class="strong:text-gradient-to-l">
         <SectionHeader id="scroll" class="gradient-violet" >
-        
+          
           <template #title>
-            <StringF>
-              {{ MFLocalizedString(
-                `
-                {accent}.
-                Smooth As Butter.
-                `,
-                'scroll.intro.title', 
-                ''
-              ) }}
-              <template #accent>
-                <span class="move-righttt text-gradient-to-l-block filter brightness-[1.06]">
-                  {{ MFLocalizedString(`Scrolling`, 'scroll.intro.title.accent', '') }}
-                </span>
-              </template>
-            </StringF>
+            <span class="fadeeet-trigger">
+              <StringF>
+                {{ MFLocalizedString(
+                  `
+                  {accent}.
+                  Smooth As Butter.
+                  `,
+                  'scroll.intro.title', 
+                  ''
+                ) }}
+                <template #accent>
+                  <span class="move-righttt text-gradient-to-l-block filter brightness-[1.06]">
+                    {{ MFLocalizedString(`Scrolling`, 'scroll.intro.title.accent', '') }}
+                  </span>
+                </template>
+              </StringF>
+            </span>
           </template>
 
           <template #body>
-            <StringF>
-              {{ mdrf(MFLocalizedString(
-                `Scrolling with a third-party mouse on macOS can feel **stuttery** and **hard to control**. Well, not any more! Experience a **refined**, **momentum-based** scrolling algorithm that makes navigating your computer **effortless** and **natural**.`,
-                'scroll.intro.body',
-                ``,
-              )) }}
-            </StringF>
+            <span class="fadeeet fadeeet-trigger">
+              <StringF>
+                {{ mdrf(MFLocalizedString(
+                  `Scrolling with a third-party mouse on macOS can feel **stuttery** and **hard to control**. Well, not any more! Experience a **refined**, **momentum-based** scrolling algorithm that makes navigating your computer **effortless** and **natural**.`,
+                  'scroll.intro.body',
+                  ``,
+                )) }}
+              </StringF>
+            </span>
           </template>
 
         </SectionHeader>
@@ -405,18 +415,20 @@
         <CardContainer class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] mb-[5rem] z-[10]">
 
           <template #title>
-            <StringF>{{ mdrf(MFLocalizedString(
-              `Choose a **Scrolling Smoothness** ...`, 
-              'scroll.smoothness.header', 
-              `
-              This forms a sentence with the next header (scroll.more.header)
-              
-              You can see this in context at macmousefix.com/#scroll
-              `
-              )) }} </StringF>
+            <span class="fadeeet">
+              <StringF>{{ mdrf(MFLocalizedString(
+                `Choose a **Scrolling Smoothness** ...`, 
+                'scroll.smoothness.header', 
+                `
+                This forms a sentence with the next header (scroll.more.header)
+                
+                You can see this in context at macmousefix.com/#scroll
+                `
+                )) }} </StringF>
+            </span>
           </template>
 
-          <div class="w-fit relative left-[50%] translate-x-[-50%]">
+          <div class="w-fit relative left-[50%] translate-x-[-50%] fadeeet-trigger">
             <div class="absolute inset-0 -z-10 pointer-events-none">
               <NuxtImg :src="colorSplashImagePath" alt="" class="f-w-[130rem] f-h-[70rem] absolute left-[25%] top-[40%] translate-x-[-50%] translate-y-[-50%] opacity-[0.6] filter hue-rotate-[60deg]"/>
             </div>
@@ -484,13 +496,15 @@
         <CardContainer class="gradient-violet var-[accent-rotate=30deg] strong:filter ch-[.card-sm_strong]:brightness-[0.93] z-[9]">
 
           <template #title>
-            <StringF>
-              {{ mdrf(MFLocalizedString(
-                `... And **More**`, 
-                'scroll.more.header', 
-                ``
-              )) }}
-            </StringF>
+            <span class="fadeeet">
+              <StringF>
+                {{ mdrf(MFLocalizedString(
+                  `... And **More**`, 
+                  'scroll.more.header', 
+                  ``
+                )) }}
+              </StringF>
+            </span>
           </template>
 
           <div class="w-fit relative left-[50%] translate-x-[-50%]">
@@ -564,37 +578,40 @@
                         class="gradient-red strong:filter strong:brightness-[1.0]" >
           
           <template #title>
-            
-            <StringF>
-              {{ MFLocalizedString(
-                `
-                Amazingly {accent2}
-                {accent} Intuitive.
-                `,
-                'customization.intro.title', 
-                ''
-              ) }}
-              <template #accent>
-                <span class="italic"> 
-                  {{ MFLocalizedString(`and`, 'customization.intro.title.accent', '') }} 
-                </span>
-              </template>
-              <template #accent2>
-                <span class="move-flexxx text-gradient-to-l-block filter brightness-[1.12] hue-rotate-[-0deg]">
-                  {{ MFLocalizedString(`Flexible`, 'customization.intro.title.accent2', '') }}
-                </span>
-              </template>
-            </StringF>
+            <span class="fadeeet-trigger">
+              <StringF>
+                {{ MFLocalizedString(
+                  `
+                  Amazingly {accent2}
+                  {accent} Intuitive.
+                  `,
+                  'customization.intro.title', 
+                  ''
+                ) }}
+                <template #accent>
+                  <span class="italic"> 
+                    {{ MFLocalizedString(`and`, 'customization.intro.title.accent', '') }} 
+                  </span>
+                </template>
+                <template #accent2>
+                  <span class="move-flexxx text-gradient-to-l-block filter brightness-[1.12] hue-rotate-[-0deg]">
+                    {{ MFLocalizedString(`Flexible`, 'customization.intro.title.accent2', '') }}
+                  </span>
+                </template>
+              </StringF>
+            </span>
           </template>
 
           <template #body>
-            <StringF>
-              {{ mdrf(MFLocalizedString(
-                `Mac Mouse Fix lets you **do almost anything** you can think of - straight from your mouse! And yet, it's **remarkably easy** to use.`, 
-                'customization.intro.body', 
-                ``
-              )) }}
-            </StringF>
+            <span class="fadeeet">
+              <StringF>
+                {{ mdrf(MFLocalizedString(
+                  `Mac Mouse Fix lets you **do almost anything** you can think of - straight from your mouse! And yet, it's **remarkably easy** to use.`, 
+                  'customization.intro.body', 
+                  ``
+                )) }}
+              </StringF>
+            </span>
           </template>
 
         </SectionHeader>
@@ -670,31 +687,35 @@
         <SectionHeader id="price" class="gradient-green strong:filter strong:brightness-[1.15]">
           
           <template #title>
-            <StringF>
-              {{ MFLocalizedString(
-                `
-                Great Software.
-                Great {accent2}.
-                `, 
-                'benefits.intro.title', 
-                ''
-              ) }}
-              <template #accent2>
-                <span class="move-growww text-gradient-to-l-block gradient-green filter brightness-[1.35]">
-                  {{ MFLocalizedString('Price', 'benefits.intro.title.accent2', '') }}
-                </span>
-              </template>
-            </StringF>
+            <span class="fadeeet-trigger">
+              <StringF>
+                {{ MFLocalizedString(
+                  `
+                  Great Software.
+                  Great {accent2}.
+                  `, 
+                  'benefits.intro.title', 
+                  ''
+                ) }}
+                <template #accent2>
+                  <span class="move-growww text-gradient-to-l-block gradient-green filter brightness-[1.35]">
+                    {{ MFLocalizedString('Price', 'benefits.intro.title.accent2', '') }}
+                  </span>
+                </template>
+              </StringF>
+            </span>
           </template>
 
           <template #body>
-            <StringF>
-              {{ mdrf(MFLocalizedString(
-                `I strive to make Mac Mouse Fix a software that you can **feel great** about installing. I want to offer it as **cheaply** as possible, so you feel like you're getting a great deal and so that everyone can afford it. And ultimately, I hope to make this tiny corner of the world a little more **awesome** and nice!`, 
-                'benefits.intro.body', 
-                ''
-              )) }}
-            </StringF>
+            <span class="fadeeet fadeeet-trigger">
+              <StringF>
+                {{ mdrf(MFLocalizedString(
+                  `I strive to make Mac Mouse Fix a software that you can **feel great** about installing. I want to offer it as **cheaply** as possible, so you feel like you're getting a great deal and so that everyone can afford it. And ultimately, I hope to make this tiny corner of the world a little more **awesome** and nice!`, 
+                  'benefits.intro.body', 
+                  ''
+                )) }}
+              </StringF>
+            </span>
           </template>
 
         </SectionHeader>
@@ -702,17 +723,19 @@
         <CardContainer class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] " title-class=" strong:filter strong:brightness-[1.2]">
 
           <template #title>
-            <StringF>{{ mdrf(MFLocalizedString(
-              `Great **Software** ...`, 
-              'benefits.software.header', 
-              `
-              This forms a sentence with the next header (benefits.pricing.header)
-              
-              You can see this in context at macmousefix.com/#price
-              `)) }}</StringF>
+            <span class="fadeeet">
+              <StringF>{{ mdrf(MFLocalizedString(
+                `Great **Software** ...`, 
+                'benefits.software.header', 
+                `
+                This forms a sentence with the next header (benefits.pricing.header)
+                
+                You can see this in context at macmousefix.com/#price
+                `)) }}</StringF>
+            </span>
           </template>
 
-          <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%]">
+          <div class="flex justify-center w-fit relative left-[50%] translate-x-[-50%] fadeeet-trigger">
             <div class="absolute inset-0 -z-10 pointer-events-none">
               <NuxtImg :src="colorSplashImagePath" alt="" class="f-h-[50rem] f-w-[100rem] absolute left-[33%] top-[33%] translate-x-[-50%] translate-y-[-50%] opacity-[0.8] filter invert hue-rotate-[125deg]"/>
             </div>
@@ -758,15 +781,19 @@
 
         <CardContainer class="gradient-green var-[accent-rotate=360deg] strong:filter ch-[.card-title_strong]:brightness-[1.2] ch-[.feature-card]:bg-neutral-50/[0.8] mt-[5rem]"   title-class="strong:filter strong:brightness-[1.2]">
           
-          <template #title><StringF>
-            {{ mdrf(MFLocalizedString(
-              `
-              ... Great **Price**
-              `, 
-              'benefits.pricing.header', 
-              ``
-            )) }}
-          </StringF></template>
+          <template #title>
+            <span class="fadeeet">
+              <StringF>
+                {{ mdrf(MFLocalizedString(
+                  `
+                  ... Great **Price**
+                  `, 
+                  'benefits.pricing.header', 
+                  ``
+                )) }}
+              </StringF>
+            </span>
+          </template>
           
           <template #disclaimer>
             <span id="price.disclaimer">
@@ -1110,34 +1137,37 @@ onMounted(() => {
     /* Create fade-in animations for titles and bodys 
     
       Discussion: 
-      - Now that we have the move-uppp, flexxx, etc animation, we have a much cooler way to bring some motion and dynamic feel into the page than the fadeee animations.
-      - Reasons I can think of to keep using fadeee animations, is to only have the SectionHeader *title* visible when the title is scrolled into the middle of the screen, 
-          and not have the SectionHeader *body* visible as well.
-          -> This looks visually very clean and beautiful, when only the SectionHeader title is shown on in the middle of the screen with a white background. 
-          -> Also, it was one of the ideas behind the section header design to only have one large piece of text shown at a time, almost like a video or presentation
-           which I thought guides the viewers attention and emphasizes the 'story-telling' or 'question-reveal' aspects of the text.
-          -> A downside is that having the text fade in only once you scroll it to the middle of the screen makes the website feel more 'fuzzy', less 'solid', maybe more mentally
-            taxing to navigate. It feel similar to having very low contrast, no/light shadows and thin lines for 'elegance' which also gives me this 'less solid' feel (the iOS 7 effect.)
-      - [Mar 2025] I'm disabling the fade animations now. Problem is that the SectionHeader.vue body usually fades in *while* the (more cooler) title animations play, taking attention away from the cooler animations. 
-          An alternative fix to this problem would be spacing the title and body further apart or only triggering the body fade-in when the user has scrolled further down. 
-          But that would require more design work. Disabling the fade animations is the simplest solution for now.
+      - [Mar 2025] We used to use simple fade-in for everything. now we added cooler animations like the move-uppp, flexxx. But the fade animations still have some use.
+      - One of the core ideas behind the website design is to only have one large piece of text shown at a time, almost like a video or presentation slides.
+           This should guide the viewers attention and creates sort of a 'story-telling' or 'question-reveal' aspects to the website.
+      - To achieve this we're only fading in the next text, once the previous piece of content has been scrolled past the center of the screen.
+        This also has the nice effect that when you scroll the section titles (such as "Scrolling. Smooth as Butter") to the middle of the screen, there's nothing else on the screen, which looks really clean and like a presentation slide.
+        - Alternative: We could also remove the fade-in but just space the content further apart based on screen-size, but that would require more scrolling, which might be annoying.
+    
+      Problems:
+        - I felt like the text fade-in makes the website feel more 'fuzzy', less 'solid', maybe more mentally taxing to navigate. 
+          It felt similar to having very low contrast, no/light shadows and thin lines for 'elegance' which also gives me this 'less solid' feel (the iOS 7 effect.)
+          But as of [Mar 2025] I really like the fade-in again. (Seems to change from day-to-day) So I'll leave it for now.
       */
 
-    if ((false)) {
-      const toFade: Array<Element> = Array.from(rootElement.value!.getElementsByClassName('fadeee'))
+    if ((true)) {
       
-      for (const element of toFade) {
+      const fadeTriggers: Array<Element> = Array.from(rootElement.value!.getElementsByClassName('fadeeet-trigger'))
+      const toFade: Array<Element> = Array.from(rootElement.value!.getElementsByClassName('fadeeet'))
+      let len = fadeTriggers.length;
+      console.assert(fadeTriggers.length == toFade.length, `number of fade trigger elements (${fadeTriggers.length}) doesn't match number of faded elements (${toFade.length}).`)
 
+      for (let i = 0; i < len; i++) {
         const tlFade = $gsap.timeline({ scrollTrigger: {
-          trigger: element,
+          trigger: fadeTriggers[i],
           pin: false,
-          start: "top 80%",
+          start: "center 45%",
           end: "bottom 10%",
           scrub: false,
-          toggleActions: 'play none none reverse',
+          toggleActions: 'play none none reverse', 
           markers: false,
         }})
-        tlFade.fromTo(element, { opacity: '0' }, { opacity: '1', duration: 0.33, ease: linearFadingEase(0) }, 0)
+        tlFade.fromTo(toFade[i], { opacity: '0' }, { opacity: '1', duration: 0.33, ease: linearFadingEase(1) }, 0)
         fadeTimelines.push(tlFade)
 
       }

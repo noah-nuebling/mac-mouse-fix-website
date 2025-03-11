@@ -19,7 +19,7 @@
 
     <!-- Body -->
     <div class="section-body mx-[1.5rem] flex justify-center items-center my-[25vh]">
-      <p v-if="$slots.body" class="fadeee text-center max-w-[30em] whitespace-pre-wrap sm:text-[1.4rem] text-[2rem] text-black/[0.9] font-[400] strong:font-[500] leading-[1.4] tracking-[-0.005rem]">
+      <p v-if="$slots.body" class="text-center max-w-[30em] whitespace-pre-wrap sm:text-[1.4rem] text-[2rem] text-black/[0.9] font-[400] strong:font-[500] leading-[1.4] tracking-[-0.005rem]">
         <slot name="body"></slot>
       </p>
     </div>
