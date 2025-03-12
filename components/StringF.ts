@@ -530,6 +530,10 @@ function getPlaintextSlotContent(slotGetterFn: () => vue.VNode[]): string {
         }
     }
 
+    // Strip leading/trailling whitespace
+    //      [Mar 2025] Saw trailling space sometimes when putting format slots after the default slot using <template #abc>. Not sure why.
+    result = result.trim()
+
     // Return
     return result
 }

@@ -2,55 +2,53 @@
   "sourceLanguage" : "en",
   "strings" : {
     "01: trackpad.intro.title" : {
-      "comment" : "{accent} is replaced with the trackpad.intro.title.accent1 or trackpad.intro.title.accent2 string.\n\nTip: If you sort the strings by their key, they will appear in the same order as they do on the website (macmousefix.com).\nSo you can easily use the website as a reference while translating.\n(You might be translating a development version with some differences to the live website.)",
+      "comment" : "{dev} is replaced with the trackpad.intro.title.device1 or trackpad.intro.title.device2 strings.\nThere will be a cool animation where the device1 string is replaced with the device2 string.\n\nCaution:\n\nMake sure the sentence is grammatically correct no matter if device1 or device2 is inserted for {dev}.\n\nThat means, if your language has gendered articles (like German \"einem/einer\"), include those articles in device1/device2. \nGerman example:\nMain string: \"Macs sind am besten mit {dev}.\"\ndevice1: \"einem **Trackpad**\"\ndevice2: \"einer **Maus**\"\n\nIf there are no such grammar rules, device1/device2 can just be the device terms.\nEnglish example:\nMain string: \"Macs Are Best With a {dev}.\"\ndevice1: \"**Trackpad**\"\ndevice2: \"**Mouse**\"\n\nGeneral Translation Tip:\nIf you sort the strings by their key, they will appear in the same order as they do on the website (macmousefix.com).\nSo you can easily use the website as a reference while translating.\n(You might be translating a development version with some differences to the live website.)",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Macs sind am besten\nMit einer {accent}."
+            "value" : "Macs sind am besten\nmit {dev}."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Macs Are Best\nWith a {accent}."
+            "value" : "Macs Are Best\nWith a {dev}."
           }
         }
       }
     },
-    "02: trackpad.intro.title.accent1" : {
-      "comment" : "Gets inserted into the trackpad.intro.title string",
+    "02: trackpad.intro.title.device1" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Trackpad"
+            "value" : "einem **Trackpad**"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Trackpad"
+            "value" : "**Trackpad**"
           }
         }
       }
     },
-    "03: trackpad.intro.title.accent2" : {
-      "comment" : "Replaces the trackpad.intro.title.accent1 string with a cool animation!",
+    "03: trackpad.intro.title.device2" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Maus"
+            "value" : "einer **Maus**"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Mouse"
+            "value" : "**Mouse**"
           }
         }
       }
@@ -62,13 +60,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Genau! Mac Mouse Fix bringt alle Funktionen eines Apple Trackpads - und mehr - auf **ergonomische** und **präzise** Drittanbieter-Mäuse. Und alle Interaktionen fühlen sich genauso **ausgefeilt** und **geschmeidig** an wie auf einem Trackpad."
+            "value" : "So sieht’s aus! Mac Mouse Fix bringt alle Funktionen eines Apple Trackpads - und mehr - auf deine **ergonomische** und **präzise** Drittanbieter-Maus. Und alle Interaktionen fühlen sich genauso **ausgefeilt** und **geschmeidig** an wie auf einem Trackpad."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "That's right! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad."
+            "value" : "That's right! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **precise** and **ergonomic** third-party mouse. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad."
           }
         }
       }
@@ -483,6 +481,7 @@
       }
     },
     "29: scroll.intro.title" : {
+      "comment" : "{accent} is replaced with the scroll.intro.body string",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -534,7 +533,7 @@
       }
     },
     "32: scroll.smoothness.header" : {
-      "comment" : "This forms a sentence with the next header (scroll.more.header)\n\nYou can see this in context at macmousefix.com/#scroll",
+      "comment" : "This forms sort of a sentence with the next header (scroll.more.header)\n\nYou can see this in context at macmousefix.com/#scroll",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -978,7 +977,7 @@
       }
     },
     "58: benefits.software.header" : {
-      "comment" : "This forms a sentence with the next header (benefits.pricing.header)\n\nYou can see this in context at macmousefix.com/#price",
+      "comment" : "This forms sort of a sentence with the next header (benefits.pricing.header)\n\nYou can see this in context at macmousefix.com/#price",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {

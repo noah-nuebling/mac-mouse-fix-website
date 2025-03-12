@@ -37,7 +37,7 @@
 
       <!-- Replaces Trackpad -->
       
-      <div class="strong:text-gradient-to-l">
+      <div class="">
 
         <div class="relative">
           <!-- Section head -->
@@ -46,29 +46,62 @@
             <template #title>
               <span class="fadeeet-trigger">
                 <StringF>
-                  {{ MFLocalizedString(
+                  {{ 
+                  MFLocalizedString(
                     `
                     Macs Are Best
-                    With a {accent}.
-                    `, 
+                    With a {dev}.
+                    `,
                     'trackpad.intro.title',
                     `
-                    {accent} is replaced with the trackpad.intro.title.accent1 or trackpad.intro.title.accent2 string.
+                    {dev} is replaced with the trackpad.intro.title.device1 or trackpad.intro.title.device2 strings.
+                    There will be a cool animation where the device1 string is replaced with the device2 string.
+                    
+                    Caution:
+                    
+                    Make sure the sentence is grammatically correct no matter if device1 or device2 is inserted for {dev}.
 
-                    Tip: If you sort the strings by their key, they will appear in the same order as they do on the website (macmousefix.com).
+                    That means, if your language has gendered articles (like German "einem/einer"), include those articles in device1/device2. 
+                    German example:
+                    Main string: "Macs sind am besten mit {dev}."
+                    device1: "einem **Trackpad**"
+                    device2: "einer **Maus**"
+                
+                    If there are no such grammar rules, device1/device2 can just be the device terms.
+                    English example:
+                    Main string: "Macs Are Best With a {dev}."
+                    device1: "**Trackpad**"
+                    device2: "**Mouse**"
+                
+                    General Translation Tip:
+                    If you sort the strings by their key, they will appear in the same order as they do on the website (macmousefix.com).
                     So you can easily use the website as a reference while translating.
                     (You might be translating a development version with some differences to the live website.)
                     `
-                  ) }}
-                  <template #accent>
+                  ) 
+                  /* Notes:
+                    - Assumptions we're making:
+                      [Mar 2025] I asked Claude to translate this to dozens of different languages, and:
+                      1. the only part of the sentence that ever has to be replaced is Trackpad -> Mouse, plus, in some languages (like German and French), also the gendered article directly before Trackpad/Mouse.
+                        -> If we had to swap out words not directly before/after the word Trackpad/Mouse, then our code probably won't work.
+                      2. The translation for Trackpad is always longer than the translation for Mouse.
+                        -> If a translation for Mouse is ever longer, then our animations will probably look janky.
+                  */
+                  }}
+                  
+                  <template #dev>
                     <div class="inline-grid justify-items-center overflow-visible">
-                      <span class="col-start-1 col-end-1 row-start-1 row-end-1 flex justify-center replaceee-0">
-                        <span class="text-black/[0.25]xxx">
-                          {{ MFLocalizedString('Trackpad', 'trackpad.intro.title.accent1', 'Gets inserted into the trackpad.intro.title string') }}
+                      <span class="col-start-1 col-end-1 row-start-1 row-end-1 overflow-visible text-nowrap flex justify-center replaceee-0">
+                        <span class="text-black/[0.25]xxx strong:font-weight-inherit">
+                          <StringF> 
+                            {{ mdrf(MFLocalizedString('**Trackpad**', 'trackpad.intro.title.device1', '')) }}
+                          </StringF>
                         </span>
                       </span>
-                      <span class="col-start-1 col-end-1 row-start-1 row-end-1 replaceee-1 text-gradient-to-l-block gradient-blue brightness-[1.43] filter hue-rotate-[0deg]">
-                        {{ MFLocalizedString('Mouse', 'trackpad.intro.title.accent2', 'Replaces the trackpad.intro.title.accent1 string with a cool animation!') }}
+                      <span class="col-start-1 col-end-1 row-start-1 row-end-1 replaceee-1 strong:font-weight-inherit strong:text-gradient-to-l-block strong:gradient-blue strong:brightness-[1.43] strong:filter strong:hue-rotate-[0deg]">
+                        <StringF> 
+                          {{ mdrf(MFLocalizedString('**Mouse**', 'trackpad.intro.title.device2', '')) }}
+                        </StringF>
                       </span>
                     </div>
                   </template>
@@ -77,10 +110,10 @@
             </template>
 
             <template #body>
-              <span class="fadeeet fadeeet-trigger">
+              <span class="fadeeet fadeeet-trigger strong:text-gradient-to-l">
                 <StringF>
                   {{ mdrf(MFLocalizedString(
-                    `That's right! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad.`,
+                    `That's right! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **precise** and **ergonomic** third-party mouse. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad.`,
                     'trackpad.intro.body',
                     `
                     Background:
@@ -99,7 +132,7 @@
           </div>
         </div>
 
-        <CardContainer class="gradient-blue strong:filter ch-[.card-title_strong]:brightness-[1.15]" title-class="strong:filter strong:brightness-[1.2] strong:hue-rotate-[0deg]">
+        <CardContainer class="strong:text-gradient-to-l gradient-blue strong:filter ch-[.card-title_strong]:brightness-[1.15]" title-class="strong:filter strong:brightness-[1.2] strong:hue-rotate-[0deg]">
 
           <template #title>
             <span class="fadeeet">
@@ -393,7 +426,7 @@
                   Smooth As Butter.
                   `,
                   'scroll.intro.title', 
-                  ''
+                  '{accent} is replaced with the scroll.intro.body string'
                 ) }}
                 <template #accent>
                   <span class="move-righttt text-gradient-to-l-block filter brightness-[1.06]">
@@ -426,7 +459,7 @@
                 `Choose a **Scrolling Smoothness** ...`, 
                 'scroll.smoothness.header', 
                 `
-                This forms a sentence with the next header (scroll.more.header)
+                This forms sort of a sentence with the next header (scroll.more.header)
                 
                 You can see this in context at macmousefix.com/#scroll
                 `
@@ -734,7 +767,7 @@
                 `Great **Software** ...`, 
                 'benefits.software.header', 
                 `
-                This forms a sentence with the next header (benefits.pricing.header)
+                This forms sort of a sentence with the next header (benefits.pricing.header)
                 
                 You can see this in context at macmousefix.com/#price
                 `)) }}</StringF>
@@ -1304,7 +1337,7 @@ onMounted(() => {
 
           // Fade in
           const fadeInStart = 0.4, fadeInEnd = 0.6;
-          tlReplace.fromTo(replacement, { opacity: '0' }, { opacity: '1', duration: dur(fadeInStart, fadeInEnd), ease: linearFadingEase(1) }, star(fadeInStart))
+          tlReplace.fromTo(replacement, { autoAlpha: '0' }, { autoAlpha: '1', duration: dur(fadeInStart, fadeInEnd), ease: linearFadingEase(1) }, star(fadeInStart)) // autoAlpha prevents text selection jank due to scaled up hidden element.
 
           // Slam 
           const scale = 2.0
@@ -1314,9 +1347,8 @@ onMounted(() => {
 
           // Shrink slot
           const shrinkStart = 0.9, shrinkEnd = 1.7
-          element.style.overflow = 'visible';
-          console.log(`replacement widht: ${replacement.scrollWidth}`)
-          tlReplace.to(element, { 
+          tlReplace.to(element, 
+          { 
             width:        `${replacement.offsetWidth}px`,
             duration:     dur(shrinkStart, shrinkEnd),
             ease:         customInOutEase(),
@@ -1340,21 +1372,25 @@ onMounted(() => {
             // Impact jiggle
           tlImpactJiggle.to(replacement, {
             rotation: 2,  // Small rotation clockwise
+            // scale: 1.0 + -(2)/100,  // Small rotation clockwise
             duration: 0.05,
             ease: "power1.out"
           }, star(slamEnd))  // Start right after the slam
           .to(replacement, {
             rotation: -2,  // Small rotation counter-clockwise
+            // scale: 1.0 + -(-2)/100,  // Small rotation counter-clockwise
             duration: 0.1,
             ease: "power1.inOut"
           })
           .to(replacement, {
             rotation: 1,  // Small rotation clockwise again
+            // scale: 1.0 + -(1)/100,  // Small rotation clockwise again
             duration: 0.08,
             ease: "power1.inOut"
           })
           .to(replacement, {
             rotation: 0,  // Back to normal
+            // scale: 1.0 + -(0)/100,  // Back to normal
             duration: 0.07,
             ease: "power1.inOut"
           });
