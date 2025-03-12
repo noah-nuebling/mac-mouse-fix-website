@@ -4,6 +4,20 @@
   - On the wrapper for the "see it in action" button we had to set `min-h-[52px]` instead of h-[52px], for it to actually work. No idea why.
 
 
+Polish [Mar 2025]
+    - [ ] FeatureCards still get permanently squished sometimes when opening/closing them quickly. But it seems rare.
+    - [ ] When you load the 404 page, the locale picker is empty at first.
+    - [ ] When you hit Command-F in Safari or resize the window, the quotes disappear until you scroll.    
+    - [ ] On some window sizes, the green splash in the price section is not under a card which looks weird.
+    - [ ] Website banner in Safari 'Suggestions' is just a blue splash
+          -> Nobody except me will ever visit this site often enough to see that.
+    - [ ] Why is spacing after 'Andriy Babkin' smaller than after other names?
+          -> Doesn't happen in Chrome -> Safari rendering issue?
+    - [x] I observed quote cards flickering when you close them because the video goes black immediately.
+          (My gut feeling is that this might potentially only happen in locally hosted debug builds?)
+          -> Randomly went away – Weird one-off Safari issue?
+    - [x] The header text animations are choppy and shitty when using `#` links like http://localhost:3000/#price
+          -> Randomly went away – Maybe my computer was overheated?
  -->
 
 <template>
