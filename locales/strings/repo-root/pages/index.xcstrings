@@ -2,24 +2,24 @@
   "sourceLanguage" : "en",
   "strings" : {
     "01: trackpad.intro.title" : {
-      "comment" : "{accent} is replaced with the trackpad.intro.title.accent string.\n\nTip: If you sort the strings by their key, they will appear in the same order as they do on the website (macmousefix.com).\nSo you can easily use the website as a reference while translating.\n(You might be translating a development version with some differences to the live website.)",
+      "comment" : "{accent} is replaced with the trackpad.intro.title.accent1 or trackpad.intro.title.accent2 string.\n\nTip: If you sort the strings by their key, they will appear in the same order as they do on the website (macmousefix.com).\nSo you can easily use the website as a reference while translating.\n(You might be translating a development version with some differences to the live website.)",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Macs sind am besten\nMit einem {accent},\nOder?"
+            "value" : "Macs sind am besten\nMit einer {accent}."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Macs Are Best\nWith a {accent},\nRight?"
+            "value" : "Macs Are Best\nWith a {accent}."
           }
         }
       }
     },
-    "02: trackpad.intro.title.accent" : {
+    "02: trackpad.intro.title.accent1" : {
       "comment" : "Gets inserted into the trackpad.intro.title string",
       "extractionState" : "manual",
       "localizations" : {
@@ -37,25 +37,43 @@
         }
       }
     },
-    "03: trackpad.intro.body" : {
+    "03: trackpad.intro.title.accent2" : {
+      "comment" : "Replaces the trackpad.intro.title.accent1 string with a cool animation!",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maus"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mouse"
+          }
+        }
+      }
+    },
+    "04: trackpad.intro.body" : {
       "comment" : "Background:\nText wrapped in **asterisks** will get a cool color highlight on the page! \nWe use quite a lot of **asterisks** to make the page more colorful and visually interesting, but also to make the text easier to understand when the reader is just skimming through.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jetzt nicht mehr! Mac Mouse Fix bringt alle Funktionen eines Apple Trackpads - und mehr - auf **ergonomische** und **präzise** Drittanbieter-Mäuse. Und alle Interaktionen fühlen sich genauso **ausgefeilt** und **geschmeidig** an wie auf einem Trackpad."
+            "value" : "Genau! Mac Mouse Fix bringt alle Funktionen eines Apple Trackpads - und mehr - auf **ergonomische** und **präzise** Drittanbieter-Mäuse. Und alle Interaktionen fühlen sich genauso **ausgefeilt** und **geschmeidig** an wie auf einem Trackpad."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Not any longer! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad."
+            "value" : "That's right! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to **precise** and **ergonomic** third-party mice. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad."
           }
         }
       }
     },
-    "04: trackpad.gestures.header" : {
+    "05: trackpad.gestures.header" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -72,7 +90,7 @@
         }
       }
     },
-    "05: trackpad.gestures.disclaimer" : {
+    "06: trackpad.gestures.disclaimer" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -89,7 +107,7 @@
         }
       }
     },
-    "06: trackpad.gestures.lookup.title" : {
+    "07: trackpad.gestures.lookup.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -106,7 +124,7 @@
         }
       }
     },
-    "07: trackpad.gestures.lookup.body" : {
+    "08: trackpad.gestures.lookup.body" : {
       "comment" : "Tip: For Apple-specific terms like 'Quick Look' or phrases like 'tapping with 3 fingers', you can usually find official translations on Apple's support pages, marketing sites or inside System Settings.",
       "extractionState" : "manual",
       "localizations" : {
@@ -124,7 +142,7 @@
         }
       }
     },
-    "08: trackpad.gestures.mission-control.title" : {
+    "09: trackpad.gestures.mission-control.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -141,7 +159,7 @@
         }
       }
     },
-    "09: trackpad.gestures.mission-control.body" : {
+    "10: trackpad.gestures.mission-control.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -158,7 +176,7 @@
         }
       }
     },
-    "10: trackpad.gestures.spaces.title" : {
+    "11: trackpad.gestures.spaces.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -175,7 +193,7 @@
         }
       }
     },
-    "11: trackpad.gestures.spaces.body" : {
+    "12: trackpad.gestures.spaces.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -192,7 +210,7 @@
         }
       }
     },
-    "12: trackpad.gestures.app-expose.title" : {
+    "13: trackpad.gestures.app-expose.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -209,7 +227,7 @@
         }
       }
     },
-    "13: trackpad.gestures.app-expose.body" : {
+    "14: trackpad.gestures.app-expose.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -226,7 +244,7 @@
         }
       }
     },
-    "14: trackpad.gestures.show-desktop.title" : {
+    "15: trackpad.gestures.show-desktop.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -243,7 +261,7 @@
         }
       }
     },
-    "15: trackpad.gestures.show-desktop.body" : {
+    "16: trackpad.gestures.show-desktop.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -260,7 +278,7 @@
         }
       }
     },
-    "16: trackpad.gestures.launchpad.title" : {
+    "17: trackpad.gestures.launchpad.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -277,7 +295,7 @@
         }
       }
     },
-    "17: trackpad.gestures.launchpad.body" : {
+    "18: trackpad.gestures.launchpad.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -294,7 +312,7 @@
         }
       }
     },
-    "18: trackpad.gestures.zoom.title" : {
+    "19: trackpad.gestures.zoom.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -311,7 +329,7 @@
         }
       }
     },
-    "19: trackpad.gestures.zoom.body" : {
+    "20: trackpad.gestures.zoom.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -328,7 +346,7 @@
         }
       }
     },
-    "20: trackpad.gestures.pages.title" : {
+    "21: trackpad.gestures.pages.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -345,7 +363,7 @@
         }
       }
     },
-    "21: trackpad.gestures.pages.body" : {
+    "22: trackpad.gestures.pages.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -362,7 +380,7 @@
         }
       }
     },
-    "22: trackpad.gestures.mail-actions.title" : {
+    "23: trackpad.gestures.mail-actions.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -379,7 +397,7 @@
         }
       }
     },
-    "23: trackpad.gestures.mail-actions.body" : {
+    "24: trackpad.gestures.mail-actions.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -396,7 +414,7 @@
         }
       }
     },
-    "24: trackpad.gestures.free-scroll.title" : {
+    "25: trackpad.gestures.free-scroll.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -413,7 +431,7 @@
         }
       }
     },
-    "25: trackpad.gestures.free-scroll.body" : {
+    "26: trackpad.gestures.free-scroll.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -430,7 +448,7 @@
         }
       }
     },
-    "26: trackpad.gestures.smart-zoom.title" : {
+    "27: trackpad.gestures.smart-zoom.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -447,7 +465,7 @@
         }
       }
     },
-    "27: trackpad.gestures.smart-zoom.body" : {
+    "28: trackpad.gestures.smart-zoom.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -464,7 +482,7 @@
         }
       }
     },
-    "28: scroll.intro.title" : {
+    "29: scroll.intro.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -481,7 +499,7 @@
         }
       }
     },
-    "29: scroll.intro.title.accent" : {
+    "30: scroll.intro.title.accent" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -498,7 +516,7 @@
         }
       }
     },
-    "30: scroll.intro.body" : {
+    "31: scroll.intro.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -515,7 +533,7 @@
         }
       }
     },
-    "31: scroll.smoothness.header" : {
+    "32: scroll.smoothness.header" : {
       "comment" : "This forms a sentence with the next header (scroll.more.header)\n\nYou can see this in context at macmousefix.com/#scroll",
       "extractionState" : "manual",
       "localizations" : {
@@ -533,7 +551,7 @@
         }
       }
     },
-    "32: scroll.smoothness.high.title" : {
+    "33: scroll.smoothness.high.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -550,7 +568,7 @@
         }
       }
     },
-    "33: scroll.smoothness.high.body" : {
+    "34: scroll.smoothness.high.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -567,7 +585,7 @@
         }
       }
     },
-    "34: scroll.smoothness.regular.title" : {
+    "35: scroll.smoothness.regular.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -584,7 +602,7 @@
         }
       }
     },
-    "35: scroll.smoothness.regular.body" : {
+    "36: scroll.smoothness.regular.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -601,7 +619,7 @@
         }
       }
     },
-    "36: scroll.smoothness.off.title" : {
+    "37: scroll.smoothness.off.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -618,7 +636,7 @@
         }
       }
     },
-    "37: scroll.smoothness.off.body" : {
+    "38: scroll.smoothness.off.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -635,7 +653,7 @@
         }
       }
     },
-    "38: scroll.more.header" : {
+    "39: scroll.more.header" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -652,7 +670,7 @@
         }
       }
     },
-    "39: scroll.more.reverse.title" : {
+    "40: scroll.more.reverse.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -669,7 +687,7 @@
         }
       }
     },
-    "40: scroll.more.reverse.body" : {
+    "41: scroll.more.reverse.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -686,7 +704,7 @@
         }
       }
     },
-    "41: scroll.more.modifiers.title" : {
+    "42: scroll.more.modifiers.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -703,7 +721,7 @@
         }
       }
     },
-    "42: scroll.more.modifiers.body" : {
+    "43: scroll.more.modifiers.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -720,7 +738,7 @@
         }
       }
     },
-    "43: scroll.more.configurable.title" : {
+    "44: scroll.more.configurable.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -737,7 +755,7 @@
         }
       }
     },
-    "44: scroll.more.configurable.body" : {
+    "45: scroll.more.configurable.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -754,7 +772,7 @@
         }
       }
     },
-    "45: customization.intro.title" : {
+    "46: customization.intro.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -771,7 +789,7 @@
         }
       }
     },
-    "46: customization.intro.title.accent" : {
+    "47: customization.intro.title.accent" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -788,7 +806,7 @@
         }
       }
     },
-    "47: customization.intro.title.accent2" : {
+    "48: customization.intro.title.accent2" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -805,7 +823,7 @@
         }
       }
     },
-    "48: customization.intro.body" : {
+    "49: customization.intro.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -822,7 +840,7 @@
         }
       }
     },
-    "49: customization.action-table.title" : {
+    "50: customization.action-table.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -839,7 +857,7 @@
         }
       }
     },
-    "50: customization.action-table.body" : {
+    "51: customization.action-table.body" : {
       "comment" : "Don't forget the linebreaks between the list-items, and inside the second list-item. \nThat lets the website understand this is a list, and display it in a nice way. \n\n(Linebreaks can usually be entered with Option-Return, Shift-Return or just Return, depending on what program you're using.)",
       "extractionState" : "manual",
       "localizations" : {
@@ -857,7 +875,7 @@
         }
       }
     },
-    "51: customization.keyboard-shortcuts.expand-button" : {
+    "52: customization.keyboard-shortcuts.expand-button" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -874,7 +892,7 @@
         }
       }
     },
-    "52: customization.keyboard-shortcuts.title" : {
+    "53: customization.keyboard-shortcuts.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -891,7 +909,7 @@
         }
       }
     },
-    "53: customization.keyboard-shortcuts.body" : {
+    "54: customization.keyboard-shortcuts.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -908,7 +926,7 @@
         }
       }
     },
-    "54: benefits.intro.title" : {
+    "55: benefits.intro.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -925,7 +943,7 @@
         }
       }
     },
-    "55: benefits.intro.title.accent2" : {
+    "56: benefits.intro.title.accent2" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -942,7 +960,7 @@
         }
       }
     },
-    "56: benefits.intro.body" : {
+    "57: benefits.intro.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -959,7 +977,7 @@
         }
       }
     },
-    "57: benefits.software.header" : {
+    "58: benefits.software.header" : {
       "comment" : "This forms a sentence with the next header (benefits.pricing.header)\n\nYou can see this in context at macmousefix.com/#price",
       "extractionState" : "manual",
       "localizations" : {
@@ -977,7 +995,7 @@
         }
       }
     },
-    "58: benefits.software.unobtrusive-lightweight.title" : {
+    "59: benefits.software.unobtrusive-lightweight.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -994,7 +1012,7 @@
         }
       }
     },
-    "59: benefits.software.unobtrusive-lightweight.body" : {
+    "60: benefits.software.unobtrusive-lightweight.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1011,7 +1029,7 @@
         }
       }
     },
-    "60: benefits.software.open-source.title" : {
+    "61: benefits.software.open-source.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1028,7 +1046,7 @@
         }
       }
     },
-    "61: benefits.software.open-source.body" : {
+    "62: benefits.software.open-source.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1045,7 +1063,7 @@
         }
       }
     },
-    "62: benefits.pricing.header" : {
+    "63: benefits.pricing.header" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1062,7 +1080,7 @@
         }
       }
     },
-    "63: benefits.pricing.disclaimer" : {
+    "64: benefits.pricing.disclaimer" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1079,7 +1097,7 @@
         }
       }
     },
-    "64: benefits.pricing.free-days.title" : {
+    "65: benefits.pricing.free-days.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1096,7 +1114,7 @@
         }
       }
     },
-    "65: benefits.pricing.free-days.body" : {
+    "66: benefits.pricing.free-days.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1113,7 +1131,7 @@
         }
       }
     },
-    "66: benefits.pricing.price.title" : {
+    "67: benefits.pricing.price.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1130,7 +1148,7 @@
         }
       }
     },
-    "67: benefits.pricing.price.body" : {
+    "68: benefits.pricing.price.body" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1147,7 +1165,7 @@
         }
       }
     },
-    "68: benefits.pricing.alternatives.title" : {
+    "69: benefits.pricing.alternatives.title" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1164,7 +1182,7 @@
         }
       }
     },
-    "69: benefits.pricing.alternatives.body" : {
+    "70: benefits.pricing.alternatives.body" : {
       "comment" : "{priceFactorMXMaster} will get replaced by how many times more expensive the MX Master is compared to Mac Mouse Fix.\n\nThe 'x' right after stands for 'times'. E.g. '10x' means 'ten times'.\nIn other languages you'd use different symbols or words than 'x'.\nE.g. '10x' is written as '10倍' in Chinese and '10 φορές' in Greek.\n(Don't forget to add a space in languages like Greek, so it becomes '10 φορές' instead of '10φορές')",
       "extractionState" : "manual",
       "localizations" : {

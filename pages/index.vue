@@ -53,7 +53,7 @@
                     `, 
                     'trackpad.intro.title',
                     `
-                    {accent} is replaced with the trackpad.intro.title.accent.1 or trackpad.intro.title.accent.2 string.
+                    {accent} is replaced with the trackpad.intro.title.accent1 or trackpad.intro.title.accent2 string.
 
                     Tip: If you sort the strings by their key, they will appear in the same order as they do on the website (macmousefix.com).
                     So you can easily use the website as a reference while translating.
@@ -64,11 +64,11 @@
                     <div class="inline-grid justify-items-center overflow-visible">
                       <span class="col-start-1 col-end-1 row-start-1 row-end-1 flex justify-center replaceee-0">
                         <span class="text-black/[0.25]xxx">
-                          {{ MFLocalizedString('Trackpad', 'trackpad.intro.title.accent.1', '') }}
+                          {{ MFLocalizedString('Trackpad', 'trackpad.intro.title.accent1', 'Gets inserted into the trackpad.intro.title string') }}
                         </span>
                       </span>
                       <span class="col-start-1 col-end-1 row-start-1 row-end-1 replaceee-1 text-gradient-to-l-block gradient-blue brightness-[1.43] filter hue-rotate-[0deg]">
-                        {{ MFLocalizedString('Mouse', 'trackpad.intro.title.accent.2', 'Replaces the  trackpad.intro.title.accent.1 string with a cool animation!') }}
+                        {{ MFLocalizedString('Mouse', 'trackpad.intro.title.accent2', 'Replaces the trackpad.intro.title.accent1 string with a cool animation!') }}
                       </span>
                     </div>
                   </template>
