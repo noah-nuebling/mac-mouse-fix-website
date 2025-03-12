@@ -4,7 +4,8 @@
   - On the wrapper for the "see it in action" button we had to set `min-h-[52px]` instead of h-[52px], for it to actually work. No idea why.
 
 
-Polish [Mar 2025]
+Website Polish Problems [Mar 2025] 
+    (Is there a better place for this?)
     - [ ] FeatureCards still get permanently squished sometimes when opening/closing them quickly. But it seems rare.
     - [ ] When you load the 404 page, the locale picker is empty at first.
     - [ ] When you hit Command-F in Safari or resize the window, the quotes disappear until you scroll.    

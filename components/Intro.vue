@@ -29,7 +29,7 @@
                   "{localizationProgress}" will be replaced by a string like "84%".
                   "{currentLocale}" will be replaced by a language name like "🇩🇪 Deutsch".
                   `
-                ), { url: 'https://noah-nuebling.github.io/redirection-service?message=&target=mmf-localization-guide' }, true) }}
+                ), { url: 'https://noah-nuebling.github.io/redirection-service?message=&target=mmf-localization-contribution' }, true) }}
                 <template #localizationProgress>
                   <strong>{{ localizationProgressDisplay }}</strong>
                 </template>
