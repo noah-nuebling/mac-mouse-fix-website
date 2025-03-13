@@ -675,7 +675,7 @@ function remInPx() {
 }
 
 function assertClient() {
-    if (!process.client) {
+    if (!import.meta.client) {
         const stackTrace = (new Error).stack
         throw new Error(`MMFError: A function was called from the server, but it is client-only.`)
     }
