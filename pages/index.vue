@@ -107,16 +107,18 @@ Website Polish Problems [Mar 2025]
                   <template #dev>
                     <div class="inline-grid justify-items-center overflow-visible">
                       <span class="col-start-1 col-end-1 row-start-1 row-end-1 overflow-visible text-nowrap flex justify-center replaceee-0">
-                        <span class="text-black/[0.25]xxx strong:font-weight-inherit">
+                        <span class="strong:font-weight-inherit strong:text-gradient-to-l-block strong:gradient-blue strong:brightness-[1.43] strong:filter strong:hue-rotate-[0deg] strong:grayscale">
                           <StringF> 
                             {{ mdrf(MFLocalizedString('**Trackpad**', 'trackpad.intro.title.device1', '')) }}
                           </StringF>
                         </span>
                       </span>
-                      <span class="col-start-1 col-end-1 row-start-1 row-end-1 replaceee-1 strong:font-weight-inherit strong:text-gradient-to-l-block strong:gradient-blue strong:brightness-[1.43] strong:filter strong:hue-rotate-[0deg]">
-                        <StringF> 
-                          {{ mdrf(MFLocalizedString('**Mouse**', 'trackpad.intro.title.device2', '')) }}
-                        </StringF>
+                      <span class="col-start-1 col-end-1 row-start-1 row-end-1 replaceee-1">
+                        <span class="strong:font-weight-inherit strong:text-gradient-to-l-block strong:gradient-blue strong:brightness-[1.43] strong:filter strong:hue-rotate-[0deg]">
+                          <StringF> 
+                            {{ mdrf(MFLocalizedString('**Mouse**', 'trackpad.intro.title.device2', '')) }}
+                          </StringF>
+                        </span>
                       </span>
                     </div>
                   </template>
