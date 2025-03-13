@@ -8,7 +8,7 @@ export function useCoolI18n() {
   /* This method exists for 'backwards compatibility' after our refactor.
   It would be better to remove this and call useNuxtApp() directly, anywhere we need this.  */
 
-  useI18n(); // Not sure this is necessary
+  /* useI18n(); */ // [Mar 2025] Removing nuxt-i18n dependency // Not sure this is necessary
   
   const { $coolI18n } = useNuxtApp();
   const { isCurrentLanguage } = $coolI18n;

@@ -107,7 +107,6 @@
 import * as vue from 'vue'
 import * as vueServerRenderer from '@vue/server-renderer'
 import * as NodeHTMLParser from 'node-html-parser'
-import * as intlify from '@intlify/shared'
 import { stringf_getArray, createTextVNode} from '../utils/util'
 import { defineNuxtComponent } from 'nuxt/app'
 
@@ -128,9 +127,14 @@ export default defineNuxtComponent({
     inheritAttrs: false,
     
     // Define props
-    props: intlify.assign({
+    props: Object.assign({
         replacements: Object,
     }),
+    /* // [Mar 2025] Removing nuxt-i18n dependency
+    intlify.assign({
+        replacements: Object,
+    }),
+    */ 
     
     // Define setup fn
     setup(props, ctx) {
@@ -585,7 +589,7 @@ if (false) {
     const MFLocalizedStringNode = defineNuxtComponent({
 
         name: 'MFLocalizedStringNode',
-        props: assign({
+        props: Object.assign({
             key: String,
             comment: String,
             markdown: Boolean,

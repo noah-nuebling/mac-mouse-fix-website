@@ -187,7 +187,9 @@
 
 // Import other stuff
 const { $coolI18n: { mdrf, MFLocalizedString } } = useNuxtApp();
-const $i18n = useI18n()
+/* if ((0)) {// [Mar 2025] Removing nuxt-i18n dependency
+  const $i18n = useI18n()
+} */
 import { formatAsMoney } from '../utils/util'
 
 // Import assets
@@ -218,16 +220,18 @@ const paddleCheckoutContainerContainer = ref<HTMLDivElement | null>(null)
 var urlAcknowGenerous: string;
 var urlAcknowVeryGenerous: string;
 
-switch ($i18n.locale.value) {
-  case 'en': {
-    urlAcknowGenerous     = 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md' // The generousContributor section is close enough to the top that we don't need a #-link.
-    urlAcknowVeryGenerous = 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors';
+/* if ((0)) { // [Mar 2025] Removing nuxt-i18n dependency
+  switch ($i18n.locale.value) {
+    case 'en': {
+      urlAcknowGenerous     = 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md' // The generousContributor section is close enough to the top that we don't need a #-link.
+      urlAcknowVeryGenerous = 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Acknowledgements.md#-very-generous-contributors';
+    }
+    break; case 'de': {
+      urlAcknowGenerous     = 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master//Markdown/AAA/BBB/Acknowledgements.md'
+      urlAcknowVeryGenerous = 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Markdown/AAA/BBB/Acknowledgements.md#-sehr-großzügige-unterstützer'; // Seems very brittle. Is there a language-agnostic way? Perhaps use our redirection-service?
+    }
   }
-  break; case 'de': {
-    urlAcknowGenerous     = 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master//Markdown/AAA/BBB/Acknowledgements.md'
-    urlAcknowVeryGenerous = 'https://github.com/noah-nuebling/mac-mouse-fix/blob/master/Markdown/AAA/BBB/Acknowledgements.md#-sehr-großzügige-unterstützer'; // Seems very brittle. Is there a language-agnostic way? Perhaps use our redirection-service?
-  }
-}
+} */
 
 // Paddle stuff
 
@@ -283,7 +287,7 @@ watch([selectedOption, paddleCustomData], ([newSelectedOption, newCustomData], [
 
 function handlePaddleEvent(event: Object) {
 
-  console.debug(`Received Paddle event: ${event.name}: ${objectDescription(event, null, 4)}`)
+  console.debug(`Received Paddle event: ${event.name}: ${objectDescription(event)}`)
 
   updatePaddleCheckoutHeight()
 
@@ -300,7 +304,7 @@ function handlePaddleEvent(event: Object) {
     window.open("/", "_self"); // Navigate to domain root. This happens when the user clicks the little 'x' button. Ideally I'd like to hide that one.
   }
 
-  // console.debug(`TOTALLS: ${objectDescription(event, null, 4)}`)
+  // console.debug(`TOTALLS: ${objectDescription(event)}`)
 
   if (event.data) {
     if (event.data.totals) {
@@ -332,7 +336,7 @@ function openPaddleCheckout(priceId: String, customData: Object) {
       
       theme: null, 								// There doesn't seem to be an auto option. Defaults to light. Dark looks fresher. Edit: But light seems more 'trustworthy' I think.
       // successUrl: null, 					// If this is null, Paddle will display a simple success message saying they emailed you the order details. For Swish, the email contains download link, license key and custom instructions, which is all we want I think. Edit: Comment this out due to errors setting to null.
-      locale: $i18n.locale.value, 	// Null so that it automatically detects browser locale. Edit: Comment this out due to errors setting to null. Edit: We'd rather manually set the locale so everything is consistent
+      locale: 'en' /* $i18n.locale.value*/, // [Mar 2025] Removing nuxt-i18n dependency	  // Null so that it automatically detects browser locale. Edit: Comment this out due to errors setting to null. Edit: We'd rather manually set the locale so everything is consistent
       //showAddDiscounts: null, 		// At the moment, discount field doesn't seem to show up when we set this to null. (We don't have any discount codes at the moment.) (In sandbox environment setting this to null leads to error atm.)
 
       allowLogout: true, 				// This hides the little 'Not you?' button next to your email on the second screen. Very small detail but I think it's slightly cleaner without this. Edit: There is no back button and this is the simplest substitute to implement - so enabling this for now. Edit: Doesn't even show up atm. Maybe only for overlay checkout?

@@ -169,10 +169,13 @@
 
 /* Debug */
 
-const _i18n = useI18n()
-const locale = _i18n.locale
+/* if ((0)) {
+  // [Mar 2025] Removing nuxt-i18n dependency
+  const _i18n = useI18n()
+  const locale = _i18n.locale
 
-console.debug(`Locale during Intro.vue setup: ${ locale.value }, browserLocale: ${ _i18n.getBrowserLocale() }`);
+  console.debug(`Locale during Intro.vue setup: ${ locale.value }, browserLocale: ${ _i18n.getBrowserLocale() }`);
+} */
 
 /* Import gsap stuff */
 
@@ -219,15 +222,18 @@ var localizationProgressDisplay = ref<string>(''); // String like `84%`
 var doShowLocalizationProgress = computed(() => localizationProgressDisplay.value != '100%' || global.localeSwitchCount > 0); // Note: Show progress if is page is not fully translated, or user has switched locales (so the progress UI doesn't disappear while the user is using it to switch locales.) 
 
 // Watch locale changes
-watch(_i18n.locale, (newLocale: string) => {
+/* if ((0)) {
+  // [Mar 2025] Removing nuxt-i18n dependency
+  watch(_i18n.locale, (newLocale: string) => {
 
-  // Get new localizationProgress
-  localizationProgressDisplay.value = Localizable.progressDisplay(newLocale)
+    // Get new localizationProgress
+    localizationProgressDisplay.value = Localizable.progressDisplay(newLocale)
 
-  // Log
-  console.debug(`Intro: localeSwitchCount: ${global.localeSwitchCount}, progress: ${localizationProgressDisplay.value}`)
-  
-}, { immediate: true })
+    // Log
+    console.debug(`Intro: localeSwitchCount: ${global.localeSwitchCount}, progress: ${localizationProgressDisplay.value}`)
+    
+  }, { immediate: true })
+} */
 
 /* Get dom element refs 
     All unused atm

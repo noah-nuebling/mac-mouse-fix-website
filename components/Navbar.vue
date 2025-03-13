@@ -72,7 +72,9 @@ import externalLinkImagePath from "../assets/img/arrow.up.right.square@8x.png"
 
 const global = useGlobalStore()
 
-const localePath = useLocalePath()
+const localePath = /* useLocalePath() */ (p: string) => { return p } // [Mar 2025] Removing nuxt-i18n dependency
+
+// console.log(`globalll: ${objectDescription(global)}`) // DEBUG
 
 const isExpanded = ref(false)
 const expandingContainer = ref<HTMLElement | null>(null)

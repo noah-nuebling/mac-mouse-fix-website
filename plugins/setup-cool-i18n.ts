@@ -7,7 +7,7 @@ const { $coolI18n } = useNuxtApp();
 
 import md from 'markdown-it' // We used to import 'md' here and it seemed to work the same.
 import type MarkdownIt from 'markdown-it/index.js';
-import type { LocaleObject } from '@nuxtjs/i18n';
+/* import type { LocaleObject } from '@nuxtjs/i18n'; */ // [Mar 2025] Removing nuxt-i18n dependency
 import Localizable from "../locales/Localizable";
 
 import { stringf } from '../utils/util';
@@ -28,27 +28,33 @@ export default defineNuxtPlugin(app => {
             By getting $i18n from useNuxtApp(), TypeScript understand.
         */
 
-    const { $i18n } = useNuxtApp();
+    /* if ((0)) { // [Mar 2025] Removing nuxt-i18n dependency
+        const { $i18n } = useNuxtApp();
+    } */
 
     /* Remove vueI18n translations functions 
         So we don't accidentally use them instead of MFLocalizedString() */
     
-    const stub = () => { console.assert(false, `Don't use vue i18n translation functions. Use MFLocalizedString() instead.`); return "" }
-    const boolStub = () => { console.assert(false, `Don't use vue i18n translation functions. Use MFLocalizedString() instead.`); return false }
-    
-    app.vueApp.config.globalProperties.$d = stub
-    app.vueApp.config.globalProperties.$n = stub
-    app.vueApp.config.globalProperties.$rt = stub
-    app.vueApp.config.globalProperties.$t = stub
-    app.vueApp.config.globalProperties.$tc = stub
-    app.vueApp.config.globalProperties.$te = boolStub
-    app.vueApp.config.globalProperties.$tm = stub
+    /*
+    if ((0)) { // [Mar 2025] Removing nuxt-i18n dependency
+        const stub = () => { console.assert(false, `Don't use vue i18n translation functions. Use MFLocalizedString() instead.`); return "" }
+        const boolStub = () => { console.assert(false, `Don't use vue i18n translation functions. Use MFLocalizedString() instead.`); return false }
+        
+        app.vueApp.config.globalProperties.$d = stub
+        app.vueApp.config.globalProperties.$n = stub
+        app.vueApp.config.globalProperties.$rt = stub
+        app.vueApp.config.globalProperties.$t = stub
+        app.vueApp.config.globalProperties.$tc = stub
+        app.vueApp.config.globalProperties.$te = boolStub
+        app.vueApp.config.globalProperties.$tm = stub
+    }
+    */
     
     /* Create our own translation function */
 
     function getLocaleCode(localeCode?: string): string {
         
-        const c: string = localeCode ?? $i18n.locale.value;
+        const c: string = localeCode ?? 'en' /* ?? $i18n.locale.value; */ // [Mar 2025] Removing nuxt-i18n dependency
         return c;
     }
     function getSourceLocaleCode(): string {
@@ -183,22 +189,24 @@ export default defineNuxtPlugin(app => {
     /* Define isCurrentLanguage */
     function isCurrentLanguage(localeCode: string) {
         
-        const currentLocale = $i18n.locale.value
+        const currentLocale = 'en' /*$i18n.locale.value*/ // [Mar 2025] Removing nuxt-i18n dependency
         return currentLocale.startsWith(localeCode)
     }
     
     /* Define */
-    function localeObject(locale: string): LocaleObject | null {
-        var result = null;
-        for (const l in $i18n.locales) {
-            const obj = l as unknown as LocaleObject;
-            if (obj.code == locale) {
-                result = obj;
-                break;
+   /* if ((0)) { // [Mar 2025] Removing nuxt-i18n dependency
+        function localeObject(locale: string): LocaleObject | null {
+            var result = null;
+            for (const l in $i18n.locales) {
+                const obj = l as unknown as LocaleObject;
+                if (obj.code == locale) {
+                    result = obj;
+                    break;
+                }
             }
+            return result;
         }
-        return result;
-    }
+    } */
     
     /* Store custom functions */
     const coolI18n = {
@@ -207,7 +215,6 @@ export default defineNuxtPlugin(app => {
         _localizedString,
         mdrf,
         isCurrentLanguage,
-        localeObject,
     }
     
     /* Return */

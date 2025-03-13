@@ -21,9 +21,9 @@ const global = useGlobalStore();
 /* Import i18n stuff
 Note: Why can't we use $i18n in ts like we do in html? */
 
-const i18n = useI18n();
+/* const i18n = useI18n(); */ // [Mar 2025] Removing nuxt-i18n dependency
 const { $coolI18n } = useNuxtApp();
-const switchLocalePath = useSwitchLocalePath();
+const switchLocalePath = (p: string) => { return p; } /* useSwitchLocalePath(); */ 
 const localePicker = ref<HTMLSelectElement | null>(null);
 import * as Localizable from "~/locales/localizableAccess";
 
@@ -35,21 +35,23 @@ onMounted(() => {
       - We get cryptic errors if we run this serverside. No Idea why. (23.08.2024)
       - Tried to run this outside of onMounted(). Strange issues iirc, but don't remember what.
     */
-    const result = i18n.locales.value.filter((loc) => {
-        return (
-            $coolI18n.isCurrentLanguage(loc.code) || // Show the current language -> Otherwise the layout breaks.
-            Localizable.localizationProgressAsInt(loc.code) > showLocaleThreshold || // Show sufficiently translated languages -> In case the user speaks one of these languages, they might want to switch to it
-            i18n.getBrowserLocale() == loc.code
-        ); // Show the preferred locale of the user's browser -> When the user first opens the page it will display in this locale (as of 23.08.2024)
-    });
-    localesToDisplay.value = result;
+    /* if ((0)) { // [Mar 2025] Removing nuxt-i18n dependency
+        const result = i18n.locales.value.filter((loc) => {
+            return (
+                $coolI18n.isCurrentLanguage(loc.code) || // Show the current language -> Otherwise the layout breaks.
+                Localizable.localizationProgressAsInt(loc.code) > showLocaleThreshold || // Show sufficiently translated languages -> In case the user speaks one of these languages, they might want to switch to it
+                i18n.getBrowserLocale() == loc.code
+            ); // Show the preferred locale of the user's browser -> When the user first opens the page it will display in this locale (as of 23.08.2024)
+        });
+        localesToDisplay.value = result;
 
-    /* Set initial locale picker selection
-      Note: We tried to use v-bind/: and v-model, but neither of them worked */
-    requestAnimationFrame(() => {
-        // requestAnimationFrame() is necessary when we update localesToDisplay.value inside onMounted directly before this.
-        localePicker.value!.value = i18n.locale.value;
-    });
+        // Set initial locale picker selection
+        // Note: We tried to use v-bind/: and v-model, but neither of them worked
+        requestAnimationFrame(() => {
+            // requestAnimationFrame() is necessary when we update localesToDisplay.value inside onMounted directly before this.
+            localePicker.value!.value = i18n.locale.value;
+        });
+    } */
 });
 
 /* React to user selecting a new locale */
@@ -60,9 +62,11 @@ function handleLocaleSelect(event: Event) {
     const selectedLocale = target.value;
 
     // Guard change
-    if (i18n.locale.value == selectedLocale) {
-        return;
-    }
+    /* if ((0)) { // [Mar 2025] Removing nuxt-i18n dependency
+        if (i18n.locale.value == selectedLocale) {
+            return;
+        }
+    } */
 
     // Global flag
     global.localeSwitchCount += 1;
@@ -72,7 +76,9 @@ function handleLocaleSelect(event: Event) {
     //  - `i18n.locale.value = newLocale` does not change the route
     //  - `setLocale()` changes the route, doesn't set the locale cookie (August 2024) (It used to set the cookie?)
     navigateTo(switchLocalePath(selectedLocale));
-    i18n.setLocaleCookie(selectedLocale);
+    /* if ((0)) { // [Mar 2025] Removing nuxt-i18n dependency
+        i18n.setLocaleCookie(selectedLocale);
+    } */
     global.localeSwitchIsPending = true;
 }
 

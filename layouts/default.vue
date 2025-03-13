@@ -6,7 +6,7 @@
 -->
 
 <template>
-  <meta name="server-locale" :content="$i18n.locale">
+  <!-- <meta name="server-locale" :content="$i18n.locale"> // [Mar 2025] Removing nuxt-i18n dependency --> 
 
   <div class="">
 
@@ -14,7 +14,7 @@
     <Navbar class="max-w-[960px]"/>
 
     <!-- Output page content -->
-    <div class="min-w-[320px] max-w-[1780px] mx-auto pt-[0rem]"><slot /></div> <!-- page templates will be inserted here (about.vue, index.vue, etc) -->
+    <div class="min-w-[320px] max-w-[1780px] mx-auto pt-[0rem]"><slot></slot></div> <!-- page templates will be inserted here (about.vue, index.vue, etc) -->
 
   </div>
 

@@ -37,7 +37,7 @@ export default <RouterConfig> {
 
     console.debug(`router.options: Adjusting scroll position with\nfrom: ${objectDescription(from)}\nto: ${objectDescription(to)}\nsaved: ${savedPosition}`); // If we use JSON.stringify() instead of objectDescription(), this will crash in (only in release builds) due to circular refs int the printed objects.
 
-    const { $store: global, $i18n } = useNuxtApp();
+    const { $store: global } = useNuxtApp();
 
     const scrollY1 = window.scrollY;
     const scrollHeight1 = document.documentElement.scrollHeight;
@@ -47,9 +47,12 @@ export default <RouterConfig> {
       const scrollY2 = window.scrollY;
       const scrollHeight2 = document.documentElement.scrollHeight;
 
-      const isLocaleSwitch = global.localeSwitchIsPending; // Why are we checking the localeSwitch flag here and not with scrollY4, scrollY5, whatever? Idk it works. 
-      if (isLocaleSwitch) {
-        console.assert(to.name !== from.name);
+      if ((0)) {
+        // [Mar 2025] Removing nuxt-i18n dependency
+        const isLocaleSwitch = global.localeSwitchIsPending; // Why are we checking the localeSwitch flag here and not with scrollY4, scrollY5, whatever? Idk it works. 
+        if (isLocaleSwitch) {
+          console.assert(to.name !== from.name);
+        }
       }
 
       const unwatch = watch(() => global.introAnimationId, async (newIntroAnimationId) => { // Wait for the intro scroll animation to load, because it shifts everything below it down.
@@ -57,11 +60,15 @@ export default <RouterConfig> {
         const scrollY3 = window.scrollY;
         const scrollHeight3 = document.documentElement.scrollHeight;
 
-        if (isLocaleSwitch) {
-          // `$i18n` is injected in the `setup` of the nuxtjs/i18n module.
-          // `scrollBehavior` is guarded against being called even when it is not completed
-          await $i18n.waitForPendingLocaleChange();
-        }
+        const isLocaleSwitch = false;
+        /* if ((0)) {
+          // [Mar 2025] Removing nuxt-i18n dependency
+          if (isLocaleSwitch) {
+            // `$i18n` is injected in the `setup` of the nuxtjs/i18n module.
+            // `scrollBehavior` is guarded against being called even when it is not completed
+            await $i18n.waitForPendingLocaleChange();
+          }
+        } */
 
         const scrollY4 = window.scrollY;
         const scrollHeight4 = document.documentElement.scrollHeight;
@@ -74,22 +81,24 @@ export default <RouterConfig> {
           console.debug(`router.options: scrollYAndHeightChanges: ${scrollY1}/${scrollHeight1} -> ${scrollY2}/${scrollHeight2} -> ${scrollY3}/${scrollHeight3} -> ${scrollY4}/${scrollHeight4} -> ${scrollY5}/${scrollHeight5}`);
 
           if (newIntroAnimationId > 0) {
-            if (isLocaleSwitch) {
+            if (0) {}
+            else if (((0)) && isLocaleSwitch) { // [Mar 2025] Removing nuxt-i18n dependency 
               const oldScrollTopDist = (scrollY1 - 0); // This is all very hacky. We're using scrollY1 and scrollY5 here. I'm not sure why that works.
               const oldScrollBottomDist = (scrollHeight1 - window.innerHeight - scrollY1);
               const scrollPosWasCloserToTopThanBottom = oldScrollTopDist < oldScrollBottomDist;
               const newScrollY = scrollPosWasCloserToTopThanBottom ? (oldScrollTopDist) : (scrollHeight5 - window.innerHeight - oldScrollBottomDist);
               console.debug(`router.options: Restoring scroll position after locale switch. Anchoring to ${ scrollPosWasCloserToTopThanBottom ? 'top' : 'bottom'}. Target y: ${newScrollY}`);
               resolve({ top: newScrollY });
-            } else if 
-            (to.hash) {
+            } 
+            else if (to.hash) {
               console.debug(`router.options: Restoring scroll position with hash ${to.hash}`)
               resolve({ el: to.hash, top: hashOffset, behavior: scrollBehavior}) // If the URL ends with `#someID`, scroll to the element with HTML id `someID`)
-            } else if 
-            (savedPosition) {
+            } 
+            else if (savedPosition) {
               console.debug(`router.options: Restoring scroll position to saved position ${savedPosition.top}`)
               resolve({ top: savedPosition.top, behavior: scrollBehavior})
-            } else {
+            } 
+            else {
               console.debug(`router.options: Falling back to using default scroll restoration`);
               resolve({ top: scrollY1 }) 
             }

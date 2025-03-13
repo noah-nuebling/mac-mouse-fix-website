@@ -26,7 +26,7 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxtjs/tailwindcss', 
-    '@pinia/nuxt', '@nuxtjs/i18n', '@nuxt/image', '@nuxtjs/robots', '@nuxtjs/sitemap'],
+    '@pinia/nuxt', /*'@nuxtjs/i18n',*/ '@nuxt/image', '@nuxtjs/robots', '@nuxtjs/sitemap'],
 
   app: {
     baseURL: '/', // GITHUB_SUB_URL,
@@ -89,6 +89,8 @@ export default defineNuxtConfig({
     cssPath: '~/assets/css/tailwind.css',
     configPath: '~~/tailwind.config.js'
   },
+  /* // [Mar 2025] Removing nuxt-i18n dependency
+  
   i18n: {
     skipSettingLocaleOnNavigate: true, // See app.vue
     langDir: null, //'./locales/',
@@ -99,12 +101,13 @@ export default defineNuxtConfig({
       strictMessage: false, // Allow HTML in localization files.
     },
     strategy: 'prefix_except_default', //'prefix',
-    detectBrowserLanguage: { /* Not sure what we're doing here */
+    detectBrowserLanguage: { // Not sure what we're doing here
       useCookie: true, // If true, non-english users will only be redirected the first time IIUC - only set false for testing
       cookieKey: 'i18n_redirected',
       redirectOn: 'no prefix', // 'root' is allegedly better than 'no prefix' for SEO or sth
     },
-  },
+  }, 
+  */
   image: { // Mostly default overrides for @nuxt/image which can also be directly set on <NuxtImg> or <NuxtPicture>
     domains: [], // List of external domains whose images should be optimized by @nuxt/image (I think)
     dir: "assets/img", // The default is `public`, and the @nuxt/img docs suggest that only public works in some places. But assets/img also works? Weird. See: Notes.md -> Optimization 

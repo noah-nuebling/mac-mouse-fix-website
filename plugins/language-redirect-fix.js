@@ -24,8 +24,10 @@
 
 export default defineNuxtPlugin(async function(app) {
     
+    /*
+
     if ((false)) { // PROBLEM: Fixes page-loads but freezes the page when user manually switches languages (not in dev builds though... Webdev is crazy.)
-        /* Fix2 */
+        // Fix2 
         if (import.meta.client) {
             app.hook("app:mounted", () => {
 
@@ -41,7 +43,7 @@ export default defineNuxtPlugin(async function(app) {
     }
 
     if (false) {
-        /* Fix1 */
+        // Fix1 
         if (import.meta.client) {
 
             app.hook("app:mounted", () => {
@@ -55,4 +57,5 @@ export default defineNuxtPlugin(async function(app) {
             })
         }
     }
+    */
 })

@@ -79,12 +79,15 @@ const uiStrings = ref<{ quote: string|null, source: string } | null>(null);
 /* Update uiStrings to current locale 
   Why debounce? 
   When switching locales from the UI, it changes locales twice - first with proper oldLocale, second with undefined as the old locale (15.08.2024) */
+
+/* // [Mar 2025] Removing nuxt-i18n dependency
 const i18n = useI18n();
 const updateQuoteLocales = debouncer((newLocale: string, oldLocale: string) => {
   // console.debug(`quoteCardLocales: ${oldLocale} -> ${newLocale}`); // Don't leave this log on in production - It logs like 60 times in a row.
   uiStrings.value = props.quote ? getUIStrings(props.quote, newLocale) : null;
 }, 50);
 watch(i18n.locale, updateQuoteLocales, { immediate: false });
+*/
 
 /* Callback */
 function openLink() {
@@ -98,7 +101,9 @@ function openLink() {
 onMounted(() => {
 
   /* Load quote strings after component load */
+  /* // [Mar 2025] Removing nuxt-i18n dependency
   updateQuoteLocales(i18n.locale.value, undefined);
+  */
 
   /* Trigger glow based on scroll-position */
 
