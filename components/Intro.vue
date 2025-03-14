@@ -166,20 +166,17 @@
 
 <script setup lang="ts">
 
+/* Import */
+const { $gsap, $ScrollTrigger, $isMobile, $isSafari, $isFirefox, $coolI18n: { mdrf, MFLocalizedString, currentLocale } } = useNuxtApp();
+import { getBrowserLocale } from "~/locales/localizableUtil";
 
 /* Debug */
 
-/* if ((0)) {
-  // [Mar 2025] Removing nuxt-i18n dependency
-  const _i18n = useI18n()
-  const locale = _i18n.locale
+if ((0)) {
+  console.debug(`Locale during Intro.vue setup: ${ currentLocale.value }, browserLocale: ${ getBrowserLocale() }`);
+} 
 
-  console.debug(`Locale during Intro.vue setup: ${ locale.value }, browserLocale: ${ _i18n.getBrowserLocale() }`);
-} */
-
-/* Import gsap stuff */
-
-const { $gsap, $ScrollTrigger, $isMobile, $isSafari, $isFirefox, $coolI18n: { mdrf, MFLocalizedString } } = useNuxtApp();
+/* Import Curvers */
 import { linearScalingEase, customInOutEase } from "../utils/curves"
 
 /* Manually import images 
@@ -218,22 +215,8 @@ const global = useGlobalStore()
 /* Get localization progress */
 
 import * as Localizable from "../locales/localizableAccess";
-var localizationProgressDisplay = ref<string>(''); // String like `84%`
+var localizationProgressDisplay = computed(() => Localizable.progressDisplay(currentLocale.value)); // String like `84%`
 var doShowLocalizationProgress = computed(() => localizationProgressDisplay.value != '100%' || global.localeSwitchCount > 0); // Note: Show progress if is page is not fully translated, or user has switched locales (so the progress UI doesn't disappear while the user is using it to switch locales.) 
-
-// Watch locale changes
-/* if ((0)) {
-  // [Mar 2025] Removing nuxt-i18n dependency
-  watch(_i18n.locale, (newLocale: string) => {
-
-    // Get new localizationProgress
-    localizationProgressDisplay.value = Localizable.progressDisplay(newLocale)
-
-    // Log
-    console.debug(`Intro: localeSwitchCount: ${global.localeSwitchCount}, progress: ${localizationProgressDisplay.value}`)
-    
-  }, { immediate: true })
-} */
 
 /* Get dom element refs 
     All unused atm

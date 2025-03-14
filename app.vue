@@ -10,7 +10,7 @@
       :transition="{
         name: 'my',
         mode: 'out-in',
-        /* onBeforeEnter*/ // [Mar 2025] Removing nuxt-i18n dependency
+        /* onBeforeEnter*/ // xxx[Mar 2025] Removing nuxt-i18n dependency
       }"
     />
   </NuxtLayout>
@@ -21,7 +21,7 @@
 import { useGlobalStore } from '~/store/global';
 const global = useGlobalStore()
 
-/* // [Mar 2025] Removing nuxt-i18n dependency
+/* // xxx[Mar 2025] Removing nuxt-i18n dependency
 const { finalizePendingLocaleChange } = useI18n();
 const onBeforeEnter = async () => {
   await finalizePendingLocaleChange(); // Works in concert with `skipSettingLocaleOnNavigate: true`. and `navigateTo(switchLocalePath())` See docs: https://i18n.nuxtjs.org/docs/guide/lang-switcher#wait-for-page-transition 

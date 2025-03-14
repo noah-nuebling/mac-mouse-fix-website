@@ -1,92 +1,62 @@
 /* This offers extensions to nuxtI18n.
+
 Access them using:
 ```
 const { $coolI18n } = useNuxtApp(); 
 ```
+
+
+[Mar 2025] Rule of thumb: Prefer to put stuff into localizableUtil.ts over setup-cool-i18n.ts so that it's accessible everywhere. 
+    Currently, we only have functions here that aren't pure functions and depend on some state like 'currentLocale'. 
+    Having them here lets us get reactive bindings to these values. (E.g. by wrapping them in computed())
+
 */
 
 import md from 'markdown-it' // We used to import 'md' here and it seemed to work the same.
 import type MarkdownIt from 'markdown-it/index.js';
-/* import type { LocaleObject } from '@nuxtjs/i18n'; */ // [Mar 2025] Removing nuxt-i18n dependency
-import Localizable from "../locales/Localizable";
+import * as Localizable from "../locales/localizableAccess"
+import { popLocaleFromPath, pushLocaleToPath, isValidLocale } from "../locales/localizableUtil"
 
+import { useRouter } from 'vue-router';
 import { stringf } from '../utils/util';
 
 import { objectDescription, trimEmptyLines, removeIndent } from '../utils/util';
 
 export default defineNuxtPlugin(app => {
     
-    /* Test 
-    We use `useI18n()` to give us autocompletions for the `$i18n` object. 
-    When we actually use `useI18n()` it crashes though.
+    /* Import router */
+    const router = useRouter();
 
-    // const i18n = useI18n();
-    
-    /* Get stuff from nuxtApp 
-        Note: 
-            Getting $i18n directly from the _NuxtApp instance passed into defineNuxtPlugin() also works, but TypeScript doesn't understand the types for some reason.
-            By getting $i18n from useNuxtApp(), TypeScript understand.
-        */
-
-    /* if ((0)) { // [Mar 2025] Removing nuxt-i18n dependency
-        const { $i18n } = useNuxtApp();
-    } */
-
-    /* Remove vueI18n translations functions 
-        So we don't accidentally use them instead of MFLocalizedString() */
-    
-    /*
-    if ((0)) { // [Mar 2025] Removing nuxt-i18n dependency
-        const stub = () => { console.assert(false, `Don't use vue i18n translation functions. Use MFLocalizedString() instead.`); return "" }
-        const boolStub = () => { console.assert(false, `Don't use vue i18n translation functions. Use MFLocalizedString() instead.`); return false }
+    /* Define currentLocale */
+    const currentLocale = computed(() => {
         
-        app.vueApp.config.globalProperties.$d = stub
-        app.vueApp.config.globalProperties.$n = stub
-        app.vueApp.config.globalProperties.$rt = stub
-        app.vueApp.config.globalProperties.$t = stub
-        app.vueApp.config.globalProperties.$tc = stub
-        app.vueApp.config.globalProperties.$te = boolStub
-        app.vueApp.config.globalProperties.$tm = stub
-    }
-    */
-    
-    /* Create our own translation function */
-
-    function getLocaleCode(localeCode?: string): string {
-        
-        const c: string = localeCode ?? 'en' /* ?? $i18n.locale.value; */ // [Mar 2025] Removing nuxt-i18n dependency
-        return c;
-    }
-    function getSourceLocaleCode(): string {
-        return Localizable['sourceLocale'];
-    }
-
-    function _localizedString(strKey: string, localeCode?: string): string {
-
-        /* 
-            This function gets a localized string directly from the Localizable.js file 
-                We use this over $i18n.t() since that always strips {format_specifiers} from the string for some reason. And we wanna do the formatting ourselves in stringf(), 
-                so that we can separate the string retrieval (MFLocalizedString()) out from the formatting (stringf()), while $i18n.t() does it all at once. 
-                Separating this out has the benefit that we can easily regex the source files for MFLocalizedString() calls. 
-                
-                Note that this does not have reactivity, which I think $t() does. However, this doesn't seem to be a problem and locale switching seems to work flawlessly. Not sure why.
-        */
-
-        // Get locale code
-        const c = getLocaleCode(localeCode);
-
-        // Get translated string
-        //  @ts-ignore
-        var result: string|undefined = Localizable.strings[c][strKey];
-
-        // Make sure output is string - so we can use output directly in Vue templates without typescript complaining.
-        if (typeof result !== 'string') {
-            result = `<invalid localized string: ${objectDescription(result)} for key: ${strKey}>`;
+        // [Mar 2025] Meant to replace nuxt-i18n's .locale
+        const path = router.currentRoute.value.path;
+        let locale = popLocaleFromPath(path).locale;
+        if (!isValidLocale(locale)) {
+            locale = Localizable.sourceLocale(); // If the path doesn't contain a locale, we fall back to the source locale._
         }
+    
+        return locale;
+    })
+    function isCurrentLanguage(localeCode: string) {
+        return currentLocale.value.startsWith(localeCode)
+    }
 
-        // Return
+    /* Define routing helpers */
+    function localePath(rawPath: string): string {
+        // [Mar 2025] Meant to replace nuxt-i18n's localePath()
+        return pushLocaleToPath(currentLocale.value, rawPath)
+    }
+    
+    function switchLocalePath(localeCode: string): string {
+        // [Mar 2025] Meant to replace nuxt-i18n's switchLocalePath()
+        const raw = popLocaleFromPath(router.currentRoute.value.fullPath).rawPath
+        const result = pushLocaleToPath(localeCode, raw);
         return result;
     }
+
+    /* Define MFLocalizedString */
     function MFLocalizedString(englishUIString: string, key: string, comment: string): string {
 
         /* 
@@ -97,23 +67,24 @@ export default defineNuxtPlugin(app => {
                 And actually, the `comment` and `englishUIString` are *only* intended for the .xcstrings file and is not used by the nuxt app.
             All this is basically the exact same idea as the NSLocalizedString() macro which is used by Xcode to synchronize .xcstrings files to Swift and C source-code files.
 
+            Note: [Mar 2025] We could make this computed() to make it reactive? But not sure that helps with anything.
         */
 
         // Get result
-        const result = _localizedString(key);
+        const result = Localizable._localizedString(key, currentLocale.value);
 
         // Validate
         console.assert(import.meta.env.DEV !== import.meta.env.PROD, "App is simulateously in development and production mode, or in neither mode.");
         if (import.meta.env.DEV) { // Only do these checks in development builds
-            const currentLocale = getLocaleCode();
-            const sourceLocale = getSourceLocaleCode();
-            if (currentLocale == sourceLocale) {
+            const currentLocale_ = currentLocale.value;
+            const sourceLocale = Localizable.sourceLocale();
+            if (currentLocale_ == sourceLocale) {
 
                 // Log
                 // console.log(`Validating localizedString ${key}...`);
                 
                 // Guard isEnglish
-                console.assert(currentLocale === 'en', `Something is weird. The source locale is not English.`)
+                console.assert(currentLocale_ === 'en', `Something is weird. The source locale is not English.`)
 
                 // Clean the englishUIString
                 //  
@@ -143,14 +114,14 @@ export default defineNuxtPlugin(app => {
         return result;
     }
     
-    /* Get renderer */
+    /* Get markdown renderer */
     const renderer = md({
         html: true, // Our lang files don't allow inline html for some reason iirc
         breaks: true
     })
     renderer.use(openLinkInNewTab)
     
-    /* mdrf 
+    /* Define mdrf 
         (MarkDown Render and Format) (commonly pronounced emdörf)
          Convenience function for rendering markdown markup to html string while also inserting formats into the string.
 
@@ -177,50 +148,23 @@ export default defineNuxtPlugin(app => {
         return result
     }
     
-    /* Define mt 
-        Deprecated. Use mdrf() and MFLocalizedString() instead. */
-    
-    // function mt(key: string, values?: Object | Array<string>, inline: boolean = true, locale?: string): string {
-    //   const translation = $i18n.t(key, values, locale)
-    //   var result = inline ? renderer.renderInline(translation) : renderer.render(translation)
-    //   return result
-    // }
-    
-    /* Define isCurrentLanguage */
-    function isCurrentLanguage(localeCode: string) {
-        
-        const currentLocale = 'en' /*$i18n.locale.value*/ // [Mar 2025] Removing nuxt-i18n dependency
-        return currentLocale.startsWith(localeCode)
-    }
-    
-    /* Define */
-   /* if ((0)) { // [Mar 2025] Removing nuxt-i18n dependency
-        function localeObject(locale: string): LocaleObject | null {
-            var result = null;
-            for (const l in $i18n.locales) {
-                const obj = l as unknown as LocaleObject;
-                if (obj.code == locale) {
-                    result = obj;
-                    break;
-                }
-            }
-            return result;
-        }
-    } */
-    
-    /* Store custom functions */
+    /* Provide our utilties ot the nuxt app */
     const coolI18n = {
         mdRenderer: renderer,
         MFLocalizedString,
-        _localizedString,
         mdrf,
+        currentLocale,
         isCurrentLanguage,
+        localePath,
+        switchLocalePath,
     }
     
     /* Return */
     return {
         provide: { coolI18n }
     }
+
+    
 })
 
 /* Helper function */

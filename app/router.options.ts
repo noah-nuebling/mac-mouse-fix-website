@@ -48,7 +48,7 @@ export default <RouterConfig> {
       const scrollHeight2 = document.documentElement.scrollHeight;
 
       if ((0)) {
-        // [Mar 2025] Removing nuxt-i18n dependency
+        // xxx[Mar 2025] Removing nuxt-i18n dependency
         const isLocaleSwitch = global.localeSwitchIsPending; // Why are we checking the localeSwitch flag here and not with scrollY4, scrollY5, whatever? Idk it works. 
         if (isLocaleSwitch) {
           console.assert(to.name !== from.name);
@@ -62,7 +62,7 @@ export default <RouterConfig> {
 
         const isLocaleSwitch = false;
         /* if ((0)) {
-          // [Mar 2025] Removing nuxt-i18n dependency
+          // xxx[Mar 2025] Removing nuxt-i18n dependency
           if (isLocaleSwitch) {
             // `$i18n` is injected in the `setup` of the nuxtjs/i18n module.
             // `scrollBehavior` is guarded against being called even when it is not completed
@@ -82,7 +82,8 @@ export default <RouterConfig> {
 
           if (newIntroAnimationId > 0) {
             if (0) {}
-            else if (((0)) && isLocaleSwitch) { // [Mar 2025] Removing nuxt-i18n dependency 
+            else if (((0)) && isLocaleSwitch) { 
+              // [Mar 2025] TODO: Restore this functionality
               const oldScrollTopDist = (scrollY1 - 0); // This is all very hacky. We're using scrollY1 and scrollY5 here. I'm not sure why that works.
               const oldScrollBottomDist = (scrollHeight1 - window.innerHeight - scrollY1);
               const scrollPosWasCloserToTopThanBottom = oldScrollTopDist < oldScrollBottomDist;

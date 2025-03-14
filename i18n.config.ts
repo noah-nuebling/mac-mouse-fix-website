@@ -5,7 +5,7 @@ should be possible. But when I try it doesn't compile for some reason.
 
 */
 
-/* // [Mar 2025] Removing nuxt-i18n dependency
+/* // xxx[Mar 2025] Removing nuxt-i18n dependency
 
 import Localizable from "./locales/Localizable"
 

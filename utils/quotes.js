@@ -8,6 +8,8 @@ Note:
 
 export { QuoteSource, PermissionToShare, QuoteData, getUIStrings, getThankYouText, getExpandButtonText, quoteSourceIsPublic, getUsableQuotes}
 
+import { _localizedString } from "~/locales/localizableAccess";
+
 function getLocalizationFunctions() {
 
   /* Import helper
@@ -15,7 +17,8 @@ function getLocalizationFunctions() {
   */
 
   const app = useNuxtApp();
-  const { $coolI18n: { mdrf, _localizedString, MFLocalizedString } } = app;
+  const { $coolI18n: { mdrf, MFLocalizedString } } = app;
+
 
   return { mdrf, _localizedString, MFLocalizedString }
 }

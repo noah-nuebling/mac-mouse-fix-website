@@ -65,38 +65,33 @@ import chevronImagePath from "../assets/img/chevron.down@8x.png"
 
 
 const { currentSize, ResponsiveSize } = useResponsive()
-const { $coolI18n: { mdrf, MFLocalizedString } } = useNuxtApp();
-import { getProps, setProps } from '~/utils/util'
+const { $coolI18n: { MFLocalizedString, localePath } } = useNuxtApp();
 import { useGlobalStore } from "~/store/global";
 import externalLinkImagePath from "../assets/img/arrow.up.right.square@8x.png"
 
 const global = useGlobalStore()
-
-const localePath = /* useLocalePath() */ (p: string) => { return p } // [Mar 2025] Removing nuxt-i18n dependency
-
-// console.log(`globalll: ${objectDescription(global)}`) // DEBUG
 
 const isExpanded = ref(false)
 const expandingContainer = ref<HTMLElement | null>(null)
 const root = ref<HTMLElement | null>(null)
 
 // Extract locstrings that are used multiple times inside <template> into <script>.
-const locstring_link_overview = MFLocalizedString(
+//  Note: [Mar 2025] Need to use computed here to make this update when the locale changes. Perhaps we should make MFLocalizedString() return a computed to make this more obvious/less error prone?
+const locstring_link_overview = computed(() => MFLocalizedString(
   `Overview`, 
   'navbar.links.overview', 
   `
   This string is for a link in the 'navbar' that takes you to the front page of the website.
   Background: The 'navbar' or 'navigation bar' is the section at the top of the website that stays in place when you scroll down and shows a bunch of useful links to the user.
   `
-);
-const locstring_link_github = MFLocalizedString(
+));
+const locstring_link_github = computed(() => MFLocalizedString(
   'More on GitHub', 
   'navbar.links.github', 
   ``
-)
+))
 
 onMounted(() => {
-
   // Update navbar height (not sure if good place/method to do this)
   global.navbarHeight_Unexpanded = root.value!.offsetHeight
 })

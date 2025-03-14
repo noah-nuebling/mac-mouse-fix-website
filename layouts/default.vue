@@ -6,7 +6,6 @@
 -->
 
 <template>
-  <!-- <meta name="server-locale" :content="$i18n.locale"> // [Mar 2025] Removing nuxt-i18n dependency --> 
 
   <div class="">
 

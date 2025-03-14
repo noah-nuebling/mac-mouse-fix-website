@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 
-const localePath = useLocalePath()
+const { $coolI18n: { localePath } } = useNuxtApp();
 
 const props = defineProps({
   path: String,

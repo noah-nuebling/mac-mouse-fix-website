@@ -130,11 +130,6 @@ export default defineNuxtComponent({
     props: Object.assign({
         replacements: Object,
     }),
-    /* // [Mar 2025] Removing nuxt-i18n dependency
-    intlify.assign({
-        replacements: Object,
-    }),
-    */ 
     
     // Define setup fn
     setup(props, ctx) {
