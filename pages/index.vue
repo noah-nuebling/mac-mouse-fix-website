@@ -1220,7 +1220,7 @@ onMounted(() => {
         const tlFade = $gsap.timeline({ scrollTrigger: {
           trigger: fadeTriggers[i],
           pin: false,
-          start: "center 42.5%",
+          start: "bottom 50%", //  Note: [Mar 2025] We used to use "center 42.5%", but that kinda broke on mobile where the <NormalFeatureCard> containers wrap. Alternatively we could've set 'fadeeet-trigger' on the last feature card in the container instead of the entire container.-->
           end: "bottom 10%",
           scrub: false,
           toggleActions: 'play none none reverse', 
