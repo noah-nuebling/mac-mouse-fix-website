@@ -7,7 +7,7 @@ However we store some extra, custom data in Localizable.js which we make easy-to
 
 export { localeInfo, sourceLocale, localeCodes, progressDisplay, localizationProgressAsInt, _localizedString };
 
-import Localizable from "./Localizable";
+import Localizable from "./Localizable.js";
 
 function localizationProgressAsInt(locale: string): number {
   

@@ -15,7 +15,7 @@ const { $coolI18n } = useNuxtApp();
 import md from 'markdown-it' // We used to import 'md' here and it seemed to work the same.
 import type MarkdownIt from 'markdown-it/index.js';
 import * as Localizable from "../locales/localizableAccess"
-import { popLocaleFromPath, pushLocaleToPath, isValidLocale } from "../locales/localizableUtil"
+import { popLocaleFromPath, pushLocaleToPath, isValidLocale, setUserSelectedLocale } from "../locales/localizableUtil"
 
 import { useRouter } from 'vue-router';
 import { stringf } from '../utils/util';
@@ -29,18 +29,25 @@ export default defineNuxtPlugin(app => {
 
     /* Define currentLocale */
     const currentLocale = computed(() => {
-        
+
         // [Mar 2025] Meant to replace nuxt-i18n's .locale
+        
+        let locale: string|null
+
         const path = router.currentRoute.value.path;
-        let locale = popLocaleFromPath(path).locale;
+        locale = popLocaleFromPath(path).locale;
+        
         if (!isValidLocale(locale)) {
-            locale = Localizable.sourceLocale(); // If the path doesn't contain a locale, we fall back to the source locale._
+            locale = Localizable.sourceLocale(); // If the path doesn't contain a locale, we fall back to the source locale (English)
         }
+
+        console.debug(`Current locale updated to ${locale}`)
     
-        return locale;
+        return locale!;
     })
     function isCurrentLanguage(localeCode: string) {
-        return currentLocale.value.startsWith(localeCode)
+        const result = currentLocale.value.startsWith(localeCode)
+        return result;
     }
 
     /* Define routing helpers */
@@ -147,7 +154,95 @@ export default defineNuxtPlugin(app => {
         
         return result
     }
+
+    /* Locale selection by user */
+
+    let localeSwitchIsPending       = ref(false);
+    let localeSwitchCount           = ref(0);
+    let pageHeightPreLocaleSwitch   = ref<number|null>(null);
+    let scrollPosPreLocaleSwitch    = ref<number|null>(null);
+    function userSelectLocale(selectedLocale: string) {
+
+        // React to user picking a new locale
     
+        // Guard change
+        if (currentLocale.value == selectedLocale) {
+            return;
+        }
+        
+        // Update state
+        localeSwitchCount.value         += 1;
+        localeSwitchIsPending.value     = true;
+        scrollPosPreLocaleSwitch.value  = window.scrollY;
+        pageHeightPreLocaleSwitch.value = document.documentElement.scrollHeight;
+
+        // Store user preference
+        setUserSelectedLocale(selectedLocale);
+
+        // Set locale
+        const p = switchLocalePath(selectedLocale);
+        if          ((1))       navigateTo(p);
+        else if     ((0))       router.push(p);
+        else                    window.location.href = p;
+    }
+
+    app.hook('page:finish', async () => {
+        //  [Mar 2025] Not sure if 'page:finish' is the optimal/appropriate hook. 
+        //  Testing: (On 404 page, [Mar 2025]) 
+        //      Constraint: We want finalizePendingLocaleChange() to be called after our router.options.ts > scrollBehavior hook – so that we can detect localeChanges in that hook.
+        //      Constraint: We want finalizePendingLocaleChanges() to be called between the 1. and 2. time that the reactivity system wants to update all the QuoteCard.vue components. So we that we can skip the first wave of updates (for performance.)
+        //          Sidenote: If we delay the update to currentLocale perhaps we could prevent this problem at a deeper level. I did some minimal testing where I only updated currentLocale after finalizePendingLocaleChanges() was called (from 'page:start', 'page:finish', or 'page:loading:end' hook), but it didn't seem to work, and introduced extra jank when switching locales from the 'This page is 0% translated into...' altert – so I quickly gave up.
+        //      Result: 'page:start', 'page:finish', and 'page:loading:end' all seem to work.
+        //      Result: 'page:loading:start' is called too early. 'page:transition:finish' is seemingly never called.
+        //      Note: Haven't tested any other hooks.
+        //  Note: If we ever change the hook, make sure all the code that uses localeSwitchIsPending or waitForPendingLocaleChange() (currently that's only the code described by the 'Constraint's above) still works.
+        //  References:
+        //      - Nuxt hook API documentation: https://nuxt.com/docs/api/advanced/hooks
+        if (localeSwitchIsPending.value)
+            await finalizePendingLocaleChange();
+    });
+
+    async function finalizePendingLocaleChange() {
+        // 
+        //  [Mar 2025] meant to replace nuxt-i18n's finalizePendingLocaleChange()
+        // 
+        //  [Mar 2025] This is based on nuxt-i18n's guide about waiting for page transitions. 
+        //  After we replaced nuxt-i18n with our own implementation, this is now just a general way for tracking/waiting for locale transitions. (Not sure that's actually necessary, but some of our code is designed around that atm [Mar 2025].)
+        //  The nuxt-i18n guide recommends calling finalizePendingLocaleChange() from a transition inside app.vue. However, that lead to a bug:
+        //      Bug reproduction steps: [Mar 2025]
+        //           1. Open 404 page, then click link to go to front page, then click Browser back-button to go back to 404 page.
+        //           2. Now switch locales
+        //           3. Click link to go to front page, then glick browser back-button.
+        //           4. Now there are multiple copies of the 404 page in the DOM.
+        //      Note: There's a 'Known Issues' Section at the bottom of nuxt's transition guide which says that DOM updates are completely frozen during transitions. This might be causing the bug (But I'm not sure.)
+        //      Bug Solution: Remove all page-transitions and call finalizePendingLocaleChange() in a lifecycle hook instead.
+        // 
+        //  References:
+        //     - nuxt-i18n guide about waiting for page transitions: https://i18n.nuxtjs.org/docs/guide/lang-switcher#wait-for-page-transition
+        //     - nuxt transitions guide: https://nuxt.com/docs/getting-started/transitions#known-issues
+
+        console.debug(`Finalizing localeChange.`);
+        
+        localeSwitchIsPending.value     = false;
+        scrollPosPreLocaleSwitch.value  = null;
+        pageHeightPreLocaleSwitch.value = null;
+    }
+    
+    function waitForPendingLocaleChange() {
+        return new Promise<void>((resolve, reject) => {
+            if (!localeSwitchIsPending.value) {
+                resolve();
+                return;
+            }
+            const unwatch = watch(localeSwitchIsPending, (isPending, oldValue, onCleanup) => {
+                if (!isPending) {
+                    unwatch();
+                    resolve();
+                }
+            }, { immediate: false })
+        })
+    }
+
     /* Provide our utilties ot the nuxt app */
     const coolI18n = {
         mdRenderer: renderer,
@@ -157,6 +252,12 @@ export default defineNuxtPlugin(app => {
         isCurrentLanguage,
         localePath,
         switchLocalePath,
+        userSelectLocale,
+        localeSwitchCount,
+        localeSwitchIsPending,
+        waitForPendingLocaleChange,
+        scrollPosPreLocaleSwitch,
+        pageHeightPreLocaleSwitch,
     }
     
     /* Return */

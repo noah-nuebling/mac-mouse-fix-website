@@ -167,7 +167,7 @@
 <script setup lang="ts">
 
 /* Import */
-const { $gsap, $ScrollTrigger, $isMobile, $isSafari, $isFirefox, $coolI18n: { mdrf, MFLocalizedString, currentLocale } } = useNuxtApp();
+const { $gsap, $ScrollTrigger, $isMobile, $isSafari, $isFirefox, $coolI18n: { mdrf, MFLocalizedString, currentLocale, localeSwitchCount } } = useNuxtApp();
 import { getBrowserLocale } from "~/locales/localizableUtil";
 
 /* Debug */
@@ -216,7 +216,7 @@ const global = useGlobalStore()
 
 import * as Localizable from "../locales/localizableAccess";
 var localizationProgressDisplay = computed(() => Localizable.progressDisplay(currentLocale.value)); // String like `84%`
-var doShowLocalizationProgress = computed(() => localizationProgressDisplay.value != '100%' || global.localeSwitchCount > 0); // Note: Show progress if is page is not fully translated, or user has switched locales (so the progress UI doesn't disappear while the user is using it to switch locales.) 
+var doShowLocalizationProgress = computed(() => localizationProgressDisplay.value != '100%' || localeSwitchCount.value > 0); // Note: Show progress if is page is not fully translated, or user has switched locales (so the progress UI doesn't disappear while the user is using it to switch locales.) 
 
 /* Get dom element refs 
     All unused atm
@@ -764,7 +764,6 @@ function recreateIntroAnimation(dueToQuotes: boolean = false, previousQuotesDist
 
 
   // DEBUG
-
 
   console.debug(`
     zoomStart: ${            zoomStart}

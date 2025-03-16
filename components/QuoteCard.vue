@@ -44,7 +44,7 @@
 <script setup lang="ts">
 
 /* Imports */
-const { $isMobile, $coolI18n: { currentLocale } } = useNuxtApp()
+const { $isMobile, $coolI18n: { currentLocale, localeSwitchIsPending } } = useNuxtApp()
 import { type QuoteData, getUIStrings, quoteSourceIsPublic } from '~/utils/quotes';
 // const { $gsap, $ScrollTrigger } = useNuxtApp()
 
@@ -74,20 +74,17 @@ var props = defineProps({
 const doGlow = ref(false) // Does this have to be `ref()` ed for reactivity to work?
 if (false) var scrollTrigger: ScrollTrigger | null = null
 const sourceIsPublic = props.quote ? quoteSourceIsPublic(props.quote.source) : false
-const uiStrings = ref<{ quote: string|null, source: string } | null>(null);
 
-/* Update uiStrings to current locale 
-  Why debounce? 
-  When switching locales from the UI, it changes locales twice - first with proper oldLocale, second with undefined as the old locale (15.08.2024) 
-  Update: [Mar 2025] TODO: Vue's computed() is super powerful. We could probably just use that. Debouncing shouldn't be necessary.
-  */
 
-const updateQuoteLocales = debouncer((newLocale: string, oldLocale: string) => {
-  // console.debug(`quoteCardLocales: ${oldLocale} -> ${newLocale}`); // Don't leave this log on in production - It logs like 60 times in a row.
-  uiStrings.value = props.quote ? getUIStrings(props.quote, newLocale) : null;
-}, 50);
-watch(currentLocale, updateQuoteLocales, { immediate: false });
+/* Get localized uiStrings */
 
+const uiStrings = computed((previous) => {
+  if (localeSwitchIsPending.value) {
+    console.debug(`Not recalculating quotes due to localeSwitchIsPending.`); // [Mar 2025] Prevent running expensive (?) calculation twice during locale-switch.
+    return previous; 
+  }
+  return props.quote ? getUIStrings(props.quote, currentLocale.value) : null;
+})
 
 /* Callback */
 function openLink() {
@@ -100,8 +97,7 @@ function openLink() {
 
 onMounted(() => {
 
-  /* Load quote strings after component load */
-  updateQuoteLocales(currentLocale.value, undefined);
+  if ((0)) console.debug(`QuoteCard mounted.`)
 
   /* Trigger glow based on scroll-position */
 

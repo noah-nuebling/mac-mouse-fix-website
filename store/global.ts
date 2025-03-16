@@ -12,8 +12,6 @@ export const useGlobalStore = defineStore('global', () => {
   const navbarHasDarkAppearance = ref<boolean>(false);
   const navbarHeight_Unexpanded = ref(0);
   const introAnimationId = ref(0); // This increments every time the intro animation is (re-)created. Useful for watching changes.
-  const localeSwitchCount = ref(0); // How often the user has switched the locale
-  const localeSwitchIsPending = ref(false); // How often the user has switched the locale
 
   // Functions
   // function increment() {
@@ -21,5 +19,5 @@ export const useGlobalStore = defineStore('global', () => {
   // }
 
   // Return 
-  return { navbarHasDarkAppearance, introAnimationId, navbarHeight_Unexpanded, localeSwitchCount, localeSwitchIsPending };
+  return { navbarHasDarkAppearance, introAnimationId, navbarHeight_Unexpanded };
 })

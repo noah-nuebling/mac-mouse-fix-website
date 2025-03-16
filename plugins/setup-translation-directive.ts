@@ -11,6 +11,8 @@ import { defineNuxtPlugin } from "nuxt/app"
 
 export default defineNuxtPlugin((app) => {
 
+  return;
+
   // Wait for app to be ready.
   //  Src: ChatGPT
   app.hook('app:created', () => {

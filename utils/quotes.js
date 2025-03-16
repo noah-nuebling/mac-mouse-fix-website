@@ -8,7 +8,7 @@ Note:
 
 export { QuoteSource, PermissionToShare, QuoteData, getUIStrings, getThankYouText, getExpandButtonText, quoteSourceIsPublic, getUsableQuotes}
 
-import { _localizedString } from "~/locales/localizableAccess";
+import { _localizedString } from "../locales/localizableAccess.ts"; // When running this file directly through node (to extract the quotes for our localization python script) You need the file extension in the import or you get confusing errors. For Vue you don't need it. 
 
 function getLocalizationFunctions() {
 

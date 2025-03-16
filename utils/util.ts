@@ -298,7 +298,7 @@ function stringf_getArray(text: string, replacements?: { [key: string]: any }): 
     return result;
 }
 
-function objectDescription(value: any, parents: Array<any> = []): string | undefined {
+function objectDescription(value: any, options: { _parents: any[]|undefined, depthLimit: number|undefined }|undefined = undefined): string|undefined {
     
     // Returns an objectDescription for debugging
     //  Use this over JSON.stringify() because that crashes for circular references inside the object.
@@ -310,7 +310,8 @@ function objectDescription(value: any, parents: Array<any> = []): string | undef
     const br = "\n";
     const activateSpecialSerialization = true;
     const doEscape = false;
-    
+    const default_depthLimit = 5;
+
     // Declare string-escaping function (Credit: ChatGPT)
     function escapeString(str: string) {
         if (!doEscape) { return str };
@@ -340,15 +341,25 @@ function objectDescription(value: any, parents: Array<any> = []): string | undef
         if (testResult.trim().length == 0) { return '' }
         return "\n".concat(addIndent(str));
     }
+
+    // Preprocess options
+    if (options             === undefined) options = { _parents: undefined, depthLimit: undefined };
+    if (options!._parents   === undefined) options!._parents = [];
+    if (options!.depthLimit === undefined) options!.depthLimit = default_depthLimit;
     
-    // Handle circular refs
-    const indexInParents = parents.indexOf(value);
+    // Stop recursion on circular refs
+    const indexInParents = options._parents.indexOf(value);
     if (indexInParents != -1) {
         return `"<Duplicate of parent at index ${indexInParents}>"`;
     }
-    
+    // Stop recursion on excessive depth
+    //  Note: [Mar 2025] Without this, getting objectDescription() of RouteLocationNormalizedGeneric freezed the app because it pulled in the entire object graph of the reactivity system and stuff.
+    if (options._parents.length > options.depthLimit) {
+        return `"<Depth limit (${options.depthLimit}) reached>"`;
+    }
+
     // Push parents
-    parents.push(value);
+    options._parents.push(value);
     
     // Declare result
     var result: string | undefined
@@ -371,7 +382,7 @@ function objectDescription(value: any, parents: Array<any> = []): string | undef
         // Handle arrays
         var elements: Array<string> = []
         for (const val of value) {
-            const d = objectDescription(val, parents);
+            const d = objectDescription(val, options);
             elements.push(d == undefined ? "null" : d); // Non-parsable objects inside arrays are converted to "null" as JSON.stringify() also does.
         };
         result = `[${br}${elements.map((e) => addIndent(e)).join(`,${br}`)}${br}]`;
@@ -381,7 +392,7 @@ function objectDescription(value: any, parents: Array<any> = []): string | undef
         
         var entries: Array<string> = []
         for (const [key, val] of Object.entries(value)) {
-            var d = objectDescription(val, parents);
+            var d = objectDescription(val, options);
             d = d == undefined ? "null" : d;
             if (d.includes('\n') && 
             (d.startsWith('{\n') || d.startsWith('[\n') || d.startsWith('(\n')) && 
@@ -451,7 +462,7 @@ function objectDescription(value: any, parents: Array<any> = []): string | undef
     }
     
     // Pop self from parents
-    parents.pop();
+    options._parents.pop();
     
     // Return 
     return result;

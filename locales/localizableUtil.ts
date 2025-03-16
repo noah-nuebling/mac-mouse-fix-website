@@ -2,7 +2,8 @@
 
 export { 
     isValidLocale, 
-    pushLocaleToPath, 
+    pushLocaleToPath,
+    normalizePath, 
     setUserSelectedLocale, 
     getUserSelectedLocale, 
     popLocaleFromPath, 
@@ -25,20 +26,6 @@ function pushLocaleToPath(locale: string, rawPath: string): string {
 
     return '/' + locale + rawPath
 }
-
-function setUserSelectedLocale(locale: string|null) {
-    // [Mar 2025] nuxt-i18n used a cookie with name `i18n_redirected` before we replaced it with this.
-    
-    if (locale == null) {
-        window.localStorage.removeItem("user_selected_locale");
-    } else {
-        window.localStorage.setItem("user_selected_locale", locale);
-    }
-}
-function getUserSelectedLocale(): string|null {
-    return window.localStorage.getItem("user_selected_locale")
-}
-
 function popLocaleFromPath(path: string): { locale: string, rawPath: string } {
 
     let locale: string
@@ -53,6 +40,32 @@ function popLocaleFromPath(path: string): { locale: string, rawPath: string } {
         rawPath = path.slice(i, undefined)
     }
     return { locale: locale, rawPath: rawPath }
+}
+
+function normalizePath(path: string): string {
+    //  Problem: The paths we receive from nuxt/vue sometimes contain a trailling slash, and sometimes they don't.
+    //  This function makes sure first and last character of the path is '/'
+    //  After applying this, you can use a simple `==` comparison to check two paths for semantic equality.
+    if (path.slice(0, 1) != '/') {
+        path = '/' + path;
+    }
+    if (path.slice(-1, undefined) != '/') {
+        path = path + '/'
+    }
+    return path;
+}
+
+function setUserSelectedLocale(locale: string|null) {
+    // [Mar 2025] nuxt-i18n used a cookie with name `i18n_redirected` before we replaced it with this.
+    
+    if (locale == null) {
+        window.localStorage.removeItem("user_selected_locale");
+    } else {
+        window.localStorage.setItem("user_selected_locale", locale);
+    }
+}
+function getUserSelectedLocale(): string|null {
+    return window.localStorage.getItem("user_selected_locale")
 }
 
 function getBrowserLocale(): string|null {
