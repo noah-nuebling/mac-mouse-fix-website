@@ -493,7 +493,7 @@ export default {
             "trackpad.intro.title": "Macs sind am besten\nmit {dev}.",
             "trackpad.intro.title.device1": "einem **Trackpad**",
             "trackpad.intro.title.device2": "einer **Maus**",
-            "trackpad.intro.body": "Zeiten ändern sich. Mac Mouse Fix bringt alle Funktionen eines Apple Trackpads - und mehr - auf deine **ergonomische** und **präzise** Drittanbieter-Maus. Und alle Interaktionen fühlen sich genauso **flüssig** und **natürlich** an wie auf dem Trackpad.",
+            "trackpad.intro.body": "Die Zeiten ändern sich. Mac Mouse Fix bringt alle Funktionen eines Apple Trackpads - und mehr - auf deine **ergonomische** und **präzise** Drittanbieter-Maus. Und alle Interaktionen fühlen sich genauso **flüssig** und **natürlich** an wie auf dem Trackpad.",
             "trackpad.gestures.header": "**Trackpad-Gesten** die Mac Mouse Fix auf deine Maus bringt",
             "trackpad.gestures.disclaimer": "Hinweis: Mac Mouse Fix kann diese Trackpad-Funktionen nur dann in der hier beschriebenen Weise auf deine Maus bringen, wenn deine Maus mindestens 5 Tasten hat. Diese 5 Tasten sind typischerweise Linksklick, Rechtsklick, Mausrad-Klick und 2 Seitentasten. Wenn deine Maus weniger als 5 Tasten hat, bietet Mac Mouse Fix immer noch viele Funktionen und ein gutes Erlebnis, aber einige Funktionen sind weniger leicht zugänglich im Vergleich zu einer 5-Tasten-Maus. Bei bestimmten Mäusen, die für die Verwendung mit hauseigenen Treibern wie Logitech Options entwickelt wurden, kann Mac Mouse Fix derzeit nicht alle Tasten erkennen. Mac Mouse Fix unterstützt die Apple Magic Mouse derzeit nicht.",
             "trackpad.gestures.lookup.title": "Quick Look und Nachschlagen",

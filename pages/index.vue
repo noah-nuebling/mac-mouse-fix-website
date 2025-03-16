@@ -1368,10 +1368,6 @@ onMounted(() => {
           const slamStart = 0.2, slamEnd = 0.6
           const ease = (x: number) => { return linearScalingEase(fromScale)($Power2.easeIn(x)) }
           tlReplace.fromTo(replacement, { scale: fromScale }, { scale: toScale, duration: dur(slamStart, slamEnd), ease: ease }, star(slamStart))
-          .to(replacement, { // Set the transform origin for the subsequent slam-jiggle
-            transformOrigin: 'center center',
-            duration: 0,
-          })
 
           // Shrink slot
           const shrinkStart = 0.9, shrinkEnd = 1.7
@@ -1384,7 +1380,8 @@ onMounted(() => {
 
             // replacement!.textContent = "Ahhh";
             // replacement!.style.display = 'none';
-        
+          
+          // Push timeline
           fadeTimelines.push(tlReplace)
 
           const tlImpactJiggle = $gsap.timeline({ scrollTrigger: {
@@ -1397,7 +1394,7 @@ onMounted(() => {
             markers: false,
           }})
 
-            // Impact jiggle
+          // Impact jiggle
           const jiggleFactor  = -1.8;
           const jiggleDur1    =  0.05;
           const jiggleDur2    =  1.4;
@@ -1413,6 +1410,9 @@ onMounted(() => {
             duration: jiggleDur2*0.85,
             ease: spring((0.2/jiggleDur1)*jiggleDur2, 0.16),
           })
+
+          // Push timeline
+          fadeTimelines.push(tlImpactJiggle);
         }
 
       }
