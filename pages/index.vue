@@ -1328,8 +1328,9 @@ onMounted(() => {
       else if (toReplace.includes(element)) {
         
         // Constants
+        const anDelay = 0.5;
         const anDur = 0.9;
-        const star = (pstart: number) => { return pstart*anDur; }                               // It's called star not start cause I'm too lazy to type t I guess
+        const star = (pstart: number) => { return (anDelay+pstart)*anDur; }                               // It's called star not start cause I'm too lazy to type t
         const dur = (pstart: number, pend: number) => { return (pend*anDur) - (pstart*anDur); } 
 
         // Find replacement
@@ -1347,20 +1348,30 @@ onMounted(() => {
             toggleActions: 'restart none none reverse',
             markers: false,
           }});
+          
+          // Fade in trackpad
+          if ((0)) {
+            const fadeStart = 0.0; const fadeEnd = 0.2;
+            tlReplace.fromTo(element, {opacity: '0' }, { opacity: '1', duration: dur(fadeStart, fadeEnd), ease: linearFadingEase(1) }, star(fadeStart-anDelay))
+          }
 
-          // Fade out
+          // Fade out trackpad
           const fadeOutStart = 0, fadeOutEnd = 0.3
           tlReplace.fromTo(element, { opacity: '1' }, { opacity: '0', duration: dur(fadeOutStart, fadeOutEnd), ease: linearFadingEase(1) }, star(fadeOutStart))
 
-          // Fade in
+          // Fade in mouse
           const fadeInStart = 0.4, fadeInEnd = 0.6;
           tlReplace.fromTo(replacement, { autoAlpha: '0' }, { autoAlpha: '1', duration: dur(fadeInStart, fadeInEnd), ease: linearFadingEase(1) }, star(fadeInStart)) // autoAlpha prevents text selection jank due to scaled up hidden element.
 
-          // Slam 
-          const scale = 2.0
+          // Slam mouse
+          const fromScale = 2.0, toScale = 1.0;
           const slamStart = 0.2, slamEnd = 0.6
-          const ease = (x: number) => { return linearScalingEase(scale)($Power2.easeIn(x)) }
-          tlReplace.fromTo(replacement, { scale: scale }, { scale: 1.0, duration: dur(slamStart, slamEnd), ease: ease }, slamStart)
+          const ease = (x: number) => { return linearScalingEase(fromScale)($Power2.easeIn(x)) }
+          tlReplace.fromTo(replacement, { scale: fromScale }, { scale: toScale, duration: dur(slamStart, slamEnd), ease: ease }, star(slamStart))
+          .to(replacement, { // Set the transform origin for the subsequent slam-jiggle
+            transformOrigin: 'center center',
+            duration: 0,
+          })
 
           // Shrink slot
           const shrinkStart = 0.9, shrinkEnd = 1.7
@@ -1387,30 +1398,21 @@ onMounted(() => {
           }})
 
             // Impact jiggle
-          tlImpactJiggle.to(replacement, {
-            rotation: 2,  // Small rotation clockwise
+          const jiggleFactor  = -1.8;
+          const jiggleDur1    =  0.05;
+          const jiggleDur2    =  1.4;
+          tlImpactJiggle
+          .to(replacement, {
+            rotation: 2*jiggleFactor,  // Small rotation clockwise
             // scale: 1.0 + -(2)/100,  // Small rotation clockwise
-            duration: 0.05,
-            ease: "power1.out"
+            duration: jiggleDur1,
+            ease: $Power1.easeOut,
           }, star(slamEnd))  // Start right after the slam
           .to(replacement, {
-            rotation: -2,  // Small rotation counter-clockwise
-            // scale: 1.0 + -(-2)/100,  // Small rotation counter-clockwise
-            duration: 0.1,
-            ease: "power1.inOut"
+            rotation: 0,
+            duration: jiggleDur2*0.85,
+            ease: spring((0.2/jiggleDur1)*jiggleDur2, 0.16),
           })
-          .to(replacement, {
-            rotation: 1,  // Small rotation clockwise again
-            // scale: 1.0 + -(1)/100,  // Small rotation clockwise again
-            duration: 0.08,
-            ease: "power1.inOut"
-          })
-          .to(replacement, {
-            rotation: 0,  // Back to normal
-            // scale: 1.0 + -(0)/100,  // Back to normal
-            duration: 0.07,
-            ease: "power1.inOut"
-          });
         }
 
       }
@@ -1454,6 +1456,10 @@ onMounted(() => {
 
       } 
       else if (toMoveRight.includes(element)) {
+
+        // Note: [Mar 2025] Right-to-Left languages
+        //  We should probably turn this into a move*Left* animation for rtl languages.
+        //  Implementation thoughts: We could spot rtl languages using Babel in our python script and export that into Localizable.js. Or use a dynamic technique like `window.getComputedStyle(document.body).direction === 'rtl'` (might be more robust in case some strings of the rtl language fall back to English – a ltr language.)
 
         // Animation duration
         const anDur = 1.2;
@@ -1554,7 +1560,7 @@ onMounted(() => {
 
           // Create grow animation
 
-          const tlMoveUp = $gsap.timeline({ scrollTrigger: {
+          const tlGrow = $gsap.timeline({ scrollTrigger: {
             trigger: triggerElement,
               pin: false,
               start: `bottom+=${animationStartOffsetCompensation} 85%`,
@@ -1566,8 +1572,8 @@ onMounted(() => {
           element.style.transformOrigin = 'center 80%';
           // element.style.borderWidth = '2px'
           // element.style.borderColor = 'black'
-          tlMoveUp.fromTo(element, { transform: 'scale(0.5,0.5)' }, { transform: 'scale(1.0,1.0)', duration: anDur, ease: criticalSpring(4.0) }, anDelay);
-          fadeTimelines.push(tlMoveUp);
+          tlGrow.fromTo(element, { transform: 'scale(0.5,0.5)' }, { transform: 'scale(1.0,1.0)', duration: anDur, ease: criticalSpring(4.0) }, anDelay);
+          fadeTimelines.push(tlGrow);
       }
     }
   })
