@@ -1268,8 +1268,7 @@ onMounted(() => {
     for (const [i, element] of toMoveee.entries()) {
 
       if (!(element instanceof HTMLElement)) { continue; }
-
-      // Get info from element
+      
       const cs = getComputedStyle(element);
 
       // Get triggerElement and compensation
@@ -1277,14 +1276,24 @@ onMounted(() => {
       //  On inline-block: At the time of writing, we only move-uppp specific spans of text inside longer paragraphs. To apply a transform to a text-span, it has to be set to `display: inline-block` afaik. 
       //    For these cases, we want to start the animation based on the scroll position of the parent paragraph, so the user can read the paragraph and then the 'blanks' are filled in at a controlled point.
       //    That's why here, we set the 'triggerElement' to the parent if the element has display: inline-block.
+      //      Update: [Mar 2025] We now have animating elements nested deeper inside non animating spans, so we're checking for `SPAN` tags directly.
       //  On animationStartOffsetCompensation: For the move-uppp animation, we start the animated element in a moved-down position, and then, after its scrolled into view, we animate it into its proper position in the layout.
       //    However, the element being moved-down initially, changes the scroll position where the animation is started, since that scroll position is calculated relative to the `triggerElement` which we set equal to the animated element by default.
       //    To Remove this shift in the animamtion-start-scroll-position, we use `animationStartOffsetCompensation`.
-      var animationStartOffsetCompensation = `-${animationStartOffset}`;
+      //      Update: [Mar 2025] We're using animationStartOffsetCompensation everywhere now. Probably because we accidentally copy-pasted it without thinking. TODO: Clean up.
+      var animationStartOffsetCompensation = `-${animationStartOffset}px`;
       var triggerElement = element;
-      if (cs.display == 'inline-block') {
-        triggerElement = element.parentElement ?? element;
-        animationStartOffsetCompensation = '0px';
+      while (1) {
+        if (triggerElement.tagName != 'SPAN') {
+          const computedStyle = getComputedStyle(triggerElement);
+          if (computedStyle.display != 'inline-block')
+            if (computedStyle.display != 'inline')
+              break;
+        }
+        const par = triggerElement.parentElement;
+        if (!par) break;
+        triggerElement = par;
+        animationStartOffsetCompensation = '0px'; // [Mar 2025] I don't understand the meaning of this anymore. Also it seems we should only apply this to toMoveUp animations but instead we apply it everywhere.
       }
 
       // Create placeholder
@@ -1340,9 +1349,9 @@ onMounted(() => {
         else {
 
           const tlReplace = $gsap.timeline({ scrollTrigger: {
-            trigger: replacement,
+            trigger: triggerElement,
             pin: false,
-            start: `bottom+=${animationStartOffsetCompensation} 50%`,
+            start: `bottom+=${animationStartOffsetCompensation} 85%`,
             end: `bottom+=${animationStartOffsetCompensation} 10%`,
             scrub: false,
             toggleActions: 'restart none none reverse',
@@ -1385,10 +1394,10 @@ onMounted(() => {
           fadeTimelines.push(tlReplace)
 
           const tlImpactJiggle = $gsap.timeline({ scrollTrigger: {
-            trigger: replacement,
+            trigger: triggerElement,
             pin: false,
-            start: `bottom+=${animationStartOffsetCompensation} 50%`,
-            end: `bottom+=${animationStartOffsetCompensation} 10%`,
+            start: `bottom+=${animationStartOffsetCompensation} 85%`,
+            end: `bottom+=${animationStartOffsetCompensation} 10%`, // Note: [Mar 2025] I think this does nothing, we just copy-pasted it everywhere without thinking.
             scrub: false,
             toggleActions: 'restart none none none', // Don't play reverse jiggle
             markers: false,
@@ -1440,7 +1449,7 @@ onMounted(() => {
         // Create move-up animation
 
         const tlMoveUp = $gsap.timeline({ scrollTrigger: {
-          trigger: triggerElement,
+            trigger: triggerElement,
             pin: false,
             start: `bottom+=${animationStartOffsetCompensation} 85%`,
             end: `bottom+=${animationStartOffsetCompensation} 10%`,
