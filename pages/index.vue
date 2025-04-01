@@ -443,7 +443,7 @@ Website Polish Problems [Mar 2025]
                   Smooth As Butter.
                   `,
                   'scroll.intro.title', 
-                  '{accent} is replaced with the scroll.intro.body string'
+                  '{accent} is replaced with the scroll.intro.title.accent string'
                 ) }}
                 <template #accent>
                   <span class="move-righttt text-gradient-to-l-block filter brightness-[1.06]">

@@ -481,7 +481,7 @@
       }
     },
     "29: scroll.intro.title" : {
-      "comment" : "{accent} is replaced with the scroll.intro.body string",
+      "comment" : "{accent} is replaced with the scroll.intro.title.accent string",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
