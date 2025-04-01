@@ -9,6 +9,10 @@
         - The filename has a `01.` prefix so it's alphabetically ordered before the other plugins. This should make it execute before the other plugins.
     - This is part of our replacement for nuxt-i18n's routing. Based on my minimal testing, nuxt-i18n's routing seems about as fast as this. So I assume there's no easy way to make it faster.
 
+    Problems:
+    - [Apr 2025] Linking to a hash url like macmousefix.com/#price is quite janky with a language redirect, 
+        since the page will fully load and go to the #price section before *and* after the redirect.
+
     References: 
     - Nuxt lifecycle: https://nuxt.com/docs/guide/concepts/nuxt-lifecycle
     - Nuxt lifecycle hooks:
@@ -63,9 +67,9 @@ export default defineNuxtPlugin((nuxtApp) => {
         if (toPathAlreadyContainsLocale)
             return;
         else {
-            const resultPath = pushLocaleToPath(desiredLocale!, to.path)
-            if ((0)) navigateTo(resultPath); // `external: true` (strangely) makes this redirect work (sort of) (Update: That was when we didn't put any page on the root path, and this code was in a middleware)
-            else window.location.href = resultPath; // Using window.location might be slightly faster than navigateTo(). Also I've seen navigateTo() not update the url properly, I think navigateTo() might not work this early in the nuxt lifecycle [Mar 2025]
+            const resultPath = pushLocaleToPath(desiredLocale!, to.fullPath) // Use fullPath to retain hash and queryParams
+            if      ((0))   navigateTo(resultPath); // `external: true` (strangely) makes this redirect work (sort of) (Update: That was when we didn't put any page on the root path, and this code was in a middleware)
+            else if ((1))   window.location.href = resultPath; // Using window.location might be slightly faster than navigateTo(). Also I've seen navigateTo() not update the url properly, I think navigateTo() might not work this early in the nuxt lifecycle [Mar 2025]
         }
     }
 })
