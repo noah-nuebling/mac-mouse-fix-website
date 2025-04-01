@@ -1,7 +1,13 @@
 # Locales Readme
 
 ## Overview 
-(16.08.2024)
+
+- Update: [Apr 2025]
+    - A bunch of the stuff below is outdated now. Most important things I noticed:
+        - a) We've removed Localizable.xcstrings in favor of file-specific .xcstrings files inside /locales/strings/repo-root/
+        - b) Our pytnon build script makes it so these .xcstrings files are automatically synced with the source files (I think they're all .vue files)
+            - The syncing workds by regexing all the source files for occurences of `MFLocalizedString(...)`. (Similar to Apple's NSLocalizedString() macro)
+        - -> I think I wrote more about reasoning elsewhere, but forgot where (Maybe commit notes?) Might have been a massive waste of time, but it works well now.
 
 - Overview: (16.08.2024)
 - Localizable.xcstrings, quotes.js,and Quotes.xcstrings are the ground-truth sources for all UI Strings.
@@ -33,7 +39,6 @@ Rambling: (This stuff is also discussed in the `mac-mouse-fix` repo's readme on 
     - The editing experience is imo nicer/cleaner/simpler than most online localization platforms, like localazy and crowdin (although localazy is pretty good and supports .xcstrings files iirc. I have detailed notes on my tests somewhere.)
     - It's free (I don't think the online platforms like crowdin and localazy would be free for MMF, since MMF is not free and doesn't have an officially authorized open-source license.) (On the other hand, the platforms aren't very expensive IIRC, and it would have surely been worth it.)
     - To make it easier to translate our Readme.md and Acknowledgements.md files, I thought it's really nice to use .xcstrings files, since you can break the long document down into little chunks where each chunk has a state, such as 'needs_review' which is automatically managed by Xcode. Translators can see the original section right in line with the translated section in the editor, and compiling/syncing the markdown documents from/to .xcstrings files really wasn't hard. Not sure something comparable would be possible with an online platform.
-
 
 ## Why do we have an Xcode project here? 
 
