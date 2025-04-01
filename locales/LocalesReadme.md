@@ -6,7 +6,7 @@
     - A bunch of the stuff below is outdated now. Most important things I noticed:
         - a) We've removed Localizable.xcstrings in favor of file-specific .xcstrings files inside /locales/strings/repo-root/
         - b) Our pytnon build script makes it so these .xcstrings files are automatically synced with the source files (I think they're all .vue files)
-            - The syncing workds by regexing all the source files for occurences of `MFLocalizedString(...)`. (Similar to Apple's NSLocalizedString() macro)
+            - The syncing workds by regexing all the source files for occurences of MFLocalizedString(). (Similar to Apple's NSLocalizedString() macro)
         - -> I think I wrote more about reasoning elsewhere, but forgot where (Maybe commit notes?) Might have been a massive waste of time, but it works well now.
 
 - Overview: (16.08.2024)
