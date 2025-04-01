@@ -9,9 +9,10 @@
         - The filename has a `01.` prefix so it's alphabetically ordered before the other plugins. This should make it execute before the other plugins.
     - This is part of our replacement for nuxt-i18n's routing. Based on my minimal testing, nuxt-i18n's routing seems about as fast as this. So I assume there's no easy way to make it faster.
 
-    Problems:
-    - [Apr 2025] Linking to a hash url like macmousefix.com/#price is quite janky with a language redirect, 
-        since the page will fully load and go to the #price section before *and* after the redirect.
+    Observation:
+    - [Apr 2025] (In dev builds) linking to a hash url like macmousefix.com/#price is quite janky with a language redirect, since the page will fully load and go to the #price section before *and* after the redirect.
+        However, this is not noticable in prod builds.
+
 
     References: 
     - Nuxt lifecycle: https://nuxt.com/docs/guide/concepts/nuxt-lifecycle
