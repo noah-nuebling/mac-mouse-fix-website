@@ -12,6 +12,10 @@ import { localeCodes, localeInfo } from "./locales/localizableAccess"
 
 export default defineNuxtConfig({
   
+  ignore: [
+    "pages/paddle-checkout.vue"
+  ],
+
   hooks: {
     'pages:extend' (pages) {
 
