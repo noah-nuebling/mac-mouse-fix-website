@@ -30,7 +30,7 @@
         <a class="card-sm w-full text-center sm:text-[1.0rem] text-[1.0rem] font-[400] text-gradient-to-l no-underline group-hover:cool-underline ">
           <!-- Expand -->
           <!-- Note: The play.circle and stop.circle images have blue-500 color. we use the --accent-rotate var to change the color. -->
-          <span :class="['', isExpanded ? 'opacity-0 absolute' : '']">
+          <span class="group-[.isExpandedCls]:opacity-0 group-[.isExpandedCls]:absolute">
             <slot name="expandButtonText">
               {{ mdrf(MFLocalizedString(
                 `See It in Action`, 
@@ -44,7 +44,7 @@
             <span class="inline-space-[0]"/><img src="~/assets/img/play.circle-blue@8x.png" alt="" class="ml-[0.4em] translate-x-[0em] inline wh-[1.00em] align-[-0.2em] filter hue-rotate-[var(--accent-rotate)]">
           </span>
           <!-- Unexpand -->
-          <span :class="['', isExpanded ? '' : 'opacity-0 absolute']">
+          <span class="group-[:not(.isExpandedCls)]:opacity-0 group-[:not(.isExpandedCls)]:absolute">
             <span v-html="mdrf(MFLocalizedString(`Close Video`, 'feature-card.unexpand-button', ''))"></span>                                                        
             <span class="inline-space-[0]"/><img src="~/assets/img/pause.circle-blue@8x.png" alt="" class="ml-[0.4em] translate-x-[0em] inline wh-[1.00em] align-[-0.2em] filter hue-rotate-[var(--accent-rotate)]">
           </span>
@@ -108,8 +108,6 @@ import type { FeatureCard } from '#build/components';
 // import remapDemoVideo from '@/assets/video/remap_demo_old.mp4';
 
 const thisCard = ref<InstanceType<typeof FeatureCard> | null>(null)
-
-const isExpanded = computed(() => thisCard.value?.isExpanded || thisCard.value?.isAnimationExpanded) // This is hacky but makes animations look nicer
 
 var props = defineProps({
 

@@ -16,23 +16,23 @@
 <template>
   <div
     ref="card"
-    :class="['overflow-clip relative isNotExpanded', $props.class, doesExpand ? 'cursor-pointer will-change-[transform,opacity]' : '']"
-    v-on-click-outside="{ onEvent: () => { isExpanded = false }, condition: (isExpanded && doesExpand), blockEvents: true }">
+    :class="['overflow-clip relative', $props.class, doesExpand ? 'cursor-pointer will-change-[transform,opacity]' : '']"
+    v-on-click-outside="{ onEvent: () => { toggleExpand(false) }, condition: (isExpanded_target && doesExpand), blockEvents: true }">
 
     <!-- Background Filter Container -->
     <div 
-      ref="backgroundFilterContainer"
+      id="backgroundFilterContainer"
       :class="['h-full w-full rounded-[inherit]', $props.backgroundFilterClass]">
 
       <!-- Border Container -->
       <div
-        ref="borderContainer"
+        id="borderContainer"
         :class="['flex justify-center overflow-clip h-full rounded-[inherit]', $props.borderClass]">
 
           <!-- Content Container -->
         <div
           id="contentContainer"
-          ref="contentContainer"
+          ref="card_contentContainer"
           :class="['h-full flex flex-col', doesExpand ? 'will-change-[transform,opacity]' : '', $props.contentClass]">
 
           <!-- Minimize hint -->
@@ -44,24 +44,24 @@
           </div> -->
 
           <!-- Top -->
-          <div ref="topCardContent" class="flex flex-col">
+          <div id="topCardContent" class="flex flex-col">
             <slot name="top"/>
           </div> 
 
           <!-- Swap -->
-          <div ref="swappableContentContainer" class="min-h-0 min-w-0
+          <div id="swappableContentContainer" class="min-h-0 min-w-0
                                                       grow
                                                       flex flex-col">
 
             <!-- Default -->
-            <div ref="defaultCardContent" id="defaultCardContent" class="min-h-0 min-w-0
+            <div id="defaultCardContent" class="min-h-0 min-w-0
                                                 grow
                                                 flex flex-col">
               <slot name="default"/>
             </div>
 
             <!-- Expanded -->
-            <div ref="expandedCardContent" id="expandedCardContent" class="min-h-0 min-w-0
+            <div id="expandedCardContent" class="min-h-0 min-w-0
                                                   grow
                                                   hidden flex-col">
               <slot name="expanded"/>
@@ -69,7 +69,7 @@
           </div>
 
           <!-- Bottom -->
-          <div ref="bottomCardContent" class="flex flex-col">
+          <div id="bottomCardContent" class="flex flex-col">
             <slot name="bottom"/>
           </div>
 
@@ -127,95 +127,78 @@ var props = defineProps({
 $gsap.ticker.lagSmoothing(34, 33);
 
 // Define vars
-const isExpanded = ref(false)
-const isAnimationExpanded = ref(false) // Set only after the animations complete
+const isExpanded_target = ref(false)  // Set to the state the the user has requested
+const isExpanded_anim = ref(false)    // Set only after the animations complete
 var animationContext: any = null
 
 // Get references to relevant dom elements
 // The stuff initialized to ref(null) will be automatically bound to the html element with the ref attribute set to the same value by vue
 const card: Ref<HTMLElement | null> = ref(null)
-const contentContainer: Ref<HTMLElement | null> = ref(null)
-const borderContainer: Ref<HTMLElement | null> = ref(null)
-const backgroundFilterContainer: Ref<HTMLElement | null> = ref(null)
-
-const topCardContent: Ref<HTMLElement | null> = ref(null)  
-const defaultCardContent: Ref<HTMLElement | null> = ref(null)
-const expandedCardContent: Ref<HTMLElement | null> = ref(null)
-const bottomCardContent: Ref<HTMLElement | null> = ref(null)
+const card_contentContainer: Ref<HTMLElement | null> = ref(null)
 
 // var minimizeHint: Ref<HTMLDivElement | null> = ref(null)
 
-var video: HTMLVideoElement | null = null
+var expandedCard_video: HTMLVideoElement | null = null
 
 // Define storage for dynamically created elements
-var cardPlaceholder: HTMLDivElement | null = null
-var placeholderContentContainer: HTMLDivElement | null = null
+var expandedCard:                           null | HTMLDivElement = null
+var expandedCard_contentContainer:          null | HTMLDivElement = null
+var expandedCard_backgroundFilterContainer: null | HTMLElement    = null
+var expandedCard_borderContainer:           null | HTMLElement    = null
 
 // Methods for parent
-function toggleExpand() {
-  isExpanded.value = !isExpanded.value
+function toggleExpand(newTarget: undefined|boolean = undefined, queue=false) { 
+  
+  // [Jun 2025] Always set isExpanded_target through this – never directly. That way we can block toggling it during an animation.
+  //    This is important to prevent jank. We could try to build really fancy animations that can be interrupted/reverted half-way-through. But that is much more difficult.
+  
+  if (newTarget === undefined) { newTarget = !isExpanded_target.value } // Pass in undefined to toggle the current state.
+  if (newTarget === isExpanded_anim.value) {                            // Don't allow toggling during an animation
+    if (!queue) {
+      console.log(`Blocked setting isExpaned_target to ${newTarget}.`)
+      return; 
+    } else {
+      console.log(`Queueing up setting isExpaned_target to ${newTarget}.`)
+      watch(isExpanded_anim, () => { // Wait for the current animation to finish and then immediately revert it.
+        console.assert(newTarget !== isExpanded_anim.value); // [Jun 2025] I don't think this can ever fail, unless there's some weird race-conditions I can't conceive of.
+        console.log(`Setting isExpaned_target to ${newTarget} after queueing.`)
+        isExpanded_target.value = newTarget
+      })
+    }
+  } 
+  else { 
+    console.log(`Setting isExpanded_target to ${newTarget}`)
+    isExpanded_target.value = newTarget
+  }
 }
 defineExpose({
   toggleExpand,
-  isExpanded,
-  isAnimationExpanded,
-})
-
-// React to expanded state changes
-
-watch(isExpanded, () => {
-  if (isExpanded.value) {
-    // card.value?.classList.add('isExpanded')
-    // card.value?.classList.remove('isNotExpanded')
-  } else {
-
-  }
-})
-
-watch(isAnimationExpanded, () => {
-  if (isAnimationExpanded.value) {
-
-  } else {
-    // card.value?.classList.add('isNotExpanded')
-    // card.value?.classList.remove('isExpanded')
-  }
+  isExpanded_target: isExpanded_target,
+  isExpanded_anim: isExpanded_anim,
 })
 
 // Close card if window resizes
 //  This is because in the commit after c4f450bd015ba22ddbebb56ea0553e9e5c16e83c we changed the sizing logic so that the cards can grow wider than their positioned parent, but that also made it so the cards don't stay centered if the window resizes after they expanded. There might be a nicer solution but this is the only thing I have time for at the moment.
 const onWindowResize = () => {
-  isExpanded.value = false
+  toggleExpand(false, true) // [Jun 2025] This can be blocked if there's an ongoing animation. In that case, we probably wanna queue-up the unexpand.
 }
 
 // Additional setup after mount
 onMounted(() => {
-  // Get reference to video
-  video = findChild(card.value!, (child) => child.tagName == 'VIDEO') as HTMLVideoElement
-
-  
-  if (video != null) {
-
-    // Stop video from autoplaying
-    video.pause()
-
-    // Do stuff after video ends
-    video.addEventListener('ended', () => {
-
-      // Show minimizeHint
-      // minimizeHint.value!.style.visibility = 'visible'
-      // minimizeHint.value!.style.opacity = '1.0'
-      
-    }, false)
-  }
-
+  // Prevent video autoplaying
+  const video = findChild(expandedCard!, (child) => child.tagName == 'VIDEO') as HTMLVideoElement
+  if (video != null) { video.pause() } // The video will be copied over into the expandedCard and then destroyed [Jun 5 2025]
+  // Add windowResize listener
   window.addEventListener("resize", onWindowResize)
 })
 
 // Cleanup after unmount
 onUnmounted(() => {
+  // Clean up animation memory or sth
   if (animationContext != null) {
-    animationContext.revert() /* Clean up animation memory stuff or sth */
+    animationContext.revert()
   }
+  // Remove windowResize listener
   window.removeEventListener("resize", onWindowResize)
 });
 
@@ -231,10 +214,10 @@ if (props.doesExpand) {
 
 
   // Do the main expand / unexpand animations
-  watch(isExpanded, async (shouldExpand) => { 
+  watch(isExpanded_target, async (shouldExpand) => { 
 
     // DEBUG
-    console.debug(`shouldExpand: ${shouldExpand}`)
+    console.log(`shouldExpand: ${shouldExpand}`)
 
     // Kill current animations
     // Not totally sure if this is appropriate here. I think it prevents the onComplete method from being called when the card is unexpanded during the expand animation, which would lead to the zIndex getting messed up.
@@ -249,6 +232,87 @@ if (props.doesExpand) {
       /// >>> Expand <<<
       ///
 
+      // Create expandedCard if necessary
+      //    - The idea is that the `expandedCard` is a copy of the `card` but it shows the `expandedContent` instead of the `defaultContent`.
+      //      We then fade between the two cards while applying transforms to give the impression that it's a single card that's moving and morphing. We call these the transform-based animations elsewhere.
+
+      if (expandedCard == null) {
+      
+        // Create expandedCard
+        expandedCard = card.value!.cloneNode(true) as HTMLDivElement
+        
+        // Extract elements inside the expandedCard
+        expandedCard_contentContainer           = <any>findChild(expandedCard, ch => ch.id      == 'contentContainer');
+        expandedCard_borderContainer            = <any>findChild(expandedCard, ch => ch.id      == 'borderContainer');
+        expandedCard_backgroundFilterContainer  = <any>findChild(expandedCard, ch => ch.id      == 'backgroundFilterContainer');
+        expandedCard_video                      = <any>findChild(expandedCard, ch => ch.tagName == 'VIDEO');
+
+        // Destroy videos on the original `card` 
+        //    because we don't need to display them and it takes up lot of resources. I think causing iOS to crash after you open a few cards.
+        destroyVideos(card.value!)
+        
+        // Setup callbacks after video ended
+        if (0) {/*
+          expandedCard_video?.addEventListener('ended', () => {
+            minimizeHint.value!.style.visibility = 'visible'
+            minimizeHint.value!.style.opacity = '1.0'
+          }, false)
+        */}
+
+        // Show the expandedContent in the expandedCard
+        const expandedCard_expandedContent = findChild(expandedCard, el => el.id == 'expandedCardContent') as HTMLElement
+        const expandedCard_defaultContent  = findChild(expandedCard, el => el.id == 'defaultCardContent') as HTMLElement
+        expandedCard_defaultContent.style.display = 'none'
+        expandedCard_expandedContent.style.display = 'flex'
+        
+        // Position the expanded content normally
+        //  (Because later code will set position = absolute so we need to reset that)
+        //  - [ ] TODO: Remove this. Probably obsolete now [Jun 2025]
+        expandedCard_expandedContent.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
+
+        // Add isExpanded class 
+        //    for conditional styling
+        expandedCard.classList.add('isExpandedCls')
+      }
+
+      // Load/waitFor video
+      //  Need to load lazily otherwise Safari loads every single video on page load
+
+      const videosAreLoaded_: boolean = videosAreLoaded(expandedCard!)
+      if (true) { console.log(`videosAreLoaded: ${videosAreLoaded_}`); }
+      if (!videosAreLoaded_) {
+        
+        // Start loading animation
+        card_contentContainer.value!.classList.add('animate-pulse')
+
+        // Begin load
+        loadVideos(expandedCard!, true)
+
+        // Wait
+        const interrupted = await new Promise((resolve) => {         
+          
+          // Stop waiting on interrupt
+          const unwatchInterrupt = watch(isExpanded_target, () => {
+            if (isExpanded_target.value == false) {
+              resolve(true)
+              unwatchInterrupt()
+            }
+          }, { })
+
+          // Stop waiting on load
+          expandedCard_video!.addEventListener(/* 'loadedmetadata' */'loadeddata', () => {
+            resolve(false)
+            unwatchInterrupt()
+          }, { once: true })
+        })
+
+        // Stop loading animation
+        card_contentContainer.value!.classList.remove('animate-pulse')
+
+        // Handle interrupt
+        if (interrupted) { return }
+      }
+      
       // Set cursor
       // card.value!.style.cursor = 'auto'
 
@@ -269,15 +333,12 @@ if (props.doesExpand) {
       // Insert backdrop into document
       // document.body.appendChild($store.backdrop)
 
-      // Bring card to front
-      card.value!.style.zIndex = '100'
-
       // Get current card size and position relative to nearest positioned ancestor
-      // See https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements
-      const originWidth = card.value!.offsetWidth
+      //    See https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements
+      const originWidth  = card.value!.offsetWidth
       const originHeight = card.value!.offsetHeight
       
-      const originTop = card.value!.offsetTop
+      const originTop  = card.value!.offsetTop
       const originLeft = card.value!.offsetLeft
       const originCenterX = originLeft + originWidth/2.0
       const originCenterY = originTop + originHeight/2.0
@@ -286,76 +347,9 @@ if (props.doesExpand) {
       // const originBorderWidth = parseInt(getComputedStyle(card.value!).borderWidth.slice(0, -2)) /* Slice off the `px` suffix from the string */
       // const originBorderRadius = parseInt(getComputedStyle(card.value!).borderRadius.slice(0, -2))
 
-      // Create cardPlaceholder
-      //  - Will be used as placeholder in the grid while we place the original card outside the grid
-      //  - Also used as part of the expand/unexpand animation 
-      //    - The idea is that the placeholder has the defaultContent, and the card has the expandedContent 
-      //      and then we fade out the placeholder and fade in the card while applying transforms to both to 
-      //      give the impression that the card is moving. For unexpand it's the same idea but reversed
-      //  - We destroy the videos on the placeholder because we don't need to display it and it takes up lot of resources. I think causing iOS to crash after you open a few cards.
-
-      if (cardPlaceholder == null) {
-        cardPlaceholder = card.value!.cloneNode(true) as HTMLDivElement
-        placeholderContentContainer = findChild(cardPlaceholder, (element) => element.id == 'contentContainer') as HTMLDivElement
-        destroyVideos(cardPlaceholder)
-      }
-
-      // Replace the card with the placeholder
-      card.value?.replaceWith(cardPlaceholder)
-
-      // Set css flags
-      card.value?.classList.add('isExpanded')
-      card.value?.classList.remove('isNotExpanded')
-
-      // Place the expanded content in the card, hide the default content
-      defaultCardContent.value!.style.display = 'none'
-      expandedCardContent.value!.style.display = 'flex'
-
-      // Position the expanded content normally
-      //  (Because later code will set position = absolute so we need to reset that)
-      //  TODO: Check if this is still necessary with transform-based animations
-      expandedCardContent.value!.style.position = '' // Setting it to emptyString resets it to default which is `static` for position
-
-      // Load video
-      //  Need to load lazily otherwise Safari loads every single video on page load
-
-      const videosAreLoaded_: boolean = videosAreLoaded(card.value!)
-      if (0) { console.debug(`videosAreLoaded: ${videosAreLoaded_}`); }
-      if (!videosAreLoaded_) {
-
-        // Load video and wait
-        // - We have very rudimentary loading animation and interruption handling. Not pretty, and surely has many race condition but prevents things from breaking too easily on very slow connection.
-        
-        // Start loading animation
-        placeholderContentContainer!.classList.add('animate-pulse')
-
-        // Start loading
-        loadVideos(card.value!, true)
-
-        // Wait
-        const interrupted = await new Promise((resolve) => {         
-          
-          // Stop waiting on interrupt
-          const unwatchInterrupt = watch(isExpanded, () => {
-            if (isExpanded.value == false) {
-              resolve(true)
-              unwatchInterrupt()
-            }
-          }, { })
-
-          // Stop waiting on load
-          video!.addEventListener(/* 'loadedmetadata' */'loadeddata', () => {
-            resolve(false)
-            unwatchInterrupt()
-          }, { once: true })
-        })
-
-        // Stop loading animation
-        placeholderContentContainer!.classList.remove('animate-pulse')
-
-        // Handle interrupt
-        if (interrupted) { return }
-      }
+      // Bring card to front
+      expandedCard.style.zIndex = '100'
+      card.value!.style.zIndex  = '100'
 
       // Determine target styling of card
       // Notes:
@@ -390,64 +384,64 @@ if (props.doesExpand) {
       var calcCenterX = 0
       var calcCenterY = 0
 
-      // Placing the card at it's target (expanded) size and position in the document
+      // Placing the expandedCard at it's target (expanded) size and position in the document
       //  We use this to determine the remaining target styling (only 'targetTop' at the time of writing) and to record the calculated size and position. 
       //  We need the calculated size and position for animating. When we tried to animated to the targetStyle directly using gsap it didn't work. It seems the problem was somewhere with centering the absolutely positioned card by setting left and right to 0 and setting the leftMargin and rightMarging to auto. Animating this dinn't work proplerly it seems. There were also problems animating the maxHeight and maxWidth, but they could be resolved by setting those to a very high number right before the animation.
 
-      if (card.value) {
+      if (expandedCard) {
 
         // Set layout method
-        card.value.style.position = targetLayout
+        expandedCard.style.position = targetLayout
 
         // Set size and stuff
-        card.value.style.width = targetWidth
-        card.value.style.maxWidth = targetMaxWidth
-        card.value.style.height = targetHeight
-        card.value.style.maxHeight = targetMaxHeight
+        expandedCard.style.width = targetWidth
+        expandedCard.style.maxWidth = targetMaxWidth
+        expandedCard.style.height = targetHeight
+        expandedCard.style.maxHeight = targetMaxHeight
 
         // TESTING: Set height on the content div
-        // TODO: Set this back to full on unexpand
-        contentContainer.value!.style.height = 'fit-content'
-        borderContainer.value!.style.height = 'fit-content'
-        backgroundFilterContainer.value!.style.height = 'fit-content'
+        // TODO: Set this back to full on unexpand || Update: [Jun 2025] We shipped with this. I'm confused.
+        expandedCard_contentContainer!.style.height          = 'fit-content'
+        expandedCard_borderContainer!.style.height           = 'fit-content'
+        expandedCard_backgroundFilterContainer!.style.height = 'fit-content'
 
-        // Place in document
-        cardPlaceholder?.offsetParent?.appendChild(card.value)
+        // Place expandedCard in document
+        card.value!.offsetParent!.appendChild(expandedCard)
 
         // Calculate target style
         //  We calculated targetTop such that the x center of the card stays in the same position after expanding
-        const computedH = card.value.offsetHeight
+        const computedH = expandedCard.offsetHeight
         const heightIncrease = computedH - originHeight
         targetTop = /* `${originTop - heightIncrease/2.0}px` */ `${ originTop-(1*remInPx()) }px`
 
         // Calculate left so that the card is centered
-        targetLeft = (cardPlaceholder!.offsetParent!.clientWidth/2 - card.value.offsetWidth/2) + 'px'
+        targetLeft = (card.value!.offsetParent!.clientWidth/2 - expandedCard.offsetWidth/2) + 'px'
 
         // Set position and stuff
-        card.value.style.marginLeft = targetMarginLeft
-        card.value.style.marginRight = targetMarginRight
-        card.value.style.left = targetLeft
-        card.value.style.right = targetRight
-        card.value.style.top = targetTop
+        expandedCard.style.marginLeft   = targetMarginLeft
+        expandedCard.style.marginRight  = targetMarginRight
+        expandedCard.style.left   = targetLeft
+        expandedCard.style.right  = targetRight
+        expandedCard.style.top    = targetTop
 
         // Increase shadow
-        card.value.style.boxShadow = targetShadow
+        expandedCard.style.boxShadow = targetShadow
 
         // TESTING
         // return
 
         // Measure computed size, position and scale
-        calcWidth = card.value.offsetWidth
-        calcHeight = card.value.offsetHeight
-        calcTop = card.value.offsetTop
-        calcLeft = card.value.offsetLeft
+        calcWidth   = expandedCard.offsetWidth
+        calcHeight  = expandedCard.offsetHeight
+        calcTop     = expandedCard.offsetTop
+        calcLeft    = expandedCard.offsetLeft
         calcCenterX = calcLeft + calcWidth/2.0
         calcCenterY = calcTop + calcHeight/2.0
-        calcScale = ((calcWidth / originWidth) + (calcHeight / originHeight)) / 2.0
+        calcScale   = ((calcWidth / originWidth) + (calcHeight / originHeight)) / 2.0
         
         // DEBUG
-        if (0) {
-          console.debug(
+        if (1) {
+          console.log(
           `
             Card size calc:
             calcWidth     :   ${calcWidth}
@@ -466,10 +460,10 @@ if (props.doesExpand) {
         // targetBorderWidth = '4px' // `${originBorderWidth * calcScale}px`
         // targetBorderRadius = '24px' // `${originBorderRadius * calcScale}px`
 
-        // Hide card and show placeholder
+        // Hide expandedCard and show original card
         //  This is the initial state for the animation. The animation might play after a delay, so we need to set the state here to prevent flickering
-        card.value.style.opacity = '0.0'
-        cardPlaceholder.style.opacity = '1.0'
+        card.value!.style.opacity  = '1.0'
+        expandedCard.style.opacity = '0.0'
       }
 
       // Define animation timeline
@@ -493,35 +487,34 @@ if (props.doesExpand) {
       // Define post-animation actions
       const onEnd = () => {
 
-        console.debug(`on ENDDD`)
-
-        // Update state
-        isAnimationExpanded.value = true
+        console.log(`OnEnd Expand`)
         
         // Play video, once expand animation finishes
-        if (isExpanded.value! == true && video != null && video.src != null) {
-          video.play()
+        if (isExpanded_target.value! == true && expandedCard_video != null && expandedCard_video.src != null) {
+          expandedCard_video.play()
         }
 
         // Close card when it is scrolled away
         // When the card is already above the trigger zone when this is called, then the card unexpands immediately. But when it's below the trigger zone, this doesn't happen. Not sure why. I think ideally, we would scroll the card into view, but I can't get that to work right now, either. 
         $ScrollTrigger.create({
-          trigger: card.value,
+          trigger: expandedCard,
           start: "center bottom",
           end: "center top",
-          onLeave: () => isExpanded.value = false,
-          onLeaveBack: () => isExpanded.value = false,
+          onLeave: () => isExpanded_target.value = false,
+          onLeaveBack: () => isExpanded_target.value = false,
         })
 
+        // Update state
+        isExpanded_anim.value = true
       }
 
       tl.eventCallback('onComplete', onEnd)
 
       // Set transformOrigin
-      cardPlaceholder!.style.transformOrigin = 'left top'
-      card.value!.style.transformOrigin = 'left top'
-      contentContainer.value!.style.transformOrigin = "center top"
-      placeholderContentContainer!.style.transformOrigin = "center top"
+      expandedCard!.style.transformOrigin = 'left top'
+      card.value!.style.transformOrigin   = 'left top'
+      card_contentContainer.value!.style.transformOrigin    = "center top"
+      expandedCard_contentContainer!.style.transformOrigin  = "center top"
 
       // Animation params
       // Discussion: 
@@ -568,7 +561,7 @@ if (props.doesExpand) {
       //  (Translate and scale are very fast to animate)
 
       const curveForTranslateX  = useSimpleAnimations ? null : transfromCurve(curveForLeft!,     (v) => v - curveForLeft!(0.0) )
-      const curveForTranslateY  = useSuperSimpleAnimations ? null : transfromCurve(curveForTop!,      (v) => v - curveForTop!(0.0) )
+      const curveForTranslateY  = useSuperSimpleAnimations ? null : transfromCurve(curveForTop!, (v) => v - curveForTop!(0.0) )
       const curveForScaleX      = useSimpleAnimations ? null : transfromCurve(curveForWidth!,    (v) => v / curveForWidth!(0.0) )
       const curveForScaleY      = useSimpleAnimations ? null : transfromCurve(curveForHeight!,   (v) => v / curveForHeight!(0.0) )
 
@@ -623,23 +616,25 @@ if (props.doesExpand) {
       
       // Notes: I can't manage to center the card properly. But it's okay.
 
-      const viewportHeight = window.innerHeight
-      const navbarHeight_Unexpanded = globalStore.navbarHeight_Unexpanded
-      const cardViewPortRect = card.value!.getBoundingClientRect();
-      const cardHeight = calcHeight // cardViewPortRect.height
-      const cardViewPortTop = cardViewPortRect.top
-      const cardViewPortBottom = viewportHeight - cardViewPortRect.bottom
-      const cardViewPortTopMax = 0.0 + (navbarHeight_Unexpanded)
-      const cardViewPortBottomMax = 0.0
-      const cardViewportTopTarget =  Math.max(cardViewPortTop, cardViewPortTopMax)
-      const cardViewportBottomTarget = Math.max(cardViewPortBottom, cardViewPortBottomMax)
+      const viewportHeight            = window.innerHeight
+      const navbarHeight_Unexpanded   = globalStore.navbarHeight_Unexpanded
+      const cardViewPortRect          = expandedCard!.getBoundingClientRect();
+      const cardHeight                = calcHeight // cardViewPortRect.height
+      const cardViewPortTop           = cardViewPortRect.top
+      const cardViewPortBottom        = viewportHeight - cardViewPortRect.bottom
+      const cardViewPortTopMax        = 0.0 + (navbarHeight_Unexpanded)
+      const cardViewPortBottomMax     = 0.0
+      const cardViewportTopTarget     =  Math.max(cardViewPortTop, cardViewPortTopMax)
+      const cardViewportBottomTarget  = Math.max(cardViewPortBottom, cardViewPortBottomMax)
 
       if (cardViewportTopTarget != cardViewPortTop || cardViewportBottomTarget != cardViewPortBottom) {
 
         const viewportCenter  = ((viewportHeight - navbarHeight_Unexpanded)/2) + navbarHeight_Unexpanded
         const cardCenter      = cardViewPortTop + (cardHeight/2)
         
-        // console.debug(`viewPortCenter: ${viewportCenter}, viewportHeight: ${viewportHeight}, navbarHeight_Unexpanded: ${navbarHeight_Unexpanded} ||| cardCenter: ${cardCenter}, cardViewPortRect.top: ${cardViewPortRect.top}], cardViewPortRect.height: ${cardViewPortRect.height}, cardHeight: ${cardHeight}`)
+        if (1) {
+          console.log(`viewPortCenter: ${viewportCenter}, viewportHeight: ${viewportHeight}, navbarHeight_Unexpanded: ${navbarHeight_Unexpanded} ||| cardCenter: ${cardCenter}, cardViewPortRect.top: ${cardViewPortRect.top}], cardViewPortRect.height: ${cardViewPortRect.height}, cardHeight: ${cardHeight}`)
+        }
 
         const documentScrollTopTarget = document.documentElement.scrollTop + (cardCenter - viewportCenter)
         
@@ -656,39 +651,39 @@ if (props.doesExpand) {
 
       if (!useSimpleAnimations) {
 
-        // Animate size-related styling on placeholder
-        addAnimationToTimeline(tl, cardPlaceholder, 'scaleX', animationCurveFromRawCurve(curveForScaleX!), dur)
-        addAnimationToTimeline(tl, cardPlaceholder, 'scaleY', animationCurveFromRawCurve(curveForScaleY!), dur)
-
         // Animate size-related styling on card
-        addAnimationToTimeline(tl, card.value!, 'scaleX', animationCurveFromRawCurve(curveForInverseScaleX!), dur)
-        addAnimationToTimeline(tl, card.value!, 'scaleY', animationCurveFromRawCurve(curveForInverseScaleY!), dur)
+        addAnimationToTimeline(tl, card.value!, 'scaleX', animationCurveFromRawCurve(curveForScaleX!), dur)
+        addAnimationToTimeline(tl, card.value!, 'scaleY', animationCurveFromRawCurve(curveForScaleY!), dur)
+
+        // Animate size-related styling on expandedCard
+        addAnimationToTimeline(tl, expandedCard, 'scaleX', animationCurveFromRawCurve(curveForInverseScaleX!), dur)
+        addAnimationToTimeline(tl, expandedCard, 'scaleY', animationCurveFromRawCurve(curveForInverseScaleY!), dur)
 
         // Counter-animate card content 
         //  to prevent stretching
-        addAnimationToTimeline(tl, contentContainer.value!, 'scaleX', animationCurveFromRawCurve(curveForContentScaleX!), dur)
-        addAnimationToTimeline(tl, contentContainer.value!, 'scaleY', animationCurveFromRawCurve(curveForContentScaleY!), dur)
+        addAnimationToTimeline(tl, expandedCard_contentContainer!, 'scaleX', animationCurveFromRawCurve(curveForContentScaleX!), dur)
+        addAnimationToTimeline(tl, expandedCard_contentContainer!, 'scaleY', animationCurveFromRawCurve(curveForContentScaleY!), dur)
 
         // Counter-animate placeholder content 
-        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleX', animationCurveFromRawCurve(curveForPlaceholderContentScaleX!), dur)
-        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleY', animationCurveFromRawCurve(curveForPlaceholderContentScaleY!), dur)
+        addAnimationToTimeline(tl, card_contentContainer.value!, 'scaleX', animationCurveFromRawCurve(curveForPlaceholderContentScaleX!), dur)
+        addAnimationToTimeline(tl, card_contentContainer.value!, 'scaleY', animationCurveFromRawCurve(curveForPlaceholderContentScaleY!), dur)
       }
 
       // Animate position-related styling on placeholder
-      if (!useSuperSimpleAnimations) { addAnimationToTimeline(tl, cardPlaceholder, 'y', animationCurveFromRawCurve(curveForTranslateY!), useSimpleAnimations ? simpleDur : dur) }
-      if (!useSimpleAnimations) addAnimationToTimeline(tl, cardPlaceholder, 'x', animationCurveFromRawCurve(curveForTranslateX!), useSimpleAnimations ? simpleDur : dur)
+      if (!useSuperSimpleAnimations)   addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForTranslateY!), useSimpleAnimations ? simpleDur : dur);
+      if (!useSimpleAnimations)        addAnimationToTimeline(tl, card.value!, 'x', animationCurveFromRawCurve(curveForTranslateX!), useSimpleAnimations ? simpleDur : dur);
 
       // Animate position-related styling on card
-      if (!useSuperSimpleAnimations) { addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForInverseTranslateY), useSimpleAnimations ? simpleDur : dur) }
-      if (!useSimpleAnimations) addAnimationToTimeline(tl, card.value!, 'x', animationCurveFromRawCurve(curveForInverseTranslateX!), useSimpleAnimations ? simpleDur : dur)
+      if (!useSuperSimpleAnimations)   addAnimationToTimeline(tl, expandedCard, 'y', animationCurveFromRawCurve(curveForInverseTranslateY!), useSimpleAnimations ? simpleDur : dur)
+      if (!useSimpleAnimations)        addAnimationToTimeline(tl, expandedCard, 'x', animationCurveFromRawCurve(curveForInverseTranslateX!), useSimpleAnimations ? simpleDur : dur)
 
       // Fade out placeholder
       // Notes:
       //  - Neither opacity nor autoalpha work. (Not sure what autoAlpha is) Edit: Now it does. Not sure why. autoAlpha sets visibility: hidden automatically for optimization. We'll use this if it doesn't cause problems.
-      addAnimationToTimeline(tl, cardPlaceholder, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0 }, ease: easeForFadeOut }, useSimpleAnimations ? simpleFadeDur : fadeDur)
+      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0 }, ease: easeForFadeOut },    useSimpleAnimations ? simpleFadeDur : fadeDur)
 
       // Fade in card
-      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 0.0, end: 1.0 }, ease: easeForFadeIn },      useSimpleAnimations ? simpleFadeDur : fadeDur)
+      addAnimationToTimeline(tl, expandedCard,  'autoAlpha', { outputRange: { start: 0.0, end: 1.0 }, ease: easeForFadeIn },      useSimpleAnimations ? simpleFadeDur : fadeDur)
 
       // 
       // Wait until browser is done rendering, then start animation
@@ -705,29 +700,28 @@ if (props.doesExpand) {
       //  >>> Unexpand <<<
       //
 
+      /// DEBUG
+      const videosAreLoaded_: boolean = videosAreLoaded(expandedCard!)
+      if (true) { console.log(`videosAreLoaded: ${videosAreLoaded_}`); }
+
       // Remove backdrop from layout
       // $store.backdrop?.remove()
 
-      // Bring card to front but behind expanding and expanded cards (which have zIndex 100)
-      card.value!.style.zIndex = '99'
-
-      // Stop video
-      if (video != null) {
-        video.pause()
-      }
+      // Bring card to front but behind other expanding and expanded cards (which have zIndex 100)
+      expandedCard!.style.zIndex = '99'
+      card.value!.style.zIndex   = '99'
 
       // After animation completes or is interrupted ...
       const onEnd = () => {
 
         // DEBUG
-        console.debug(`onEnd`)
+        console.log(`onEnd Unexpand`)
 
-        // Update state
-        isAnimationExpanded.value = false
-        
-        // Set css flags
-        card.value?.classList.add('isNotExpanded')
-        card.value?.classList.remove('isExpanded')
+        // Stop video
+        //    [Jun 5 2025] If I pause the video before onEnd, the video disappears immediately before the animation ends, which looks janky. No idea why.
+        if (expandedCard_video != null) {
+          expandedCard_video.pause()
+        }
 
         // 
         // Restore unexpanded state of card
@@ -740,56 +734,67 @@ if (props.doesExpand) {
         // Replace card styling with placeholder styling
         // Notes: 
         // - For some reason we can't set the .style directly, but instead have to set .style.cssText
-        card.value!.style.cssText = cardPlaceholder!.style.cssText
+        if (0) { // [Jun 2025] Shouldn't be necessary after the latest refactor
+          card.value!.style.cssText = expandedCard!.style.cssText
+        }
 
         // Set cursor
         // 'pointer' is the hand
         // card.value!.style.cursor = 'pointer'
 
         // Bring card to normal level
+        expandedCard!.style.zIndex = '0'
         card.value!.style.zIndex = '0'
 
+
         // Remove transform
-        card.value!.style.transform = ''
-        contentContainer.value!.style.transform = ''
+        //    [Jun 2025] Shouldn't be necessary after latest refactor (Since the end-state of the animation should simply be the original, non-transformed card.)
+        if (0) {
+          card.value!.style.transform = ''
+          card_contentContainer.value!.style.transform = ''
+        }
 
         // Restore default style of children
-        contentContainer.value!.style.height = '100%'
-        borderContainer.value!.style.height = '100%'
-        backgroundFilterContainer.value!.style.height = '100%'
-
-        // Place the default content in the card, hide the expanded content
-        defaultCardContent.value!.style.display = 'flex'
-        expandedCardContent.value!.style.display = 'none'
+        //    [Jun 2025] No clue if this is necessary/helpful. Also see the counterpart above where we give these containers 'fit-content' height.
+        expandedCard_contentContainer!.style.height           = '100%'
+        expandedCard_borderContainer!.style.height            = '100%'
+        expandedCard_backgroundFilterContainer!.style.height  = '100%'
 
         ///
         /// ^^^
         ///
 
         // Hide placeholder, show card
-        cardPlaceholder!.style.visibility = 'hidden'
-        card.value!.style.visibility = 'visible'
-        card.value!.style.opacity = '1.0'
-
-        // Replace placeholder
-        cardPlaceholder!.replaceWith(card.value!)
-
-        // Reset playback time
-        if (video != null) {
-          video.currentTime = 0.0
+        if (0) { // [Jun 2025] Shouldn't be necessary after latest refactor
+          expandedCard!.style.visibility  = 'hidden'
+          card.value!.style.visibility    = 'visible'
+          card.value!.style.opacity       = '1.0'
         }
 
-        // Free video from memory by unloading it and loading it again
-        //   Note: If we only unload here, the layout breaks upon re-expanding the card in Safari for some reason. Update: [Jun 2025] This should be fixed now. videosAreLoaded() used to produce false-positives.
-        freeVideos(card.value!)
+        // Replace placeholder
+        if (0) { // [Jun 2025] Shouldn't be necessary after latest refactor
+          expandedCard!.replaceWith(card.value!)
+        }
+
+        // Reset playback time
+        if (expandedCard_video != null) {
+          expandedCard_video.currentTime = 0.0
+        }
+
+        // Free video from memory
+        if (0) { freeVideos(card.value!) }
+        if (1) { unloadVideos(card.value!) }
+
+        // Update state
+        isExpanded_anim.value = false
       }
 
       // TESTING (We'll animate these later)
       // card.value!.style.transform = ''
       // card.value!.style.opacity = '1.0'
-      // cardPlaceholder!.style.transform = ''
-      // cardPlaceholder!.style.opacity = '1.0'
-      // cardPlaceholder!.style.visibility = 'visible'
+      // expandedCard!.style.transform = ''
+      // expandedCard!.style.opacity = '1.0'
+      // expandedCard!.style.visibility = 'visible'
       
       // setTimeout(() => {
       //   onEnd()
@@ -805,25 +810,26 @@ if (props.doesExpand) {
   
       tl.eventCallback('onComplete', onEnd)
       
-      // Set transformOrigin (Probably unnecessary since we already do this on expand)
-      cardPlaceholder!.style.transformOrigin = 'left top'
+      // Set transformOrigin 
+      //    (Probably unnecessary since we already do this on expand)
+      expandedCard!.style.transformOrigin = 'left top'
       card.value!.style.transformOrigin = 'left top'
       
       // Gather data
 
-      const currentWidth = card.value!.offsetWidth
-      const currentHeight = card.value!.offsetHeight
-      const currentLeft = card.value!.offsetLeft
-      const currentTop = card.value!.offsetTop
-      const currentCenterX = currentLeft + (currentWidth/2.0)
-      const currentCenterY = currentTop + (currentHeight/2.0)
+      const currentWidth    = expandedCard!.offsetWidth
+      const currentHeight   = expandedCard!.offsetHeight
+      const currentLeft     = expandedCard!.offsetLeft
+      const currentTop      = expandedCard!.offsetTop
+      const currentCenterX  = currentLeft + (currentWidth/2.0)
+      const currentCenterY  = currentTop  + (currentHeight/2.0)
 
-      const targetWidth = cardPlaceholder!.offsetWidth
-      const targetHeight = cardPlaceholder!.offsetHeight
-      const targetLeft = cardPlaceholder!.offsetLeft;
-      const targetTop = cardPlaceholder!.offsetTop;
+      const targetWidth   = card.value!.offsetWidth
+      const targetHeight  = card.value!.offsetHeight
+      const targetLeft    = card.value!.offsetLeft;
+      const targetTop     = card.value!.offsetTop;
       const targetCenterX = targetLeft + (targetWidth/2.0)
-      const targetCenterY = targetTop + (targetHeight/2.0)
+      const targetCenterY = targetTop  + (targetHeight/2.0)
 
       // Animation params
       // Previous curves:
@@ -912,36 +918,36 @@ if (props.doesExpand) {
       
       if (!useSimpleAnimations) {
         
+        // Animate size-related styling on expandedCard
+        addAnimationToTimeline(tl, expandedCard!, 'scaleX', animationCurveFromRawCurve(curveForScaleX!), dur)
+        addAnimationToTimeline(tl, expandedCard!, 'scaleY', animationCurveFromRawCurve(curveForScaleY!), dur)
+        
         // Animate size-related styling on card
-        addAnimationToTimeline(tl, card.value!, 'scaleX', animationCurveFromRawCurve(curveForScaleX!), dur)
-        addAnimationToTimeline(tl, card.value!, 'scaleY', animationCurveFromRawCurve(curveForScaleY!), dur)
+        addAnimationToTimeline(tl, card.value!, 'scaleX', animationCurveFromRawCurve(curveForInverseScaleX!), dur)
+        addAnimationToTimeline(tl, card.value!, 'scaleY', animationCurveFromRawCurve(curveForInverseScaleY!), dur)
         
-        // Animate size-related styling on placeholder
-        addAnimationToTimeline(tl, cardPlaceholder!, 'scaleX', animationCurveFromRawCurve(curveForInverseScaleX!), dur)
-        addAnimationToTimeline(tl, cardPlaceholder!, 'scaleY', animationCurveFromRawCurve(curveForInverseScaleY!), dur)
+        // Counter-animate card content
+        addAnimationToTimeline(tl, card_contentContainer.value!, 'scaleX', animationCurveFromRawCurve(curveForContentScaleX!), dur)
+        addAnimationToTimeline(tl, card_contentContainer.value!, 'scaleY', animationCurveFromRawCurve(curveForContentScaleY!), dur)
         
-        // Counter-animate placeholder content
-        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleX', animationCurveFromRawCurve(curveForContentScaleX!), dur)
-        addAnimationToTimeline(tl, placeholderContentContainer!, 'scaleY', animationCurveFromRawCurve(curveForContentScaleY!), dur)
-        
-        // Counter-animate card content 
-        addAnimationToTimeline(tl, contentContainer.value!, 'scaleX', animationCurveFromRawCurve(curveForPlaceholderContentScaleX!), dur)
-        addAnimationToTimeline(tl, contentContainer.value!, 'scaleY', animationCurveFromRawCurve(curveForPlaceholderContentScaleY!), dur)
+        // Counter-animate expandedCard content 
+        addAnimationToTimeline(tl, expandedCard_contentContainer!, 'scaleX', animationCurveFromRawCurve(curveForPlaceholderContentScaleX!), dur)
+        addAnimationToTimeline(tl, expandedCard_contentContainer!, 'scaleY', animationCurveFromRawCurve(curveForPlaceholderContentScaleY!), dur)
       }
 
+      // Animate position-related styling on expandedCard
+      if (!useSuperSimpleAnimations) { addAnimationToTimeline(tl, expandedCard!, 'y', animationCurveFromRawCurve(curveForTranslateY!), useSimpleAnimations ? simpleDur : dur) }
+      if (!useSimpleAnimations)      { addAnimationToTimeline(tl, expandedCard!, 'x', animationCurveFromRawCurve(curveForTranslateX!), useSimpleAnimations ? simpleDur : dur) }
+      
       // Animate position-related styling on card
-      if (!useSuperSimpleAnimations) { addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForTranslateY!), useSimpleAnimations ? simpleDur : dur) }
-      if (!useSimpleAnimations) { addAnimationToTimeline(tl, card.value!, 'x', animationCurveFromRawCurve(curveForTranslateX!), useSimpleAnimations ? simpleDur : dur) }
-      
-      // Animate position-related styling on placeholder
-      if (!useSuperSimpleAnimations) { addAnimationToTimeline(tl, cardPlaceholder!, 'y', animationCurveFromRawCurve(curveForInverseTranslateY!), useSimpleAnimations ? simpleDur : dur) }
-      if (!useSimpleAnimations) { addAnimationToTimeline(tl, cardPlaceholder!, 'x', animationCurveFromRawCurve(curveForInverseTranslateX!), useSimpleAnimations ? simpleDur : dur) }
+      if (!useSuperSimpleAnimations) { addAnimationToTimeline(tl, card.value!, 'y', animationCurveFromRawCurve(curveForInverseTranslateY!), useSimpleAnimations ? simpleDur : dur) }
+      if (!useSimpleAnimations)      { addAnimationToTimeline(tl, card.value!, 'x', animationCurveFromRawCurve(curveForInverseTranslateX!), useSimpleAnimations ? simpleDur : dur) }
     
-      // Fade out card
-      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0}, ease: (x) => x }, useSimpleAnimations ? simpleFadeDur : fadeDur)
+      // Fade out expandedCard
+      addAnimationToTimeline(tl, expandedCard!, 'autoAlpha', { outputRange: { start: 1.0, end: 0.0}, ease: (x) => x }, useSimpleAnimations ? simpleFadeDur : fadeDur)
       
-      // Fade in placeholder
-      addAnimationToTimeline(tl, cardPlaceholder!, 'autoAlpha', { outputRange: { start: 0.0, end: 1.0}, ease: (x) => x }, useSimpleAnimations ? simpleFadeDur : fadeDur)  
+      // Fade in card
+      addAnimationToTimeline(tl, card.value!, 'autoAlpha', { outputRange: { start: 0.0, end: 1.0}, ease: (x) => x }, useSimpleAnimations ? simpleFadeDur : fadeDur)  
       
       
       // 
@@ -986,6 +992,8 @@ if (props.doesExpand) {
 
   function destroyCardAndReplaceWith(card: HTMLDivElement, replacement: HTMLElement) {
 
+    console.assert(false, "Unused [Jun 2025]")
+
     // Unload videos
     destroyVideos(card)
 
@@ -994,6 +1002,8 @@ if (props.doesExpand) {
   }
 
   function destroyCard(card: HTMLDivElement) {
+
+    console.assert(false, "Unused [Jun 2025]")
 
     // Unload videos
     destroyVideos(card)
@@ -1010,8 +1020,10 @@ if (props.doesExpand) {
     let areLoaded = true
 
     for (const video of videos) {
-      if (video.currentSrc != props.videoPath ||  // Doing all these checks to be extra secure against false positives. False positives caused weird bug where cards would expand to wrong size, when closing a card (causing freeVideos() to be called, which unloads and reloads a video) and then re-opening the card before the video could be reloaded. The bug should be fixed now. We're also using `removeAttribute()` inside `unloadVideos()` now which might make this extra caution around false positives unnecessary [Jun 5 2025]
-          video.src        != props.videoPath )
+      console.log(`src: "${video.src}", currentSrc: "${video.currentSrc}", video: ${objectDescription(video)}`)
+      if (video.currentSrc != props.videoPath ||  // Doing all these checks to be extra secure against false positives. False positives caused weird **squishedCard bug** where cards would expand to wrong size, when closing a card (causing freeVideos() to be called, which unloads and reloads a video) and then re-opening the card before the video could be fully reloaded (which happens easily when the network is slower – It doesn't happen when hosting locally, making this hard to debug (Chrome throtting worked a little)) [Jun 5 2025]
+          video.src        != props.videoPath ||
+          video.readyState < HTMLMediaElement.HAVE_CURRENT_DATA)
       { 
         areLoaded = false; break; 
       } 
@@ -1022,24 +1034,29 @@ if (props.doesExpand) {
 
   function freeVideos(element: HTMLElement) {
 
-  // Free videos inside `element` from memory
-  // Notes:
-  // - See https://stackoverflow.com/questions/47445281/how-to-go-about-freeing-an-html5-video-from-memory
-  // - If we don't do this iOS Safari starts crashing after opening a few cards, because they take up a lot of ram
-  // - In Firefox we don't need to do this. If we do it breaks stuff and it seems to garbage collect the videos anyways.
-  // - [Jun 2025] But why are we immediately reloading the videos? I assume so they open faster when trying to re-open? But wouldn't that cancel out the RAM savings?
+    // Free videos inside `element` from memory
+    // Notes:
+    // - See https://stackoverflow.com/questions/47445281/how-to-go-about-freeing-an-html5-video-from-memory
+    // - If we don't do this iOS Safari starts crashing after opening a few cards, because they take up a lot of ram
+    // - In Firefox we don't need to do this. If we do it breaks stuff and it seems to garbage collect the videos anyways.
+    // - [Jun 2025] But why are we immediately reloading the videos? I assume so they open faster when trying to re-open? But wouldn't that cancel out the RAM savings?
 
-  if ($isFirefox) {
-    return
-  }
+    if ($isFirefox) {
+      return
+    }
 
-  unloadVideos(element)
+    unloadVideos(element)
 
-  setTimeout(() => {
-    
-    loadVideos(element, true)
-    
-  }, 0.0)
+    if (1) {
+      loadVideos(element, true)
+    }
+
+    if (0) {
+      const forceSquishBug = false // Try to force the bug where cards are squished when re-opening them right after closing them. ... This doesn't force the squish bug – I can't reproduce it anymore in my dev build? ((t's just a few minutes later) But it still happens in prod consistently.
+      setTimeout(() => { // Not sure why we were originally using setTimeout here (it had a timeout of 0 – does that still schedule it to run async?) [Jun 5 2025]
+        loadVideos(element, true)
+      }, forceSquishBug ? 1000 : 0)
+    }
   }
 
 function unloadVideos(element: HTMLElement) {

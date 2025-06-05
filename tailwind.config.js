@@ -141,6 +141,7 @@ export default {
       /* Variant for styling self if a parent has a certain class
         Use like `par-[.some-class]:color-blue-500`
         (There are probably more usecases for this that I don't understand, yet.)
+        (Update: [Jun 2025] You can also use tailwind's group-[] – it works very similar. It's less flexible. But also par somehow didn't work for this usecase using `:not()`, while group did: `group-[:not(.isExpandedCls)]`)
       */
 
       const options = {}

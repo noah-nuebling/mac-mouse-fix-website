@@ -682,7 +682,7 @@ Website Polish Problems [Mar 2025]
               </div>
               <div ref="actionTableCardsSection" class="flex flex-col items-center gap-[5rem] py-[4.5rem]">
 
-                <NormalFeatureCard :videoPath="actionTableDemoPath" class="w-full" content-class="par-[.isNotExpanded]:max-w-[50rem]" :image-path="actionTableImagePath" image-scaling-sizes="" image-class="w-[205%] sm:mt-[1rem] mt-[2rem] mr-[calc(-107%)] mb-[-35%] translate-x-[0rem]">
+                <NormalFeatureCard :videoPath="actionTableDemoPath" class="w-full" content-class="group-[:not(.isExpandedCls)]:max-w-[50rem]" :image-path="actionTableImagePath" image-scaling-sizes="" image-class="w-[205%] sm:mt-[1rem] mt-[2rem] mr-[calc(-107%)] mb-[-35%] translate-x-[0rem]">
                   <template #title>
                     <span class="!font-[600]"><StringF>{{ mdrf(MFLocalizedString(`**Add Actions** to your mouse`, 'customization.action-table.title', '')) }}</StringF></span>
                   </template>
