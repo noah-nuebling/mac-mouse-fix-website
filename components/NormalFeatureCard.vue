@@ -88,7 +88,7 @@
           - We set autoplay here so the video preloads on iPhone. (src: https://stackoverflow.com/a/39104082/10601702) But we control playback from js.
         -->
 
-        <video id="vid1" preload="auto" playsinline autoplay muted alt="Remap Demo" class="object-cover w-full h-full bg-black">
+        <video preload="auto" playsinline autoplay muted alt="Remap Demo" class="object-cover w-full h-full bg-black">
           <source type="video/mp4" :src="''">
         </video>
       </div>
