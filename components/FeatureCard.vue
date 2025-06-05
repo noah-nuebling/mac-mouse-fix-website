@@ -319,7 +319,9 @@ if (props.doesExpand) {
       // Load video
       //  Need to load lazily otherwise Safari loads every single video on page load
 
-      if (!videosAreLoaded(card.value!)) {
+      const videosAreLoaded_: boolean = videosAreLoaded(card.value!)
+      if (0) { console.debug(`videosAreLoaded: ${videosAreLoaded_}`); }
+      if (!videosAreLoaded_) {
 
         // Load video and wait
         // - We have very rudimentary loading animation and interruption handling. Not pretty, and surely has many race condition but prevents things from breaking too easily on very slow connection.
@@ -442,6 +444,21 @@ if (props.doesExpand) {
         calcCenterX = calcLeft + calcWidth/2.0
         calcCenterY = calcTop + calcHeight/2.0
         calcScale = ((calcWidth / originWidth) + (calcHeight / originHeight)) / 2.0
+        
+        // DEBUG
+        if (0) {
+          console.debug(
+          `
+            Card size calc:
+            calcWidth     :   ${calcWidth}
+            calcHeight    :   ${calcHeight}
+            calcTop       :   ${calcTop}
+            calcLeft      :   ${calcLeft}
+            calcCenterX   :   ${calcCenterX}
+            calcCenterY   :   ${calcCenterY}
+            calcScale     :   ${calcScale}
+          `)
+        }
 
         // Calculate target style based on scale
         //  Note: Keep this in sync with video wrapper styling to make it look nice
@@ -605,7 +622,7 @@ if (props.doesExpand) {
       // 
       
       // Notes: I can't manage to center the card properly. But it's okay.
-      
+
       const viewportHeight = window.innerHeight
       const navbarHeight_Unexpanded = globalStore.navbarHeight_Unexpanded
       const cardViewPortRect = card.value!.getBoundingClientRect();
@@ -763,7 +780,7 @@ if (props.doesExpand) {
         }
 
         // Free video from memory by unloading it and loading it again
-        //   Note: If we only unload here, the layout breaks upon re-expanding the card in Safari for some reason.
+        //   Note: If we only unload here, the layout breaks upon re-expanding the card in Safari for some reason. Update: [Jun 2025] This should be fixed now. videosAreLoaded() used to produce false-positives.
         freeVideos(card.value!)
       }
 
@@ -990,10 +1007,17 @@ if (props.doesExpand) {
     
     const videos = findChildren(element, (child) =>  child.tagName == 'VIDEO') as HTMLVideoElement[]
 
+    let areLoaded = true
+
     for (const video of videos) {
-      if (video.currentSrc != '') { return true } // Not sure if we should use currentSrc or src
+      if (video.currentSrc != props.videoPath ||  // Doing all these checks to be extra secure against false positives. False positives caused weird bug where cards would expand to wrong size, when closing a card (causing freeVideos() to be called, which unloads and reloads a video) and then re-opening the card before the video could be reloaded. The bug should be fixed now. We're also using `removeAttribute()` inside `unloadVideos()` now which might make this extra caution around false positives unnecessary [Jun 5 2025]
+          video.src        != props.videoPath )
+      { 
+        areLoaded = false; break; 
+      } 
     }
-    return false
+    
+    return areLoaded
   }
 
   function freeVideos(element: HTMLElement) {
@@ -1003,6 +1027,7 @@ if (props.doesExpand) {
   // - See https://stackoverflow.com/questions/47445281/how-to-go-about-freeing-an-html5-video-from-memory
   // - If we don't do this iOS Safari starts crashing after opening a few cards, because they take up a lot of ram
   // - In Firefox we don't need to do this. If we do it breaks stuff and it seems to garbage collect the videos anyways.
+  // - [Jun 2025] But why are we immediately reloading the videos? I assume so they open faster when trying to re-open? But wouldn't that cancel out the RAM savings?
 
   if ($isFirefox) {
     return
@@ -1024,7 +1049,8 @@ function unloadVideos(element: HTMLElement) {
     for (const video of videos) {
       // const src = video.currentSrc // Not sure why we have to use currentSrc (instead of src) here
       // video.dataset['src'] = src
-      video.src = ''
+      video.pause(); // See: https://stackoverflow.com/a/28060352/10601702
+      video.removeAttribute('src') // [Jun 5 2025] I used to just set src to emptyString but that somehow caused src to then be the website root (`http://localhost:3000/de/`). `.removeAttribute()` works as expected. No clue what's going on.
       video.load()
     }
   }
