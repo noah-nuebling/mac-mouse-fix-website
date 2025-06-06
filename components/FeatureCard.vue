@@ -17,7 +17,7 @@
   <div
     ref="card"
     :class="['overflow-clip relative', $props.class, doesExpand ? 'cursor-pointer will-change-[transform,opacity]' : '']"
-    v-on-click-outside="{ onEvent: () => { toggleExpand(false) }, condition: (isExpanded_target && doesExpand), blockEvents: true }">
+    v-on-click-outside="{ onEvent: () => { expand_settarget({new_target: false, do_queue: false}) }, condition: (expand_target && doesExpand), blockEvents: true }">
 
     <!-- Background Filter Container -->
     <div 
@@ -126,10 +126,13 @@ var props = defineProps({
 
 $gsap.ticker.lagSmoothing(34, 33);
 
-// Define vars
-const isExpanded_target = ref(false)  // Set to the state the the user has requested
-const isExpanded_anim = ref(false)    // Set only after the animations complete
-var animationContext: any = null
+// Store gsap state
+let scrollTrigger_leave: null | ScrollTrigger = null
+
+// Define animation state
+const expand_target = ref(false)          // Set to the state the the user has requested
+const expand_anim   = ref(false)          // Set only after the animations complete
+let   expand_unexpandIsQueuedUp = false   // Set to true if we were trying to *unexpand* during the expand animation
 
 // Get references to relevant dom elements
 // The stuff initialized to ref(null) will be automatically bound to the html element with the ref attribute set to the same value by vue
@@ -147,40 +150,48 @@ var expandedCard_backgroundFilterContainer: null | HTMLElement    = null
 var expandedCard_borderContainer:           null | HTMLElement    = null
 
 // Methods for parent
-function toggleExpand(newTarget: undefined|boolean = undefined, queue=false) { 
+function expand_settarget({ new_target=<boolean|null>null, do_queue=<boolean>false }) {
   
-  // [Jun 2025] Always set isExpanded_target through this – never directly. That way we can block toggling it during an animation.
+  // [Jun 2025] Always set expand_target through this – never directly. That way we can block toggling it during an animation.
   //    This is important to prevent jank. We could try to build really fancy animations that can be interrupted/reverted half-way-through. But that is much more difficult.
   
-  if (newTarget === undefined) { newTarget = !isExpanded_target.value } // Pass in undefined to toggle the current state.
-  if (newTarget === isExpanded_anim.value) {                            // Don't allow toggling during an animation
-    if (!queue) {
-      console.debug(`Blocked setting isExpaned_target to ${newTarget}.`)
-      return; 
-    } else {
-      console.debug(`Queueing up setting isExpaned_target to ${newTarget}.`)
-      watch(isExpanded_anim, () => { // Wait for the current animation to finish and then immediately revert it.
-        console.assert(newTarget !== isExpanded_anim.value); // [Jun 2025] I don't think this can ever fail, unless there's some weird race-conditions I can't conceive of.
-        console.debug(`Setting isExpaned_target to ${newTarget} after queueing.`)
-        isExpanded_target.value = newTarget
-      })
+  if (new_target === null) { new_target = !expand_target.value } // Pass in null to toggle the current state.
+
+  if (new_target == expand_target.value) {                      // Ignore trying to set expand_target to the same value
+
+  } else if (expand_target.value !== expand_anim.value) {       // Block toggling during an animation
+    if (do_queue) {
+      if (expand_target.value === true) {
+        if (!expand_unexpandIsQueuedUp) {
+          expand_unexpandIsQueuedUp = true
+          watch(expand_anim, () => {    // Wait for the current animation to finish and then immediately revert it.
+            { // DEBUG
+              if (new_target === expand_anim.value) { console.warn("Unexpected state after expand_settarget queueing callback") };
+              console.debug(`Setting isExpaned_target to ${new_target} after queueing.`)
+            }
+            expand_target.value = false
+            expand_unexpandIsQueuedUp = false
+          }, { once: true })
+        }
+      }
     }
-  } 
-  else { 
-    console.debug(`Setting isExpanded_target to ${newTarget}`)
-    isExpanded_target.value = newTarget
+  } else {    // Default case
+    { // DEBUG
+      console.debug(`Setting expand_target to ${new_target}`) 
+    }
+    expand_target.value = new_target
   }
 }
 defineExpose({
-  toggleExpand,
-  isExpanded_target: isExpanded_target,
-  isExpanded_anim: isExpanded_anim,
+  expand_settarget,
+  expand_target: expand_target,
+  expand_anim: expand_anim,
 })
 
 // Close card if window resizes
 //  This is because in the commit after c4f450bd015ba22ddbebb56ea0553e9e5c16e83c we changed the sizing logic so that the cards can grow wider than their positioned parent, but that also made it so the cards don't stay centered if the window resizes after they expanded. There might be a nicer solution but this is the only thing I have time for at the moment.
 const onWindowResize = () => {
-  toggleExpand(false, true) // [Jun 2025] This can be blocked if there's an ongoing animation. In that case, we probably wanna queue-up the unexpand.
+  expand_settarget({ new_target: false, do_queue: true}) // [Jun 2025] This can be blocked if there's an ongoing animation. In that case, we queue-up the unexpand.
 }
 
 // Additional setup after mount
@@ -194,10 +205,6 @@ onMounted(() => {
 
 // Cleanup after unmount
 onUnmounted(() => {
-  // Clean up animation memory or sth
-  if (animationContext != null) {
-    animationContext.revert()
-  }
   // Remove windowResize listener
   window.removeEventListener("resize", onWindowResize)
 });
@@ -214,16 +221,10 @@ if (props.doesExpand) {
 
 
   // Do the main expand / unexpand animations
-  watch(isExpanded_target, async (shouldExpand) => { 
+  watch(expand_target, async (shouldExpand) => { 
 
     // DEBUG
     console.debug(`shouldExpand: ${shouldExpand}`)
-
-    // Kill current animations
-    // Not totally sure if this is appropriate here. I think it prevents the onComplete method from being called when the card is unexpanded during the expand animation, which would lead to the zIndex getting messed up.
-    if (animationContext) {
-      animationContext.kill()
-    }
 
     // Animate and stuff
     if (shouldExpand) {
@@ -304,8 +305,8 @@ if (props.doesExpand) {
           const interrupted = await new Promise((resolve) => {         
             
             // Stop waiting on interrupt
-            const unwatchInterrupt = watch(isExpanded_target, () => {
-              if (isExpanded_target.value == false) {
+            const unwatchInterrupt = watch(expand_target, () => {
+              if (expand_target.value == false) {
                 resolve(true)
                 unwatchInterrupt()
               }
@@ -472,22 +473,25 @@ if (props.doesExpand) {
             console.debug(`OnEnd Expand`)
             
             // Play video, once expand animation finishes
-            if (isExpanded_target.value! == true && expandedCard_video != null && expandedCard_video.src != null) {
+            if (expand_target.value! == true && expandedCard_video != null && expandedCard_video.src != null) {
               expandedCard_video.play()
             }
 
             // Close card when it is scrolled away
             // When the card is already above the trigger zone when this is called, then the card unexpands immediately. But when it's below the trigger zone, this doesn't happen. Not sure why. I think ideally, we would scroll the card into view, but I can't get that to work right now, either. 
-            $ScrollTrigger.create({
-              trigger: expandedCard,
-              start: "center bottom",
-              end: "center top",
-              onLeave: () => isExpanded_target.value = false,
-              onLeaveBack: () => isExpanded_target.value = false,
+            
+            console.debug(`All scroll triggers n: (${ $ScrollTrigger.getAll().length })`)
+            scrollTrigger_leave?.kill()
+            scrollTrigger_leave = $ScrollTrigger.create({
+              trigger:  expandedCard,
+              start:    "center bottom",
+              end:      "center top",
+              onLeave:      () => { console.debug(`_leave: Card left!`);      expand_settarget({new_target: false, do_queue: true}) },
+              onLeaveBack:  () => { console.debug(`_leave: Card left back!`); expand_settarget({new_target: false, do_queue: true}) },
             })
 
             // Update state
-            isExpanded_anim.value = true
+            expand_anim.value = true
           }
 
           tl.eventCallback('onComplete', onEnd)
@@ -732,7 +736,7 @@ if (props.doesExpand) {
         if (0) { unloadVideos(card.value!) } // [Jun 2025] This actually works fine now. Not sure if there's a reason to use free over this.
 
         // Update isExpanded state
-        isExpanded_anim.value = false
+        expand_anim.value = false
       }
       
       // 
@@ -946,7 +950,9 @@ if (props.doesExpand) {
     let areLoaded = true
 
     for (const video of videos) {
-      console.debug(`src: "${video.src}", currentSrc: "${video.currentSrc}", video: ${objectDescription(video)}`)
+      { // DEBUG
+        console.debug(`src: "${video.src}", currentSrc: "${video.currentSrc}", video: ${objectDescription(video)}`)
+      }
       if (video.currentSrc != props.videoPath ||  // Doing all these checks to be extra secure against false positives. False positives caused weird **squishedCard bug** where cards would expand to wrong size, when closing a card (causing freeVideos() to be called, which unloads and reloads a video) and then re-opening the card before the video could be fully reloaded (which happens easily when the network is slower – It doesn't happen when hosting locally, making this hard to debug (Chrome throtting worked a little)) [Jun 5 2025]
           video.src        != props.videoPath ||
           video.readyState < HTMLMediaElement.HAVE_CURRENT_DATA)

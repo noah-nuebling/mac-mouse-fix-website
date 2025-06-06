@@ -369,68 +369,81 @@ function objectDescription(value: any, options: { _parents: any[]|undefined, dep
     if (value === null || value === undefined) { 
         // Handle null
         result = "null";
-    } else if (typeof value === "string") { 
-        // Handle strings
-        result = `"${escapeString(value)}"`;
-    } else if (typeof value === "number" || typeof value === "boolean") { 
-        // Handle numbers and booleans
-        result = String(value);
-    } else if (typeof value.toJSON === 'function') { 
-        // toJSON -> Handle Dates + custom objects
-        result = value.toJSON(); // Should this be wrapped in escapeString()?
-    } else if (Array.isArray(value)) { 
-        // Handle arrays
-        var elements: Array<string> = []
-        for (const val of value) {
-            const d = objectDescription(val, options);
-            elements.push(d == undefined ? "null" : d); // Non-parsable objects inside arrays are converted to "null" as JSON.stringify() also does.
-        };
-        result = `[${br}${elements.map((e) => addIndent(e)).join(`,${br}`)}${br}]`;
-    } else if (typeof value === "object") { 
-        
-        // Handle objects
-        
-        var entries: Array<string> = []
-        for (const [key, val] of Object.entries(value)) {
-            var d = objectDescription(val, options);
-            d = d == undefined ? "null" : d;
-            if (d.includes('\n') && 
-            (d.startsWith('{\n') || d.startsWith('[\n') || d.startsWith('(\n')) && 
-            (d.endsWith('\n}') || d.endsWith('\n]') || d.endsWith('\n)'))) {
-                entries.push(`"${escapeString(key)}":${br}${d}`);
-            } else if (d.includes('\n')) {
-                entries.push(`"${escapeString(key)}":${addBrindent(d)}`);
+    }
+    
+    // toJSON -> Handle Dates + custom objects
+    if (!result) {
+        if (typeof value.toJSON === 'function') { 
+            const json = value.toJSON();      // Should this be wrapped in escapeString()?
+            if (typeof json === 'string') {   // [Jun 2025] Make this failable because I just saw toJSON return an object instead of a string on a `GSAP ScrollTrigger > Window > Performance` object.
+                result = json 
+            }      
+        }
+    }
+
+    if (!result) {
+        if (typeof value === "string") { 
+            // Handle strings
+            result = `"${escapeString(value)}"`;
+        } else if (typeof value === "number" || typeof value === "boolean") { 
+            // Handle numbers and booleans
+            result = String(value);
+        } else if (Array.isArray(value)) { 
+            // Handle arrays
+            var elements: Array<string> = []
+            for (const val of value) {
+                const d = objectDescription(val, options);
+                elements.push(d == undefined ? "null" : d); // Non-parsable objects inside arrays are converted to "null" as JSON.stringify() also does.
+            };
+            result = `[${br}${elements.map((e) => addIndent(e)).join(`,${br}`)}${br}]`;
+        } else if (typeof value === "object") { 
+            
+            // Handle objects
+            
+            var entries: Array<string> = []
+            for (const [key, val] of Object.entries(value)) {
+                var d = objectDescription(val, options);
+                d = d == undefined ? "null" : d;
+                console.debug(`d type: ${typeof d}`)
+                if (d.includes('\n') && 
+                    (d.startsWith('{\n') || d.startsWith('[\n') || d.startsWith('(\n')) && 
+                    (d.endsWith('\n}') || d.endsWith('\n]') || d.endsWith('\n)'))) 
+                {
+                    entries.push(`"${escapeString(key)}":${br}${d}`);
+                } else if (d.includes('\n')) {
+                    entries.push(`"${escapeString(key)}":${addBrindent(d)}`);
+                } else {
+                    entries.push(`"${escapeString(key)}": ${d}`);
+                }
+            };
+            
+            const e = `${entries.join(`,${br}`)}`;
+            if (e.includes('\n')) {
+                result = `{${addBrindent(e)}${br}}`;
             } else {
-                entries.push(`"${escapeString(key)}": ${d}`);
+                result = `{${e}}`;
             }
-        };
-        
-        const e = `${entries.join(`,${br}`)}`;
-        if (e.includes('\n')) {
-            result = `{${addBrindent(e)}${br}}`;
+            
+        } else if (typeof value.toString === 'function') {
+            // toString() -> Handles methods and probably other stuff. Do this last, otherwise objects will just become '[Object object]'.
+            
+            
+            result = value.toString();
+            
+            const cutoff = 100;
+            if ((result?.length ?? 0) > cutoff) {
+                result = result?.slice(0, cutoff) + '\n[...]';
+            }
+            
+            if (result?.includes('\n')) {
+                result = `"""${br}${result}${br}"""`
+            } else {
+                result = `"${result}"`
+            }
         } else {
-            result = `{${e}}`;
+            // Handle undefined and functions (these are not valid JSON values)
+            result = undefined;
         }
-        
-    } else if (typeof value.toString === 'function') {
-        // toString() -> Handles methods and probably other stuff. Do this last, otherwise objects will just become '[Object object]'.
-        
-        
-        result = value.toString();
-        
-        const cutoff = 100;
-        if ((result?.length ?? 0) > cutoff) {
-            result = result?.slice(0, cutoff) + '\n[...]';
-        }
-        
-        if (result?.includes('\n')) {
-            result = `"""${br}${result}${br}"""`
-        } else {
-            result = `"${result}"`
-        }
-    } else {
-        // Handle undefined and functions (these are not valid JSON values)
-        result = undefined;
     }
     
     // Implement SPECIAL serialization.
@@ -464,6 +477,9 @@ function objectDescription(value: any, options: { _parents: any[]|undefined, dep
     // Pop self from parents
     options._parents.pop();
     
+    // Validate result
+    console.assert(typeof result === 'string')
+
     // Return 
     return result;
 }

@@ -19,7 +19,7 @@
     :videoPath="videoPath"
     
 
-    @click="$refs.thisCard.toggleExpand()">
+    @click="$refs.thisCard.expand_settarget({new_target: undefined, do_queue: false})">
 
     <template v-slot:top>
       
