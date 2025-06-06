@@ -30,7 +30,8 @@
         <NuxtLink :to="localePath('/')" class="sm:hidden">{{ locstring_link_overview }}</NuxtLink>
         <a href="https://github.com/noah-nuebling/mac-mouse-fix" class="sm:hidden">
           {{ locstring_link_github }}
-          <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', global.navbarHasDarkAppearance ? 'invert' : '']">
+          ↗
+          <!-- <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', global.navbarHasDarkAppearance ? 'invert' : '']"> -->
         </a>
 
         <DownloadButton class="my-[0rem] bg-blue-500 rounded-full text-white ml-[0.3rem] px-[0.85em] py-[0.3em] text-[1.0rem] sm:translate-y-[0.15em] translate-y-[-0.05em]"/>
@@ -47,7 +48,8 @@
         <hr :class="['border-t-[1px] ', global.navbarHasDarkAppearance ? 'border-white/[0.15]' : 'border-black/[0.1]']">
         <a class="" href="https://github.com/noah-nuebling/mac-mouse-fix" >
           {{ locstring_link_github }} 
-          <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', global.navbarHasDarkAppearance ? 'invert' : '']">
+          ↗
+          <!-- <img :src="externalLinkImagePath" alt="" :class="['inline h-[0.9em] ml-[0.1em] mr-[0.1em] translate-y-[0.08em] align-baseline opacity-[0.8] transition-[filter] duration-[0.5s]', global.navbarHasDarkAppearance ? 'invert' : '']"> -->
         </a>
       </div>
     </div>

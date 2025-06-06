@@ -69,7 +69,7 @@ export default defineNuxtConfig({
     head: {
       title: 'Mac Mouse Fix',
       meta: [
-        { name: 'description', content: 'Make Your $10 Mouse Better Than an Apple Trackpad' }
+        { name: 'description', content: 'Make Your $10 Mouse Better Than an Apple Trackpad' } // [Jun 2025] Ohh should we localize this? Where does this show up?
       ],
       link: [
         // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }
