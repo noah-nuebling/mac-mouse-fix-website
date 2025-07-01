@@ -16,6 +16,12 @@
             "state" : "new",
             "value" : "Among all apps that try to fix this problem, this one is undoubtly the best!"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在所有我试过来解决这个问题的软件中，这个毫无疑问是最好的！"
+          }
         }
       }
     },
@@ -33,6 +39,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Mac Mouse Fix is literally everything you could want in your experience of using a mouse with OSX."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix简直包含了你在搭配鼠标使用OSX系统时想要的几乎所有功能。"
           }
         }
       }
@@ -52,6 +64,12 @@
             "state" : "new",
             "value" : "Works like a charm and it's easy to set up!"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "效果绝佳，而且设置真的特别简单！  "
+          }
         }
       }
     },
@@ -69,6 +87,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "This is the best mouse software on the Mac."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在Mac上最好的鼠标优化软件了，没有之一。"
           }
         }
       }
@@ -88,6 +112,12 @@
             "state" : "new",
             "value" : "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "感谢你创造了Mac Mouse Fix这么了不起的软件！就跟我想要的那样，没有额外订阅，而且软件一点都不臃肿。真是太感谢你了！"
+          }
         }
       }
     },
@@ -105,6 +135,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix简直太神奇了。它的设计之精妙和易用性之高，真的让我惊叹不已。"
           }
         }
       }
@@ -124,6 +160,12 @@
             "state" : "new",
             "value" : "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "真不敢想象在办公室用Mac的时候没有这款软件会是什么样子。我的Evoluent垂直鼠标根本不像他们为Windows系统编写驱动程序那样也给Mac编写一套驱动。而这款软件搭配我的鼠标使用，真的极大地提升了工作效率。"
+          }
         }
       }
     },
@@ -141,6 +183,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Probably the best app on my Mac"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "应该是我Mac里最好的应用了"
           }
         }
       }
@@ -160,6 +208,12 @@
             "state" : "new",
             "value" : "No other similar utility can compete"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "其他那些简单的工具根本都不值得和这款软件同台竞技"
+          }
         }
       }
     },
@@ -177,6 +231,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "A must have app for any Mac user with a mouse."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "对于用鼠标的Mac用户来说，这绝对是一个必备应用。"
           }
         }
       }
@@ -196,6 +256,12 @@
             "state" : "new",
             "value" : "This has nearly doubled my productivity."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这款软件几乎让我的生产力翻倍了。"
+          }
         }
       }
     },
@@ -213,6 +279,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Love this app so much, it's a must-have!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "简直太爱这个应用了，绝对必装！"
           }
         }
       }
@@ -232,6 +304,12 @@
             "state" : "new",
             "value" : "Your app is incredible and absolutely vital to my workflow."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你做的这个应用简直太令人难以置信了，而且绝对是我工作流程里不可或缺的好帮手。"
+          }
         }
       }
     },
@@ -249,6 +327,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Mac Mouse Fix is the best in its class!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix就是同类软件里最好的！"
           }
         }
       }
@@ -268,6 +352,12 @@
             "state" : "new",
             "value" : "The vertical scroll is just awesome"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "垂直滚动简直做得太好了"
+          }
         }
       }
     },
@@ -285,6 +375,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Click & drag for switching between the screens feels so native."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按住并拖动来切换屏幕用起来就跟原生一样"
           }
         }
       }
@@ -304,6 +400,12 @@
             "state" : "new",
             "value" : "I've been wanting to get rid of my Magic Mouse for a while and because of your app, I can do just that!"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我早就想换掉我的妙控鼠标了，多亏了你的这款应用，我终于能做到了！"
+          }
         }
       }
     },
@@ -321,6 +423,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "I recommend Mac Mouse Fix, honestly it’s the cheapest, simple, and most well coded app I have yet seen."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我强烈推荐 Mac Mouse Fix，它是我至今见过的价格最低、操作最简单且代码写得最棒的应用了。"
           }
         }
       }
@@ -340,6 +448,12 @@
             "state" : "new",
             "value" : "Thank you, saved me from buying an apple mouse"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "谢谢你，帮我省了买苹果鼠标的钱。"
+          }
         }
       }
     },
@@ -357,6 +471,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "The UI in V2 is fantastic and very intuitive."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "V2版本的UI界面非常出色，而且极其直观。"
           }
         }
       }
@@ -376,6 +496,12 @@
             "state" : "new",
             "value" : "I spent last week without it and my whole workflow was interrupted. Thank you for such a brilliant app."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上周我没用它，整个工作流程都被打乱了。感谢你开发出这么棒的一款应用。"
+          }
         }
       }
     },
@@ -393,6 +519,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "I really appreciate the simplicity it brings."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我真的很欣赏它所带来的简洁易用。"
           }
         }
       }
@@ -412,6 +544,12 @@
             "state" : "new",
             "value" : "After switching to a mouse, I tried software such as SteerMouse, which received many recommendations and even charges, and finally found that this software meets my needs perfectly, every feature is very useful, and the performance is very good!"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在换过来用鼠标后，我试过像SteerMouse这类好评颇多甚至需要付费的软件，最后发现这款软件完美满足了我的需求，每一项功能都非常实用，而且性能也十分出色！\n"
+          }
         }
       }
     },
@@ -429,6 +567,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Awesome app, it definitely deserves to be shared widely with others 😁"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "超棒的应用，绝对值得强烈安利给其他人试试😁"
           }
         }
       }
@@ -448,6 +592,12 @@
             "state" : "new",
             "value" : "This App Makes Your Cheap Mouse Work Better Than Trackpad Gestures"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这软件真的能让你的便宜鼠标比触控板手势还好用"
+          }
         }
       }
     },
@@ -465,6 +615,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "This is the single greatest piece of software in Apple's history."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这真是苹果历史上最棒的一款独一无二的软件。"
           }
         }
       }
@@ -484,6 +640,12 @@
             "state" : "new",
             "value" : "This is great software and solved all my mouse issues."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这软件真太棒了，完美解决了我所有的鼠标问题。"
+          }
         }
       }
     },
@@ -501,6 +663,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "This software is amazing!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这个软件太令人难以置信了！"
           }
         }
       }
@@ -520,6 +688,12 @@
             "state" : "new",
             "value" : "Thanks, the app is very cool"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "谢谢，这个软件非常酷"
+          }
         }
       }
     },
@@ -537,6 +711,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "SUPER NICE APPLICATION"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "超级棒的应用软件！！！"
           }
         }
       }
@@ -556,6 +736,12 @@
             "state" : "new",
             "value" : "It works perfectly with my mouse"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "它和我的鼠标完美配合工作。"
+          }
         }
       }
     },
@@ -573,6 +759,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Your tool is literally the only way how I can use macOS (with a mouse especially) without freaking out!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的工具简直是我能正常使用macOS（尤其是搭配鼠标使用时）而不抓狂的唯一办法！"
           }
         }
       }
@@ -592,6 +784,12 @@
             "state" : "new",
             "value" : "Beautiful piece of libre software. Thank you for your contribution to the open source cause."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自由软件里浓墨重彩的一笔。感谢你为开源事业所做的贡献。"
+          }
         }
       }
     },
@@ -609,6 +807,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Thank you for this, i don't understand why apple didn't make this as default, like it's super intuitive doing gestures with the middle click."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "感谢你做的这款软件，我真搞不懂苹果为什么不把这些功能设为默认，毕竟用中键进行手势操作是非常直观的啊。"
           }
         }
       }
@@ -628,6 +832,12 @@
             "state" : "new",
             "value" : "I've been searching for a similar app for a long time, and finally found this one, thumbs up 👍."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我找了半天类似的应用，终于发现这个了，赞👍"
+          }
         }
       }
     },
@@ -645,6 +855,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "You've made my superlight better than an mx master."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你让我的罗技狗屁王比MX Master还好用了。"
           }
         }
       }
@@ -664,6 +880,12 @@
             "state" : "new",
             "value" : "Amazing product! Absolutely love it! My Logitech trackball is like an extension of me now."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "太棒了！我简直太喜欢了！现在我的罗技轨迹球就像我身体的一部分一样好用。"
+          }
         }
       }
     },
@@ -680,6 +902,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "See Less"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "收起"
           }
         }
       }
@@ -699,6 +927,12 @@
             "state" : "new",
             "value" : "See More"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看更多"
+          }
         }
       }
     },
@@ -717,6 +951,12 @@
             "state" : "new",
             "value" : "**{name}** in a Gumroad donation message"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来自Gumroad捐赠的**{name}**"
+          }
         }
       }
     },
@@ -733,6 +973,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**{name}** in an email"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来自电子邮件的**{name}**"
           }
         }
       }
@@ -751,6 +997,12 @@
             "state" : "new",
             "value" : "**{name}** on GitHub"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来自GitHub的**{name}**"
+          }
         }
       }
     },
@@ -767,6 +1019,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**{name}** in a LifeHacker article"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来自LifeHacker文章的**{name}**"
           }
         }
       }
@@ -785,6 +1043,12 @@
             "state" : "new",
             "value" : "**{name}** in a PayPal donation message"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来自PayPal捐赠的**{name}**"
+          }
         }
       }
     },
@@ -801,6 +1065,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**{name}** on Reddit"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来自Reddit的**{name}**"
           }
         }
       }
@@ -819,6 +1089,12 @@
             "state" : "new",
             "value" : "**{name}** on Stack Exchange"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来自Stack Exchange的**{name}**"
+          }
         }
       }
     },
@@ -836,6 +1112,12 @@
             "state" : "new",
             "value" : "**{name}** in a YouTube comment"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来自YouTube评论的**{name}**"
+          }
         }
       }
     },
@@ -852,6 +1134,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**Thank you** to everyone sharing their appreciation and feedback over the years! Reading your nice messages is always motivating **:)**"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**十分感谢**多年来所有表达赞赏和给我反馈的所有人！读到你们的暖心留言，总能让我充满干劲**:)**"
           }
         }
       }
@@ -871,6 +1159,12 @@
             "state" : "new",
             "value" : "Translated from English"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "翻译自英语"
+          }
         }
       }
     },
@@ -888,6 +1182,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Translated from Chinese"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "翻译自中文"
           }
         }
       }

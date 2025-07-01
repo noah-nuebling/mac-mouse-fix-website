@@ -16,6 +16,12 @@
             "state" : "new",
             "value" : "This page is {localizationProgress} translated into {currentLocale}\nTo help translate, click [here]({url})!"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此页面已经{localizationProgress}翻译成{currentLocale}了，要帮忙翻译请点击这里[here]({url})！"
+          }
         }
       }
     },
@@ -33,6 +39,12 @@
             "state" : "new",
             "value" : "Make Your $10 Mouse Better Than an Apple Trackpad!"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "让你10美元的鼠标比苹果触控板还好用！"
+          }
         }
       }
     },
@@ -49,6 +61,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Make Your $10 Mouse Better Than an Apple Trackpad!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "让你10美元的鼠标比苹果触控板还好用！"
           }
         }
       }

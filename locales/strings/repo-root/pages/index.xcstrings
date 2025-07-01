@@ -16,6 +16,12 @@
             "state" : "new",
             "value" : "Macs Are Best\nWith a {dev}."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac用{dev}最厉害。"
+          }
         }
       }
     },
@@ -33,6 +39,12 @@
             "state" : "new",
             "value" : "**Trackpad**"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**触控板**"
+          }
         }
       }
     },
@@ -49,6 +61,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**Mouse**"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**鼠标**"
           }
         }
       }
@@ -68,6 +86,12 @@
             "state" : "new",
             "value" : "Times change. Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **precise** and **ergonomic** third-party mouse. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "时代变了。Mac Mouse Fix可以将苹果触控板拥有的所有功能（甚至更多）赋予给你那只**精准**且符合**人体工学设计**的第三方鼠标。并且让你所有的交互就像在触控板上一样**丝滑**又**自然**。"
+          }
         }
       }
     },
@@ -84,6 +108,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**Trackpad Gestures** that Mac Mouse Fix brings to your mouse"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix可以赋予你鼠标的一些**触控板手势**"
           }
         }
       }
@@ -102,6 +132,12 @@
             "state" : "new",
             "value" : "Note: Mac Mouse Fix can bring these Trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These 5 buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't recognize all the buttons at the moment. Mac Mouse Fix does not currently support the Apple Magic Mouse."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "注意：Mac Mouse Fix 将触控板的以上功能移植到你的第三方鼠标的前提条件是你的第三方鼠标需至少5个物理按键。标准五键鼠标通常包含：左键、右键、中键（滚轮按压）及两个侧边按键。若使用按键数不足的鼠标，虽仍可体验核心功能，但部分操作便捷性会有所降低。并且对于罗技Options等专用驱动配套的鼠标，目前可能无法识别全部按键；同时本软件暂不支持苹果妙控鼠标。"
+          }
         }
       }
     },
@@ -118,6 +154,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Look up and Quick Look"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查找和数据检测器"
           }
         }
       }
@@ -137,6 +179,12 @@
             "state" : "new",
             "value" : "**Click button 4** on your mouse to look up a word in the dictionary, preview websites in Safari or files in Finder, and more.\n\nIt works just like tapping with 3 fingers or force clicking on an Apple Trackpad."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**点按鼠标键4**来在词典中查单词、在Safari浏览器中预览网页，或在访达中查看文件等等。\n\n它的操作方式就像在苹果触控板上用三根手指轻点或用力按压一样。"
+          }
         }
       }
     },
@@ -153,6 +201,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Mission Control"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "调度中心"
           }
         }
       }
@@ -171,6 +225,12 @@
             "state" : "new",
             "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **up** to see an overview of your open windows, applications, and desktops.\n\nIt works just like swiping up with four fingers on an Apple Trackpad."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按住**鼠标键4**不松，然后**拖动**你的鼠标**往上**来查看所有已打开窗口、应用程序和桌面的概览。\n\n它的操作方式就像在苹果触控板上用用四根手指向上轻扫一样。"
+          }
         }
       }
     },
@@ -187,6 +247,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Move between desktops"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在桌面之间切换"
           }
         }
       }
@@ -205,6 +271,12 @@
             "state" : "new",
             "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **left** or **right** to move to another desktop or fullscreen-app.\n\nIt works just like swiping left or right with four fingers on an Apple Trackpad."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按住**鼠标键4**不松，然后**拖动**你的鼠标**往左**或**往右**来在桌面与各个全屏 App 之间移动。\n\n它的操作方式就像在苹果触控板上用四根手指向左或向右轻扫一样。"
+          }
         }
       }
     },
@@ -220,6 +292,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "App Exposé"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "App Exposé"
           }
         }
@@ -239,6 +317,12 @@
             "state" : "new",
             "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **down** to see all windows of the app you're using.\n\nIt works just like swiping down with four fingers on an Apple Trackpad."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按住**鼠标键4**不松，然后**拖动**你的鼠标**往下**来查看当前所用 App 的全部窗口。\n\n它的操作方式就像在苹果触控板上用四根手指向下轻扫一样。"
+          }
         }
       }
     },
@@ -255,6 +339,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Show desktop"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示桌面"
           }
         }
       }
@@ -273,6 +363,12 @@
             "state" : "new",
             "value" : "Hold down **button 4** on your mouse, then **scroll up** to show your desktop.\n\nIt works just like spreading your thumb and three fingers apart on an Apple Trackpad."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按住**鼠标键4**不松，然后**向上滚动**你的鼠标滚轮来显示你的桌面。\n\n它的操作方式就像在苹果触控板上将拇指和另外三根手指同时展开一样。"
+          }
         }
       }
     },
@@ -289,6 +385,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Launchpad"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启动台"
           }
         }
       }
@@ -307,6 +409,12 @@
             "state" : "new",
             "value" : "Hold down **button 4** on your mouse, then **scroll down** to display Launchpad.\n\nIt works just like pinching your thumb and three fingers together on an Apple Trackpad."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按住**鼠标键4**不松，然后**向下滚动**你的鼠标滚轮来显示“启动台”。\n\n它的操作方式就像在苹果触控板上将拇指和另外三根手指合拢到一起一样。"
+          }
         }
       }
     },
@@ -323,6 +431,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Zoom in or out"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "放大或缩小"
           }
         }
       }
@@ -341,6 +455,12 @@
             "state" : "new",
             "value" : "Hold down **button 5** on your mouse, then **scroll up** or **down** to zoom in or out in apps like Safari and Preview.\n\nIt works just like pinching with two fingers on an Apple Trackpad."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按住**鼠标键5**不松，然后**向上滚动**或**向下滚动**你的鼠标滚轮来在类似于Safari浏览器和预览的app中放大或缩小。\n\n它的操作方式就像在苹果触控板上将双指捏合或张开一样。"
+          }
         }
       }
     },
@@ -357,6 +477,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Go back and forward"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "前进与后退"
           }
         }
       }
@@ -375,6 +501,12 @@
             "state" : "new",
             "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to show the previous or next page in apps like Safari.\n\nIt works just like swiping left or right with two fingers on an Apple Trackpad."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按住**鼠标键5**不松，然后**拖动**你的鼠标**往左**或**往右**来在类似于Safari浏览器的app内显示上一页或下一页。\n\n它的操作方式就像在苹果触控板上用双指向左或向右轻扫一样。"
+          }
         }
       }
     },
@@ -391,6 +523,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Delete mails quickly and more"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "快速删除邮件及更多功能"
           }
         }
       }
@@ -409,6 +547,12 @@
             "state" : "new",
             "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to delete messages in Mail, quickly reply to an iMessage, and more.\n\nAny gesture you can perform inside an app by swiping on an Apple Trackpad works just as well using Mac Mouse Fix."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按住**鼠标键5**不松，然后**拖动**你的鼠标**往左**或**往右**来在邮件app内快速删除邮件、在信息app内快速回复信息等。\n\n在应用内通过在苹果触控板上滑动手指来完成的任何手势操作，使用 Mac Mouse Fix 同样可以轻松实现。"
+          }
         }
       }
     },
@@ -425,6 +569,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Precise 360° scrolling"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "清晰的360°全方位定位操作"
           }
         }
       }
@@ -443,6 +593,12 @@
             "state" : "new",
             "value" : "Hold down **button 5** on your mouse, then **drag** the mouse in **any direction** to precisely scroll with 360° freedom and an intuitive inertial effect. So you can navigate the canvas with ease in pro apps like Excel or Affinity Photo.\n\nIt's just as easy and precise as scrolling on an Apple Trackpad."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按住**鼠标键5**不松，然后往**任意方向**来**拖动**你的鼠标即可享受360°全方位自由精准定位，并体验直观的惯性效果。如此一来，你便能在Excel或Affinity Photo等专业应用中轻松自如地拖拽导航你的画布。\n\n它操作的便捷性和精准度与在苹果触控板上拖动定位完全一致。"
+          }
         }
       }
     },
@@ -460,6 +616,12 @@
             "state" : "new",
             "value" : "Smart zoom"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "智能缩放"
+          }
         }
       }
     },
@@ -476,6 +638,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**Click button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple Trackpad."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**点按鼠标键5**来放大网页或 PDF，或缩小回原来的大小。\n\n它的操作方式就像在苹果触控板上用双指轻点两下一样。"
           }
         }
       }
@@ -495,6 +663,12 @@
             "state" : "new",
             "value" : "{accent}.\nSmooth As Butter."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "像抹了黄油一般丝滑地\n{accent} "
+          }
         }
       }
     },
@@ -512,6 +686,12 @@
             "state" : "new",
             "value" : "Scrolling"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "滚动"
+          }
         }
       }
     },
@@ -528,6 +708,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Scrolling with a third-party mouse on macOS can feel **stuttery** and **hard to control**. Well, not any more! Experience a **refined**, **momentum-based** scrolling algorithm that makes navigating your computer **effortless** and **natural**."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在macOS上使用第三方鼠标滚动时，会让人感觉既**卡顿**又**难以控制**。但现在，这一切都将成为过去！快来体验我们**精心优化**且**基于动量**的滚动算法，让你的电脑滚动导航体验变得**轻松自如**又**自然流畅**。"
           }
         }
       }
@@ -547,6 +733,12 @@
             "state" : "new",
             "value" : "Choose a **Scrolling Smoothness** ..."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "来选一个**滚动平滑度**看看效果如何…"
+          }
         }
       }
     },
@@ -563,6 +755,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Smoothness: **High**"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "平滑度：**高**"
           }
         }
       }
@@ -581,6 +779,12 @@
             "state" : "new",
             "value" : "With *Smoothness: High*, scrolling feels **incredibly smooth** - **just like a Trackpad**. Details like the subtle bounce at the end of a page make for a dynamic and pleasant feel. Still, scrolling is super responsive and easy to control. With this option, you can also scroll large distances very easily."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当设置为*平滑度：高*时，滚动体验将会变得无与伦比的丝滑—就像在使用触控板一样。诸如页面末尾微妙的弹跳效果等细节，让滚动过程充满动感与愉悦。即便如此，滚动操作依然响应极快且易于控制。选择此选项，你还能轻松实现长距离滚动。"
+          }
         }
       }
     },
@@ -597,6 +801,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Smoothness: **Regular**"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "平滑度：**常规**"
           }
         }
       }
@@ -615,6 +825,12 @@
             "state" : "new",
             "value" : "Choose *Smoothness: Regular* for **highly responsive** scrolling that **feels like you're directly pushing the page with your finger**. The short, momentum-based animations provide a refined feel.\n\nThis option feels similar to scrolling in Chrome or modern Windows apps."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当设置为*平滑度：常规*时，可实现**高速响应**的滚动效果，**仿佛就像在用手指直接推动页面**。基于动量的短动画效果带来了精致的操作体验。\n\n此模式的滚动感受与Chrome浏览器或现代Windows应用中的滚动效果相似。"
+          }
         }
       }
     },
@@ -631,6 +847,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Smoothness: **Off**"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "平滑度：**关**"
           }
         }
       }
@@ -649,6 +871,12 @@
             "state" : "new",
             "value" : "With *Smoothness: Off*, scrolling works as it normally does under macOS - **without any animation** or smoothing. But with one key difference: **One increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.\n\nThis is how scrolling also works in most apps on Windows and Linux, as well as older macOS versions."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当设置为*平滑度：关*时，滚动行为与 macOS 默认状态一致—**不包含任何动画**或平滑效果。但有一个关键区别：**滚动轮每转动一格将滚动固定*行数***，而非仅滚动几个像素，这使得导航操作更具一致性和舒适感。\n\n这种滚动机制也适用于Windows和Linux系统的大多数应用程序，以及旧版本的macOS系统。"
+          }
         }
       }
     },
@@ -665,6 +893,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "... And **More**"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "...还有**更多**"
           }
         }
       }
@@ -683,6 +917,12 @@
             "state" : "new",
             "value" : "Scrolling direction"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "滚动方向"
+          }
         }
       }
     },
@@ -699,6 +939,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Mac Mouse Fix lets you **change the scrolling direction** of your mouse - independently from your Trackpad or Magic Mouse."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix可以让你仅更改你鼠标的**滚动方向**—独立于你的触控板或妙控鼠标设置，使它们不受影响。"
           }
         }
       }
@@ -717,6 +963,12 @@
             "state" : "new",
             "value" : "Keyboard modifiers"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "键盘修饰键"
+          }
         }
       }
     },
@@ -733,6 +985,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Hold a keyboard modifier while scrolling to **scroll precisely**, **zoom in or out**, and more."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当你滚动时可以按住键盘上的自定义修饰键来**精确滚动**，**放大或缩小**以及更多。"
           }
         }
       }
@@ -751,6 +1009,12 @@
             "state" : "new",
             "value" : "Simple yet powerful"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "既简洁又强大"
+          }
         }
       }
     },
@@ -767,6 +1031,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "You can set up scrolling in Mac Mouse Fix in many different ways with just a few clicks. **All options you choose will feel great without fiddling**. Each scrolling enhancement provided by Mac Mouse Fix can also be turned off, if you prefer how things work natively in macOS."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "只需点击几下，你就能在Mac Mouse Fix中以多种不同方式设置滚动功能。**无需费心调试，你选择的所有选项都会带来出色的使用体验**。如果你更习惯macOS的原生滚动方式，Mac Mouse Fix提供的每一项滚动增强功能也都可以关闭。"
           }
         }
       }
@@ -785,6 +1055,12 @@
             "state" : "new",
             "value" : "Amazingly {accent2}\n{accent} Intuitive."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拥有无与伦比的{accent2}\n{accent}直观易用。"
+          }
         }
       }
     },
@@ -801,6 +1077,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "and"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "且"
           }
         }
       }
@@ -819,6 +1101,12 @@
             "state" : "new",
             "value" : "Flexible"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "灵活性"
+          }
         }
       }
     },
@@ -836,6 +1124,12 @@
             "state" : "new",
             "value" : "Mac Mouse Fix lets you **do almost anything** you can think of - straight from your mouse! And yet, it's **remarkably easy** to use."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix让你可以通过鼠标**完成几乎所有你能想到的操作**！而且，它使用起来**及其简单**。"
+          }
         }
       }
     },
@@ -852,6 +1146,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**Add Actions** to your mouse"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "为你的鼠标**添加自定义动作**"
           }
         }
       }
@@ -871,6 +1171,12 @@
             "state" : "new",
             "value" : "To add an action to your mouse:\n\n1. **Move** the mouse pointer inside the '+'-field. (Shown below)\n2. **Click** the mouse button you want to assign an action to.\nYou can also Double Click, Click and Drag, and much more!\n3. **Choose** an action, such as Smart Zoom.\n\nAnd that's it!"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "要为你的鼠标添加一个自定义动作：\n\n1.**移动**：将你的鼠标指针移动到’+’区域内。（如下所示）\n2.**点击**：点击你想绑定自定义动作的鼠标键。\n你当然也可以使用双击、按住并拖动等更多操作！\n3.**选择**：选择一个要执行动作，例如智能缩放。\n\n就这么简单！"
+          }
         }
       }
     },
@@ -887,6 +1193,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "See How to Set It Up"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "看看如何设置它"
           }
         }
       }
@@ -905,6 +1217,12 @@
             "state" : "new",
             "value" : "Use **Keyboard Shortcuts** from your mouse"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在你的鼠标上使用**键盘快捷键**"
+          }
         }
       }
     },
@@ -921,6 +1239,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Mac Mouse Fix lets you **do anything you can do with a keyboard shortcut** straight from your mouse. For example, you can copy and paste, change the audio volume, open a new tab in Safari, and much more."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix让你能够直接通过鼠标**完成所有可用键盘快捷键实现的操作**。例如，你可以进行复制粘贴、调节音量、在Safari浏览器中打开新标签页，以及更多其他操作。"
           }
         }
       }
@@ -939,6 +1263,12 @@
             "state" : "new",
             "value" : "Great Software.\nGreat {accent2}."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "好软件，\n也有好{accent2}。"
+          }
         }
       }
     },
@@ -956,6 +1286,12 @@
             "state" : "new",
             "value" : "Price"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "价格"
+          }
         }
       }
     },
@@ -972,6 +1308,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "I strive to make Mac Mouse Fix a software that you can **feel great** about installing. I want to offer it as **cheaply** as possible, so you feel like you're getting a great deal and so that everyone can afford it. And ultimately, I hope to make this tiny corner of the world a little more **awesome** and nice!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我努力让Mac Mouse Fix成为一款你安装后会**倍感满意**的软件。我希望以尽可能**低廉**的价格提供它，让你觉得物超所值，也让每个人都能负担得起。到最后，我也希望能让世界上这个小小的角落能变得更**棒**、更美好！"
           }
         }
       }
@@ -991,6 +1333,12 @@
             "state" : "new",
             "value" : "Great **Software** ..."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "何为好**软件**…"
+          }
         }
       }
     },
@@ -1007,6 +1355,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Unobtrusive. Lightweight. Beautiful."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "低调、轻量、精致"
           }
         }
       }
@@ -1025,6 +1379,12 @@
             "state" : "new",
             "value" : "Every detail of Mac Mouse Fix has been considered and optimized to give you the best possible experience while feeling like a **natural extension of your Mac**. I've invested countless hours to make sure that Mac Mouse Fix **uses no more battery or memory than absolutely necessary**. The goal is that you won't even notice Mac Mouse Fix on your computer - except of course, when using your mouse."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix的每一个细节都经过**千锤百炼**，旨在为你带来尽可能出色的使用体验，同时让它成为 **Mac电脑的自然延伸**。我投入了无数时间，确保Mac Mouse Fix**仅占用绝对必要的电量和内存**。我们的目标是，除了使用鼠标时，你甚至不会察觉到它在电脑上的存在。"
+          }
         }
       }
     },
@@ -1041,6 +1401,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Open source"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开源"
           }
         }
       }
@@ -1059,6 +1425,12 @@
             "state" : "new",
             "value" : "The source code of Mac Mouse Fix is available on GitHub, so everyone can see exactly how it works. This helps with the development, and it means you can be sure that Mac Mouse Fix is **secure** and **trustworthy**, that it protects your **privacy**, and that it doesn't do anything when it runs in the background - except bringing your mouse experience to the next level!"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix的源代码已在GitHub上公开，因此所有人都能清楚了解到它的工作原理。这不仅有助于开发工作，还意味着你大可以放心Mac Mouse Fix是**安全**且**可靠的**，它会保护你的**隐私**，并且在后台运行时不会进行任何多余操作—只会让你的鼠标使用体验更上一层楼！"
+          }
         }
       }
     },
@@ -1075,6 +1447,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "... Great **Price**"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "…那好**价格**呢"
           }
         }
       }
@@ -1093,6 +1471,12 @@
             "state" : "new",
             "value" : "Note on price: The price of **{price}** does not include local taxes, which might have to be paid in your region. To see your total price, visit the [checkout page]({urlCheckoutPage}). If you pay on Gumroad.com via PayPal in a currency other than Euros, PayPal will charge an additional 4.5% currency conversion fee.\n\nI would like to include these fees in the price - to make the buying experience simpler and clearer. But this is currently not possible due to limitations with the sales platform Gumroad.com. I hope the price still feels very fair and cheap."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关于价格的说明：**{price}** 的价格不包含您所在地区可能需要缴纳的地方税费。如需查看总价，请访问[结账页面]({urlCheckoutPage})。如果您通过Gumroad.com使用PayPal以欧元以外的货币支付，PayPal将额外收取4.5%的货币转换费。\n\n我本希望将这些费用包含在定价中，让购买体验更简单明了。但由于销售平台Gumroad.com的功能限制，很遗憾我目前无法做到这一点。希望您仍会觉得这是个非常合理且实惠的价格。"
+          }
         }
       }
     },
@@ -1109,6 +1493,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Free for **{trialDays} Days**"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{trialDays}天**免费试用"
           }
         }
       }
@@ -1127,6 +1517,12 @@
             "state" : "new",
             "value" : "Mac Mouse Fix is free for {trialDays} days. Your **free days are only used up when you actually use the app**. That way you can get the most out of your free days - without any stress."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix提供 30 天免费试用期。您的**试用天数仅在实际使用该应用时才会消耗**。这样一来，您就能充分利用免费试用天数，毫无压力地体验这款应用。"
+          }
         }
       }
     },
@@ -1143,6 +1539,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**{price}** to own"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{price}**即可拥有"
           }
         }
       }
@@ -1161,6 +1563,12 @@
             "state" : "new",
             "value" : "Mac Mouse Fix costs {price} ([+ taxes]({urlTaxes})) to own - and that's it. There are no subscriptions or additional payments. I made sure the checkout experience is as **nice** and **quick** as possible, and you can even pay with **Apple Pay**!\n\nTo buy the app, click the button in the app, or click [here]({urlBuyApp})."
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix的买断价格为{price}([含税]({urlTaxes})) ，仅此而已。不存在订阅或其他额外付费。我已确保结账流程尽可能**便捷**且**顺畅**，你甚至可以使用**Apple Pay**付款！\n\n如需购买该应用，可点击应用内的按钮，或者点[这里]({urlBuyApp})。"
+          }
         }
       }
     },
@@ -1177,6 +1585,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Better value than the **Alternatives**"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "比**同类产品**更具性价比"
           }
         }
       }
@@ -1195,6 +1609,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Mac Mouse Fix makes your $10 mouse better than a Logitech MX Master mouse or an Apple Trackpad. (These are considered some of the best input devices for Macs.)\n\nAnd yet, Mac Mouse Fix is **[{priceFactorMXMaster}x]({urlMXMaster})** cheaper than an MX Master and **[{priceFactorTrackpad}x]({urlTrackpad})** cheaper than a Trackpad!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix能让你10美元的鼠标变得比罗技MX Master鼠标或苹果触控板更好用（这些设备被认为是适用于Mac的顶级输入设备）。\n\n而且，Mac Mouse Fix的价格比MX Master便宜了**[{priceFactorMXMaster}倍]({urlMXMaster})**，并且比触控板价格便宜了**[{priceFactorTrackpad}倍]({urlTrackpad})**！"
           }
         }
       }
