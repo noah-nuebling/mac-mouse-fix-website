@@ -16,6 +16,12 @@
             "state" : "new",
             "value" : "See It in Action"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看演示"
+          }
         }
       }
     },
@@ -32,6 +38,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Close Video"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭视频"
           }
         }
       }

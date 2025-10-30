@@ -16,6 +16,12 @@
             "state" : "new",
             "value" : "Download"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下载"
+          }
         }
       }
     }
