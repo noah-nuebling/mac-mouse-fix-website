@@ -209,7 +209,7 @@ function getUIStrings(quote, localeCode) {
           case QuoteSource.Acknowledgements  : uiSource = mdrf(MFLocalizedString(
             '**{name}** in a Gumroad donation message', 
             'quotes.source.acknowledgements',  
-            'The "quote.source.[...]" strings are displayed directly below the quotes themselves. "{name}" is replaced with the name of the author of the quote.'), 
+            'The "quotes.source.[...]" strings are displayed directly below the quotes themselves. "{name}" is replaced with the name of the author of the quote.'), 
             { name: quote.name }, true)
   break;  case QuoteSource.Email             : uiSource = mdrf(MFLocalizedString('**{name}** in an email', 'quotes.source.email', ''), { name: quote.name }, true)
   break;  case QuoteSource.PayPalDonation    : uiSource = mdrf(MFLocalizedString('**{name}** in a PayPal donation message',  'quotes.source.payPalDonation',    ''), { name: quote.name }, true)

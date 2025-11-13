@@ -37,132 +37,6 @@
         }
       }
     },
-    "quotes.2" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Funktioniert wie ein Zauber und ist kinderleicht einzurichten!"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Works like a charm and it's easy to set up!"
-          }
-        }
-      }
-    },
-    "quotes.3" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dies ist die beste Maussoftware für den Mac."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "This is the best mouse software on the Mac."
-          }
-        }
-      }
-    },
-    "quotes.4" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vielen Dank für die fantastische App Mac Mouse Fix. Genau das, was ich gebraucht habe, ohne Abonnement und ohne unnötigen Ballast. Vielen, vielen Dank!"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!"
-          }
-        }
-      }
-    },
-    "quotes.5" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mac Mouse Fix ist magisch. Ich bin absolut hin und weg, wie gut gestaltet und benutzerfreundlich es ist."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is."
-          }
-        }
-      }
-    },
-    "quotes.6" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ich kann mir nicht vorstellen, meinen Büro-Mac ohne diese Software zu verwenden. Ein echter Produktivitätsverstärker, gepaart mit meiner Evoluent-Vertikalmaus, für die es keinen Mac-Treiber gibt, wie es ihn für Windows gibt."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows."
-          }
-        }
-      }
-    },
-    "quotes.8" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wahrscheinlich die beste App auf meinem Mac."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Probably the best app on my Mac"
-          }
-        }
-      }
-    },
-    "quotes.9" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keine andere ähnliche Software kann konkurrieren."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "No other similar utility can compete"
-          }
-        }
-      }
-    },
     "quotes.10" : {
       "comment" : " ",
       "extractionState" : "manual",
@@ -285,6 +159,24 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Click & drag for switching between the screens feels so native."
+          }
+        }
+      }
+    },
+    "quotes.2" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funktioniert wie ein Zauber und ist kinderleicht einzurichten!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Works like a charm and it's easy to set up!"
           }
         }
       }
@@ -469,6 +361,24 @@
         }
       }
     },
+    "quotes.3" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dies ist die beste Maussoftware für den Mac."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This is the best mouse software on the Mac."
+          }
+        }
+      }
+    },
     "quotes.30" : {
       "comment" : " ",
       "extractionState" : "manual",
@@ -555,6 +465,24 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "It works perfectly with my mouse"
+          }
+        }
+      }
+    },
+    "quotes.4" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vielen Dank für die fantastische App Mac Mouse Fix. Genau das, was ich gebraucht habe, ohne Abonnement und ohne unnötigen Ballast. Vielen, vielen Dank!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!"
           }
         }
       }
@@ -649,6 +577,24 @@
         }
       }
     },
+    "quotes.5" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix ist magisch. Ich bin absolut hin und weg, wie gut gestaltet und benutzerfreundlich es ist."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is."
+          }
+        }
+      }
+    },
     "quotes.54" : {
       "comment" : " ",
       "extractionState" : "manual",
@@ -663,6 +609,60 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Amazing product! Absolutely love it! My Logitech trackball is like an extension of me now."
+          }
+        }
+      }
+    },
+    "quotes.6" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich kann mir nicht vorstellen, meinen Büro-Mac ohne diese Software zu verwenden. Ein echter Produktivitätsverstärker, gepaart mit meiner Evoluent-Vertikalmaus, für die es keinen Mac-Treiber gibt, wie es ihn für Windows gibt."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows."
+          }
+        }
+      }
+    },
+    "quotes.8" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wahrscheinlich die beste App auf meinem Mac."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Probably the best app on my Mac"
+          }
+        }
+      }
+    },
+    "quotes.9" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine andere ähnliche Software kann konkurrieren."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No other similar utility can compete"
           }
         }
       }
@@ -703,7 +703,7 @@
       }
     },
     "quotes.source.acknowledgements" : {
-      "comment" : "The \"quote.source.[...]\" strings are displayed directly below the quotes themselves. \"{name}\" is replaced with the name of the author of the quote.",
+      "comment" : "The \"quotes.source.[...]\" strings are displayed directly below the quotes themselves. \"{name}\" is replaced with the name of the author of the quote.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
