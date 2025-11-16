@@ -130,7 +130,7 @@ Website Polish Problems [Mar 2025]
               <span class="fadeeet fadeeet-trigger strong:text-gradient-to-l">
                 <StringF>
                   {{ mdrf(MFLocalizedString(
-                    `Times change. Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **precise** and **ergonomic** third-party mouse. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad.`,
+                    `That's right! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **precise** and **ergonomic** third-party mouse. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad.`,
                     'trackpad.intro.body',
                     `
                     Background:
