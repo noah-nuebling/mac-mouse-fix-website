@@ -1,32 +1,45 @@
 {
-  "name": "nuxt-app",
-  "private": true,
-  "type": "module",
-  "_comment0": "Some error when adding i18n told me to add type: module. But that didn't remove the error",
-  "_comments_on_scripts": [
-    "1. Calling it 'upload', bc 'deploy' seems to be reserved in pnpm",
-    "2. To test deployment version, run `generate`, then follow instructions in terminal to serve locally."
-  ],
-  "scripts": {
-    "upload": "./scripts/deploy.sh",
-    "generate": "python3 ./scripts/preprocess.py && nuxt generate",
-    "dev": "python3 ./scripts/preprocess.py && nuxt dev"
-  },
-  "devDependencies": {
-    "@nuxt/devtools": "^1.5.0",
-    "@nuxtjs/robots": "^4.1.7",
-    "@nuxtjs/sitemap": "^5.3.5",
-    "@nuxtjs/tailwindcss": "^6.12.1",
-    "@types/node": "^22.5.5",
-    "nuxt": "^3.13.2"
-  },
-  "dependencies": {
-    "@nuxt/image": "^1.8.0",
-    "@pinia/nuxt": "^0.5.4",
-    "@types/markdown-it": "^14.1.2",
-    "assert": "^2.1.0",
-    "gsap": "^3.12.5",
-    "markdown-it": "^14.1.0",
-    "node-html-parser": "^6.1.13"
-  }
+    "name": "nuxt-app",
+    "private": true,
+    "type": "module",
+    "_comment0": "Some error when adding i18n told me to add type: module. But that didn't remove the error",
+    "_comments_on_scripts": [
+        "1. Calling it 'upload', bc 'deploy' seems to be reserved in pnpm",
+        "2. To test deployment version, run `generate`, then follow instructions in terminal to serve locally."
+    ],
+    "scripts": {
+        "upload": "./scripts/deploy.sh",
+        "generate": "python3 ./scripts/preprocess.py && nuxt generate",
+        "dev": "python3 ./scripts/preprocess.py && nuxt dev"
+    },
+    "devDependencies": {
+        "@nuxt/devtools": "^1.5.0",
+        "@nuxtjs/robots": "^4.1.7",
+        "@nuxtjs/sitemap": "^5.3.5",
+        "@nuxtjs/tailwindcss": "^6.12.1",
+        "@types/node": "^22.5.5",
+        "nuxt": "^3.13.2"
+    },
+    "dependencies": {
+        "@nuxt/image": "^1.8.0",
+        "@pinia/nuxt": "^0.5.4",
+        "@types/markdown-it": "^14.1.2",
+        "assert": "^2.1.0",
+        "gsap": "^3.12.5",
+        "markdown-it": "^14.1.0",
+        "node-html-parser": "^6.1.13"
+    },
+    "comments_on_pnpm_overrides": [
+        "BANDAID FIX: NuxtImg randomly broke. [Nov 2025]",
+        "Fix credits: @xiangshu233 – https://github.com/nuxt/image/issues/624#issuecomment-3004210513",
+        "Notes:",
+        "   - Nuxt has been pretty painful, and I'm almost certain has caused way more trouble than the value it provides. ",
+        "   - This lead me to investigate vanilla js and discover modern browser does everything that react/vue does with 50 lines of helper functions – See note `Idea - quote-unquote-framework` [Nov 2025]",
+        "   - We could also remove NuxtImg. The only useful thing it seems to do is compress images (more than 10x on the color-spash images). But I could get even better compression using `pngquant --quality=65-80 color-splash-dark-1.png`"
+    ],
+    "pnpm": {
+        "overrides": {
+            "ipx": "^3.0.0"
+        }
+    }
 }
