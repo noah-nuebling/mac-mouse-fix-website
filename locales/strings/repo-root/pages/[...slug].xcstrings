@@ -16,6 +16,12 @@
             "state" : "new",
             "value" : "Front Page"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "回到首页"
+          }
         }
       }
     },
@@ -32,6 +38,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "The page you're looking for can't be found."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你访问的页面不存在。"
           }
         }
       }

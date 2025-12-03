@@ -129,7 +129,7 @@ export default {
     {
         "code": "zh-Hans",
         "name": "🇨🇳 中文 (简体)",
-        "progressDisplay": "0%"
+        "progressDisplay": "100%"
     },
     {
         "code": "zh-Hant",

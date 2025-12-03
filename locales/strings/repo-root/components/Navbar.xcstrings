@@ -34,6 +34,12 @@
             "state" : "new",
             "value" : "Overview"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "总览"
+          }
         }
       }
     },
@@ -50,6 +56,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "More on GitHub"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在GitHub上查看更多"
           }
         }
       }
