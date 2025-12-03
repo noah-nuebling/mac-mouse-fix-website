@@ -49,174 +49,6 @@
         }
       }
     },
-    "quotes.2" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Funktioniert wie ein Zauber und ist kinderleicht einzurichten!"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Works like a charm and it's easy to set up!"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "效果绝佳，而且设置真的特别简单！  "
-          }
-        }
-      }
-    },
-    "quotes.3" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dies ist die beste Maussoftware für den Mac."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "This is the best mouse software on the Mac."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在Mac上最好的鼠标优化软件了，没有之一。"
-          }
-        }
-      }
-    },
-    "quotes.4" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vielen Dank für die fantastische App Mac Mouse Fix. Genau das, was ich gebraucht habe, ohne Abonnement und ohne unnötigen Ballast. Vielen, vielen Dank!"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "感谢你创造了Mac Mouse Fix这么了不起的软件！就跟我想要的那样，没有额外订阅，而且软件一点都不臃肿。真是太感谢你了！"
-          }
-        }
-      }
-    },
-    "quotes.5" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mac Mouse Fix ist magisch. Ich bin absolut hin und weg, wie gut gestaltet und benutzerfreundlich es ist."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mac Mouse Fix简直太神奇了。它的设计之精妙和易用性之高，真的让我惊叹不已。"
-          }
-        }
-      }
-    },
-    "quotes.6" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ich kann mir nicht vorstellen, meinen Büro-Mac ohne diese Software zu verwenden. Ein echter Produktivitätsverstärker, gepaart mit meiner Evoluent-Vertikalmaus, für die es keinen Mac-Treiber gibt, wie es ihn für Windows gibt."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "真不敢想象在办公室用Mac的时候没有这款软件会是什么样子。我的Evoluent垂直鼠标根本不像他们为Windows系统编写驱动程序那样也给Mac编写一套驱动。而这款软件搭配我的鼠标使用，真的极大地提升了工作效率。"
-          }
-        }
-      }
-    },
-    "quotes.8" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wahrscheinlich die beste App auf meinem Mac."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Probably the best app on my Mac"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "应该是我Mac里最好的应用了"
-          }
-        }
-      }
-    },
-    "quotes.9" : {
-      "comment" : " ",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keine andere ähnliche Software kann konkurrieren."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "No other similar utility can compete"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "其他那些简单的工具根本都不值得和这款软件同台竞技"
-          }
-        }
-      }
-    },
     "quotes.10" : {
       "comment" : " ",
       "extractionState" : "manual",
@@ -236,7 +68,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "对于用鼠标的Mac用户来说，这绝对是一个必备应用。"
+            "value" : "效果绝佳，而且设置真的特别简单！  "
           }
         }
       }
@@ -260,7 +92,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "这款软件几乎让我的生产力翻倍了。"
+            "value" : "在Mac上最好的鼠标优化软件了，没有之一。"
           }
         }
       }
@@ -284,7 +116,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "简直太爱这个应用了，绝对必装！"
+            "value" : "感谢你创造了Mac Mouse Fix这么了不起的软件！就跟我想要的那样，没有额外订阅，而且软件一点都不臃肿。真是太感谢你了！"
           }
         }
       }
@@ -308,7 +140,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你做的这个应用简直太令人难以置信了，而且绝对是我工作流程里不可或缺的好帮手。"
+            "value" : "Mac Mouse Fix简直太神奇了。它的设计之精妙和易用性之高，真的让我惊叹不已。"
           }
         }
       }
@@ -332,7 +164,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mac Mouse Fix就是同类软件里最好的！"
+            "value" : "真不敢想象在办公室用Mac的时候没有这款软件会是什么样子。我的Evoluent垂直鼠标根本不像他们为Windows系统编写驱动程序那样也给Mac编写一套驱动。而这款软件搭配我的鼠标使用，真的极大地提升了工作效率。"
           }
         }
       }
@@ -356,7 +188,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "垂直滚动简直做得太好了"
+            "value" : "应该是我Mac里最好的应用了"
           }
         }
       }
@@ -380,7 +212,31 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "按住并拖动来切换屏幕用起来就跟原生一样"
+            "value" : "其他那些简单的工具根本都不值得和这款软件同台竞技"
+          }
+        }
+      }
+    },
+    "quotes.2" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funktioniert wie ein Zauber und ist kinderleicht einzurichten!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Works like a charm and it's easy to set up!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "对于用鼠标的Mac用户来说，这绝对是一个必备应用。"
           }
         }
       }
@@ -404,7 +260,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "我早就想换掉我的妙控鼠标了，多亏了你的这款应用，我终于能做到了！"
+            "value" : "这款软件几乎让我的生产力翻倍了。"
           }
         }
       }
@@ -428,7 +284,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "我强烈推荐 Mac Mouse Fix，它是我至今见过的价格最低、操作最简单且代码写得最棒的应用了。"
+            "value" : "简直太爱这个应用了，绝对必装！"
           }
         }
       }
@@ -452,7 +308,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "谢谢你，帮我省了买苹果鼠标的钱。"
+            "value" : "你做的这个应用简直太令人难以置信了，而且绝对是我工作流程里不可或缺的好帮手。"
           }
         }
       }
@@ -476,7 +332,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "V2版本的UI界面非常出色，而且极其直观。"
+            "value" : "Mac Mouse Fix就是同类软件里最好的！"
           }
         }
       }
@@ -500,7 +356,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "上周我没用它，整个工作流程都被打乱了。感谢你开发出这么棒的一款应用。"
+            "value" : "垂直滚动简直做得太好了"
           }
         }
       }
@@ -524,7 +380,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "我真的很欣赏它所带来的简洁易用。"
+            "value" : "按住并拖动来切换屏幕用起来就跟原生一样"
           }
         }
       }
@@ -548,7 +404,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "在换过来用鼠标后，我试过像SteerMouse这类好评颇多甚至需要付费的软件，最后发现这款软件完美满足了我的需求，每一项功能都非常实用，而且性能也十分出色！\n"
+            "value" : "我早就想换掉我的妙控鼠标了，多亏了你的这款应用，我终于能做到了！"
           }
         }
       }
@@ -572,7 +428,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "超棒的应用，绝对值得强烈安利给其他人试试😁"
+            "value" : "我强烈推荐 Mac Mouse Fix，它是我至今见过的价格最低、操作最简单且代码写得最棒的应用了。"
           }
         }
       }
@@ -596,7 +452,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "这软件真的能让你的便宜鼠标比触控板手势还好用"
+            "value" : "谢谢你，帮我省了买苹果鼠标的钱。"
           }
         }
       }
@@ -620,7 +476,31 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "这真是苹果历史上最棒的一款独一无二的软件。"
+            "value" : "V2版本的UI界面非常出色，而且极其直观。"
+          }
+        }
+      }
+    },
+    "quotes.3" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dies ist die beste Maussoftware für den Mac."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This is the best mouse software on the Mac."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上周我没用它，整个工作流程都被打乱了。感谢你开发出这么棒的一款应用。"
           }
         }
       }
@@ -644,7 +524,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "这软件真太棒了，完美解决了我所有的鼠标问题。"
+            "value" : "我真的很欣赏它所带来的简洁易用。"
           }
         }
       }
@@ -668,7 +548,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "这个软件太令人难以置信了！"
+            "value" : "在换过来用鼠标后，我试过像SteerMouse这类好评颇多甚至需要付费的软件，最后发现这款软件完美满足了我的需求，每一项功能都非常实用，而且性能也十分出色！\n"
           }
         }
       }
@@ -692,7 +572,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "谢谢，这个软件非常酷"
+            "value" : "超棒的应用，绝对值得强烈安利给其他人试试😁"
           }
         }
       }
@@ -716,7 +596,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "超级棒的应用软件！！！"
+            "value" : "这软件真的能让你的便宜鼠标比触控板手势还好用"
           }
         }
       }
@@ -740,7 +620,31 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "它和我的鼠标完美配合工作。"
+            "value" : "这真是苹果历史上最棒的一款独一无二的软件。"
+          }
+        }
+      }
+    },
+    "quotes.4" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vielen Dank für die fantastische App Mac Mouse Fix. Genau das, was ich gebraucht habe, ohne Abonnement und ohne unnötigen Ballast. Vielen, vielen Dank!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "这软件真太棒了，完美解决了我所有的鼠标问题。"
           }
         }
       }
@@ -764,7 +668,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你的工具简直是我能正常使用macOS（尤其是搭配鼠标使用时）而不抓狂的唯一办法！"
+            "value" : "这个软件太令人难以置信了！"
           }
         }
       }
@@ -788,7 +692,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自由软件里浓墨重彩的一笔。感谢你为开源事业所做的贡献。"
+            "value" : "谢谢，这个软件非常酷"
           }
         }
       }
@@ -812,7 +716,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "感谢你做的这款软件，我真搞不懂苹果为什么不把这些功能设为默认，毕竟用中键进行手势操作是非常直观的啊。"
+            "value" : "超级棒的应用软件！！！"
           }
         }
       }
@@ -836,7 +740,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "我找了半天类似的应用，终于发现这个了，赞👍"
+            "value" : "它和我的鼠标完美配合工作。"
           }
         }
       }
@@ -860,7 +764,31 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "你让我的罗技狗屁王比MX Master还好用了。"
+            "value" : "你的工具简直是我能正常使用macOS（尤其是搭配鼠标使用时）而不抓狂的唯一办法！"
+          }
+        }
+      }
+    },
+    "quotes.5" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix ist magisch. Ich bin absolut hin und weg, wie gut gestaltet und benutzerfreundlich es ist."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自由软件里浓墨重彩的一笔。感谢你为开源事业所做的贡献。"
           }
         }
       }
@@ -879,6 +807,78 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Amazing product! Absolutely love it! My Logitech trackball is like an extension of me now."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "感谢你做的这款软件，我真搞不懂苹果为什么不把这些功能设为默认，毕竟用中键进行手势操作是非常直观的啊。"
+          }
+        }
+      }
+    },
+    "quotes.6" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich kann mir nicht vorstellen, meinen Büro-Mac ohne diese Software zu verwenden. Ein echter Produktivitätsverstärker, gepaart mit meiner Evoluent-Vertikalmaus, für die es keinen Mac-Treiber gibt, wie es ihn für Windows gibt."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我找了半天类似的应用，终于发现这个了，赞👍"
+          }
+        }
+      }
+    },
+    "quotes.8" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wahrscheinlich die beste App auf meinem Mac."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Probably the best app on my Mac"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你让我的罗技狗屁王比MX Master还好用了。"
+          }
+        }
+      }
+    },
+    "quotes.9" : {
+      "comment" : " ",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine andere ähnliche Software kann konkurrieren."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No other similar utility can compete"
           }
         },
         "zh-Hans" : {
@@ -937,7 +937,7 @@
       }
     },
     "quotes.source.acknowledgements" : {
-      "comment" : "The \"quote.source.[...]\" strings are displayed directly below the quotes themselves. \"{name}\" is replaced with the name of the author of the quote.",
+      "comment" : "The \"quotes.source.[...]\" strings are displayed directly below the quotes themselves. \"{name}\" is replaced with the name of the author of the quote.",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {

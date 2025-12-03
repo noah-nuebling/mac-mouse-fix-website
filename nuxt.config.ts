@@ -69,7 +69,19 @@ export default defineNuxtConfig({
     head: {
       title: 'Mac Mouse Fix',
       meta: [
-        { name: 'description', content: 'Make Your $10 Mouse Better Than an Apple Trackpad' } // [Jun 2025] Ohh should we localize this? Where does this show up?
+        { name: 'description', content: 'Make Your $10 Mouse Better Than an Apple Trackpad' }, // [Jun 2025] Ohh should we localize this? Where does this show up?
+        
+        // Claude 4.5 fixes for the color-splash images being used by Apple (and Google!) as an icon [Nov 2025]
+        //    (Just setting apple-touch-icons (see below) didn't fix it [Nov 2025])
+          
+          // Open Graph tags for Safari and Google previews / social sharing
+          { property: 'og:title', content: 'Mac Mouse Fix' },
+          { property: 'og:description', content: 'Make Your $10 Mouse Better Than an Apple Trackpad' },
+          { property: 'og:image', content: 'https://macmousefix.com/favicon.png' },
+
+          // Twitter Card tags for better social sharing
+          { name: 'twitter:card', content: 'summary' },
+          { name: 'twitter:image', content: 'https://macmousefix.com/favicon.png' },
       ],
       link: [
         // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }

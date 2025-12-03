@@ -18,7 +18,7 @@
     ref="card"
     :class="['overflow-clip relative', $props.class, doesExpand ? 'cursor-pointer will-change-[transform,opacity]' : '']"
     v-on-click-outside="{ onEvent: () => { expand_settarget({new_target: false, do_queue: false}) }, condition: (expand_target && doesExpand), blockEvents: true }">
-
+  
     <!-- Background Filter Container -->
     <div 
       id="backgroundFilterContainer"
@@ -134,22 +134,6 @@ const expand_target = ref(false)          // Set to the state the the user has r
 const expand_anim   = ref(false)          // Set only after the animations complete
 let   expand_unexpandIsQueuedUp = false   // Set to true if we were trying to *unexpand* during the expand animation
 
-// Get references to relevant dom elements
-// The stuff initialized to ref(null) will be automatically bound to the html element with the ref attribute set to the same value by vue
-const card: Ref<HTMLElement | null> = ref(null)
-const card_contentContainer: Ref<HTMLElement | null> = ref(null)
-
-// var minimizeHint: Ref<HTMLDivElement | null> = ref(null)
-
-var expandedCard_video: HTMLVideoElement | null = null
-
-// Define storage for dynamically created elements
-var expandedCard:                           null | HTMLDivElement = null
-var expandedCard_contentContainer:          null | HTMLDivElement = null
-var expandedCard_backgroundFilterContainer: null | HTMLElement    = null
-var expandedCard_borderContainer:           null | HTMLElement    = null
-
-// Methods for parent
 function expand_settarget({ new_target=<boolean|null>null, do_queue=<boolean>false }) {
   
   // [Jun 2025] Always set expand_target through this – never directly. That way we can block toggling it during an animation.
@@ -182,6 +166,24 @@ function expand_settarget({ new_target=<boolean|null>null, do_queue=<boolean>fal
     expand_target.value = new_target
   }
 }
+
+// Get references to relevant dom elements
+// The stuff initialized to ref(null) will be automatically bound to the html element with the ref attribute set to the same value by vue
+const card:                  Ref<HTMLElement | null> = ref(null)
+const card_contentContainer: Ref<HTMLElement | null> = ref(null)
+
+// var minimizeHint: Ref<HTMLDivElement | null> = ref(null)
+
+var expandedCard_video: HTMLVideoElement | null = null
+
+// Define storage for dynamically created elements
+var expandedCard:                           null | HTMLDivElement = null
+var expandedCard_contentContainer:          null | HTMLDivElement = null
+var expandedCard_backgroundFilterContainer: null | HTMLElement    = null
+var expandedCard_borderContainer:           null | HTMLElement    = null
+
+
+// Expose
 defineExpose({
   expand_settarget,
   expand_target: expand_target,
@@ -209,16 +211,12 @@ onUnmounted(() => {
   window.removeEventListener("resize", onWindowResize)
 });
 
-
-
 // Don't do stuff if !doesExpand
 // Discussion: 
 // - First, we were trying to wrap this code in a function so that we can early return. But we can't do certain stuff inside functions like access `this` or call stuff like defineExpose, afaiu, so we're just wrapping everything inside a huge if-statement
 // - Edit: Can't call defineExpose from inside if-statement, either, so we doing the if-statement all the way down here
 
 if (props.doesExpand) {
-
-
 
   // Do the main expand / unexpand animations
   watch(expand_target, async (shouldExpand) => { 
@@ -284,6 +282,45 @@ if (props.doesExpand) {
         // Add isExpanded class 
         //    for conditional styling
         expandedCard.classList.add('isExpandedCls')
+      }
+
+      // 
+      // Set up extra parallax when card is expanded 
+      //    There's already parallax on all the cards – that's controlled inside index.vue. But we add extra parallax here to create an illusion of the card being elevated [Jun 9 2025] 
+      
+      if ((0)) { // [Jun 2025] This does work since there we simultaneously perform other translations on the card when they expand/unexpand. To do this correctly, we'd have to either have our existing animations do the parallax as well, or create a separate div to apply the parallax to.
+        const setupParallax = (el) => {
+          const parallaxOffset = 100.0
+
+          const tlTrack = $gsap.timeline({ 
+            scrollTrigger: {
+              trigger: el,
+              pin: false,
+              start: "top bottom", // Top of element, bottom of viewport
+              end: `bottom top`,
+              scrub: 0.5, // Smooth scrubbing, takes x second to "catch up" to the scrollbar
+              markers: false, // Debug
+              onUpdate: (self) => {  }
+            } 
+          })
+          tlTrack.fromTo(el,  { translateY: parallaxOffset }, { translateY: '-' + parallaxOffset, duration: 1, ease: 'linear' }, 0)
+          tlTrack.scrollTrigger?.disable()
+          tlTrack.progress(0.5);
+
+          watch(expand_target, (new_expand_target) => {
+              if (new_expand_target) {
+                console.debug(`Parallax enable`)
+                tlTrack.scrollTrigger?.enable()
+              }
+              else {
+                console.debug(`Parallax disable`)
+                tlTrack.scrollTrigger?.disable()
+                tlTrack.progress(0.5);
+              }
+          })
+        }
+        setupParallax(card.value!)
+        setupParallax(expandedCard!)
       }
 
       // 

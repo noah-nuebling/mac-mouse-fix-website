@@ -40,3 +40,7 @@ This Python script allows for recording and playback of macOS system events usin
 ### Notes
 
 - Ensure that your terminal or IDE has the necessary accessibility permissions on macOS to create an event tap.
+   
+### Update 
+
+- [Oct 2025] IIRC I planned to record input of the video-demos so I can easily update them for future macOS versions. But I didn't end up using this, because I ended up just made a veryyy long recording and then cut out the 'good' bits using Davinci Resolve – The workflow that I was imagining didn't really work out.
