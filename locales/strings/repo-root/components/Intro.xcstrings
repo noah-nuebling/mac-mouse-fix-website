@@ -32,6 +32,7 @@
       }
     },
     "2: intro.tagline" : {
+      "comment" : "If this text appears wider than the big 'Mac Mouse Fix' text right above, it will get clipped at certain window sizes. I think you can only figure this out while actually looking at the live website... So you should perhaps come back to this after your initial translations have been added to the live website... Or just leave it. I should make the layout code work with any text length. [Dec 2025]",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -48,7 +49,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "10$ Değerindeki Farenizi Bir Apple İzleme Dörtgeninden Daha İyi Hale&nbsp;Getirin"
           }
         },
