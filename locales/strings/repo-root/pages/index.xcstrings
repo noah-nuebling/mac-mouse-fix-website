@@ -17,6 +17,12 @@
             "value" : "Macs Are Best\nWith a {dev}."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac'ler bir {dev} ile en iyi halindedir."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -40,6 +46,12 @@
             "value" : "**Trackpad**"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**İzleme Dörtgeni**"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -61,6 +73,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**Mouse**"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Fare**"
           }
         },
         "zh-Hans" : {
@@ -87,6 +105,12 @@
             "value" : "That's right! Mac Mouse Fix brings all features of an Apple Trackpad - and more - to your **precise** and **ergonomic** third-party mouse. And all interactions feel just as **smooth** and **natural** as they do on a Trackpad."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Teknoloji gelişiyor. Mac Mouse Fix bir Apple İzleme Dörtgeninin tüm özelliklerini ve daha fazlasını **hassas** ve **ergonomik** üçüncü parti farenize getirir ve tüm hareketler aynı bir izleme dörtgeni kullanırmışcasına **akıcı** ve **doğal** olur."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -108,6 +132,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**Trackpad Gestures** that Mac Mouse Fix brings to your mouse"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix'in farenize getirdiği **İzleme Dörtgeni Hareketleri**"
           }
         },
         "zh-Hans" : {
@@ -133,6 +163,12 @@
             "value" : "Note: Mac Mouse Fix can bring these Trackpad features to your third-party mouse as described here, only if your mouse has at least 5 buttons. These 5 buttons are typically left-click, right-click, mouse-wheel click, and 2 side-buttons. If your mouse has fewer than 5 buttons, Mac Mouse Fix still provides rich functionality and a great experience, but some features will be less easy to access compared to a 5-button mouse. On certain mice designed to be used with proprietary driver software like Logitech Options, Mac Mouse Fix can't recognize all the buttons at the moment. Mac Mouse Fix does not currently support the Apple Magic Mouse."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not: Mac Mouse Fix bu şekilde görülen İzleme Dörtgeni hareketlerini sadece 5 düğmeli fareler ile destekler. Bu 5 düğme tipik olarak sol tık, sağ tık, orta tık ve iki yan düğmedir. Eğer farenizde 5'den az düğme varsa bile Mac Mouse Fix hala zengin bir işlev sunabilir ama bazı özellikler 5 düğmeli farelere göre daha kısıtlı olacaktır. Logitech Options gibi özel sürücüler kullanan farelerde Mac Mouse Fix bütün düğmeleri algılayamayabilir. Mac Mouse Fix şu anda Apple Magic Mouse'u desteklememektedir."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -154,6 +190,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Look up and Quick Look"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sözlükte Ara ve Hızlı Bak"
           }
         },
         "zh-Hans" : {
@@ -180,6 +222,12 @@
             "value" : "**Click button 4** on your mouse to look up a word in the dictionary, preview websites in Safari or files in Finder, and more.\n\nIt works just like tapping with 3 fingers or force clicking on an Apple Trackpad."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Düğme 4'e tıklayarak** sözlükteki bir kelimenin anlamına bakın, Safari üstünden internet sitelerini ve Finder üstünden dosyaları görüntüleyin ve daha fazlasını yapın\n\nApple İzleme Dörtgeninde 3 parmakla tıklama veya sert tıklama gibi çalışır."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -200,6 +248,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "Mission Control"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "Mission Control"
           }
         },
@@ -226,6 +280,12 @@
             "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **up** to see an overview of your open windows, applications, and desktops.\n\nIt works just like swiping up with four fingers on an Apple Trackpad."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Düğme 4'e** basılı tutarak farenizi **yukarı** doğru hareket ettirdiğinizde açık olan penceleriniz, uygulamalarınız ve masaüstlerinin genel görüntüsünü göreceksiniz.\n\nBir Apple İzleme Dörtgeninde dört parmakla yukarı kaydırmış gibi çalışır."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -247,6 +307,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Move between desktops"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masaüstüler arasında geç"
           }
         },
         "zh-Hans" : {
@@ -272,6 +338,12 @@
             "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **left** or **right** to move to another desktop or fullscreen-app.\n\nIt works just like swiping left or right with four fingers on an Apple Trackpad."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Düğme 4'e** basılı tutarak farenizi **sağa veya sola hareket ettirerek** masaüstleri veya tam ekran uygulamalar arasında geçiş yapın.\n\nBir Apple İzleme Dörgeninde dört parmakla sağa/sola kaydırmış gibi çalışır."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -293,6 +365,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "App Exposé"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exposé"
           }
         },
         "zh-Hans" : {
@@ -318,6 +396,12 @@
             "value" : "Hold down **button 4** on your mouse, then **drag** the mouse **down** to see all windows of the app you're using.\n\nIt works just like swiping down with four fingers on an Apple Trackpad."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Düğme 4'e** basılı tutarak farenizi **aşağı** doğru hareket ettirdiğinizde bir uygulamanın tüm pencerelerini açığa çıkarabilirsiniz.\n\nBir Apple İzleme Dörtgeninde dört parmakla aşağı kaydırmış gibi çalışır."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -339,6 +423,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Show desktop"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masaüstünü göster"
           }
         },
         "zh-Hans" : {
@@ -364,6 +454,12 @@
             "value" : "Hold down **button 4** on your mouse, then **scroll up** to show your desktop.\n\nIt works just like spreading your thumb and three fingers apart on an Apple Trackpad."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Düğme 4'e** basılı tutarak tekerleği **yukarı** doğru hareket ettirdiğinizde masaüstünüzü açığa çıkarabilirsiniz.\n\nBir Apple İzleme Dörtgeninde baş parmağınız ve diğer üç parmağınızla açma hareketi gibi çalışır."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -384,6 +480,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "Launchpad"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "Launchpad"
           }
         },
@@ -410,6 +512,12 @@
             "value" : "Hold down **button 4** on your mouse, then **scroll down** to display Launchpad.\n\nIt works just like pinching your thumb and three fingers together on an Apple Trackpad."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Düğme 4'e** basılı tutarak tekerleği **aşağı** doğru hareket ettirdiğinizde Launchpad'i açabilirsiniz.\n\nBir Apple İzleme Dörtgeninde baş parmağınız ve diğer üç parmağınızla birleştirme hareketi gibi çalışır."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -431,6 +539,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Zoom in or out"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yakınlaştır ve uzaklaştır"
           }
         },
         "zh-Hans" : {
@@ -456,6 +570,12 @@
             "value" : "Hold down **button 5** on your mouse, then **scroll up** or **down** to zoom in or out in apps like Safari and Preview.\n\nIt works just like pinching with two fingers on an Apple Trackpad."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Düğme 5'e** basılı tutarak tekerleği **yukarı veya aşağı** doğru hareket ettirdiğinizde Safari ve Preview gibi uygulamalarda yakınlaştırma/uzaklaştırma yapabilirsiniz.\n\nBir Apple İzleme Dörtgeninde iki parmakla açma/birleştirme hareketi gibi çalışır."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -477,6 +597,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Go back and forward"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geri ve ileri git"
           }
         },
         "zh-Hans" : {
@@ -502,6 +628,12 @@
             "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to show the previous or next page in apps like Safari.\n\nIt works just like swiping left or right with two fingers on an Apple Trackpad."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Düğme 5'e** basılı tutarak farenizi **sağa veya sola hareket ettirerek** Safari gibi uygulamalarda bir önceki veya bir sonraki sayfaya geçin.\n\nBir Apple İzleme Dörgeninde iki parmakla sağa/sola kaydırmış gibi çalışır."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -523,6 +655,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Delete mails quickly and more"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Postaları hızlıca silin ve daha fazlasını yapın"
           }
         },
         "zh-Hans" : {
@@ -548,6 +686,12 @@
             "value" : "Hold down **button 5** on your mouse, then **drag** the mouse **left** or **right** to delete messages in Mail, quickly reply to an iMessage, and more.\n\nAny gesture you can perform inside an app by swiping on an Apple Trackpad works just as well using Mac Mouse Fix."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Düğme 5'e** basılı tutarak farenizi **sağa veya sola hareket ettirerek** Mail uygulamasında postaları silin, bir iMessage'a hızlıca cevap yazın ve daha fazlasını yapın.\n\nBir Apple İzleme Dörgeninde iki parmakla hareketleri destekleyen uygulamalarda belirli objelerin üzerinde sağa/sola kaydırmış gibi çalışır."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -569,6 +713,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Precise 360° scrolling"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hassas 360° kaydırma"
           }
         },
         "zh-Hans" : {
@@ -594,6 +744,12 @@
             "value" : "Hold down **button 5** on your mouse, then **drag** the mouse in **any direction** to precisely scroll with 360° freedom and an intuitive inertial effect. So you can navigate the canvas with ease in pro apps like Excel or Affinity Photo.\n\nIt's just as easy and precise as scrolling on an Apple Trackpad."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Düğme 5'e** basılı tutarak farenizi **herhangi bir yöne hareket ettirerek** hassas bir şekilde 360°'lik bir alanda özgürce bir şekilde eylemsizlik desteği ile kaydırın. Böylece Excel ve Affinity Photo gibi profesyonel uygulamalarda tablonuzda rahatça gezebilirsiniz.\n\nBir Apple İzleme Dörgeninde iki parmakla gezinme hareketi gibi çalışır."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -617,6 +773,12 @@
             "value" : "Smart zoom"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akıllı yakınlaştırma"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -638,6 +800,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**Click button 5** on your mouse to zoom in and back out of a webpage or PDF.\n\nIt works just like double-tapping with two fingers on an Apple Trackpad."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Düğme 5'e** basarak bir internet sayfasında veya PDF dosyasında hızlıca yakınlaştırma veya uzaklaştırma yapın.\n\nBir Apple İzleme Dörgeninde iki kez tıklama gibi çalışır."
           }
         },
         "zh-Hans" : {
@@ -664,6 +832,12 @@
             "value" : "{accent}.\nSmooth As Butter."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "{accent}\nAynı Su Gibi."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -687,6 +861,12 @@
             "value" : "Scrolling"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaydırma"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -708,6 +888,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Scrolling with a third-party mouse on macOS can feel **stuttery** and **hard to control**. Well, not any more! Experience a **refined**, **momentum-based** scrolling algorithm that makes navigating your computer **effortless** and **natural**."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOS üzerinde üçüncü parti bir fare ile kaydırma aksiyonu **teklermiş gibi** ve **zor bir şekilde kontrol ediliyor**. Artık öyle değil! **Zarif** bir şekilde **hızlanma tabanlı** kaydırma algoritması ile bilgisayarınızda gezinmek artık **eforsuz** ve **doğal**."
           }
         },
         "zh-Hans" : {
@@ -734,6 +920,12 @@
             "value" : "Choose a **Scrolling Smoothness** ..."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir **Kaydırma Akıcılığı** seçin ..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -755,6 +947,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Smoothness: **High**"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akıcılık: **Yüksek**"
           }
         },
         "zh-Hans" : {
@@ -780,6 +978,12 @@
             "value" : "With *Smoothness: High*, scrolling feels **incredibly smooth** - **just like a Trackpad**. Details like the subtle bounce at the end of a page make for a dynamic and pleasant feel. Still, scrolling is super responsive and easy to control. With this option, you can also scroll large distances very easily."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "*Akıcılık: Yüksek* ile kaydırmak **inanılmaz şekilde akıcı hissettirir** - **sanki bir izleme dörtgeniymişcesine**.\nSayfa sonunda hafif zıplama detayı ile dinamik ve haz verici hissettirir. yine de kaydırma aşırı duyarlı ve kontrolü kolay şekildedir. Bu seçenek sayesinde uzun mesafeleri de hızlıca kaydırabilirsiniz."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -801,6 +1005,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Smoothness: **Regular**"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akıcılık: **Normal**"
           }
         },
         "zh-Hans" : {
@@ -826,6 +1036,12 @@
             "value" : "Choose *Smoothness: Regular* for **highly responsive** scrolling that **feels like you're directly pushing the page with your finger**. The short, momentum-based animations provide a refined feel.\n\nThis option feels similar to scrolling in Chrome or modern Windows apps."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "*Akıcılık: Normal* ile kaydırmak **sanki sayfayı parmağınızla ittiriyormuşcasına** hissettiren **aşırı yüksek duyarlılık** modudur. Kısa, hızlanma tabanlı animasyonlar zarif bir his verir.\n\nBu seçenek Chrome ve modern Windows uygulamalarında kaydırırımış gibi hissettirir."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -847,6 +1063,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Smoothness: **Off**"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akıcılık: **Kapalı**"
           }
         },
         "zh-Hans" : {
@@ -872,6 +1094,12 @@
             "value" : "With *Smoothness: Off*, scrolling works as it normally does under macOS - **without any animation** or smoothing. But with one key difference: **One increment of the scroll wheel will scroll a set number of *lines***, rather than just a few pixels, making navigation more consistent and comfortable.\n\nThis is how scrolling also works in most apps on Windows and Linux, as well as older macOS versions."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "*Akıcılık: Kapalı* ile kaydırma macOS'de normalde nasık ise aynı o şekildedir ve herhangi bir animasyon veya akıcılık bulundurmaz Fakat, normalde **bir tık kaydırma aksiyonu ile birkaç piksel** yerine daha tutarlı ve rahat olan **bir tık kaydırma aksiyonu ile birkaç satır** kaydırılır.\n\nBu seçenek Windows, Linux ve eski macOS sürümlerindeki kaydırma gibi çalışır."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -893,6 +1121,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "... And **More**"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "... Ve **Fazlası**"
           }
         },
         "zh-Hans" : {
@@ -918,6 +1152,12 @@
             "value" : "Scrolling direction"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaydırma yönü"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -939,6 +1179,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Mac Mouse Fix lets you **change the scrolling direction** of your mouse - independently from your Trackpad or Magic Mouse."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix farenizin **kaydırma yönünü** Magic Mouse ve izleme dörtgeninizden bağımsız olarak değiştirmenizi sağlar"
           }
         },
         "zh-Hans" : {
@@ -964,6 +1210,12 @@
             "value" : "Keyboard modifiers"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klavye değiştiricileri"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -985,6 +1237,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Hold a keyboard modifier while scrolling to **scroll precisely**, **zoom in or out**, and more."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaydırma esnasında bir klavye değiştiricisi kullanarak **hassas kaydırma**, **yakınlaştırma ve uzaklaştırma** ve daha fazlasını yapın."
           }
         },
         "zh-Hans" : {
@@ -1010,6 +1268,12 @@
             "value" : "Simple yet powerful"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Basit ama güçlü"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1031,6 +1295,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "You can set up scrolling in Mac Mouse Fix in many different ways with just a few clicks. **All options you choose will feel great without fiddling**. Each scrolling enhancement provided by Mac Mouse Fix can also be turned off, if you prefer how things work natively in macOS."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix'te kaydırmayı yalnızca birkaç tıklamayla birçok farklı şekilde ayarlayabilirsiniz. **Seçtiğiniz tüm seçenekler, fazla uğraşa gerek kalmadan harika bir his verecektir**. Mac Mouse Fix tarafından sağlanan tüm kaydırma iyileştirmelerininin yerine macOS'daki haline tercih ediyorsanız o özelikleri de kapatabilirsiniz."
           }
         },
         "zh-Hans" : {
@@ -1056,6 +1326,12 @@
             "value" : "Amazingly {accent2}\n{accent} Intuitive."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muhteşem bir şekilde {accent2} {accent} Sezgisel."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1077,6 +1353,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "and"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ve"
           }
         },
         "zh-Hans" : {
@@ -1102,6 +1384,12 @@
             "value" : "Flexible"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esnek"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1125,6 +1413,12 @@
             "value" : "Mac Mouse Fix lets you **do almost anything** you can think of - straight from your mouse! And yet, it's **remarkably easy** to use."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix, aklınıza gelebilecek hemen hemen her şeyi doğrudan farenizden yapmanıza olanak tanır! Üstelik kullanımı da **oldukça kolaydır**."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1146,6 +1440,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**Add Actions** to your mouse"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Farenize **aksiyonlar ekleyin**"
           }
         },
         "zh-Hans" : {
@@ -1172,6 +1472,12 @@
             "value" : "To add an action to your mouse:\n\n1. **Move** the mouse pointer inside the '+'-field. (Shown below)\n2. **Click** the mouse button you want to assign an action to.\nYou can also Double Click, Click and Drag, and much more!\n3. **Choose** an action, such as Smart Zoom.\n\nAnd that's it!"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Farenize bir aksiyon eklemek için:\n\n1. İmlecinizi '+' alanının içine **getirin**. (Aşağıda gösterildiği üzere)\n2. Atama yapamak istediğiniz butona **basın**.\nAynı zamanda iki tık, tıkla ve kaydır ve daha fazlasını yapabilirsiniz!>\n3. Bir aksiyon **seçin**, örneğin Akıllı Yakınlaştırma.\n\nBu kadar!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1193,6 +1499,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "See How to Set It Up"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nasıl Kurulduğuna Göz Atın"
           }
         },
         "zh-Hans" : {
@@ -1218,6 +1530,12 @@
             "value" : "Use **Keyboard Shortcuts** from your mouse"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Farenizden **Klavye Kısayollarını** kullanın"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1239,6 +1557,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Mac Mouse Fix lets you **do anything you can do with a keyboard shortcut** straight from your mouse. For example, you can copy and paste, change the audio volume, open a new tab in Safari, and much more."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix, **klavye kısayoluyla yapabileceğiniz her şeyi** doğrudan farenizden yapmanıza olanak tanır. Örneğin, kopyalayıp yapıştırabilir, ses seviyesini değiştirebilir, Safari'de yeni bir sekme açabilir ve çok daha fazlasını yapabilirsiniz."
           }
         },
         "zh-Hans" : {
@@ -1264,6 +1588,12 @@
             "value" : "Great Software.\nGreat {accent2}."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muhteşem Yazılım.\nMuhteşem {accent2}"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1287,6 +1617,12 @@
             "value" : "Price"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fiyat"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1308,6 +1644,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "I strive to make Mac Mouse Fix a software that you can **feel great** about installing. I want to offer it as **cheaply** as possible, so you feel like you're getting a great deal and so that everyone can afford it. And ultimately, I hope to make this tiny corner of the world a little more **awesome** and nice!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix'i ** harika** hissedebileceğiniz bir yazılım haline getirmek için çabalıyorum. Mümkün olduğunca **düşük** bir fiyata da sunmak istiyorum, böylece harika bir fırsat yakaladığınızı hissettirebilirken herkesin de alabilmesini destekliyorum. Ve nihayetinde, dünyanın bu küçük köşesini biraz daha **harika** ve güzel bir yer haline getirmeyi umuyorum!"
           }
         },
         "zh-Hans" : {
@@ -1334,6 +1676,12 @@
             "value" : "Great **Software** ..."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muhteşem **Yazılım** ..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1355,6 +1703,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Unobtrusive. Lightweight. Beautiful."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Önünüze çıkmaz. Hafif. Güzel."
           }
         },
         "zh-Hans" : {
@@ -1380,6 +1734,12 @@
             "value" : "Every detail of Mac Mouse Fix has been considered and optimized to give you the best possible experience while feeling like a **natural extension of your Mac**. I've invested countless hours to make sure that Mac Mouse Fix **uses no more battery or memory than absolutely necessary**. The goal is that you won't even notice Mac Mouse Fix on your computer - except of course, when using your mouse."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix'in her ayrıntısı, size mümkün olan en iyi deneyimi sunarken **Mac'inizin doğal bir uzantısı** gibi hissetmenizi sağlamak için düşünüldü ve optimize edildi. Mac Mouse Fix'in **gerekenden fazla enerji veya bellek kullanmamasını** sağlamak için sayamayacağım kadar saat harcadım. Amacım, Mac Mouse Fix'i bilgisayarınızda fark etmemeniz, tabii farenizi kullandığınız zaman dışında."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1401,6 +1761,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Open source"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Açık kaynaklı"
           }
         },
         "zh-Hans" : {
@@ -1426,6 +1792,12 @@
             "value" : "The source code of Mac Mouse Fix is available on GitHub, so everyone can see exactly how it works. This helps with the development, and it means you can be sure that Mac Mouse Fix is **secure** and **trustworthy**, that it protects your **privacy**, and that it doesn't do anything when it runs in the background - except bringing your mouse experience to the next level!"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix'in kaynak kodu GitHub'da mevcut, böylece herkes tam olarak nasıl çalıştığına göz atabilir. Bu hem geliştirme sürecine yardımcı oluyorhem de Mac Mouse Fix'in **güvenli** ve **güvenilir** olduğundan, **gizliliğinizi** koruduğundan ve arka planda çalışırken hiçbir şey yapmadığından emin olabileceğiniz anlamına gelir ve fare deneyiminizi bir üst seviyeye taşır!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1447,6 +1819,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "... Great **Price**"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "... Muhteşem **Fiyat***"
           }
         },
         "zh-Hans" : {
@@ -1472,6 +1850,12 @@
             "value" : "Note on price: The price of **{price}** does not include local taxes, which might have to be paid in your region. To see your total price, visit the [checkout page]({urlCheckoutPage}). If you pay on Gumroad.com via PayPal in a currency other than Euros, PayPal will charge an additional 4.5% currency conversion fee.\n\nI would like to include these fees in the price - to make the buying experience simpler and clearer. But this is currently not possible due to limitations with the sales platform Gumroad.com. I hope the price still feels very fair and cheap."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fiyat için not: {price} fiyatı alanınızda ödemeniz gereken yerel vergileri içermemektedir. Toplam fiyatı öğrenmek için [satın alma sayfasına]({urlCheckoutPage}) gitmeniz gerekmektedir. Eğer Gumroad.com üzerinden PayPal ile Euro dışında bir döviz ile ödeme yapacaksanız PayPal ek olarak %4.5 döviz çeviri ücreti yansıtacaktır.\n\nBu ek ödemeleri karışıklığı önlemek ve basitleştirmek için fiyatta belirtmek istiyorum ama Gumroad.com'daki limitlemeler sebebiyle bunu yapmam şu anda mümkün değil. Umuyorum ki fiyat hala iyi ve ucuzdur."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1493,6 +1877,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Free for **{trialDays} Days**"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{trialDays} gün** kadar ücretsiz"
           }
         },
         "zh-Hans" : {
@@ -1518,6 +1908,12 @@
             "value" : "Mac Mouse Fix is free for {trialDays} days. Your **free days are only used up when you actually use the app**. That way you can get the most out of your free days - without any stress."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix {trialDays} gün kadar ücretsiz. **Ücretsiz sayılacak günleriniz sadece uygulamayı kullandığınız günlerde azalır.** Böylece uygulamanın ücretsiz olduğu günleri stres olmadan kullanabilirsiniz."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1539,6 +1935,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**{price}** to own"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sahip olmak sadece **{price}**"
           }
         },
         "zh-Hans" : {
@@ -1564,6 +1966,12 @@
             "value" : "Mac Mouse Fix costs {price} ([+ taxes]({urlTaxes})) to own - and that's it. There are no subscriptions or additional payments. I made sure the checkout experience is as **nice** and **quick** as possible, and you can even pay with **Apple Pay**!\n\nTo buy the app, click the button in the app, or click [here]({urlBuyApp})."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix'e sahip olmak sadece {price} ([+ vergiler]({urlTaxes})), ve bu kadar. Herhangi bir abonelik veya ek ödeme yok. Özellikle ödeme işlemlerini en **iyi** ve **hızlı-** yapmaya özen gösterdim, hatta **Apple Pay** ile bile ödeyebilirsiniz.\n\nUygulamayı satın almak için ya uygulamadaki düğmeyi kullanın ya da [buraya tıklayın]({urlBuyApp})."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1585,6 +1993,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Better value than the **Alternatives**"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Alternatiflerinden** çok daha iyi bir fiyat"
           }
         },
         "zh-Hans" : {
@@ -1609,6 +2023,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Mac Mouse Fix makes your $10 mouse better than a Logitech MX Master mouse or an Apple Trackpad. (These are considered some of the best input devices for Macs.)\n\nAnd yet, Mac Mouse Fix is **[{priceFactorMXMaster}x]({urlMXMaster})** cheaper than an MX Master and **[{priceFactorTrackpad}x]({urlTrackpad})** cheaper than a Trackpad!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix 10$ değerindeki farenizi bir Logitech MX Master fare ya da Apple İzleme Dörtgeninden daha iyi hale getirir. (Bu giriş aygıtları Mac'ler için en iyi cihazlar olarak tanınırlar)\n\nBuna rağmen, Mac Mouse Fix bir MX Master'dan **[{priceFactorMXMaster}x]({urlMXMaster})** kadar ve bir İzleme Dörtgeninden **[{priceFactorTrackpad}x]({urlTrackpad})** kadar daha ucuz!"
           }
         },
         "zh-Hans" : {

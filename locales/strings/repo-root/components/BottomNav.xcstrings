@@ -2,7 +2,6 @@
   "sourceLanguage" : "en",
   "strings" : {
     "1: footer.credits" : {
-      "comment" : "ps:Ur Chinese Name can be written as \"诺亚·纽布林\", u can replace that if u want :)",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -17,10 +16,16 @@
             "value" : "Created by **Noah Nuebling**"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Noah Nuebling** tarafından geliştirildi"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "由**Noah Nuebling**倾情制作"
+            "value" : "由**诺亚·纽布林**倾情制作"
           }
         }
       }
@@ -38,6 +43,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Thank you for {dwn} downloads!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "{dwn} indirme için teşekkürler!"
           }
         },
         "zh-Hans" : {

@@ -17,6 +17,12 @@
             "value" : "This page is {localizationProgress} translated into {currentLocale}\nTo help translate, click [here]({url})!"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu sayfa {currentLocale} diline {localizationProgress} kadar çevrildi.\nÇeviriye yardımcı olmak için [buraya tıkla]({url})!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -40,6 +46,12 @@
             "value" : "Make Your $10 Mouse Better Than an Apple Trackpad!"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10$ Değerindeki Farenizi Bir Apple İzleme Dörtgeninden Daha İyi Hale Getirin"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -61,6 +73,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Make Your $10 Mouse Better Than an Apple Trackpad!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10$ Değerindeki Farenizi Bir Apple İzleme Dörtgeninden Daha İyi Hale Getirin"
           }
         },
         "zh-Hans" : {

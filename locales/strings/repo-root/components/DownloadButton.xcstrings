@@ -17,6 +17,12 @@
             "value" : "Download"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İndir"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",

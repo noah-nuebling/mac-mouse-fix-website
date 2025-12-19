@@ -17,6 +17,12 @@
             "value" : "Front Page"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ana Sayfa"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -38,6 +44,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "The page you're looking for can't be found."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aradığınız sayfa bulunamadı"
           }
         },
         "zh-Hans" : {

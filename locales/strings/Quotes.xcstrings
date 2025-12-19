@@ -17,6 +17,12 @@
             "value" : "Among all apps that try to fix this problem, this one is undoubtly the best!"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu çözümü sunacak uygulamalar arasında bu kesinlikle en iyisi!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -39,6 +45,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Mac Mouse Fix is literally everything you could want in your experience of using a mouse with OSX."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix OSX ile fare kullanım tecrübenizde size gerekecek her şeye sahip."
           }
         },
         "zh-Hans" : {
@@ -65,6 +77,12 @@
             "value" : "Works like a charm and it's easy to set up!"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kurulumu kolay ve muhteşem çalışıyor."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -87,6 +105,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "This is the best mouse software on the Mac."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac'deki en iyi fare yazılımı bu."
           }
         },
         "zh-Hans" : {
@@ -113,6 +137,12 @@
             "value" : "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix uygulaması için teşekkürler! Tam ihtiyacım olan şey; abonelik ve gereksiz şeyler yok. Çok teşekkürler!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -135,6 +165,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix sihir gibi. Bu kadar kullanıcı dostu ve iyi tasarlanmış olması aklımı aldı."
           }
         },
         "zh-Hans" : {
@@ -161,6 +197,12 @@
             "value" : "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ofisteki Mac'imi bu yazılım olmadan nasıl kullanırım bilmiyorum. Windows'da sürücüsü olup macOS'da olmayan dikey farem ile beraber muhteşem bir üretkenlik artırıcı."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -183,6 +225,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Probably the best app on my Mac"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac'imdeki en iyi uygulama olabilir"
           }
         },
         "zh-Hans" : {
@@ -209,6 +257,12 @@
             "value" : "No other similar utility can compete"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Başka bir uygulama bununla yarışamaz"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -231,6 +285,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "A must have app for any Mac user with a mouse."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fare ile Mac kullanan herkesin bilgisayarında zorunluluk."
           }
         },
         "zh-Hans" : {
@@ -257,6 +317,12 @@
             "value" : "This has nearly doubled my productivity."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu benim üretkenliğimi ikiye katladı."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -279,6 +345,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Love this app so much, it's a must-have!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu uygulamayı çok seviyorum, kesinlike indirilmeli!"
           }
         },
         "zh-Hans" : {
@@ -305,6 +377,12 @@
             "value" : "Your app is incredible and absolutely vital to my workflow."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uygulaman gerçekten muhteşem ve benim iş akışım için çok önemli."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -327,6 +405,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Mac Mouse Fix is the best in its class!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix sınıfının en iyisi!"
           }
         },
         "zh-Hans" : {
@@ -353,6 +437,12 @@
             "value" : "The vertical scroll is just awesome"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dikey kaydırma gerçekten muhteşem."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -375,6 +465,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Click & drag for switching between the screens feels so native."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ekranların arasında geçiş için Tıkla ve Kaydır özelliği sanki sistemin kökünde varmış gibi."
           }
         },
         "zh-Hans" : {
@@ -401,6 +497,12 @@
             "value" : "I've been wanting to get rid of my Magic Mouse for a while and because of your app, I can do just that!"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir süredir Magic Mouse'umdan kurtulmak istiyordum ve senin uygulaman sayesinde bunu yapabilirim!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -423,6 +525,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "I recommend Mac Mouse Fix, honestly it’s the cheapest, simple, and most well coded app I have yet seen."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix'i öneriyorum, çünkü dürüst olmak gerekirse gördüğüm en ucuz, basit ve başarılı bir şekilde geliştirilmiş uygulama."
           }
         },
         "zh-Hans" : {
@@ -449,6 +557,12 @@
             "value" : "Thank you, saved me from buying an apple mouse"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teşekkür ederim, beni bir Apple faresi almaktan kurtardın"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -471,6 +585,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "The UI in V2 is fantastic and very intuitive."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "V2'deki kullanıcı arayüzü fantastik ve sezgisel."
           }
         },
         "zh-Hans" : {
@@ -497,6 +617,12 @@
             "value" : "I spent last week without it and my whole workflow was interrupted. Thank you for such a brilliant app."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geçen hafta bu uygulamayı kullanamadım ve tüm iş akışım bozuldu. Böyle güzel bir uygulama için teşekkürler."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -519,6 +645,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "I really appreciate the simplicity it brings."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getirdiği basitleştirmeye bayılıyorum."
           }
         },
         "zh-Hans" : {
@@ -545,6 +677,12 @@
             "value" : "After switching to a mouse, I tried software such as SteerMouse, which received many recommendations and even charges, and finally found that this software meets my needs perfectly, every feature is very useful, and the performance is very good!"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir fareye geçtikten sonra çok fazla iyi yorum alan SteerMouse gibi uygulamaları da denedim ama sonunda tam isteklerimi gerçekleştiren bir uygulama buldum. Her özellik çok işlevli ve performansı çok iyi."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -567,6 +705,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Awesome app, it definitely deserves to be shared widely with others 😁"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muhteşem uygulama, kesinlikle paylaşılmayı hak ediyor."
           }
         },
         "zh-Hans" : {
@@ -593,6 +737,12 @@
             "value" : "This App Makes Your Cheap Mouse Work Better Than Trackpad Gestures"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu Uygulama, Ucuz Farenizin İzleme Dörtgeni Hareketlerinden Daha İyi Çalışmasını Sağlıyor"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -615,6 +765,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "This is the single greatest piece of software in Apple's history."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple tarihinin en iyi tek yazılımı bu."
           }
         },
         "zh-Hans" : {
@@ -641,6 +797,12 @@
             "value" : "This is great software and solved all my mouse issues."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu muhteşem bir yazılım ve tüm fare sorunlarımı çözdü."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -663,6 +825,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "This software is amazing!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu yazılım muhteşem!"
           }
         },
         "zh-Hans" : {
@@ -689,6 +857,12 @@
             "value" : "Thanks, the app is very cool"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teşekkürler, uygulama çok havalı."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -711,6 +885,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "SUPER NICE APPLICATION"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SÜPER İYİ UYGULAMA"
           }
         },
         "zh-Hans" : {
@@ -737,6 +917,12 @@
             "value" : "It works perfectly with my mouse"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Faremle mükemmel çalışıyor."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -759,6 +945,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Your tool is literally the only way how I can use macOS (with a mouse especially) without freaking out!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu uygulama benim çıldırmadan macOS kullanmamı sağlayabilen tek uygulama (özellikle bir fare ile)."
           }
         },
         "zh-Hans" : {
@@ -785,6 +977,12 @@
             "value" : "Beautiful piece of libre software. Thank you for your contribution to the open source cause."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muhteşem bir özgür yazılım. Açık kaynağa olan desteğin için teşekkürler."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -807,6 +1005,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Thank you for this, i don't understand why apple didn't make this as default, like it's super intuitive doing gestures with the middle click."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bunun için teşekkürler, bunu Apple'ın neden varsayılan olarak getirmediğini anlamıyorum. Orta düğme ile hareketleri gerçekleştirebilmek çok sezgisel."
           }
         },
         "zh-Hans" : {
@@ -833,6 +1037,12 @@
             "value" : "I've been searching for a similar app for a long time, and finally found this one, thumbs up 👍."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bunun gibi bir uygulamayı çok uzun zamandır arıyordum ve sonunda bunu buldum, beğendim 👍."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -855,6 +1065,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "You've made my superlight better than an mx master."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benim Superlight faremi bir MX Master'dan daha iyi hale getirdin."
           }
         },
         "zh-Hans" : {
@@ -881,6 +1097,12 @@
             "value" : "Amazing product! Absolutely love it! My Logitech trackball is like an extension of me now."
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muhteşem bir yazılım! Kesinlikle bayıldım! Logitech Trackball'ım sanki benim bir parçam gibi oldu."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -902,6 +1124,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "See Less"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daha Azını Gör"
           }
         },
         "zh-Hans" : {
@@ -928,6 +1156,12 @@
             "value" : "See More"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daha Fazlasını Gör"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -950,6 +1184,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**{name}** in a Gumroad donation message"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**, bir Gumroad bağış mesajında"
           }
         },
         "zh-Hans" : {
@@ -975,6 +1215,12 @@
             "value" : "**{name}** in an email"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**, bir E-Postada"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -996,6 +1242,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**{name}** on GitHub"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**, GitHub'da"
           }
         },
         "zh-Hans" : {
@@ -1021,6 +1273,12 @@
             "value" : "**{name}** in a LifeHacker article"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**, bir LifeHacker yazısında"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1042,6 +1300,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**{name}** in a PayPal donation message"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**, bir PayPal bağış mesajında"
           }
         },
         "zh-Hans" : {
@@ -1067,6 +1331,12 @@
             "value" : "**{name}** on Reddit"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**, Reddit'ten"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1088,6 +1358,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**{name}** on Stack Exchange"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**, Stack Exchange'den"
           }
         },
         "zh-Hans" : {
@@ -1113,6 +1389,12 @@
             "value" : "**{name}** in a YouTube comment"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**, bir YouTube yorumunda"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1134,6 +1416,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**Thank you** to everyone sharing their appreciation and feedback over the years! Reading your nice messages is always motivating **:)**"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yıllar boyu takdirleriniz ve geribildirimleriniz için herkese **teşekkürler**! İyi mesajlarınızı okumak her zaman motive edici. **:)**"
           }
         },
         "zh-Hans" : {
@@ -1160,6 +1448,12 @@
             "value" : "Translated from English"
           }
         },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İngilizce dilinden çevrildi."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1182,6 +1476,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Translated from Chinese"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çince dilinden çevrildi."
           }
         },
         "zh-Hans" : {
