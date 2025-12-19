@@ -19,7 +19,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Mac'ler bir {dev} ile en iyi halindedir."
           }
         },
@@ -834,7 +834,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "{accent}\nAynı Su Gibi."
           }
         },
@@ -1328,7 +1328,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Muhteşem bir şekilde {accent2} {accent} Sezgisel."
           }
         },
@@ -1474,7 +1474,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Farenize bir aksiyon eklemek için:\n\n1. İmlecinizi '+' alanının içine **getirin**. (Aşağıda gösterildiği üzere)\n2. Atama yapamak istediğiniz butona **basın**.\nAynı zamanda iki tık, tıkla ve kaydır ve daha fazlasını yapabilirsiniz!>\n3. Bir aksiyon **seçin**, örneğin Akıllı Yakınlaştırma.\n\nBu kadar!"
           }
         },
@@ -1590,7 +1590,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Muhteşem Yazılım.\nMuhteşem {accent2}"
           }
         },
@@ -1648,7 +1648,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Mac Mouse Fix'i ** harika** hissedebileceğiniz bir yazılım haline getirmek için çabalıyorum. Mümkün olduğunca **düşük** bir fiyata da sunmak istiyorum, böylece harika bir fırsat yakaladığınızı hissettirebilirken herkesin de alabilmesini destekliyorum. Ve nihayetinde, dünyanın bu küçük köşesini biraz daha **harika** ve güzel bir yer haline getirmeyi umuyorum!"
           }
         },
@@ -1823,7 +1823,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "... Muhteşem **Fiyat***"
           }
         },
