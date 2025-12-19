@@ -49,7 +49,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "10$ Değerindeki Farenizi Bir Apple İzleme Dörtgeninden Daha İyi Hale Getirin"
+            "value" : "10$ Değerindeki Farenizi Bir Apple İzleme Dörtgeninden Daha İyi Hale&nbsp;Getirin"
           }
         },
         "zh-Hans" : {
@@ -78,7 +78,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "10$ Değerindeki Farenizi Bir Apple İzleme Dörtgeninden Daha İyi Hale Getirin"
+            "value" : "10$ Değerindeki Farenizi Bir Apple İzleme Dörtgeninden Daha İyi Hale&nbsp;Getirin"
           }
         },
         "zh-Hans" : {
