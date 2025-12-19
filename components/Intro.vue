@@ -34,6 +34,7 @@
                   <strong>{{ localizationProgressDisplay }}</strong>
                 </template>
                 <template #currentLocale>
+                  <!-- TODO: Under macOS 26 Tahoe Safari, the LocalePicker is a bit comically large. [Dec 2025] -->
                   <LocalePicker></LocalePicker>
                 </template>
               </StringF>
