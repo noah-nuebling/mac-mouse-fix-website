@@ -17,6 +17,12 @@
             "value" : "See It in Action"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Véalo en Acción"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44,6 +50,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Close Video"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar Vídeo"
           }
         },
         "tr" : {

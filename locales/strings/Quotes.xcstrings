@@ -17,6 +17,12 @@
             "value" : "Among all apps that try to fix this problem, this one is undoubtly the best!"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entre todas las aplicaciones que intentan solucionar este problema, ¡esta es indudablemente la mejor!"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -45,6 +51,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Mac Mouse Fix is literally everything you could want in your experience of using a mouse with OSX."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix es literalmente todo lo que podrías desear en tu experiencia de usar un ratón con OSX."
           }
         },
         "tr" : {
@@ -77,6 +89,12 @@
             "value" : "A must have app for any Mac user with a mouse."
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una aplicación imprescindible para cualquier usuario de Mac con un ratón."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -105,6 +123,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "This has nearly doubled my productivity."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esto casi ha duplicado mi productividad."
           }
         },
         "tr" : {
@@ -137,6 +161,12 @@
             "value" : "Love this app so much, it's a must-have!"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Me encanta tanto esta aplicación, ¡es imprescindible!"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -165,6 +195,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Your app is incredible and absolutely vital to my workflow."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu aplicación es increíble y absolutamente vital para mi flujo de trabajo."
           }
         },
         "tr" : {
@@ -197,6 +233,12 @@
             "value" : "Mac Mouse Fix is the best in its class!"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Mac Mouse Fix es el mejor de su clase!"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -225,6 +267,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "The vertical scroll is just awesome"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El desplazamiento vertical es simplemente impresionante"
           }
         },
         "tr" : {
@@ -257,6 +305,12 @@
             "value" : "Click & drag for switching between the screens feels so native."
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hacer clic y arrastrar para cambiar de pantalla se siente tan nativo."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -285,6 +339,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Works like a charm and it's easy to set up!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Funciona de maravilla y es fácil de configurar!"
           }
         },
         "tr" : {
@@ -317,6 +377,12 @@
             "value" : "I've been wanting to get rid of my Magic Mouse for a while and because of your app, I can do just that!"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Llevaba tiempo queriendo deshacerme de mi Magic Mouse y, gracias a tu aplicación, ¡puedo hacerlo!"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -345,6 +411,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "I recommend Mac Mouse Fix, honestly it’s the cheapest, simple, and most well coded app I have yet seen."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recomiendo Mac Mouse Fix, honestamente es la aplicación más barata, simple y mejor codificada que he visto hasta ahora."
           }
         },
         "tr" : {
@@ -377,6 +449,12 @@
             "value" : "Thank you, saved me from buying an apple mouse"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gracias, me salvó de comprar un ratón de Apple"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -405,6 +483,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "The UI in V2 is fantastic and very intuitive."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La interfaz de usuario en la V2 es fantástica y muy intuitiva."
           }
         },
         "tr" : {
@@ -437,6 +521,12 @@
             "value" : "I spent last week without it and my whole workflow was interrupted. Thank you for such a brilliant app."
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pasé la última semana sin ella y todo mi flujo de trabajo se interrumpió. Gracias por una aplicación tan brillante."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -465,6 +555,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "I really appreciate the simplicity it brings."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Realmente aprecio la sencillez que aporta."
           }
         },
         "tr" : {
@@ -497,6 +593,12 @@
             "value" : "After switching to a mouse, I tried software such as SteerMouse, which received many recommendations and even charges, and finally found that this software meets my needs perfectly, every feature is very useful, and the performance is very good!"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Después de cambiar a un ratón, probé software como SteerMouse, que recibió muchas recomendaciones e incluso es de pago, y finalmente descubrí que este software satisface mis necesidades a la perfección, cada función es muy útil, ¡y el rendimiento es muy bueno!"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -525,6 +627,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Awesome app, it definitely deserves to be shared widely with others 😁"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aplicación impresionante, definitivamente merece ser compartida ampliamente con otros 😁"
           }
         },
         "tr" : {
@@ -557,6 +665,12 @@
             "value" : "This App Makes Your Cheap Mouse Work Better Than Trackpad Gestures"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta Aplicación Hace que tu Ratón Barato Funcione Mejor que los Gestos del Trackpad"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -585,6 +699,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "This is the single greatest piece of software in Apple's history."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta es la pieza de software más grande en la historia de Apple."
           }
         },
         "tr" : {
@@ -617,6 +737,12 @@
             "value" : "This is the best mouse software on the Mac."
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este es el mejor software para el ratón en Mac."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -645,6 +771,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "This is great software and solved all my mouse issues."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este es un gran software y resolvió todos mis problemas con el ratón."
           }
         },
         "tr" : {
@@ -677,6 +809,12 @@
             "value" : "This software is amazing!"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Este software es increíble!"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -705,6 +843,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Thanks, the app is very cool"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gracias, la aplicación es muy genial"
           }
         },
         "tr" : {
@@ -737,6 +881,12 @@
             "value" : "SUPER NICE APPLICATION"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "APLICACIÓN SÚPER AGRADABLE"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -765,6 +915,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "It works perfectly with my mouse"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funciona perfectamente con mi ratón"
           }
         },
         "tr" : {
@@ -797,6 +953,12 @@
             "value" : "Thank you for the amazing app in Mac Mouse Fix. Just what I needed, no subscription and no bloat. Thank you so much!"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gracias por la increíble aplicación de Mac Mouse Fix. Es justo lo que necesitaba, sin suscripción y sin bloatware. ¡Muchísimas gracias!"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -825,6 +987,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Your tool is literally the only way how I can use macOS (with a mouse especially) without freaking out!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu herramienta es literalmente la única manera en que puedo usar macOS (especialmente con un ratón) ¡sin volverme loco!"
           }
         },
         "tr" : {
@@ -857,6 +1025,12 @@
             "value" : "Beautiful piece of libre software. Thank you for your contribution to the open source cause."
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hermosa pieza de software libre. Gracias por tu contribución a la causa del código abierto."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -885,6 +1059,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Thank you for this, i don't understand why apple didn't make this as default, like it's super intuitive doing gestures with the middle click."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gracias por esto, no entiendo por qué Apple no hizo esto por defecto, ya que es súper intuitivo hacer gestos con el clic central."
           }
         },
         "tr" : {
@@ -917,6 +1097,12 @@
             "value" : "I've been searching for a similar app for a long time, and finally found this one, thumbs up 👍."
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Llevaba mucho tiempo buscando una aplicación similar, y finalmente encontré esta, pulgares arriba 👍."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -945,6 +1131,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "You've made my superlight better than an mx master."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has hecho que mi superlight sea mejor que un mx master."
           }
         },
         "tr" : {
@@ -977,6 +1169,12 @@
             "value" : "Mac Mouse Fix is magical. I am absolutely blown away by how well-designed and user-friendly it is."
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix es mágico. Estoy absolutamente impresionado por lo bien diseñada y fácil de usar que es."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1005,6 +1203,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Amazing product! Absolutely love it! My Logitech trackball is like an extension of me now."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Producto increíble! ¡Me encanta! Mi trackball de Logitech es como una extensión de mí ahora."
           }
         },
         "tr" : {
@@ -1037,6 +1241,12 @@
             "value" : "Cannot imagine using my office Mac without this software. Real productivity booster paired with my evoluent vertical mouse which does not have a driver for Mac like they do for Windows."
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No puedo imaginar usar mi Mac de oficina sin este software. Un verdadero impulsor de la productividad emparejado con mi ratón vertical evoluent, que no tiene un controlador para Mac como sí lo tiene para Windows."
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1065,6 +1275,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Probably the best app on my Mac"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probablemente la mejor aplicación en mi Mac"
           }
         },
         "tr" : {
@@ -1097,6 +1313,12 @@
             "value" : "No other similar utility can compete"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ninguna otra utilidad similar puede competir"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1124,6 +1346,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "See Less"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver Menos"
           }
         },
         "tr" : {
@@ -1156,6 +1384,12 @@
             "value" : "See More"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver Más"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1184,6 +1418,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**{name}** in a Gumroad donation message"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** en un mensaje de donación en Gumroad"
           }
         },
         "tr" : {
@@ -1215,6 +1455,12 @@
             "value" : "**{name}** in an email"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** desde un correo electrónico"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1242,6 +1488,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**{name}** on GitHub"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** desde GitHub"
           }
         },
         "tr" : {
@@ -1273,6 +1525,12 @@
             "value" : "**{name}** in a LifeHacker article"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** en un artículo de LifeHacker"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1300,6 +1558,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**{name}** in a PayPal donation message"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** desde un mensaje de donación de PayPal"
           }
         },
         "tr" : {
@@ -1331,6 +1595,12 @@
             "value" : "**{name}** on Reddit"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** en Reddit"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1358,6 +1628,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**{name}** on Stack Exchange"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** desde Stack Exchange"
           }
         },
         "tr" : {
@@ -1389,6 +1665,12 @@
             "value" : "**{name}** in a YouTube comment"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** en un comentario de YouTube"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1416,6 +1698,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "**Thank you** to everyone sharing their appreciation and feedback over the years! Reading your nice messages is always motivating **:)**"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡**Gracias** a todos los que han compartido su aprecio y comentarios a lo largo de los años! Leer sus bonitos mensajes siempre es motivador **:)**"
           }
         },
         "tr" : {
@@ -1448,6 +1736,12 @@
             "value" : "Translated from English"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traducido del inglés"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1476,6 +1770,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Translated from Chinese"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Traducido del chino"
           }
         },
         "tr" : {

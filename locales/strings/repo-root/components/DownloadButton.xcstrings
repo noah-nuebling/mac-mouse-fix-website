@@ -17,6 +17,12 @@
             "value" : "Download"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descargar"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",

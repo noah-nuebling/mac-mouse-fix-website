@@ -17,6 +17,12 @@
             "value" : "This page is {localizationProgress} translated into {currentLocale}\nTo help translate, click [here]({url})!"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta página está traducida al {currentLocale} {localizationProgress}. ¡Para ayudar a traducir, haz clic [aquí]({url})!"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -47,6 +53,12 @@
             "value" : "Make Your $10 Mouse Better Than an Apple Trackpad!"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Haz Que Tu Ratón De $10 Sea Mejor Que Un Trackpad De Apple!"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "needs_review",
@@ -74,6 +86,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Make Your $10 Mouse Better Than an Apple Trackpad!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Haz Que Tu Ratón De $10 Sea Mejor Que Un Trackpad De Apple!"
           }
         },
         "tr" : {

@@ -17,6 +17,12 @@
             "value" : "Front Page"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Página Principal"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -44,6 +50,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "The page you're looking for can't be found."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La página que buscas no se encuentra."
           }
         },
         "tr" : {
