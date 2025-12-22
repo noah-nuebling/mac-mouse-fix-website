@@ -23,6 +23,12 @@
             "value" : "Página Principal"
           }
         },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Strona główna;"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -56,6 +62,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La página que buscas no se encuentra."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zgubiłeś się, pewnie dlatego że nie masz jeszcze Mac Magic Mouse. 😉;"
           }
         },
         "tr" : {

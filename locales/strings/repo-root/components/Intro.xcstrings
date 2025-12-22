@@ -23,6 +23,12 @@
             "value" : "Esta página está traducida al {currentLocale} {localizationProgress}. ¡Para ayudar a traducir, haz clic [aquí]({url})!"
           }
         },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ta strona jest przetłumaczona w {localizationProgress} na język {currentLocale}\nAby pomóc w tłumaczeniun kliknij [tutaj]({url})!;"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -59,6 +65,12 @@
             "value" : "¡Haz Que Tu Ratón De $10 Sea Mejor Que Un Trackpad De Apple!"
           }
         },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spraw by twoja myszka była lepsza niż gładzik od Apple!;"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "needs_review",
@@ -92,6 +104,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¡Haz Que Tu Ratón De $10 Sea Mejor Que Un Trackpad De Apple!"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spraw by twoja myszka była lepsza niż gładzik od Apple!;"
           }
         },
         "tr" : {

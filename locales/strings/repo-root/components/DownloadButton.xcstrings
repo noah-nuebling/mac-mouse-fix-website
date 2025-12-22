@@ -23,6 +23,12 @@
             "value" : "Descargar"
           }
         },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pobierz;"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",

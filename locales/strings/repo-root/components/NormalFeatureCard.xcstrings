@@ -23,6 +23,12 @@
             "value" : "Véalo en Acción"
           }
         },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobacz Mac Mouse Fix w akcji;"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -56,6 +62,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cerrar Vídeo"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zamknij wideo;"
           }
         },
         "tr" : {
