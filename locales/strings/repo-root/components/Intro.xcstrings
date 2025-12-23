@@ -26,7 +26,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ta strona jest przetłumaczona w {localizationProgress} na język {currentLocale}\nAby pomóc w tłumaczeniun kliknij [tutaj]({url})!;"
+            "value" : "Ta strona jest przetłumaczona w {localizationProgress} na język {currentLocale}\nAby pomóc w tłumaczeniun kliknij [tutaj]({url})!"
           }
         },
         "tr" : {
@@ -68,7 +68,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spraw by twoja myszka była lepsza niż gładzik od Apple!;"
+            "value" : "Spraw by twoja myszka była lepsza niż gładzik od Apple!"
           }
         },
         "tr" : {
@@ -109,7 +109,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spraw by twoja myszka była lepsza niż gładzik od Apple!;"
+            "value" : "Spraw by twoja myszka była lepsza niż gładzik od Apple!"
           }
         },
         "tr" : {
