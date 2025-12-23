@@ -26,7 +26,7 @@
       <!-- Spacer -->
       <div :class="['', videoPath ? 'h-[3.0rem]' : 'h-[2.75rem]']"></div>
       <!-- Expand button -->
-      <div v-if="videoPath" class="absolute h-fit mt-[1.4rem] left-[50%] translate-x-[-50%]">
+      <div v-if="videoPath" class="absolute h-fit w-max mt-[1.4rem] left-[50%] translate-x-[-50%]">
         <a class="card-sm w-full text-center sm:text-[1.0rem] text-[1.0rem] font-[400] text-gradient-to-l no-underline group-hover:cool-underline ">
           <!-- Expand -->
           <!-- Note: The play.circle and stop.circle images have blue-500 color. we use the --accent-rotate var to change the color. -->
