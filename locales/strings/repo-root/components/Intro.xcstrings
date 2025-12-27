@@ -29,6 +29,12 @@
             "value" : "Ta strona jest przetłumaczona w {localizationProgress} na język {currentLocale}\nAby pomóc w tłumaczeniun kliknij [tutaj]({url})!"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эта страница переведена на {currentLocale} на {localizationProgress}\nЧтобы помочь с переводом, нажмите [здесь]({url})!"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -71,6 +77,12 @@
             "value" : "Spraw by twoja myszka była lepsza niż gładzik od Apple!"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сделайте свою мышь за 10 долларов лучше, чем трекпад Apple!"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "needs_review",
@@ -110,6 +122,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Spraw by twoja myszka była lepsza niż gładzik od Apple!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сделайте свою мышь за 10 долларов лучше, чем трекпад Apple!"
           }
         },
         "tr" : {

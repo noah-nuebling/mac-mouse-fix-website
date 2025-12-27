@@ -28,6 +28,12 @@
             "value" : "Stworzone przez **Noah Nuebling**"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Создано **Ноа Нублингом**"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -67,6 +73,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dziękujemy za {dwn} pobranie!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спасибо за {dwn} загрузок!"
           }
         },
         "tr" : {

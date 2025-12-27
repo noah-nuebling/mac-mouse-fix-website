@@ -47,6 +47,12 @@
             "value" : "Przegląd"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обзор"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -86,6 +92,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Więcej znajdziesz na GitHub"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подробнее на GitHub"
           }
         },
         "tr" : {

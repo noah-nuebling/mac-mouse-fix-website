@@ -29,6 +29,12 @@
             "value" : "Strona główna"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Главная страница"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -68,6 +74,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zgubiłeś się, pewnie dlatego że nie masz jeszcze Mac Magic Mouse. 😉"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Страница, которую вы ищете, не найдена."
           }
         },
         "tr" : {

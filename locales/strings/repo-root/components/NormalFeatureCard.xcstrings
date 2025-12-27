@@ -29,6 +29,12 @@
             "value" : "Zobacz Mac Mouse Fix w akcji"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Посмотрите, как это работает"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -68,6 +74,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zamknij wideo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закрыть видео"
           }
         },
         "tr" : {

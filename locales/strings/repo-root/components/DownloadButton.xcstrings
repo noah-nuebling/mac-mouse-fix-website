@@ -29,6 +29,12 @@
             "value" : "Pobierz"
           }
         },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скачать"
+          }
+        },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
