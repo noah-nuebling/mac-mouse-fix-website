@@ -1,0 +1,53 @@
+html {
+}
+
+body {
+
+  height: calc(100vh - 30px);
+
+  background-color: #FFA500;
+}
+
+.content {
+
+  display: flex;
+  align-items: center;
+  justify-items: center;
+
+  /*max-width: 100%;*/
+  /*max-height: 100%;*/
+  /*max-height: 100vh;*/
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+}
+
+.img-cont {
+
+
+  width: 100%;
+  height: 100%;
+
+
+  margin: auto;
+
+
+  background-image: url("thankyou.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.img {
+  object-fit: contain;
+  max-width: 50%;
+
+  max-resolution: res;
+
+}
+
+.title {
+  font-family: Westfalia;
+}
