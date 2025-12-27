@@ -3140,7 +3140,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**{цена}** за приобретение"
+            "value" : "**{price}** за приобретение"
           }
         },
         "tr" : {
