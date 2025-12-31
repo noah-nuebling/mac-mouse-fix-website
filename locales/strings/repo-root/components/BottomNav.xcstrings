@@ -28,6 +28,12 @@
             "value" : "Stworzone przez **Noah Nuebling**"
           }
         },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Criado por **Noah Nuebling**"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -73,6 +79,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dziękujemy za {dwn} pobranie!"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obrigado por {dwn} downloads!"
           }
         },
         "ru" : {

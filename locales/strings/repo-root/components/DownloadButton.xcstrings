@@ -29,6 +29,12 @@
             "value" : "Pobierz"
           }
         },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baixar"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",

@@ -29,6 +29,12 @@
             "value" : "Ta strona jest przetłumaczona w {localizationProgress} na język {currentLocale}\nAby pomóc w tłumaczeniun kliknij [tutaj]({url})!"
           }
         },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta página está {localizationProgress} traduzida para {currentLocale}.\nPara ajudar na tradução, clique [aqui]({url})!"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -77,6 +83,12 @@
             "value" : "Spraw by twoja myszka była lepsza niż gładzik od Apple!"
           }
         },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deixe seu mouse de US$10 melhor que um Trackpad da Apple!"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -122,6 +134,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Spraw by twoja myszka była lepsza niż gładzik od Apple!"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deixe seu mouse de US$10 melhor que um Trackpad da Apple!"
           }
         },
         "ru" : {
