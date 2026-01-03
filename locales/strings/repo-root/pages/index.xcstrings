@@ -192,7 +192,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "É isso mesmo! O Mac Mouse Fix traz todos os recursos de um Trackpad da Apple — e mais — para o seu mouse de terceiros **preciso** e **ergonômico**. E todas as interações ficam tão **suaves** e **naturais** quanto em um Trackpad."
+            "value" : "É isso mesmo! O Mac Mouse Fix traz todos os recursos de um Trackpad da Apple para o seu mouse, tornando-o **preciso** e **ergonômico**. As interações ficam tão **suaves** e **naturais** quanto em um Trackpad."
           }
         },
         "ru" : {
@@ -298,7 +298,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Observação: o Mac Mouse Fix traz esses recursos de Trackpad para seu mouse de terceiros como descrito aqui somente se ele tiver pelo menos 5 botões. Normalmente são clique esquerdo, clique direito, clique da roda e 2 botões laterais. Se o mouse tiver menos de 5 botões, o Mac Mouse Fix ainda oferece muita funcionalidade e ótima experiência, mas alguns recursos ficam menos acessíveis. Em certos mouses feitos para drivers proprietários como o Logitech Options, o Mac Mouse Fix não reconhece todos os botões por enquanto. O Mac Mouse Fix atualmente não oferece suporte ao Apple Magic Mouse."
+            "value" : "Observação: um mouse de pelo menos 5 botões é necessário para que os recursos demonstrados nesse site funcionem com o Mac Mouse Fix em seu macOS. Normalmente são: clique esquerdo, clique direito, clique da roda e 2 botões laterais. Se o mouse tiver menos de 5 botões, o Mac Mouse Fix ainda oferecerá ótimas funcionalidades, mas alguns recursos ficarão menos acessíveis. Em certos mouses feitos para drivers proprietários como o Logitech Options, o Mac Mouse Fix não reconhece todos os botões (pelo menos por enquanto). O Mac Mouse Fix atualmente não oferece suporte ao Apple Magic Mouse."
           }
         },
         "ru" : {
@@ -351,7 +351,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Buscar e Visualização Rápida"
+            "value" : "Busca e Visualização Rápida"
           }
         },
         "ru" : {
@@ -405,7 +405,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "**Clique o botão 4** do mouse para buscar uma palavra no dicionário, pré-visualizar sites no Safari ou arquivos no Finder e muito mais.\n\nFunciona como tocar com 3 dedos ou dar um Force Touch em um Trackpad da Apple."
+            "value" : "**Clique no botão 4** do mouse para buscar uma palavra no dicionário, pré-visualizar sites no Safari ou arquivos no Finder e muito mais.\n\nFunciona como tocar com 3 dedos ou dar um Force Touch em um Trackpad da Apple."
           }
         },
         "ru" : {
@@ -511,7 +511,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mantenha o **botão 4** pressionado e **arraste** o mouse **para cima** para ver uma visão geral de janelas, apps e mesas abertas.\n\nFunciona como deslizar para cima com quatro dedos em um Trackpad da Apple."
+            "value" : "Mantenha o **botão 4** pressionado e **arraste** o mouse **para cima** para ter uma visão geral de janelas, apps e Espaços abertos.\n\nFunciona como deslizar para cima com quatro dedos em um Trackpad da Apple."
           }
         },
         "ru" : {
@@ -564,7 +564,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mover entre mesas"
+            "value" : "Mover entre Mesas"
           }
         },
         "ru" : {
@@ -776,7 +776,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mostrar a mesa"
+            "value" : "Exibir a Mesa"
           }
         },
         "ru" : {
@@ -829,7 +829,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mantenha o **botão 4** pressionado e **role para cima** para mostrar a mesa.\n\nFunciona como afastar o polegar e três dedos em um Trackpad da Apple."
+            "value" : "Mantenha o **botão 4** pressionado e **role para cima** para mostrar a Mesa.\n\nFunciona como afastar o polegar e três dedos em um Trackpad da Apple."
           }
         },
         "ru" : {
@@ -1625,7 +1625,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rolar com um mouse de terceiros no macOS pode ser **truncado** e **difícil de controlar**. Mas não mais! Experimente um algoritmo de rolagem **refinado**, baseado em **inércia**, que deixa a navegação **natural** e **sem esforço**."
+            "value" : "Um mouse de terceiros no macOS pode ser difícil de controlar, **mas isso muda agora!** Experimente um algoritmo de rolagem **refinado**, baseado em **inércia**, que deixa a navegação **natural** e **sem esforço**."
           }
         },
         "ru" : {
@@ -3005,7 +3005,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quero que o Mac Mouse Fix seja um software que você **sinta orgulho** de instalar. Busco oferecê-lo o mais **barato** possível, para que seja um ótimo negócio e acessível a todos. No fim, espero deixar este pequeno canto do mundo um pouco mais **legal** e agradável!"
+            "value" : "Quero que o Mac Mouse Fix seja um software que você **sinta orgulho** de instalar. Busco oferecê-lo o mais **barato** possível para que seja acessível a todos. Espero deixar a sua rotina mais **legal** e agradável!"
           }
         },
         "ru" : {
