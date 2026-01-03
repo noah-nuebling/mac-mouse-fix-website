@@ -1,0 +1,117 @@
+<!-- 
+	
+	See Paddle docs 
+
+	Info on how to test with & without sandbox:
+	https://www.paddle.com/help/start/set-up-paddle/how-do-i-test-my-checkout-integration
+
+  Credit Cards for Sandbox: https://developer.paddle.com/concepts/payment-methods/credit-debit-card
+
+
+--> 
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+	<script type="text/javascript">
+		Paddle.Environment.set('sandbox');
+		Paddle.Setup({ 
+			/* 
+			On tokens:
+			Client-side token: 																			live_1f3fdc81f7e49dcb8dcf7baae87
+			Sandbox - Client-side token: 														test_6090d641c4ff107629e6d50fe86
+			*/
+			token: 'test_6090d641c4ff107629e6d50fe86',
+			eventCallback: (event) => { handlePaddleEvent(event) }
+		});
+	</script>
+</head>
+
+<script>
+
+	function handlePaddleEvent(event) {
+		console.debug(`Received Paddle event: ${event.name}: ${objectDescription(event, null, 2)}`)
+
+		if (event.name == 'checkout.closed') {
+			window.open("/", "_self"); // Navigate to domain root. This happens when the user clicks the little 'x' button. Ideally I'd like to hide that one.
+		}
+
+	}
+	
+	function openPaddleOverlay() {
+	
+		Paddle.Checkout.open({ 					// See the docs at: https://developer.paddle.com/paddlejs/methods/paddle-checkout-open
+			customData: null,							// Idk
+			discountCode: null, 					// Prepopulate with discount.
+			settings: {
+				displayMode: 'overlay',			// Overlay is simpler. Good example of inline checkout at https://my.setapp.com/activate
+
+				frameTarget: null, 					// I think only relevant for inline, not overlay
+				frameStyle: null, 					// I think only relevant for inline, not overlay
+				frameInitialHeight: null, 	// I think only relevant for inline, not overlay
+				
+				theme: null, 								// There doesn't seem to be an auto option. Defaults to light. Dark looks fresher. Edit: But light seems more 'trustworthy' I think.
+				successUrl: null, 					// If this is null, Paddle will display a simple success message saying they emailed you the order details. For Swish, the email contains download link, license key and custom instructions, which is all we want I think.
+				locale: null, 							// Null so that it automatically detects browser locale
+				//showAddDiscounts: null, 		// At the moment, discount field doesn't seem to show up when we set this to null. (We don't have any discount codes at the moment.) (In sandbox environment setting this to null leads to error atm.)
+
+				allowLogout: false, 				// This hides the little 'Not you?' button next to your email on the second screen. Very small detail but I think it's slightly cleaner without this.
+				showAddTaxId: true, 				// The use case for this is very niche but can avoid VAT for some businesses, so why not. Documented here: https://www.paddle.com/help/sell/tax/how-paddle-handles-vat-on-your-behalf
+			
+				allowedPaymentMethods: null, 	// Just setting this to null seems to allow everything from my testing. Although I can't get alipay to show up even when I connect a VPN to China mainland. Edit: That's because Alipay is in early access and you have to apply for it. See https://developer.paddle.com/concepts/payment-methods/alipay
+				//[
+					//"alipay",
+					// "apple_pay",
+					// "bancontact",
+					//"card",
+					//"google_pay",
+					// "ideal",
+					//"paypal",
+				//],
+			}, 
+			items: [
+
+				{
+					priceId: 'pri_01hnp1bmt8cs73d49s8v64wtjg', // $1.99 Base Price (Sandbox)
+				},
+//				{
+//					priceId: 'pri_01hnp1e1d7cm1g1gqgsq738s0y', // Generous Contributor (Sandbox)
+//				},
+//				{
+//					priceId: 'pri_01hnp1hc8jgpv3qfw0w9v94p7a', // Very Generous Contributor (Sandbox)
+//				},
+
+
+				/*
+    				Notes:
+				- We'd like to include the milkshakes with quantity 0 by default and then let the user optionally increase them, but adding a product with quantity 0 doesn't seem to be possible. We'd have to build a custom UI to pick the milkshakes / options. Not sure if we should do that now.
+	 			*/
+
+
+				//{
+				//	priceId: 'pri_01hkgqsaq3zyceen47rwmqfg86', // $1.99 base price
+				//	quantity: 1
+				//},
+				// {
+				// 	priceId: 'pri_01hnnj7tz0dcqxeb6wwdzvbx8w', // Milkshake (S)
+				// },
+				// {
+				// 	priceId: 'pri_01hnnj5mmxpmcsyh451xvhjjn6', // Milkshake (L)
+				// }
+				
+				//{
+					//priceId: 'pri_01hkgqvw6csr71ahaep1rr389c', // Subscription business pricing
+					//quantity: 1
+				//}
+			]
+		})
+
+	}
+</script>
+
+<body onload=openPaddleOverlay()>
+
+</body>
+</html>
