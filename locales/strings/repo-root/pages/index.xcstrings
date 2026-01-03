@@ -44,7 +44,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Mac'ler bir {dev} ile en iyi halindedir."
+            "value" : "Mac'ler bir {dev}\nile en iyi halindedir."
           }
         },
         "zh-Hans" : {
@@ -1531,7 +1531,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "{accent}\nAynı Su Gibi."
+            "value" : "{accent}.\nAynı Su Gibi."
           }
         },
         "zh-Hans" : {
@@ -2433,7 +2433,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Muhteşem bir şekilde {accent2} {accent} Sezgisel."
+            "value" : "Muhteşem bir şekilde {accent2}\n{accent} Sezgisel."
           }
         },
         "zh-Hans" : {
@@ -2699,7 +2699,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Farenize bir aksiyon eklemek için:\n\n1. İmlecinizi '+' alanının içine **getirin**. (Aşağıda gösterildiği üzere)\n2. Atama yapamak istediğiniz butona **basın**.\nAynı zamanda iki tık, tıkla ve kaydır ve daha fazlasını yapabilirsiniz!>\n3. Bir aksiyon **seçin**, örneğin Akıllı Yakınlaştırma.\n\nBu kadar!"
+            "value" : "Farenize bir aksiyon eklemek için:\n\n1. İmlecinizi '+' alanının içine **getirin**. (Aşağıda gösterildiği üzere)\n2. Atama yapamak istediğiniz butona **basın**.\nAynı zamanda iki tık, tıkla ve kaydır ve daha fazlasını yapabilirsiniz!\n3. Bir aksiyon **seçin**, örneğin Akıllı Yakınlaştırma.\n\nBu kadar!"
           }
         },
         "zh-Hans" : {
@@ -2910,7 +2910,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Muhteşem Yazılım.\nMuhteşem {accent2}"
           }
         },
@@ -3017,7 +3017,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "Mac Mouse Fix'i ** harika** hissedebileceğiniz bir yazılım haline getirmek için çabalıyorum. Mümkün olduğunca **düşük** bir fiyata da sunmak istiyorum, böylece harika bir fırsat yakaladığınızı hissettirebilirken herkesin de alabilmesini destekliyorum. Ve nihayetinde, dünyanın bu küçük köşesini biraz daha **harika** ve güzel bir yer haline getirmeyi umuyorum!"
+            "value" : "Mac Mouse Fix'i **harika** hissedebileceğiniz bir yazılım haline getirmek için çabalıyorum. Mümkün olduğunca **düşük** bir fiyata da sunmak istiyorum, böylece harika bir fırsat yakaladığınızı hissettirebilirken herkesin de alabilmesini destekliyorum. Ve nihayetinde, dünyanın bu küçük köşesini biraz daha **harika** ve güzel bir yer haline getirmeyi umuyorum!"
           }
         },
         "zh-Hans" : {
@@ -3336,7 +3336,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "needs_review",
-            "value" : "... Muhteşem **Fiyat***"
+            "value" : "... Muhteşem **Fiyat**"
           }
         },
         "zh-Hans" : {
@@ -3389,7 +3389,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fiyat için not: {price} fiyatı alanınızda ödemeniz gereken yerel vergileri içermemektedir. Toplam fiyatı öğrenmek için [satın alma sayfasına]({urlCheckoutPage}) gitmeniz gerekmektedir. Eğer Gumroad.com üzerinden PayPal ile Euro dışında bir döviz ile ödeme yapacaksanız PayPal ek olarak %4.5 döviz çeviri ücreti yansıtacaktır.\n\nBu ek ödemeleri karışıklığı önlemek ve basitleştirmek için fiyatta belirtmek istiyorum ama Gumroad.com'daki limitlemeler sebebiyle bunu yapmam şu anda mümkün değil. Umuyorum ki fiyat hala iyi ve ucuzdur."
+            "value" : "Bilgilendirme: {price} fiyatı alanınızda ödemeniz gereken yerel vergileri içermemektedir. Toplam fiyatı öğrenmek için [satın alma sayfasına]({urlCheckoutPage}) gitmeniz gerekmektedir. Eğer Gumroad.com üzerinden PayPal ile Euro dışında bir döviz ile ödeme yapacaksanız PayPal ek olarak %4,5 döviz çeviri ücreti yansıtacaktır.\n\nBu ek ödemeleri karışıklığı önlemek ve basitleştirmek için fiyatta belirtmek istiyorum ama Gumroad.com'daki limitlemeler sebebiyle bunu yapmam şu anda mümkün değil. Umuyorum ki fiyat sizler için hala iyi ve uygun kalır."
           }
         },
         "zh-Hans" : {
