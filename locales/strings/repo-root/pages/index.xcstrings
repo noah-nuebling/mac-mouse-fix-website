@@ -55,8 +55,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mac'ler bir {dev}\nile en iyi halindedir."
+            "state" : "translated",
+            "value" : "Mac'ler bir {dev} ile en iyi halindedir."
           }
         },
         "uk" : {
@@ -287,7 +287,7 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Teknoloji gelişiyor. Mac Mouse Fix bir Apple İzleme Dörtgeninin tüm özelliklerini ve daha fazlasını **hassas** ve **ergonomik** üçüncü parti farenize getirir ve tüm hareketler aynı bir izleme dörtgeni kullanırmışcasına **akıcı** ve **doğal** olur."
           }
         },
@@ -1980,8 +1980,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "{accent}.\nAynı Su Gibi."
+            "state" : "translated",
+            "value" : "{accent}\nYağ Gibi Kaygan."
           }
         },
         "uk" : {
@@ -2123,7 +2123,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "macOS üzerinde üçüncü parti bir fare ile kaydırma aksiyonu **teklermiş gibi** ve **zor bir şekilde kontrol ediliyor**. Artık öyle değil! **Zarif** bir şekilde **hızlanma tabanlı** kaydırma algoritması ile bilgisayarınızda gezinmek artık **eforsuz** ve **doğal**."
+            "value" : "macOS üzerinde üçüncü parti bir fare ile kaydırma eylemi **teklermiş gibi** ve **zor bir şekilde kontrol ediliyor**. Artık öyle değil! **Zarif** bir şekilde **hızlanma tabanlı** kaydırma algoritması ile bilgisayarınızda gezinmek artık **eforsuz** ve **doğal**."
           }
         },
         "uk" : {
@@ -2603,7 +2603,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "*Akıcılık: Kapalı* ile kaydırma macOS'de normalde nasık ise aynı o şekildedir ve herhangi bir animasyon veya akıcılık bulundurmaz Fakat, normalde **bir tık kaydırma aksiyonu ile birkaç piksel** yerine daha tutarlı ve rahat olan **bir tık kaydırma aksiyonu ile birkaç satır** kaydırılır.\n\nBu seçenek Windows, Linux ve eski macOS sürümlerindeki kaydırma gibi çalışır."
+            "value" : "*Akıcılık: Kapalı* ile kaydırma macOS'de normalde nasık ise aynı o şekildedir ve herhangi bir animasyon veya akıcılık bulundurmaz Fakat, normalde **bir tık kaydırma eylemi ile birkaç piksel** yerine daha tutarlı ve rahat olan **bir tık kaydırma eylemi ile birkaç satır** kaydırılır.\n\nBu seçenek Windows, Linux ve eski macOS sürümlerindeki kaydırma gibi çalışır."
           }
         },
         "uk" : {
@@ -3146,8 +3146,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Muhteşem bir şekilde {accent2}\n{accent} Sezgisel."
+            "state" : "translated",
+            "value" : "Muhteşem bir şekilde {accent2}\n{accent} bir şekilde Sezgisel."
           }
         },
         "uk" : {
@@ -3425,7 +3425,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Farenize **aksiyonlar ekleyin**"
+            "value" : "Farenize **eylemler ekleyin**"
           }
         },
         "uk" : {
@@ -3490,8 +3490,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Farenize bir aksiyon eklemek için:\n\n1. İmlecinizi '+' alanının içine **getirin**. (Aşağıda gösterildiği üzere)\n2. Atama yapamak istediğiniz butona **basın**.\nAynı zamanda iki tık, tıkla ve kaydır ve daha fazlasını yapabilirsiniz!\n3. Bir aksiyon **seçin**, örneğin Akıllı Yakınlaştırma.\n\nBu kadar!"
+            "state" : "translated",
+            "value" : "Farenize bir eylem eklemek için:\n\n1. İmlecinizi '+' alanının içine **getirin**. (Aşağıda gösterildiği üzere)\n2. Atama yapamak istediğiniz butona **basın**.\nAynı zamanda iki tık, tıkla ve kaydır ve daha fazlasını yapabilirsiniz!\n3. Bir eylem **seçin**, örneğin Akıllı Yakınlaştırma.\n\nBu kadar!"
           }
         },
         "uk" : {
@@ -3892,8 +3892,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Mac Mouse Fix'i **harika** hissedebileceğiniz bir yazılım haline getirmek için çabalıyorum. Mümkün olduğunca **düşük** bir fiyata da sunmak istiyorum, böylece harika bir fırsat yakaladığınızı hissettirebilirken herkesin de alabilmesini destekliyorum. Ve nihayetinde, dünyanın bu küçük köşesini biraz daha **harika** ve güzel bir yer haline getirmeyi umuyorum!"
+            "state" : "translated",
+            "value" : "Mac Mouse Fix'i ** harika** hissedebileceğiniz bir yazılım haline getirmek için çabalıyorum. Mümkün olduğunca **düşük** bir fiyata da sunmak istiyorum, böylece harika bir fırsat yakaladığınızı hissettirebilirken herkesin de alabilmesini destekliyorum. Ve nihayetinde, dünyanın bu küçük köşesini biraz daha **harika** ve güzel bir yer haline getirmeyi umuyorum!"
           }
         },
         "uk" : {
@@ -4295,8 +4295,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "... Muhteşem **Fiyat**"
+            "state" : "translated",
+            "value" : "... Muhteşem **Fiyat***"
           }
         },
         "uk" : {
@@ -4367,7 +4367,7 @@
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bilgilendirme: {price} fiyatı alanınızda ödemeniz gereken yerel vergileri içermemektedir. Toplam fiyatı öğrenmek için [satın alma sayfasına]({urlCheckoutPage}) gitmeniz gerekmektedir. Eğer Gumroad.com üzerinden PayPal ile Euro dışında bir döviz ile ödeme yapacaksanız PayPal ek olarak %4,5 döviz çeviri ücreti yansıtacaktır.\n\nBu ek ödemeleri karışıklığı önlemek ve basitleştirmek için fiyatta belirtmek istiyorum ama Gumroad.com'daki limitlemeler sebebiyle bunu yapmam şu anda mümkün değil. Umuyorum ki fiyat sizler için hala iyi ve uygun kalır."
+            "value" : "Fiyat için not: {price} fiyatı alanınızda ödemeniz gereken yerel vergileri içermemektedir. Toplam fiyatı öğrenmek için [satın alma sayfasına]({urlCheckoutPage}) gitmeniz gerekmektedir. Eğer Gumroad.com üzerinden PayPal ile Euro dışında bir döviz ile ödeme yapacaksanız PayPal ek olarak %4.5 döviz çeviri ücreti yansıtacaktır.\n\nBu ek ödemeleri karışıklığı önlemek ve basitleştirmek için fiyatta belirtmek istiyorum ama Gumroad.com'daki limitlemeler sebebiyle bunu yapmam şu anda mümkün değil. Umuyorum ki fiyat hala iyi ve ucuzdur."
           }
         },
         "uk" : {
