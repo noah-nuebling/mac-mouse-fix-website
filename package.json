@@ -13,20 +13,20 @@
         "dev": "python3 ./scripts/preprocess.py && nuxt dev"
     },
     "devDependencies": {
-        "@nuxt/devtools": "^1.5.0",
-        "@nuxtjs/robots": "^4.1.7",
-        "@nuxtjs/sitemap": "^5.3.5",
-        "@nuxtjs/tailwindcss": "^6.12.1",
-        "@types/node": "^22.5.5",
-        "nuxt": "^3.13.2"
+        "@nuxt/devtools": "1.5.0",
+        "@nuxtjs/robots": "4.1.7",
+        "@nuxtjs/sitemap": "5.3.5",
+        "@nuxtjs/tailwindcss": "6.12.1",
+        "@types/node": "22.5.5",
+        "nuxt": "3.13.2"
     },
     "dependencies": {
-        "@nuxt/image": "^1.8.0",
-        "@pinia/nuxt": "^0.5.4",
-        "@types/markdown-it": "^14.1.2",
-        "assert": "^2.1.0",
-        "gsap": "^3.12.5",
-        "markdown-it": "^14.1.0",
-        "node-html-parser": "^6.1.13"
+        "@nuxt/image": "1.8.0",
+        "@pinia/nuxt": "0.5.4",
+        "@types/markdown-it": "14.1.2",
+        "assert": "2.1.0",
+        "gsap": "3.12.5",
+        "markdown-it": "14.1.0",
+        "node-html-parser": "6.1.13"
     }
 }
