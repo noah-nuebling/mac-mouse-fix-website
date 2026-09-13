@@ -23,6 +23,12 @@
             "value" : "Entre todas las aplicaciones que intentan solucionar este problema, ¡esta es indudablemente la mejor!"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この問題を解決しようとするアプリの中でも、これは間違いなく最高です！"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -75,6 +81,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix es literalmente todo lo que podrías desear en tu experiencia de usar un ratón con OSX."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix は、macOSでマウスを使うときに求めるすべてが詰まっていると言っても過言ではありません。"
           }
         },
         "pl" : {
@@ -131,6 +143,12 @@
             "value" : "¡Funciona de maravilla y es fácil de configurar!"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "非常に快適に動作しますし、設定も簡単です！"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -183,6 +201,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Este es el mejor software para el ratón en Mac."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "これこそMacで使える最高のマウスソフトです。"
           }
         },
         "pl" : {
@@ -239,6 +263,12 @@
             "value" : "Gracias por la increíble aplicación de Mac Mouse Fix. Es justo lo que necesitaba, sin suscripción y sin bloatware. ¡Muchísimas gracias!"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix という素晴らしいアプリを開発してくれてありがとうございます。これは、まさに私が求めていたもので、サブスクリプションも不要、余計な機能もありません。本当に感謝しています！"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -291,6 +321,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix es mágico. Estoy absolutamente impresionado por lo bien diseñada y fácil de usar que es."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix は魔法のようです。その優れたデザインと使いやすさに、心底驚かされました。"
           }
         },
         "pl" : {
@@ -347,6 +383,12 @@
             "value" : "No puedo imaginar usar mi Mac de oficina sin este software. Un verdadero impulsor de la productividad emparejado con mi ratón vertical evoluent, que no tiene un controlador para Mac como sí lo tiene para Windows."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このソフトなしで職場のMacを使うことなど想像もできません。Windows用にはドライバーがあるのにMac用にはない、私の Evoluentバーティカルマウスと組み合わせると、仕事の効率が劇的に上がります。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -399,6 +441,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Probablemente la mejor aplicación en mi Mac"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "おそらく、私のMacに入っているアプリの中で一番良いです。"
           }
         },
         "pl" : {
@@ -455,6 +503,12 @@
             "value" : "Ninguna otra utilidad similar puede competir"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "これに並ぶユーティリティソフトは他にありません。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -507,6 +561,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Una aplicación imprescindible para cualquier usuario de Mac con un ratón."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Macでマウスを使う人なら必須のアプリです。"
           }
         },
         "pl" : {
@@ -563,6 +623,12 @@
             "value" : "Esto casi ha duplicado mi productividad."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "これのおかげで作業効率がほぼ2倍になりました。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -615,6 +681,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Me encanta tanto esta aplicación, ¡es imprescindible!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このアプリが大好きで、欠かせない存在です！"
           }
         },
         "pl" : {
@@ -671,6 +743,12 @@
             "value" : "Tu aplicación es increíble y absolutamente vital para mi flujo de trabajo."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "素晴らしいアプリですね。私のワークフローには絶対に欠かせません。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -723,6 +801,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¡Mac Mouse Fix es el mejor de su clase!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fixは、このジャンルで最高のツールです！"
           }
         },
         "pl" : {
@@ -779,6 +863,12 @@
             "value" : "El desplazamiento vertical es simplemente impresionante"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "垂直スクロールの操作感が本当に最高です。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -831,6 +921,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hacer clic y arrastrar para cambiar de pantalla se siente tan nativo."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "クリック＆ドラッグで画面を切り替える操作が、まるで標準機能のように自然です。"
           }
         },
         "pl" : {
@@ -887,6 +983,12 @@
             "value" : "Llevaba tiempo queriendo deshacerme de mi Magic Mouse y, gracias a tu aplicación, ¡puedo hacerlo!"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ずっとMagic Mouseを卒業したいと思っていたのですが、このアプリのおかげでそれが叶いました！"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -939,6 +1041,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Recomiendo Mac Mouse Fix, honestamente es la aplicación más barata, simple y mejor codificada que he visto hasta ahora."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fixを強くおすすめします。正直言って、今まで使った中で一番安価でシンプル、かつ作りがしっかりしたアプリです。"
           }
         },
         "pl" : {
@@ -995,6 +1103,12 @@
             "value" : "Gracias, me salvó de comprar un ratón de Apple"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ありがとう。おかげでマウスを買い直さずに済みました。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1047,6 +1161,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La interfaz de usuario en la V2 es fantástica y muy intuitiva."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バージョン2のUIは素晴らしく、とても直感的ですね。"
           }
         },
         "pl" : {
@@ -1103,6 +1223,12 @@
             "value" : "Pasé la última semana sin ella y todo mi flujo de trabajo se interrumpió. Gracias por una aplicación tan brillante."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先週このアプリなしで過ごしたのですが、作業効率がすっかり落ちてしまいました。こんなに素晴らしいアプリを作ってくれてありがとう。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1155,6 +1281,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Realmente aprecio la sencillez que aporta."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このアプリがもたらしてくれるシンプルさに、心から感謝しています。"
           }
         },
         "pl" : {
@@ -1211,6 +1343,12 @@
             "value" : "Después de cambiar a un ratón, probé software como SteerMouse, que recibió muchas recomendaciones e incluso es de pago, y finalmente descubrí que este software satisface mis necesidades a la perfección, cada función es muy útil, ¡y el rendimiento es muy bueno!"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マウスに切り替えてから、評判が良く有料のSteerMouse など様々なソフトウェアを試してみましたが、最終的にこのソフトが自分の需要に完璧に合っていると確信しました。すべての機能が非常に有益で、動作も非常に快適です！"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1263,6 +1401,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aplicación impresionante, definitivamente merece ser compartida ampliamente con otros 😁"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "素晴らしいアプリです。ぜひ他の人にも広く共有されるべきですね😁"
           }
         },
         "pl" : {
@@ -1319,6 +1463,12 @@
             "value" : "Esta Aplicación Hace que tu Ratón Barato Funcione Mejor que los Gestos del Trackpad"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このアプリのおかげで、安価なマウスでもトラックパッドのジェスチャー以上の操作が可能になりました。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1371,6 +1521,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Esta es la pieza de software más grande en la historia de Apple."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appleの歴史上、最も優れたソフトウェアと言っても過言ではありません。"
           }
         },
         "pl" : {
@@ -1427,6 +1583,12 @@
             "value" : "Este es un gran software y resolvió todos mis problemas con el ratón."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "素晴らしいソフトウェアです。マウスに関する悩みがすべて解決しました。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1479,6 +1641,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¡Este software es increíble!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このソフトウェアは素晴らしいです！"
           }
         },
         "pl" : {
@@ -1535,6 +1703,12 @@
             "value" : "Gracias, la aplicación es muy genial"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ありがとうございます、とてもクールなアプリですね。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1587,6 +1761,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "APLICACIÓN SÚPER AGRADABLE"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最高に素敵なアプリケーションです。"
           }
         },
         "pl" : {
@@ -1643,6 +1823,12 @@
             "value" : "Funciona perfectamente con mi ratón"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マウスでの動作も完璧です。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1695,6 +1881,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tu herramienta es literalmente la única manera en que puedo usar macOS (especialmente con un ratón) ¡sin volverme loco!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このツールは、私がmacOS（特にマウスを使用する際）でイライラせずに操作できる、文字通り唯一の方法です！"
           }
         },
         "pl" : {
@@ -1751,6 +1943,12 @@
             "value" : "Hermosa pieza de software libre. Gracias por tu contribución a la causa del código abierto."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オープンソースへの貢献に感謝します。素晴らしいフリーソフトウェアをありがとうございます。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1803,6 +2001,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gracias por esto, no entiendo por qué Apple no hizo esto por defecto, ya que es súper intuitivo hacer gestos con el clic central."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ありがとうございます。なぜAppleが最初から標準機能にしなかったのか理解できません。ホイールクリックを使ったジェスチャー操作はすごく直感的です。"
           }
         },
         "pl" : {
@@ -1859,6 +2063,12 @@
             "value" : "Llevaba mucho tiempo buscando una aplicación similar, y finalmente encontré esta, pulgares arriba 👍."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ずっと似たようなアプリを探していましたが、ようやく見つけました。最高です！👍"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1911,6 +2121,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Has hecho que mi superlight sea mejor que un mx master."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "おかげで、私のSuperlightがMX Masterよりも使い心地が良くなりました。"
           }
         },
         "pl" : {
@@ -1967,6 +2183,12 @@
             "value" : "¡Producto increíble! ¡Me encanta! Mi trackball de Logitech es como una extensión de mí ahora."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "素晴らしい製品をありがとうございます！本当に気に入っています！私のロジクールのトラックボールが、今や体の一部のような感覚です。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2018,6 +2240,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ver Menos"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "折りたたむ"
           }
         },
         "pl" : {
@@ -2074,6 +2302,12 @@
             "value" : "Ver Más"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "もっと見る"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2126,6 +2360,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}** en un mensaje de donación en Gumroad"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**（Gumroadの寄付メッセージ）"
           }
         },
         "pl" : {
@@ -2181,6 +2421,12 @@
             "value" : "**{name}** desde un correo electrónico"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**（メール）"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2232,6 +2478,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}** desde GitHub"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**（GitHub）"
           }
         },
         "pl" : {
@@ -2287,6 +2539,12 @@
             "value" : "**{name}** en un artículo de LifeHacker"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**（LifeHacker記事）"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2338,6 +2596,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}** desde un mensaje de donación de PayPal"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**（PayPalの送金メッセージ）"
           }
         },
         "pl" : {
@@ -2393,6 +2657,12 @@
             "value" : "**{name}** en Reddit"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**（Reddit）"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2444,6 +2714,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}** desde Stack Exchange"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**（Stack Exchange）"
           }
         },
         "pl" : {
@@ -2499,6 +2775,12 @@
             "value" : "**{name}** en un comentario de YouTube"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}**（YouTubeコメント）"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2550,6 +2832,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¡**Gracias** a todos los que han compartido su aprecio y comentarios a lo largo de los años! Leer sus bonitos mensajes siempre es motivador **:)**"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "長年にわたり感謝の言葉やフィードバックを寄せてくださった皆さん、**ありがとうございます！** 皆さんからの温かいメッセージを読むたびに、いつも励みになっています**(^^)**"
           }
         },
         "pl" : {
@@ -2606,6 +2894,12 @@
             "value" : "Traducido del inglés"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "英語からの翻訳"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2658,6 +2952,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Traducido del chino"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "中国語からの翻訳"
           }
         },
         "pl" : {

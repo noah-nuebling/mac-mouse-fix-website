@@ -23,6 +23,12 @@
             "value" : "Página Principal"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "トップページ"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -74,6 +80,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La página que buscas no se encuentra."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お探しのページは見つかりませんでした。"
           }
         },
         "pl" : {

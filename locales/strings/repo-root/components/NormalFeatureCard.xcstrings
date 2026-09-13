@@ -23,6 +23,12 @@
             "value" : "Véalo en Acción"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "実際の動作を見る"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -74,6 +80,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cerrar Vídeo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "動画を閉じる"
           }
         },
         "pl" : {

@@ -23,6 +23,12 @@
             "value" : "Los Mac Son Mejores\nCon Un {dev}"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "{dev}で、Mac を最高に。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "needs_review",
@@ -76,6 +82,12 @@
             "value" : "**Trackpad**"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**トラックパッド**"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -127,6 +139,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**Ratón**"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**マウス**"
           }
         },
         "pl" : {
@@ -183,6 +201,12 @@
             "value" : "Los tiempos cambian. Mac Mouse Fix lleva todas las funciones de un Trackpad de Apple —y más— a tu ratón de terceros **preciso** y **ergonómico**. Y todas las interacciones se sienten tan **fluidas** y **naturales** como en un Trackpad."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "その通り！Mac Mouse FixはAppleトラックパッドのすべての機能（さらにはそれ以上の機能）を、お手持ちの**高精度**で**エルゴノミック**なマウスに提供します。その操作感は、まさにトラックパッドのように**滑らか**で**自然**そのものです。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "needs_review",
@@ -234,6 +258,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**Gestos de Trackpad** que Mac Mouse Fix lleva a tu ratón"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fixが実現する、マウスでの**トラックパッドジェスチャー**\n"
           }
         },
         "pl" : {
@@ -289,6 +319,12 @@
             "value" : "Nota: Mac Mouse Fix puede llevar estas funciones de Trackpad a tu ratón de terceros, como se describe aquí, solo si tu ratón tiene al menos 5 botones. Estos 5 botones suelen ser clic izquierdo, clic derecho, clic de la rueda del ratón y 2 botones laterales. Si tu ratón tiene menos de 5 botones, Mac Mouse Fix aun así proporciona una rica funcionalidad y una gran experiencia, pero algunas funciones serán menos fáciles de acceder en comparación con un ratón de 5 botones. En ciertos ratones diseñados para ser utilizados con software de controlador propietario como Logitech Options, Mac Mouse Fix no puede reconocer todos los botones en este momento. Mac Mouse Fix actualmente no es compatible con el Apple Magic Mouse."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ご注意：ここで紹介しているトラックパッドの機能をフルに活用するには、5ボタン以上のマウスが必要です。一般的な5ボタンマウスとは、左・右クリック、ホイールクリック、そして2つのサイドボタンを備えたものを指します。ボタンが5つ未満のマウスでも、Mac Mouse Fixによって豊富な機能と優れた操作感を得られますが、5ボタンマウスに比べると一部の機能へのアクセス性は限定的になります。\n\nまた、Logitech Optionsなどの専用ドライバを必要とする一部のマウスでは、現時点ですべてのボタンを認識できない場合があります。なお、現時点ではApple Magic Mouseには対応していません。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -340,6 +376,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mira hacia arriba y mira rápido"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「調べる」とクイックルック"
           }
         },
         "pl" : {
@@ -396,6 +438,12 @@
             "value" : "**Haz clic en el botón 4** de tu ratón para buscar una palabra en el diccionario, previsualizar sitios web en Safari o archivos en el Finder, y más.\n\nFunciona exactamente igual que tocar con 3 dedos o hacer clic forzado en un Apple Trackpad."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マウスの**ボタン4をクリック**すると、辞書で単語を調べたり、SafariでのウェブサイトやFinderでのファイルをプレビューしたり、さまざまなことが可能です。\n\nこれは、Appleトラックパッドでの「3本指タップ」や「強めのクリック」とまったく同じように動作します。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -444,6 +492,12 @@
           }
         },
         "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mission Control"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mission Control"
@@ -502,6 +556,12 @@
             "value" : "Mantén pulsado el **botón 4** de tu ratón, luego **arrastra** el ratón **hacia arriba** para ver un resumen de tus ventanas, aplicaciones y escritorios abiertos.\n\nFunciona exactamente igual que deslizar hacia arriba con cuatro dedos en un Apple Trackpad."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マウスの**ボタン4**を長押ししながらマウスを**上**へ**ドラッグ**すると、開いているウィンドウ、アプリケーション、およびデスクトップの全体像を表示します。\n\nこれは、Appleトラックパッドで「4本指で上にスワイプ」したときとまったく同じように動作します。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -553,6 +613,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Moverse entre escritorios"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "デスクトップ間を移動"
           }
         },
         "pl" : {
@@ -608,6 +674,12 @@
             "value" : "Mantén pulsado el **botón 4** de tu ratón, luego **arrastra** el ratón **hacia la izquierda** o **hacia la derecha** para moverte a otro escritorio o aplicación a pantalla completa.\n\nFunciona exactamente igual que deslizar hacia la izquierda o hacia la derecha con cuatro dedos en un Apple Trackpad."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マウスの**ボタン4**を長押ししながらマウスを**左**または**右**に**ドラッグ**すると、別のデスクトップやフルスクリーンアプリへ移動できます。\n\nこれは、Appleトラックパッドで「4本指で左右にスワイプ」したときとまったく同じように動作します。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -656,6 +728,12 @@
           }
         },
         "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Exposé"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "App Exposé"
@@ -714,6 +792,12 @@
             "value" : "Mantén pulsado el **botón 4** de tu ratón, luego **arrastra** el ratón **hacia abajo** para ver todas las ventanas de la aplicación que estás utilizando.\n\nFunciona exactamente igual que deslizar hacia abajo con cuatro dedos en un Apple Trackpad."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マウスの**ボタン4**を長押ししながらマウスを**下**へ**ドラッグ**すると、現在使用中のアプリのすべてのウィンドウを表示します。\n\nこれは、Appleトラックパッドで「4本指で下にスワイプ」したときとまったく同じように動作します。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -765,6 +849,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mostrar escritorio"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "デスクトップを表示"
           }
         },
         "pl" : {
@@ -820,6 +910,12 @@
             "value" : "Mantén pulsado el **botón 4** de tu ratón, luego **desplázate hacia arriba** para mostrar tu escritorio.\n\nFunciona exactamente igual que separar el pulgar y tres dedos en un Apple Trackpad."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マウスの**ボタン4**を長押ししながらマウスを**上にスクロール**すると、デスクトップを表示できます。\n\nこれは、Appleトラックパッドで「親指と3本の指を広げる」操作とまったく同じように動作します。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -868,6 +964,12 @@
           }
         },
         "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Launchpad"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Launchpad"
@@ -926,6 +1028,12 @@
             "value" : "Mantén pulsado el **botón 4** de tu ratón, luego **desplázate hacia abajo** para mostrar el Launchpad.\n\nFunciona exactamente igual que juntar el pulgar y tres dedos en un Apple Trackpad."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マウスの**ボタン4**を長押ししながら**下にスクロール**すると、Launchpadを表示できます。\n\nこれは、Appleトラックパッドで「親指と3本の指を閉じる」操作とまったく同じように動作します。\n"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -977,6 +1085,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Acercar o alejar"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拡大・縮小"
           }
         },
         "pl" : {
@@ -1032,6 +1146,12 @@
             "value" : "Mantén pulsado el **botón 5** de tu ratón, luego **desplázate hacia arriba** o **hacia abajo** para acercar o alejar en aplicaciones como Safari y Vista Previa.\n\nFunciona exactamente igual que pellizcar con dos dedos en un Apple Trackpad."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マウスの**ボタン5**を長押ししながらマウスを**上下にスクロール**すると、Safariや「プレビュー」などのアプリで 拡大や縮小 ができます。\n\nこれは、Appleトラックパッドで「2本指でピンチ」する操作とまったく同じように動作します。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1083,6 +1203,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Volver y avanzar"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "戻る・進む"
           }
         },
         "pl" : {
@@ -1138,6 +1264,12 @@
             "value" : "Mantén pulsado el **botón 5** de tu ratón, luego **arrastra** el ratón **hacia la izquierda** o **hacia la derecha** para mostrar la página anterior o siguiente en aplicaciones como Safari.\n\nFunciona exactamente igual que deslizar hacia la izquierda o hacia la derecha con dos dedos en un Apple Trackpad."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マウスの**ボタン5**を長押ししながらマウスを**左**または**右**に**ドラッグ**すると、Safariなどのアプリで 前のページに戻ったり、次のページに進んだり できます。\n\nこれは、Appleトラックパッドで「2本指で左右にスワイプ」したときとまったく同じように動作します。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1189,6 +1321,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eliminar correos rápidamente y más"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メールの素早い削除など"
           }
         },
         "pl" : {
@@ -1244,6 +1382,12 @@
             "value" : "Mantén pulsado el **botón 5** de tu ratón, luego **arrastra** el ratón **hacia la izquierda** o **hacia la derecha** para eliminar mensajes en Mail, responder rápidamente a un iMessage, y más.\n\nCualquier gesto que puedas realizar dentro de una aplicación deslizando en un Apple Trackpad funciona igual de bien usando Mac Mouse Fix."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マウスの**ボタン5**を長押ししながらマウスを**左**または**右**に**ドラッグ**すると、メールの削除や iMessageへの素早い返信などが可能です。\n\nApplトラックパッドで「アプリ内をスワイプ」して行うあらゆるジェスチャーが、Mac Mouse Fixでも同じようにスムーズに動作します。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1295,6 +1439,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Desplazamiento preciso de 360°"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "精密な360°スクロール"
           }
         },
         "pl" : {
@@ -1350,6 +1500,12 @@
             "value" : "Mantén pulsado el **botón 5** de tu ratón, luego **arrastra** el ratón en **cualquier dirección** para desplazarte con precisión con libertad de 360° y un efecto inercial intuitivo. Así puedes navegar por el lienzo con facilidad en aplicaciones profesionales como Excel o Affinity Photo.\n\nEs tan fácil y preciso como desplazarse en un Apple Trackpad."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マウスの**ボタン5**を長押し しながらマウスを**あらゆる方向**へ**ドラッグ**すると、360°自由自在かつ精密に、そして直感的な慣性を伴ってスクロールできます。これにより、ExcelやAffinity Photoなどのプロ向けアプリでも、キャンバス内をスムーズに移動できます。\n\nApplトラックパッドでのスクロール操作と同じくらい、簡単で正確です。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1403,6 +1559,12 @@
             "value" : "Zoom inteligente"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スマートズーム"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1454,6 +1616,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**Haz clic en el botón 5** de tu ratón para acercar y alejar una página web o PDF.\n\nFunciona exactamente igual que hacer doble toque con dos dedos en un Apple Trackpad."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**ボタン5をクリック**して、ウェブページやPDFを拡大・縮小。\n\nAppleトラックパッドでの「2本指でダブルタップ」と同じように動作します。"
           }
         },
         "pl" : {
@@ -1510,6 +1678,12 @@
             "value" : "{accent}.\nSuave como la seda."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "{accent}.\nバターのように滑らか。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1563,6 +1737,12 @@
             "value" : "Desplazamiento"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スクロール"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1614,6 +1794,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "El desplazamiento con un ratón de terceros en macOS puede sentirse **entrecortado** y **difícil de controlar**. ¡Pues ya no más! Experimenta un algoritmo de desplazamiento **refinado** y **basado en el impulso** que hace que navegar por tu ordenador sea **sin esfuerzo** y **natural**."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOSでサードパーティ製マウスを使うと、**スクロールがモタついたり**、**操作しづらく**感じることがあります。ですが、もうそんなことはありません！**洗練された慣性ベース**のスクロールアルゴリズムを体験してください。あなたのコンピュータ操作を、**驚くほど軽快**で**自然なもの**へと変えます。"
           }
         },
         "pl" : {
@@ -1670,6 +1856,12 @@
             "value" : "Elige una **fluidez de desplazamiento** ..."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**スクロールの滑らかさ**を選択してください…"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1721,6 +1913,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fluidez: **Alta**"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "滑らかさ：**高**"
           }
         },
         "pl" : {
@@ -1776,6 +1974,12 @@
             "value" : "Con la *Fluidez: Alta*, el desplazamiento se siente **increíblemente suave** - **igual que un Trackpad**. Detalles como el sutil rebote al final de una página crean una sensación dinámica y agradable. Aun así, el desplazamiento es súper sensible y fácil de controlar. Con esta opción, también puedes desplazarte grandes distancias con mucha facilidad."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**滑らかさ：高**を選択すると、スクロールは**驚くほど滑らか**になり、**まるでトラックパッド**のような操作感になります。ページ末尾のわずかな跳ね返り（バウンス）といった細かな表現が、ダイナミックで心地よい感触をもたらします。それでいて、スクロールのレスポンスは非常に高く、コントロールも容易です。また、このオプションを使用すれば、長距離のスクロールも極めてスムーズに行えます。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1827,6 +2031,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fluidez: **Regular**"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "滑らかさ：**普通**"
           }
         },
         "pl" : {
@@ -1882,6 +2092,12 @@
             "value" : "Con la *Fluidez: Regular* el desplazamiento es **altamente sensible** que **se siente como si estuvieras empujando la página directamente con el dedo**. Las animaciones cortas y basadas en el impulso proporcionan una sensación refinada.\n\nEsta opción se siente similar al desplazamiento en Chrome o en aplicaciones modernas de Windows."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**滑らかさ：普通**を選択すると、**指で直接ページを押し出しているかのような**、**非常にレスポンスの良い**スクロールを実現します。短い慣性ベースのアニメーションが、洗練された操作感を提供します。\n\nこのオプションは、Chromeや最新のWindowsアプリでのスクロールに近い感覚です。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1933,6 +2149,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fluidez: **Desactivado**"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "滑らかさ：オフ"
           }
         },
         "pl" : {
@@ -1988,6 +2210,12 @@
             "value" : "Con la *Fluidez: Desactivada*, el desplazamiento funciona como lo hace normalmente en macOS - **sin ninguna animación** ni suavizado. Pero con una diferencia clave: **Un incremento de la rueda de desplazamiento desplazará un número fijo de *líneas***, en lugar de solo unos pocos píxeles, lo que hace que la navegación sea más consistente y cómoda.\n\nAsí es como también funciona el desplazamiento en la mayoría de las aplicaciones de Windows y Linux, así como en versiones anteriores de macOS."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**滑らかさ：オフ**に設定すると、スクロールはmacOSの標準設定と同様に、**アニメーションやスムージングなし**で動作します。しかし、一つ大きな違いがあります。**スクロールホイールの1刻みごと**に、わずか数ピクセルではなく、**設定された*行数分*をスクロールするようになります**。これにより、より一貫性のある快適な操作が可能になります。\n\nこれは、WindowsやLinuxのほとんどのアプリ、および古いバージョンのmacOSにおけるスクロールの挙動と同じです。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2039,6 +2267,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "... Y **Más**"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "…そして**他にも**"
           }
         },
         "pl" : {
@@ -2094,6 +2328,12 @@
             "value" : "Dirección de desplazamiento"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スクロールの方向"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2145,6 +2385,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix te permite **cambiar la dirección de desplazamiento** de tu ratón, independientemente de tu Trackpad o Magic Mouse."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fixなら、トラックパッドやMagic Mouseの設定とは独立して、**マウスのスクロール方向を変更**できます。"
           }
         },
         "pl" : {
@@ -2200,6 +2446,12 @@
             "value" : "Modificadores de teclado"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "修飾キー"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2251,6 +2503,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mantén pulsado un modificador de teclado mientras te desplazas para **desplazarte con precisión**, **acercar o alejar**, y más."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "修飾キーを押しながらスクロールすることで、**精密なスクロール**や**拡大・縮小**など、さまざまな操作が可能になります。"
           }
         },
         "pl" : {
@@ -2306,6 +2564,12 @@
             "value" : "Simple pero potente"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "シンプル、かつパワフル"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2357,6 +2621,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Puedes configurar el desplazamiento en Mac Mouse Fix de muchas maneras diferentes con solo unos pocos clics. **Todas las opciones que elijas se sentirán geniales sin complicaciones**. Cada mejora de desplazamiento proporcionada por Mac Mouse Fix también puede desactivarse, si prefieres cómo funcionan las cosas de forma nativa en macOS."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fixなら、数回クリックするだけで、スクロールを自分好みにカスタマイズできます。**どのオプションを選んでも、細かな調整をすることなく快適に動作します。**また、macOS標準の挙動の方が好ましい場合は、Mac Mouse Fixが提供する各スクロール拡張機能を個別にオフにすることも可能です。"
           }
         },
         "pl" : {
@@ -2412,6 +2682,12 @@
             "value" : "Increíblemente {accent2}\n{accent} Intuitivo."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "驚くほど {accent2}\n{accent} 直感的。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2463,6 +2739,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "e"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "そして"
           }
         },
         "pl" : {
@@ -2518,6 +2800,12 @@
             "value" : "Flexible"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "柔軟"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2571,6 +2859,12 @@
             "value" : "Mac Mouse Fix te permite **hacer casi cualquier cosa** que se te ocurra, ¡directamente desde el ratón! Y sin embargo, es **notablemente fácil** de usar."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fixなら、**思いつくことならほぼ何でも**、マウスから直接操作できるようになります。それなのに、使い方は**驚くほど簡単です**。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2622,6 +2916,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**Añadir acciones** a tu ratón"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マウスに**アクションを追加**"
           }
         },
         "pl" : {
@@ -2678,6 +2978,12 @@
             "value" : "Para añadir una acción a tu ratón:\n\n1. **Mueve** el puntero del ratón dentro del campo '+'. (Se muestra abajo)\n2. **Haz clic** en el botón del ratón al que deseas asignar una acción.\n¡También puedes hacer Doble Clic, Clic y Arrastrar, y mucho más!\n3. **Elige** una acción, como Zoom inteligente.\n\n¡Y eso es todo!"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マウスにアクションを追加するには：\n\n1.マウスポインタを'+'フィールドの中に**移動**させます。（下図参照）\n2.アクションを割り当てたいマウスボタンを**クリック**します。\nダブルクリックや、クリックしてドラッグなど、他にもさまざまな操作が可能です！\n3.スマートズームなどのアクションを**選択**します。\n\nこれで完了です！"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2729,6 +3035,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ver cómo configurarlo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "セットアップ方法を見る"
           }
         },
         "pl" : {
@@ -2784,6 +3096,12 @@
             "value" : "Usar **atajos de teclado** desde tu ratón"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マウスから**キーボードショートカット**を使う"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2835,6 +3153,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix te permite **hacer cualquier cosa que puedas hacer con un atajo de teclado** ¡directamente desde tu ratón! Por ejemplo, puedes copiar y pegar, cambiar el volumen del audio, abrir una pestaña nueva en Safari y mucho más."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fixなら、**キーボードショートカットでできることなら何でも**、マウスから直接行えるようになります。例えば、コピー＆ペーストや音量の調節、Safariで新しいタブを開くなど、他にもさまざまな操作が可能です。"
           }
         },
         "pl" : {
@@ -2890,6 +3214,12 @@
             "value" : "Gran Software.\nGran {accent2}."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "優れたソフトウェア。\n優れた {accent2}。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2943,6 +3273,12 @@
             "value" : "Precio"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "価格"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2994,6 +3330,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Me esfuerzo por hacer de Mac Mouse Fix un software que te haga **sentir genial** al instalar. Quiero ofrecerlo lo más **barato** posible, para que sientas que estás obteniendo una gran oferta y para que todos puedan permitírselo. Y, en última instancia, ¡espero hacer de este pequeño rincón del mundo algo un poco más **impresionante** y agradable!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fixを、インストールして**本当に良かった**と思えるようなソフトウェアにすることを目指しています。誰もが手に入れやすく、本当にお得だと感じていただけるよう、できる限り**低価格**で提供したいと考えています。そして最終的には、世界のこの小さな一角を、もう少しだけ**素晴らしく**、心地よい場所にしたいと願っています！"
           }
         },
         "pl" : {
@@ -3050,6 +3392,12 @@
             "value" : "Gran **Software** ..."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "優れた**ソフトウェア**…"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3101,6 +3449,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No intrusivo. Ligero. Bonito."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "目立たない。軽量。美しい。"
           }
         },
         "pl" : {
@@ -3156,6 +3510,12 @@
             "value" : "Cada detalle de Mac Mouse Fix ha sido considerado y optimizado para darte la mejor experiencia posible mientras se siente como una **extensión natural de tu Mac**. He invertido incontables horas para asegurarme de que Mac Mouse Fix **no use más batería ni memoria de lo estrictamente necesario**. El objetivo es que ni siquiera notes Mac Mouse Fix en tu ordenador - excepto, por supuesto, cuando uses tu ratón."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fixは、まるで**Macの自然な拡張機能である**かのように感じられ、最高の体験を提供できるよう、細部に至るまで検討と最適化が行われています。また、**必要最小限のバッテリーやメモリしか消費しない**よう、膨大な時間を費やして作り込みました。マウスを使っているとき以外は、コンピュータ上のMac Mouse Fixの存在にさえ気づかない。そんな存在を目指しています。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3207,6 +3567,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Código abierto"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オープンソース"
           }
         },
         "pl" : {
@@ -3262,6 +3628,12 @@
             "value" : "El código fuente de Mac Mouse Fix está disponible en GitHub, para que todo el mundo pueda ver exactamente cómo funciona. Esto ayuda al desarrollo, y significa que puedes estar seguro de que Mac Mouse Fix es **seguro** y **confiable**, que protege tu **privacidad**, y que no hace nada cuando se ejecuta en segundo plano - excepto llevar la experiencia de tu ratón al siguiente nivel."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse FixのソースコードはGitHubで公開されているため、誰でもその仕組みを正確に確認することができます。これは開発を促進するだけでなく、Mac Mouse Fixが**安全**で**信頼**でき、**プライバシー**を保護していること、そしてバックグラウンドで動作している間も、マウス体験を次のレベルへと引き上げる以外のことは一切行わないという安心感にもつながります！"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3313,6 +3685,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "... Gran **Precio**"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "... 優れた**価格**"
           }
         },
         "pl" : {
@@ -3368,6 +3746,12 @@
             "value" : "Nota sobre el precio: El precio de **{price}** no incluye impuestos locales, que podrían tener que pagarse en tu región. Para ver tu precio total, visita la [página de pago](https://www.google.com/search?q=%7BurlCheckoutPage%7D). Si pagas en Gumroad.com a través de PayPal en una moneda distinta al Euro, PayPal cobrará una tarifa adicional del 4.5% por conversión de divisas.\n\nMe gustaría incluir estas tarifas en el precio para hacer la experiencia de compra más simple y clara. Pero esto no es posible actualmente debido a limitaciones con la plataforma de ventas Gumroad.com. Espero que el precio siga pareciendo muy justo y barato."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "価格に関する注記：**{price}**という価格には、お住まいの地域で支払う必要のある税金は含まれていません。合計金額を確認するには、[チェックアウトページ]({urlCheckoutPage})をご覧ください。Gumroad.comにてPayPalを利用し、ユーロ以外の通貨でお支払いの場合、PayPalから別途4.5%の通貨換算手数料が課されます。\n\n購入体験をよりシンプルで分かりやすくするために、これらの手数料をあらかじめ価格に含めたいと考えています。しかし、販売プラットフォームであるGumroad.comの制約により、現在はそれが不可能です。それでも、この価格が非常に公平で、お手頃であると感じていただけることを願っています。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3419,6 +3803,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gratuito durante **{trialDays} Días**"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{trialDays}日間**無料"
           }
         },
         "pl" : {
@@ -3474,6 +3864,12 @@
             "value" : "Mac Mouse Fix es gratuito durante {trialDays} días. Tus **días gratuitos solo se agotan cuando realmente usas la aplicación**. De esa manera, puedes sacar el máximo partido a tus días gratuitos, sin ningún estrés."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fixは{trialDays}日間無料です。**無料期間は、実際にアプリを実際に使用した日にのみカウントされます**。そのため、期限を気にしすぎることなく、無料期間を最大限に活用していただけます。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3525,6 +3921,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{price}** para poseerlo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{price}**で購入可能"
           }
         },
         "pl" : {
@@ -3580,6 +3982,12 @@
             "value" : "Mac Mouse Fix cuesta {price} ([+ impuestos]({urlTaxes})) para poseerlo, y eso es todo. No hay suscripciones ni pagos adicionales. Me aseguré de que la experiencia de pago sea lo más **agradable** y **rápida** posible, ¡e incluso puedes pagar con **Apple Pay**!\n\nPara comprar la aplicación, haz clic en el botón de la aplicación o haz clic [aquí]({urlBuyApp})."
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fixは{price} ([+ taxes]({urlTaxes}))の買い切り価格です。お支払いはこれ一度きり。サブスクリプションや追加の支払いは一切ありません。決済の手続きが可能な限り**スムーズ**で**スピーディー**になるよう努めました。**Apple Pay**でのお支払いも可能です！\n\nアプリを購入するには、アプリ内のボタンをクリックするか、[こちら]({urlBuyApp})をクリックしてください。"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3631,6 +4039,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mejor valor que las **Alternativas**"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**代替品**よりも優れた価値を"
           }
         },
         "pl" : {
@@ -3685,6 +4099,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix hace que tu ratón de $10 sea mejor que un ratón Logitech MX Master o un Trackpad de Apple. (Estos son considerados algunos de los mejores dispositivos de entrada para Mac).\n\nY sin embargo, Mac Mouse Fix es **[{priceFactorMXMaster}x]({urlMXMaster})** más barato que un MX Master y **[{priceFactorTrackpad}x]({uelTrackPad})** más barato que un Trackpad."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fixは、格安マウスをLogicool MX MasterやApple Trackpad（これらはMac用として最高の入力デバイスだと考えられています）よりも優れたものにします。\n\nそれなのに、Mac Mouse FixはMX Masterよりも**[{priceFactorMXMaster}倍]({urlMXMaster})**安く、Trackpadよりも**[{priceFactorTrackpad}倍]({urlTrackpad})**安価なのです！"
           }
         },
         "pl" : {

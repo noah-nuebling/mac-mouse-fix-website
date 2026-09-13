@@ -23,6 +23,12 @@
             "value" : "Esta página está traducida al {currentLocale} {localizationProgress}. ¡Para ayudar a traducir, haz clic [aquí]({url})!"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このページは{currentLocale}に{localizationProgress}翻訳されています。\n翻訳をお手伝いいただける場合は、[こちら]({url})をクリックしてください！"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -77,6 +83,12 @@
             "value" : "¡Haz Que Tu Ratón De $10 Sea Mejor Que Un Trackpad De Apple!"
           }
         },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "格安マウスで、Appleトラックパッドを超える体験を！"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -128,6 +140,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¡Haz Que Tu Ratón De $10 Sea Mejor Que Un Trackpad De Apple!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "格安マウスで、Appleトラックパッドを超える体験を！"
           }
         },
         "pl" : {
