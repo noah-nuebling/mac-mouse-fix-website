@@ -53,6 +53,12 @@
             "value" : "İndir"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tải xuống"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",

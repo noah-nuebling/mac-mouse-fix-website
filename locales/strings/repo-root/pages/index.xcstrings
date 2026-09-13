@@ -53,6 +53,12 @@
             "value" : "Mac'ler bir {dev}\nile en iyi halindedir."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Macs Tốt Nhất\nVới {dev}."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -112,6 +118,12 @@
             "value" : "**İzleme Dörtgeni**"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Bàn di chuột**"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -169,6 +181,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**Fare**"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Chuột**"
           }
         },
         "zh-Hans" : {
@@ -408,6 +426,12 @@
             "value" : "Sözlükte Ara ve Hızlı Bak"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tra cứu & Xem nhanh"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -522,6 +546,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mission Control"
+          }
+        },
+        "vi" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mission Control"
@@ -645,6 +675,12 @@
             "value" : "Masaüstüler arasında geç"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Di chuyển giữa các màn hình nền"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -761,6 +797,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Exposé"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Duyệt các ứng dụng đang mở"
           }
         },
         "zh-Hans" : {
@@ -881,6 +923,12 @@
             "value" : "Masaüstünü göster"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hiện màn hình nền"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -994,6 +1042,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Launchpad"
+          }
+        },
+        "vi" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Launchpad"
@@ -1117,6 +1171,12 @@
             "value" : "Yakınlaştır ve uzaklaştır"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phóng to hoặc thu nhỏ"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1233,6 +1293,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Geri ve ileri git"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trở về và đi tới"
           }
         },
         "zh-Hans" : {
@@ -1353,6 +1419,12 @@
             "value" : "Postaları hızlıca silin ve daha fazlasını yapın"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xoá thư điện tử nhánh chóng và hơn thế nữa"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1471,6 +1543,12 @@
             "value" : "Hassas 360° kaydırma"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuộn 360° chính xác"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1587,6 +1665,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Akıllı yakınlaştırma"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thu phóng thông minh"
           }
         },
         "zh-Hans" : {
@@ -1708,6 +1792,12 @@
             "value" : "{accent}.\nAynı Su Gibi."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "{accent}.\nSiêu mượt mà."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1765,6 +1855,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kaydırma"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuộn"
           }
         },
         "zh-Hans" : {
@@ -1886,6 +1982,12 @@
             "value" : "Bir **Kaydırma Akıcılığı** seçin ..."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chọn **cuộn mượt mà**"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1943,6 +2045,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Akıcılık: **Yüksek**"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Độ mượt: **Cao**"
           }
         },
         "zh-Hans" : {
@@ -2063,6 +2171,12 @@
             "value" : "Akıcılık: **Normal**"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Độ mượt: **Bình thường**"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2179,6 +2293,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Akıcılık: **Kapalı**"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Độ mượt: **Tắt**"
           }
         },
         "zh-Hans" : {
@@ -2299,6 +2419,12 @@
             "value" : "... Ve **Fazlası**"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "... Và **Hơn thế nữa**"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2356,6 +2482,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kaydırma yönü"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hướng cuộn"
           }
         },
         "zh-Hans" : {
@@ -2476,6 +2608,12 @@
             "value" : "Klavye değiştiricileri"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kết hợp bàn phím"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2592,6 +2730,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Basit ama güçlü"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đơn giản nhưng mạnh"
           }
         },
         "zh-Hans" : {
@@ -2712,6 +2856,12 @@
             "value" : "Muhteşem bir şekilde {accent2}\n{accent} Sezgisel."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "{accent2}\n{accent} Trực quan xuất sắc."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2771,6 +2921,12 @@
             "value" : "ve"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "và"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2828,6 +2984,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Esnek"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Linh hoạt"
           }
         },
         "zh-Hans" : {
@@ -3067,6 +3229,12 @@
             "value" : "Nasıl Kurulduğuna Göz Atın"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xem cách cài đặt"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3303,6 +3471,12 @@
             "value" : "Fiyat"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Giá"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3420,6 +3594,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Muhteşem **Yazılım** ..."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Ứng dụng** tốt"
           }
         },
         "zh-Hans" : {
@@ -3599,6 +3779,12 @@
             "value" : "Açık kaynaklı"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mã nguồn mở"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3715,6 +3901,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "... Muhteşem **Fiyat**"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "... Giá **tốt**"
           }
         },
         "zh-Hans" : {
@@ -3835,6 +4027,12 @@
             "value" : "**{trialDays} gün** kadar ücretsiz"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Miễn phí dùng **{trialDays} ngày**"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3951,6 +4149,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sahip olmak sadece **{price}**"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{price}** để sở hữu"
           }
         },
         "zh-Hans" : {

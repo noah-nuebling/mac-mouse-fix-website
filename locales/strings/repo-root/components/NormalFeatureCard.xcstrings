@@ -53,6 +53,12 @@
             "value" : "Çalışma anında görün"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xem video thực tế\t"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -110,6 +116,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Video'yu kapat"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tắt video"
           }
         },
         "zh-Hans" : {

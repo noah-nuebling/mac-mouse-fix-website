@@ -53,6 +53,12 @@
             "value" : "Ana Sayfa"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trang trước"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -110,6 +116,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aradığınız sayfa bulunamadı"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trang bạn tìm không có."
           }
         },
         "zh-Hans" : {

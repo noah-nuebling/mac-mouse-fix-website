@@ -52,6 +52,12 @@
             "value" : "**Noah Nuebling** tarafından geliştirildi"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Được tạo bởi **Noah Nuebling**"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -109,6 +115,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "{dwn} indirme için teşekkürler!"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cảm ơn {dwn} bạn đã tải xuống"
           }
         },
         "zh-Hans" : {

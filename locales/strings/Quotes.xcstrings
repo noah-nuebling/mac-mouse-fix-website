@@ -53,6 +53,12 @@
             "value" : "Bu çözümü sunacak uygulamalar arasında bu kesinlikle en iyisi!"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trong số tất cả ứng dụng giải quyết vấn đề này, cái này chắc chắn tốt nhất! "
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -111,6 +117,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix OSX ile fare kullanım tecrübenizde size gerekecek her şeye sahip."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix là tất cả bạn muốn cho trải nghiệm dùng chuột với OSX."
           }
         },
         "zh-Hans" : {
@@ -173,6 +185,12 @@
             "value" : "Kurulumu kolay ve muhteşem çalışıyor."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hết sức hiệu quả và dễ cài đặt!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -231,6 +249,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac'deki en iyi fare yazılımı bu."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "y là phần mềm chuột tốt nhất trên Mac."
           }
         },
         "zh-Hans" : {
@@ -293,6 +317,12 @@
             "value" : "Mac Mouse Fix uygulaması için teşekkürler! Tam ihtiyacım olan şey; abonelik ve gereksiz şeyler yok. Çok teşekkürler!"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cám ơn về ứng dụng tuyệt vời Mac Mouse Fix. Đúng thứ tôi cần, không có phí và quảng cáo. Cám ơn bạn rất nhiều!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -351,6 +381,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix sihir gibi. Bu kadar kullanıcı dostu ve iyi tasarlanmış olması aklımı aldı."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix thật kì diệu. Tôi cực kì thích nó bởi thiết kế đẹp và tiện dụng cho người dùng."
           }
         },
         "zh-Hans" : {
@@ -413,6 +449,12 @@
             "value" : "Ofisteki Mac'imi bu yazılım olmadan nasıl kullanırım bilmiyorum. Windows'da sürücüsü olup macOS'da olmayan dikey farem ile beraber muhteşem bir üretkenlik artırıcı."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không thể tưởng tượng dùng office Mac không có phần mềm này. Nó năng suất thực sự phối với chuột thẳng đứng evoluent của tôi mà không có phần mềm cho Mac như họ làm cho Windows. "
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -471,6 +513,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac'imdeki en iyi uygulama olabilir"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Có lẽ ứng dụng tốt nhất trên máy Mac của tôi"
           }
         },
         "zh-Hans" : {
@@ -533,6 +581,12 @@
             "value" : "Başka bir uygulama bununla yarışamaz"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không có tiện ích tương tự khác nào cạnh tranh"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -591,6 +645,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fare ile Mac kullanan herkesin bilgisayarında zorunluluk."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ứng dụng nên có cho mọi người dùng Mac với chuột."
           }
         },
         "zh-Hans" : {
@@ -653,6 +713,12 @@
             "value" : "Bu benim üretkenliğimi ikiye katladı."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Này gần như đã tăng gấp đôi năng suất của tôi. "
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -711,6 +777,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bu uygulamayı çok seviyorum, kesinlike indirilmeli!"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yêu ứng dụng này rất nhiều, nên có trong máy! "
           }
         },
         "zh-Hans" : {
@@ -773,6 +845,12 @@
             "value" : "Uygulaman gerçekten muhteşem ve benim iş akışım için çok önemli."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ứng dụng của bạn là tuyệt vời và hết sức quan trọng với công việc của tôi. "
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -831,6 +909,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix sınıfının en iyisi!"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix thật tuyệt vời!"
           }
         },
         "zh-Hans" : {
@@ -893,6 +977,12 @@
             "value" : "Dikey kaydırma gerçekten muhteşem."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuộn dọc thật là tuyệt vời!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -951,6 +1041,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ekranların arasında geçiş için Tıkla ve Kaydır özelliği sanki sistemin kökünde varmış gibi."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rê & nhắp cho chuyển giữa các màn mượt mà. "
           }
         },
         "zh-Hans" : {
@@ -1013,6 +1109,12 @@
             "value" : "Bir süredir Magic Mouse'umdan kurtulmak istiyordum ve senin uygulaman sayesinde bunu yapabilirim!"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tôi đã và đang muốn thoát khỏi Magic Mouse trong một khoảng thời gian và vì ứng dụng của bạn, tôi có thể làm điều đó! "
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1071,6 +1173,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix'i öneriyorum, çünkü dürüst olmak gerekirse gördüğüm en ucuz, basit ve başarılı bir şekilde geliştirilmiş uygulama."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tôi khuyên nên dùng Mac Mouse Fix vì nó thực sự rẻ, đơn giản và code tốt trong những ứng dụng tôi đã xem qua."
           }
         },
         "zh-Hans" : {
@@ -1133,6 +1241,12 @@
             "value" : "Teşekkür ederim, beni bir Apple faresi almaktan kurtardın"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cám ơn, tôi đỡ tốn tiền mua chuột apple"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1191,6 +1305,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "V2'deki kullanıcı arayüzü fantastik ve sezgisel."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Giao diện phiên bản 2 nhìn rất đẹp và trực quan."
           }
         },
         "zh-Hans" : {
@@ -1253,6 +1373,12 @@
             "value" : "Geçen hafta bu uygulamayı kullanamadım ve tüm iş akışım bozuldu. Böyle güzel bir uygulama için teşekkürler."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tôi đã không dùng ứng dụng tuần vừa qua và toàn bộ công việc tôi bị bế tắc. Cám ơn vì ứng dụng xuất sắc."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1311,6 +1437,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Getirdiği basitleştirmeye bayılıyorum."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tôi đánh giá cao về sự đơn giản mà bạn làm."
           }
         },
         "zh-Hans" : {
@@ -1373,6 +1505,12 @@
             "value" : "Bir fareye geçtikten sonra çok fazla iyi yorum alan SteerMouse gibi uygulamaları da denedim ama sonunda tam isteklerimi gerçekleştiren bir uygulama buldum. Her özellik çok işlevli ve performansı çok iyi."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sau khi chuyển sang chuột, tôi đã thử phần mềm như là SteerMouse, nhận đề xuất nhiều và còn có cả lệ phí nữa, và sau cùng là nhận thấy là phần mềm này đáp ứng nhu cầu của tôi hoàn hảo, mọi tính năng là rất hữu ích, và việc thực hiện là rất tốt! "
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1431,6 +1569,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Muhteşem uygulama, kesinlikle paylaşılmayı hak ediyor."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ứng dụng tuyệt vời, tôi sẽ chia sẻ nó cho mọi người cùng biết 😁"
           }
         },
         "zh-Hans" : {
@@ -1493,6 +1637,12 @@
             "value" : "Bu Uygulama, Ucuz Farenizin İzleme Dörtgeni Hareketlerinden Daha İyi Çalışmasını Sağlıyor"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ứng dụng này sẽ làm chuột giá rẻ của bạn hoạt động tốt hơn cử chỉ của Trackpad"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1551,6 +1701,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apple tarihinin en iyi tek yazılımı bu."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đây là phần mềm vĩ đại nhất của trong lịch sử của Apple. "
           }
         },
         "zh-Hans" : {
@@ -1613,6 +1769,12 @@
             "value" : "Bu muhteşem bir yazılım ve tüm fare sorunlarımı çözdü."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đây là phần mềm tốt và giải quyết hết vấn đề trên con chuột của tôi."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1671,6 +1833,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bu yazılım muhteşem!"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ứng dụng này thật sự tốt!"
           }
         },
         "zh-Hans" : {
@@ -1733,6 +1901,12 @@
             "value" : "Teşekkürler, uygulama çok havalı."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cám ơn, ứng dụng tốt ghia"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1791,6 +1965,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "SÜPER İYİ UYGULAMA"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ỨNG DỤNG SIÊU XỊN"
           }
         },
         "zh-Hans" : {
@@ -1853,6 +2033,12 @@
             "value" : "Faremle mükemmel çalışıyor."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nó hoạt động tuyệt vời với chuột của tôi"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1911,6 +2097,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bu uygulama benim çıldırmadan macOS kullanmamı sağlayabilen tek uygulama (özellikle bir fare ile)."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Công cụ của bạn là cách duy nhất tôi có thể sử dụng macOS (với chuột) không có phản ứng mạnh mẽ ra! "
           }
         },
         "zh-Hans" : {
@@ -1973,6 +2165,12 @@
             "value" : "Muhteşem bir özgür yazılım. Açık kaynağa olan desteğin için teşekkürler."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ứng dụng tốt. Cảm ơn bạn đóng góp cho mã nguồn mở. "
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2031,6 +2229,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bunun için teşekkürler, bunu Apple'ın neden varsayılan olarak getirmediğini anlamıyorum. Orta düğme ile hareketleri gerçekleştirebilmek çok sezgisel."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cám ơn bạn về chuyện này, tôi không hiểu tại sao Apple không làm điều này mặc định, như thể nó là siêu trực quan về cử chỉ với nút giữa. "
           }
         },
         "zh-Hans" : {
@@ -2093,6 +2297,12 @@
             "value" : "Bunun gibi bir uygulamayı çok uzun zamandır arıyordum ve sonunda bunu buldum, beğendim 👍."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tôi đã và đang tìm kiếm ứng dụng tương tự trong một thời gian dài, và sau cùng là thấy một này 👍"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2151,6 +2361,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Benim Superlight faremi bir MX Master'dan daha iyi hale getirdin."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bạn đã làm superlight của tôi hay hơn mx master. "
           }
         },
         "zh-Hans" : {
@@ -2213,6 +2429,12 @@
             "value" : "Muhteşem bir yazılım! Kesinlikle bayıldım! Logitech Trackball'ım sanki benim bir parçam gibi oldu."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ứng dụng tốt! Thật sự yêu! Con lăn Logitech của tôi có thêm tính năng kể từ giờ."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2270,6 +2492,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Daha Azını Gör"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xem ít lại"
           }
         },
         "zh-Hans" : {
@@ -2332,6 +2560,12 @@
             "value" : "Daha Fazlasını Gör"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xem nhiều hơn"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2390,6 +2624,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}**, bir Gumroad bağış mesajında"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** từ Gumroad"
           }
         },
         "zh-Hans" : {
@@ -2451,6 +2691,12 @@
             "value" : "**{name}**, bir E-Postada"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** từ thư điện tử"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2508,6 +2754,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}**, GitHub'da"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** trên GitHub"
           }
         },
         "zh-Hans" : {
@@ -2569,6 +2821,12 @@
             "value" : "**{name}**, bir LifeHacker yazısında"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** từ bài báo LifeHacker"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2626,6 +2884,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}**, bir PayPal bağış mesajında"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** từ PayPal"
           }
         },
         "zh-Hans" : {
@@ -2687,6 +2951,12 @@
             "value" : "**{name}**, Reddit'ten"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** từ Reddit"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2744,6 +3014,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}**, Stack Exchange'den"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** từ Stack Exchange"
           }
         },
         "zh-Hans" : {
@@ -2805,6 +3081,12 @@
             "value" : "**{name}**, bir YouTube yorumunda"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** từ bình luận YouTube"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2862,6 +3144,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yıllar boyu takdirleriniz ve geribildirimleriniz için herkese **teşekkürler**! İyi mesajlarınızı okumak her zaman motive edici. **:)**"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Cám ơn** mọi người đã chia sẻ cảm nhận và phản hồi trong những năm qua! Đọc những tin nhắn ấy luôn làm tôi có động lực hơn **:)**"
           }
         },
         "zh-Hans" : {
@@ -2924,6 +3212,12 @@
             "value" : "İngilizce dilinden çevrildi."
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Được dịch từ tiếng Anh"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2982,6 +3276,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Çince dilinden çevrildi."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Được dịch từ tiếng Trung"
           }
         },
         "zh-Hans" : {

@@ -71,6 +71,12 @@
             "value" : "Genel"
           }
         },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tổng quan"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -128,6 +134,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "GitHub'da daha fazlası"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tìm hiểu thêm trên GitHub"
           }
         },
         "zh-Hans" : {
