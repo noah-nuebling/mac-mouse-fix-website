@@ -23,6 +23,12 @@
             "value" : "Esta página está traducida al {currentLocale} {localizationProgress}. ¡Para ayudar a traducir, haz clic [aquí]({url})!"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cette page est traduite à {localizationProgress} % en {currentLocale}.\nPour aider à la traduction, cliquez [ici]({url}) !"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -89,6 +95,12 @@
             "value" : "¡Haz Que Tu Ratón De $10 Sea Mejor Que Un Trackpad De Apple!"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rendez votre souris à 10 $ meilleure qu'un trackpad Apple !"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -152,6 +164,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¡Haz Que Tu Ratón De $10 Sea Mejor Que Un Trackpad De Apple!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rendez votre souris à 10 $ meilleure qu'un trackpad Apple !"
           }
         },
         "ja" : {

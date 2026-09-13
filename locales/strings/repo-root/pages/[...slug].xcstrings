@@ -23,6 +23,12 @@
             "value" : "Página Principal"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Première page"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -86,6 +92,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La página que buscas no se encuentra."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La page que vous recherchez est introuvable."
           }
         },
         "ja" : {

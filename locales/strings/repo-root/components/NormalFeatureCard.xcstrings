@@ -23,6 +23,12 @@
             "value" : "Véalo en Acción"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Découvrez-le en action"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -86,6 +92,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cerrar Vídeo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fermer la vidéo"
           }
         },
         "ja" : {

@@ -23,6 +23,12 @@
             "value" : "Los Mac Son Mejores\nCon Un {dev}"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les Macs sont Meilleurs Avec un {dev}."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -86,6 +92,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**Trackpad**"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Pavé tactile**"
           }
         },
         "ja" : {
@@ -153,6 +165,12 @@
             "value" : "**Ratón**"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Souris**"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -217,6 +235,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Los tiempos cambian. Mac Mouse Fix lleva todas las funciones de un Trackpad de Apple —y más— a tu ratón de terceros **preciso** y **ergonómico**. Y todas las interacciones se sienten tan **fluidas** y **naturales** como en un Trackpad."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C'est vrai ! Mac Mouse Fix apporte toutes les fonctionnalités d'un trackpad Apple, et bien plus encore, à votre souris tierce **précise** et **ergonomique**. Et toutes les interactions sont aussi **fluides** et **naturelles** que sur un trackpad."
           }
         },
         "ja" : {

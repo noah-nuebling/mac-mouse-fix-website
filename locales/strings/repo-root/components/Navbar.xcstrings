@@ -41,6 +41,12 @@
             "value" : "Resumen"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aperçu"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -104,6 +110,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Más en GitHub"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus d'informations sur GitHub"
           }
         },
         "ja" : {
