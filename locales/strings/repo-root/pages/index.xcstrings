@@ -59,6 +59,12 @@
             "value" : "Mac'ler bir {dev}\nile en iyi halindedir."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac працюють найкраще\nз {dev}."
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -130,6 +136,12 @@
             "value" : "**İzleme Dörtgeni**"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**трекпедом**"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -199,6 +211,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**Fare**"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**мишею**"
           }
         },
         "vi" : {
@@ -273,6 +291,12 @@
             "value" : "Teknoloji gelişiyor. Mac Mouse Fix bir Apple İzleme Dörtgeninin tüm özelliklerini ve daha fazlasını **hassas** ve **ergonomik** üçüncü parti farenize getirir ve tüm hareketler aynı bir izleme dörtgeni kullanırmışcasına **akıcı** ve **doğal** olur."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Саме так! Mac Mouse Fix переносить усі функції Apple Trackpad — і навіть більше — на вашу **точну** та **ергономічну** сторонню мишу. І всі взаємодії відчуваються такими ж **плавними** та **природними**, як і на трекпеді."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -330,6 +354,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix'in farenize getirdiği **İzleme Dörtgeni Hareketleri**"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Жести трекпеда**, які Mac Mouse Fix переносить на вашу мишу"
           }
         },
         "zh-Hans" : {
@@ -391,6 +421,12 @@
             "value" : "Not: Mac Mouse Fix bu şekilde görülen İzleme Dörtgeni hareketlerini sadece 5 düğmeli fareler ile destekler. Bu 5 düğme tipik olarak sol tık, sağ tık, orta tık ve iki yan düğmedir. Eğer farenizde 5'den az düğme varsa bile Mac Mouse Fix hala zengin bir işlev sunabilir ama bazı özellikler 5 düğmeli farelere göre daha kısıtlı olacaktır. Logitech Options gibi özel sürücüler kullanan farelerde Mac Mouse Fix bütün düğmeleri algılayamayabilir. Mac Mouse Fix şu anda Apple Magic Mouse'u desteklememektedir."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Примітка: Mac Mouse Fix може перенести ці функції трекпеда на вашу сторонню мишу, як описано тут, лише якщо ваша миша має принаймні 5 кнопок. Ці 5 кнопок зазвичай включають: лівий клік, правий клік, клік коліщатком миші та 2 бічні кнопки. Якщо ваша миша має менше ніж 5 кнопок, Mac Mouse Fix все одно забезпечує багату функціональність і чудовий досвід, але до деяких функцій буде менш зручно отримати доступ порівняно з 5-кнопковою мишею. На певних мишах, розроблених для використання з фірмовими драйверами, такими як Logitech Options, Mac Mouse Fix наразі не може розпізнати всі кнопки. Mac Mouse Fix наразі не підтримує Apple Magic Mouse."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -448,6 +484,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sözlükte Ara ve Hızlı Bak"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пошук і Швидкий перегляд"
           }
         },
         "vi" : {
@@ -516,6 +558,12 @@
             "value" : "**Düğme 4'e tıklayarak** sözlükteki bir kelimenin anlamına bakın, Safari üstünden internet sitelerini ve Finder üstünden dosyaları görüntüleyin ve daha fazlasını yapın\n\nApple İzleme Dörtgeninde 3 parmakla tıklama veya sert tıklama gibi çalışır."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Натисніть кнопку 4** на миші, щоб переглянути значення слова в словнику, попередньо переглянути вебсайти в Safari або файли у Finder та багато іншого.\n\nЦе працює так само, як торкання трьома пальцями або натискання з зусиллям на Apple Trackpad."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -570,6 +618,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mission Control"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mission Control"
@@ -640,6 +694,12 @@
             "value" : "**Düğme 4'e** basılı tutarak farenizi **yukarı** doğru hareket ettirdiğinizde açık olan penceleriniz, uygulamalarınız ve masaüstlerinin genel görüntüsünü göreceksiniz.\n\nBir Apple İzleme Dörtgeninde dört parmakla yukarı kaydırmış gibi çalışır."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Утримуйте **кнопку 4** на миші, а потім **потягніть** мишу **вгору**, щоб побачити огляд усіх відкритих вікон, програм і робочих столів.\n\nЦе працює так само, як змах чотирма пальцями вгору на Apple Trackpad."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -697,6 +757,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Masaüstüler arasında geç"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перемикання між робочими столами"
           }
         },
         "vi" : {
@@ -764,6 +830,12 @@
             "value" : "**Düğme 4'e** basılı tutarak farenizi **sağa veya sola hareket ettirerek** masaüstleri veya tam ekran uygulamalar arasında geçiş yapın.\n\nBir Apple İzleme Dörgeninde dört parmakla sağa/sola kaydırmış gibi çalışır."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Утримуйте **кнопку 4** на миші, а потім **потягніть** мишу **ліворуч** або **праворуч**, щоб перейти на інший робочий стіл або в повноекранну програму.\n\nЦе працює так само, як змах чотирма пальцями ліворуч або праворуч на Apple Trackpad."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -821,6 +893,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Exposé"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Exposé"
           }
         },
         "vi" : {
@@ -888,6 +966,12 @@
             "value" : "**Düğme 4'e** basılı tutarak farenizi **aşağı** doğru hareket ettirdiğinizde bir uygulamanın tüm pencerelerini açığa çıkarabilirsiniz.\n\nBir Apple İzleme Dörtgeninde dört parmakla aşağı kaydırmış gibi çalışır."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Утримуйте **кнопку 4** на миші, а потім **потягніть** мишу **вниз**, щоб побачити всі вікна програми, яку ви використовуєте.\n\nЦе працює так само, як змах чотирма пальцями вниз на Apple Trackpad."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -945,6 +1029,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Masaüstünü göster"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати робочий стіл"
           }
         },
         "vi" : {
@@ -1012,6 +1102,12 @@
             "value" : "**Düğme 4'e** basılı tutarak tekerleği **yukarı** doğru hareket ettirdiğinizde masaüstünüzü açığa çıkarabilirsiniz.\n\nBir Apple İzleme Dörtgeninde baş parmağınız ve diğer üç parmağınızla açma hareketi gibi çalışır."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Утримуйте **кнопку 4** на миші, а потім **прокрутіть вгору**, щоб показати робочий стіл.\n\nЦе працює так само, як розведення великого та трьох інших пальців на Apple Trackpad."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1066,6 +1162,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Launchpad"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Launchpad"
@@ -1136,6 +1238,12 @@
             "value" : "**Düğme 4'e** basılı tutarak tekerleği **aşağı** doğru hareket ettirdiğinizde Launchpad'i açabilirsiniz.\n\nBir Apple İzleme Dörtgeninde baş parmağınız ve diğer üç parmağınızla birleştirme hareketi gibi çalışır."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Утримуйте **кнопку 4** на миші, а потім **прокрутіть вниз**, щоб відобразити Launchpad.\n\nЦе працює так само, як зведення великого та трьох інших пальців на Apple Trackpad."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1193,6 +1301,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yakınlaştır ve uzaklaştır"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Збільшення або зменшення масштабу"
           }
         },
         "vi" : {
@@ -1260,6 +1374,12 @@
             "value" : "**Düğme 5'e** basılı tutarak tekerleği **yukarı veya aşağı** doğru hareket ettirdiğinizde Safari ve Preview gibi uygulamalarda yakınlaştırma/uzaklaştırma yapabilirsiniz.\n\nBir Apple İzleme Dörtgeninde iki parmakla açma/birleştirme hareketi gibi çalışır."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Утримуйте **кнопку 5** на миші, а потім **прокрутіть вгору** або **вниз**, щоб збільшити або зменшити масштаб у таких програмах, як Safari та Перегляд.\n\nЦе працює так само, як зведення або розведення двох пальців на Apple Trackpad."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1317,6 +1437,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Geri ve ileri git"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перехід назад і вперед"
           }
         },
         "vi" : {
@@ -1384,6 +1510,12 @@
             "value" : "**Düğme 5'e** basılı tutarak farenizi **sağa veya sola hareket ettirerek** Safari gibi uygulamalarda bir önceki veya bir sonraki sayfaya geçin.\n\nBir Apple İzleme Dörgeninde iki parmakla sağa/sola kaydırmış gibi çalışır."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Утримуйте **кнопку 5** на миші, а потім **потягніть** мишу **ліворуч** або **праворуч**, щоб показати попередню або наступну сторінку в таких програмах, як Safari.\n\nЦе працює так само, як змах двома пальцями ліворуч або праворуч на Apple Trackpad."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1441,6 +1573,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Postaları hızlıca silin ve daha fazlasını yapın"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Швидке видалення листів та багато іншого"
           }
         },
         "vi" : {
@@ -1508,6 +1646,12 @@
             "value" : "**Düğme 5'e** basılı tutarak farenizi **sağa veya sola hareket ettirerek** Mail uygulamasında postaları silin, bir iMessage'a hızlıca cevap yazın ve daha fazlasını yapın.\n\nBir Apple İzleme Dörgeninde iki parmakla hareketleri destekleyen uygulamalarda belirli objelerin üzerinde sağa/sola kaydırmış gibi çalışır."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Утримуйте **кнопку 5** на миші, а потім **потягніть** мишу **ліворуч** або **праворуч**, щоб видалити повідомлення в Пошті, швидко відповісти на iMessage та інше.\n\nБудь-який жест, який ви можете виконати всередині програми за допомогою змаху на Apple Trackpad, працює так само добре за допомогою Mac Mouse Fix."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1565,6 +1709,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hassas 360° kaydırma"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Точна прокрутка на 360°"
           }
         },
         "vi" : {
@@ -1632,6 +1782,12 @@
             "value" : "**Düğme 5'e** basılı tutarak farenizi **herhangi bir yöne hareket ettirerek** hassas bir şekilde 360°'lik bir alanda özgürce bir şekilde eylemsizlik desteği ile kaydırın. Böylece Excel ve Affinity Photo gibi profesyonel uygulamalarda tablonuzda rahatça gezebilirsiniz.\n\nBir Apple İzleme Dörgeninde iki parmakla gezinme hareketi gibi çalışır."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Утримуйте **кнопку 5** на миші, а потім **тягніть** мишу в **будь-якому напрямку**, щоб точно прокручувати з вільно на 360° та інтуїтивним ефектом інерції. Так ви зможете легко орієнтуватися на полотні в професійних програмах, таких як Excel або Affinity Photo.\n\nЦе так само легко та точно, як прокрутка на Apple Trackpad."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1689,6 +1845,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Akıllı yakınlaştırma"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Динамічне масштабування"
           }
         },
         "vi" : {
@@ -1756,6 +1918,12 @@
             "value" : "**Düğme 5'e** basarak bir internet sayfasında veya PDF dosyasında hızlıca yakınlaştırma veya uzaklaştırma yapın.\n\nBir Apple İzleme Dörgeninde iki kez tıklama gibi çalışır."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Натисніть кнопку 5** на миші, щоб збільшити або повернути масштаб вебсторінки чи PDF.\n\nЦе працює так само, як подвійне торкання двома пальцями на Apple Trackpad."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1814,6 +1982,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "{accent}.\nAynı Su Gibi."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "{accent}.\nПлавна, як по маслу."
           }
         },
         "vi" : {
@@ -1881,6 +2055,12 @@
             "value" : "Kaydırma"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прокрутка"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1946,6 +2126,12 @@
             "value" : "macOS üzerinde üçüncü parti bir fare ile kaydırma aksiyonu **teklermiş gibi** ve **zor bir şekilde kontrol ediliyor**. Artık öyle değil! **Zarif** bir şekilde **hızlanma tabanlı** kaydırma algoritması ile bilgisayarınızda gezinmek artık **eforsuz** ve **doğal**."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прокрутка за допомогою сторонньої миші на macOS може здаватися **переривчастою** та **важкою для контролю**. Тепер усе інакше! Відчуйте **вдосконалений** алгоритм прокрутки **на основі інерції**, який робить навігацію на вашому комп’ютері **легкою** та **природною**."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2004,6 +2190,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bir **Kaydırma Akıcılığı** seçin ..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оберіть **плавність прокрутки**..."
           }
         },
         "vi" : {
@@ -2071,6 +2263,12 @@
             "value" : "Akıcılık: **Yüksek**"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Плавність: **Висока**"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2136,6 +2334,12 @@
             "value" : "*Akıcılık: Yüksek* ile kaydırmak **inanılmaz şekilde akıcı hissettirir** - **sanki bir izleme dörtgeniymişcesine**.\nSayfa sonunda hafif zıplama detayı ile dinamik ve haz verici hissettirir. yine de kaydırma aşırı duyarlı ve kontrolü kolay şekildedir. Bu seçenek sayesinde uzun mesafeleri de hızlıca kaydırabilirsiniz."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "З опцією *Плавність: Висока* прокрутка відчувається **неймовірно плавною** — **так само, як на трекпеді**. Такі деталі, як ледь помітний відскок у кінці сторінки, додають динамічності та приємних відчуттів. При цьому прокрутка залишається чутливою та легкою для контролю. Цей варіант також дозволяє дуже легко прокручувати великі відстані."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2193,6 +2397,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Akıcılık: **Normal**"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Плавність: **Звичайна**"
           }
         },
         "vi" : {
@@ -2260,6 +2470,12 @@
             "value" : "*Akıcılık: Normal* ile kaydırmak **sanki sayfayı parmağınızla ittiriyormuşcasına** hissettiren **aşırı yüksek duyarlılık** modudur. Kısa, hızlanma tabanlı animasyonlar zarif bir his verir.\n\nBu seçenek Chrome ve modern Windows uygulamalarında kaydırırımış gibi hissettirir."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оберіть *Плавність: Звичайна* для **дуже чутливої** прокрутки, яка **відчувається так, ніби ви штовхаєте сторінку безпосередньо пальцем**. Короткі анімації на основі інерції створюють враження високої точності.\n\nЦей варіант схожий на прокрутку в Chrome або сучасних програмах Windows."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2317,6 +2533,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Akıcılık: **Kapalı**"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Плавність: **Вимкнено**"
           }
         },
         "vi" : {
@@ -2384,6 +2606,12 @@
             "value" : "*Akıcılık: Kapalı* ile kaydırma macOS'de normalde nasık ise aynı o şekildedir ve herhangi bir animasyon veya akıcılık bulundurmaz Fakat, normalde **bir tık kaydırma aksiyonu ile birkaç piksel** yerine daha tutarlı ve rahat olan **bir tık kaydırma aksiyonu ile birkaç satır** kaydırılır.\n\nBu seçenek Windows, Linux ve eski macOS sürümlerindeki kaydırma gibi çalışır."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "При значенні *Плавність: Вимкнено* прокрутка працює так само, як зазвичай у macOS — **без анімації** чи згладжування. Але з однією ключовою відмінністю: **один крок коліщатка прокручує встановлену кількість *рядків***, а не просто кілька пікселів, що робить навігацію більш послідовною та комфортною.\n\nСаме так працює прокрутка в більшості програм на Windows і Linux, а також у старіших версіях macOS."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2441,6 +2669,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "... Ve **Fazlası**"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "... Та **більше**"
           }
         },
         "vi" : {
@@ -2508,6 +2742,12 @@
             "value" : "Kaydırma yönü"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Напрямок прокрутки"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2573,6 +2813,12 @@
             "value" : "Mac Mouse Fix farenizin **kaydırma yönünü** Magic Mouse ve izleme dörtgeninizden bağımsız olarak değiştirmenizi sağlar"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix дозволяє **змінити напрямок прокрутки** вашої миші — незалежно від трекпеда або Magic Mouse."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2630,6 +2876,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Klavye değiştiricileri"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Клавіші-модифікатори"
           }
         },
         "vi" : {
@@ -2697,6 +2949,12 @@
             "value" : "Kaydırma esnasında bir klavye değiştiricisi kullanarak **hassas kaydırma**, **yakınlaştırma ve uzaklaştırma** ve daha fazlasını yapın."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Утримуйте клавішу-модифікатор під час прокрутки, щоб **прокручувати точно**, **збільшувати або зменшувати масштаб** та інше."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2754,6 +3012,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Basit ama güçlü"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проста, але потужна"
           }
         },
         "vi" : {
@@ -2821,6 +3085,12 @@
             "value" : "Mac Mouse Fix'te kaydırmayı yalnızca birkaç tıklamayla birçok farklı şekilde ayarlayabilirsiniz. **Seçtiğiniz tüm seçenekler, fazla uğraşa gerek kalmadan harika bir his verecektir**. Mac Mouse Fix tarafından sağlanan tüm kaydırma iyileştirmelerininin yerine macOS'daki haline tercih ediyorsanız o özelikleri de kapatabilirsiniz."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви можете налаштувати прокрутку в Mac Mouse Fix різними способами всього за кілька кліків. **Будь-які обрані вами опції будуть відчуватися чудово без зайвих маніпуляцій**. Кожне вдосконалення прокрутки від Mac Mouse Fix також можна вимкнути, якщо ви віддаєте перевагу нативній роботі macOS."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2878,6 +3148,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Muhteşem bir şekilde {accent2}\n{accent} Sezgisel."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Напрочуд {accent2}\n{accent} інтуїтивно."
           }
         },
         "vi" : {
@@ -2945,6 +3221,12 @@
             "value" : "ve"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "та"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3008,6 +3290,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Esnek"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "гнучко"
           }
         },
         "vi" : {
@@ -3075,6 +3363,12 @@
             "value" : "Mac Mouse Fix, aklınıza gelebilecek hemen hemen her şeyi doğrudan farenizden yapmanıza olanak tanır! Üstelik kullanımı da **oldukça kolaydır**."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix дозволяє **робити майже все**, що ви можете собі уявити — прямо з вашої миші! І водночас вона **надзвичайно проста** у використанні."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3132,6 +3426,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Farenize **aksiyonlar ekleyin**"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Додавайте дії** до вашої миші"
           }
         },
         "zh-Hans" : {
@@ -3194,6 +3494,12 @@
             "value" : "Farenize bir aksiyon eklemek için:\n\n1. İmlecinizi '+' alanının içine **getirin**. (Aşağıda gösterildiği üzere)\n2. Atama yapamak istediğiniz butona **basın**.\nAynı zamanda iki tık, tıkla ve kaydır ve daha fazlasını yapabilirsiniz!\n3. Bir aksiyon **seçin**, örneğin Akıllı Yakınlaştırma.\n\nBu kadar!"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Щоб додати дію до вашої миші:\n\n1. **Наведіть** курсор миші на поле '+'. (Показано нижче)\n2. **Натисніть** кнопку миші, якій ви хочете призначити дію.\nВи також можете використовувати подвійне натискання, натискання та перетягування та багато іншого!\n3. **Оберіть** дію, наприклад динамічне масштабування.\n\nІ це все!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3251,6 +3557,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nasıl Kurulduğuna Göz Atın"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подивитися, як налаштувати"
           }
         },
         "vi" : {
@@ -3318,6 +3630,12 @@
             "value" : "Farenizden **Klavye Kısayollarını** kullanın"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Використовуйте **клавіатурні скорочення** прямо з миші"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3375,6 +3693,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix, **klavye kısayoluyla yapabileceğiniz her şeyi** doğrudan farenizden yapmanıza olanak tanır. Örneğin, kopyalayıp yapıştırabilir, ses seviyesini değiştirebilir, Safari'de yeni bir sekme açabilir ve çok daha fazlasını yapabilirsiniz."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix дозволяє виконувати **будь-яку дію, яку можна зробити за допомогою клавіатурного скорочення**, прямо з вашої миші. Наприклад, ви можете копіювати та вставляти, змінювати рівень гучності, відкривати нову вкладку в Safari та багато іншого."
           }
         },
         "zh-Hans" : {
@@ -3436,6 +3760,12 @@
             "value" : "Muhteşem Yazılım.\nMuhteşem {accent2}"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чудове ПЗ.\nЧудова {accent2}."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3493,6 +3823,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fiyat"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ціна"
           }
         },
         "vi" : {
@@ -3560,6 +3896,12 @@
             "value" : "Mac Mouse Fix'i **harika** hissedebileceğiniz bir yazılım haline getirmek için çabalıyorum. Mümkün olduğunca **düşük** bir fiyata da sunmak istiyorum, böylece harika bir fırsat yakaladığınızı hissettirebilirken herkesin de alabilmesini destekliyorum. Ve nihayetinde, dünyanın bu küçük köşesini biraz daha **harika** ve güzel bir yer haline getirmeyi umuyorum!"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я прагну зробити Mac Mouse Fix таким програмним забезпеченням, від встановлення якого ви будете **відчувати задоволення**. Я хочу пропонувати його якомога **дешевше**, щоб ви відчували вигоду і щоб кожен міг його собі дозволити. І врешті-решт, я сподіваюся зробити цей маленький куточок світу трохи **кращим** та приємнішим!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3618,6 +3960,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Muhteşem **Yazılım** ..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чудове **ПЗ** ..."
           }
         },
         "vi" : {
@@ -3685,6 +4033,12 @@
             "value" : "Önünüze çıkmaz. Hafif. Güzel."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Непомітне. Легке. Красиве."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3744,6 +4098,12 @@
             "value" : "Mac Mouse Fix'in her ayrıntısı, size mümkün olan en iyi deneyimi sunarken **Mac'inizin doğal bir uzantısı** gibi hissetmenizi sağlamak için düşünüldü ve optimize edildi. Mac Mouse Fix'in **gerekenden fazla enerji veya bellek kullanmamasını** sağlamak için sayamayacağım kadar saat harcadım. Amacım, Mac Mouse Fix'i bilgisayarınızda fark etmemeniz, tabii farenizi kullandığınız zaman dışında."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кожна деталь Mac Mouse Fix була продумана та оптимізована, щоб надати вам найкращий досвід, залишаючись при цьому **природним розширенням вашого Mac**. Я витратив незліченну кількість годин, щоб переконатися, що Mac Mouse Fix **не використовує більше енергії акумулятора або пам'яті, ніж це абсолютно необхідно**. Мета полягає в тому, щоб ви навіть не помічали Mac Mouse Fix на своєму комп'ютері — за винятком, звісно, моментів використання миші."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3801,6 +4161,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Açık kaynaklı"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкритий код"
           }
         },
         "vi" : {
@@ -3868,6 +4234,12 @@
             "value" : "Mac Mouse Fix'in kaynak kodu GitHub'da mevcut, böylece herkes tam olarak nasıl çalıştığına göz atabilir. Bu hem geliştirme sürecine yardımcı oluyorhem de Mac Mouse Fix'in **güvenli** ve **güvenilir** olduğundan, **gizliliğinizi** koruduğundan ve arka planda çalışırken hiçbir şey yapmadığından emin olabileceğiniz anlamına gelir ve fare deneyiminizi bir üst seviyeye taşır!"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вихідний код Mac Mouse Fix доступний на GitHub, тож кожен може побачити, як саме вона працює. Це допомагає у розробці та означає, що ви можете бути впевнені: Mac Mouse Fix — **безпечна** та **надійна** програма, яка захищає вашу **конфіденційність** і не робить нічого зайвого, працюючи у фоновому режимі — окрім виведення вашого досвіду роботи з мишею на новий рівень!"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3925,6 +4297,12 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "... Muhteşem **Fiyat**"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "... Чудова **ціна**"
           }
         },
         "vi" : {
@@ -3992,6 +4370,12 @@
             "value" : "Bilgilendirme: {price} fiyatı alanınızda ödemeniz gereken yerel vergileri içermemektedir. Toplam fiyatı öğrenmek için [satın alma sayfasına]({urlCheckoutPage}) gitmeniz gerekmektedir. Eğer Gumroad.com üzerinden PayPal ile Euro dışında bir döviz ile ödeme yapacaksanız PayPal ek olarak %4,5 döviz çeviri ücreti yansıtacaktır.\n\nBu ek ödemeleri karışıklığı önlemek ve basitleştirmek için fiyatta belirtmek istiyorum ama Gumroad.com'daki limitlemeler sebebiyle bunu yapmam şu anda mümkün değil. Umuyorum ki fiyat sizler için hala iyi ve uygun kalır."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Примітка щодо ціни: Ціна **{price}** не включає місцеві податки, які можуть підлягати оплаті у вашому регіоні. Щоб побачити загальну вартість, відвідайте [сторінку оформлення замовлення]({urlCheckoutPage}). Якщо ви платите на Gumroad.com через PayPal у валюті, відмінній від євро, PayPal стягне додаткову комісію за конвертацію валюти у розмірі 4,5%.\n\nЯ хотів би включити ці комісії у ціну, щоб зробити процес купівлі простішим і зрозумілішим. Але наразі це неможливо через обмеження торгової платформи Gumroad.com. Сподіваюся, ціна все одно здається вам справедливою та низькою."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4049,6 +4433,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{trialDays} gün** kadar ücretsiz"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Безкоштовно на **{trialDays} днів**"
           }
         },
         "vi" : {
@@ -4116,6 +4506,12 @@
             "value" : "Mac Mouse Fix {trialDays} gün kadar ücretsiz. **Ücretsiz sayılacak günleriniz sadece uygulamayı kullandığınız günlerde azalır.** Böylece uygulamanın ücretsiz olduğu günleri stres olmadan kullanabilirsiniz."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix безкоштовна протягом {trialDays} днів. Ваші **безкоштовні дні витрачаються лише тоді, коли ви фактично використовуєте програму**. Таким чином, ви можете отримати максимум від безкоштовного періоду — без жодного стресу."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4173,6 +4569,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sahip olmak sadece **{price}**"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{price}**, щоб володіти"
           }
         },
         "vi" : {
@@ -4240,6 +4642,12 @@
             "value" : "Mac Mouse Fix'e sahip olmak sadece {price} ([+ vergiler]({urlTaxes})), ve bu kadar. Herhangi bir abonelik veya ek ödeme yok. Özellikle ödeme işlemlerini en **iyi** ve **hızlı-** yapmaya özen gösterdim, hatta **Apple Pay** ile bile ödeyebilirsiniz.\n\nUygulamayı satın almak için ya uygulamadaki düğmeyi kullanın ya da [buraya tıklayın]({urlBuyApp})."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix коштує {price} ([+ податки]({urlTaxes})), щоб отримати її назавжди — і це все. Немає жодних підписок чи додаткових платежів. Я подбав про те, щоб процес оплати був якомога **приємнішим** та **швидшим**, і ви навіть можете оплатити за допомогою **Apple Pay**!\n\nЩоб купити програму, натисніть кнопку в самій програмі або натисніть [тут]({urlBuyApp})."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4297,6 +4705,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**Alternatiflerinden** çok daha iyi bir fiyat"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Краща цінність, ніж у **альтернатив**"
           }
         },
         "zh-Hans" : {
@@ -4357,6 +4771,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix 10$ değerindeki farenizi bir Logitech MX Master fare ya da Apple İzleme Dörtgeninden daha iyi hale getirir. (Bu giriş aygıtları Mac'ler için en iyi cihazlar olarak tanınırlar)\n\nBuna rağmen, Mac Mouse Fix bir MX Master'dan **[{priceFactorMXMaster}x]({urlMXMaster})** kadar ve bir İzleme Dörtgeninden **[{priceFactorTrackpad}x]({urlTrackpad})** kadar daha ucuz!"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix робить вашу мишу за 10 доларів кращою за Logitech MX Master або Apple Trackpad (вони вважаються одними з найкращих пристроїв введення для Mac).\n\nІ при цьому Mac Mouse Fix у **[{priceFactorMXMaster} разів]({urlMXMaster})** дешевша за MX Master і у **[{priceFactorTrackpad} разів]({urlTrackpad})** дешевша за трекпед!"
           }
         },
         "zh-Hans" : {

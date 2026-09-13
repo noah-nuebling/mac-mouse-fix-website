@@ -58,6 +58,12 @@
             "value" : "**Noah Nuebling** tarafından geliştirildi"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Створено **Ноа Нюблінгом**"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -127,6 +133,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "{dwn} indirme için teşekkürler!"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дякуємо за {dwn} завантажень!"
           }
         },
         "vi" : {

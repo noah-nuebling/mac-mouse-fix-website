@@ -59,6 +59,12 @@
             "value" : "Bu sayfa {currentLocale} diline {localizationProgress} kadar çevrildi.\nÇeviriye yardımcı olmak için [buraya tıkla]({url})!"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ця сторінка перекладена {currentLocale} на {localizationProgress}\nЩоб допомогти з перекладом, натисніть [тут]({url})!"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -131,6 +137,12 @@
             "value" : "10$ Değerindeki Farenizi Bir Apple İzleme Dörtgeninden Daha İyi Hale&nbsp;Getirin"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зробіть свою мишу за 10 доларів кращою, ніж трекпед Apple!"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -200,6 +212,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "10$ Değerindeki Farenizi Bir Apple İzleme Dörtgeninden Daha İyi Hale&nbsp;Getirin"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зробіть свою мишу за 10 доларів кращою, ніж трекпед Apple!"
           }
         },
         "vi" : {

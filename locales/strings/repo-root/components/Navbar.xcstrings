@@ -77,6 +77,12 @@
             "value" : "Genel"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Огляд"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -146,6 +152,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "GitHub'da daha fazlası"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Більше на GitHub"
           }
         },
         "vi" : {

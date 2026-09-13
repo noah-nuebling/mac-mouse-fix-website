@@ -59,6 +59,12 @@
             "value" : "Ana Sayfa"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Головна сторінка"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -128,6 +134,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aradığınız sayfa bulunamadı"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сторінку, яку ви шукаєте, не знайдено."
           }
         },
         "vi" : {

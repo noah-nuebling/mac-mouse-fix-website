@@ -59,6 +59,12 @@
             "value" : "Bu çözümü sunacak uygulamalar arasında bu kesinlikle en iyisi!"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Серед усіх програм, що намагаються вирішити цю проблему, ця, безперечно, найкраща!"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -129,6 +135,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix OSX ile fare kullanım tecrübenizde size gerekecek her şeye sahip."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix це буквально все, що ви могли б побажати для використання миші в macOS."
           }
         },
         "vi" : {
@@ -203,6 +215,12 @@
             "value" : "Kurulumu kolay ve muhteşem çalışıyor."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Працює як швейцарський годинник, який легко налаштувати!"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -273,6 +291,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac'deki en iyi fare yazılımı bu."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Це найкраща програма для миші на Mac."
           }
         },
         "vi" : {
@@ -347,6 +371,12 @@
             "value" : "Mac Mouse Fix uygulaması için teşekkürler! Tam ihtiyacım olan şey; abonelik ve gereksiz şeyler yok. Çok teşekkürler!"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дякую за чудову програму Mac Mouse Fix. Саме те, що мені було потрібно без підписки та зайвого. Дуже дякую!"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -417,6 +447,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix sihir gibi. Bu kadar kullanıcı dostu ve iyi tasarlanmış olması aklımı aldı."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix — це магія. Я просто в захваті від того, наскільки вона добре розроблена та зручна."
           }
         },
         "vi" : {
@@ -491,6 +527,12 @@
             "value" : "Ofisteki Mac'imi bu yazılım olmadan nasıl kullanırım bilmiyorum. Windows'da sürücüsü olup macOS'da olmayan dikey farem ile beraber muhteşem bir üretkenlik artırıcı."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не можу уявити використання свого робочого Mac без цієї програми. Справжній бустер продуктивності в поєднанні з моєю Evoluent VerticalMouse, яка не має драйвера для Mac, на відміну від Windows."
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -561,6 +603,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac'imdeki en iyi uygulama olabilir"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мабуть, найкраща програма на моєму Mac"
           }
         },
         "vi" : {
@@ -635,6 +683,12 @@
             "value" : "Başka bir uygulama bununla yarışamaz"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Жодна інша подібна утиліта не може конкурувати"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -705,6 +759,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fare ile Mac kullanan herkesin bilgisayarında zorunluluk."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обов'язкова програма для будь-якого користувача Mac із мишею."
           }
         },
         "vi" : {
@@ -779,6 +839,12 @@
             "value" : "Bu benim üretkenliğimi ikiye katladı."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Це майже подвоїло мою продуктивність."
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -849,6 +915,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bu uygulamayı çok seviyorum, kesinlike indirilmeli!"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дуже люблю цю програму, вона просто необхідна!"
           }
         },
         "vi" : {
@@ -923,6 +995,12 @@
             "value" : "Uygulaman gerçekten muhteşem ve benim iş akışım için çok önemli."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваша програма неймовірна і абсолютно життєво необхідна для мого робочого процесу."
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -993,6 +1071,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix sınıfının en iyisi!"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix — найкраща у своєму класі!"
           }
         },
         "vi" : {
@@ -1067,6 +1151,12 @@
             "value" : "Dikey kaydırma gerçekten muhteşem."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вертикальна прокрутка просто чудова"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1137,6 +1227,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ekranların arasında geçiş için Tıkla ve Kaydır özelliği sanki sistemin kökünde varmış gibi."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Функція 'Натисніть і перетягніть' для перемикання між екранами відчувається дуже нативно."
           }
         },
         "vi" : {
@@ -1211,6 +1307,12 @@
             "value" : "Bir süredir Magic Mouse'umdan kurtulmak istiyordum ve senin uygulaman sayesinde bunu yapabilirim!"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я давно хотів позбутися своєї Magic Mouse, і завдяки вашій програмі я можу це зробити!"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1281,6 +1383,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix'i öneriyorum, çünkü dürüst olmak gerekirse gördüğüm en ucuz, basit ve başarılı bir şekilde geliştirilmiş uygulama."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рекомендую Mac Mouse Fix, чесно кажучи це найдешевша, найпростіша і найкраще написана програма, яку я коли-небудь бачив."
           }
         },
         "vi" : {
@@ -1355,6 +1463,12 @@
             "value" : "Teşekkür ederim, beni bir Apple faresi almaktan kurtardın"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дякую, врятували мене від купівлі миші apple"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1425,6 +1539,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "V2'deki kullanıcı arayüzü fantastik ve sezgisel."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інтерфейс у V2 фантастичний і дуже інтуїтивний."
           }
         },
         "vi" : {
@@ -1499,6 +1619,12 @@
             "value" : "Geçen hafta bu uygulamayı kullanamadım ve tüm iş akışım bozuldu. Böyle güzel bir uygulama için teşekkürler."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я провів минулий тиждень без неї, і весь мій робочий процес був перерваний. Дякую за таку блискучу програму."
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1569,6 +1695,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Getirdiği basitleştirmeye bayılıyorum."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я справді ціную ту простоту, яку вона приносить."
           }
         },
         "vi" : {
@@ -1643,6 +1775,12 @@
             "value" : "Bir fareye geçtikten sonra çok fazla iyi yorum alan SteerMouse gibi uygulamaları da denedim ama sonunda tam isteklerimi gerçekleştiren bir uygulama buldum. Her özellik çok işlevli ve performansı çok iyi."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Після переходу на мишу я спробував такі праграми, як SteerMouse, які отримали багато рекомендацій і навіть є платним, але врешті-решт виявив, що ця програма ідеально відповідає моїм потребам, кожна функція дуже корисна, і продуктивність дуже висока!"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1713,6 +1851,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Muhteşem uygulama, kesinlikle paylaşılmayı hak ediyor."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чудова програма, вона точно заслуговує на те, щоб широко ділитися з іншими 😁"
           }
         },
         "vi" : {
@@ -1787,6 +1931,12 @@
             "value" : "Bu Uygulama, Ucuz Farenizin İzleme Dörtgeni Hareketlerinden Daha İyi Çalışmasını Sağlıyor"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ця програма змушує вашу дешеву мишу працювати краще, ніж Жести на трекпеді"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1857,6 +2007,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apple tarihinin en iyi tek yazılımı bu."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Це найкраща програма в історії Apple."
           }
         },
         "vi" : {
@@ -1931,6 +2087,12 @@
             "value" : "Bu muhteşem bir yazılım ve tüm fare sorunlarımı çözdü."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Це чудова програма, вона вирішила всі мої проблеми з мишею."
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2001,6 +2163,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bu yazılım muhteşem!"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ця програма дивовижна!"
           }
         },
         "vi" : {
@@ -2075,6 +2243,12 @@
             "value" : "Teşekkürler, uygulama çok havalı."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дякую, програма дуже крута"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2145,6 +2319,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "SÜPER İYİ UYGULAMA"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "СУПЕР КЛАСНА ПРОГРАМА"
           }
         },
         "vi" : {
@@ -2219,6 +2399,12 @@
             "value" : "Faremle mükemmel çalışıyor."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вона ідеально працює з моєю мишею"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2289,6 +2475,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bu uygulama benim çıldırmadan macOS kullanmamı sağlayabilen tek uygulama (özellikle bir fare ile)."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш інструмент — буквально єдиний спосіб, за допомогою якого я можу використовувати macOS (особливо з мишею), не дратуючись!"
           }
         },
         "vi" : {
@@ -2363,6 +2555,12 @@
             "value" : "Muhteşem bir özgür yazılım. Açık kaynağa olan desteğin için teşekkürler."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прекрасне вільне програмне забезпечення. Дякуємо за ваш внесок у справу відкритого коду."
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2433,6 +2631,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bunun için teşekkürler, bunu Apple'ın neden varsayılan olarak getirmediğini anlamıyorum. Orta düğme ile hareketleri gerçekleştirebilmek çok sezgisel."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дякую за це, я не розумію, чому apple не зробила це стандартним, це супер інтуїтивно — виконувати жести середнім кліком."
           }
         },
         "vi" : {
@@ -2507,6 +2711,12 @@
             "value" : "Bunun gibi bir uygulamayı çok uzun zamandır arıyordum ve sonunda bunu buldum, beğendim 👍."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я довго шукав подібну програму і нарешті знайшов цю, великий палець вгору 👍."
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2577,6 +2787,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Benim Superlight faremi bir MX Master'dan daha iyi hale getirdin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви зробили мою Superlight кращою за MX Master."
           }
         },
         "vi" : {
@@ -2651,6 +2867,12 @@
             "value" : "Muhteşem bir yazılım! Kesinlikle bayıldım! Logitech Trackball'ım sanki benim bir parçam gibi oldu."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дивовижний продукт! Просто в захваті від нього! Мій трекбол Logitech тепер ніби продовження мене."
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2720,6 +2942,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Daha Azını Gör"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати менше"
           }
         },
         "vi" : {
@@ -2794,6 +3022,12 @@
             "value" : "Daha Fazlasını Gör"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати більше"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2864,6 +3098,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}**, bir Gumroad bağış mesajında"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** у повідомленні про пожертву на Gumroad"
           }
         },
         "vi" : {
@@ -2937,6 +3177,12 @@
             "value" : "**{name}**, bir E-Postada"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** в електронному листі"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3006,6 +3252,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}**, GitHub'da"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** на GitHub"
           }
         },
         "vi" : {
@@ -3079,6 +3331,12 @@
             "value" : "**{name}**, bir LifeHacker yazısında"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** у статті LifeHacker"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3148,6 +3406,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}**, bir PayPal bağış mesajında"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** у повідомленні про пожертву PayPal"
           }
         },
         "vi" : {
@@ -3221,6 +3485,12 @@
             "value" : "**{name}**, Reddit'ten"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** на Reddit"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3290,6 +3560,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}**, Stack Exchange'den"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** на Stack Exchange"
           }
         },
         "vi" : {
@@ -3363,6 +3639,12 @@
             "value" : "**{name}**, bir YouTube yorumunda"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** у коментарі на YouTube"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3432,6 +3714,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Yıllar boyu takdirleriniz ve geribildirimleriniz için herkese **teşekkürler**! İyi mesajlarınızı okumak her zaman motive edici. **:)**"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Дякуємо** всім, хто ділиться своєю подякою та відгуками протягом багатьох років! Читати ваші приємні повідомлення — це завжди мотивує **:)**"
           }
         },
         "vi" : {
@@ -3506,6 +3794,12 @@
             "value" : "İngilizce dilinden çevrildi."
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перекладено з англійської"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3576,6 +3870,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Çince dilinden çevrildi."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перекладено з китайської"
           }
         },
         "vi" : {

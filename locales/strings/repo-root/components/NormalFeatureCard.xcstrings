@@ -59,6 +59,12 @@
             "value" : "Çalışma anında görün"
           }
         },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подивитися в дії"
+          }
+        },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
@@ -128,6 +134,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Video'yu kapat"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закрити відео"
           }
         },
         "vi" : {
