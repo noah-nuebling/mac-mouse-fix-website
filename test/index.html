@@ -1,0 +1,27 @@
+<!-- <!DOCTYPE html>
+<html>
+
+  <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+  <script type="text/javascript">
+      alert(google.loader.ClientLocation.address.city);
+  </script>
+
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="zipcode">Loading...</p>
+
+<script>
+fetch('http://ip-api.com/json/')
+.then(response => response.json())
+.then(data => {
+  document.getElementById("zipcode").innerHTML = "Your ZIP code estimate: " + data.zip;
+})
+.catch(err => console.error(err));
+</script>
+
+</body>
+</html>
