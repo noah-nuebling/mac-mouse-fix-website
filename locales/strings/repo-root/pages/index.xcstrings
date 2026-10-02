@@ -29,6 +29,12 @@
             "value" : "Les Macs sont Meilleurs Avec un {dev}."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I Mac danno il meglio\ncon {dev}."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -106,6 +112,12 @@
             "value" : "**Pavé tactile**"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Trackpad**"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -181,6 +193,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**Souris**"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Mouse**"
           }
         },
         "ja" : {
@@ -261,6 +279,12 @@
             "value" : "C'est vrai ! Mac Mouse Fix apporte toutes les fonctionnalités d'un trackpad Apple, et bien plus encore, à votre souris tierce **précise** et **ergonomique**. Et toutes les interactions sont aussi **fluides** et **naturelles** que sur un trackpad."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esatto! Mac Mouse Fix porta tutte le funzioni di un trackpad Apple - e anche di più - sul tuo mouse di terze parti, **preciso** ed **ergonomico**. E ogni interazione risulta **fluida** e **naturale** proprio come sul trackpad."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -324,6 +348,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**Gestos de Trackpad** que Mac Mouse Fix lleva a tu ratón"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Gesti del trackpad** che Mac Mouse Fix porta sul tuo mouse"
           }
         },
         "ja" : {
@@ -391,6 +421,12 @@
             "value" : "Nota: Mac Mouse Fix puede llevar estas funciones de Trackpad a tu ratón de terceros, como se describe aquí, solo si tu ratón tiene al menos 5 botones. Estos 5 botones suelen ser clic izquierdo, clic derecho, clic de la rueda del ratón y 2 botones laterales. Si tu ratón tiene menos de 5 botones, Mac Mouse Fix aun así proporciona una rica funcionalidad y una gran experiencia, pero algunas funciones serán menos fáciles de acceder en comparación con un ratón de 5 botones. En ciertos ratones diseñados para ser utilizados con software de controlador propietario como Logitech Options, Mac Mouse Fix no puede reconocer todos los botones en este momento. Mac Mouse Fix actualmente no es compatible con el Apple Magic Mouse."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nota: Mac Mouse Fix può portare queste funzioni del trackpad sul tuo mouse di terze parti, nel modo descritto qui, solo se il mouse ha almeno 5 pulsanti. Questi 5 pulsanti sono in genere clic sinistro, clic destro, clic della rotellina e 2 pulsanti laterali. Se il tuo mouse ha meno di 5 pulsanti, Mac Mouse Fix offre comunque molte funzionalità e un'ottima esperienza, ma alcune funzioni saranno meno facili da raggiungere rispetto a un mouse a 5 pulsanti. Su alcuni mouse progettati per essere usati con un software driver proprietario come Logitech Options, al momento Mac Mouse Fix non riesce a riconoscere tutti i pulsanti. Mac Mouse Fix attualmente non supporta l'Apple Magic Mouse."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -454,6 +490,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mira hacia arriba y mira rápido"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerca e Anteprima rapida"
           }
         },
         "ja" : {
@@ -528,6 +570,12 @@
             "value" : "**Haz clic en el botón 4** de tu ratón para buscar una palabra en el diccionario, previsualizar sitios web en Safari o archivos en el Finder, y más.\n\nFunciona exactamente igual que tocar con 3 dedos o hacer clic forzado en un Apple Trackpad."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Clicca il pulsante 4** del mouse per cercare una parola nel dizionario, vedere l'anteprima di siti web in Safari o di file nel Finder, e altro ancora.\n\nFunziona proprio come toccare con 3 dita o premere con forza su un trackpad Apple."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -588,6 +636,12 @@
           }
         },
         "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mission Control"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mission Control"
@@ -664,6 +718,12 @@
             "value" : "Mantén pulsado el **botón 4** de tu ratón, luego **arrastra** el ratón **hacia arriba** para ver un resumen de tus ventanas, aplicaciones y escritorios abiertos.\n\nFunciona exactamente igual que deslizar hacia arriba con cuatro dedos en un Apple Trackpad."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tieni premuto il **pulsante 4** del mouse, poi **trascina** il mouse **verso l'alto** per vedere una panoramica di finestre, applicazioni e scrivanie aperte.\n\nFunziona proprio come scorrere verso l'alto con quattro dita su un trackpad Apple."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -727,6 +787,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Moverse entre escritorios"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passa da una scrivania all'altra"
           }
         },
         "ja" : {
@@ -800,6 +866,12 @@
             "value" : "Mantén pulsado el **botón 4** de tu ratón, luego **arrastra** el ratón **hacia la izquierda** o **hacia la derecha** para moverte a otro escritorio o aplicación a pantalla completa.\n\nFunciona exactamente igual que deslizar hacia la izquierda o hacia la derecha con cuatro dedos en un Apple Trackpad."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tieni premuto il **pulsante 4** del mouse, poi **trascina** il mouse **a sinistra** o **a destra** per passare a un'altra scrivania o app a schermo intero.\n\nFunziona proprio come scorrere a sinistra o a destra con quattro dita su un trackpad Apple."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -860,6 +932,12 @@
           }
         },
         "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App Exposé"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "App Exposé"
@@ -936,6 +1014,12 @@
             "value" : "Mantén pulsado el **botón 4** de tu ratón, luego **arrastra** el ratón **hacia abajo** para ver todas las ventanas de la aplicación que estás utilizando.\n\nFunciona exactamente igual que deslizar hacia abajo con cuatro dedos en un Apple Trackpad."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tieni premuto il **pulsante 4** del mouse, poi **trascina** il mouse **verso il basso** per vedere tutte le finestre dell'app che stai usando.\n\nFunziona proprio come scorrere verso il basso con quattro dita su un trackpad Apple."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -999,6 +1083,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mostrar escritorio"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra la scrivania"
           }
         },
         "ja" : {
@@ -1072,6 +1162,12 @@
             "value" : "Mantén pulsado el **botón 4** de tu ratón, luego **desplázate hacia arriba** para mostrar tu escritorio.\n\nFunciona exactamente igual que separar el pulgar y tres dedos en un Apple Trackpad."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tieni premuto il **pulsante 4** del mouse, poi **scorri verso l'alto** per mostrare la scrivania.\n\nFunziona proprio come allargare il pollice e tre dita su un trackpad Apple."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1132,6 +1228,12 @@
           }
         },
         "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Launchpad"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Launchpad"
@@ -1208,6 +1310,12 @@
             "value" : "Mantén pulsado el **botón 4** de tu ratón, luego **desplázate hacia abajo** para mostrar el Launchpad.\n\nFunciona exactamente igual que juntar el pulgar y tres dedos en un Apple Trackpad."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tieni premuto il **pulsante 4** del mouse, poi **scorri verso il basso** per mostrare il Launchpad.\n\nFunziona proprio come riunire il pollice e tre dita su un trackpad Apple."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1271,6 +1379,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Acercar o alejar"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom avanti e indietro"
           }
         },
         "ja" : {
@@ -1344,6 +1458,12 @@
             "value" : "Mantén pulsado el **botón 5** de tu ratón, luego **desplázate hacia arriba** o **hacia abajo** para acercar o alejar en aplicaciones como Safari y Vista Previa.\n\nFunciona exactamente igual que pellizcar con dos dedos en un Apple Trackpad."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tieni premuto il **pulsante 5** del mouse, poi **scorri verso l'alto** o **verso il basso** per ingrandire o rimpicciolire in app come Safari e Anteprima.\n\nFunziona proprio come pizzicare con due dita su un trackpad Apple."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1407,6 +1527,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Volver y avanzar"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vai indietro e avanti"
           }
         },
         "ja" : {
@@ -1480,6 +1606,12 @@
             "value" : "Mantén pulsado el **botón 5** de tu ratón, luego **arrastra** el ratón **hacia la izquierda** o **hacia la derecha** para mostrar la página anterior o siguiente en aplicaciones como Safari.\n\nFunciona exactamente igual que deslizar hacia la izquierda o hacia la derecha con dos dedos en un Apple Trackpad."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tieni premuto il **pulsante 5** del mouse, poi **trascina** il mouse **a sinistra** o **a destra** per mostrare la pagina precedente o successiva in app come Safari.\n\nFunziona proprio come scorrere a sinistra o a destra con due dita su un trackpad Apple."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1543,6 +1675,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eliminar correos rápidamente y más"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elimina le email in un attimo e altro"
           }
         },
         "ja" : {
@@ -1616,6 +1754,12 @@
             "value" : "Mantén pulsado el **botón 5** de tu ratón, luego **arrastra** el ratón **hacia la izquierda** o **hacia la derecha** para eliminar mensajes en Mail, responder rápidamente a un iMessage, y más.\n\nCualquier gesto que puedas realizar dentro de una aplicación deslizando en un Apple Trackpad funciona igual de bien usando Mac Mouse Fix."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tieni premuto il **pulsante 5** del mouse, poi **trascina** il mouse **a sinistra** o **a destra** per eliminare i messaggi in Mail, rispondere rapidamente a un iMessage e altro ancora.\n\nQualsiasi gesto che puoi eseguire in un'app scorrendo su un trackpad Apple funziona altrettanto bene con Mac Mouse Fix."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1679,6 +1823,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Desplazamiento preciso de 360°"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scorrimento preciso a 360°"
           }
         },
         "ja" : {
@@ -1752,6 +1902,12 @@
             "value" : "Mantén pulsado el **botón 5** de tu ratón, luego **arrastra** el ratón en **cualquier dirección** para desplazarte con precisión con libertad de 360° y un efecto inercial intuitivo. Así puedes navegar por el lienzo con facilidad en aplicaciones profesionales como Excel o Affinity Photo.\n\nEs tan fácil y preciso como desplazarse en un Apple Trackpad."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tieni premuto il **pulsante 5** del mouse, poi **trascina** il mouse in **qualsiasi direzione** per scorrere con precisione, con una libertà a 360° e un intuitivo effetto inerziale. Così puoi muoverti sull'area di lavoro con facilità in app professionali come Excel o Affinity Photo.\n\nÈ facile e preciso proprio come scorrere su un trackpad Apple."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1815,6 +1971,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zoom inteligente"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoom intelligente"
           }
         },
         "ja" : {
@@ -1888,6 +2050,12 @@
             "value" : "**Haz clic en el botón 5** de tu ratón para acercar y alejar una página web o PDF.\n\nFunciona exactamente igual que hacer doble toque con dos dedos en un Apple Trackpad."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Clicca il pulsante 5** del mouse per ingrandire e tornare alla vista normale su una pagina web o un PDF.\n\nFunziona proprio come toccare due volte con due dita su un trackpad Apple."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1952,6 +2120,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "{accent}.\nSuave como la seda."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "{accent}.\nFluido come il burro."
           }
         },
         "ja" : {
@@ -2025,6 +2199,12 @@
             "value" : "Desplazamiento"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scorrimento"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2096,6 +2276,12 @@
             "value" : "El desplazamiento con un ratón de terceros en macOS puede sentirse **entrecortado** y **difícil de controlar**. ¡Pues ya no más! Experimenta un algoritmo de desplazamiento **refinado** y **basado en el impulso** que hace que navegar por tu ordenador sea **sin esfuerzo** y **natural**."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scorrere con un mouse di terze parti su macOS può risultare **a scatti** e **difficile da controllare**. Beh, non più! Scopri un algoritmo di scorrimento **raffinato** e **basato sull'inerzia** che rende la navigazione del computer **senza sforzo** e **naturale**."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2160,6 +2346,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Elige una **fluidez de desplazamiento** ..."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli una **Fluidità di scorrimento** ..."
           }
         },
         "ja" : {
@@ -2233,6 +2425,12 @@
             "value" : "Fluidez: **Alta**"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fluidità: **Alta**"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2304,6 +2502,12 @@
             "value" : "Con la *Fluidez: Alta*, el desplazamiento se siente **increíblemente suave** - **igual que un Trackpad**. Detalles como el sutil rebote al final de una página crean una sensación dinámica y agradable. Aun así, el desplazamiento es súper sensible y fácil de controlar. Con esta opción, también puedes desplazarte grandes distancias con mucha facilidad."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Con *Fluidità: Alta*, lo scorrimento è **incredibilmente fluido** - **proprio come su un trackpad**. Dettagli come il leggero rimbalzo a fine pagina danno una sensazione dinamica e piacevole. Eppure lo scorrimento resta super reattivo e facile da controllare. Con questa opzione puoi anche percorrere grandi distanze con estrema facilità."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2367,6 +2571,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fluidez: **Regular**"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fluidità: **Normale**"
           }
         },
         "ja" : {
@@ -2440,6 +2650,12 @@
             "value" : "Con la *Fluidez: Regular* el desplazamiento es **altamente sensible** que **se siente como si estuvieras empujando la página directamente con el dedo**. Las animaciones cortas y basadas en el impulso proporcionan una sensación refinada.\n\nEsta opción se siente similar al desplazamiento en Chrome o en aplicaciones modernas de Windows."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scegli *Fluidità: Normale* per uno scorrimento **estremamente reattivo**, che **dà la sensazione di spingere la pagina direttamente con il dito**. Le animazioni brevi, basate sull'inerzia, danno una sensazione raffinata.\n\nQuesta opzione è simile allo scorrimento in Chrome o nelle moderne app per Windows."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2503,6 +2719,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fluidez: **Desactivado**"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fluidità: **Disattivata**"
           }
         },
         "ja" : {
@@ -2576,6 +2798,12 @@
             "value" : "Con la *Fluidez: Desactivada*, el desplazamiento funciona como lo hace normalmente en macOS - **sin ninguna animación** ni suavizado. Pero con una diferencia clave: **Un incremento de la rueda de desplazamiento desplazará un número fijo de *líneas***, en lugar de solo unos pocos píxeles, lo que hace que la navegación sea más consistente y cómoda.\n\nAsí es como también funciona el desplazamiento en la mayoría de las aplicaciones de Windows y Linux, así como en versiones anteriores de macOS."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Con *Fluidità: Disattivata*, lo scorrimento funziona come di consueto in macOS - **senza alcuna animazione** o smorzamento. Ma con una differenza fondamentale: **uno scatto della rotellina scorre di un numero fisso di *righe***, invece di pochi pixel, rendendo la navigazione più coerente e comoda.\n\nÈ così che funziona lo scorrimento anche nella maggior parte delle app su Windows e Linux, oltre che nelle versioni precedenti di macOS."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2639,6 +2867,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "... Y **Más**"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "... E **molto altro**"
           }
         },
         "ja" : {
@@ -2712,6 +2946,12 @@
             "value" : "Dirección de desplazamiento"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Direzione di scorrimento"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2783,6 +3023,12 @@
             "value" : "Mac Mouse Fix te permite **cambiar la dirección de desplazamiento** de tu ratón, independientemente de tu Trackpad o Magic Mouse."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix ti permette di **cambiare la direzione di scorrimento** del mouse - in modo indipendente dal trackpad o dal Magic Mouse."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2846,6 +3092,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Modificadores de teclado"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tasti modificatori"
           }
         },
         "ja" : {
@@ -2919,6 +3171,12 @@
             "value" : "Mantén pulsado un modificador de teclado mientras te desplazas para **desplazarte con precisión**, **acercar o alejar**, y más."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tieni premuto un tasto modificatore della tastiera mentre scorri per **scorrere con precisione**, **ingrandire o rimpicciolire** e altro ancora."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2982,6 +3240,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Simple pero potente"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Semplice ma potente"
           }
         },
         "ja" : {
@@ -3055,6 +3319,12 @@
             "value" : "Puedes configurar el desplazamiento en Mac Mouse Fix de muchas maneras diferentes con solo unos pocos clics. **Todas las opciones que elijas se sentirán geniales sin complicaciones**. Cada mejora de desplazamiento proporcionada por Mac Mouse Fix también puede desactivarse, si prefieres cómo funcionan las cosas de forma nativa en macOS."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puoi configurare lo scorrimento in Mac Mouse Fix in molti modi diversi con pochi clic. **Tutte le opzioni che scegli funzioneranno alla grande, senza dover armeggiare**. Ogni miglioramento dello scorrimento offerto da Mac Mouse Fix può anche essere disattivato, se preferisci come funzionano le cose nativamente in macOS."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3118,6 +3388,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Increíblemente {accent2}\n{accent} Intuitivo."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incredibilmente {accent2}\n{accent} intuitivo."
           }
         },
         "ja" : {
@@ -3186,6 +3462,12 @@
           }
         },
         "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "e"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "e"
@@ -3262,6 +3544,12 @@
             "value" : "Flexible"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "flessibile"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3333,6 +3621,12 @@
             "value" : "Mac Mouse Fix te permite **hacer casi cualquier cosa** que se te ocurra, ¡directamente desde el ratón! Y sin embargo, es **notablemente fácil** de usar."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix ti permette di **fare quasi tutto** ciò che ti viene in mente - direttamente dal mouse! Eppure è **incredibilmente facile** da usare."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3396,6 +3690,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**Añadir acciones** a tu ratón"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Aggiungi azioni** al tuo mouse"
           }
         },
         "ja" : {
@@ -3464,6 +3764,12 @@
             "value" : "Para añadir una acción a tu ratón:\n\n1. **Mueve** el puntero del ratón dentro del campo '+'. (Se muestra abajo)\n2. **Haz clic** en el botón del ratón al que deseas asignar una acción.\n¡También puedes hacer Doble Clic, Clic y Arrastrar, y mucho más!\n3. **Elige** una acción, como Zoom inteligente.\n\n¡Y eso es todo!"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per aggiungere un'azione al tuo mouse:\n\n1. **Sposta** il puntatore del mouse dentro il campo '+'. (Mostrato qui sotto)\n2. **Clicca** il pulsante del mouse a cui vuoi assegnare un'azione.\nPuoi anche fare doppio clic, clic e trascinamento, e molto altro!\n3. **Scegli** un'azione, ad esempio Zoom intelligente.\n\nE il gioco è fatto!"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3527,6 +3833,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ver cómo configurarlo"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scopri come configurarlo"
           }
         },
         "ja" : {
@@ -3600,6 +3912,12 @@
             "value" : "Usar **atajos de teclado** desde tu ratón"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usa le **scorciatoie da tastiera** dal mouse"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3663,6 +3981,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix te permite **hacer cualquier cosa que puedas hacer con un atajo de teclado** ¡directamente desde tu ratón! Por ejemplo, puedes copiar y pegar, cambiar el volumen del audio, abrir una pestaña nueva en Safari y mucho más."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix ti permette di **fare qualsiasi cosa tu possa fare con una scorciatoia da tastiera** direttamente dal mouse. Ad esempio puoi copiare e incollare, cambiare il volume dell'audio, aprire una nuova scheda in Safari e molto altro."
           }
         },
         "ja" : {
@@ -3730,6 +4054,12 @@
             "value" : "Gran Software.\nGran {accent2}."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ottimo software.\nOttimo {accent2}."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3793,6 +4123,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Precio"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "prezzo"
           }
         },
         "ja" : {
@@ -3866,6 +4202,12 @@
             "value" : "Me esfuerzo por hacer de Mac Mouse Fix un software que te haga **sentir genial** al instalar. Quiero ofrecerlo lo más **barato** posible, para que sientas que estás obteniendo una gran oferta y para que todos puedan permitírselo. Y, en última instancia, ¡espero hacer de este pequeño rincón del mundo algo un poco más **impresionante** y agradable!"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mi impegno a fare di Mac Mouse Fix un software che ti faccia **sentire bene** quando lo installi. Voglio offrirlo al prezzo **più basso possibile**, così che tu abbia la sensazione di fare un ottimo affare e che tutti possano permetterselo. E in fin dei conti spero di rendere questo piccolo angolo di mondo un po' più **fantastico** e piacevole!"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3930,6 +4272,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gran **Software** ..."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ottimo **software** ..."
           }
         },
         "ja" : {
@@ -4003,6 +4351,12 @@
             "value" : "No intrusivo. Ligero. Bonito."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discreto. Leggero. Bellissimo."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4068,6 +4422,12 @@
             "value" : "Cada detalle de Mac Mouse Fix ha sido considerado y optimizado para darte la mejor experiencia posible mientras se siente como una **extensión natural de tu Mac**. He invertido incontables horas para asegurarme de que Mac Mouse Fix **no use más batería ni memoria de lo estrictamente necesario**. El objetivo es que ni siquiera notes Mac Mouse Fix en tu ordenador - excepto, por supuesto, cuando uses tu ratón."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ogni dettaglio di Mac Mouse Fix è stato studiato e ottimizzato per offrirti la migliore esperienza possibile, dando la sensazione di essere una **naturale estensione del tuo Mac**. Ho investito innumerevoli ore per assicurarmi che Mac Mouse Fix **non consumi più batteria o memoria dello stretto necessario**. L'obiettivo è che tu non ti accorga nemmeno di Mac Mouse Fix sul tuo computer - tranne, ovviamente, quando usi il mouse."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4131,6 +4491,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Código abierto"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open source"
           }
         },
         "ja" : {
@@ -4204,6 +4570,12 @@
             "value" : "El código fuente de Mac Mouse Fix está disponible en GitHub, para que todo el mundo pueda ver exactamente cómo funciona. Esto ayuda al desarrollo, y significa que puedes estar seguro de que Mac Mouse Fix es **seguro** y **confiable**, que protege tu **privacidad**, y que no hace nada cuando se ejecuta en segundo plano - excepto llevar la experiencia de tu ratón al siguiente nivel."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il codice sorgente di Mac Mouse Fix è disponibile su GitHub, così chiunque può vedere esattamente come funziona. Questo aiuta lo sviluppo e significa che puoi star certo che Mac Mouse Fix sia **sicuro** e **affidabile**, che protegga la tua **privacy** e che non faccia nulla mentre è in esecuzione in background - se non portare la tua esperienza con il mouse a un altro livello!"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4267,6 +4639,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "... Gran **Precio**"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "... e ottimo **prezzo**"
           }
         },
         "ja" : {
@@ -4340,6 +4718,12 @@
             "value" : "Nota sobre el precio: El precio de **{price}** no incluye impuestos locales, que podrían tener que pagarse en tu región. Para ver tu precio total, visita la [página de pago](https://www.google.com/search?q=%7BurlCheckoutPage%7D). Si pagas en Gumroad.com a través de PayPal en una moneda distinta al Euro, PayPal cobrará una tarifa adicional del 4.5% por conversión de divisas.\n\nMe gustaría incluir estas tarifas en el precio para hacer la experiencia de compra más simple y clara. Pero esto no es posible actualmente debido a limitaciones con la plataforma de ventas Gumroad.com. Espero que el precio siga pareciendo muy justo y barato."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nota sul prezzo: il prezzo di **{price}** non include le tasse locali, che potrebbero dover essere pagate nella tua regione. Per vedere il prezzo totale, visita la [pagina di pagamento]({urlCheckoutPage}). Se paghi su Gumroad.com tramite PayPal in una valuta diversa dall'euro, PayPal addebiterà una commissione aggiuntiva del 4,5% per la conversione di valuta.\n\nMi piacerebbe includere queste commissioni nel prezzo - per rendere l'acquisto più semplice e chiaro. Ma al momento non è possibile a causa dei limiti della piattaforma di vendita Gumroad.com. Spero che il prezzo ti sembri comunque molto giusto e conveniente."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4403,6 +4787,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gratuito durante **{trialDays} Días**"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gratis per **{trialDays} giorni**"
           }
         },
         "ja" : {
@@ -4476,6 +4866,12 @@
             "value" : "Mac Mouse Fix es gratuito durante {trialDays} días. Tus **días gratuitos solo se agotan cuando realmente usas la aplicación**. De esa manera, puedes sacar el máximo partido a tus días gratuitos, sin ningún estrés."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix è gratis per {trialDays} giorni. I tuoi **giorni gratuiti si consumano solo quando usi davvero l'app**. In questo modo puoi sfruttare al meglio i giorni gratuiti - senza alcuno stress."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4539,6 +4935,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{price}** para poseerlo"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{price}** una tantum"
           }
         },
         "ja" : {
@@ -4612,6 +5014,12 @@
             "value" : "Mac Mouse Fix cuesta {price} ([+ impuestos]({urlTaxes})) para poseerlo, y eso es todo. No hay suscripciones ni pagos adicionales. Me aseguré de que la experiencia de pago sea lo más **agradable** y **rápida** posible, ¡e incluso puedes pagar con **Apple Pay**!\n\nPara comprar la aplicación, haz clic en el botón de la aplicación o haz clic [aquí]({urlBuyApp})."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix costa {price} ([+ tasse]({urlTaxes})) una volta sola - e basta. Nessun abbonamento né pagamenti aggiuntivi. Mi sono assicurato che il pagamento sia il più **piacevole** e **rapido** possibile, e puoi persino pagare con **Apple Pay**!\n\nPer acquistare l'app, clicca il pulsante nell'app oppure clicca [qui]({urlBuyApp})."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4675,6 +5083,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mejor valor que las **Alternativas**"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Più conveniente delle **alternative**"
           }
         },
         "ja" : {
@@ -4741,6 +5155,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix hace que tu ratón de $10 sea mejor que un ratón Logitech MX Master o un Trackpad de Apple. (Estos son considerados algunos de los mejores dispositivos de entrada para Mac).\n\nY sin embargo, Mac Mouse Fix es **[{priceFactorMXMaster}x]({urlMXMaster})** más barato que un MX Master y **[{priceFactorTrackpad}x]({uelTrackPad})** más barato que un Trackpad."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix rende il tuo mouse da $10 migliore di un mouse Logitech MX Master o di un trackpad Apple. (Sono considerati tra i migliori dispositivi di input per Mac.)\n\nEppure, Mac Mouse Fix costa **[{priceFactorMXMaster}x]({urlMXMaster})** meno di un MX Master e **[{priceFactorTrackpad}x]({urlTrackpad})** meno di un trackpad!"
           }
         },
         "ja" : {

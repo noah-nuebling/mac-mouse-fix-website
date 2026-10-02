@@ -29,6 +29,12 @@
             "value" : "Télécharger"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scarica"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",

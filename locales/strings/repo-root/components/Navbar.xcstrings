@@ -47,6 +47,12 @@
             "value" : "Aperçu"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Panoramica"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -122,6 +128,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Plus d'informations sur GitHub"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Altro su GitHub"
           }
         },
         "ja" : {

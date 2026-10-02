@@ -28,6 +28,12 @@
             "value" : "Créé par **Noah Nuebling**"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creato da **Noah Nuebling**"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -103,6 +109,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Merci pour vos téléchargements {dwn} !"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grazie per {dwn} download!"
           }
         },
         "ja" : {

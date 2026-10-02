@@ -29,6 +29,12 @@
             "value" : "Découvrez-le en action"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardalo in azione"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -104,6 +110,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fermer la vidéo"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiudi il video"
           }
         },
         "ja" : {

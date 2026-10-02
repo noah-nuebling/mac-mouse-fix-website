@@ -29,6 +29,12 @@
             "value" : "Cette page est traduite à {localizationProgress} % en {currentLocale}.\nPour aider à la traduction, cliquez [ici]({url}) !"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questa pagina è tradotta al {localizationProgress} in {currentLocale}\nPer aiutare a tradurre, clicca [qui]({url})!"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -107,6 +113,12 @@
             "value" : "Rendez votre souris à 10 $ meilleure qu'un trackpad Apple !"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rendi il tuo mouse da €10 migliore di un trackpad Apple!"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -182,6 +194,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rendez votre souris à 10 $ meilleure qu'un trackpad Apple !"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rendi il tuo mouse da €10 migliore di un trackpad Apple!"
           }
         },
         "ja" : {

@@ -29,6 +29,12 @@
             "value" : "Première page"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pagina iniziale"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -104,6 +110,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "La page que vous recherchez est introuvable."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La pagina che stai cercando non è stata trovata."
           }
         },
         "ja" : {

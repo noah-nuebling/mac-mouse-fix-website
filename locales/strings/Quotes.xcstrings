@@ -29,6 +29,12 @@
             "value" : "Parmi toutes les applications qui tentent de résoudre ce problème, celle-ci est sans aucun doute la meilleure !"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tra tutte le app che cercano di risolvere questo problema, questa è senza dubbio la migliore!"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -105,6 +111,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix est littéralement tout ce que vous pouvez souhaiter pour votre expérience d'utilisation d'une souris avec OSX."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix è letteralmente tutto ciò che potresti desiderare per usare un mouse con OSX."
           }
         },
         "ja" : {
@@ -185,6 +197,12 @@
             "value" : "Fonctionne à merveille et est facile à configurer !"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funziona a meraviglia ed è facile da configurare!"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -261,6 +279,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "C'est le meilleur logiciel pour souris sur Mac."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questo è il miglior software per mouse su Mac."
           }
         },
         "ja" : {
@@ -341,6 +365,12 @@
             "value" : "Merci pour cette application géniale, Mac Mouse Fix. C'est exactement ce dont j'avais besoin, sans abonnement ni fonctionnalités superflues. Merci beaucoup !"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grazie per la fantastica app Mac Mouse Fix. Proprio quello di cui avevo bisogno, senza abbonamento e senza fronzoli. Grazie mille!"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -417,6 +447,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix est magique. Je suis absolument impressionné par sa conception et sa convivialité."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix è magico. Sono assolutamente sbalordito da quanto sia ben progettato e facile da usare."
           }
         },
         "ja" : {
@@ -497,6 +533,12 @@
             "value" : "Je ne peux pas imaginer utiliser mon Mac au bureau sans ce logiciel. Il améliore vraiment ma productivité, surtout avec ma souris verticale Evoluent qui n'a pas de pilote pour Mac comme pour Windows."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non riesco a immaginare di usare il Mac dell'ufficio senza questo software. Un vero booster di produttività, abbinato al mio mouse verticale Evoluent, che per Mac non ha un driver come invece ce l'ha per Windows."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -573,6 +615,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Probablement la meilleure application sur mon Mac."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probabilmente la migliore app del mio Mac"
           }
         },
         "ja" : {
@@ -653,6 +701,12 @@
             "value" : "Aucun autre utilitaire similaire ne peut rivaliser."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessun'altra utility simile può competere"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -729,6 +783,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Une application indispensable pour tout utilisateur Mac équipé d'une souris."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un'app imprescindibile per qualsiasi utente Mac con un mouse."
           }
         },
         "ja" : {
@@ -809,6 +869,12 @@
             "value" : "Cela a presque doublé ma productivité."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ha quasi raddoppiato la mia produttività."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -885,6 +951,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "J'adore cette application, c'est un incontournable !"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adoro questa app, è un must!"
           }
         },
         "ja" : {
@@ -965,6 +1037,12 @@
             "value" : "Votre application est incroyable et absolument indispensable à mon flux de travail."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La tua app è incredibile e assolutamente fondamentale per il mio flusso di lavoro."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1041,6 +1119,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mac Mouse Fix est le meilleur de sa catégorie !"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mac Mouse Fix è il migliore della sua categoria!"
           }
         },
         "ja" : {
@@ -1121,6 +1205,12 @@
             "value" : "Le défilement vertical est tout simplement génial."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo scorrimento verticale è semplicemente fantastico"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1197,6 +1287,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cliquer et faire glisser pour passer d'un écran à l'autre semble tellement naturel."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cliccare e trascinare per passare da una schermata all'altra sembra così nativo."
           }
         },
         "ja" : {
@@ -1277,6 +1373,12 @@
             "value" : "Cela fait un moment que je souhaite me débarrasser de ma Magic Mouse, et grâce à votre application, je peux enfin le faire !"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volevo liberarmi del mio Magic Mouse da un po' e grazie alla tua app ci sono riuscito!"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1353,6 +1455,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Je recommande Mac Mouse Fix, honnêtement, c'est l'application la moins chère, la plus simple et la mieux codée que j'ai vue jusqu'à présent."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consiglio Mac Mouse Fix, onestamente è l'app più economica, semplice e meglio programmata che abbia mai visto."
           }
         },
         "ja" : {
@@ -1433,6 +1541,12 @@
             "value" : "Merci, ça m'a évité d'acheter une souris Apple."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grazie, mi hai evitato di comprare un mouse Apple"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1509,6 +1623,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "L'interface utilisateur de la version 2 est fantastique et très intuitive."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L'interfaccia della V2 è fantastica e molto intuitiva."
           }
         },
         "ja" : {
@@ -1589,6 +1709,12 @@
             "value" : "Je l'ai passée sans et tout mon travail a été interrompu. Merci pour cette application géniale."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ho passato la settimana scorsa senza e tutto il mio flusso di lavoro si è interrotto. Grazie per un'app così brillante."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1665,6 +1791,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "J'apprécie vraiment la simplicité que cela apporte."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apprezzo davvero la semplicità che porta."
           }
         },
         "ja" : {
@@ -1745,6 +1877,12 @@
             "value" : "Après être passé à une souris, j'ai essayé des logiciels tels que SteerMouse, qui m'avait été recommandé à plusieurs reprises et qui est même payant, et j'ai finalement trouvé que ce logiciel répondait parfaitement à mes besoins, que toutes ses fonctionnalités étaient très utiles et que ses performances étaient excellentes !"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dopo essere passato a un mouse, ho provato software come SteerMouse, che riceveva molti consigli ed è persino a pagamento, e alla fine ho scoperto che questo software soddisfa perfettamente le mie esigenze, ogni funzione è molto utile e le prestazioni sono ottime!"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1821,6 +1959,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Super application, elle mérite vraiment d'être largement partagée avec d'autres 😁"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App fantastica, merita assolutamente di essere condivisa con tutti 😁"
           }
         },
         "ja" : {
@@ -1901,6 +2045,12 @@
             "value" : "Cette application rend votre souris bon marché plus performante que les gestes du pavé tactile."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questa app fa funzionare il tuo mouse economico meglio dei gesti del trackpad"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1977,6 +2127,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il s'agit du meilleur logiciel jamais créé dans l'histoire d'Apple."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questo è in assoluto il miglior software nella storia di Apple."
           }
         },
         "ja" : {
@@ -2057,6 +2213,12 @@
             "value" : "C'est un excellent logiciel qui a résolu tous mes problèmes de souris."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ottimo software, ha risolto tutti i miei problemi con il mouse."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2133,6 +2295,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ce logiciel est génial !"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questo software è fantastico!"
           }
         },
         "ja" : {
@@ -2213,6 +2381,12 @@
             "value" : "Merci, l'application est vraiment géniale."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grazie, l'app è davvero forte"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2289,6 +2463,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "SUPER BELLE APPLICATION"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "APPLICAZIONE SUPER BELLA"
           }
         },
         "ja" : {
@@ -2369,6 +2549,12 @@
             "value" : "Il fonctionne parfaitement avec ma souris."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funziona perfettamente con il mio mouse"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2445,6 +2631,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Votre outil est littéralement le seul moyen qui me permette d'utiliser macOS (en particulier avec une souris) sans paniquer !"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il tuo strumento è letteralmente l'unico modo in cui riesco a usare macOS (soprattutto con un mouse) senza impazzire!"
           }
         },
         "ja" : {
@@ -2525,6 +2717,12 @@
             "value" : "Magnifique logiciel libre. Merci pour votre contribution à la cause open source."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bellissimo software libero. Grazie per il tuo contributo alla causa open source."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2601,6 +2799,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Merci pour cette information, je ne comprends pas pourquoi Apple n'a pas fait cela par défaut, car il est très intuitif d'effectuer des gestes avec le clic central."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grazie per questo, non capisco perché Apple non l'abbia reso predefinito, è super intuitivo fare i gesti con il clic centrale."
           }
         },
         "ja" : {
@@ -2681,6 +2885,12 @@
             "value" : "Je cherchais depuis longtemps une application similaire, et j'ai enfin trouvé celle-ci, bravo 👍."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cercavo da tempo un'app simile e alla fine ho trovato questa, pollice in su 👍."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2757,6 +2967,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vous avez rendu ma souris superlégère meilleure qu'une MX Master."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hai reso il mio Superlight migliore di un MX Master."
           }
         },
         "ja" : {
@@ -2837,6 +3053,12 @@
             "value" : "Produit incroyable ! Je l'adore ! Ma boule de commande Logitech est désormais comme une extension de moi-même."
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prodotto fantastico! Lo adoro! Il mio trackball Logitech ormai è come un'estensione di me."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2912,6 +3134,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Voir moins"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra meno"
           }
         },
         "ja" : {
@@ -2992,6 +3220,12 @@
             "value" : "Voir plus"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra altro"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3068,6 +3302,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}** dans un message de don Gumroad"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** in un messaggio di donazione su Gumroad"
           }
         },
         "ja" : {
@@ -3147,6 +3387,12 @@
             "value" : "**{name}** dans un email"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** in un'email"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3222,6 +3468,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}** sur GitHub"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** su GitHub"
           }
         },
         "ja" : {
@@ -3301,6 +3553,12 @@
             "value" : "**{name}** dans un article LifeHacker"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** in un articolo di LifeHacker"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3376,6 +3634,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}** dans un message de PayPal donation"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** in un messaggio di donazione su PayPal"
           }
         },
         "ja" : {
@@ -3455,6 +3719,12 @@
             "value" : "**{name}** sur Reddit"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** su Reddit"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3530,6 +3800,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**{name}** sur Stack Exchange"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** su Stack Exchange"
           }
         },
         "ja" : {
@@ -3609,6 +3885,12 @@
             "value" : "**{name}** dans un commentaire YouTube"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**{name}** in un commento su YouTube"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3684,6 +3966,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "**Merci** à tous ceux qui ont partagé leur appréciation et leurs commentaires au fil des ans ! Lire vos gentils messages est toujours motivant **:)**"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "**Grazie** a tutti coloro che condividono apprezzamenti e feedback nel corso degli anni! Leggere i vostri bei messaggi è sempre motivante **:)**"
           }
         },
         "ja" : {
@@ -3764,6 +4052,12 @@
             "value" : "Traduit depuis l’Anglais"
           }
         },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tradotto dall'inglese"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3840,6 +4134,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Traduit depuis le Chinois"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tradotto dal cinese"
           }
         },
         "ja" : {
