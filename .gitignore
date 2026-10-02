@@ -28,3 +28,6 @@ venv
 
 # Xcode
 xcuserdata/
+
+# mac-mouse-fix-scripts cache
+mmfscriptscache/
