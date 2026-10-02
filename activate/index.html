@@ -1,0 +1,22 @@
+<!--Use this to open LicenseSheet.swift directly from the Gumroad checkout-->
+<!--Source: https://stackoverflow.com/a/12070246/10601702 -->
+
+<!DOCTYPE html>
+<html>
+
+<script>
+	function openAppAndCloseTab(url) {
+	
+		// The 10ms delay before installing onfocus is necessary for Firefox to not close immediately.
+		// Closing the tab after 5s is because Chrome doesn't close the tab automatically after opening MMF.
+
+		window.location.href = url;
+		setTimeout(function () { window.onfocus = function () { window.close(); }; }, 10);
+		setTimeout(function () { window.close(); }, 5 * 1000);
+	}
+</script>
+
+<body onload=openAppAndCloseTab("macmousefix:activate")>
+
+</body>
+</html>

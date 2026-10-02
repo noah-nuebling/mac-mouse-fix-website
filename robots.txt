@@ -1,0 +1,9 @@
+# START nuxt-robots (indexable)
+User-agent: *
+Allow: *
+Disallow: /activate
+Disallow: /thankyou
+Disallow: /paddle-checkout
+
+Sitemap: https://macmousefix.com/sitemap.xml
+# END nuxt-robots
